@@ -56,7 +56,7 @@ export const EN: EnData = {
     nombres: { name: 'Numbers and algebra', shortName: 'Numbers' },
     formes: { name: 'Shapes and spaces', shortName: 'Shapes' },
     analyse: { name: 'Analysis and motion', shortName: 'Analysis' },
-    hasard: { name: 'Chance, discrete and computation', shortName: 'Chance and computation' },
+    hasard: { name: 'Chance, discrete and computation', shortName: 'Chance & computing' },
     fondements: { name: 'Logic and foundations', shortName: 'Foundations' },
   },
 };

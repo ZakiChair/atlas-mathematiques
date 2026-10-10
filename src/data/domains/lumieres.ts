@@ -24,7 +24,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1700, end: 1790 },
     continents: ['analyse'],
     places: ['Bâle', 'Saint-Pétersbourg', 'Berlin', 'Paris'],
-    map: { x: 2900, y: 2100, size: 3, palette: { fill: '#221726', stroke: '#c092d3', accent: '#e1bdef' } },
+    map: { x: 2900, y: 2100, size: 3, palette: { fill: '#e6ddf3', stroke: '#4d2c7d', accent: '#6e31c4' } },
     tagline: 'Le calcul de Leibniz devient une science des fonctions, des séries et des équations différentielles, écrite pour l’essentiel par un seul homme.',
     summary:
       'Entre les leçons de Jean Bernoulli à Bâle et la mort d’Euler à Saint-Pétersbourg, le calcul différentiel et intégral change de nature : il cesse d’être une méthode pour les courbes et devient l’analyse, c’est-à-dire l’étude des fonctions, des séries et des équations différentielles. Euler lui donne sa langue (f(x), e, i, π, Σ), ses manuels (Introductio, Institutiones) et ses résultats emblématiques, du problème de Bâle à la formule e^(iθ) = cos θ + i sin θ. Autour de lui, Taylor, Daniel Bernoulli, Clairaut et d’Alembert appliquent ce calcul aux fluides, aux cordes vibrantes et à la figure de la Terre, et ouvrent la théorie des équations aux dérivées partielles.',
@@ -186,6 +186,25 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme des inverses des carrés des entiers, 1 + 1/4 + 1/9 + 1/16 + …, vaut π²/6.',
         comment: 'Posé par Pietro Mengoli en 1650 et rendu célèbre par Jacques Bernoulli, le problème résistait depuis près d’un siècle. Euler le résout en 1735 en traitant sin x / x comme un polynôme infini dont il connaît les racines, méthode qu’il justifiera mieux par la suite. Le résultat ouvre l’étude des valeurs de la fonction ζ et, par le produit eulérien, la théorie analytique des nombres.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Jacques Bernoulli, dans son traité des séries de 1689, avoue ne pas savoir sommer la série et prie quiconque y parviendrait de le lui communiquer. Euler, élève de son frère Jean, en calcule d’abord une valeur approchée à six décimales (vers 1731) par des procédés d’accélération de la convergence, ce qui lui permet ensuite de reconnaître π²/6 dans le nombre 1,644934…',
+            sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Euler étend aussitôt la méthode aux puissances paires (ζ(4) = π⁴/90, ζ(6) = π⁶/945…), dont l’Introductio de 1748 donne une table, et relie ensuite ces valeurs aux nombres de Bernoulli. Les puissances impaires résistent : il faut attendre Roger Apéry (1978) pour savoir que ζ(3) est irrationnel.',
+            sources: ['hairer-wanner-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La factorisation de sin x en produit infini, dont certains correspondants d’Euler contestent la légitimité, pose une question que le XVIIIᵉ siècle ne sait pas trancher ; le théorème de factorisation des fonctions entières de Weierstrass (1876) lui donnera rétrospectivement un cadre.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'hydrodynamica',
@@ -210,6 +229,25 @@ export const LUMIERES: Domain[] = [
         kind: 'texte',
         statement: 'Pour qu’une courbe rende extrémale une intégrale dépendant de la courbe et de sa pente, elle doit satisfaire une équation différentielle, l’équation d’Euler (aujourd’hui d’Euler–Lagrange).',
         comment: 'Premier traité systématique des problèmes d’extremum pour les courbes, après la brachistochrone et les isopérimètres des Bernoulli. L’appendice sur les courbes élastiques et celui sur le principe de moindre action fondent la mécanique variationnelle. Lagrange, en 1755, remplacera la méthode géométrique d’Euler par le calcul de la variation δ.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les problèmes où l’inconnue est une courbe entière naissent des défis bâlois : la brachistochrone, proposée par Jean Bernoulli dans les Acta eruditorum en 1696, puis le problème des isopérimètres lancé par Jacques Bernoulli en 1697, qui envenime la querelle des deux frères. Euler, élève de Jean, s’y consacre dès les années 1730 dans les Commentarii de Saint-Pétersbourg.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Euler adopte la méthode de la variation δ que Lagrange lui expose en 1755 et baptise la discipline « calcul des variations » dans un mémoire présenté en 1756 et publié en 1766. Legendre étudie en 1786 la variation seconde pour distinguer les maxima des minima.',
+            sources: ['dieudonne-abrege', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le passage de la méthode géométrique d’Euler, qui raisonne sur des polygones approchant la courbe, au calcul analytique de Lagrange illustre l’idéal du siècle : remplacer les figures par des opérations sur des expressions.',
+            sources: ['fraser-euler', 'grabiner-origins'],
+          },
+        ],
       },
       {
         id: 'equation-des-cordes-vibrantes',
@@ -222,6 +260,25 @@ export const LUMIERES: Domain[] = [
         kind: 'probleme',
         statement: 'Le déplacement d’une corde tendue satisfait l’équation ∂²y/∂t² = c² ∂²y/∂x², dont la solution générale est la somme de deux ondes qui se propagent en sens opposés.',
         comment: 'Première équation aux dérivées partielles de la physique mathématique, résolue par d’Alembert dans les Mémoires de l’Académie de Berlin. La question des fonctions admissibles comme condition initiale divise d’Alembert, Euler et Daniel Bernoulli pendant vingt ans ; Fourier (1807) et Dirichlet (1829) la trancheront.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La corde vibrante est un problème d’acoustique ancien : Taylor détermine en 1713 la fréquence du mode fondamental (résultat repris dans la Methodus incrementorum, 1715), et Jean Bernoulli traite en 1727 une corde chargée de masses ponctuelles. D’Alembert, dans un mémoire daté de 1747 et paru en 1749, passe au continu et écrit l’équation aux dérivées partielles du mouvement.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Lagrange reprend l’équation dès 1759 pour la propagation du son, dans le premier volume des mémoires de la société savante de Turin ; Euler et d’Alembert appliquent la même démarche à d’autres équations aux dérivées partielles dans les décennies suivantes.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’équation des ondes devient le prototype des équations de la physique mathématique : la superposition de modes proposée par Daniel Bernoulli, systématisée par Fourier pour la chaleur, fera de la séparation des variables la méthode standard du XIXᵉ siècle.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'introductio-in-analysin-infinitorum',
@@ -281,7 +338,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1740, end: 1830 },
     continents: ['analyse', 'formes'],
     places: ['Paris', 'Berlin', 'Turin'],
-    map: { x: 3100, y: 2600, size: 2, palette: { fill: '#1f1726', stroke: '#bd9dd7', accent: '#e0c9f2' } },
+    map: { x: 3100, y: 2600, size: 2, palette: { fill: '#dfd2ee', stroke: '#4a2871', accent: '#6e2eb8' } },
     tagline: 'La mécanique quitte les figures et les leviers pour devenir un calcul : des équations déduites de principes, sans un seul dessin.',
     summary:
       'Entre le Traité de dynamique de d’Alembert (1743) et les derniers volumes de la Mécanique céleste (1825), la mécanique newtonienne est refondée en une science d’équations. Maupertuis y introduit le principe de moindre action, Lagrange les équations générales du mouvement fondées sur les vitesses virtuelles et le calcul des variations, Laplace la théorie du potentiel et le calcul des perturbations planétaires. En 1788, la Méchanique analitique de Lagrange se flatte de ne contenir aucune figure : la géométrie du mouvement est devenue de l’analyse pure, et la mécanique céleste le premier succès de la physique mathématique.',
@@ -327,7 +384,7 @@ export const LUMIERES: Domain[] = [
       },
       {
         kind: 'fait',
-        text: 'Laplace, dans l’Exposition du système du monde (1796), aurait répondu à Napoléon qui lui reprochait de ne pas nommer Dieu : « Sire, je n’ai pas eu besoin de cette hypothèse ». L’anecdote, rapportée tardivement, résume la lecture positiviste de la Mécanique céleste.',
+        text: 'Laplace aurait répondu à Napoléon, qui lui reprochait vers 1802 de ne pas nommer Dieu dans la Mécanique céleste : « Sire, je n’ai pas eu besoin de cette hypothèse ». L’anecdote, rapportée tardivement, résume la lecture positiviste de la Mécanique céleste.',
         sources: ['gillispie-laplace'],
       },
       {
@@ -439,6 +496,30 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Le mouvement compliqué de la Lune, en particulier la progression de son apogée, se déduit de la seule attraction en 1/r², à condition de pousser les approximations aux termes du second ordre.',
         comment: 'Couronnée par l’Académie de Saint-Pétersbourg en 1752, la théorie sauve la loi de la gravitation qu’un calcul incomplet semblait infirmer ; Clairaut, Lalande et Nicole-Reine Lepaute prédisent ensuite le retour de la comète de Halley au périhélie d’avril 1759, triomphe public de la mécanique céleste.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En novembre 1747, Clairaut annonce à l’Académie des sciences que la théorie newtonienne ne rend compte que de la moitié du mouvement observé de l’apogée lunaire, et propose d’ajouter à la loi en 1/r² un terme correctif ; Euler et d’Alembert, travaillant séparément, trouvent le même écart.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'En 1749, Clairaut annonce que l’accord est rétabli lorsque le calcul est poussé au second ordre, et renonce à modifier la loi ; l’Académie de Saint-Pétersbourg, qui a mis au concours la théorie de la Lune, couronne son mémoire.',
+            sources: ['mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Appliquant les mêmes méthodes de perturbation à la comète de Halley, Clairaut annonce en novembre 1758 son passage au périhélie pour la mi-avril 1759, à un mois près ; il a lieu le 13 mars.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’épisode installe la conviction que toute anomalie céleste finira par s’expliquer par la seule gravitation, pourvu qu’on pousse assez loin les approximations : c’est le programme que Lagrange et Laplace mènent à son terme.',
+            sources: ['dieudonne-abrege', 'gillispie-laplace'],
+          },
+        ],
       },
       {
         id: 'points-de-lagrange',
@@ -462,6 +543,30 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Au premier ordre des masses et des excentricités, les grands axes des orbites planétaires ne subissent aucune variation séculaire : le système solaire oscille sans dériver.',
         comment: 'Après le mémoire de Laplace sur les inégalités séculaires (1773), Lagrange établit l’invariabilité des grands axes et des moyens mouvements (1784-1787). Le résultat n’est vrai qu’aux ordres les plus bas — Poincaré montrera en 1890 que le problème des trois corps n’admet pas de solution générale régulière —, mais il fonde deux siècles de confiance dans le calcul céleste.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Newton jugeait que les attractions mutuelles des planètes finiraient par dérégler leurs orbites, au point que le système pourrait exiger une « réforme » ; Halley avait relevé, en comparant observations anciennes et modernes, que Jupiter semble accélérer et Saturne ralentir.',
+            sources: ['gillispie-laplace', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’Académie des sciences de Paris met l’inégalité de Jupiter et de Saturne au concours en 1748 et en 1752 ; Euler y est couronné, sans parvenir à une explication définitive.',
+            sources: ['mactutor', 'dieudonne-abrege'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Laplace explique en 1785 la « grande inégalité » de Jupiter et de Saturne par la quasi-commensurabilité de leurs moyens mouvements (cinq révolutions de Jupiter pour deux de Saturne), qui produit une oscillation d’environ neuf siècles et non une dérive. Poisson étend en 1808 l’invariabilité des grands axes au second ordre des masses.',
+            sources: ['gillispie-laplace', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Charles Gillispie, ces résultats donnent à Laplace l’assurance d’un système du monde qui se conserve de lui-même : l’image d’un univers mécanique réglé sans intervention extérieure repose sur eux.',
+            sources: ['gillispie-laplace'],
+          },
+        ],
       },
       {
         id: 'mecanique-analytique-lagrange',
@@ -505,7 +610,31 @@ export const LUMIERES: Domain[] = [
         theoryId: 'ma-potentiel-et-attractions',
         kind: 'concept',
         statement: 'La fonction potentiel V, dont les dérivées donnent les composantes de l’attraction, satisfait hors des masses l’équation aux dérivées partielles ∂²V/∂x² + ∂²V/∂y² + ∂²V/∂z² = 0.',
-        comment: 'Introduit dans les mémoires de 1782-1785, le potentiel remplace le calcul direct des forces. Legendre y associe ses polynomes ; Poisson ajoutera le terme de masse en 1813. L’équation de Laplace est aujourd’hui omniprésente : électrostatique, gravitation, écoulements, probabilités.',
+        comment: 'Introduit dans les mémoires de 1782-1785, le potentiel remplace le calcul direct des forces. Legendre y associe ses polynômes ; Poisson ajoutera le terme de masse en 1813. L’équation de Laplace est aujourd’hui omniprésente : électrostatique, gravitation, écoulements, probabilités.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le potentiel naît du problème de la figure de la Terre, qui exige de calculer l’attraction d’un sphéroïde sur un point extérieur. Maclaurin l’avait résolu pour les ellipsoïdes homogènes dans le Treatise of Fluxions (1742), et Legendre introduit au début des années 1780, pour les solides de révolution, les polynômes qui portent son nom.',
+            sources: ['kline-thought', 'gillispie-laplace'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lagrange avait observé dans les années 1770 que les composantes de l’attraction gravitationnelle sont les dérivées d’une seule fonction ; Laplace fait de cette fonction l’objet même du calcul.',
+            sources: ['kline-thought'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'George Green étend la théorie à l’électricité et au magnétisme dans son Essay de 1828, où il nomme la « fonction potentielle » ; Gauss en donne un exposé général en 1840.',
+            sources: ['kline-thought', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les solutions de l’équation, les fonctions harmoniques, deviennent un objet central de l’analyse : le problème de Dirichlet, qui demande une fonction harmonique de valeurs données au bord, sert à Riemann de fondement pour sa théorie des fonctions complexes.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
       },
     ],
     sources: ['dieudonne-abrege', 'gillispie-laplace', 'grabiner-origins', 'hairer-wanner-analysis', 'dahan-peiffer', 'stedall-sourcebook'],
@@ -522,7 +651,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1730, end: 1800 },
     continents: ['nombres'],
     places: ['Saint-Pétersbourg', 'Berlin', 'Cambridge', 'Paris'],
-    map: { x: 2975, y: 500, size: 2, palette: { fill: '#262417', stroke: '#c8bc79', accent: '#e9dea0' } },
+    map: { x: 2975, y: 500, size: 2, palette: { fill: '#ece4cb', stroke: '#6a5925', accent: '#af8f2c' } },
     tagline: 'Les énigmes laissées par Fermat deviennent des théorèmes démontrés, et les nombres premiers rencontrent l’analyse.',
     summary:
       'Pendant soixante-dix ans, la théorie des nombres est presque l’œuvre d’un seul homme : Euler démontre un à un les énoncés de Fermat, du petit théorème aux deux carrés, introduit l’indicatrice φ(n) et relie les nombres premiers à la fonction ζ par le produit eulérien. Autour de sa correspondance avec Goldbach naissent les grandes conjectures ; avec Lagrange (quatre carrés, équation de Pell, théorème de Wilson), Waring et Legendre (réciprocité quadratique, formes quadratiques), l’arithmétique devient une théorie organisée, que l’Essai sur la théorie des nombres (1798) transmet à Gauss.',
@@ -680,6 +809,25 @@ export const LUMIERES: Domain[] = [
         kind: 'conjecture',
         statement: 'Tout entier pair supérieur à 2 est la somme de deux nombres premiers ; forme équivalente : tout entier supérieur à 5 est somme de trois premiers.',
         comment: 'Énoncée dans la lettre à Euler du 7 juin 1742, qui répond qu’il la tient pour « un théorème tout à fait certain » sans savoir le démontrer. Elle reste ouverte ; les avancées majeures sont le théorème des trois nombres premiers de Vinogradov (1937) pour les impairs assez grands, et la vérification numérique jusqu’à de très grandes bornes.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans sa lettre du 7 juin 1742, Goldbach, qui compte encore 1 parmi les nombres premiers, propose que tout entier supérieur à 2 soit somme de trois premiers ; Euler, dans sa réponse du 30 juin, rappelle une conversation antérieure et en tire la forme « paire » retenue aujourd’hui.',
+            sources: ['mactutor', 'weil-number-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Hardy et Littlewood en proposent en 1923, par la méthode du cercle, une forme quantitative conjecturale ; Chen Jingrun montre en 1973 que tout entier pair assez grand est somme d’un premier et d’un entier ayant au plus deux facteurs premiers.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Énoncé élémentaire qui résiste à tous les outils, la conjecture est devenue le banc d’essai des méthodes additives de la théorie analytique des nombres, crible et méthode du cercle en tête.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'demonstration-des-deux-carres-euler',
@@ -702,7 +850,7 @@ export const LUMIERES: Domain[] = [
         theoryId: 'tnl-analyse-arithmetique',
         kind: 'theoreme',
         statement: 'π n’est le quotient d’aucun couple d’entiers : Lambert montre que si x est rationnel non nul, tan x est irrationnel, puis que tan(π/4) = 1 force l’irrationalité de π.',
-        comment: 'Publié dans les Mémoires de l’Académie de Berlin pour l’année 1761, le mémoire repose sur un développement en fraction continue de la tangente. Lambert conjecture déjà la transcendance de π, que Lindemann démontrera en 1882 — réglant du même coup l’impossibilité de la quadrature du cercle.',
+        comment: 'Lu à l’Académie de Berlin en 1767 et publié en 1768 dans le volume de ses Mémoires daté de 1761, le mémoire repose sur un développement en fraction continue de la tangente. Lambert conjecture déjà la transcendance de π, que Lindemann démontrera en 1882 — réglant du même coup l’impossibilité de la quadrature du cercle.',
       },
       {
         id: 'fonction-indicatrice-d-euler',
@@ -727,6 +875,25 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout entier naturel est la somme de quatre carrés d’entiers : 7 = 4 + 1 + 1 + 1, et de même pour tout n.',
         comment: 'Conjecturé par Bachet sur sa lecture de Diophante et annoncé par Fermat, le théorème est démontré par Lagrange en 1770 à l’aide d’un lemme d’Euler sur les produits de sommes de quatre carrés. Jacobi comptera en 1829 le nombre exact de représentations.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Bachet, dans son édition latine de Diophante (1621), avait vérifié l’énoncé jusqu’à 325. Euler y travaille pendant des décennies sans aboutir, mais obtient en 1748, dans une lettre à Goldbach, l’identité qui écrit le produit de deux sommes de quatre carrés comme une somme de quatre carrés : il suffit dès lors de traiter les nombres premiers.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La question voisine des sommes de trois carrés est réglée par Legendre dans l’Essai (1798) puis par Gauss (1801) : un entier en est une si et seulement s’il n’est pas de la forme 4ᵃ(8b + 7).',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’identité des quatre carrés, qui rend le problème multiplicatif, prend après coup un sens algébrique : elle exprime la multiplicativité de la norme des quaternions de Hamilton (1843).',
+            sources: ['stillwell-history'],
+          },
+        ],
       },
       {
         id: 'probleme-de-waring',
@@ -762,6 +929,25 @@ export const LUMIERES: Domain[] = [
         kind: 'conjecture',
         statement: 'Pour deux premiers impairs p et q, savoir si p est un carré modulo q se ramène à savoir si q est un carré modulo p : les deux réponses coïncident, sauf si p et q sont tous deux de la forme 4k + 3, auquel cas elles sont opposées.',
         comment: 'Euler pressentait la loi dès 1744 ; Legendre l’énonce en 1785 avec une démonstration incomplète et introduit le « symbole de Legendre ». Gauss la démontre complètement en 1796, la qualifie de « théorème fondamental » et en donnera huit preuves.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La loi naît de la question, héritée de Fermat, des diviseurs premiers des formes x² + ny² : Euler en accumule les régularités à partir des années 1740 et en publie une formulation presque équivalente dans un mémoire paru en 1783.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La démonstration de Legendre suppose l’existence de nombres premiers auxiliaires dans certaines progressions arithmétiques, qu’il tente sans succès de justifier dans l’Essai (1798) ; le théorème de la progression arithmétique n’est démontré que par Dirichlet en 1837.',
+            sources: ['weil-number-theory', 'goldstein-schappacher-schwermer'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La recherche de lois analogues pour les puissances supérieures (Gauss, Jacobi, Eisenstein), puis le neuvième problème de Hilbert (1900), font de la réciprocité le fil conducteur qui mène à la théorie des corps de classes et à la loi de réciprocité d’Artin (1927).',
+            sources: ['goldstein-schappacher-schwermer', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'essai-sur-la-theorie-des-nombres',
@@ -788,7 +974,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1730, end: 1810 },
     continents: ['formes'],
     places: ['Milan', 'Berlin', 'Saint-Pétersbourg', 'Mézières', 'Paris'],
-    map: { x: 2975, y: 1400, size: 2, palette: { fill: '#172126', stroke: '#9dc5d7', accent: '#c9e5f2' } },
+    map: { x: 2975, y: 1400, size: 2, palette: { fill: '#cfdeed', stroke: '#264a6d', accent: '#2d70b4' } },
     tagline: 'Entre la critique du cinquième postulat et la géométrie des surfaces, le XVIIIᵉ siècle prépare sans le savoir les géométries non euclidiennes.',
     summary:
       'La géométrie du siècle des Lumières avance sur trois fronts. Celui des fondements : Saccheri (1733) puis Lambert (1766) explorent les conséquences de la négation du postulat des parallèles, sans oser conclure à une géométrie autre. Celui des courbes et des surfaces : Clairaut ouvre la géométrie différentielle de l’espace (1731), Euler définit les courbures principales (1760), Meusnier son théorème (1776). Celui enfin des configurations : Euler compte les ponts de Königsberg (1736) et les faces des polyèdres (1750), Monge fonde la géométrie descriptive (1799) et Carnot la géométrie de position (1803), prémices de la topologie et du renouveau projectif.',
@@ -941,6 +1127,25 @@ export const LUMIERES: Domain[] = [
         kind: 'texte',
         statement: 'Pour démontrer le postulat des parallèles, Saccheri suppose qu’il est faux et en tire des conséquences : sous l’« hypothèse de l’angle aigu », les droites s’approchent asymptotiquement et l’aire des triangles est bornée — résultats qu’il déclare contradictoires sans l’avoir prouvé.',
         comment: 'Le livre passe presque inaperçu au XVIIIᵉ siècle ; Lambert le connaît, Beltrami le redécouvre en 1889. On y trouve démontrés les premiers théorèmes de la géométrie hyperbolique, quatre-vingt-dix ans avant Lobatchevski.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La démonstration du cinquième postulat est une question ouverte depuis l’Antiquité : Proclus rapporte la tentative de Ptolémée, et Omar Khayyam à la fin du XIᵉ siècle, puis al-Ṭūsī au XIIIᵉ, raisonnent déjà sur le quadrilatère à deux angles droits et deux côtés égaux qu’étudiera Saccheri.',
+            sources: ['heath-greek', 'rashed-sciences-arabes', 'gray-worlds'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le livre est recensé en 1763 dans la dissertation de Georg Simon Klügel à Göttingen, qui passe en revue près de trente tentatives de démonstration et doute que le postulat soit démontrable ; c’est probablement par cette voie que Lambert le connaît.',
+            sources: ['gray-worlds'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La plupart des historiens jugent que Bolyai et Lobatchevski ne doivent rien directement à Saccheri : son livre n’est réévalué qu’après leur œuvre, lorsque Beltrami y reconnaît des théorèmes de la géométrie hyperbolique.',
+            sources: ['gray-worlds'],
+          },
+        ],
       },
       {
         id: 'sept-ponts-de-konigsberg',
@@ -953,6 +1158,20 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'On ne peut pas traverser Königsberg en empruntant chacun de ses sept ponts exactement une fois : il faudrait pour cela que chaque quartier — sauf deux — touche un nombre pair de ponts.',
         comment: 'Euler note que la question « se rapporte à la géométrie de situation », où seules comptent les connexions, non les grandeurs. Le mémoire (présenté en 1735, publié pour 1736) fonde la théorie des graphes et, avec les polyèdres, la future topologie.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème est soumis à Euler par des correspondants, dont Carl Ehler, maire de Dantzig, avec qui il échange des lettres en 1736. Euler le juge d’abord banal, mais digne d’attention parce que ni la géométrie, ni l’algèbre, ni l’art de compter ne suffisent à le résoudre ; il le rattache à la « géométrie de situation » que Leibniz avait appelée de ses vœux.',
+            sources: ['mactutor', 'katz-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Euler démontre la condition nécessaire et énonce la réciproque sans la prouver : un parcours existe dès que deux régions au plus touchent un nombre impair de ponts. La preuve en est donnée par Carl Hierholzer dans un article posthume de 1873 ; le premier traité de théorie des graphes, celui de Dénes König, paraît en 1936.',
+            sources: ['mactutor', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'formule-d-euler-polyedres',
@@ -965,6 +1184,25 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout polyèdre convexe, le nombre de sommets moins le nombre d’arêtes plus le nombre de faces vaut 2.',
         comment: 'Annoncée dans une lettre à Goldbach de novembre 1750 et publiée en 1758, la relation est démontrée rigoureusement par Legendre (1794). La « caractéristique d’Euler » deviendra l’invariant central de la topologie des surfaces, généralisé par Poincaré.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Euler cherche à classer les solides comme on classe les polygones par leur nombre de côtés ; il introduit pour cela, à côté des sommets et des faces, les arêtes, dont il fait un élément de comptage à part entière. Un manuscrit de Descartes, connu par une copie de Leibniz (1676) et publié en 1860 seulement, contenait déjà une relation équivalente.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En 1812-1813, Simon Lhuilier exhibe des solides percés ou creux pour lesquels la relation est fausse, tandis que Cauchy en donne une démonstration en aplatissant le polyèdre sur un plan.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les exceptions de Lhuilier montrent que la valeur de S − A + F dépend de la forme d’ensemble du solide, de ses trous, et non de ses mesures : c’est le germe de la notion d’invariant topologique.',
+            sources: ['stillwell-history'],
+          },
+        ],
       },
       {
         id: 'courbures-principales-euler',
@@ -1009,7 +1247,7 @@ export const LUMIERES: Domain[] = [
         mathematicianId: 'monge',
         theoryId: 'gl-geometrie-de-position',
         kind: 'texte',
-        comment: 'La géométrie descriptive représente tout objet de l’espace par deux projections orthogonales et y résout graphiquement les problèmes de intersections, de plans tangents et de déblais. Tenue secrète à Mézières, enseignée publiquement à l’École normale de l’an III, elle devient la langue des ingénieurs et relance la géométrie pure en France.',
+        comment: 'La géométrie descriptive représente tout objet de l’espace par deux projections orthogonales et y résout graphiquement les problèmes d’intersections, de plans tangents et de déblais. Tenue secrète à Mézières, enseignée publiquement à l’École normale de l’an III, elle devient la langue des ingénieurs et relance la géométrie pure en France.',
       },
       {
         id: 'geometrie-de-position',
@@ -1031,12 +1269,13 @@ export const LUMIERES: Domain[] = [
   {
     id: 'probabilites-classiques',
     name: 'Probabilités classiques et arithmétique politique',
+    mapName: 'Probabilités classiques',
     altNames: ['Calcul des chances au siècle des Lumières'],
     era: 'lumieres',
     period: { start: 1718, end: 1812 },
     continents: ['hasard'],
     places: ['Londres', 'Paris', 'Tunbridge Wells'],
-    map: { x: 2975, y: 3250, size: 2, palette: { fill: '#261d17', stroke: '#d6b39a', accent: '#f1d8c5' } },
+    map: { x: 2975, y: 3250, size: 2, palette: { fill: '#eedcd2', stroke: '#714028', accent: '#b85c2e' } },
     tagline: 'Du calcul des jeux à la probabilité des causes : le hasard devient un instrument de raisonnement sur le monde.',
     summary:
       'Après l’Ars conjectandi (1713), le calcul des probabilités change d’échelle et d’ambition. De Moivre en fait un outil d’approximation (loi normale, 1733), Bayes et Price retournent la question des causes (1763), Buffon y soumet la géométrie (aiguille, 1777) et Condorcet les votes (1785). Laplace couronne le siècle : la Théorie analytique des probabilités (1812) unifie analyse des erreurs, probabilité inverse et grands nombres, pendant que Legendre publie la méthode des moindres carrés (1805). Le « calcul » devient le langage de l’incertitude raisonnable.',
@@ -1082,7 +1321,7 @@ export const LUMIERES: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'La paternité du « théorème de Bayes » fait débat : Stigler a plaidé, arguments statistiques à l’appui, pour le huguenot Saunderson ; la plupart des historiens (Dale, Bellhouse) maintiennent Bayes, tout en rappelant que la formulation générale et le nom moderne du théorème viennent de Laplace.',
+        text: 'La paternité du « théorème de Bayes » fait débat : Stigler a plaidé, arguments statistiques à l’appui, pour Nicholas Saunderson, le professeur lucasien aveugle de Cambridge ; la plupart des historiens (Dale, Bellhouse) maintiennent Bayes, tout en rappelant que la formulation générale et le nom moderne du théorème viennent de Laplace.',
         sources: ['dale-inverse-probability', 'stigler-statistics'],
       },
       {
@@ -1097,7 +1336,7 @@ export const LUMIERES: Domain[] = [
       { year: 1738, text: 'Daniel Bernoulli publie l’espérance morale et le paradoxe de Saint-Pétersbourg.' },
       { year: 1763, text: 'Richard Price présente l’essai posthume de Thomas Bayes à la Royal Society.' },
       { year: 1777, text: 'Buffon publie l’Essai d’arithmétique morale : le problème de l’aiguille.' },
-      { year: 1785, text: 'Condorcet applique le calcul des probabilités aux votes et aux jury.' },
+      { year: 1785, text: 'Condorcet applique le calcul des probabilités aux votes et aux jurys.' },
       { year: 1805, text: 'Legendre publie la méthode des moindres carrés en appendice des Nouvelles méthodes pour la détermination des orbites des comètes.' },
       { year: 1812, text: 'Laplace réunit le savoir du siècle dans la Théorie analytique des probabilités.' },
     ],
@@ -1163,7 +1402,7 @@ export const LUMIERES: Domain[] = [
         name: 'Nicolas de Condorcet',
         years: [1743, 1794],
         origin: 'Paris',
-        bio: 'Mathématicien, secrétaire perpétuel de l’Académie des sciences et homme politique, Condorcet applique le calcul des probabilités aux votes, aux jury et aux témoignages (Essai de 1785). Mort en prison sous la Terreur, il laisse l’Esquisse d’un tableau historique des progrès de l’esprit humain.',
+        bio: 'Mathématicien, secrétaire perpétuel de l’Académie des sciences et homme politique, Condorcet applique le calcul des probabilités aux votes, aux jurys et aux témoignages (Essai de 1785). Mort en prison sous la Terreur, il laisse l’Esquisse d’un tableau historique des progrès de l’esprit humain.',
         theoryId: 'pcl-jeux-et-decisions',
       },
     ],
@@ -1190,6 +1429,25 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour un grand nombre n d’épreuves, la probabilité que le nombre de succès s’écarte de sa valeur moyenne de plus de quelques √n se calcule par l’aire sous la courbe exp(−x²) : la « loi normale ».',
         comment: 'Circulant dès 1733 comme supplément latin, puis intégré à la Doctrine of Chances (1738), c’est le premier cas du théorème central limite. Laplace le généralisera (1810) ; la formule de Stirling, utilisée par de Moivre, a été dégagée en dialogue avec James Stirling.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Jacques Bernoulli avait montré dans l’Ars conjectandi (1713) que la fréquence observée se rapproche de la probabilité, mais ses bornes étaient inutilisables : plus de vingt-cinq mille épreuves dans l’exemple qu’il traite. De Moivre cherche une approximation maniable des sommes de termes binomiaux, question à laquelle il travaille depuis ses Miscellanea analytica (1730).',
+            sources: ['stigler-statistics', 'hacking-emergence'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La courbe n’est rattachée aux erreurs d’observation qu’en 1809-1810 : par Gauss, qui en fait la loi des erreurs justifiant les moindres carrés, et par Laplace, qui l’obtient comme limite des sommes de petites causes indépendantes.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Stephen Stigler, de Moivre résout un problème de calcul approché plutôt qu’il ne fonde une statistique : il faut près de quatre-vingts ans pour que son approximation devienne un outil d’inférence sur les données.',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'paradoxe-de-saint-petersbourg',
@@ -1213,6 +1471,30 @@ export const LUMIERES: Domain[] = [
         theoryId: 'pcl-probabilite-inverse',
         kind: 'texte',
         comment: 'Publié à titre posthume par Richard Price dans les Philosophical Transactions, l’essai pose la question inverse : connaissant le nombre de succès d’une épreuve répétée, quelle probabilité assigner aux valeurs possibles de la chance inconnue ? La réponse de Bayes inaugure l’inférence statistique moderne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Bayes renverse le problème de Jacques Bernoulli et de de Moivre : au lieu de prédire la fréquence d’après une chance connue, il cherche à encadrer une chance inconnue d’après les fréquences observées. Il le traite par un modèle de billard, une boule lancée au hasard sur une table, qui justifie une loi a priori uniforme.',
+            sources: ['dale-inverse-probability', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans sa lettre d’introduction, Price présente le problème comme utile à l’argument tiré des causes finales en faveur de l’existence de Dieu.',
+            sources: ['dale-inverse-probability'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'L’essai circule peu : Laplace énonce en 1774 le principe de la probabilité des causes sans le citer, et l’on admet généralement qu’il ne le connaissait pas encore.',
+            sources: ['stigler-statistics', 'dale-inverse-probability'],
+          },
+          {
+            kind: 'fait',
+            text: 'Au XIXᵉ siècle, Boole (1854) puis Venn (1866) contestent l’arbitraire de la loi a priori uniforme sur laquelle reposent les raisonnements de Bayes et de Laplace.',
+            sources: ['dale-inverse-probability'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-bayes',
@@ -1270,6 +1552,30 @@ export const LUMIERES: Domain[] = [
         kind: 'methode',
         statement: 'Pour concilier des observations surabondantes, on choisit les paramètres qui rendent minimale la somme des carrés des écarts entre mesures et valeurs calculées.',
         comment: 'Legendre publie la méthode le premier (1805) ; Gauss affirme en 1809 l’utiliser depuis 1795 et la rattache à la loi normale des erreurs — une des grandes querelles de priorité du siècle. Les moindres carrés deviennent l’outil universel de l’ajustement des données.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Concilier des observations surabondantes est un problème pratique de l’astronomie et de la géodésie : Tobias Mayer (1750) groupe et moyenne ses équations, Boscovich (1757) minimise la somme des écarts absolus pour les arcs de méridien, et Laplace propose d’autres critères dans les années 1780.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Legendre illustre sa méthode, dans l’appendice de 1805, sur les mesures de l’arc de méridien de Delambre et Méchain qui ont servi à définir le mètre.',
+            sources: ['stigler-statistics'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Laplace justifie aussitôt la méthode par son théorème central limite (1810-1811), et Gauss en donne dans la Theoria combinationis (1821-1823) une seconde justification qui ne suppose plus la loi normale des erreurs.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Stigler, la diffusion des moindres carrés est d’une rapidité sans précédent : en une vingtaine d’années, ils deviennent la méthode courante des astronomes et des géodésiens d’Europe.',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'theoreme-central-limite-laplace',
@@ -1308,8 +1614,8 @@ export const LUMIERES: Domain[] = [
     period: { start: 1696, end: 1797 },
     continents: ['fondements', 'analyse'],
     places: ['Paris', 'Dublin', 'Édimbourg', 'Berlin'],
-    map: { x: 2975, y: 4120, size: 1, palette: { fill: '#172619', stroke: '#75c77f', accent: '#9ce8a5' } },
-    tagline: 'Que vaut une différentielle ? Un siècle de objections, de l’Académie de Paris à l’évêque de Cloyne.',
+    map: { x: 2975, y: 4120, size: 1, palette: { fill: '#c0e8c9', stroke: '#215e2f', accent: '#29a345' } },
+    tagline: 'Que vaut une différentielle ? Un siècle d’objections, de l’Académie de Paris à l’évêque de Cloyne.',
     summary:
       'Le calcul infinitésimal triomphe dès sa première publication française, l’Analyse des infiniment petits de L’Hôpital (1696) ; mais sa logique est aussitôt contestée. Rolle attaque à l’Académie (1701), Varignon défend ; Berkeley dénonce les « fantômes de quantités disparues » (1734), Maclaurin répond par un traité en deux volumes (1742) ; d’Alembert propose la limite dans l’Encyclopédie (1765) et Lagrange tente de fonder le tout sur les séries de Taylor (1797). La querelle, jamais tranchée au siècle, prépare la refonte de l’analyse par Cauchy et Weierstrass.',
     methods: [
@@ -1401,7 +1707,7 @@ export const LUMIERES: Domain[] = [
         name: 'Guillaume de L’Hôpital',
         years: [1661, 1704],
         origin: 'Paris',
-        bio: 'Marquis de Sainte-Mesme, officier devenu géomètre, L’Hôpital publie en 1696 le premier manuel de calcul différentiel, rédigé d’après les leçons de Jean Bernoulli qu’il pensionne. Sa Traité analytique des sections coniques, posthume (1707), paraît la même année que l’Ars conjectandi le dispute.',
+        bio: 'Marquis de Sainte-Mesme, officier devenu géomètre, L’Hôpital publie en 1696 le premier manuel de calcul différentiel, rédigé d’après les leçons de Jean Bernoulli qu’il pensionne. Son Traité analytique des sections coniques paraît, posthume, en 1707.',
         theoryId: 'qip-le-calcul-en-france',
       },
       {
@@ -1482,6 +1788,25 @@ export const LUMIERES: Domain[] = [
         kind: 'texte',
         statement: 'Berkeley objecte que le calcul exige de traiter une même quantité tantôt comme non nulle (pour diviser) tantôt comme nulle (pour négliger) : des « fantômes de quantités disparues », dont il raille la clarté comparée aux mystères de la foi.',
         comment: 'Le pamphlet, adressé à Edmond Halley, est la critique la plus percutante du siècle : il identifie une véritable faille logique. Les réponses de Jurin et de Maclaurin, puis la notion de limite chez d’Alembert, en sont la postérité directe.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Berkeley critiquait déjà les infiniment petits dans les Principles of Human Knowledge (1710). The Analyst vise à la fois les fluxions de Newton et les différentielles de Leibniz, et répond aux libres penseurs qui rejetaient les mystères de la foi au nom de la clarté mathématique.',
+            sources: ['jesseph-berkeley'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le pamphlet déclenche une controverse britannique immédiate : James Jurin (Geometry No Friend to Infidelity, 1734) et Benjamin Robins (1735) défendent Newton, Berkeley réplique dans A Defence of Free-Thinking in Mathematics (1735), et le débat se prolonge jusqu’au Treatise de Maclaurin.',
+            sources: ['jesseph-berkeley'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’objection de Berkeley vise l’usage incohérent d’une même quantité plutôt que l’idée d’infiniment petit : l’analyse non standard d’Abraham Robinson, dans les années 1960, montrera qu’un calcul infinitésimal cohérent est possible, sans invalider la critique de 1734.',
+            sources: ['sep', 'jesseph-berkeley'],
+          },
+        ],
       },
       {
         id: 'treatise-of-fluxions',
@@ -1503,6 +1828,20 @@ export const LUMIERES: Domain[] = [
         kind: 'texte',
         statement: 'Une quantité est la limite d’une autre si celle-ci peut en approcher « de plus près que de toute grandeur donnée », sans jamais la surpasser : la différentielle n’est rien d’autre que la limite d’un rapport de différences finies.',
         comment: 'Après l’article « Différentiel » (1754), d’Alembert fait de la limite la « vraie métaphysique » du calcul dans l’Encyclopédie. La définition reste verbale — ni inégalités ni critères opératoires — mais elle indique la voie que Cauchy rendra effective en 1821.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'D’Alembert reprend une idée qu’il attribue à Newton : dès l’article « Différentiel » (1754), il soutient que Newton n’a pas pensé le calcul en termes d’infiniment petits mais de « premières et dernières raisons », c’est-à-dire de limites de rapports. Maclaurin avait pris un parti voisin en 1742.',
+            sources: ['grabiner-origins', 'edwards-calculus'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le concours de l’Académie de Berlin de 1784 sur la théorie de l’infini mathématique est remporté en 1786 par Simon Lhuilier, avec un mémoire fondé sur la notion de limite ; Cauchy fera de la limite, en 1821, une définition opératoire.',
+            sources: ['grabiner-origins'],
+          },
+        ],
       },
       {
         id: 'theorie-des-fonctions-analytiques',
@@ -1515,6 +1854,25 @@ export const LUMIERES: Domain[] = [
         kind: 'texte',
         statement: 'Toute fonction se développe en série de puissances f(x + i) = f(x) + i f′(x) + i² f″(x)/2 + … ; les « fonctions dérivées » sont les coefficients de ce développement, définis sans infiniment petits, fluxions ni limites.',
         comment: 'Leçons de l’École polytechnique publiées en l’an V, l’ouvrage crée le mot et la notation de fonction dérivée, et donne le premier « théorème de Lagrange » sur le reste de la série de Taylor. L’hypothèse de développabilité universelle tombera avec Cauchy, mais le langage algébrique du calcul est acquis.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Lagrange avait esquissé, dans un mémoire de l’Académie de Berlin daté de 1772, l’idée de fonder le calcul sur le développement de Taylor, et il avait inspiré le concours berlinois de 1784 sur l’infini mathématique. Ses cours d’analyse à l’École polytechnique lui donnent l’occasion de reprendre le projet.',
+            sources: ['grabiner-origins', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Cauchy, dans le Résumé des leçons sur le calcul infinitésimal (1823), conserve la notion et la notation de fonction dérivée, mais la définit comme une limite et rejette le développement en série comme fondement.',
+            sources: ['grabiner-origins', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Judith Grabiner, l’échec du programme est fécond : en cherchant à borner le reste de la série de Taylor, Lagrange forge les inégalités et le théorème des accroissements finis dont Cauchy fera les instruments de la rigueur.',
+            sources: ['grabiner-origins'],
+          },
+        ],
       },
     ],
     sources: ['jesseph-berkeley', 'grabiner-origins', 'mancosu-philosophy', 'edwards-calculus', 'bottazzini-higher-calculus', 'sep'],

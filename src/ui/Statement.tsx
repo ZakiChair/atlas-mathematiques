@@ -24,7 +24,7 @@ export function Statement({ statement, sourceOrder, factsOnly }: Props) {
       </span>{' '}
       {statement.text}
       {nums.length > 0 && (
-        <sup className="text-[#9ba39c]"> [{nums.join(', ')}]</sup>
+        <sup className="text-muted"> [{nums.join(', ')}]</sup>
       )}
     </li>
   );
@@ -40,7 +40,7 @@ export function StatementList({ statements, sourceOrder, factsOnly }: { statemen
           <Statement key={i} statement={s} sourceOrder={sourceOrder} factsOnly={factsOnly} />
         ))}
       </ul>
-      {hidden > 0 && <p className="text-xs italic text-[#9ba39c] mt-1">{t('statement.hidden', { n: hidden, s: hidden > 1 ? 's' : '' })}</p>}
+      {hidden > 0 && <p className="text-xs italic text-muted mt-1">{t('statement.hidden', { n: hidden, s: hidden > 1 ? 's' : '' })}</p>}
     </>
   );
 }

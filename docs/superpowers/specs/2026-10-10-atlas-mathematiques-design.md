@@ -1,12 +1,13 @@
 # Atlas des mathématiques — spécification de design
 
-Date : 2026-10-10. Statut : implémenté (v0.1).
+Date : 2026-10-10. Statut : implémenté (v0.3, direction « Fleuves et confluences »).
 
 ## 1. Intention
 
-Un atlas interactif de l’histoire des mathématiques, dans la direction artistique
-de la maison (carte imaginaire sombre, papier et encre, typographie Cormorant
-Garamond + DM Sans), dérivé du moteur d’`atlas-cinema`. Le lecteur visé est curieux
+Un atlas interactif de l’histoire des mathématiques, dérivé du moteur
+d’`atlas-cinema` (typographie Cormorant Garamond + DM Sans), dont la direction
+artistique sert la lecture de l’évolution : les champs sont des fleuves qui
+grossissent avec le temps et se nourrissent les uns les autres. Le lecteur visé est curieux
 et non spécialiste : les énoncés sont donnés en langage courant, les
 interprétations historiographiques sont distinguées des faits documentés, et
 chaque notice renvoie à des sources réelles.
@@ -32,8 +33,9 @@ Axes de la carte (`src/data/eras.ts`) :
 - **Vertical : cinq continents** — Nombres (arithmétique, algèbre), Formes
   (géométrie, topologie), Analyse et mouvement, Hasard et calcul (probabilités,
   statistique, combinatoire, informatique), Fondements (logique, ensembles,
-  philosophie). Chaque continent a une famille de teintes : ors et ocres,
-  sarcelle et cyan, violets et indigo, roses et corail, verts et sauge.
+  philosophie). Chaque continent a une teinte d’aquarelle (`src/map/fieldColors.ts`,
+  palettes des domaines régénérées par `scripts/palettes.ts`) : ocre, céruléen,
+  violet, terre cuite, vert sauge.
 
 Années : entiers, négatives avant notre ère, l’année 0 n’existe pas ;
 `lib/years.ts` formate « 300 av. J.-C. », « ca. », « aujourd’hui ».
@@ -70,23 +72,46 @@ méthode, réseau des mathématicien·nes (arcs sur la carte quand une figure es
 sélectionnée), URL synchronisée (`#/domaine/:id`, `#/theorie/:id`,
 `#/mathematicien/:id`, `#/resultat/:id`), interface FR/EN (corpus FR seulement).
 
-Direction artistique « tableau noir » (v0.2) : ardoise sombre, territoires à la
-craie pastel (une teinte par continent, régénérée par `scripts/chalk-palettes.ts`),
-hachures d’orientation distincte par continent, titres manuscrits (Kalam) et
-annotations (Caveat) ; les panneaux gardent un serif éditorial (Cormorant).
-Quatre **visions** de lecture : structure (neutre), filiations & ruptures (les
-autres liens s’effacent), réseaux de figures (toile en filigrane), natures de
-résultats (territoires colorés par nature dominante, voile sur les autres).
-Les fiches résultats ajoutent « Ce qui y a conduit » et « Ce que ça a ouvert »,
-dérivés des dates clés et des liens du domaine.
+Direction artistique « Fleuves et confluences » (v0.3, remplace le « tableau
+noir » de la v0.2) : carte ancienne à l’encre et à l’aquarelle sur papier crème.
+
+- **Fleuves** (`rivers.ts`, `RiverLayer.tsx`) : un par champ, de la source (le
+  premier domaine du champ) à la « mer » du présent. La ligne médiane passe par
+  les lacs du champ triés par abscisse (interpolation monotone) ; la largeur
+  traduit le cumul des résultats recensés en amont, d’où un fleuve qui ne fait
+  que grossir ; le total est inscrit à l’embouchure. Lit en lavis, berges et
+  filets de courant à l’encre de la teinte du champ.
+- **Lacs** : les domaines, lavis à bord irrégulier (filtre de bruit, desktop
+  seulement), pigment accumulé à la rive, ligne d’eau, rive à l’encre. Le nom
+  inscrit est court (`mapName`, sinon la partie du nom avant « : ») ; en vue
+  d’ensemble, un plancher de lisibilité l’autorise à déborder du lac.
+- **Bassin amont** (`upstream.ts`) : pour le domaine choisi, parcours en largeur
+  des liens de filiation et d’influence remontant vers ses sources ; chaque
+  génération a son anneau (plein puis pointillé) et ses courants animés bleu de
+  Prusse, de plus en plus pâles ; l’aval direct est en sépia. Fiche « En amont » :
+  affluents par génération, source la plus ancienne, aval direct.
+- **Frise d’activité** (`activity.ts`, `ActivityFrieze.tsx`) : silhouette empilée
+  des cinq champs (résultats par tranche d’abscisse, lissés), ères nommées,
+  fenêtre synchronisée avec la vue, période du domaine choisi ; clic, glisser ou
+  flèches pour se déplacer dans le temps (`panToX` du contrôleur). Elle remplace
+  les libellés d’ères en marge ; la vue d’ensemble s’ajuste entre la barre du
+  haut et la frise.
+- **Récits** : 174 grands résultats portent `context` (« Ce qui y a conduit ») et
+  `impact` (« Ce que ça a ouvert »), énoncés typés et sourcés (brief, § 8),
+  suivis des repères et liens dérivés du domaine (« Dans l’atlas »).
+
+Quatre **visions** de lecture : fleuves (vue par défaut), filiations & ruptures
+(les fleuves pâlissent, les autres liens s’effacent), réseaux de figures (toile
+en filigrane), natures de résultats (lacs à l’encre de la nature dominante, voile
+sur les autres).
 
 ## 6. Validation
 
 `npm run typecheck`, `npm run lint`, `npm test` (validation du corpus, recherche,
-layout), `npm run build`, `npm run test:e2e` (Playwright desktop + mobile,
-captures dans `e2e/artifacts/`).
+layout, fleuves et bassin amont, libellés), `npm run build`, `npm run test:e2e`
+(Playwright desktop + mobile, captures dans `e2e/artifacts/`).
 
-## 7. Hors périmètre (v0.1)
+## 7. Hors périmètre
 
 Traduction anglaise du corpus, enrichissement externe (portraits Wikidata),
-frise chronologique dédiée, export imprimable.
+export imprimable.

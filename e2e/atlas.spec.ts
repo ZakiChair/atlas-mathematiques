@@ -140,6 +140,45 @@ test('domaine contemporain : complexité et informatique théorique', async ({ p
   }
 });
 
+test('fleuves et frise : un fleuve par champ, la frise déplace la carte dans le temps', async ({ page }) => {
+  await expect(page.locator('.rivers .river')).toHaveCount(5);
+  const slider = page.getByRole('slider');
+  await expect(slider).toBeVisible();
+  const box = (await slider.boundingBox())!;
+  const yearAt = async () => Number(await slider.getAttribute('aria-valuenow'));
+  await page.mouse.click(box.x + box.width * 0.15, box.y + box.height / 2);
+  await page.waitForTimeout(700);
+  const early = await yearAt();
+  await page.mouse.click(box.x + box.width * 0.85, box.y + box.height / 2);
+  await expect.poll(yearAt, { timeout: 3000 }).toBeGreaterThan(early);
+});
+
+test('bassin amont : la fiche liste les affluents, la carte les allume', async ({ page }, testInfo) => {
+  await page.goto('/#/domaine/analyse-rigoureuse');
+  await dismissIntro(page);
+  const upstream = page.locator('[data-testid="upstream"]');
+  await expect(upstream).toBeVisible();
+  await expect(upstream).toContainText('querelle des infiniment petits');
+  await expect(page.locator('[data-testid="territory"].chain-up')).not.toHaveCount(0);
+  await expect(page.locator('.link-group.chain-link')).not.toHaveCount(0);
+  // un affluent est cliquable : il devient le domaine choisi
+  await upstream.getByRole('button', { name: /querelle des infiniment petits/ }).click();
+  await expect(page).toHaveURL(/#\/domaine\/querelle-des-infiniment-petits/);
+  if (testInfo.project.name === 'desktop') {
+    await page.waitForTimeout(1100);
+    await page.screenshot({ path: 'e2e/artifacts/desktop-bassin-amont.png' });
+  }
+});
+
+test('résultat : récits sourcés « ce qui y a conduit » et « ce que ça a ouvert »', async ({ page }) => {
+  await page.goto('/#/resultat/petit-theoreme-de-fermat');
+  await dismissIntro(page);
+  const roots = page.locator('[data-testid="result-context"]');
+  await expect(roots).toBeVisible();
+  await expect(roots.locator('.badge-fait, .badge-interp').first()).toBeVisible();
+  await expect(page.locator('[data-testid="result-impact"]').locator('.badge-fait, .badge-interp').first()).toBeVisible();
+});
+
 test('intro : affichage, fermeture, persistance', async ({ page, context }) => {
   await context.clearCookies();
   await page.evaluate(() => localStorage.clear());

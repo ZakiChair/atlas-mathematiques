@@ -32,7 +32,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -1800, end: -300, approx: true },
     continents: ['nombres', 'hasard'],
     places: ['Babylone', 'Nippur', 'Thèbes', 'Suse'],
-    map: { x: 300, y: 420, size: 2, palette: { fill: '#262217', stroke: '#d1c18f', accent: '#efe1b9' } },
+    map: { x: 300, y: 420, size: 2, palette: { fill: '#eee4d2', stroke: '#715528', accent: '#b8832e' } },
     tagline: 'Sur l’argile et le papyrus, des procédures sans théorèmes : la première mathématique est un métier de scribe.',
     summary:
       'Entre le début du IIᵉ millénaire et l’époque séleucide, les scribes de Mésopotamie et d’Égypte produisent des tables, des exercices et des procédures numériques d’une grande sûreté : numération sexagésimale de position, tables de réciproques, problèmes du second degré, fractions unitaires, volumes de greniers et de pyramides. Rien n’y est démontré au sens grec, mais tout y est contrôlé par la pratique scolaire. Aux derniers siècles avant notre ère, les astronomes de Babylone et d’Uruk prolongent cette tradition par des éphémérides arithmétiques du Soleil, de la Lune et des planètes, dont les paramètres passeront chez Hipparque et Ptolémée.',
@@ -193,6 +193,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'methode',
         statement: 'Connaissant la somme d’une surface carrée et de son côté (ou la somme et le produit de deux longueurs), on retrouve le côté en complétant une figure en carré : on prend la moitié du coefficient, on l’élève au carré, on ajoute, on extrait la racine, puis on retranche la moitié.',
         comment: 'Les tablettes BM 13901 et ses semblables résolvent ainsi des dizaines de problèmes qui correspondent à nos équations x² + bx = c. La procédure est exactement celle de la formule du second degré, mais exprimée en gestes sur des figures ; Høyrup y voit l’origine de l’« algèbre » qu’al-Khwārizmī justifiera encore par des carrés complétés, deux mille cinq cents ans plus tard.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les tablettes de problèmes du second degré datent de la période paléo-babylonienne (vers 1800–1600 avant notre ère) ; elles supposent les tables de réciproques et de carrés de l’enseignement élémentaire et posent des données artificielles, comme la somme d’une surface et d’un côté, qu’aucun arpentage réel ne fournit.',
+            sources: ['hoyrup-lengths', 'robson-mesopotamia'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Jens Høyrup suppose que ces problèmes viennent d’une tradition orale d’arpenteurs akkadiens, faite d’énigmes de virtuosité sur les champs carrés, que l’école des scribes aurait recueillie et systématisée.',
+            sources: ['hoyrup-lengths'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Ces textes ne sont déchiffrés que dans les années 1930, par Otto Neugebauer et François Thureau-Dangin : leur publication révèle l’existence d’une mathématique savante plus d’un millénaire avant les Grecs et renouvelle toute l’histoire des mathématiques anciennes.',
+            sources: ['neugebauer-exact', 'hoyrup-lengths'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Après la période paléo-babylonienne, ces problèmes disparaissent presque des tablettes ; pour Høyrup, ils auraient survécu dans la tradition pratique des arpenteurs, ce qui expliquerait leur réapparition, sous des formes très proches, dans la littérature grecque de la mesure, chez Héron notamment.',
+            sources: ['hoyrup-lengths'],
+          },
+        ],
       },
       {
         id: 'papyrus-de-moscou',
@@ -218,6 +242,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'texte',
         statement: 'Rouleau de plus de cinq mètres annonçant « la connaissance exacte de toutes choses » : table des 2/n, calculs de pains et de bière, partages, surfaces de champs, pentes de pyramides, volumes de greniers ; l’aire du cercle y est prise égale au carré des 8/9 du diamètre.',
         comment: 'Le papyrus Rhind est la source la plus complète sur le calcul égyptien et le seul texte mathématique antique dont le copiste soit nommé. La règle du cercle équivaut à π ≈ 3,16. Annette Imhausen y lit un manuel de formation des scribes administratifs plutôt qu’un traité ; sa traduction en langue moderne commence avec August Eisenlohr (1877).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans son préambule, Ahmès déclare copier, en l’an 33 du roi Apophis, un écrit plus ancien datant du règne d’Amenemhat III : le contenu du rouleau remonte donc au Moyen Empire, comme celui du papyrus de Moscou.',
+            sources: ['imhausen-egyptian', 'katz-sourcebook'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Annette Imhausen, ces recueils de problèmes prolongent une pratique bien plus ancienne : la notation des nombres et les techniques de mesure se développent en Égypte avec l’administration royale dès le IIIᵉ millénaire, longtemps avant les premiers textes mathématiques conservés.',
+            sources: ['imhausen-egyptian'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Après l’édition d’Eisenlohr, celles de T. Eric Peet (1923) puis d’Arnold Buffum Chace (1927–1929) font du papyrus le texte de référence des études sur le calcul égyptien.',
+            sources: ['imhausen-egyptian'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les fractions unitaires et les décompositions de type 2/n survivent aux pharaons : on les retrouve dans les papyrus mathématiques démotiques de l’Égypte gréco-romaine et dans le calcul pratique grec, signe, pour Imhausen et Cuomo, d’une tradition de scribes qui se prolonge sous d’autres maîtres.',
+            sources: ['imhausen-egyptian', 'cuomo-ancient'],
+          },
+        ],
       },
       {
         id: 'systeme-b-lunaire',
@@ -230,6 +278,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'methode',
         statement: 'La vitesse apparente du Soleil et la durée du mois varient selon une fonction linéaire en zigzag entre un minimum et un maximum ; en combinant plusieurs de ces fonctions, les tablettes prédisent, mois après mois, l’instant de la nouvelle lune et les éclipses.',
         comment: 'Les éphémérides du système B, conservées surtout à Babylone, sont la forme la plus aboutie de la prédiction arithmétique : sans aucun modèle géométrique des cieux, elles atteignent une précision que Ptolémée reconnaît. Leur mois synodique moyen (29;31,50,8,20 jours) est exactement celui qu’Hipparque adopte, preuve d’une transmission vers la Grèce. L’attribution à Kidinnu, issue de Kugler, reste une hypothèse.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les journaux astronomiques tenus à Babylone depuis le milieu du VIIᵉ siècle avant notre ère accumulent des siècles d’observations de la Lune et des planètes ; les astronomes en tirent des relations de périodes, comme le cycle de 223 mois pour les éclipses et le cycle de 19 ans qui règle le calendrier, avant de passer aux éphémérides calculées.',
+            sources: ['neugebauer-exact'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les éphémérides visent d’abord la première visibilité du croissant, qui ouvre le mois, et les éclipses, tenues pour des présages : on suppose que ces enjeux calendériques et divinatoires ont motivé le passage de l’observation à la prédiction par le calcul.',
+            sources: ['neugebauer-exact', 'robson-mesopotamia'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les tablettes sont déchiffrées par Joseph Epping et Johann Strassmaier dans les années 1880, puis par Franz Xaver Kugler (Die babylonische Mondrechnung, 1900) ; Neugebauer en publie le corpus en 1955 (Astronomical Cuneiform Texts).',
+            sources: ['neugebauer-exact'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Neugebauer, ces fonctions périodiques constituent la première astronomie mathématique au sens strict ; la combinaison de leurs paramètres avec les modèles géométriques grecs, chez Hipparque puis dans l’Almageste, donne naissance à l’astronomie de tradition grecque.',
+            sources: ['neugebauer-exact', 'toomer-almagest'],
+          },
+        ],
       },
     ],
     sources: ['robson-mesopotamia', 'hoyrup-lengths', 'imhausen-egyptian', 'neugebauer-exact', 'robson-plimpton', 'katz-sourcebook'],
@@ -246,7 +318,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -530, end: 400, approx: true },
     continents: ['nombres'],
     places: ['Crotone', 'Tarente', 'Alexandrie'],
-    map: { x: 760, y: 560, size: 2, palette: { fill: '#262217', stroke: '#d3bf92', accent: '#efe0bd' } },
+    map: { x: 760, y: 560, size: 2, palette: { fill: '#f3ecdd', stroke: '#7d642c', accent: '#c49831' } },
     tagline: 'Des cailloux disposés en triangles aux problèmes indéterminés de Diophante : le nombre devient objet de science.',
     summary:
       'L’arithmétique grecque naît dans les cercles pythagoriciens d’Italie du Sud, où le nombre entier, figuré par des cailloux, est pensé comme principe de toutes choses, puis se constitue en théorie démonstrative dans les livres VII à IX des Éléments d’Euclide : divisibilité, nombres premiers, nombres parfaits. À l’époque impériale, Nicomaque de Gérase en fixe la version philosophique, qui nourrira tout le Moyen Âge latin, tandis que Diophante d’Alexandrie ouvre une voie entièrement différente, celle des problèmes indéterminés résolus en nombres rationnels avec une notation abrégée. Hypatie, qui commente Diophante, ferme cette histoire au début du Vᵉ siècle.',
@@ -417,8 +489,27 @@ export const ANTIQUITE: Domain[] = [
         mathematicianId: 'euclide',
         theoryId: 'ag-theorie-euclidienne-des-nombres',
         kind: 'theoreme',
-        statement: 'Les nombres premiers sont plus nombreux que toute multitude proposée de nombres premiers : étant donné une liste finie de premiers, leur produit augmenté de un possède un diviseur premier qui n’est dans la liste.',
+        statement: 'Les nombres premiers sont plus nombreux que toute multitude proposée de nombres premiers : étant donné une liste finie de premiers, leur produit augmenté de un possède un diviseur premier qui n’est pas dans la liste.',
         comment: 'Modèle de démonstration constructive, souvent cité comme la plus belle preuve des Éléments. Euclide ne parle pas d’infini mais de dépassement de toute quantité finie, conformément à la conception aristotélicienne de l’infini potentiel. Euler (1737) en donnera une preuve analytique, point de départ de la théorie analytique des nombres.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La preuve s’appuie sur deux propositions du livre VII : tout nombre composé est mesuré par un nombre premier (VII, 31), et tout nombre est soit premier, soit mesuré par un premier (VII, 32). L’infinité des premiers est ainsi l’aboutissement d’une théorie de la divisibilité construite sur deux livres.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’arithmétique des livres VII à IX passe pour antérieure à Euclide et a été rattachée, depuis Heath, aux milieux pythagoriciens ; rien ne permet de savoir qui posa le premier la question de l’infinité des premiers.',
+            sources: ['heath-greek', 'cuomo-ancient'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La question passe ensuite de l’existence à la répartition : Dirichlet établit en 1837 l’infinité des premiers dans toute progression arithmétique a + nb où a et b sont premiers entre eux, et la loi de raréfaction conjecturée par Legendre et Gauss à la fin du XVIIIᵉ siècle est démontrée en 1896 par Hadamard et de la Vallée Poussin (théorème des nombres premiers).',
+            sources: ['gowers-companion', 'weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'algorithme-d-euclide',
@@ -445,6 +536,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si la somme 1 + 2 + 4 + … + 2ⁿ est un nombre premier p, alors le produit de p par le dernier terme 2ⁿ est un nombre parfait, égal à la somme de ses diviseurs propres.',
         comment: 'Dernière proposition de l’arithmétique euclidienne, elle relie les nombres parfaits (6, 28, 496, 8128, que Nicomaque énumère) aux premiers de la forme 2ᵐ − 1, les futurs nombres de Mersenne. Euler démontrera la réciproque pour les nombres parfaits pairs ; l’existence d’un nombre parfait impair est toujours ouverte.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Euclide place la proposition à la toute fin du livre IX, immédiatement après la sommation des progressions géométriques (IX, 35), dont la preuve se sert : la somme 1 + 2 + … + 2ⁿ y est calculée avant d’être supposée première.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'On rattache traditionnellement les nombres parfaits à la spéculation pythagoricienne sur le nombre ; la classification en parfaits, abondants et déficients n’est toutefois attestée que plus tard, chez Nicomaque et Théon de Smyrne.',
+            sources: ['heath-greek'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Vers 1640, Fermat, en correspondance avec Mersenne et Frénicle, étudie les diviseurs de 2ⁿ − 1 pour trouver de nouveaux nombres parfaits, et Mersenne publie en 1644 sa liste d’exposants pour lesquels il tient 2ⁿ − 1 pour premier.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La proposition IX, 36 a ainsi attaché pour deux millénaires un objet de spéculation pythagoricienne à l’étude des nombres premiers : chaque nouveau premier de Mersenne trouvé aujourd’hui par ordinateur fournit un nouveau nombre parfait par la règle d’Euclide.',
+            sources: ['gowers-companion', 'weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'crible-d-eratosthene',
@@ -481,6 +596,30 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'ag-analyse-diophantienne',
         kind: 'texte',
         comment: 'Recueil de problèmes indéterminés en treize livres, dont dix sont conservés (six en grec, quatre en traduction arabe retrouvés à Mashhad et publiés en 1982 et 1984). Le problème II, 8, partager un carré en deux carrés, est celui en marge duquel Fermat écrira son « dernier théorème ». Redécouvert par Bombelli et édité par Bachet (1621), le texte refonde la théorie des nombres moderne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Diophante dédie son traité à un certain Denys, qu’il présente comme désireux d’apprendre à résoudre les problèmes sur les nombres ; il y annonce une progression des problèmes simples vers les plus difficiles.',
+            sources: ['heath-greek', 'sesiano-diophante'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les antécédents de Diophante restent inconnus : on a invoqué une tradition grecque de problèmes arithmétiques, attestée par les épigrammes de l’Anthologie palatine et par l’« épanthème » attribué à Thymaridas, sans qu’aucun texte intermédiaire permette de reconstituer la filiation.',
+            sources: ['heath-greek', 'cuomo-ancient'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les Arithmétiques sont traduites en arabe au IXᵉ siècle (traduction attribuée à Qusṭā ibn Lūqā) et lues par al-Karajī ; en Europe, après la redécouverte des manuscrits grecs au XVᵉ siècle, Xylander en publie une traduction latine en 1575, avant l’édition gréco-latine de Bachet.',
+            sources: ['sesiano-diophante', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le nom de Diophante finit par désigner toute équation à résoudre en entiers ou en rationnels : le dixième problème de Hilbert (1900) demande une méthode générale pour décider si une « équation diophantienne » a des solutions entières, et Matiyasevich prouve en 1970 qu’il n’en existe pas.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'commentaire-d-hypatie',
@@ -508,7 +647,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -600, end: -250, approx: true },
     continents: ['formes', 'fondements'],
     places: ['Milet', 'Crotone', 'Athènes', 'Cnide', 'Alexandrie'],
-    map: { x: 450, y: 1250, size: 3, palette: { fill: '#172126', stroke: '#9dc2d7', accent: '#c9e3f2' } },
+    map: { x: 450, y: 1250, size: 3, palette: { fill: '#d6e6f0', stroke: '#295875', accent: '#2f86bc' } },
     tagline: 'Trois siècles pour inventer la démonstration, et un livre, les Éléments, pour en fixer la forme pendant deux millénaires.',
     summary:
       'Entre Thalès de Milet et Euclide d’Alexandrie, la géométrie grecque passe de recettes de mesure à une science démonstrative : on y prouve, à partir de principes explicites, des propositions générales sur des figures idéales. La découverte de l’incommensurabilité de la diagonale du carré, les trois problèmes classiques, la quadrature des lunules par Hippocrate de Chios, la théorie des proportions et la méthode d’exhaustion d’Eudoxe forment le matériau que les Éléments organisent vers 300 en treize livres. Ce livre, le plus édité après la Bible, définit pour l’Occident, le monde arabe et au-delà ce que signifie « démontrer ».',
@@ -711,6 +850,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'La diagonale d’un carré et son côté n’ont aucune commune mesure : si elles étaient comme deux nombres entiers, le même nombre serait à la fois pair et impair.',
         comment: 'Aristote mentionne cette preuve par pair et impair dans les Premiers Analytiques ; elle figure en appendice du livre X des Éléments. Elle oblige à distinguer nombre et grandeur et motive la théorie des proportions d’Eudoxe. La légende qui veut qu’Hippase ait été noyé pour l’avoir divulguée est tardive ; la « crise » qu’on y a vue est contestée.',
+        context: [
+          {
+            kind: 'interpretation',
+            text: 'On suppose que la difficulté est née d’une théorie des rapports en nombres entiers appliquée aux grandeurs géométriques : si tout rapport de grandeurs était un rapport de nombres, deux segments auraient toujours une commune mesure. Le cadre exact de la découverte (diagonale du carré, pentagone régulier selon Kurt von Fritz, anthyphérèse) reste une reconstruction.',
+            sources: ['knorr-evolution', 'fowler-plato'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le plus ancien témoignage circonstancié est littéraire : dans le Théétète de Platon (147d), Théodore de Cyrène démontre l’incommensurabilité des côtés des carrés d’aire 3, 5 et ainsi de suite jusqu’à 17, et le jeune Théétète en tire une définition générale.',
+            sources: ['knorr-evolution', 'heath-greek'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La découverte se développe en deux théories conservées dans les Éléments : la classification des droites irrationnelles du livre X, attribuée à Théétète, et la théorie des proportions du livre V, attribuée à Eudoxe, qui permet de raisonner sur des rapports incommensurables.',
+            sources: ['vitrac-euclide', 'knorr-evolution'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La séparation entre nombre et grandeur qui en résulte pèse sur toute la mathématique grecque, où les rapports irrationnels restent affaire de géométrie ; elle ne s’efface entièrement qu’avec les constructions des nombres réels publiées en 1872 par Dedekind et par Cantor.',
+            sources: ['ferreiros-labyrinth', 'knorr-evolution'],
+          },
+        ],
       },
       {
         id: 'classification-des-irrationnelles',
@@ -761,6 +924,30 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'gg-elements-et-axiomatique',
         kind: 'texte',
         comment: 'Treize livres : géométrie plane (I–IV), proportions (V–VI), arithmétique (VII–IX), irrationnelles (X), géométrie des solides (XI–XIII). Compilation ordonnée du savoir antérieur, les Éléments fixent la forme de la démonstration à partir de principes et servent de manuel pendant plus de deux mille ans, du monde arabe (traductions dès le IXᵉ siècle) à l’Europe (Adélard de Bath, Campanus, première impression 1482, Heiberg 1883–1888).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Selon le résumé d’Eudème conservé par Proclus, des Éléments avaient déjà été composés par Hippocrate de Chios, puis par Léon et par Theudios de Magnésie ; Euclide, dit Proclus, rassembla les résultats d’Eudoxe et de Théétète et donna des démonstrations rigoureuses de ce que ses prédécesseurs avaient établi de façon plus lâche.',
+            sources: ['morrow-proclus', 'heath-greek'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Wilbur Knorr, les livres X et XIII gardent la trace des recherches de Théétète sur les irrationnelles et les polyèdres, et le livre V celle de la refonte eudoxienne des proportions : les Éléments seraient la mise en ordre d’un siècle de recherches plutôt qu’une création d’un seul jet.',
+            sources: ['knorr-evolution'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les lacunes du texte, relevées dès les commentateurs antiques, ne sont comblées qu’au XIXᵉ siècle : Moritz Pasch (1882) formule les axiomes d’ordre que les démonstrations d’Euclide utilisent sans les énoncer, et Hilbert donne en 1899 une axiomatique complète de la géométrie euclidienne.',
+            sources: ['gray-worlds'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Reviel Netz, les Éléments transmettent moins un contenu qu’une manière d’écrire la preuve, énoncé général, figure lettrée et enchaînement de formules standardisées, que reprennent Archimède, Apollonius et toute la géométrie grecque ultérieure.',
+            sources: ['netz-shaping'],
+          },
+        ],
       },
       {
         id: 'cinquieme-postulat',
@@ -774,6 +961,25 @@ export const ANTIQUITE: Domain[] = [
         kind: 'probleme',
         statement: 'Si une droite qui coupe deux droites forme du même côté des angles intérieurs dont la somme est inférieure à deux droits, ces deux droites, prolongées indéfiniment, se rencontrent de ce côté.',
         comment: 'Formulé comme une demande, il paraît moins évident que les autres postulats et Euclide retarde son usage jusqu’à la proposition I, 29. Dès l’Antiquité, Ptolémée puis Proclus tentent de le démontrer ; Thābit ibn Qurra, al-Ṭūsī, Saccheri et Lambert poursuivent, jusqu’à ce que Lobatchevski (1829) et Bolyai (1832) montrent qu’une géométrie cohérente existe sans lui.',
+        context: [
+          {
+            kind: 'interpretation',
+            text: 'Un passage des Premiers Analytiques (II, 16) reproche à certains de supposer ce qu’ils veulent démontrer lorsqu’ils traitent des parallèles ; on en a déduit que la théorie des parallèles faisait difficulté avant Euclide, et que le postulat est la solution retenue pour rompre ce cercle.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En 1868, Eugenio Beltrami réalise la géométrie de Lobatchevski sur des surfaces de courbure constante négative, ce qui établit que le postulat ne découle pas des autres ; Felix Klein (1871) et Henri Poincaré (vers 1882) en donnent d’autres modèles.',
+            sources: ['gray-worlds'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’issue de la quête change le statut des axiomes : ils cessent d’être des vérités évidentes pour devenir des hypothèses dont on étudie l’indépendance et la cohérence, démarche que Hilbert systématise dans ses Fondements de la géométrie (1899).',
+            sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+        ],
       },
     ],
     sources: ['vitrac-euclide', 'heath-greek', 'knorr-evolution', 'netz-shaping', 'fowler-plato', 'morrow-proclus'],
@@ -790,7 +996,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -300, end: 350, approx: true },
     continents: ['analyse', 'formes'],
     places: ['Alexandrie', 'Syracuse', 'Pergé', 'Rhodes'],
-    map: { x: 560, y: 2250, size: 3, palette: { fill: '#211726', stroke: '#b488ce', accent: '#d7b1ed' } },
+    map: { x: 560, y: 2250, size: 3, palette: { fill: '#d3c7ea', stroke: '#3b2466', accent: '#582bab' } },
     tagline: 'Mesurer le courbe, maîtriser les coniques, calculer le ciel : le sommet de la mathématique antique.',
     summary:
       'Après Euclide, la géométrie grecque atteint son plus haut degré de puissance avec Archimède, qui mesure le cercle, la parabole, la sphère et les spirales par exhaustion et découvre ses résultats par une méthode mécanique, et avec Apollonius, dont les Coniques restent inégalées jusqu’à Descartes. L’astronomie fournit un second foyer : Hipparque, puis Ptolémée dans l’Almageste, créent la trigonométrie des cordes et un modèle quantitatif du ciel qui absorbe les paramètres babyloniens. Héron d’Alexandrie représente la tradition métrique et mécanique, et Pappus, au IVᵉ siècle, dresse dans sa Collection l’inventaire de cet héritage, dont la redécouverte au XVIᵉ siècle lance la science moderne.',
@@ -957,7 +1163,26 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'mh-mesure-des-figures-curvilignes',
         kind: 'theoreme',
         statement: 'L’aire d’un cercle est égale à celle d’un triangle rectangle dont les côtés de l’angle droit sont le rayon et la circonférence ; et la circonférence est à son diamètre dans un rapport compris entre 3 + 10/71 et 3 + 1/7.',
-        comment: 'En calculant les périmètres de polygones réguliers inscrits et circonscrits de 96 côtés, Archimède donne le premier encadrement démontré de π, avec la valeur approchée 22/7 qui servira pendant deux mille ans. La méthode est reprise par Ptolémée, Liu Hui, Zu Chongzhi, al-Kāshī et Ludolph van Ceulen, jusqu’aux séries infinies du XVIIᵉ siècle.',
+        comment: 'En calculant les périmètres de polygones réguliers inscrits et circonscrits de 96 côtés, Archimède donne le premier encadrement démontré de π, avec la valeur approchée 22/7 qui servira pendant deux mille ans. La méthode des polygones est poursuivie par al-Kāshī et Ludolph van Ceulen, jusqu’aux séries infinies du XVIIᵉ siècle ; en Chine, Liu Hui et Zu Chongzhi mènent un calcul analogue de manière indépendante.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Euclide démontre (XII, 2) que les cercles sont entre eux comme les carrés de leurs diamètres, sans rien dire de la valeur du rapport ; selon les commentateurs d’Aristote, Antiphon inscrivait déjà des polygones dans le cercle et Bryson l’encadrait par des polygones inscrits et circonscrits, dans l’espoir de le quarrer.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Ptolémée retient dans l’Almageste la valeur sexagésimale 3;8,30 (environ 3,1417), comprise dans l’encadrement d’Archimède, et Eutocius commente au VIᵉ siècle les calculs de racines du traité, précieux témoignage sur le calcul grec.',
+            sources: ['toomer-almagest', 'heath-archimedes'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’encadrement laisse ouverte la question de la nature du rapport : elle n’est tranchée qu’au XVIIIᵉ et au XIXᵉ siècle, quand Lambert démontre l’irrationalité de π dans les années 1760, puis Lindemann sa transcendance en 1882, ce qui ferme du même coup le problème de la quadrature.',
+            sources: ['boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'la-methode-archimede',
@@ -970,6 +1195,30 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'mh-mesure-des-figures-curvilignes',
         kind: 'texte',
         comment: 'Lettre dans laquelle Archimède dévoile à Ératosthène comment il découvre ses résultats : en équilibrant sur un levier les tranches d’une figure contre celles d’une figure connue. Il y trouve ainsi le volume de la sphère et le centre de gravité d’un segment de paraboloïde. Connu seulement par le palimpseste identifié en 1906, le texte est le seul témoignage antique sur l’invention mathématique en acte.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans la préface, Archimède rappelle que Démocrite avait énoncé sans preuve que le cône et la pyramide valent le tiers du cylindre et du prisme, dont Eudoxe donna la démonstration : connaître d’avance un résultat, explique-t-il, rend sa preuve plus facile à trouver.',
+            sources: ['heath-archimedes'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il dit adresser la méthode à Ératosthène, qu’il juge capable d’en apprécier la valeur, et la publier pour que des contemporains ou des successeurs s’en servent à découvrir d’autres théorèmes ; le procédé repose sur la loi du levier et les centres de gravité qu’il a établis dans De l’équilibre des plans.',
+            sources: ['heath-archimedes'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le texte reste inconnu entre l’époque byzantine et 1906 : Cavalieri, Torricelli, Fermat et Wallis développent les indivisibles au XVIIᵉ siècle sans l’avoir lu. Heiberg le publie en 1907, et Heath en donne une traduction anglaise en 1912.',
+            sources: ['heath-archimedes', 'edwards-calculus'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La découverte a modifié l’image d’Archimède : derrière la rigueur des preuves par exhaustion apparaît un usage heuristique des indivisibles, ce qui a nourri au XXᵉ siècle la lecture, discutée, d’un Archimède précurseur du calcul intégral.',
+            sources: ['heath-archimedes', 'cuomo-ancient'],
+          },
+        ],
       },
       {
         id: 'de-la-sphere-et-du-cylindre',
@@ -994,6 +1243,30 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'mh-coniques-et-geometrie-superieure',
         kind: 'texte',
         comment: 'Huit livres (quatre conservés en grec, trois en arabe, le dernier perdu) qui engendrent les trois sections à partir d’un cône quelconque, les nomment parabole, ellipse et hyperbole d’après l’application des aires, et étudient diamètres, tangentes, asymptotes, normales et courbes « semblables ». Édité par Halley en 1710, le traité guide Kepler pour les orbites, Descartes et Fermat pour la géométrie des courbes, Newton pour les Principia.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les sections coniques apparaissent avec Ménechme, au IVᵉ siècle avant notre ère, comme instruments de la duplication du cube ; Aristée et Euclide avaient écrit des traités de coniques, perdus, qui obtenaient chaque courbe à partir d’un cône différent (rectangle, acutangle ou obtusangle).',
+            sources: ['heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans la préface du livre I, Apollonius dit avoir rédigé une première version à Alexandrie à la demande du géomètre Naucratès, puis la réviser et l’adresser livre par livre à Eudème de Pergame, en traitant le sujet plus complètement et plus généralement que ses prédécesseurs.',
+            sources: ['heath-greek'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les livres V à VII ne survivent qu’en arabe, dans la traduction réalisée au IXᵉ siècle à Bagdad dans l’entourage des Banū Mūsā ; Halley les traduit en latin dans son édition de 1710, où il propose aussi une restitution du livre VIII perdu.',
+            sources: ['rashed-sciences-arabes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans le monde islamique, les Coniques fournissent à al-Khayyām, au XIᵉ siècle, l’outil de sa résolution géométrique des équations cubiques par intersection de coniques, et Ibn al-Haytham tente de reconstituer le livre VIII.',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+        ],
       },
       {
         id: 'table-des-cordes-hipparque',
@@ -1059,7 +1332,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -200, end: 500, approx: true },
     continents: ['hasard', 'nombres'],
     places: ['Chang’an', 'Luoyang', 'Jiankang'],
-    map: { x: 520, y: 3200, size: 2, palette: { fill: '#261c17', stroke: '#d0a38b', accent: '#eec9b5' } },
+    map: { x: 520, y: 3200, size: 2, palette: { fill: '#edd6cf', stroke: '#6d3726', accent: '#b44c2d' } },
     tagline: 'Sur un tableau à baguettes, des procédures exactes pour mesurer, répartir et résoudre : une mathématique d’algorithmes sans axiomes.',
     summary:
       'La tradition mathématique chinoise se fixe sous les Han autour des Neuf Chapitres sur l’art mathématique, recueil de problèmes administratifs résolus par des procédures sur le tableau à baguettes : règle de trois, fausses positions, extractions de racines, mesure du cercle, et la méthode fangcheng qui résout des systèmes linéaires par élimination, avec des nombres négatifs dûment notés. En 263, Liu Hui commente le classique, en justifie les procédures et calcule π par itération sur les polygones ; vers 400, le Sunzi suanjing pose le premier problème de restes ; au Vᵉ siècle, Zu Chongzhi encadre π entre 3,1415926 et 3,1415927, un record millénaire. Cette tradition, indépendante de la Grèce, court sans rupture jusqu’à l’âge d’or des Song et des Yuan.',
@@ -1216,6 +1489,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'methode',
         statement: 'Les coefficients d’un système d’équations linéaires sont rangés en colonnes ; en multipliant une colonne puis en lui soustrayant une autre autant de fois qu’il faut, on annule un coefficient, et l’on répète jusqu’à obtenir les inconnues une à une. Les nombres négatifs qui apparaissent en cours de calcul sont représentés par des baguettes de couleur opposée.',
         comment: 'C’est exactement l’élimination dite de Gauss, pratiquée sur tableau dix-huit siècles avant l’Europe, avec les règles de signes pour l’addition et la soustraction des positifs et négatifs. La même organisation positionnelle servira aux équations polynomiales de Qin Jiushao et de Zhu Shijie.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le chapitre 8 répond à des problèmes de répartition où plusieurs quantités inconnues sont liées par autant de conditions : rendements de gerbes de céréales de plusieurs qualités, prix d’animaux ou de marchandises.',
+            sources: ['chemla-neuf-chapitres'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'On suppose que la procédure prolonge à la fois la disposition des nombres en tableau sur la surface à baguettes et la règle de l’excédent et du déficit du chapitre 7, qui traite les problèmes à deux conditions.',
+            sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Liu Hui commente la procédure en 263 et en justifie la validité par le fait que l’on peut multiplier une colonne ou lui soustraire une autre sans changer la solution du problème.',
+            sources: ['chemla-neuf-chapitres'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Au Japon, Seki Takakazu dégage en 1683 la notion de déterminant en prolongeant les procédures d’élimination héritées des textes chinois, une décennie avant que Leibniz n’en rencontre l’équivalent (1693).',
+            sources: ['katz-history', 'martzloff-chine'],
+          },
+        ],
       },
       {
         id: 'commentaire-de-liu-hui',
@@ -1237,6 +1534,25 @@ export const ANTIQUITE: Domain[] = [
         kind: 'methode',
         statement: 'En doublant le nombre de côtés d’un polygone inscrit (6, 12, 24, … jusqu’à 3072 côtés), on approche le cercle d’aussi près qu’on veut ; l’aire du cercle est le demi-produit de sa circonférence par son rayon, et le rapport de la circonférence au diamètre vaut environ 3,1416.',
         comment: 'Liu Hui ne se contente pas de calculer : il prouve la formule de l’aire par épuisement des différences et encadre rigoureusement π. Sa méthode, indépendante d’Archimède, repose sur les mêmes polygones doublés ; un siècle et demi plus tard, Zu Chongzhi la pousse à sept décimales.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les Neuf Chapitres calculent l’aire du cercle par une règle juste dans son principe, mais avec le rapport 3 entre circonférence et diamètre ; Liu Hui observe que ce rapport est celui de l’hexagone inscrit et non du cercle, et critique d’autres valeurs en usage, dont celle de l’astronome Zhang Heng.',
+            sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le commentaire et sa procédure entrent avec les Neuf Chapitres dans le recueil des Dix classiques du calcul édité par Li Chunfeng en 656, qui sert de canon à l’école de calcul des Tang.',
+            sources: ['martzloff-chine', 'chemla-neuf-chapitres'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Karine Chemla, le raisonnement de Liu Hui, qui découpe le cercle jusqu’à ce que le polygone « se confonde » avec lui, montre que le passage à la limite n’est pas étranger à la tradition chinoise, même si cette voie n’a pas été systématisée ensuite.',
+            sources: ['chemla-neuf-chapitres'],
+          },
+        ],
       },
       {
         id: 'theoreme-des-restes-chinois',
@@ -1249,6 +1565,25 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Trouver un nombre qui, divisé par 3, donne pour reste 2, divisé par 5, reste 3, et divisé par 7, reste 2. La procédure combine des multiples des diviseurs pour obtenir 23, et la famille des solutions s’en déduit par ajouts de 105.',
         comment: 'Première occurrence connue du « théorème des restes chinois ». Le problème, lié aux cycles calendériques, est systématisé par Qin Jiushao en 1247 (méthode dayan) ; il réapparaît chez Fibonacci (1202), chez les arithméticiens islamiques, puis dans l’algèbre moderne comme théorème sur les anneaux quotients.',
+        context: [
+          {
+            kind: 'interpretation',
+            text: 'Le Sunzi suanjing est un manuel élémentaire (numération, opérations, mesures), et le problème des restes y apparaît isolé, sous forme d’énigme ; les historiens le rattachent au calcul calendérique, où l’on cherche une origine commune à plusieurs cycles (jours, lunaisons, années).',
+            sources: ['martzloff-chine'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Gauss formalise en 1801, dans les Disquisitiones arithmeticae, la notion de congruence et la résolution des systèmes de congruences simultanées, sans référence à la tradition chinoise.',
+            sources: ['goldstein-schappacher-schwermer'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le problème du Sunzi et la méthode dayan sont révélés aux lecteurs européens en 1852 par le missionnaire Alexander Wylie ; l’appellation « théorème des restes chinois », plus tardive, procède de cette redécouverte.',
+            sources: ['martzloff-chine'],
+          },
+        ],
       },
       {
         id: 'encadrement-de-pi-zu-chongzhi',
@@ -1272,12 +1607,13 @@ export const ANTIQUITE: Domain[] = [
   {
     id: 'logique-antique',
     name: 'Logique et philosophie des mathématiques antiques',
+    mapName: 'Logique et philosophie antiques',
     altNames: ['Logique aristotélicienne et stoïcienne', 'Philosophie grecque des mathématiques'],
     era: 'antiquite',
     period: { start: -450, end: 485, approx: true },
     continents: ['fondements'],
     places: ['Élée', 'Athènes', 'Stagire'],
-    map: { x: 480, y: 4150, size: 1, palette: { fill: '#172619', stroke: '#75c780', accent: '#9ce8a6' } },
+    map: { x: 480, y: 4150, size: 1, palette: { fill: '#c3e9d1', stroke: '#22623a', accent: '#2aa758' } },
     tagline: 'Qu’est-ce que démontrer ? Des paradoxes de Zénon au commentaire de Proclus, la réflexion antique sur la preuve.',
     summary:
       'Les paradoxes de Zénon d’Élée, au milieu du Vᵉ siècle avant notre ère, mettent à l’épreuve les notions de divisibilité, de mouvement et d’infini ; Platon fait des mathématiques le modèle du savoir vrai et de la dialectique ; Aristote construit à Stagire puis à Athènes la première théorie formelle de la déduction, la syllogistique, et dans les Seconds Analytiques une théorie de la science démonstrative qui collera longtemps aux Éléments d’Euclide. Les stoïciens, avec Chrysippe, inventent une logique des propositions distincte de la logique des termes. Enfin Proclus, au Vᵉ siècle de notre ère, écrit en commentant Euclide la première histoire et la première philosophie des mathématiques proprement dites.',
@@ -1328,7 +1664,7 @@ export const ANTIQUITE: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'La querelle byzantine sur l’authenticité de la logique modale stoïcienne, rapportée par les commentateurs tardifs, oppose partisans d’Aristote et partisans de Chrysippe ; Kneale y voit le signe que la logique des propositions a été un rival réel de la syllogistique avant d’être absorbée et oubliée.',
+        text: 'Les commentateurs tardifs opposent partisans d’Aristote et partisans de Chrysippe ; Kneale y voit le signe que la logique des propositions a été un rival réel de la syllogistique avant d’être absorbée et oubliée.',
         sources: ['kneale-logic'],
       },
     ],
@@ -1420,6 +1756,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'probleme',
         statement: 'La dichotomie : pour parcourir une distance, il faut d’abord en parcourir la moitié, puis la moitié du reste, à l’infini, donc ne jamais partir. Achille : le plus rapide ne rattrape jamais la tortue, car il doit d’abord atteindre le point d’où elle est partie. La flèche : à chaque instant la flèche occupe un lieu égal à elle-même, donc elle est immobile.',
         comment: 'Conservés par la Physique d’Aristote, ces arguments ont forcé la pensée grecque à distinguer divisibilité infinie et infini actuel, et la pensée moderne à construire la théorie des séries convergentes et du continu. Leur force logique est reconnue depuis Russell ; le désaccord persiste sur ce que Zénon voulait exactement montrer.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Selon le Parménide de Platon, Zénon aurait écrit dans sa jeunesse pour défendre la thèse de Parménide (l’être est un) contre ceux qui la tournaient en ridicule, en montrant que l’hypothèse de la pluralité mène à des conséquences plus absurdes encore.',
+            sources: ['heath-greek', 'sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Paul Tannery a proposé de lire les arguments comme une attaque contre une conception pythagoricienne de la grandeur faite de points-unités ; influente au début du XXᵉ siècle, cette lecture est aujourd’hui jugée fragile faute de témoignage.',
+            sources: ['heath-greek', 'sep'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Aristote répond dans la Physique (VI et VIII) en distinguant la division en acte et la division en puissance : un segment est divisible à l’infini, mais il n’est pas composé d’une infinité actuelle de parties que l’on aurait à parcourir une à une.',
+            sources: ['sep', 'heath-greek'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour beaucoup d’historiens, la réponse mathématique n’arrive qu’au XIXᵉ siècle, avec les limites de Cauchy et le continu de Dedekind et Cantor ; d’autres jugent que ces outils décrivent le continu sans dissiper la difficulté propre au mouvement, et le débat philosophique se poursuit.',
+            sources: ['sep', 'ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'menon-duplication-du-carre',
@@ -1445,6 +1805,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'concept',
         statement: 'Un syllogisme est un discours où, certaines choses étant posées, autre chose s’ensuit nécessairement ; Aristote classe les formes valides selon trois figures et quatorze modes, dont Barbara (« tout B est A, tout C est B, donc tout C est A »), et réduit les modes imparfaits aux modes parfaits.',
         comment: 'Première logique formelle de l’histoire, la syllogistique introduit les lettres-termes comme variables et la notion de validité par la forme. Elle domine la logique jusqu’au XIXᵉ siècle ; Boole, Frege et Łukasiewicz la dépasseront tout en lui reconnaissant le premier système de déduction formelle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'À la fin des Réfutations sophistiques, Aristote affirme qu’il n’existait avant lui rien d’écrit sur le raisonnement, seulement une pratique de la dialectique et de la réfutation enseignée par l’exemple.',
+            sources: ['kneale-logic'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'On suppose que la syllogistique naît de la dialectique de l’Académie, ces joutes réglées où l’on défend ou attaque une thèse et que décrivent les Topiques, généralement tenus pour antérieurs aux Analytiques.',
+            sources: ['kneale-logic'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Théophraste et Eudème complètent le système (modes indirects de la première figure, syllogismes hypothétiques) ; Porphyre puis Boèce le transmettent à l’Occident latin, où il forme le noyau de l’enseignement de la logique.',
+            sources: ['kneale-logic'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Kant juge encore en 1787 que la logique n’a pu faire un pas en avant depuis Aristote ; Boole (1847, 1854) et Frege (Begriffsschrift, 1879) démentent ce jugement en intégrant la syllogistique à des calculs bien plus généraux.',
+            sources: ['kneale-logic', 'van-heijenoort'],
+          },
+        ],
       },
       {
         id: 'seconds-analytiques',
@@ -1469,6 +1853,30 @@ export const ANTIQUITE: Domain[] = [
         kind: 'concept',
         statement: 'Les arguments valides se ramènent à cinq schémas indémontrables, dont le premier est : « si le premier, alors le second ; or le premier ; donc le second » ; les autres arguments s’y réduisent par des règles de coupure et de composition.',
         comment: 'Contrairement à la logique des termes d’Aristote, la logique stoïcienne porte sur des propositions entières reliées par des connecteurs : c’est l’ancêtre de notre calcul propositionnel. Perdue avec les textes de Chrysippe, connue par Sextus Empiricus et Diogène Laërce, elle a été reconnue pour ce qu’elle était par Łukasiewicz au XXᵉ siècle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les stoïciens héritent des débats des dialecticiens de Mégare : selon Sextus Empiricus, Diodore Cronos et Philon s’opposaient sur les conditions de vérité du conditionnel, Philon le tenant pour vrai sauf lorsque l’antécédent est vrai et le conséquent faux.',
+            sources: ['kneale-logic', 'sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’« argument dominateur » de Diodore, qui conclut que seul le réel est possible, aurait poussé Chrysippe à élaborer une théorie des modalités compatible avec la doctrine stoïcienne du destin.',
+            sources: ['kneale-logic', 'sep'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Après Chrysippe, la logique propositionnelle est surtout connue par des auteurs qui la critiquent ou la combinent à la syllogistique, comme Sextus Empiricus et Galien ; Boèce en transmet une partie au Moyen Âge latin sous le nom de syllogismes hypothétiques.',
+            sources: ['kneale-logic'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Après l’article de Łukasiewicz (1934), Benson Mates reconstruit le système à partir des fragments (Stoic Logic, 1953) : la logique stoïcienne est depuis tenue pour la seconde fondation antique de la logique, à côté de la syllogistique.',
+            sources: ['kneale-logic'],
+          },
+        ],
       },
       {
         id: 'commentaire-de-proclus',

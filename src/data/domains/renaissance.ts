@@ -50,7 +50,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1494, end: 1603 },
     continents: ['nombres'],
     places: ['Venise', 'Bologne', 'Milan', 'Paris'],
-    map: { x: 2000, y: 420, size: 3, palette: { fill: '#262217', stroke: '#cdbb84', accent: '#ecdcac' } },
+    map: { x: 2000, y: 420, size: 3, palette: { fill: '#ece1cb', stroke: '#6a5425', accent: '#af862c' } },
     tagline: 'Un siècle de duels, de secrets et de serments trahis fait passer l’algèbre du troisième degré à la lettre.',
     summary:
       'Entre la Summa de Pacioli (1494), qui déclare l’équation du troisième degré hors de portée, et l’Isagoge de Viète (1591), qui écrit les quantités connues et inconnues par des lettres, l’algèbre change de nature. À Bologne, Scipione del Ferro résout la cubique vers 1515 et garde le secret ; Tartaglia la retrouve en 1535 ; Cardan la publie en 1545 dans l’Ars magna avec la résolution du quatrième degré due à son élève Ferrari. Bombelli apprivoise ensuite les racines de nombres négatifs qui surgissent dans le « cas irréductible », et Viète transforme l’art de la chose en une analyse générale des équations. L’algèbre cesse d’être une collection de recettes marchandes pour devenir une science des formes.',
@@ -242,7 +242,7 @@ export const RENAISSANCE: Domain[] = [
         mathematicianId: 'cardan',
         theoryId: 'ar-equations-cubiques-et-quartiques',
         kind: 'texte',
-        comment: 'Publié à Nuremberg chez Petreius, l’année du De revolutionibus de Copernic chez le même imprimeur, le livre expose en quarante chapitres la résolution complète des équations de degré 3 et 4, discute les racines négatives (« fictives ») et calcule, en passant, avec des racines de nombres négatifs. C’est le premier traité d’algèbre qui dépasse les Arabes et il ouvre la voie à Bombelli, Viète et Descartes.',
+        comment: 'Publié à Nuremberg chez Petreius, deux ans après le De revolutionibus de Copernic (1543) sorti chez le même imprimeur, le livre expose en quarante chapitres la résolution complète des équations de degré 3 et 4, discute les racines négatives (« fictives ») et calcule, en passant, avec des racines de nombres négatifs. C’est le premier traité d’algèbre qui dépasse les Arabes et il ouvre la voie à Bombelli, Viète et Descartes.',
       },
       {
         id: 'formule-de-cardan',
@@ -255,6 +255,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Une solution de x³ + px = q s’écrit comme différence de deux racines cubiques : ∛(√(q²/4 + p³/27) + q/2) − ∛(√(q²/4 + p³/27) − q/2). Les autres types de cubiques s’y ramènent en supprimant le terme en x².',
         comment: 'La formule couvre toutes les cubiques, mais, lorsque l’équation a trois racines réelles, elle fait apparaître des racines carrées de nombres négatifs : c’est le « cas irréductible », que Bombelli affrontera. Elle montre aussi qu’une équation peut avoir plusieurs solutions, ce qui prépare l’idée de compter les racines avec Viète, Girard et Descartes.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1494, la Summa de Pacioli tient la cubique pour hors de portée. Del Ferro résout vers 1515 le cas x³ + px = q sans le publier ; défié à Venise en 1535 par Fior, l’élève de del Ferro, Tartaglia retrouve la règle et la confie à Cardan en 1539, sous serment de secret. Cardan l’étend ensuite à toutes les formes de cubiques.',
+            sources: ['ore-cardano', 'katz-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La publication de 1545 ouvre une querelle publique : Tartaglia donne sa version des faits dans les Quesiti et inventioni diverse (1546), Ferrari lui répond par six cartelli de défi (1547-1548), et la disputation de Milan d’août 1548 tourne à l’avantage de Ferrari.',
+            sources: ['ore-cardano', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La formule fixe pour plus de deux siècles le programme de la résolution par radicaux. C’est en cherchant pourquoi les méthodes de del Ferro, Cardan et Ferrari réussissent que Lagrange, dans ses Réflexions sur la résolution algébrique des équations (1770-1771), prépare la question du cinquième degré.',
+            sources: ['stedall-from-cardano', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'algebra-bombelli',
@@ -266,6 +285,30 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'ar-equations-cubiques-et-quartiques',
         kind: 'texte',
         comment: 'Bombelli pose les règles de multiplication des quantités « più di meno » et « meno di meno » (« plus de moins fois plus de moins donne moins ») et montre, sur x³ = 15x + 4, que la formule de Cardan donne bien la racine 4 une fois les racines de nombres négatifs calculées. Les livres IV et V, géométriques, restent manuscrits jusqu’en 1929. Leibniz saluera en lui un maître de l’analyse ; les nombres complexes attendront Euler et Gauss pour être pleinement acceptés.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Cardan laisse un problème ouvert : dans l’Ars magna (1545), il manipule 5 + √−15 et 5 − √−15 pour partager 10 en deux parties de produit 40, en jugeant ce calcul aussi subtil qu’inutile, et sa formule fait surgir des racines de nombres négatifs dans le cas irréductible sans qu’il sache en tirer les racines réelles de l’équation.',
+            sources: ['cardano-ars-magna', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bombelli rédige l’ouvrage au cours des années 1550-1560, pendant les interruptions de son chantier hydraulique ; la découverte d’un manuscrit de Diophante à la bibliothèque vaticane, qu’il entreprend de traduire avec Antonio Maria Pazzi, le conduit à reprendre ses problèmes avant l’impression de 1572.',
+            sources: ['mactutor', 'stedall-from-cardano'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Pour John Stillwell, c’est la cubique, et non l’équation du second degré, qui impose les nombres complexes : on pouvait déclarer impossible une équation du second degré sans racine, mais non écarter des quantités qui conduisent, chez Bombelli, à une racine réelle bien vérifiable.',
+            sources: ['stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Descartes appelle ces racines « imaginaires » dans La Géométrie (1637) ; leur représentation géométrique par Wessel (1799), Argand (1806) puis Gauss achève de leur donner droit de cité.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+        ],
       },
       {
         id: 'in-artem-analyticem-isagoge',
@@ -277,6 +320,30 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'ar-analyse-litterale',
         kind: 'texte',
         comment: 'Court traité publié à Tours, qui présente l’algèbre comme l’analyse des Anciens (zététique, poristique, exégétique) et introduit l’usage systématique des lettres pour les quantités connues et inconnues. Avec la loi d’homogénéité et le calcul sur les « espèces », Viète donne à l’équation un statut d’objet général ; Fermat et Descartes partiront de là, le second en simplifiant la notation.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Viète s’appuie sur des textes grecs récemment rendus accessibles en latin : la description de l’analyse et de la synthèse au livre VII de la Collection de Pappus, publiée par Commandino en 1588, et les Arithmétiques de Diophante, traduites par Xylander en 1575.',
+            sources: ['katz-history', 'boyer-merzbach'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le projet est aussi humaniste : rendre à l’algèbre des abacistes, jugée barbare par les lettrés, la dignité de l’analyse géométrique des Anciens, d’où le vocabulaire grec de l’Isagoge et l’exigence d’homogénéité des grandeurs.',
+            sources: ['stedall-from-cardano'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Fermat rédige encore vers 1636 l’Ad locos planos dans la notation de Viète, voyelles pour les inconnues et consonnes pour les données ; Descartes, en 1637, prend les dernières lettres de l’alphabet pour les inconnues, les premières pour les connues, et lève la loi d’homogénéité.',
+            sources: ['mahoney-fermat', 'bos-redefining'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Avec l’Artis analyticae praxis de Harriot et la Clavis mathematicae d’Oughtred, toutes deux de 1631, l’algèbre littérale issue de Viète devient en une génération la langue commune de l’analyse européenne.',
+            sources: ['stedall-from-cardano', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'de-aequationum-recognitione-et-emendatione',
@@ -304,7 +371,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1621, end: 1670, approx: true },
     continents: ['nombres'],
     places: ['Toulouse', 'Paris', 'Bordeaux'],
-    map: { x: 2450, y: 620, size: 2, palette: { fill: '#262017', stroke: '#c8aa79', accent: '#e9cda0' } },
+    map: { x: 2450, y: 620, size: 2, palette: { fill: '#eadec7', stroke: '#664f24', accent: '#ab7e2b' } },
     tagline: 'Dans les marges d’un Diophante, une arithmétique nouvelle qui ne livre presque jamais ses preuves.',
     summary:
       'Entre 1636 et 1665, un conseiller au parlement de Toulouse refonde l’arithmétique des entiers en relisant Diophante dans l’édition de Bachet (1621). Pierre de Fermat énonce par lettres, presque toujours sans démonstration, le petit théorème, le théorème des deux carrés, les propriétés des nombres de la forme 2^(2ⁿ) + 1 et l’impossibilité de xⁿ + yⁿ = zⁿ pour n > 2. Sa méthode de descente infinie et ses défis aux géomètres anglais font de la théorie des nombres une discipline autonome, dont Euler, Lagrange et Legendre hériteront au XVIIIᵉ siècle.',
@@ -452,6 +519,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'conjecture',
         statement: 'Il n’existe pas d’entiers strictement positifs x, y, z tels que xⁿ + yⁿ = zⁿ dès que n est supérieur à 2.',
         comment: 'Note marginale sans démonstration, datée conventionnellement vers 1637. Fermat ne prouve que le cas n = 4 ; Euler traite n = 3, puis Kummer les exposants premiers réguliers (1847). La démonstration générale est donnée par Andrew Wiles en 1995. Le problème a structuré la théorie des nombres pendant trois siècles.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème II.8 des Arithmétiques demande de partager un carré donné en deux carrés, ce que Diophante résout en nombres rationnels ; Fermat, lisant l’édition de Bachet, renverse la question et affirme qu’elle n’a plus de solution dès qu’on passe aux cubes, aux bicarrés ou à toute puissance supérieure.',
+            sources: ['weil-number-theory', 'singh-fermat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En 1847, Lamé annonce à l’Académie des sciences une démonstration générale fondée sur une factorisation de xⁿ + yⁿ ; Liouville objecte que l’unicité de la décomposition n’est pas acquise, et Kummer avait déjà constaté qu’elle peut échouer. Sa théorie des « nombres idéaux », qui restaure cette unicité, est l’une des sources de la théorie algébrique des nombres.',
+            sources: ['goldstein-schappacher-schwermer', 'stillwell-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La démonstration de Wiles passe par la conjecture de modularité des courbes elliptiques, à laquelle Frey, Serre et Ribet avaient rattaché le problème au milieu des années 1980 : la question isolée de Fermat devient le corollaire d’un programme central de la théorie des nombres.',
+            sources: ['singh-fermat', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'petit-theoreme-de-fermat',
@@ -463,6 +549,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si p est premier et ne divise pas a, alors p divise a^(p − 1) − 1.',
         comment: 'Énoncé dans la lettre à Frénicle du 18 octobre 1640, sans preuve (« je vous l’envoierois si je n’appréhendois d’être trop long »). Euler le démontre en 1736 et le généralise. C’est le point de départ de la théorie des congruences et, trois siècles plus tard, des tests de primalité et du chiffrement RSA.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1640, Fermat discute avec Mersenne et Frénicle des nombres parfaits et des nombres de la forme 2ⁿ − 1 hérités d’Euclide (Éléments IX.36) : décider s’ils sont premiers le conduit à étudier les diviseurs de aⁿ − 1.',
+            sources: ['weil-number-theory', 'mahoney-fermat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Fermat ne publie pas de preuve ; la première démonstration publiée est celle d’Euler (présentée en 1736), qui étend ensuite le théorème aux modules composés avec sa fonction indicatrice.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pierre angulaire de la théorie des congruences, le théorème fonde trois siècles plus tard les tests de primalité et le chiffrement RSA (1977) : un usage que rien, dans les questions de Fermat, ne laissait prévoir.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-des-deux-carres',
@@ -509,6 +614,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'probleme',
         statement: 'Étant donné un entier N qui n’est pas un carré, trouver tous les entiers x, y tels que x² − N·y² = 1 ; Fermat affirme qu’il y en a toujours une infinité.',
         comment: 'Défi lancé en février 1657 aux mathématiciens d’Angleterre et d’Europe. Brouncker et Wallis fournissent une méthode de résolution ; l’existence d’une infinité de solutions pour tout N n’est démontrée que par Lagrange (1768), à l’aide des fractions continues. Le nom de Pell vient d’une confusion d’Euler.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La question est ancienne : en Inde, Brahmagupta (628) puis Bhāskara II (XIIᵉ siècle) donnaient déjà des méthodes pour résoudre x² − N·y² = 1 en entiers, inconnues en Europe au XVIIᵉ siècle.',
+            sources: ['weil-number-theory', 'plofker-india'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le défi de 1657, transmis en Angleterre par Kenelm Digby, exige des solutions entières ; les premières réponses anglaises, données en fractions, sont rejetées comme sans intérêt, ce qui oblige Brouncker et Wallis à chercher une véritable méthode en entiers.',
+            sources: ['weil-number-theory', 'mahoney-fermat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Wallis publie l’ensemble des échanges en 1658 dans son Commercium epistolicum, qui conserve et diffuse la méthode de Brouncker.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Reliée aux fractions continues par Euler et Lagrange, puis aux formes quadratiques par Gauss et aux unités des corps de nombres par Dirichlet, l’équation proposée en défi devient l’un des problèmes fondateurs de la théorie algébrique des nombres.',
+            sources: ['weil-number-theory', 'goldstein-schappacher-schwermer'],
+          },
+        ],
       },
       {
         id: 'descente-infinie',
@@ -537,7 +666,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1435, end: 1600 },
     continents: ['formes'],
     places: ['Florence', 'Nuremberg', 'Vienne', 'Lisbonne', 'Duisbourg'],
-    map: { x: 1980, y: 1550, size: 2, palette: { fill: '#172326', stroke: '#8fc4d1', accent: '#b9e4ef' } },
+    map: { x: 1980, y: 1550, size: 2, palette: { fill: '#d2e6ee', stroke: '#285a71', accent: '#2e8cb8' } },
     tagline: 'De la fenêtre d’Alberti aux mappemondes de Mercator, la figure devient un instrument de mesure du monde.',
     summary:
       'Entre le De pictura d’Alberti (1435) et la mappemonde de Mercator (1569), la géométrie européenne se refait par la pratique : peindre une place, dresser une table de sinus, tracer la route d’un navire. Les peintres florentins transforment la représentation de l’espace en construction géométrique ; Regiomontanus, entre Vienne et Nuremberg, fait de la trigonométrie une discipline autonome ; les navigateurs portugais et les cartographes des Pays-Bas posent le problème de représenter la sphère sur le plan. Cette géométrie instrumentée, écrite pour les peintres, les astronomes et les pilotes, prépare à la fois la géométrie projective de Desargues et la cartographie moderne.',
@@ -681,6 +810,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Le tableau est une fenêtre ouverte : la toile coupe la pyramide visuelle dont le sommet est l’œil ; la représentation correcte d’un pavement à carreaux fixe le point de fuite et donne l’échelle des distances.',
         comment: 'Premier texte européen qui fasse de la représentation de l’espace une construction géométrique réglée. Toute la peinture de la Renaissance en sort, et les sections de pyramides visuelles deviendront, avec Desargues, un thème de géométrie pure.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Arrivé à Florence en 1434 avec la cour du pape Eugène IV, Alberti y découvre les œuvres de Brunelleschi, Donatello et Masaccio ; il dédie la version toscane de 1436 à Brunelleschi, dont les panneaux démonstratifs appliquaient déjà la perspective à point de fuite sans qu’il l’ait exposée par écrit.',
+            sources: ['field-invention-infinity', 'andersen-geometry-of-an-art'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le cadre conceptuel vient de l’optique savante — la pyramide visuelle de l’Optique d’Euclide, reprise par Ibn al-Haytham et les perspectivistes latins — qu’Alberti convertit en procédé de construction à l’usage des peintres.',
+            sources: ['andersen-geometry-of-an-art'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La construction est reprise et démontrée par Piero della Francesca vers 1475, diffusée au nord des Alpes par Dürer (1525), puis codifiée dans les Due regole della prospettiva pratica de Vignola, publiées par Egnazio Danti en 1583.',
+            sources: ['andersen-geometry-of-an-art', 'field-invention-infinity'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Dans la lecture de Kirsti Andersen, la perspective reste longtemps une géométrie de praticiens : elle ne devient une théorie mathématique générale qu’avec Guidobaldo del Monte (1600) puis Brook Taylor (1715), avant d’être absorbée par la géométrie descriptive de Monge.',
+            sources: ['andersen-geometry-of-an-art'],
+          },
+        ],
       },
       {
         id: 'de-prospectiva-pingendi',
@@ -703,6 +856,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'De tout triangle, connaissant trois éléments dont un côté, on peut trouver les trois autres : le livre énonce la loi des sinus et traite d’abord les triangles plans, puis les triangles sphériques.',
         comment: 'Achevé en 1464, imprimé à Nuremberg en 1533. En séparant la trigonométrie de l’astronomie et en lui donnant une structure d’Éléments, Regiomontanus crée une discipline ; Viète, puis tous les géomètres du XVIᵉ siècle, en héritent.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le traité naît du chantier de l’Epitome de l’Almageste, entrepris par Peurbach à la demande du cardinal Bessarion et achevé par Regiomontanus après la mort de son maître (1461) : il s’agit de rassembler en un exposé propre les règles de résolution des triangles que l’astronomie de Ptolémée utilise sans les isoler.',
+            sources: ['mactutor', 'katz-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les historiens relèvent la dette de l’ouvrage envers la trigonométrie sphérique arabe, en particulier Jābir ibn Aflaḥ, dont Cardan accusera plus tard Regiomontanus d’avoir repris des résultats sans le citer.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Resté manuscrit pendant près de soixante-dix ans, le traité est édité par Johannes Schöner et imprimé à Nuremberg chez Petreius en 1533.',
+            sources: ['katz-history', 'boyer-merzbach'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En faisant du calcul des triangles une discipline autonome, Regiomontanus prépare l’âge des grandes tables, de Rheticus (Canon doctrinae triangulorum, 1551) à Viète (Canon mathematicus, 1579), dont les multiplications démesurées motiveront l’invention des logarithmes.',
+            sources: ['naux-logarithmes', 'boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'epitome-de-l-almageste',
@@ -748,6 +925,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'methode',
         statement: 'Sur cette carte, les méridiens sont des droites parallèles équidistantes et les parallèles des droites horizontales dont l’écartement croît vers les pôles, de telle sorte que les routes à cap constant (loxodromies) deviennent des lignes droites.',
         comment: 'Mercator n’explique pas son calcul : la justification (un développement en série du logarithme de la tangente) n’est publiée qu’en 1599 par Wright, et la liaison avec les logarithmes est reconnue au XVIIᵉ siècle. La projection domine encore aujourd’hui la cartographie marine — et, par ses déformations, les débats sur la représentation du monde.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Sur les cartes marines usuelles du XVIᵉ siècle, où méridiens et parallèles forment un quadrillage régulier, une droite tracée entre deux ports ne correspond pas à une route à cap constant ; Nunes a montré en 1537 que cette route est une courbe, et Mercator l’a déjà dessinée sur son globe terrestre de 1541 avant de chercher une carte où elle devienne droite.',
+            sources: ['boyer-merzbach', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Wright calcule en 1599 la table des latitudes croissantes en sommant les sécantes de minute en minute ; au milieu du XVIIᵉ siècle, on remarque que ces valeurs coïncident avec les logarithmes des tangentes, ce que James Gregory (1668) puis Halley (1696) démontrent, dans l’un des premiers problèmes d’intégration.',
+            sources: ['mactutor', 'katz-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Parce qu’elle conserve les angles, la carte de Mercator est le premier grand exemple pratique de représentation conforme, notion dont Lambert (1772) puis Gauss (1822) feront la théorie.',
+            sources: ['kline-thought'],
+          },
+        ],
       },
     ],
     sources: ['andersen-geometry-of-an-art', 'field-invention-infinity', 'katz-history', 'boyer-merzbach', 'stedall-sourcebook'],
@@ -759,12 +955,13 @@ export const RENAISSANCE: Domain[] = [
   {
     id: 'geometrie-analytique',
     name: 'Géométrie analytique et projective du XVIIᵉ siècle',
+    mapName: 'Géométrie analytique et projective',
     altNames: ['Géométrie de Descartes et de Desargues'],
     era: 'renaissance',
     period: { start: 1636, end: 1685 },
     continents: ['formes'],
     places: ['Paris', 'Toulouse', 'Lyon', 'Leyde'],
-    map: { x: 2420, y: 1250, size: 3, palette: { fill: '#172126', stroke: '#92bdd3', accent: '#bddfef' } },
+    map: { x: 2420, y: 1250, size: 3, palette: { fill: '#d6e8f0', stroke: '#295d75', accent: '#2f8fbc' } },
     tagline: 'La courbe devient une équation, la section conique une propriété d’incidence : la géométrie change deux fois de langage.',
     summary:
       'Entre 1636 et 1640, la géométrie grecque est dépassée par deux voies presque simultanées. Fermat à Toulouse et Descartes aux Provinces-Unies associent à chaque courbe une équation en deux inconnues, héritiers de l’algèbre littérale de Viète : le problème de Pappus, laissé ouvert par les Anciens, devient une question sur les équations. À Paris et à Lyon, Desargues puis le jeune Pascal traitent les coniques par projection : ce qui se conserve par perspective fait théorème. La première voie l’emporte vite — l’édition latine de La Géométrie par van Schooten (1649) forme une génération — ; la seconde, trop nouvelle dans sa langue, s’éteint avec La Hire avant de renaître au XIXᵉ siècle.',
@@ -798,7 +995,7 @@ export const RENAISSANCE: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'L’échec relatif du langage de Desargues — deux exemplaires du Brouillon project nous sont parvenus — est lu par Field et Gray comme le prix d’une trop grande avance : sans algèbre ni institution pour le porter, le point de vue projectif attend Poncelet pour redevenir central.',
+        text: 'L’échec relatif du langage de Desargues — du Brouillon project ne nous sont parvenus qu’une copie manuscrite de La Hire et un seul original imprimé, retrouvé en 1951 — est lu par Field et Gray comme le prix d’une trop grande avance : sans algèbre ni institution pour le porter, le point de vue projectif attend Poncelet pour redevenir central.',
         sources: ['field-gray-desargues'],
       },
     ],
@@ -915,6 +1112,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'methode',
         statement: 'Au voisinage d’un maximum, une expression en A prend deux fois la même valeur : en égalant f(A) et f(A + E), en simplifiant puis en posant E = 0, on obtient la position du maximum ; la même idée donne les tangentes.',
         comment: 'Envoyée à Mersenne en 1636, discutée avec Descartes en 1638. En faisant disparaître E après division, Fermat pratique le raisonnement différentiel avant la lettre ; Lagrange y verra le vrai germe du calcul différentiel.',
+        context: [
+          {
+            kind: 'interpretation',
+            text: 'Michael Mahoney fait dériver la méthode de la théorie des équations de Viète : près d’un extremum, une équation a deux racines voisines qui se confondent à l’extremum, et la condition de leur coïncidence fournit sa position.',
+            sources: ['mahoney-fermat'],
+          },
+          {
+            kind: 'fait',
+            text: 'Transmis à Paris par Mersenne, le mémoire parvient à Descartes au début de 1638, quelques mois après la parution de La Géométrie, qui propose sa propre méthode des normales par cercles tangents : Descartes y voit une rivale et en conteste la généralité.',
+            sources: ['mahoney-fermat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Fermat étend la méthode aux tangentes de courbes nouvelles, comme la cycloïde, puis à l’optique : vers 1662, il retrouve la loi de la réfraction à partir du principe selon lequel la lumière suit le chemin de temps minimal.',
+            sources: ['mahoney-fermat'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La méthode est une étape vers le calcul différentiel sans en être un : elle ne dispose ni de la notion de limite ni d’un algorithme général, et la justification de la disparition de E reste le point faible que les critiques de l’infinitésimal reprocheront encore à Newton et à Leibniz.',
+            sources: ['edwards-calculus', 'mahoney-fermat'],
+          },
+        ],
       },
       {
         id: 'la-geometrie-descartes',
@@ -925,6 +1146,25 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'gan-courbes-et-equations',
         kind: 'texte',
         comment: 'Troisième essai du Discours de la méthode. Descartes y résout le problème de Pappus, que les Anciens n’avaient traité que pour trois ou quatre droites, définit les courbes « géométriques » par leurs équations et introduit les notations modernes (x, y, z ; a, b, c ; les exposants). C’est le livre qui apprend à l’Europe à calculer sur les figures.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Vers la fin de 1631, l’orientaliste Jacob Golius soumet à Descartes le problème de Pappus : trouver le lieu des points dont les distances à des droites données vérifient une relation de proportion, question que la Collection présente comme laissée inachevée par Euclide et Apollonius. Descartes la résout en quelques semaines, et la solution devient le noyau du livre.',
+            sources: ['bos-redefining'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Prolongeant la classification des courbes par le degré, Newton répartit les courbes du troisième degré en soixante-douze espèces dans l’Enumeratio linearum tertii ordinis, publiée en 1704.',
+            sources: ['whiteside-newton', 'stillwell-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Henk Bos, le critère cartésien d’exactitude est vite dépassé : Leibniz rebaptise « transcendantes » les courbes que Descartes rejetait comme mécaniques, et le calcul infinitésimal les traite comme les autres, effaçant la frontière que La Géométrie avait tracée.',
+            sources: ['bos-redefining'],
+          },
+        ],
       },
       {
         id: 'regle-des-signes-de-descartes',
@@ -947,6 +1187,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Par projection, toute conique est l’ombre d’un cercle ; les propriétés d’incidence (points alignés, droites concourantes) se transportent d’une figure à l’autre, et l’involution unifie sécants, tangentes et asymptotes.',
         comment: 'Une cinquantaine d’exemplaires, un vocabulaire botanique inimitable : l’ouvrage disparaît presque entièrement. Un manuscrit de La Hire retrouvé en 1845 et un original en 1951 ont permis d’en mesurer la portée : c’est le premier traité de géométrie projective.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Desargues vient de la géométrie des praticiens : avant le Brouillon project, il publie en 1636 une méthode universelle de perspective, et ses opuscules de 1640 portent sur la coupe des pierres et les cadrans solaires.',
+            sources: ['field-gray-desargues'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Son ambition est d’unifier ce que les Coniques d’Apollonius traitaient cas par cas : en regardant le cône comme un faisceau de droites issues d’un point, il rapproche la théorie des sections coniques de la perspective des peintres.',
+            sources: ['field-gray-desargues', 'andersen-geometry-of-an-art'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le jeune Pascal en adopte le point de vue dans l’Essai pour les coniques (1640), où il reconnaît sa dette envers Desargues ; La Hire en recopie le texte en 1679.',
+            sources: ['field-gray-desargues'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Au XIXᵉ siècle, Poncelet (Traité des propriétés projectives des figures, 1822) refonde la géométrie projective sans dépendre de Desargues ; c’est rétrospectivement, et largement grâce à Chasles, que celui-ci en est reconnu comme le fondateur.',
+            sources: ['field-gray-desargues', 'gray-worlds'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-desargues',
@@ -1007,10 +1271,10 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1635, end: 1700 },
     continents: ['analyse'],
     places: ['Bologne', 'Oxford', 'Cambridge', 'Paris', 'Hanovre', 'La Haye'],
-    map: { x: 2300, y: 2300, size: 3, palette: { fill: '#211726', stroke: '#c09ad6', accent: '#e1c5f1' } },
+    map: { x: 2300, y: 2300, size: 3, palette: { fill: '#dad2ee', stroke: '#3d2871', accent: '#552eb8' } },
     tagline: 'Sommer l’infiniment petit, développer en séries infinies, puis faire de la tangente et de l’aire deux opérations inverses.',
     summary:
-      'Entre les indivisibles de Cavalieri (1635) et la brachistochrone (1696), l’Europe transforme les problèmes de quadrature et de tangente en un calcul général. Wallis arithmétise l’infini, Gregory et Newton ajoutent les séries, Barrow aperçoit l’inverse relation entre tangente et aire. Dans les années de peste 1665-1666, Newton fonds fluxions et fluentes en une méthode unique qu’il garde presque secrète ; à Paris, de 1672 à 1676, Leibniz, initié par Huygens, construit un autre calcul, mieux noté, et le publie le premier (1684). Les Principia (1687) montrent la puissance de la méthode en mécanique céleste, tandis que la querelle de priorité, ouverte à la fin du siècle, divise durablement les écoles anglaise et continentale.',
+      'Entre les indivisibles de Cavalieri (1635) et la brachistochrone (1696), l’Europe transforme les problèmes de quadrature et de tangente en un calcul général. Wallis arithmétise l’infini, Gregory et Newton ajoutent les séries, Barrow aperçoit la relation inverse entre tangente et aire. Dans les années de peste 1665-1666, Newton fond fluxions et fluentes en une méthode unique qu’il garde presque secrète ; à Paris, de 1672 à 1676, Leibniz, initié par Huygens, construit un autre calcul, mieux noté, et le publie le premier (1684). Les Principia (1687) montrent la puissance de la méthode en mécanique céleste, tandis que la querelle de priorité, ouverte à la fin du siècle, divise durablement les écoles anglaise et continentale.',
     methods: [
       {
         kind: 'fait',
@@ -1125,7 +1389,7 @@ export const RENAISSANCE: Domain[] = [
         name: 'Isaac Barrow',
         years: [1630, 1677],
         origin: 'Cambridge',
-        bio: 'Premier titulaire de la chaire lucasienne, Barrow y expose des Lectiones geometricae (1670) où tangentes et quadratures apparaissent comme problèmes inverses, à travers le « triangle différentiel ». Il démissionne en 1669 en faveur de son élève Newton, dont il a reconnu et protégé les travaux.',
+        bio: 'Premier titulaire de la chaire lucasienne, Barrow y expose des Lectiones geometricae (1670) où tangentes et quadratures apparaissent comme problèmes inverses, à travers le « triangle différentiel ». Il démissionne en 1669 en faveur du jeune Newton, dont il a reconnu et protégé les travaux.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
       },
       {
@@ -1189,6 +1453,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout exposant réel m, (1 + x)^m se développe en une série infinie 1 + m x + m(m − 1)/2·x² + …, généralisant le triangle de Pascal à des coefficients non entiers.',
         comment: 'Trouvée en 1664-1665 par interpolation des aires de Wallis, communiquée à Leibniz en 1676 dans l’epistola prior. La série fait des racines et des puissances fractionnaires des objets calculables terme à terme : c’est la clé de voûte des méthodes infinitésimales de Newton.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans l’Arithmetica infinitorum (1656), Wallis calcule les aires sous (1 − x²)ⁿ pour n entier et cherche par interpolation la valeur pour n = 1/2, qui donnerait le quart de cercle. Newton, qui lit Wallis à Cambridge vers 1664-1665, reprend l’interpolation sur des aires à borne variable et en tire les coefficients pour un exposant fractionnaire.',
+            sources: ['edwards-calculus', 'whiteside-newton'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dans le De analysi (1669), Newton s’en sert pour développer en séries racines et quotients, puis pour calculer terme à terme aires et longueurs d’arcs ; il en tire notamment les séries de l’arc sinus et du sinus.',
+            sources: ['whiteside-newton', 'edwards-calculus'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Établie par induction et vérification numérique, la série reste sans démonstration générale pendant plus d’un siècle : l’étude de sa convergence par Abel (1826) en fait un modèle de la rigueur nouvelle de l’analyse.',
+            sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'de-analysi',
@@ -1234,6 +1517,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Pour des grandeurs u, v fonctions de x : d(uv) = u dv + v du, d(u/v) = (v du − u dv)/v², d(xⁿ) = n xⁿ⁻¹ dx ; le signe d est celui de la différence, ∫ celui de la somme.',
         comment: 'Article de six pages dans les Acta eruditorum, sans démonstrations : le calcul est publié comme un algorithme à apprendre. Les Bernoulli s’en emparent dès 1687 ; la notation de Leibniz, meilleure que les points de Newton, fera la fortune du calcul continental.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Leibniz a élaboré son calcul à Paris : ses manuscrits d’octobre-novembre 1675 introduisent le signe ∫, initiale de summa, puis la différence d. Il attend 1684 pour en publier les règles, dans les Acta eruditorum, revue savante fondée à Leipzig en 1682.',
+            sources: ['hofmann-leibniz'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Jacques et Jean Bernoulli maîtrisent la méthode en quelques années ; Jean l’enseigne en 1691-1692 au marquis de L’Hôpital, dont l’Analyse des infiniment petits (1696), premier manuel de calcul différentiel, fixe l’exposé pour un demi-siècle.',
+            sources: ['edwards-calculus', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’absence de fondement explicite laisse ouverte la question du statut des infiniment petits, débattue à l’Académie des sciences autour de Rolle vers 1700, puis par Berkeley (The Analyst, 1734) ; elle ne sera tranchée qu’au XIXᵉ siècle par la notion de limite.',
+            sources: ['edwards-calculus', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'principia-mathematica-newton',
@@ -1256,6 +1558,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'probleme',
         statement: 'Quelle courbe relie deux points de telle sorte qu’un point matériel pesant, lâché sans vitesse, aille du premier au second en un temps minimal ? La solution est un arc de cycloïde.',
         comment: 'Défi lancé dans les Acta eruditorum « aux géomètres les plus subtils » : Newton le résout en une nuit et publie anonymement. Le problème, traité par Leibniz, les deux Bernoulli et L’Hôpital, fait la publicité du calcul et ouvre la voie au calcul des variations d’Euler et Lagrange.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Galilée, dans les Discorsi (1638), avait montré qu’un corps descend plus vite le long d’un arc de cercle que le long de la corde, sans déterminer la courbe de descente la plus rapide. Jean Bernoulli pose la question dans les Acta eruditorum de juin 1696 et, faute de réponses, prolonge le délai et renouvelle le défi au début de 1697.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les historiens lisent ce défi public comme une épreuve de force pour le calcul leibnizien, lancée dans un climat de rivalité croissante entre les mathématiciens du continent et Newton.',
+            sources: ['hall-philosophers-at-war'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les solutions de Jean et Jacques Bernoulli, de Leibniz et, anonyme, de Newton paraissent en 1697. Jean ramène le problème à la réfraction de la lumière dans un milieu de densité variable ; Jacques fait varier la courbe point par point, méthode plus générale.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La méthode de Jacques, puis la querelle qu’il engage avec son frère sur les problèmes isopérimétriques, mènent à la Methodus inveniendi d’Euler (1744) et à la méthode des variations que Lagrange expose à Euler à partir de 1755.',
+            sources: ['kline-thought'],
+          },
+        ],
       },
     ],
     sources: ['edwards-calculus', 'whiteside-newton', 'guicciardini-newton', 'hofmann-leibniz', 'hall-philosophers-at-war', 'hairer-wanner-analysis'],
@@ -1267,12 +1593,13 @@ export const RENAISSANCE: Domain[] = [
   {
     id: 'logarithmes-et-calcul-numerique',
     name: 'Logarithmes, décimales et machines à calculer',
+    mapName: 'Logarithmes et machines à calculer',
     altNames: ['Art du calcul au XVIIᵉ siècle'],
     era: 'renaissance',
     period: { start: 1585, end: 1680 },
     continents: ['hasard', 'nombres'],
     places: ['Bruges', 'Édimbourg', 'Londres', 'Tübingen', 'Rouen'],
-    map: { x: 2000, y: 3050, size: 2, palette: { fill: '#261b17', stroke: '#d19e8f', accent: '#efc5b9' } },
+    map: { x: 2000, y: 3050, size: 2, palette: { fill: '#f0ddd6', stroke: '#753d29', accent: '#bc542f' } },
     tagline: 'Remplacer la multiplication par l’addition, le comptoir par la machine : le calcul devient une industrie.',
     summary:
       'Entre le De Thiende de Stevin (1585), qui apprend aux marchands les fractions décimales, et la machine de Leibniz (1673), une révolution discrète transforme la pratique du calcul. Las des prodigieuses multiplications de la trigonométrie astronomique, Napier puis, indépendamment, Bürgi construisent des correspondances entre progressions géométriques et arithmétiques : les logarithmes, que Briggs convertit en base dix. Oughtred en glisse les échelles l’une contre l’autre (la règle à calcul) ; Schickard, Pascal et Leibniz mécanisent l’addition et la multiplication. En 1627, les Tables rudolphines de Kepler montrent ce que l’astronomie doit désormais au logarithme.',
@@ -1306,7 +1633,7 @@ export const RENAISSANCE: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'La machine à calculer appartient à l’économie des administrations et des confesseurs d’impôts : Pascal, fils d’un intendant fiscal de Rouen, et Leibniz, conseiller à Hanovre, y voient un soulagement du « travail d’esclave » du calcul plutôt qu’un objet théorique.',
+        text: 'La machine à calculer appartient à l’économie des administrations et des collecteurs d’impôts : Pascal, fils d’un intendant fiscal de Rouen, et Leibniz, conseiller à Hanovre, y voient un soulagement du « travail d’esclave » du calcul plutôt qu’un objet théorique.',
         sources: ['goldstine-computer'],
       },
     ],
@@ -1331,7 +1658,7 @@ export const RENAISSANCE: Domain[] = [
       { year: 1623, text: 'Schickard écrit à Kepler qu’il a construit une « horloge à calcul ».' },
       { year: 1627, text: 'Kepler publie à Ulm les Tables rudolphines.' },
       { year: 1642, text: 'Pascal construit sa première machine arithmétique, la Pascaline.' },
-      { year: 1673, text: 'Leibniz présente à l’Académie des sciences et à la Royal Society sa machine à cylindre cannelé.' },
+      { year: 1673, text: 'Leibniz présente à la Royal Society sa machine à cylindre cannelé.' },
     ],
     theories: [
       {
@@ -1427,6 +1754,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Toute fraction peut s’écrire comme une suite de chiffres après l’unité, chaque rang valant le dixième du précédent : 27,847 se note 27⓪8①4②7③, et l’on additionne ou multiplie ces nombres « comme des entiers ».',
         comment: 'Petit livre de trente pages, aussitôt traduit en français (La Disme) et en anglais. Stevin complète l’œuvre d’al-Kāshī et rend le calcul décimal disponible à tous : les tables de logarithmes, les monnaies et, deux siècles plus tard, le système métrique en sont des conséquences directes.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Stevin écrit pour les praticiens : le livre s’adresse aux astrologues, arpenteurs, mesureurs de tapisserie, jaugeurs, maîtres des monnaies et marchands. Il avait publié auparavant, en 1582, des tables d’intérêts (Tafelen van Interest) destinées au même public.',
+            sources: ['stedall-sourcebook', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les fractions décimales ne sont pas nouvelles — al-Kāshī les emploie en 1427 et les tables trigonométriques prennent un rayon de 10ⁿ pour s’en passer —, mais Stevin est le premier en Europe à en faire un système général d’écriture et de calcul.',
+            sources: ['katz-history', 'berggren-islam'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La notation à chiffres cerclés ne survit pas : dès les années 1610, Pitiscus et Napier séparent la partie entière des décimales par un point, usage que les tables de logarithmes généralisent.',
+            sources: ['boyer-merzbach', 'naux-logarithmes'],
+          },
+        ],
       },
       {
         id: 'mirifici-logarithmorum-canonis-descriptio',
@@ -1438,6 +1784,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'À chaque sinus est associé un « logarithme » tel qu’au produit de deux sinus corresponde la somme de leurs logarithmes : les multiplications et divisions de la trigonométrie deviennent des additions.',
         comment: 'L’effet est immédiat : Kepler, Cavalieri, les astronomes de toute l’Europe adoptent l’outil. La construction cinématique de Napier prépare, par les remarques de Grégoire de Saint-Vincent sur l’hyperbole (1647), le lien du logarithme avec l’aire, puis sa définition par Euler comme fonction.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Avant les logarithmes, les astronomes réduisent déjà les multiplications à des additions par la prosthaphérèse, qui s’appuie sur des formules trigonométriques comme cos a · cos b = [cos(a − b) + cos(a + b)]/2 ; la méthode est en usage vers 1580 dans l’entourage de Tycho Brahe.',
+            sources: ['naux-logarithmes', 'boyer-merzbach'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Une tradition rapporte que Napier en aurait eu connaissance par le médecin écossais John Craig, de retour du Danemark ; le récit est invérifiable, mais il situe bien l’invention dans la même quête d’un raccourci du calcul.',
+            sources: ['boyer-merzbach'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La Descriptio est traduite en anglais par Edward Wright (1616) ; la Constructio, qui explique comment les tables ont été calculées, paraît à titre posthume en 1619 par les soins de Robert Napier, le fils de l’auteur.',
+            sources: ['naux-logarithmes', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les logarithmes deviennent pour trois siècles et demi l’instrument central du calcul scientifique, des tables astronomiques et nautiques à la règle à calcul, jusqu’à leur remplacement par les calculatrices électroniques dans les années 1970.',
+            sources: ['naux-logarithmes', 'boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'logarithmes-decimaux',
@@ -1506,7 +1876,31 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'lcn-machines-et-instruments',
         kind: 'methode',
         statement: 'Une machine à roues et cadrans additionne et soustrait les livres, sols et deniers : un sautoir à gravité assure la retenue, y compris pour les monnaies non décimales.',
-        comment: 'Construite pour soulager les calculs fiscaux de son père, intendant à Rouen, la Pascaline est produite à une cinquantaine d’exemplaires ; Pascal la présente en 1645 au public et la dédie au chancelier Séguier en 1649. Elle inaugure la lignée des machines arithmétiques de bureau.',
+        comment: 'Construite pour soulager les calculs fiscaux de son père, intendant à Rouen, la Pascaline est produite à une cinquantaine d’exemplaires ; Pascal la présente en 1645 au public en la dédiant au chancelier Séguier, et obtient en 1649 un privilège royal. Elle inaugure la lignée des machines arithmétiques de bureau.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Étienne Pascal est envoyé à Rouen à la fin de 1639 comme commissaire du roi pour l’assiette et la levée des impôts en Normandie ; selon le récit de Gilberte Périer, c’est pour lui épargner les additions sans fin de cette charge que son frère conçoit la machine.',
+            sources: ['goldstine-computer', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pascal ignore vraisemblablement la machine de Schickard, connue seulement par des lettres à Kepler : les deux inventions sont tenues pour indépendantes.',
+            sources: ['goldstine-computer'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Leibniz, qui connaît la machine de Pascal, veut mécaniser aussi la multiplication : c’est l’origine de sa machine à cylindre cannelé, présentée à Londres en 1673.',
+            sources: ['goldstine-computer'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Fragile et coûteuse, la Pascaline a peu d’usage pratique ; son importance tient à la démonstration qu’une opération de l’esprit peut être confiée à un mécanisme, thème que Pascal médite lui-même dans les Pensées.',
+            sources: ['goldstine-computer', 'davis-universal'],
+          },
+        ],
       },
       {
         id: 'machine-arithmetique-de-leibniz',
@@ -1518,7 +1912,7 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'lcn-machines-et-instruments',
         kind: 'methode',
         statement: 'Un cylindre à neuf dents de longueurs croissantes (« cylindre cannelé ») engage un nombre réglable de dents d’une roue mobile : en répétant l’addition, la machine multiplie et divise directement.',
-        comment: 'Présentée en 1673 à l’Académie royale des sciences et à la Royal Society. Le principe du cylindre cannelé équipera les machines à calculer jusqu’au XXᵉ siècle, de Thomas de Colmar aux calculateurs de bureau.',
+        comment: 'Présentée à la Royal Society en 1673, puis à Paris vers 1675. Le principe du cylindre cannelé équipera les machines à calculer jusqu’au XXᵉ siècle, de Thomas de Colmar aux calculateurs de bureau.',
       },
     ],
     sources: ['naux-logarithmes', 'goldstine-computer', 'edwards-calculus', 'katz-history', 'boyer-merzbach', 'stedall-sourcebook'],
@@ -1535,7 +1929,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1654, end: 1713 },
     continents: ['hasard'],
     places: ['Paris', 'La Haye', 'Londres', 'Bâle'],
-    map: { x: 2450, y: 3400, size: 2, palette: { fill: '#261f17', stroke: '#cba680', accent: '#ebc9a8' } },
+    map: { x: 2450, y: 3400, size: 2, palette: { fill: '#e9cdc3', stroke: '#623322', accent: '#a74b2a' } },
     tagline: 'En une correspondance de 1654, le hasard entre en géométrie ; en 1713, Bernoulli montre qu’il a ses lois.',
     summary:
       'Le 1654 de Pascal et Fermat fait d’un problème de salon — comment partager l’enjeu d’une partie interrompue ? — une mathématique nouvelle : compter les chances au lieu d’invoquer la fortune. Huygens en tire le premier traité et le concept d’espérance (1657) ; à Londres, Graunt puis Halley lisent dans les registres de mortalité des régularités qui fondent l’arithmétique politique et l’assurance. À Bâle, Jacques Bernoulli rassemble vingt ans de réflexion dans l’Ars conjectandi (posthume, 1713) : permutations et combinaisons, espérance morale, et le « théorème d’or » qui affirme que la fréquence approche la probabilité. Le hasard a désormais ses théorèmes.',
@@ -1623,7 +2017,7 @@ export const RENAISSANCE: Domain[] = [
         name: 'Blaise Pascal',
         years: [1623, 1662],
         origin: 'Clermont et Paris',
-        bio: 'Enfant prodigue formé par son père dans le cercle de Mersenne, Pascal publie à seize ans l’Essai pour les coniques, construit la Pascaline, mène les expériences du vide et fonde avec Fermat le calcul des chances (1654). Après sa « nuit de feu », il se détourne des mathématiques, dont il fait un dernier usage éclatant dans le défi de la roulette (cycloïde, 1658).',
+        bio: 'Enfant prodige formé par son père dans le cercle de Mersenne, Pascal publie à seize ans l’Essai pour les coniques, construit la Pascaline, mène les expériences du vide et fonde avec Fermat le calcul des chances (1654). Après sa « nuit de feu », il se détourne des mathématiques, dont il fait un dernier usage éclatant dans le défi de la roulette (cycloïde, 1658).',
         theoryId: 'np-geometrie-du-hasard',
       },
       {
@@ -1671,6 +2065,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Une partie en plusieurs coups étant interrompue, comment partager équitablement l’enjeu ? Fermat énumère les issues possibles des coups restants ; Pascal raisonne sur l’espérance de chaque joueur et la lit dans le triangle arithmétique.',
         comment: 'Juillet-octobre 1654, six lettres conservées. Les deux méthodes coïncident et fondent ensemble la notion de valeur d’une chance : la date est conventionnellement tenue pour celle de la naissance du calcul des probabilités.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème des partis circule depuis plus d’un siècle et demi dans les traités d’arithmétique : Pacioli (1494), puis Cardan et Tartaglia, proposent des partages proportionnels aux parties déjà gagnées ou restant à jouer, sans s’accorder entre eux.',
+            sources: ['hald-history-1750'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Huygens, informé à Paris en 1655 des résultats mais non des méthodes, les reconstruit et publie en 1657 le De ratiociniis in ludo aleae ; les lettres elles-mêmes ne sont imprimées, en partie, qu’en 1679, dans les Varia opera de Fermat.',
+            sources: ['hald-history-1750'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’échange impose pour longtemps le modèle des cas également possibles, emprunté aux jeux de dés ; Ian Hacking souligne que l’autre face du probable, la mesure des degrés de croyance, ne s’affirme qu’ensuite, avec la Logique de Port-Royal (1662) et Jacques Bernoulli.',
+            sources: ['hacking-emergence'],
+          },
+        ],
       },
       {
         id: 'traite-du-triangle-arithmetique',
@@ -1693,6 +2106,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'La valeur d’une espérance de gain est ce qu’un joueur doit équitablement payer pour y avoir droit : quatorze propositions et cinq problèmes construisent le calcul des chances sur cette définition.',
         comment: 'Publié en appendice de l’Exercitationes mathematicae de van Schooten, c’est le premier traité imprimé de probabilités ; pendant cinquante ans, il est le manuel de la discipline, que Jacques Bernoulli commente ligne à ligne dans l’Ars conjectandi.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Lors de son séjour parisien de 1655, Huygens apprend que Pascal, Fermat et d’autres ont traité de problèmes de jeux, sans rencontrer ni Pascal ni Fermat. Il rédige à son retour un petit traité en néerlandais, que van Schooten traduit en latin.',
+            sources: ['hald-history-1750'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les cinq problèmes que Huygens laisse au lecteur, dont celui de la ruine des joueurs, venu de Pascal par l’intermédiaire de Carcavi, occupent Jacques Bernoulli, Montmort et de Moivre pendant un demi-siècle.',
+            sources: ['hald-history-1750'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En prenant pour notion première la valeur équitable d’une chance et non la probabilité elle-même, Huygens donne au calcul la forme d’une théorie de l’équité, que Lorraine Daston retrouve au cœur de la probabilité classique jusqu’à la fin du XVIIIᵉ siècle.',
+            sources: ['daston-classical', 'hacking-emergence'],
+          },
+        ],
       },
       {
         id: 'observations-de-graunt',
@@ -1759,6 +2191,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une épreuve réussit avec une probabilité fixe p, alors, en répétant indéfiniment l’épreuve, la fréquence observée des succès s’approche de p, et l’on peut rendre aussi probable qu’on veut qu’elle s’en écarte de moins d’une marge donnée.',
         comment: 'Premier théorème limite de l’histoire des probabilités : il justifie mathématiquement l’inférence de la fréquence à la probabilité. Poisson lui donnera le nom de « loi des grands nombres » ; Tchebychev puis les modernes en feront un pilier de la discipline.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans la quatrième partie de l’Ars conjectandi, Bernoulli veut étendre le calcul des chances aux affaires civiles, morales et économiques, où les cas également possibles ne peuvent être dénombrés : il propose de déterminer a posteriori, par l’observation répétée, ce qu’on ne peut connaître a priori, et dit avoir médité ce problème pendant vingt ans.',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La borne de Bernoulli est très grossière : dans son exemple numérique, il lui faut plus de 25 000 épreuves pour garantir une précision modeste. De Moivre l’améliore radicalement en 1733 en approchant la loi binomiale par la courbe en cloche.',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Stephen Stigler, le théorème répond au problème direct — de la probabilité connue à la fréquence attendue — et non au problème inverse que Bernoulli voulait résoudre ; celui-ci attendra Bayes (1763) et Laplace (1774).',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
     ],
     sources: ['hald-history-1750', 'hacking-emergence', 'daston-classical', 'ore-cardano', 'stigler-statistics', 'boyer-merzbach'],
@@ -1770,12 +2221,13 @@ export const RENAISSANCE: Domain[] = [
   {
     id: 'methode-et-caracteristique',
     name: 'Méthode, logique et langue universelle',
+    mapName: 'Méthode et langue universelle',
     altNames: ['Art de penser au Grand Siècle', 'De la méthode à la caractéristique'],
     era: 'renaissance',
     period: { start: 1555, end: 1700 },
     continents: ['fondements'],
     places: ['Paris', 'Port-Royal', 'Londres', 'Hanovre'],
-    map: { x: 2250, y: 4150, size: 1, palette: { fill: '#17261b', stroke: '#8fd1a2', accent: '#b9efc8' } },
+    map: { x: 2250, y: 4150, size: 1, palette: { fill: '#ddf3e3', stroke: '#2c7d43', accent: '#31c45b' } },
     tagline: 'Ramener toute science à une méthode, puis toute pensée à un calcul : le rêve leibnizien de la caractéristique.',
     summary:
       'De Ramus à Leibniz, le XVIIᵉ siècle repense la logique comme un art d’inventer et non comme un art de disputer. Ramus simplifie la dialectique scolastique en une méthode unique ; Descartes propose des règles pour conduire l’esprit et fait de la géométrie son modèle ; Hobbes rêve le raisonnement comme un calcul ; Pascal fixe les règles de la définition parfaite ; la Logique de Port-Royal (1662) enseigne l’art de penser à toute l’Europe. Leibniz rassemble ces fils en un projet immense : une écriture universelle, la characteristica, où penser serait calculer, et dont les Essais de Wilkins pour une langue philosophique (1668) sont la face encyclopédique.',
@@ -1905,6 +2357,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Tout art se ramène à une seule méthode : définir le sujet, le diviser en parties, et ranger les préceptes du plus général au plus particulier ; invention, jugement et mémoire suffisent à toute la logique.',
         comment: 'Premier grand livre de logique en français. La « méthode unique » de Ramus transforme l’enseignement dans les universités protestantes et popularise les tableaux dichotomiques, ancêtres des arbres de classification savante.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1543, les Aristotelicae animadversiones et les Dialecticae institutiones de Ramus attaquent l’Aristote enseigné à l’université de Paris ; condamné en 1544, Ramus se voit interdire par décret royal d’enseigner la philosophie, interdiction levée en 1547 à l’avènement d’Henri II.',
+            sources: ['ong-ramus'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Ramus étend sa méthode à tout le cursus, y compris aux mathématiques : ses Scholae mathematicae (1569) plaident pour leur utilité et critiquent l’ordre d’Euclide, et il fonde par testament une chaire de mathématiques au Collège royal.',
+            sources: ['ong-ramus', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Walter Ong, la méthode ramiste spatialise le savoir : disposé en tableaux à embrasser d’un coup d’œil, il accompagne le passage d’une culture du dialogue et de la disputation à une culture de l’imprimé et de la page.',
+            sources: ['ong-ramus'],
+          },
+        ],
       },
       {
         id: 'regulae-ad-directionem-ingenii',
@@ -1953,6 +2424,30 @@ export const RENAISSANCE: Domain[] = [
         kind: 'texte',
         statement: 'Concevoir, juger, raisonner, ordonner : quatre parties pour l’art de penser, avec la distinction de la compréhension et de l’étendue d’une idée et une critique des sophismes du langage.',
         comment: 'Best-seller européen de la logique jusqu’au XIXᵉ siècle. En intégrant Pascal et Descartes à la tradition logique, il fait passer dans la culture générale l’idée que la clarté mathématique est le modèle de toute pensée.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Selon le premier discours de l’ouvrage, la Logique naît d’une gageure : enseigner en quelques jours l’essentiel de la logique à un jeune seigneur, traditionnellement identifié au duc de Chevreuse ; les notes rédigées pour lui, revues par Arnauld et Nicole, deviennent le livre.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'La partie consacrée à la méthode reprend les règles de la définition et de la démonstration d’un écrit de Pascal alors inédit, De l’esprit géométrique, dont la Logique assure ainsi la première diffusion.',
+            sources: ['sep'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Ses derniers chapitres, sur le jugement des événements futurs, pèsent la crainte d’un mal selon sa gravité et sa probabilité ; pour Ian Hacking, c’est l’un des premiers textes où la probabilité est traitée comme une grandeur mesurable.',
+            sources: ['hacking-emergence'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La distinction entre compréhension et étendue, reprise au XIXᵉ siècle sous les noms d’intension et d’extension, devient un lieu commun de la logique et de la sémantique modernes.',
+            sources: ['sep'],
+          },
+        ],
       },
       {
         id: 'dissertatio-de-arte-combinatoria',
@@ -1985,7 +2480,7 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'mc-caracteristique-universelle',
         kind: 'texte',
         statement: 'Une classification de toutes les notions en genres, différences et espèces, chaque mot se construisant par la place de la chose dans la table : à la langue correspond une écriture de caractères lisibles dans toutes les langues.',
-        comment: 'Le projet le plus complet de langue philosophique du siècle, commandité par la Royal Society. Borges l’a rendu célèbre par sa pastiche ; Leibniz, qui l’a étudié, en retient la leçon inverse : la caractéristique doit porter le calcul, non la classification.',
+        comment: 'Le projet le plus complet de langue philosophique du siècle, commandité par la Royal Society. Borges l’a rendu célèbre par un essai ; Leibniz, qui l’a étudié, en retient la leçon inverse : la caractéristique doit porter le calcul, non la classification.',
       },
       {
         id: 'characteristica-universalis',
@@ -1998,6 +2493,25 @@ export const RENAISSANCE: Domain[] = [
         kind: 'concept',
         statement: 'Assigner à chaque notion un caractère (par exemple un nombre), de sorte que la composition des idées corresponde à une opération sur les caractères : alors vérifier un raisonnement, c’est calculer, et toute dispute se résoudra par « calculemus ».',
         comment: 'Jamais achevé, le programme traverse toute l’œuvre de Leibniz (notamment les fragments de 1679 sur la caractéristique numérique). Boole, Frege et la logique symbolique réaliseront une partie du rêve ; Gödel en mesurera les limites.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Leibniz part de l’art combinatoire de Raymond Lulle et des projets de langue universelle de son temps, comme l’Ars signorum de Dalgarno (1661) et l’Essay de Wilkins (1668) ; dès la Dissertatio de arte combinatoria (1666), il envisage un « alphabet des pensées humaines ».',
+            sources: ['rossi-clavis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les fragments logiques de Leibniz restent pour l’essentiel inédits jusqu’au début du XXᵉ siècle : Louis Couturat les étudie dans La Logique de Leibniz (1901) et en publie une large part dans les Opuscules et fragments inédits (1903).',
+            sources: ['sep', 'davis-universal'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Martin Davis, le rêve leibnizien d’un calcul de la raison est le fil qui conduit de Boole et Frege à Turing : la machine universelle de 1936 en réalise une part, tandis que les résultats d’indécidabilité en fixent les bornes.',
+            sources: ['davis-universal'],
+          },
+        ],
       },
     ],
     sources: ['ong-ramus', 'rossi-clavis', 'sep', 'boyer-merzbach', 'davis-universal'],

@@ -8,9 +8,11 @@ import type { AtlasLayout, TerritoryLayout } from './layout';
 import { Graticule } from './Graticule';
 import { Territory } from './Territory';
 import { LinkLayer } from './LinkLayer';
+import { RiverLayer } from './RiverLayer';
 import { MathematicianLinkLayer } from './MathematicianLinkLayer';
 import type { MapController, Bounds, ViewportInset } from './controller';
 import type { Filters, Selection, VisionId } from '../state/store';
+import type { Chain } from './upstream';
 import { domainOf } from './bounds';
 import { LEVEL_K, levelFor, publishView } from './viewStore';
 
@@ -19,14 +21,26 @@ export { LEVEL_K, levelFor };
 /** zooms absolus visés par les boutons de niveau (le niveau 0 = ajustement) */
 const LEVEL_TARGET_K = [0, 0.6, 1.36, 2.4];
 
+/** Vue d'ensemble : la carte centrée dans la bande libre entre les insets haut et bas. */
+function fitTransform(svgEl: SVGSVGElement, k: number, inset: { top: number; bottom: number }): d3.ZoomTransform {
+  const w = svgEl.clientWidth;
+  const h = svgEl.clientHeight;
+  const free = Math.max(50, h - inset.top - inset.bottom);
+  return d3.zoomIdentity.translate(w / 2 - (k * MAP_SIZE.width) / 2, inset.top + free / 2 - (k * MAP_SIZE.height) / 2).scale(k);
+}
+
 interface Props {
   layout: AtlasLayout;
   filters: Filters;
   dimmedIds: Set<string>;
   selection: Selection | null;
   relatedIds: Set<string>;
+  /** bassin amont / aval direct du domaine de la sélection */
+  chain: Chain | null;
   vision: VisionId;
   naturesKind: ResultKind | null;
+  /** bandes d'écran occupées par l'interface (barre du haut, frise du bas) : la vue d'ensemble s'ajuste entre elles */
+  fitInset: { top: number; bottom: number };
   onSelect: (sel: Selection | null, fly: boolean) => void;
   onLinkClick: (link: Link, pos: { x: number; y: number }) => void;
   controllerRef: MutableRefObject<MapController | null>;
@@ -34,7 +48,22 @@ interface Props {
   onReady: (controller: MapController) => void;
 }
 
-export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, vision, naturesKind, onSelect, onLinkClick, controllerRef, onLevelChange, onReady }: Props) {
+export function MapCanvas({
+  layout,
+  filters,
+  dimmedIds,
+  selection,
+  relatedIds,
+  chain,
+  vision,
+  naturesKind,
+  fitInset,
+  onSelect,
+  onLinkClick,
+  controllerRef,
+  onLevelChange,
+  onReady,
+}: Props) {
   const { t } = useLang();
   const { domainById } = useData();
   const svgRef = useRef<SVGSVGElement>(null);
@@ -42,6 +71,9 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
   const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const kFitRef = useRef(1);
   const levelRef = useRef(0);
+  const insetRef = useRef(fitInset);
+  insetRef.current = fitInset;
+  const refitRef = useRef<() => void>(() => {});
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const onHover = useCallback((id: string | null) => setHoveredId(id), []);
 
@@ -54,7 +86,7 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
 
     const computeFit = () => {
       const w = svgEl.clientWidth || 1;
-      const h = svgEl.clientHeight || 1;
+      const h = Math.max(50, (svgEl.clientHeight || 1) - insetRef.current.top - insetRef.current.bottom);
       return Math.min(w / MAP_SIZE.width, h / MAP_SIZE.height);
     };
 
@@ -85,14 +117,9 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
 
     const fit = () => {
       kFitRef.current = computeFit();
-      const w = svgEl.clientWidth;
-      const h = svgEl.clientHeight;
       const k = kFitRef.current;
       zoom.scaleExtent([0.5 * k, 30 * k]);
-      const t = d3.zoomIdentity
-        .translate(w / 2 - (k * MAP_SIZE.width) / 2, h / 2 - (k * MAP_SIZE.height) / 2)
-        .scale(k);
-      return t;
+      return fitTransform(svgEl, k, insetRef.current);
     };
 
     const t0 = fit();
@@ -107,9 +134,14 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
         .call(zoom.transform, t0);
     }
 
-    const ro = new ResizeObserver(() => {
+    const refit = () => {
       kFitRef.current = computeFit();
       zoom.scaleExtent([0.5 * kFitRef.current, 30 * kFitRef.current]);
+    };
+    refitRef.current = refit;
+
+    const ro = new ResizeObserver(() => {
+      refit();
       const t = d3.zoomTransform(svgEl);
       setLevel(t.k);
       publish(t);
@@ -129,6 +161,11 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // la frise (ou la barre du haut) change de hauteur : nouvel ajustement de référence
+  useEffect(() => {
+    refitRef.current();
+  }, [fitInset.top, fitInset.bottom]);
 
   // ——— contrôleur exposé ———
   useEffect(() => {
@@ -169,11 +206,15 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
       },
       reset(duration = 800) {
         const zoom = zoomRef.current!;
-        const w = svgEl.clientWidth;
-        const h = svgEl.clientHeight;
-        const k = kFitRef.current;
-        const t = d3.zoomIdentity.translate(w / 2 - (k * MAP_SIZE.width) / 2, h / 2 - (k * MAP_SIZE.height) / 2).scale(k);
+        const t = fitTransform(svgEl, kFitRef.current, insetRef.current);
         d3.select(svgEl).transition().duration(duration).ease(d3.easeCubicInOut).call(zoom.transform, t);
+      },
+      panToX(x: number, duration = 450) {
+        const zoom = zoomRef.current!;
+        const cur = d3.zoomTransform(svgEl);
+        const t = d3.zoomIdentity.translate(svgEl.clientWidth / 2 - cur.k * x, cur.y).scale(cur.k);
+        if (duration <= 0) d3.select(svgEl).interrupt().call(zoom.transform, t);
+        else d3.select(svgEl).transition().duration(duration).ease(d3.easeCubicOut).call(zoom.transform, t);
       },
       getLevel: () => levelRef.current,
     };
@@ -202,38 +243,26 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
   return (
     <svg ref={svgRef} className="atlas-map" data-level="0" role="application" aria-label={t('map.aria')}>
       <defs>
-        <filter id="paper-grain" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="14" />
+        {/* bord du lavis : léger déplacement par bruit (desktop seulement) */}
+        <filter id="wash-edge" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="3" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="12" />
         </filter>
         <filter id="halo-blur" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="9" />
+          <feGaussianBlur stdDeviation="10" />
         </filter>
-        {/* dessin tremblé léger des liserés de craie */}
-        <filter id="chalk-edge" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="7" />
-        </filter>
-        {/* hachures de craie : une orientation par continent */}
-        <pattern id="hatch-nombres" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
-        </pattern>
-        <pattern id="hatch-formes" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
-        </pattern>
-        <pattern id="hatch-analyse" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
-          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
-        </pattern>
-        <pattern id="hatch-hasard" width="26" height="26" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
-        </pattern>
-        <pattern id="hatch-fondements" width="26" height="26" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.08)" strokeWidth="2" strokeLinecap="round" />
-          <line x1="0" y1="0" x2="26" y2="0" stroke="rgba(237,238,230,0.08)" strokeWidth="2" strokeLinecap="round" />
-        </pattern>
+        {/* la « mer » du présent, où se jettent les fleuves */}
+        {/* ellipse inscrite dans le rectangle de la mer (cx ± r ⊂ [0, 1]) : aucun bord visible */}
+        <radialGradient id="sea-wash" cx="0.45" cy="0.5" r="0.45">
+          <stop offset="0" stopColor="#a9c8dc" stopOpacity={0.55} />
+          <stop offset="0.45" stopColor="#a9c8dc" stopOpacity={0.34} />
+          <stop offset="0.8" stopColor="#a9c8dc" stopOpacity={0.1} />
+          <stop offset="1" stopColor="#a9c8dc" stopOpacity={0} />
+        </radialGradient>
       </defs>
       <g ref={worldRef} className={worldClass}>
         <Graticule />
+        <RiverLayer layout={layout} vision={vision} hasSelection={selection !== null} />
         <LinkLayer
           layout={layout}
           filters={filters}
@@ -241,6 +270,7 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
           dimmedIds={dimmedIds}
           selectedDomainId={selectedDomainId}
           hoveredDomainId={hoveredId}
+          chain={chain}
           onLinkClick={onLinkClick}
         />
         <MathematicianLinkLayer
@@ -257,10 +287,12 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, v
               key={t.id}
               domain={m}
               layout={t}
-              selected={selection?.id === t.id}
+              selected={selectedDomainId === t.id}
               selectedChildId={selectedChildId}
               dimmed={dimmedIds.has(t.id)}
               related={relatedIds.has(t.id)}
+              chainGen={chain?.upstream.get(t.id) ?? 0}
+              downstream={chain?.downstream.has(t.id) ?? false}
               vision={vision}
               naturesKind={naturesKind}
               onSelect={handleSelect}

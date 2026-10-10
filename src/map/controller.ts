@@ -22,6 +22,8 @@ export interface MapController {
   zoomToLevel: (level: number, duration?: number) => void;
   /** Retour à la vue d'ensemble. */
   reset: (duration?: number) => void;
+  /** Centre horizontalement la vue sur l'abscisse carte `x`, sans changer le zoom (frise du temps). */
+  panToX: (x: number, duration?: number) => void;
   getLevel: () => number;
 }
 

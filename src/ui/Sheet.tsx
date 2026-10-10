@@ -47,7 +47,7 @@ export function Sheet({ children, onClose }: { children: ReactNode; onClose: () 
         }}
         aria-label={t('sheet.handle')}
       >
-        <div className="w-10 h-1.5 rounded-full bg-white/30" />
+        <div className="w-10 h-1.5 rounded-full bg-ink/25" />
       </div>
       <div className="flex-1 overflow-auto panel-scroll">{children}</div>
     </div>

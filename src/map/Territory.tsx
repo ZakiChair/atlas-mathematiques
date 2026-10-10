@@ -6,43 +6,9 @@ import { levelFor, useViewTransform } from './viewStore';
 import { useLang } from '../i18n/lang';
 import { formatLifespan, formatPeriod, formatYear } from '../lib/years';
 import type { VisionId } from '../state/store';
-import { KIND_CHALK, dominantKind, domainHasKind } from './visionPalettes';
-
-const MAX_LINE = 15;
-const MAX_LINES = 3;
-
-/** Coupe un texte en lignes ≤ maxLine caractères (aux espaces), maxLines max. */
-export function wrapWords(text: string, maxLine: number, maxLines: number): string[] {
-  const words = text.split(' ');
-  const lines: string[] = [];
-  let cur = '';
-  for (const w of words) {
-    const next = cur ? `${cur} ${w}` : w;
-    if (next.length <= maxLine) {
-      cur = next;
-    } else {
-      if (cur) lines.push(cur);
-      cur = w;
-    }
-  }
-  if (cur) lines.push(cur);
-  if (lines.length > maxLines) {
-    const head = lines.slice(0, maxLines - 1);
-    head.push(lines.slice(maxLines - 1).join(' '));
-    return head;
-  }
-  return lines;
-}
-
-/** Coupe le nom en lignes ≤ ~15 caractères (aux espaces), 3 lignes max. */
-export function wrapName(name: string): string[] {
-  return wrapWords(name.toUpperCase(), MAX_LINE, MAX_LINES);
-}
-
-/** Nom court d'une théorie pour la carte : la partie avant « : » (le détail reste dans le panneau). */
-export function shortTheoryName(name: string): string {
-  return name.split(' : ')[0].replace(/\s*\([^)]*\)\s*$/, '').trim();
-}
+import { KIND_INK, dominantKind, domainHasKind } from './visionPalettes';
+import { DOWNSTREAM_INK, UPSTREAM_INK } from './fieldColors';
+import { mapLabel, shortTheoryName, wrapName, wrapWords } from './labels';
 
 interface Props {
   domain: Domain;
@@ -51,25 +17,46 @@ interface Props {
   selectedChildId?: string;
   dimmed: boolean;
   related: boolean;
+  /** génération dans le bassin amont du domaine choisi (0 : hors bassin) */
+  chainGen: number;
+  /** alimenté directement par le domaine choisi */
+  downstream: boolean;
   vision: VisionId;
   naturesKind: ResultKind | null;
   onSelect: (kind: 'domain' | 'theory' | 'mathematician' | 'result', id: string, territory: TerritoryLayout) => void;
   onHover?: (id: string | null) => void;
 }
 
-export const Territory = memo(function Territory({ domain, layout, selected, selectedChildId, dimmed, related, vision, naturesKind, onSelect, onHover }: Props) {
+export const Territory = memo(function Territory({
+  domain,
+  layout,
+  selected,
+  selectedChildId,
+  dimmed,
+  related,
+  chainGen,
+  downstream,
+  vision,
+  naturesKind,
+  onSelect,
+  onHover,
+}: Props) {
   const { lang } = useLang();
   const { x, y, r } = layout;
-  // vision « natures » : la couleur du territoire vient de la nature dominante de
-  // ses résultats — ou de la nature filtrée quand une pastille est active (le
-  // territoire la possédant se teinte alors de cette nature).
+  // vision « natures » : la couleur du lac vient de la nature dominante de ses
+  // résultats — ou de la nature filtrée quand une pastille est active (le lac
+  // la possédant prend alors l'encre de cette nature).
   const kindKey =
     naturesKind !== null && domainHasKind(domain, naturesKind) ? naturesKind : dominantKind(domain.results);
-  const kindPalette = vision === 'natures' ? KIND_CHALK[kindKey] : null;
+  const kindPalette = vision === 'natures' ? KIND_INK[kindKey] : null;
   const palette = domain.map.palette;
   const stroke = kindPalette?.stroke ?? palette.stroke;
-  const accent = kindPalette?.accent ?? palette.accent;
+  const accent = kindPalette?.stroke ?? palette.accent;
+  const wash = kindPalette?.wash ?? palette.fill;
   const veiled = vision === 'natures' && naturesKind !== null && !domainHasKind(domain, naturesKind);
+  // ligne d'eau intérieure : même contour (même graine), rayon réduit
+  const waterline = useMemo(() => organicPath(x, y, r - 18, domain.id), [x, y, r, domain.id]);
+  const rimId = `rim-${domain.id}`;
 
   // Re-rendu à chaque frame de zoom/pan (léger : tests booléens seulement) pour
   // ne monter dans le DOM que les enfants du niveau courant ET visibles à
@@ -90,21 +77,25 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
   const mathById = useMemo(() => new Map(domain.mathematicians.map((f) => [f.id, f])), [domain]);
   const resultById = useMemo(() => new Map(domain.results.map((f) => [f.id, f])), [domain]);
 
-  const cls = `territory${selected ? ' selected' : ''}${dimmed ? ' dimmed' : ''}${related ? ' related' : ''}${veiled ? ' veil' : ''}`;
+  const cls = `territory${selected ? ' selected' : ''}${dimmed ? ' dimmed' : ''}${related ? ' related' : ''}${veiled ? ' veil' : ''}${
+    chainGen > 0 ? ' chain-up' : ''
+  }${downstream ? ' chain-down' : ''}`;
 
   // nom : lignes + taille en unités carte pour tenir dans ≈1.55 r
-  // (Kalam est plus large qu'un serif : facteur 0.7 par caractère)
-  const lines = wrapName(domain.name);
+  // (capitales espacées de Cormorant : facteur 0.74 par caractère). En vue
+  // d'ensemble, le CSS impose un plancher de lisibilité à l'écran : le nom peut
+  // alors déborder du lac, jusqu'à 2.5 r (--fs-max).
+  const lines = wrapName(mapLabel(domain));
   const longest = Math.max(...lines.map((l) => l.length), 1);
-  const fs = Math.min(0.19 * r, (1.55 * r) / (longest * 0.7));
-  // interligne en em : suit la taille effective (réduite par CSS aux niveaux ≥ 1)
-  const lineH = fs * 1.05;
-  const nameTop = y - ((lines.length - 1) * lineH) / 2 - (lines.length > 0 ? fs * 0.1 : 0);
+  const fs = Math.min(0.2 * r, (1.55 * r) / (longest * 0.74));
+  const fsMax = (2.5 * r) / (longest * 0.74);
 
   const vars = {
     '--fs': String(fs),
+    '--fs-max': String(fsMax),
     '--r': String(r),
     '--accent': accent,
+    '--label': stroke,
   } as CSSProperties;
 
   return (
@@ -112,6 +103,7 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
       className={cls}
       data-testid="territory"
       data-id={domain.id}
+      data-gen={chainGen > 0 ? Math.min(chainGen, 4) : undefined}
       style={vars}
       tabIndex={0}
       role="button"
@@ -133,55 +125,59 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
         onSelect('domain', domain.id, layout);
       }}
     >
+      {/* pigment accumulé au bord du lavis (dégradé radial propre au lac) */}
+      <defs>
+        <radialGradient id={rimId}>
+          <stop offset="0.55" stopColor={accent} stopOpacity={0} />
+          <stop offset="0.86" stopColor={accent} stopOpacity={0.1} />
+          <stop offset="1" stopColor={accent} stopOpacity={0.34} />
+        </radialGradient>
+      </defs>
       {/* halo de sélection — flou coûteux : réservé au desktop ; sur mobile,
           monté seulement à la sélection et sans flou */}
       {(selected || !LITE) && (
         <path
           className="halo"
-          d={layout.path}
+          d={layout.isoPath}
           fill="none"
           stroke={accent}
-          strokeWidth={8}
-          strokeOpacity={0.55}
+          strokeWidth={14}
+          strokeOpacity={0.4}
           strokeLinecap="round"
           filter={LITE ? undefined : 'url(#halo-blur)'}
         />
       )}
-      {/* aplat ardoise + grain (feTurbulence : desktop seulement) */}
-      <path
-        className="fill"
-        d={layout.path}
-        fill={kindPalette ? kindPalette.stroke : palette.fill}
-        fillOpacity={kindPalette ? 0.12 : 0.8}
-        filter={LITE ? undefined : 'url(#paper-grain)'}
-      />
-      {/* hachures de craie, orientation par continent */}
-      <path className="hatch" d={layout.path} fill={`url(#hatch-${domain.continents[0]})`} />
-      {/* liseré de craie (dessin tremblé léger sur desktop) */}
-      <path
-        className="edge"
-        d={layout.path}
-        fill="none"
-        stroke={stroke}
-        strokeWidth={selected ? 3.4 : 1.8}
-        strokeOpacity={0.9}
-        strokeLinecap="round"
-        filter={LITE ? undefined : 'url(#chalk-edge)'}
-      />
-      {/* isoligne pointillée (même forme, r + 18) */}
-      <path d={layout.isoPath} fill="none" stroke={stroke} strokeWidth={1} strokeOpacity={0.4} strokeDasharray="5 7" strokeLinecap="round" />
+      {/* lavis du lac : bord irrégulier (feTurbulence, desktop seulement) */}
+      <path className="fill" d={layout.path} fill={wash} fillOpacity={0.86} filter={LITE ? undefined : 'url(#wash-edge)'} />
+      <path className="rim" d={layout.path} fill={`url(#${rimId})`} />
+      <path className="waterline" d={waterline} stroke={stroke} />
+      {/* rive à l'encre */}
+      <path className="edge" d={layout.path} stroke={stroke} strokeWidth={selected ? 2.6 : 1.3} strokeOpacity={0.85} />
+      {/* bassin amont (bleu de Prusse) ou aval direct (sépia) du domaine choisi */}
+      {(chainGen > 0 || downstream) && (
+        <path
+          className="chain-ring"
+          d={layout.isoPath}
+          stroke={chainGen > 0 ? UPSTREAM_INK : DOWNSTREAM_INK}
+          strokeWidth={chainGen === 1 || downstream ? 2.2 : 1.5}
+          strokeDasharray={chainGen > 1 ? '6 5' : undefined}
+          strokeOpacity={0.9}
+        />
+      )}
       <title>{domain.name}</title>
 
+      {/* bloc entièrement en em : il suit la taille calculée par le CSS (plancher
+          écran en vue d'ensemble, plafonds aux niveaux suivants) */}
       <g className="territory-labels">
-        <text className="territory-name" x={x} y={nameTop} textAnchor="middle">
+        <text className="territory-name" x={x} y={y} textAnchor="middle">
           {lines.map((l, i) => (
-            <tspan key={i} x={x} dy={i === 0 ? 0 : '1.05em'}>
+            <tspan key={i} x={x} dy={i === 0 ? `${-(lines.length - 1) * 0.525 - 0.1}em` : '1.05em'}>
               {l}
             </tspan>
           ))}
-        </text>
-        <text className="territory-period" x={x} y={nameTop + lines.length * lineH - fs * 0.1}>
-          {formatPeriod(domain.period, lang)}
+          <tspan className="territory-period" x={x} dy="1.3em">
+            {formatPeriod(domain.period, lang)}
+          </tspan>
         </text>
       </g>
 
@@ -234,17 +230,17 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
             if (!f) return null;
             const isSel = selectedChildId === f.id;
             return (
-              <g key={c.id}>
+              <g key={c.id} className={isSel ? 'child-selected' : undefined}>
+                {isSel && <circle className="child-ring" cx={c.x} cy={c.y} stroke={UPSTREAM_INK} />}
                 <circle
                   className="marker-mathematician"
                   cx={c.x}
                   cy={c.y}
-                  fill={isSel ? accent : '#edeee6'}
-                  fillOpacity={isSel ? 1 : 0.85}
-                  stroke={isSel ? '#fff' : stroke}
+                  fill={isSel ? '#26231d' : '#fbf8f1'}
+                  stroke={isSel ? '#fbf8f1' : stroke}
                   style={{ r: isSel ? 'calc(7px / var(--k))' : 'calc(5px / var(--k))' }}
                 />
-                <text className="child-label mathematician-label" x={c.x} y={c.y} fill="#edeee6" dy={c.vside === 'below' ? '1.7em' : '-0.9em'}>
+                <text className="child-label mathematician-label" x={c.x} y={c.y} dy={c.vside === 'below' ? '1.7em' : '-0.9em'}>
                   {f.name}
                 </text>
                 <circle
@@ -279,20 +275,21 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
             const s = 14;
             const d = `M ${c.x} ${c.y - s} L ${c.x + s} ${c.y} L ${c.x} ${c.y + s} L ${c.x - s} ${c.y} Z`;
             return (
-              <g key={c.id}>
+              <g key={c.id} className={isSel ? 'child-selected' : undefined}>
+                {isSel && <circle className="child-ring" cx={c.x} cy={c.y} stroke={UPSTREAM_INK} />}
                 <path
                   className={`result-diamond${kindVeil ? ' result-veil' : ''}`}
                   d={d}
-                  fill={kindPalette ? KIND_CHALK[f.kind].stroke : isSel ? accent : '#edeee6'}
-                  fillOpacity={0.9}
-                  stroke={stroke}
+                  fill={kindPalette ? KIND_INK[f.kind].stroke : isSel ? '#26231d' : '#fbf8f1'}
+                  stroke={isSel && !kindPalette ? '#fbf8f1' : stroke}
                   style={{ transform: 'scale(calc(0.55 / var(--k)))', transformBox: 'fill-box', transformOrigin: 'center' }}
                 />
                 <text
                   className="child-label result-label"
                   x={c.x}
                   y={c.y}
-                  textAnchor={c.anchor ?? 'middle'}
+                  // style en ligne : l'attribut textAnchor serait écrasé par .child-label
+                  style={{ textAnchor: c.anchor ?? 'middle' }}
                   dx={c.anchor === 'start' ? '0.9em' : c.anchor === 'end' ? '-0.9em' : 0}
                   dy={c.anchor && c.anchor !== 'middle' ? '0.35em' : '1.6em'}
                 >

@@ -22,16 +22,16 @@ export function KindBadge({ kind, className }: { kind: ResultKind; className?: s
 export function ResultCard({ result, onClick }: { result: Result; onClick: () => void }) {
   const { lang } = useLang();
   return (
-    <button className="w-full text-left glass p-2.5 hover:border-white/30 transition flex gap-3" onClick={onClick}>
+    <button className="w-full text-left glass p-2.5 hover:border-ink/30 transition flex gap-3" onClick={onClick}>
       <div className="min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <KindBadge kind={result.kind} />
-          <span className="text-xs text-[#9ba39c]">{formatYear(result.year, lang, result.yearApprox)}</span>
+          <span className="text-xs text-muted">{formatYear(result.year, lang, result.yearApprox)}</span>
         </div>
         <div className="text-sm font-medium leading-snug mt-1">{result.title}</div>
-        {result.altTitle && <div className="text-xs italic text-[#9ba39c] truncate">{result.altTitle}</div>}
-        <div className="text-xs text-[#9ba39c]">{result.authorName}</div>
-        <p className="text-xs text-[#d6d8cc] mt-1">{result.comment}</p>
+        {result.altTitle && <div className="text-xs italic text-muted truncate">{result.altTitle}</div>}
+        <div className="text-xs text-muted">{result.authorName}</div>
+        <p className="text-xs text-soft mt-1">{result.comment}</p>
       </div>
     </button>
   );

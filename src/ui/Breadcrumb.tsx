@@ -43,12 +43,12 @@ export function Breadcrumb({ selection, onNavigate }: Props) {
   items.push(...trail);
 
   return (
-    <nav aria-label={t('panel.breadcrumb')} className="text-xs text-[#9ba39c] mb-3 flex flex-wrap items-center">
+    <nav aria-label={t('panel.breadcrumb')} className="text-xs text-muted mb-3 flex flex-wrap items-center">
       {items.map((it, i) => (
         <span key={i} className="flex items-center">
           {i > 0 && <span className="mx-1.5 opacity-60">›</span>}
           <button
-            className={i === items.length - 1 ? 'text-[#edeee6] font-medium' : 'hover:text-[#e8c76a]'}
+            className={i === items.length - 1 ? 'text-ink font-medium' : 'hover:text-accent'}
             onClick={() => onNavigate(it.sel)}
           >
             {it.label}

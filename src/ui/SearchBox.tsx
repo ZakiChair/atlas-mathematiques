@@ -48,7 +48,7 @@ export function SearchBox({ onPick, autoFocus }: Props) {
   return (
     <div className="relative w-full max-w-md" role="search">
       <div className="glass flex items-center gap-2 px-3 py-2">
-        <Search size={16} className="text-[#9ba39c] shrink-0" />
+        <Search size={16} className="text-muted shrink-0" />
         <input
           ref={inputRef}
           autoFocus={autoFocus}
@@ -77,7 +77,7 @@ export function SearchBox({ onPick, autoFocus }: Props) {
           role="combobox"
           aria-expanded={open && results.length > 0}
           aria-controls="search-results"
-          className="bg-transparent outline-none w-full text-sm placeholder:text-[#9ba39c]/70"
+          className="bg-transparent outline-none w-full text-sm placeholder:text-muted/70"
         />
       </div>
       {open && results.length > 0 && (
@@ -87,7 +87,7 @@ export function SearchBox({ onPick, autoFocus }: Props) {
             if (!group.length) return null;
             return (
               <div key={kind} className="mb-2 last:mb-0">
-                <div className="text-[0.65rem] uppercase tracking-widest text-[#9ba39c] px-2 pt-1">{t(KIND_I18N[kind])}</div>
+                <div className="text-[0.65rem] uppercase tracking-widest text-muted px-2 pt-1">{t(KIND_I18N[kind])}</div>
                 {group.map((r) => {
                   const idx = flat.indexOf(r);
                   return (
@@ -95,12 +95,12 @@ export function SearchBox({ onPick, autoFocus }: Props) {
                       key={`${r.node.kind}:${r.node.id}`}
                       role="option"
                       aria-selected={idx === cursor}
-                      className={`w-full text-left px-2 py-1.5 rounded-lg text-sm flex justify-between gap-2 ${idx === cursor ? 'bg-white/10' : 'hover:bg-white/5'}`}
+                      className={`w-full text-left px-2 py-1.5 rounded-lg text-sm flex justify-between gap-2 ${idx === cursor ? 'bg-ink/8' : 'hover:bg-ink/5'}`}
                       onMouseEnter={() => setCursor(idx)}
                       onClick={() => pick(r.node)}
                     >
                       <span className="truncate">{r.node.label}</span>
-                      <span className="text-xs text-[#9ba39c] shrink-0">{r.node.sublabel}</span>
+                      <span className="text-xs text-muted shrink-0">{r.node.sublabel}</span>
                     </button>
                   );
                 })}

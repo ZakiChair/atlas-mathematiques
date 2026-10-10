@@ -1,16 +1,17 @@
 import type { Domain, Result, ResultKind } from '../data/types';
 
 /**
- * Vision « natures de résultats » : chaque territoire prend la couleur de la
- * nature dominante de ses résultats (teintes craie, fond ardoise).
+ * Vision « natures de résultats » : chaque lac prend l'encre de la nature
+ * dominante de ses résultats (mêmes teintes que les pastilles `.badge-kind-*`).
+ * `wash` : lavis clair du lac ; `stroke` : encre du contour et des libellés.
  */
-export const KIND_CHALK: Record<ResultKind, { stroke: string; accent: string }> = {
-  theoreme: { stroke: '#e8c76a', accent: '#f4e0a4' },
-  conjecture: { stroke: '#c9a0ff', accent: '#e2ccff' },
-  concept: { stroke: '#9fc8e0', accent: '#cde6f4' },
-  methode: { stroke: '#9ed1a2', accent: '#cfe8d2' },
-  texte: { stroke: '#e8b08a', accent: '#f4d4ba' },
-  probleme: { stroke: '#ff8f80', accent: '#ffc0b6' },
+export const KIND_INK: Record<ResultKind, { stroke: string; wash: string }> = {
+  theoreme: { stroke: '#1f4e79', wash: '#d3e1ee' },
+  conjecture: { stroke: '#6b4c9a', wash: '#e2d9ef' },
+  concept: { stroke: '#2a7383', wash: '#d2e8ea' },
+  methode: { stroke: '#3f7a3a', wash: '#dceada' },
+  texte: { stroke: '#8a5a1c', wash: '#f0e2cc' },
+  probleme: { stroke: '#b23a22', wash: '#f4d9d0' },
 };
 
 /** Nature dominante des résultats du domaine (à égalité : la première atteinte). */

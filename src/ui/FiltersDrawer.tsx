@@ -21,7 +21,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
     <aside className="glass fixed top-20 right-4 w-80 max-h-[calc(100%-7rem)] overflow-auto panel-scroll p-4 z-40" aria-label={t('filters.title')}>
       <div className="flex items-center justify-between mb-3">
         <h2 className="section-title-sm">{t('filters.title')}</h2>
-        <button aria-label={t('filters.close')} className="p-1 hover:bg-white/10 rounded" onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
+        <button aria-label={t('filters.close')} className="p-1 hover:bg-ink/8 rounded" onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
           <X size={16} />
         </button>
       </div>
@@ -31,7 +31,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
           {t('filters.period', { start: formatYear(start, lang), end: formatYear(end, lang) })}
         </h3>
         <div className="flex flex-col gap-1" data-testid="period-filter">
-          <label className="text-xs text-[#9ba39c] flex justify-between">
+          <label className="text-xs text-muted flex justify-between">
             {t('filters.start')}
             <input
               type="range"
@@ -43,10 +43,10 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
                 const v = Math.min(Number(e.target.value), end);
                 dispatch({ type: 'set-period', period: [v, end] });
               }}
-              className="w-40 accent-[#e8c76a]"
+              className="w-40 accent-[#1f4e79]"
             />
           </label>
-          <label className="text-xs text-[#9ba39c] flex justify-between">
+          <label className="text-xs text-muted flex justify-between">
             {t('filters.end')}
             <input
               type="range"
@@ -58,7 +58,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
                 const v = Math.max(Number(e.target.value), start);
                 dispatch({ type: 'set-period', period: [start, v] });
               }}
-              className="w-40 accent-[#e8c76a]"
+              className="w-40 accent-[#1f4e79]"
             />
           </label>
         </div>
@@ -107,11 +107,11 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
             type="checkbox"
             checked={filters.transversalOnly}
             onChange={() => dispatch({ type: 'toggle-transversal-only' })}
-            className="accent-[#e8c76a]"
+            className="accent-[#1f4e79]"
             data-testid="transversal-only"
           />
           {t('filters.transversal')}
-          <span className="text-xs text-[#9ba39c]">{t('filters.transversalHint')}</span>
+          <span className="text-xs text-muted">{t('filters.transversalHint')}</span>
         </label>
       </section>
 
@@ -121,15 +121,15 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
             type="checkbox"
             checked={filters.factsOnly}
             onChange={() => dispatch({ type: 'toggle-facts-only' })}
-            className="accent-[#9ed1a2]"
+            className="accent-[#2e6b46]"
             data-testid="facts-only"
           />
           {t('filters.factsOnly')}
         </label>
       </section>
 
-      <div className="flex items-center justify-between border-t border-white/10 pt-3">
-        <span className="text-xs text-[#9ba39c]">{t('filters.visible', { n: visibleCount, s: visibleCount > 1 ? 's' : '' })}</span>
+      <div className="flex items-center justify-between border-t border-ink/10 pt-3">
+        <span className="text-xs text-muted">{t('filters.visible', { n: visibleCount, s: visibleCount > 1 ? 's' : '' })}</span>
         <button className="chip" onClick={() => dispatch({ type: 'reset-filters' })}>
           <RotateCcw size={12} /> {t('filters.reset')}
         </button>

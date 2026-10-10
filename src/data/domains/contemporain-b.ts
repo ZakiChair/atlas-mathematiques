@@ -64,12 +64,13 @@ export const CONTEMPORAIN_B: Domain[] = [
   {
     id: 'combinatoire',
     name: 'Combinatoire, graphes et méthode probabiliste',
+    mapName: 'Combinatoire et graphes',
     altNames: ['Mathématiques discrètes', 'École hongroise de combinatoire'],
     era: 'contemporain',
     period: { start: 1947, end: null },
     continents: ['hasard', 'nombres'],
     places: ['Budapest', 'Toronto', 'Waterloo', 'Urbana', 'Princeton', 'Cambridge', 'MIT'],
-    map: { x: 6250, y: 3000, size: 2, palette: { fill: '#261c17', stroke: '#ca967d', accent: '#eabba4' } },
+    map: { x: 6250, y: 3000, size: 2, palette: { fill: '#eaccc7', stroke: '#662d24', accent: '#ab3c2b' } },
     tagline: 'Compter sans énumérer, prouver l’existence en tirant au sort, colorier une carte avec douze cents heures de machine.',
     summary:
       'Longtemps tenue pour un recueil de récréations, la combinatoire devient après 1945 une discipline à part entière, portée par l’école hongroise autour de Paul Erdős et par les besoins nouveaux de l’informatique. Trois gestes la caractérisent : la méthode probabiliste, qui établit l’existence d’un objet en montrant qu’un objet tiré au hasard convient presque toujours ; la théorie des graphes structurelle, de Tutte aux mineurs de Robertson et Seymour ; et la combinatoire énumérative et additive, qui, de Rota à Szemerédi et Gowers, relie les dénombrements à l’algèbre et à l’analyse. La démonstration du théorème des quatre couleurs par ordinateur (1976) en fait aussi le lieu d’un débat sur ce qu’est une preuve.',
@@ -195,7 +196,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Wolfgang Haken',
         years: [1928, 2022],
         origin: 'Urbana',
-        bio: 'Topologue formé à Kiel, Haken introduit en 1961 les surfaces normales et les variétés qui portent son nom, et donne un algorithme reconnaissant le nœud trivial. Installé à l’Université de l’Illinois à Urbana-Champaign en 1965, il conçoit avec Kenneth Appel la stratégie de déchargement qui conduit à la démonstration du théorème des quatre couleurs (1976).',
+        bio: 'Topologue formé à Kiel, Haken développe en 1961 la théorie des surfaces normales introduites par Kneser (1929), définit les variétés qui portent son nom et donne un algorithme reconnaissant le nœud trivial. Installé à l’Université de l’Illinois à Urbana-Champaign en 1965, il conçoit avec Kenneth Appel la stratégie de déchargement qui conduit à la démonstration du théorème des quatre couleurs (1976).',
         theoryId: 'comb-theorie-des-graphes',
       },
       {
@@ -260,6 +261,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe des graphes à 2^(k/2) sommets sans clique ni ensemble indépendant de taille k : en coloriant au hasard les arêtes du graphe complet, la probabilité qu’une coloration contienne un sous-graphe monochrome de taille k est strictement inférieure à 1.',
         comment: 'Note de trois pages au Bulletin de l’AMS. La preuve ne construit aucun graphe : elle montre qu’un graphe aléatoire convient presque toujours. Aucune construction explicite ne fait aujourd’hui mieux qu’un gain polynomial sur cette borne. La méthode devient, avec Alon et Spencer, un chapitre entier des mathématiques discrètes.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le théorème de Ramsey (1930), né d’un article de logique, garantit qu’un graphe assez grand contient une clique ou un ensemble indépendant de taille k ; Erdős et Szekeres (1935) majorent le nombre de Ramsey correspondant par environ 4^k. Restait à savoir si une croissance exponentielle était réellement nécessaire, ce qu’aucune construction explicite ne parvenait à établir.',
+            sources: ['graham-rothschild-spencer-ramsey', 'alon-spencer-probabilistic'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’argument donne une minoration en √2^k dont la base exponentielle n’a jamais été améliorée depuis. Le même style de preuve fournit à Erdős l’existence de graphes de grande maille et de grand nombre chromatique (1959), avant d’être systématisé par le lemme local (1975) et par le traité d’Alon et Spencer (1992).',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La méthode change le statut de l’existence en combinatoire : prouver qu’un objet existe sans savoir le construire devient une pratique ordinaire, et rendre ces preuves constructives — la « dérandomisation » — devient à son tour un programme de l’informatique théorique.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-tutte',
@@ -318,6 +338,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout ensemble d’entiers naturels de densité supérieure strictement positive contient des progressions arithmétiques de toute longueur finie.',
         comment: 'Conjecturé par Erdős et Turán en 1936, démontré par Roth pour la longueur 3 (1953) et par Szemerédi pour la longueur 4 (1969) avant le cas général, qui lui vaut la récompense de mille dollars promise par Erdős. Furstenberg en donne une preuve ergodique (1977), Gowers une preuve analytique (2001) ; Green et Tao l’étendent aux nombres premiers (2004).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le théorème de van der Waerden (1927) assure que, si l’on colorie les entiers avec un nombre fini de couleurs, l’une d’elles contient des progressions arithmétiques de toute longueur. Erdős et Turán (1936) demandent si la seule densité suffit : la question passe d’un énoncé de coloriage à un énoncé quantitatif, que la méthode de Fourier de Roth (1953) ne règle que pour la longueur 3.',
+            sources: ['graham-rothschild-spencer-ramsey', 'gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La preuve ergodique de Furstenberg (1977) fonde la théorie ergodique de Ramsey : Furstenberg et Katznelson en tirent dès 1978 une version multidimensionnelle, qui reste longtemps sans démonstration combinatoire, jusqu’aux méthodes de régularité des hypergraphes des années 2000.',
+            sources: ['graham-rothschild-spencer-ramsey', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La coexistence de preuves combinatoire, ergodique et analytique d’un même énoncé a conduit les spécialistes à y chercher un principe commun, formulé comme une dichotomie entre structure et aléa ; cette lecture organise la combinatoire additive du XXIᵉ siècle.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'lemme-de-regularite',
@@ -343,6 +382,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute carte plane peut être coloriée avec quatre couleurs de sorte que deux régions ayant une frontière commune reçoivent des couleurs différentes.',
         comment: 'Conjecturé par Francis Guthrie en 1852, « démontré » à tort par Kempe en 1879, le théorème est établi en juin 1976 à Urbana à l’aide d’un ensemble inévitable de configurations réductibles vérifié par ordinateur, avec l’aide de John Koch. La preuve, publiée en 1977, déclenche une controverse sur la nature de la démonstration mathématique ; elle est simplifiée par Robertson, Sanders, Seymour et Thomas (1997) et formalisée intégralement en Coq par Gonthier (2005).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’erreur de Kempe est relevée par Percy Heawood en 1890, qui sauve de son argument le théorème des cinq couleurs ; les chaînes de Kempe et la notion de configuration réductible, systématisée par George Birkhoff (1913), deviennent les outils de toutes les tentatives ultérieures.',
+            sources: ['wilson-four-colors'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans les années 1960, Heinrich Heesch introduit la méthode du « déchargement » pour construire un ensemble inévitable de configurations et juge le problème accessible au calcul ; Haken reprend cette stratégie au début des années 1970, quand la puissance des ordinateurs la rend exécutable.',
+            sources: ['wilson-four-colors'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Des erreurs mineures relevées après 1977 dans la partie vérifiée à la main sont corrigées par Appel et Haken dans la monographie Every Planar Map is Four Colorable (1989).',
+            sources: ['wilson-four-colors'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le théorème inaugure l’ère des démonstrations assistées par ordinateur : il sert de précédent lors de la preuve de la conjecture de Kepler (1998) et de banc d’essai pour la formalisation intégrale, si bien que l’histoire de la preuve mécanisée s’écrit depuis à partir de lui.',
+            sources: ['wilson-four-colors', 'mackenzie-mechanizing'],
+          },
+        ],
       },
       {
         id: 'nombre-theta-de-lovasz',
@@ -417,7 +480,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['hasard'],
     places: ['Princeton', 'Stanford', 'Ithaca', 'Paris', 'Rehovot', 'Genève', 'Warwick'],
-    map: { x: 6950, y: 3250, size: 2, palette: { fill: '#261c17', stroke: '#d4aa96', accent: '#f0d0c1' } },
+    map: { x: 6950, y: 3250, size: 2, palette: { fill: '#eed6d2', stroke: '#713028', accent: '#b83e2e' } },
     tagline: 'Des matrices nucléaires aux données massives : le hasard devient géométrie, la statistique devient calcul.',
     summary:
       'Après l’axiomatisation de Kolmogorov, les probabilités se déplacent vers l’étude des phénomènes critiques : matrices aléatoires (la loi du demi-cercle de Wigner, la distribution de Tracy–Widom), percolation et marches aléatoires (Kesten), inégalités de concentration (Talagrand), puis courbes aléatoires conformément invariantes (SLE de Schramm, travaux de Werner et Smirnov) et équations aux dérivées partielles stochastiques singulières (Hairer). La statistique connaît parallèlement une révolution computationnelle : l’analyse exploratoire de Tukey, le bootstrap d’Efron, le Lasso de Tibshirani et l’acquisition comprimée de Donoho, Candès et Tao font du calcul intensif une méthode d’inférence.',
@@ -441,7 +504,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     context: [
       {
         kind: 'fait',
-        text: 'La physique nucléaire des années 1950 motive la théorie des matrices aléatoires : pour décrire les niveaux d’énergie des noyaux lourds, Wigner propose de remplacer le hamiltonien par une matrice aléatoire ; l’institut de Mehta (Saclay), les écoles de Princeton et de Brandeis développent le sujet.',
+        text: 'La physique nucléaire des années 1950 motive la théorie des matrices aléatoires : pour décrire les niveaux d’énergie des noyaux lourds, Wigner propose de remplacer le hamiltonien par une matrice aléatoire ; Mehta à Saclay et les écoles de Princeton et de Brandeis développent le sujet.',
         sources: ['mehta-random-matrices', 'mactutor'],
       },
       {
@@ -468,7 +531,7 @@ export const CONTEMPORAIN_B: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'Les conjectures issues de la physique statistique (invariance conforme, universelle des exposants critiques) ont longtemps précédé les démonstrations ; Schramm, Werner et Smirnov ont montré qu’elles pouvaient devenir des théorèmes, ce que certains physiciens, au vu des méthodes utilisées, considèrent comme une victoire des mathématiciens sur des questions posées par la physique.',
+        text: 'Les conjectures issues de la physique statistique (invariance conforme, universalité des exposants critiques) ont longtemps précédé les démonstrations ; Schramm, Werner et Smirnov ont montré qu’elles pouvaient devenir des théorèmes, ce que certains physiciens, au vu des méthodes utilisées, considèrent comme une victoire des mathématiciens sur des questions posées par la physique.',
         sources: ['lawler-conformally-invariant', 'grimmett-percolation'],
       },
     ],
@@ -488,7 +551,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Matrices aléatoires et grandes déviations',
         period: { start: 1955, end: null },
         summary: 'Lois spectrales des grandes matrices aléatoires, fluctuations universelles (Tracy–Widom), concentration de la mesure (Talagrand) et liens avec les zéros de la fonction ζ, conjecturés après la rencontre de Dyson et Montgomery en 1972.',
-        traits: ['Loi du demi-cercle', 'Distribution de Tracy–Widom', 'Inégalités de concentration', 'Universelle des fluctuations'],
+        traits: ['Loi du demi-cercle', 'Distribution de Tracy–Widom', 'Inégalités de concentration', 'Universalité des fluctuations'],
       },
       {
         id: 'psc-modeles-critiques',
@@ -608,6 +671,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Les valeurs propres d’une grande matrice symétrique à coefficients aléatoires indépendants, convenablement normalisées, se répartissent selon une densité en forme de demi-cercle, quelle que soit la loi des coefficients.',
         comment: 'Première « loi universelle » de la théorie des matrices aléatoires, née des calculs de Wigner sur les noyaux lourds. L’hypothèse de symétrie des matrices est ensuite relâchée (loi du cercle de Girko), et la correspondance entre ces lois et les zéros de la fonction ζ, pressentie par Montgomery et Dyson (1972), relie le sujet à la théorie des nombres.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Des matrices à coefficients aléatoires existaient déjà en statistique multivariée (loi de Wishart, 1928), mais Wigner les aborde par la physique : les niveaux d’énergie des noyaux lourds, révélés par les résonances de neutrons lents, sont trop nombreux et trop serrés pour être calculés un à un, et il propose d’en prédire seulement les propriétés statistiques.',
+            sources: ['mehta-random-matrices'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Mehta et Gaudin (1960), puis Dyson (1962), passent de la densité globale aux écarts entre valeurs propres voisines et classent les ensembles de matrices selon leurs symétries (orthogonal, unitaire, symplectique) ; ce sont ces lois locales, plus fines que le demi-cercle, que Montgomery retrouve dans les zéros de ζ.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le demi-cercle joue pour les spectres le rôle que la loi normale joue pour les sommes de variables indépendantes : il inaugure la recherche de lois limites « universelles », insensibles aux détails du modèle, qui fait l’unité de la théorie des matrices aléatoires.',
+            sources: ['mehta-random-matrices', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'algorithme-de-metropolis-hastings',
@@ -642,6 +724,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'methode',
         statement: 'Pour estimer la loi d’une statistique calculée sur un échantillon, on retire au hasard, avec remise, des échantillons de même taille dans les données elles-mêmes, et l’on observe la dispersion de la statistique sur ces rééchantillons.',
         comment: 'L’idée, impensable sans ordinateur, démocratise l’estimation des erreurs standard et des intervalles de confiance. Sa justification théorique (Bickel et Freedman, 1981 ; Gine et Zinn, 1990) et ses limites en sont connues ; le bootstrap est aujourd’hui un réflexe standard de la pratique statistique.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le jackknife de Quenouille (1949), que Tukey étend en 1958 à l’estimation des variances, évaluait déjà la précision d’une statistique en la recalculant sur des sous-échantillons. Efron, dans sa conférence Rietz de 1977, publiée en 1979, cherche à comprendre pourquoi cette recette fonctionne et en propose une version plus générale.',
+            sources: ['efron-tibshirani-bootstrap'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Efron développe ensuite les intervalles de confiance bootstrap ; Leo Breiman en tire le bagging (1996) puis les forêts aléatoires (2001), qui agrègent des prédicteurs ajustés sur des rééchantillons bootstrap.',
+            sources: ['efron-tibshirani-bootstrap', 'hastie-tibshirani-friedman-esl'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le bootstrap a contribué à légitimer une statistique fondée sur la simulation plutôt que sur des formules closes : l’hypothèse de normalité cède la place à la puissance de calcul, et la frontière entre statistique et apprentissage automatique s’en trouve brouillée.',
+            sources: ['efron-tibshirani-bootstrap', 'hastie-tibshirani-friedman-esl'],
+          },
+        ],
       },
       {
         id: 'seuil-critique-de-la-percolation',
@@ -701,6 +802,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'concept',
         statement: 'Une courbe aléatoire plane conformément invariante et sans mémoire est décrite par l’équation différentielle de Loewner dont le terme de commande est un mouvement brownien de vitesse κ ; un seul paramètre réel κ classe toutes ces courbes.',
         comment: 'Schramm l’introduit en étudiant la marche aléatoire à boucles effacées, dont il conjecture et dont Lawler–Schramm–Werner démontrent la convergence vers SLE(2). La SLE fournit le cadre dans lequel les prédictions de la physique conforme deviennent des théorèmes : percolation (Smirnov), frontières browniennes (Werner), Ising (Smirnov, Chelkak).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’équation de Loewner date de 1923 : Charles Loewner l’introduit pour attaquer la conjecture de Bieberbach sur les fonctions univalentes, et elle reste un outil de l’analyse complexe jusqu’à la démonstration de cette conjecture par de Branges (1985).',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Depuis les années 1980, la théorie conforme des champs (Belavin, Polyakov et Zamolodchikov, 1984) et la formule de Cardy (1992) prédisaient sans démonstration l’invariance conforme des modèles critiques plans ; Langlands, Pouliot et Saint-Aubin (1994) en avaient vérifié numériquement des conséquences pour la percolation.',
+            sources: ['lawler-conformally-invariant', 'grimmett-percolation'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le paramètre κ est identifié modèle par modèle : κ = 2 pour la marche à boucles effacées et κ = 8 pour le contour de l’arbre couvrant uniforme (Lawler, Schramm et Werner, publié en 2004), κ = 6 pour les interfaces de la percolation critique sur le réseau triangulaire, à partir du théorème de Smirnov (2001).',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La SLE est l’une des rares idées qui ont créé presque seules un domaine : en une décennie, elle fait passer une part notable des prédictions de la physique bidimensionnelle au statut de théorèmes et noue un lien durable entre probabilités et analyse complexe.',
+            sources: ['lawler-conformally-invariant'],
+          },
+        ],
       },
       {
         id: 'exposants-d-intersection-du-brownien',
@@ -760,12 +885,13 @@ export const CONTEMPORAIN_B: Domain[] = [
   {
     id: 'cryptographie-et-codes',
     name: 'Cryptographie, codes correcteurs et théorie de l’information',
+    mapName: 'Cryptographie et codes',
     altNames: ['Cryptologie mathématique', 'Théorie des codes'],
     era: 'contemporain',
     period: { start: 1948, end: null },
     continents: ['hasard', 'nombres'],
     places: ['Murray Hill', 'Stanford', 'MIT', 'Rehovot', 'Seattle', 'Cheltenham'],
-    map: { x: 6600, y: 3560, size: 2, palette: { fill: '#261e17', stroke: '#d1ad8f', accent: '#efd1b9' } },
+    map: { x: 6600, y: 3560, size: 2, palette: { fill: '#f0dad6', stroke: '#753429', accent: '#bc442f' } },
     tagline: 'Après Shannon, le secret devient un objet mathématique ; après Diffie et Hellman, il se passe de clé partagée.',
     summary:
       'En 1948-1949, Claude Shannon donne à la communication et au secret des fondements mathématiques : l’entropie mesure l’information, et la sécurité parfaite s’énonce comme un théorème. Deux branches s’ensuivent aux laboratoires Bell : les codes correcteurs d’erreurs (Hamming, Reed–Solomon, algorithmes de Berlekamp), qui rendent possible la transmission fiable sur des canaux bruités, et la cryptographie, bouleversée en 1976 par la clé publique de Diffie et Hellman, puis par RSA (1977). À partir de 1982, Goldwasser, Micali et leurs successeurs refondent la discipline sur la théorie de la complexité : sécurité prouvable, chiffrement probabiliste, preuves à divulgation nulle de connaissance.',
@@ -859,7 +985,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Richard Hamming',
         years: [1915, 1998],
         origin: 'Murray Hill et Monterey',
-        bio: 'Formé à Urbana, Hamming participe au projet Manhattan à Los Alamos avant de rejoindre les Bell Labs en 1946. Ses codes correcteurs (1950) naissent des pannes du calculateur à relais ; on lui doit aussi la distance de Hamming, le préfiltre de Hamming et la devise « The purpose of computing is insight, not numbers ». Prix Turing 1968.',
+        bio: 'Formé à Urbana, Hamming participe au projet Manhattan à Los Alamos avant de rejoindre les Bell Labs en 1946. Ses codes correcteurs (1950) naissent des pannes du calculateur à relais ; on lui doit aussi la distance de Hamming, la fenêtre de Hamming et la devise « The purpose of computing is insight, not numbers ». Prix Turing 1968.',
         theoryId: 'cc-codes-correcteurs',
       },
       {
@@ -966,6 +1092,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'En ajoutant des bits de parité à des positions bien choisies, on peut non seulement détecter mais localiser et corriger toute erreur portant sur un seul bit ; la distance minimale entre mots de code, dite distance de Hamming, mesure la capacité de correction.',
         comment: 'Article publié en 1950 après un blocage de brevet par Bell ; il fonde la théorie algébrique des codes. Les codes de Hamming équipent les mémoires d’ordinateurs (codes ECC) ; la quête de codes approchant la borne de Shannon se poursuit avec Reed–Solomon, puis les codes LDPC (Gallager, 1962, redécouverts en 1996) et polaires (Arıkan, 2009).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les calculateurs à relais des Bell Labs employaient des codes détecteurs, comme le code « deux parmi cinq », qui signalaient une erreur sans pouvoir la localiser : la machine s’arrêtait ou abandonnait le travail. Hamming part de ce constat pour chercher la redondance minimale qui permette une correction automatique.',
+            sources: ['hamming-error-detecting'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème du canal bruité de Shannon (1948) garantit l’existence de codes efficaces sans en construire ; les codes de Hamming, conçus dans les mêmes années aux Bell Labs, comptent parmi les premiers exemples explicites de codes correcteurs.',
+            sources: ['hamming-error-detecting', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’article propose un modèle géométrique : les mots binaires de longueur n sont les sommets d’un cube de dimension n, et corriger une erreur revient à disposer autour des mots de code des boules disjointes de rayon 1 ; les codes de Hamming réalisent cet empilement sans perte, propriété dite de code parfait.',
+            sources: ['hamming-error-detecting'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En faisant de la correction d’erreurs un problème d’algèbre linéaire sur le corps à deux éléments et de géométrie discrète, Hamming ouvre la voie aux constructions algébriques des années 1950-1960, des codes cycliques aux codes de Reed–Solomon (1960).',
+            sources: ['hamming-error-detecting', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'codes-de-reed-solomon',
@@ -1000,6 +1150,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         theoryId: 'cc-cle-publique',
         kind: 'texte',
         comment: 'Article fondateur de la cryptographie à clé publique : il propose l’échange de clés fondé sur le logarithme discret, définit les notions de fonction à sens unique, de trappe et de signature numérique, et montre que le secret peut naître d’une conversation publique. Publié dans une revue d’ingénierie, il est reçu comme une provocation par les agences de chiffre.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’article part de deux besoins nés des réseaux d’ordinateurs : la distribution préalable des clés par messager devient intenable entre des correspondants qui ne se sont jamais rencontrés, et les transactions à distance exigent un équivalent numérique de la signature manuscrite.',
+            sources: ['diffie-hellman-new-directions'],
+          },
+          {
+            kind: 'fait',
+            text: 'Diffie rejoint Hellman à Stanford en 1974 ; la même année, Ralph Merkle, étudiant à Berkeley, imagine indépendamment un échange de clés par « énigmes », dont l’article, d’abord refusé, ne paraît qu’en 1978.',
+            sources: ['levy-crypto'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le problème laissé ouvert — une fonction à sens unique à trappe — est résolu dès 1977 par RSA. La même année, une lettre adressée à l’IEEE par un employé de la NSA met en garde contre la publication de travaux de cryptographie au nom des règlements sur l’exportation d’armes : le conflit entre chercheurs universitaires et agence de renseignement est ouvert.',
+            sources: ['rsa-method', 'levy-crypto'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les notions que l’article définit sans les formaliser — fonction à sens unique, trappe, signature — deviennent, avec Goldwasser et Micali, les objets d’une théorie fondée sur la complexité : on y voit souvent l’acte de naissance de la cryptographie comme science publique.',
+            sources: ['goldreich-foundations', 'levy-crypto'],
+          },
+        ],
       },
       {
         id: 'echange-de-cles-de-diffie-hellman',
@@ -1023,6 +1197,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'methode',
         statement: 'La clé publique est le produit n = p·q de deux grands nombres premiers et un exposant e ; chiffrer consiste à élever à la puissance e modulo n, déchiffrer à la puissance d où d est l’inverse de e modulo (p − 1)(q − 1), calcul inconnu de qui ne peut pas factoriser n.',
         comment: 'Premier cryptosystème à clé publique complet, avec signature. Rendu célèbre par la chronique de Martin Gardner (Scientific American, août 1977) et son défi RSA-129 (cassé en 1994), il équipe encore l’essentiel de la sécurité des réseaux. Prix Turing 2002 pour les trois auteurs ; Clifford Cocks l’avait décrit au GCHQ en 1973, dans le secret.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Diffie et Hellman (1976) ont défini la cryptographie à clé publique sans en exhiber de réalisation complète. Au MIT, Rivest et Shamir proposent pendant des mois des candidats qu’Adleman casse un à un, jusqu’au schéma fondé sur la factorisation, trouvé au printemps 1977.',
+            sources: ['levy-crypto', 'diffie-hellman-new-directions'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le schéma circule d’abord en 1977 sous forme de mémo technique du MIT et par la chronique de Martin Gardner ; l’article paraît en février 1978 dans les Communications of the ACM. Le brevet obtenu par le MIT en 1983 expire en 2000.',
+            sources: ['rsa-method', 'levy-crypto'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En adossant la sécurité à la difficulté de factoriser, RSA transforme une question d’arithmétique pure en enjeu industriel : les progrès des algorithmes de factorisation se lisent depuis dans la taille des clés qu’ils obligent à adopter.',
+            sources: ['singh-codes'],
+          },
+        ],
       },
       {
         id: 'partage-de-secret-de-shamir',
@@ -1093,12 +1286,13 @@ export const CONTEMPORAIN_B: Domain[] = [
   {
     id: 'complexite-et-informatique-theorique',
     name: 'Complexité, algorithmes et informatique théorique',
+    mapName: 'Informatique théorique',
     altNames: ['Théorie de la complexité', 'Science informatique théorique'],
     era: 'contemporain',
     period: { start: 1959, end: null },
     continents: ['fondements', 'hasard'],
     places: ['Toronto', 'Berkeley', 'Moscou', 'Stanford', 'Harvard', 'Jérusalem', 'Princeton'],
-    map: { x: 6250, y: 3900, size: 3, palette: { fill: '#17261a', stroke: '#80cb8f', accent: '#a8ebb6' } },
+    map: { x: 6250, y: 3900, size: 3, palette: { fill: '#cbecd5', stroke: '#256a3b', accent: '#2caf56' } },
     tagline: 'Ce qui est calculable est acquis depuis Turing ; reste à savoir ce qui est calculable en temps raisonnable.',
     summary:
       'De la calculabilité des années 1930, l’informatique théorique hérite les modèles de calcul ; elle y ajoute la question du coût. Hartmanis et Stearns fondent en 1965 la théorie de la complexité, Cook et Levin montrent en 1971 que le problème de satisfaisabilité capte toute la classe NP, et Karp montre en 1972 que des dizaines de problèmes concrets partagent ce statut. Le problème P = NP devient la grande question ouverte du siècle. Autour de lui : l’analyse d’algorithmes (Knuth), les algorithmes rapides (Strassen), le comptage (Valiant), les bornes inférieures (Razborov), la dérandomisation et le pseudo-aléa (Wigderson), les preuves vérifiables probabilistiquement (théorème PCP) et l’algorithme quantique de Shor (1994), qui fait de la factorisation un problème facile... pour une machine qui n’existe pas encore.',
@@ -1192,7 +1386,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Edsger Dijkstra',
         years: [1930, 2002],
         origin: 'Amsterdam, Eindhoven et Austin',
-        bio: 'Premier programmeur professionnel des Pays-Bas (1952), Dijkstra publie en 1959 l’algorithme du plus court chemin et le problème du philosophe à table ; il impose la programmation structurée (« Go To Statement Considered Harmful », 1968) et l’idée de programme comme objet de preuve. Prix Turing 1972.',
+        bio: 'Premier programmeur professionnel des Pays-Bas (1952), Dijkstra publie en 1959 l’algorithme du plus court chemin, propose vers 1965 le problème du dîner des philosophes ; il impose la programmation structurée (« Go To Statement Considered Harmful », 1968) et l’idée de programme comme objet de preuve. Prix Turing 1972.',
         theoryId: 'cit-algorithmique',
       },
       {
@@ -1341,6 +1535,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout problème dont une solution est vérifiable en temps polynomial (classe NP) se traduit en temps polynomial en une question de satisfaisabilité d’une formule booléenne : si SAT admettait un algorithme polynomial, tout problème de NP en admettrait un.',
         comment: 'Présenté par Cook à STOC 1971 et obtenu indépendamment par Levin à Moscou (1971-1973). Le théorème donne à la classe NP un « problème le plus dur » explicite et fonde le concept de NP-complétude, étendu l’année suivante par Karp ; il est à l’origine du problème du millénaire P = NP.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1965, Alan Cobham et Jack Edmonds proposent indépendamment de tenir le temps polynomial pour la marque d’un algorithme « efficace », et Edmonds conjecture ensuite qu’aucun algorithme de ce type n’existe pour le voyageur de commerce. Cook, qui s’intéresse à la démonstration automatique, cherche à mesurer la difficulté de reconnaître les tautologies — d’où le titre de son article.',
+            sources: ['sipser-history-pnp', 'cook-complexity-theorem-proving'],
+          },
+          {
+            kind: 'fait',
+            text: 'En URSS, la question de savoir si la recherche exhaustive (perebor) peut être évitée occupe les cybernéticiens dès les années 1950 ; Levin, élève de Kolmogorov, y dégage indépendamment la notion de problème de recherche universel, publiée en 1973.',
+            sources: ['sipser-history-pnp'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dès 1971, Cook montre que la restriction aux formules dont les clauses ont trois littéraux (3-SAT) reste NP-complète, ce qui en fait le point de départ habituel des réductions ultérieures.',
+            sources: ['cook-complexity-theorem-proving', 'garey-johnson-intractability'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La NP-complétude devient le diagnostic standard de la difficulté bien au-delà de l’informatique, de la recherche opérationnelle à la biologie : démontrer qu’un problème est NP-complet justifie de renoncer à un algorithme exact et général, et oriente vers les heuristiques ou l’approximation.',
+            sources: ['garey-johnson-intractability', 'fortnow-golden-ticket'],
+          },
+        ],
       },
       {
         id: 'probleme-p-np',
@@ -1410,6 +1628,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute preuve d’un énoncé de NP peut être réécrite en une « preuve probabilistiquement vérifiable » qu’un vérifieur valide avec forte confiance en ne lisant qu’un nombre constant de positions choisies au hasard.',
         comment: 'Point culminant d’une décennie de travaux sur les preuves interactives (Babai, Goldwasser–Micali–Rackoff, Ben-Or et al., 1985-1992). Le théorème, contre-intuitif, a une conséquence immédiate en algorithmique : approcher l’optimum de nombreux problèmes (clique, couverture) au-delà d’un certain facteur est NP-difficile, ce qui clôt des questions d’approximation ouvertes depuis vingt ans.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les preuves interactives (Goldwasser, Micali et Rackoff ; Babai, 1985) aboutissent, par des résultats annoncés en 1990, à IP = PSPACE (Lund, Fortnow, Karloff et Nisan ; Shamir) et à MIP = NEXP (Babai, Fortnow et Lund) : un vérifieur probabiliste peut contrôler des preuves bien plus longues qu’il ne saurait les lire.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'En 1991, Feige, Goldwasser, Lovász, Safra et Szegedy montrent que de telles caractérisations probabilistes de NP interdisent d’approcher efficacement la taille de la plus grande clique d’un graphe : la question des preuves rejoint celle de l’approximation.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Johan Håstad obtient (présentation en 1997) des vérifieurs ne lisant que trois bits, d’où des seuils d’inapproximabilité exacts : approcher MAX-3SAT au-delà du facteur 7/8 est NP-difficile. Irit Dinur donne en 2005 (prépublication) une démonstration combinatoire du théorème par amplification d’écart.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La conjecture des jeux uniques de Subhash Khot (2002), qui prolonge le théorème, prédirait les seuils d’approximation optimaux de nombreux problèmes : la frontière entre facile et difficile se lit désormais en facteurs d’approximation et non plus seulement en oui ou non.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'algorithme-de-shor',
@@ -1422,6 +1664,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur un ordinateur quantique, la recherche de la période d’une fonction modulaire — à laquelle se ramène la factorisation — se fait par transformée de Fourier quantique en temps polynomial : factoriser un entier de n chiffres coûte environ n³ opérations quantiques.',
         comment: 'Présenté à FOCS 1994, l’algorithme réduit la factorisation à l’estimation de phase quantique et a fait passer le calcul quantique du statut de curiosité (Feynman 1982, Deutsch 1985) à celui de programme de recherche majeur. La menace pour RSA et Diffie–Hellman motive la cryptographie post-quantique ; en 2001, IBM factorise 15 = 3 × 5 sur sept qubits.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Bernstein et Vazirani (1993) fondent une théorie de la complexité quantique, et Daniel Simon (1994) exhibe un problème — trouver la « période » cachée d’une fonction sur des chaînes de bits — qu’une machine quantique résout exponentiellement plus vite qu’une machine probabiliste classique. Shor transpose l’idée de Simon aux entiers, où la transformée de Fourier quantique joue le rôle central.',
+            sources: ['shor-algorithm', 'arora-barak-complexity'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Shor répond dès 1995 à l’objection de la fragilité des états quantiques en proposant le premier code correcteur quantique, et Lov Grover publie en 1996 un algorithme de recherche quantique au gain plus modeste mais général ; le calcul quantique devient un champ de recherche théorique et expérimental.',
+            sources: ['shor-algorithm', 'arora-barak-complexity'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le résultat lie le sort de la cryptographie à clé publique déployée (RSA, Diffie–Hellman, courbes elliptiques) aux progrès de la physique expérimentale ; il motive la cryptographie post-quantique alors qu’aucune machine n’a encore approché la taille des clés en usage.',
+            sources: ['fortnow-golden-ticket', 'shor-algorithm'],
+          },
+        ],
       },
       {
         id: 'preuves-naturelles',
@@ -1456,12 +1717,13 @@ export const CONTEMPORAIN_B: Domain[] = [
   {
     id: 'logique-et-ensembles-contemporains',
     name: 'Logique et théorie des ensembles contemporaines : forcing, modèles et types',
+    mapName: 'Logique et ensembles',
     altNames: ['Logique mathématique contemporaine'],
     era: 'contemporain',
     period: { start: 1960, end: null },
     continents: ['fondements'],
     places: ['Stanford', 'Berkeley', 'Jérusalem', 'Stockholm', 'Leningrad', 'Paris', 'Oxford'],
-    map: { x: 6950, y: 4100, size: 2, palette: { fill: '#17261c', stroke: '#7dca94', accent: '#a4eab9' } },
+    map: { x: 6950, y: 4100, size: 2, palette: { fill: '#c3e9ca', stroke: '#22622e', accent: '#2aa741' } },
     tagline: 'Après Gödel, l’indécidable devient un outil : on construit des univers ensemblistes comme on construit des contre-exemples.',
     summary:
       'La logique d’après-guerre hérite du programme de Hilbert brisé par Gödel et le transforme. En 1963, Paul Cohen invente le forcing et démontre l’indépendance de l’hypothèse du continu : les axiomes ZF n’épuisent pas l’infini. Solovay, Shelah, Woodin explorent depuis les mondes possibles de la théorie des ensembles, où les grands cardinaux servent d’échelle de consistance. Parallèlement, la théorie des modèles (Morley, Ax–Kochen, Shelah, Hrushovski) applique la logique à l’algèbre et à la géométrie, l’analyse non standard de Robinson légalise les infiniment petits, et les théories des types de Martin-Löf, Girard et Voevodsky fondent un langage où preuve et programme coïncident — jusqu’aux fondements univalents.',
@@ -1587,7 +1849,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Robert Solovay',
         years: [1938, null],
         origin: 'Berkeley',
-        bio: 'Élève de Vaught à Berkeley, Solovay est l’un des artisans majeurs de la théorie des ensembles d’après Cohen : modèle où tout ensemble de réels est mesurable (1970), détermination des axiomes de ZF pour l’arithmétique des cardinaux singuliers (1974), et avec Strassen le test de primalité probabiliste (1977). Ses travaux inédits ou publiés tardivement ont fait de lui une figure presque mythique de la discipline.',
+        bio: 'Élève de Vaught à Berkeley, Solovay est l’un des artisans majeurs de la théorie des ensembles d’après Cohen : modèle où tout ensemble de réels est mesurable (1970), hypothèse des cardinaux singuliers au-dessus d’un cardinal fortement compact (1974), et avec Strassen le test de primalité probabiliste (1977). Ses travaux inédits ou publiés tardivement ont fait de lui une figure presque mythique de la discipline.',
         theoryId: 'lec-forcing-et-independance',
       },
       {
@@ -1652,6 +1914,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'concept',
         statement: 'On construit un corps de « nombres hyperréels » contenant les réels, des infiniment petits non nuls et des infiniment grands, avec un principe de transfert : tout énoncé du premier ordre vrai pour les réels reste vrai pour les hyperréels. La continuité de f devient : x infiniment proche de y implique f(x) infiniment proche de f(y).',
         comment: 'Robinson légalise trois siècles après Leibniz le raisonnement par infiniment petits, au moyen d’ultrafiltres et du théorème de compacité. L’analyse non standard n’a pas déplacé l’epsilon-delta, mais elle a produit des preuves nouvelles (Bernstein–Robinson sur les sous-espaces invariants, 1966) et un enseignement renouvelé (Keisler, 1976).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les modèles non standard de l’arithmétique construits par Skolem (1934) et le théorème de compacité montrent qu’une théorie du premier ordre admet des modèles contenant des éléments « infinis ». Robinson, en séjour à Princeton en 1960-1961, transpose l’idée au corps des réels et y retrouve les infiniment petits de Leibniz.',
+            sources: ['dauben-robinson'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Luxemburg simplifie la construction par les ultrapuissances (1962) ; Robinson publie le traité Non-standard Analysis en 1966 ; Peter Loeb en tire les mesures qui portent son nom (1975) et Edward Nelson une version axiomatique, la théorie interne des ensembles (1977).',
+            sources: ['dauben-robinson'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La réception reste partagée : Gödel estimait en 1973 qu’elle serait, sous une forme ou une autre, l’analyse de l’avenir, tandis qu’Errett Bishop critiquait sévèrement, en 1977, son usage dans l’enseignement ; elle demeure une méthode minoritaire mais féconde.',
+            sources: ['dauben-robinson'],
+          },
+        ],
       },
       {
         id: 'forcing',
@@ -1675,6 +1956,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'L’hypothèse du continu (il n’existe aucun cardinal entre celui des entiers et celui des réels) ne peut être ni démontrée ni réfutée à partir des axiomes de Zermelo–Fraenkel avec choix, si ceux-ci sont cohérents : il existe des modèles de ZFC où elle est vraie et d’autres où elle est fausse.',
         comment: 'Réponse au premier problème de la liste de Hilbert (1900) : complétant le modèle constructible de Gödel (1938, cohérence de HC), Cohen montre en 1963 l’indépendance pleine, et celle de l’axiome du choix. La médaille Fields de 1966 couronne le résultat ; le statut de l’hypothèse — indécidée ou indécidable — reste débattu.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Cantor formule l’hypothèse en 1878 et ne parvient jamais à la démontrer. Après avoir établi sa cohérence (1938), Gödel soutient dans « What is Cantor’s Continuum Problem? » (1947) qu’elle est probablement indépendante des axiomes usuels, et sans doute fausse, et appelle à en chercher de nouveaux.',
+            sources: ['kanamori-higher-infinite', 'sep'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le forcing montre aussitôt que presque tout est permis pour la taille du continu : 2^ℵ₀ peut valoir tout cardinal de cofinalité non dénombrable (Cohen, Solovay), et Easton (1970) étend cette liberté à l’exponentiation de tous les cardinaux réguliers.',
+            sources: ['kunen-set-theory', 'kanamori-higher-infinite'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le résultat inaugure la théorie des ensembles moderne : le travail se déplace de la démonstration d’énoncés vers la construction de modèles et la mesure de leur force de consistance, et la question de savoir quels nouveaux axiomes adopter devient centrale.',
+            sources: ['kanamori-higher-infinite'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-categoricite-de-morley',
@@ -1721,6 +2021,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il n’existe aucun algorithme qui, recevant une équation polynomiale à coefficients entiers, décide si elle a des solutions entières : tout ensemble récursivement énumérable d’entiers est exactement l’ensemble des valeurs positives d’un polynôme à coefficients entiers.',
         comment: 'Point final d’un édifice construit par Davis, Putnam et Julia Robinson (1949-1961) : Matiiassevitch montre que la suite de Fibonacci est diophantienne, ce qui fournit la croissance exponentielle manquante. Conséquences : il existe un polynôme dont les valeurs positives sont exactement les nombres premiers, et l’indécidabilité règne dès le degré 4 en quelques variables.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Hilbert demande en 1900 un « procédé » décidant de la résolubilité des équations diophantiennes ; une réponse négative n’a de sens qu’après la définition précise de l’algorithme par Church et Turing (1936). Martin Davis s’attaque au problème dans sa thèse (1950) et conjecture que les ensembles diophantiens sont exactement les ensembles récursivement énumérables.',
+            sources: ['davis-universal', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Julia Robinson montre en 1952 qu’il suffirait d’exhiber une seule relation diophantienne à croissance exponentielle ; Davis, Putnam et Robinson (1961) établissent le résultat pour les équations où les inconnues peuvent figurer en exposant. Il ne manque alors que cette relation.',
+            sources: ['mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Matiiassevitch et Julia Robinson réduisent ensuite à treize le nombre d’inconnues suffisant pour l’indécidabilité (1975), puis Matiiassevitch à neuf.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Combiné au théorème d’incomplétude, le résultat fait entrer l’indécidabilité au cœur de la théorie des nombres : pour toute théorie axiomatique cohérente usuelle, il existe une équation diophantienne sans solution dont l’absence de solution n’est pas démontrable dans cette théorie.',
+            sources: ['sep', 'davis-universal'],
+          },
+        ],
       },
       {
         id: 'modele-de-solovay',
@@ -1836,12 +2160,13 @@ export const CONTEMPORAIN_B: Domain[] = [
   {
     id: 'calcul-scientifique-et-preuves-assistees',
     name: 'Calcul scientifique, calcul formel et démonstration assistée',
+    mapName: 'Calcul et preuve assistée',
     altNames: ['Analyse numérique', 'Preuves formelles'],
     era: 'contemporain',
     period: { start: 1946, end: null },
     continents: ['analyse', 'fondements'],
     places: ['Los Alamos', 'New York', 'Teddington', 'Yorktown Heights', 'Eindhoven', 'Linz', 'Rocquencourt', 'Pittsburgh'],
-    map: { x: 6620, y: 2560, size: 2, palette: { fill: '#1f1726', stroke: '#a780cb', accent: '#cba8eb' } },
+    map: { x: 6620, y: 2560, size: 2, palette: { fill: '#cdc3e9', stroke: '#332262', accent: '#4b2aa7' } },
     tagline: 'La machine calcule d’abord pour la physique et la guerre ; bientôt elle calcule des preuves, puis les vérifie.',
     summary:
       'L’ordinateur, conçu pendant la Seconde Guerre mondiale, transforme la pratique mathématique. Trois traditions se distinguent : l’analyse numérique (méthode de Monte-Carlo d’Ulam et Metropolis, analyse d’erreur de Wilkinson, théorème d’équivalence de Lax, FFT de Cooley et Tukey, SVD de Golub), qui fait du calcul approché une science de la stabilité ; le calcul formel (bases de Gröbner de Buchberger, algorithmes de Risch et de Zeilberger), qui exécute exactement ce que l’analyste faisait à la main ; et la démonstration assistée, de l’Automath de de Bruijn au calcul des constructions de Coquand et Huet, jusqu’aux preuves formelles des quatre couleurs (Gonthier), de la conjecture de Kepler (Hales, projet Flyspeck) et du « liquid tensor experiment » en Lean.',
@@ -1888,7 +2213,7 @@ export const CONTEMPORAIN_B: Domain[] = [
       {
         kind: 'fait',
         text: 'En 2020-2022, Peter Scholze soumet à la vérification mécanique son théorème central sur les « condensés » (liquid vector spaces) : la communauté Lean, menée par Johan Commelin, achève le « Liquid Tensor Experiment » en juillet 2022, un an et demi après son lancement.',
-        sources: ['avigad-harrison-formal', 'sep'],
+        sources: ['avigad-harrison-formal'],
       },
       {
         kind: 'interpretation',
@@ -1975,7 +2300,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Gene Golub',
         years: [1932, 2007],
         origin: 'Stanford',
-        bio: 'Formé à l’Université de l’Illinois, professeur à Stanford et animateur du département d’informatique scientifique, Golub est le maître de l’algèbre linéaire numérique : algorithme de la décomposition en valeurs singulières (Golub–Kahan–Reinsch, 1970) et le traité Matrix Computations (avec Van Loan, 1983). Sergey Brin et Larry Page citent ses cours comme une source de PageRank.',
+        bio: 'Formé à l’Université de l’Illinois, professeur à Stanford et animateur du département d’informatique scientifique, Golub est le maître de l’algèbre linéaire numérique : algorithme de la décomposition en valeurs singulières (Golub–Kahan–Reinsch, 1970) et le traité Matrix Computations (avec Van Loan, 1983).',
         theoryId: 'csp-analyse-numerique',
       },
       {
@@ -2032,6 +2357,25 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'methode',
         statement: 'Pour évaluer une quantité déterministe (intégrale, solution d’une équation de transport), on simule des réalisations aléatoires d’un phénomène dont elle est l’espérance, et l’on prend la moyenne : l’erreur décroît comme l’inverse de la racine du nombre de tirages, indépendamment de la dimension.',
         comment: 'Née des calculs de diffusion neutronique à Los Alamos et baptisée d’après le casino par Metropolis, la méthode est insensible à la dimension, là où les quadratures classiques explosent ; elle irrigue la physique statistique, la finance et, avec Metropolis–Hastings, toute la statistique computationnelle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le tirage au sort comme instrument de calcul n’est pas neuf : l’aiguille de Buffon (1777) en est l’exemple classique. Ce qui change en 1946-1947 est l’ordinateur électronique (ENIAC), qui rend praticables les milliers de trajectoires simulées qu’exige le calcul de la diffusion des neutrons.',
+            sources: ['ulam-adventures', 'metropolis-ulam-monte-carlo'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dès 1953, Metropolis, Arianna et Marshall Rosenbluth, Augusta et Edward Teller remplacent les tirages indépendants par une chaîne de Markov pour simuler un fluide : c’est l’algorithme de Metropolis, d’où sortira la famille des méthodes de Monte-Carlo par chaînes de Markov.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Avec Monte-Carlo, l’expérience numérique s’installe comme une troisième voie entre théorie et expérience, que la physique, l’ingénierie puis la finance adoptent comme pratique ordinaire.',
+            sources: ['ulam-adventures', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-d-equivalence-de-lax',
@@ -2068,6 +2412,20 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'methode',
         statement: 'En décomposant récursivement une somme de Fourier de n termes en sommes de tailles divisées par deux, le calcul de la transformée de Fourier discrète passe de n² à n·log n opérations.',
         comment: 'L’idée remonte à Gauss (1805, calcul d’orbites), redécouverte plusieurs fois (Runge, Danielson–Lanczos) ; l’article de 1965, écrit pour la détection des essais nucléaires, arrive au moment où les machines peuvent l’exploiter. La FFT est devenue l’algorithme omniprésent du traitement du signal, de l’imagerie et de l’algèbre (multiplication rapide des entiers, Schönhage–Strassen, 1971).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le calcul direct d’une transformée de Fourier discrète de n points demande de l’ordre de n² multiplications, ce qui rend prohibitive l’analyse spectrale de longs enregistrements numériques ; des factorisations partielles existaient, notamment chez I. J. Good (1958), que l’article de 1965 cite.',
+            sources: ['cooley-tukey-fft'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'La FFT change l’économie du calcul plus que ses mathématiques : en rendant la transformée de Fourier presque gratuite, elle fait de la représentation fréquentielle l’outil par défaut du traitement numérique du signal, de la sismologie à l’imagerie médicale, et lance la recherche d’algorithmes « rapides » pour d’autres transformations.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'bases-de-grobner',
@@ -2148,6 +2506,30 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'L’empilement le plus dense de sphères identiques dans l’espace est l’empilement « cannonball » des épiceries (cubique à faces centrées), de densité π/(3√2) ≈ 0,74 : aucune configuration, même irrégulière, ne fait mieux.',
         comment: 'Conjecturée par Kepler (1611), énoncée par Hilbert (problème 18), la question est réglée par Hales avec Samuel Ferguson grâce à l’optimisation linéaire vérifiée par intervalles sur environ cinq mille cas. La relecture humaine ayant échoué à tout contrôler (rapport 2003 : « sûr à 99 % »), Hales lance Flyspeck ; la preuve entièrement formelle est annoncée en 2014.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Gauss démontre en 1831 que l’empilement cubique à faces centrées est optimal parmi les empilements en réseau ; le cas général, qui admet des configurations irrégulières, résiste. László Fejes Tóth suggère en 1953 que le problème pourrait se ramener à un nombre fini, mais très grand, de calculs.',
+            sources: ['hales-formal-kepler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hales engage ce programme en 1992 ; son doctorant Samuel Ferguson le rejoint pour l’un des cas décisifs, et la démonstration est annoncée en août 1998.',
+            sources: ['hales-formal-kepler'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La preuve paraît en 2005 aux Annals of Mathematics, sans que les rapporteurs aient pu certifier toute la partie informatique, et les détails des calculs en 2006 dans Discrete & Computational Geometry.',
+            sources: ['hales-formal-kepler'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’épisode fait évoluer les pratiques : une grande revue accepte une preuve partiellement invérifiable par la relecture, et la formalisation intégrale apparaît dès lors comme la réponse légitime aux preuves trop longues pour un lecteur humain.',
+            sources: ['hales-formal-kepler', 'avigad-harrison-formal'],
+          },
+        ],
       },
       {
         id: 'quatre-couleurs-en-coq',

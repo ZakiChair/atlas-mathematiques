@@ -24,7 +24,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1890, end: 1945 },
     continents: ['nombres'],
     places: ['Göttingen', 'Berlin', 'Hambourg', 'Amsterdam'],
-    map: { x: 4950, y: 430, size: 3, palette: { fill: '#262317', stroke: '#d0c18b', accent: '#eee1b5' } },
+    map: { x: 4950, y: 430, size: 3, palette: { fill: '#e8dac0', stroke: '#5e4921', accent: '#a37829' } },
     tagline: 'Des invariants de Hilbert aux anneaux de Noether : l’algèbre cesse d’être un calcul pour devenir l’étude des structures.',
     summary:
       'Entre le théorème de la base de Hilbert (1890) et la Moderne Algebra de van der Waerden (1930), l’algèbre change d’objet : au lieu de résoudre des équations ou de calculer des invariants, elle étudie des systèmes définis par des axiomes : corps, anneaux, idéaux, modules, algèbres. Steinitz classe les corps abstraits (1910), Wedderburn décrit la structure des algèbres (1908), Emmy Noether réécrit la théorie des idéaux à partir de la condition de chaîne ascendante (1921) et Artin refonde la théorie de Galois sur les automorphismes. Née à Göttingen et à Hambourg, dispersée par l’exil après 1933, cette « algèbre moderne » fournit le langage que la topologie, la géométrie algébrique et la théorie des nombres adopteront.',
@@ -180,6 +180,30 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout idéal de l’anneau des polynômes en un nombre fini de variables à coefficients dans un corps est engendré par un nombre fini de polynômes ; en particulier, tout système d’invariants d’une forme possède une base finie.',
         comment: 'Publié dans « Über die Theorie der algebraischen Formen » (Mathematische Annalen, 1890), le théorème résout d’un coup, par un raisonnement d’existence, le problème que Gordan avait traité par calcul explicite pour les formes binaires. Il définit, après coup, la classe des anneaux que Noether appellera noethériens et ouvre la voie à la décomposition primaire de Lasker (1905).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Depuis Cayley et Sylvester, la théorie des invariants cherche pour chaque type de forme un système fini d’invariants dont tous les autres sont des polynômes. Gordan l’établit en 1868 pour les formes binaires de degré quelconque, par un calcul symbolique explicite qu’il ne parvient pas à étendre à plus de deux variables.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hilbert, alors Privatdozent à Königsberg, annonce dès 1888 une solution du « problème de Gordan » valable pour un nombre quelconque de variables ; le mémoire de 1890 en donne la forme générale, détachée de la théorie des invariants.',
+            sources: ['gray-hilbert-challenge', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Hilbert reprend la question dans le quatorzième de ses problèmes de 1900 : l’anneau des invariants d’un groupe linéaire quelconque est-il encore engendré par un nombre fini d’éléments ? Nagata répond par un contre-exemple en 1959.',
+            sources: ['gray-hilbert-challenge'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Kleiner comme pour Corry, la preuve d’existence clôt la théorie des invariants comme programme de calcul, qui décline au tournant du siècle, tandis que le théorème, détaché de son contexte, devient un lemme fondamental de l’algèbre commutative.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+        ],
       },
       {
         id: 'nullstellensatz',
@@ -238,6 +262,25 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'am-ideaux-et-invariants',
         kind: 'texte',
         comment: 'Publié dans les Mathematische Annalen (tome 83), l’article donne la théorie générale de la décomposition des idéaux dans les anneaux commutatifs où toute chaîne croissante d’idéaux est finie. Il réunit sous un même toit les anneaux de polynômes de Lasker et les anneaux d’entiers de Dedekind et impose la méthode « conceptuelle » : on démontre à partir des axiomes, jamais à partir d’une représentation particulière.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Formée à Erlangen par Gordan dans la tradition du calcul des invariants (sa thèse de 1907 établit le système complet des invariants d’une forme ternaire biquadratique), Noether adopte les méthodes abstraites de Hilbert après son arrivée à Göttingen en 1915.',
+            sources: ['dick-noether', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’article reprend deux traditions distinctes : la théorie des idéaux de Dedekind (1871) pour les entiers des corps de nombres, et la décomposition des idéaux de polynômes en idéaux primaires, due à Lasker (1905) et reprise par Macaulay (1916).',
+            sources: ['corry-structures', 'kleiner-abstract-algebra'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Noether étend la méthode aux anneaux de Dedekind (1927), puis aux algèbres et à la théorie des représentations (1929) ; Krull en tire une théorie générale des anneaux commutatifs, exposée dans son rapport Idealtheorie (1935).',
+            sources: ['corry-structures', 'kleiner-abstract-algebra', 'dick-noether'],
+          },
+        ],
       },
       {
         id: 'theorie-des-ideaux-noether',
@@ -282,6 +325,20 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'am-style-moderne',
         kind: 'texte',
         comment: 'Deux volumes chez Springer (1930 et 1931), rédigés « d’après les cours d’E. Artin et d’E. Noether » : groupes, anneaux, corps, théorie de Galois, puis idéaux, nombres algébriques, algèbres. L’ordre d’exposition, des structures générales aux cas particuliers, devient la norme des manuels. Le titre perd l’adjectif « moderne » à partir de la quatrième édition (1955) : l’algèbre moderne est devenue l’algèbre.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le manuel de référence était jusque-là le Lehrbuch der Algebra de Heinrich Weber (1895-1896), organisé autour de la résolution des équations et des nombres algébriques ; les résultats de Steinitz, de Noether, d’Artin et de Krull restaient dispersés dans des mémoires.',
+            sources: ['corry-structures'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Bourbaki, dont le livre Algèbre commence à paraître en 1942, reprend et généralise l’ordre d’exposition de van der Waerden ; pour Corry, la Moderne Algebra est le chaînon entre les cours de Göttingen et de Hambourg et l’algèbre « structurale » du milieu du siècle.',
+            sources: ['corry-structures', 'mashaal-bourbaki'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-brauer-hasse-noether',
@@ -328,7 +385,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1896, end: 1960 },
     continents: ['nombres'],
     places: ['Göttingen', 'Cambridge', 'Tokyo', 'Hambourg', 'Moscou', 'Princeton', 'Oslo'],
-    map: { x: 5600, y: 600, size: 2, palette: { fill: '#262317', stroke: '#d0c18b', accent: '#eee1b5' } },
+    map: { x: 5600, y: 600, size: 2, palette: { fill: '#ece2cb', stroke: '#6a5525', accent: '#af882c' } },
     tagline: 'Corps de classes à Tokyo et Hambourg, méthode du cercle à Cambridge : la théorie des nombres se dédouble.',
     summary:
       'Après le Zahlbericht de Hilbert (1897) et la Geometrie der Zahlen de Minkowski (1896), la théorie des nombres suit deux voies. La voie algébrique décrit toutes les extensions abéliennes d’un corps de nombres : Takagi (1920) puis Artin (1927) achèvent la théorie du corps de classes, que Hasse complète par le principe local-global. La voie analytique, née à Cambridge de la rencontre de Hardy, Littlewood et Ramanujan, invente la méthode du cercle (1918) pour compter partitions et sommes de puissances ; Vinogradov la transforme en théorie des sommes trigonométriques et Selberg lui adjoint le crible, la preuve élémentaire du théorème des nombres premiers (1949) et la formule des traces (1956). Les deux voies se rejoindront dans le programme de Langlands.',
@@ -560,6 +617,30 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'methode',
         statement: 'Pour compter les façons d’écrire un entier comme somme d’éléments d’une suite donnée, on intègre une puissance de la série génératrice sur un cercle, puis on évalue séparément la contribution des arcs proches des rationnels simples (terme principal) et celle du reste du cercle (terme d’erreur).',
         comment: 'Née dans l’article sur les partitions (1918), perfectionnée dans la série Partitio numerorum (1920-1928), la méthode traite le problème de Waring (nombre minimal de puissances k-ièmes) et conduit à la conjecture conditionnelle de Goldbach pour les impairs. Vinogradov la rend inconditionnelle en 1937 ; elle reste l’outil central de la théorie additive des nombres.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le point de départ est le nombre de partitions p(n) : sa série génératrice, le produit d’Euler des 1/(1 − xⁿ), a des singularités en toutes les racines de l’unité, et c’est en analysant leur contribution que Hardy et Ramanujan, à Cambridge à partir de 1914, obtiennent leur formule.',
+            sources: ['kanigel-ramanujan', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le problème de Waring (1770) venait d’être résolu par Hilbert en 1909 : tout entier est somme d’un nombre borné, ne dépendant que de k, de puissances k-ièmes. Mais la preuve, purement existentielle, ne disait presque rien de ce nombre ni du nombre de représentations.',
+            sources: ['gowers-companion', 'gray-hilbert-challenge'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dans Partitio numerorum, Hardy et Littlewood introduisent G(k), le plus petit nombre de puissances k-ièmes qui suffit pour tous les entiers assez grands, et en donnent une première majoration ; la détermination de G(k) devient l’un des fils conducteurs de la théorie additive.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les arcs mineurs restent le point dur de la méthode : presque tous les progrès ultérieurs, de Vinogradov aux estimations modernes de sommes d’exponentielles, portent sur leur majoration.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'formule-asymptotique-des-partitions',
@@ -584,6 +665,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'À tout groupe de classes d’idéaux généralisé d’un corps de nombres K correspond une unique extension abélienne de K dont le groupe de Galois lui est isomorphe, et toute extension abélienne de K s’obtient ainsi ; les idéaux premiers qui se décomposent complètement sont exactement ceux de la classe neutre.',
         comment: 'Publié dans le Journal of the College of Science de Tokyo, le mémoire démontre les conjectures de Hilbert (corps de classes absolu) et de Weber dans toute leur généralité, en s’appuyant sur l’existence prouvée par Furtwängler (1907). Il décrit toutes les extensions abéliennes par l’arithmétique du corps de base, réalisant le programme de Kronecker ; Artin (1927) et Chevalley (1940) lui donnent sa forme définitive.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le douzième problème de Hilbert (1900) demande d’étendre à tout corps de nombres le théorème de Kronecker–Weber, qui décrit les extensions abéliennes de ℚ par les racines de l’unité. Takagi, rentré de Göttingen à Tokyo en 1901, reprend la question pendant la Première Guerre mondiale, coupé des publications allemandes.',
+            sources: ['cassels-frohlich', 'gray-hilbert-challenge', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Au début des années 1950, le séminaire d’Artin et Tate à Princeton (1951-1952) réécrit la théorie en termes de cohomologie des groupes ; c’est sous cette forme que la présentent les exposés de la conférence de Brighton (1965).',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La théorie ne dit rien des extensions non abéliennes : la recherche d’un analogue non abélien est l’une des motivations du programme que Langlands formule en 1967.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'principe-local-global-de-hasse',
@@ -631,6 +731,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout entier impair suffisamment grand est la somme de trois nombres premiers.',
         comment: 'Hardy et Littlewood l’avaient établi en 1923 sous l’hypothèse de Riemann généralisée ; Vinogradov s’en passe en majorant directement les sommes trigonométriques sur les nombres premiers. Le seuil « suffisamment grand », d’abord astronomique, est abaissé jusqu’à être atteint par le calcul : Helfgott achève la conjecture faible de Goldbach en 2013. Le cas pair reste ouvert.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Avant 1937, la seule avancée inconditionnelle sur Goldbach est celle de Schnirelmann (1930), qui montre par une méthode de densité que tout entier est somme d’un nombre borné de nombres premiers, sans contrôle raisonnable de cette borne.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Vinogradov développe depuis les années 1920 ses estimations de sommes trigonométriques à propos du problème de Waring ; le pas décisif de 1937 consiste à les étendre aux sommes portant sur les nombres premiers, grâce à un découpage combinatoire de ces sommes.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La même méthode montre dès 1937-1938 (van der Corput, Tchoudakov, Estermann) que presque tous les entiers pairs sont sommes de deux nombres premiers. Pour le cas pair lui-même, le meilleur résultat vient du crible : Chen Jingrun montre (annonce en 1966, publication en 1973) que tout pair assez grand est somme d’un nombre premier et d’un nombre ayant au plus deux facteurs premiers.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'demonstration-elementaire-du-theoreme-des-nombres-premiers',
@@ -666,7 +785,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1895, end: 1960 },
     continents: ['formes'],
     places: ['Paris', 'Bonn', 'Moscou', 'Princeton', 'Zurich', 'Varsovie'],
-    map: { x: 4950, y: 1300, size: 3, palette: { fill: '#172326', stroke: '#7db9ca', accent: '#a4dbea' } },
+    map: { x: 4950, y: 1300, size: 3, palette: { fill: '#c3d6e9', stroke: '#224162', accent: '#2a66a7' } },
     tagline: 'Compter les trous plutôt que mesurer les longueurs : la forme sans métrique devient une science.',
     summary:
       'Entre l’Analysis situs de Poincaré (1895) et les axiomes d’Eilenberg et Steenrod (1945), la topologie naît et s’organise. Poincaré invente l’homologie simpliciale et laisse la conjecture qui porte son nom ; Brouwer établit le point fixe et l’invariance de la dimension (1911) ; Hausdorff (1914) et l’école de Moscou (Alexandrov, Urysohn) définissent les espaces topologiques et la dimension ; Lefschetz, Alexander, Hopf, puis Hurewicz (1935) et Whitney passent de l’homologie aux groupes d’homotopie, aux fibrations et aux classes caractéristiques. Noether y introduit les groupes abstraits : la topologie devient algébrique, puis axiomatique.',
@@ -864,6 +983,30 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Toute variété compacte sans bord de dimension 3, dont le groupe fondamental est trivial, est une sphère.',
         comment: 'Posée au terme du cinquième complément, après que Poincaré eut construit un contre-exemple à la version homologique, la question commande un siècle de topologie : démontrée en dimension au moins 5 par Smale (1961), en dimension 4 par Freedman (1982), en dimension 3 par Perelman (2003). Elle est le seul problème du millénaire résolu à ce jour.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans le deuxième complément à l’Analysis situs (1900), Poincaré affirme qu’une variété de dimension 3 qui a les nombres de Betti et de torsion de la sphère est une sphère ; c’est en revenant sur cette affirmation qu’il construit en 1904 la sphère d’homologie qui la réfute, distinguée de la sphère par son seul groupe fondamental (introduit dès 1895).',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La classification des surfaces fermées par le genre et l’orientabilité, acquise à la fin du XIXᵉ siècle, fait de la dimension 3 la frontière naturelle : la question de Poincaré cherche un analogue de cette classification un cran plus haut.',
+            sources: ['stillwell-history', 'james-history-topology'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les démonstrations erronées jalonnent le siècle : J. H. C. Whitehead en publie une en 1934 et, en cherchant son erreur, découvre en 1935 une variété contractile de dimension 3 qui n’est pas homéomorphe à l’espace euclidien.',
+            sources: ['james-history-topology', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La preuve de Perelman (2002-2003) passe par le flot de Ricci de Richard Hamilton et démontre la conjecture de géométrisation de Thurston : une question purement topologique est finalement résolue par la géométrie différentielle et l’analyse.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-du-point-fixe-de-brouwer',
@@ -885,7 +1028,31 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'top-analysis-situs',
         kind: 'theoreme',
         statement: 'Deux espaces euclidiens de dimensions différentes ne sont pas homéomorphes ; l’image d’un ouvert par un homéomorphisme est un ouvert.',
-        comment: 'Conjecturée par Dedekind dès 1878, l’invariance est démontrée par Brouwer (1911), avec des simplifications dues à Lebesgue (1911) : la dimension, notion évidente pour le géomètre, devient un invariant topologique. Le théorème fonde la théorie de la dimension de Menger et Urysohn et lève le soupçon jeté par la courbe de Peano sur la notion même de dimension.',
+        comment: 'Conjecturée par Dedekind dans une lettre à Cantor de 1877, au lendemain de la bijection de Cantor entre la droite et le plan (publiée en 1878), l’invariance est démontrée par Brouwer (1911), avec des simplifications dues à Lebesgue (1911) : la dimension, notion évidente pour le géomètre, devient un invariant topologique. Le théorème fonde la théorie de la dimension de Menger et Urysohn et lève le soupçon jeté par la courbe de Peano sur la notion même de dimension.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1877, Cantor établit une bijection entre la droite et le plan et écrit à Dedekind « je le vois, mais je ne le crois pas » ; Dedekind lui répond aussitôt que cette bijection n’est pas continue et que la dimension devrait être invariante par les bijections bicontinues.',
+            sources: ['ferreiros-labyrinth', 'ewald-kant-hilbert'],
+          },
+          {
+            kind: 'fait',
+            text: 'Plusieurs démonstrations proposées dès 1878-1879, dont une de Cantor, se révèlent insuffisantes, et la courbe de Peano (1890), qui remplit un carré de façon continue, montre que l’intuition ne suffit plus : la question reste ouverte en dimension quelconque jusqu’à Brouwer.',
+            sources: ['james-history-topology', 'ferreiros-labyrinth'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Pour démontrer l’invariance, Brouwer introduit en 1911-1912 le degré d’une application et l’approximation simpliciale, qui deviennent des outils de base de la topologie algébrique.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Brouwer propose en 1913 une définition topologique de la dimension, que Urysohn et Menger retrouvent indépendamment en 1922-1923 sous la forme de la dimension inductive.',
+            sources: ['james-history-topology', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'espaces-topologiques-de-hausdorff',
@@ -941,7 +1108,7 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'top-homotopie-fibrations',
         kind: 'theoreme',
         statement: 'La sphère de dimension 3 se décompose en cercles deux à deux enlacés, paramétrés par une sphère de dimension 2 ; l’application correspondante de S³ sur S² n’est homotope à aucune application constante.',
-        comment: 'Publiée dans les Mathematische Annalen (1931), la fibration répond à une question que Freudenthal venait de poser et démontre qu’il existe des applications de sphère en sphère non réductibles au degré de Brouwer. Elle ouvre l’homotopie supérieure : le groupe π₃(S²) est infini, contre l’attente générale.',
+        comment: 'Publiée dans les Mathematische Annalen (1931), la fibration démontre qu’il existe des applications de sphère en sphère non réductibles au degré de Brouwer. Elle ouvre l’homotopie supérieure : le groupe π₃(S²) est infini, contre l’attente générale.',
       },
       {
         id: 'groupes-d-homotopie',
@@ -953,6 +1120,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'concept',
         statement: 'Les classes de déformation des applications continues d’une sphère de dimension n dans un espace forment un groupe, abélien pour n ≥ 2 ; si l’espace est simplement connexe, le premier groupe d’homotopie non nul coïncide avec le groupe d’homologie correspondant.',
         comment: 'Exposés au colloque de Moscou de 1935 et publiés dans les Koninklijke Akademie d’Amsterdam, les groupes πₙ généralisent le groupe fondamental. Le théorème de Hurewicz relie homotopie et homologie ; le calcul effectif des groupes d’homotopie des sphères, entamé par Freudenthal (1937), reste aujourd’hui l’un des problèmes les plus difficiles de la topologie.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Čech avait proposé des groupes d’homotopie supérieurs au congrès international de Zurich (1932) ; l’objection qu’ils sont commutatifs, donc en apparence moins riches que le groupe fondamental, le fait renoncer à développer l’idée.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La fibration de Hopf (1931), application essentielle de S³ sur S² que l’homologie ne détecte pas, montre qu’il existe une information homotopique invisible aux invariants classiques : les groupes de Hurewicz donnent un cadre à cette information.',
+            sources: ['dieudonne-topology'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Freudenthal démontre à la fin des années 1930 le théorème de suspension, qui stabilise les groupes πₙ₊ₖ(Sⁿ) pour n grand ; au début des années 1950, Serre montre à l’aide de la suite spectrale de Leray que les groupes d’homotopie des sphères sont finis, hormis quelques cas qu’il détermine.',
+            sources: ['dieudonne-topology'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-plongement-de-whitney',
@@ -999,7 +1185,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1890, end: 1955 },
     continents: ['formes', 'nombres'],
     places: ['Rome', 'Bologne', 'Baltimore', 'Cambridge', 'Chicago', 'São Paulo'],
-    map: { x: 5600, y: 1550, size: 2, palette: { fill: '#172026', stroke: '#79a9c8', accent: '#a0cce9' } },
+    map: { x: 5600, y: 1550, size: 2, palette: { fill: '#cbddec', stroke: '#254c6a', accent: '#2c76af' } },
     tagline: 'Des surfaces de Castelnuovo et Enriques aux corps finis de Weil : la géométrie algébrique refait ses fondements.',
     summary:
       'Héritiers de Cremona, les géomètres italiens Castelnuovo, Enriques et Severi construisent entre 1890 et 1920 la théorie des surfaces algébriques : critère de rationalité, classification d’Enriques, fonctions de plusieurs variables complexes. Leur intuition superbe mais leurs démonstrations fragiles provoquent une refonte : Zariski et van der Waerden fondent la géométrie sur l’algèbre commutative, Hodge la rattache à l’analyse harmonique, et André Weil, dans les Foundations (1946), la libère des nombres complexes pour démontrer l’hypothèse de Riemann des courbes sur les corps finis (1948) et formuler les conjectures (1949) qui conduiront à Grothendieck et à Deligne.',
@@ -1186,6 +1372,25 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'gac-refonte-algebrique',
         kind: 'texte',
         comment: 'Publié chez Springer dans les Ergebnisse der Mathematik, le livre reprend théorème par théorème l’œuvre de Castelnuovo, Enriques et Severi : Zariski y constate que des démonstrations capitales sont incomplètes. L’ouvrage, dédié à ses maîtres italiens, fait date : c’est à sa lecture que Zariski décide de refonder la géométrie algébrique sur l’algèbre commutative.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Formé à Rome par Castelnuovo et Enriques, Zariski travaille d’abord à Johns Hopkins sur la topologie des courbes planes, dans la lignée de Lefschetz (groupe fondamental du complémentaire d’une courbe, 1929), avant d’entreprendre pour les Ergebnisse le bilan de la théorie italienne des surfaces.',
+            sources: ['parikh-zariski'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Zariski démontre par voie algébrique la résolution des singularités des surfaces (1939), puis des variétés de dimension trois (1944), en caractéristique zéro ; son élève Hironaka l’établit en toute dimension en 1964.',
+            sources: ['parikh-zariski', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le livre est réédité en 1971, augmenté d’appendices d’Abhyankar, Lipman et Mumford qui font le point sur ce que les méthodes algébriques ont permis d’établir depuis.',
+            sources: ['parikh-zariski'],
+          },
+        ],
       },
       {
         id: 'theorie-de-hodge',
@@ -1231,6 +1436,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour une courbe de genre g définie sur un corps fini à q éléments, le nombre de ses points est compris entre q + 1 − 2g√q et q + 1 + 2g√q ; autrement dit, les zéros de sa fonction zêta sont tous de « partie réelle 1/2 ».',
         comment: 'Conjecturé par Artin (1924) pour quelques exemples, démontré par Hasse pour les courbes elliptiques (1933-1936), le cas général est établi par Weil dans Sur les courbes algébriques et les variétés qui s’en déduisent (1948), au prix de la refonte des fondements. Le théorème relie définitivement géométrie algébrique et arithmétique.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Artin, dans sa thèse (1921, publiée en 1924), définit la fonction zêta des corps quadratiques de fonctions sur un corps fini, sur le modèle de celle de Dedekind ; F. K. Schmidt l’étend en 1931 à toute courbe et en démontre la rationalité et l’équation fonctionnelle à l’aide du théorème de Riemann–Roch.',
+            sources: ['dieudonne-geometrie-algebrique', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Weil annonce une démonstration générale dans une note aux Comptes rendus de 1940 ; il lui faut ensuite construire en caractéristique quelconque la théorie de l’intersection et des correspondances, ce qui le conduit à écrire les Foundations (1946) avant de publier la preuve complète.',
+            sources: ['weil-apprentissage', 'dieudonne-geometrie-algebrique'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Weil en déduit la même année (1948) une majoration des sommes de Kloosterman, devenue un outil standard de la théorie analytique des nombres. Une démonstration élémentaire, sans géométrie algébrique, n’est trouvée que par Stepanov (1969), puis simplifiée par Bombieri (1973).',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'conjectures-de-weil',
@@ -1243,6 +1467,30 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Pour toute variété lisse sur un corps fini, la fonction zêta qui compte ses points est une fraction rationnelle, vérifie une équation fonctionnelle et une « hypothèse de Riemann », et ses degrés reflètent les nombres de Betti de la variété complexe associée.',
         comment: 'Publiées dans le Bulletin de l’AMS (1949), les conjectures postulent une cohomologie pour les variétés sur les corps finis. Dwork (1960) prouve la rationalité, Grothendieck crée la cohomologie étale, et Deligne achève en 1974 la démonstration : l’un des grands chantiers du XXᵉ siècle part d’une note de quatre pages.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’article de 1949 part d’un calcul explicite : le nombre de solutions sur un corps fini des équations « diagonales » de la forme a₀x₀ⁿ + … + aᵣxᵣⁿ = b, que Weil exprime à l’aide des sommes de Gauss, dans le prolongement de calculs faits par Gauss pour des cas particuliers.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’idée qu’un comptage de points reflète la topologie vient de la formule des points fixes de Lefschetz, que Weil avait déjà transposée aux courbes en 1948 : les points d’une variété sur un corps fini sont les points fixes de l’application de Frobenius.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La cohomologie étale, développée par Grothendieck avec Michael Artin et Verdier (SGA 4, 1963-1964), donne la rationalité et l’équation fonctionnelle. Grothendieck formule en 1968 des « conjectures standard » dont il espère déduire l’hypothèse de Riemann ; Deligne la démontre en 1974 sans elles, et elles restent ouvertes.',
+            sources: ['jackson-grothendieck', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les historiens voient dans ces conjectures le moteur principal de la refonte de la géométrie algébrique dans les années 1950-1960 : les schémas et la cohomologie étale sont conçus d’abord comme les outils de leur démonstration.',
+            sources: ['dieudonne-geometrie-algebrique', 'jackson-grothendieck'],
+          },
+        ],
       },
       {
         id: 'conjecture-de-hodge',
@@ -1261,12 +1509,13 @@ export const STRUCTURES_A: Domain[] = [
   {
     id: 'analyse-fonctionnelle',
     name: 'Analyse fonctionnelle et théorie de la mesure',
+    mapName: 'Analyse fonctionnelle et mesure',
     altNames: ['Analyse des espaces de fonctions', 'Écoles de Lwów et de Szeged'],
     era: 'structures',
     period: { start: 1900, end: 1955 },
     continents: ['analyse'],
     places: ['Paris', 'Stockholm', 'Göttingen', 'Budapest', 'Lwów', 'Princeton'],
-    map: { x: 4950, y: 2200, size: 3, palette: { fill: '#201726', stroke: '#b58bd0', accent: '#d8b5ee' } },
+    map: { x: 4950, y: 2200, size: 3, palette: { fill: '#d7cfed', stroke: '#3b266d', accent: '#532db4' } },
     tagline: 'Une fonction devient un point : mesure, intégrale et espaces abstraits donnent à l’analyse son langage du siècle.',
     summary:
       'Entre l’intégrale de Lebesgue (1902) et la Théorie des distributions de Schwartz (1950), l’analyse change d’échelle : les fonctions deviennent les points d’espaces vectoriels que l’on étudie pour eux-mêmes. Fredholm traite les équations intégrales comme des systèmes linéaires de dimension infinie (1903) ; Fréchet axiomatise les espaces métriques (1906) ; Riesz représente les formes linéaires et fonde l’école hongroise ; Banach et Steinhaus, à Lwów, dégagent les théorèmes généraux des espaces normés ; von Neumann axiomatise les espaces de Hilbert pour la mécanique quantique (1929). La Théorie des opérations linéaires (1932) et les distributions achèvent cette refonte, au service des probabilités et des équations aux dérivées partielles.',
@@ -1421,7 +1670,7 @@ export const STRUCTURES_A: Domain[] = [
         name: 'Laurent Schwartz',
         years: [1915, 2002],
         origin: 'Paris, Nancy',
-        bio: 'Normalien, gendre de Paul Lévy, Schwartz construit pendant l’occupation, à Clermont-Ferrand, la théorie des distributions (1945-1950), exposée dans les deux volumes de la Théorie des distributions. Médaille Fields en 1950 — la première décernée à un Français — il enseigne à Nancy, à la Sorbonne et à l’École polytechnique ; engagé contre la guerre d’Algérie et pour les droits de l’homme, il raconte ce double parcours dans Un mathématicien aux prises avec le siècle (1997).',
+        bio: 'Normalien, gendre de Paul Lévy, Schwartz conçoit à la fin de 1944, après la Libération, la théorie des distributions, publiée à partir de 1945 à Grenoble et exposée dans les deux volumes de la Théorie des distributions. Médaille Fields en 1950 — la première décernée à un Français — il enseigne à Nancy, à la Sorbonne et à l’École polytechnique ; engagé contre la guerre d’Algérie et pour les droits de l’homme, il raconte ce double parcours dans Un mathématicien aux prises avec le siècle (1997).',
         theoryId: 'af-distributions',
       },
     ],
@@ -1450,6 +1699,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'concept',
         statement: 'Pour intégrer une fonction, on découpe non plus l’axe des abscisses mais l’axe des ordonnées : l’intégrale s’obtient en mesurant les ensembles de niveau ; toute fonction mesurable bornée est ainsi intégrable.',
         comment: 'Présentée dans la thèse de 1902 (Annali di Matematica), l’intégrale de Lebesgue intègre la fonction de Dirichlet, égalise intégrabilité et sommabilité, et rend possible le théorème de convergence dominée (1904). Elle est la clef des espaces de fonctions, des probabilités modernes et des séries de Fourier convergentes presque partout (Carleson, 1966).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’intégrale de Riemann laisse échapper des fonctions que l’analyse rencontre : Volterra exhibe en 1881 une fonction dérivable, à dérivée bornée, dont la dérivée n’est pas intégrable au sens de Riemann. Lebesgue présente sa construction comme une réponse au problème des primitives : retrouver une fonction à partir de sa dérivée.',
+            sources: ['kline-thought', 'hairer-wanner-analysis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Fatou (1906) applique la nouvelle intégrale aux séries de Fourier et aux fonctions analytiques, Riesz et Fischer (1907) en tirent la complétude des fonctions de carré sommable, puis Radon (1913) et Fréchet (1915) l’étendent à des mesures sur des ensembles abstraits.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Elle devient l’intégrale standard du XXᵉ siècle : ses rivales, celles de Denjoy (1912) et de Perron (1914), intègrent davantage de dérivées, mais aucune n’offre la même souplesse pour les passages à la limite et les espaces de fonctions.',
+            sources: ['kline-thought', 'dieudonne-functional-analysis'],
+          },
+        ],
       },
       {
         id: 'equations-integrales-de-fredholm',
@@ -1462,6 +1730,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une équation intégrale linéaire f − λKf = g, où K est un noyau continu, possède pour tout g une solution unique, sauf pour une suite discrète de valeurs propres λ ; dans le cas exceptionnel, elle a des solutions si et seulement si g est orthogonale aux solutions de l’équation transposée.',
         comment: 'Publié dans les Acta Mathematica, le résultat traite l’infini de paramètres comme la dimension infinie d’un espace de fonctions. Hilbert (1904-1906) et Schmidt en tirent la théorie spectrale ; Riesz (1918) le généralise aux opérateurs compacts, où il devient l’alternative de Fredholm–Riesz, outil permanent des EDP elliptiques.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème de Dirichlet de la théorie du potentiel se ramène à une équation intégrale, que la méthode de Neumann et sa reprise par Poincaré (1896) résolvent par approximations successives ; Volterra traite la même année les équations à borne variable. Fredholm, élève de Mittag-Leffler, aborde en 1900 le cas à borne fixe en passant à la limite sur les déterminants de systèmes linéaires finis.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les résultats de Fredholm, exposés à Göttingen par Erik Holmgren en 1901, lancent Hilbert dans six communications sur les équations intégrales (1904-1910), réunies en volume en 1912 : c’est de là que sortent les espaces de suites de carré sommable.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La notion d’opérateur de Fredholm et de son indice, dégagée au milieu du siècle à partir de l’alternative, conduit au théorème de l’indice d’Atiyah et Singer (1963), qui relie analyse et topologie.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'lecons-sur-l-integration',
@@ -1571,6 +1858,30 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'af-distributions',
         kind: 'texte',
         comment: 'Les deux volumes (Hermann, 1950-1951) définissent les distributions comme formes linéaires continues sur les fonctions indéfiniment dérivables à support compact : la « fonction » de Dirac devient une mesure, toute distribution est dérivable, la convolution et la transformée de Fourier s’y étendent. Sobolev (1936) avait préparé la notion ; elle devient le langage des solutions faibles des EDP (Hörmander, Lions).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les physiciens manipulent depuis longtemps des objets sans statut mathématique : le calcul symbolique de Heaviside à la fin du XIXᵉ siècle, puis la « fonction » δ de Dirac (1927), popularisée par ses Principles of Quantum Mechanics (1930).',
+            sources: ['schwartz-mathematicien', 'dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Schwartz situe dans ses souvenirs la découverte de la définition à l’automne 1944, en cherchant à généraliser la notion de solution des équations aux dérivées partielles ; il en publie un premier exposé en 1945 dans les Annales de l’université de Grenoble.',
+            sources: ['schwartz-mathematicien'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Ehrenpreis (1954) et Malgrange (1955) démontrent dans ce cadre que tout opérateur différentiel à coefficients constants possède une solution fondamentale, qui est en général une distribution et non une fonction.',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La théorie fait de la dualité une méthode : un objet se définit par son action sur des fonctions test. Grothendieck prolonge cette démarche dans sa thèse sur les espaces vectoriels topologiques, soutenue à Nancy en 1953 sous la direction de Schwartz et de Dieudonné.',
+            sources: ['jackson-grothendieck', 'schwartz-mathematicien'],
+          },
+        ],
       },
     ],
     sources: ['dieudonne-functional-analysis', 'kaluza-banach', 'schwartz-mathematicien', 'hairer-wanner-analysis', 'gowers-companion', 'mactutor'],
@@ -1578,12 +1889,13 @@ export const STRUCTURES_A: Domain[] = [
   {
     id: 'edp-et-physique-mathematique',
     name: 'Équations aux dérivées partielles et physique mathématique du XXᵉ siècle',
+    mapName: 'EDP et physique mathématique',
     altNames: ['Physique mathématique moderne', 'École de Göttingen en physique mathématique'],
     era: 'structures',
     period: { start: 1900, end: 1960 },
     continents: ['analyse'],
     places: ['Paris', 'Padoue', 'Göttingen', 'Zurich', 'Moscou', 'New York'],
-    map: { x: 5600, y: 2450, size: 2, palette: { fill: '#201726', stroke: '#c1a1d9', accent: '#e4cdf3' } },
+    map: { x: 5600, y: 2450, size: 2, palette: { fill: '#e0d6f0', stroke: '#462975', accent: '#652fbc' } },
     tagline: 'Du calcul absolu de Ricci aux solutions faibles de Leray : les équations de la physique deviennent une théorie.',
     summary:
       'Au début du siècle, les équations aux dérivées partielles sortent de leur cas par cas : Hadamard définit les problèmes bien posés (1902), le calcul différentiel absolu de Ricci et Levi-Civita (1900) donne à la relativité générale son langage, et le théorème de Noether (1918) relie symétries et lois de conservation. Göttingen, avec Weyl, Hilbert et Courant, unit analyse et physique ; dispersée en 1933, l’école renaît à New York autour de Courant. Schauder (1930), Douglas (1931), Leray (1934) et Sobolev (1936-1938) créent les outils de l’analyse non linéaire : points fixes, solutions faibles, espaces fonctionnels et faisceaux.',
@@ -1730,7 +2042,7 @@ export const STRUCTURES_A: Domain[] = [
         name: 'Jean Leray',
         years: [1906, 1998],
         origin: 'Nancy et Paris',
-        bio: 'Normalien, Leray publie en 1934 sa thèse sur les équations de Navier–Stokes, où il crée les solutions faibles et, avec Schauder, le degré topologique en dimension infinie. Prisonnier de guerre en Autriche (1940-1945), il y invente, dans un camp d’officiers, la théorie des faisceaux et la suite spectrale pour dérouter d’éventuels usages militaires de ses recherches. Professeur à Paris puis au Collège de France (1947), il reçoit le prix Wolf en 1979.',
+        bio: 'Normalien, Leray soutient en 1933 une thèse d’hydrodynamique et publie en 1934 son mémoire sur les équations de Navier–Stokes, où il crée les solutions faibles et, avec Schauder, le degré topologique en dimension infinie. Prisonnier de guerre en Autriche (1940-1945), il y invente, dans un camp d’officiers, la théorie des faisceaux et la suite spectrale pour dérouter d’éventuels usages militaires de ses recherches. Professeur à Paris puis au Collège de France (1947), il reçoit le prix Wolf en 1979.',
         theoryId: 'edp-analyse-non-lineaire',
       },
       {
@@ -1788,6 +2100,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'À toute symétrie continue d’un principe variationnel correspond une quantité conservée : l’invariance par translation dans le temps donne la conservation de l’énergie, celle par translation dans l’espace la quantité de mouvement, celle par rotation le moment cinétique.',
         comment: 'Publié dans les Nachrichten de Göttingen (1918) à la demande de Klein et de Hilbert, qui débattaient de la conservation de l’énergie en relativité générale, le mémoire contient en fait deux théorèmes traitant aussi les symétries locales. C’est aujourd’hui le principe organisateur de la physique théorique, des particules élémentaires aux théories de jauge.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Noether est invitée à Göttingen en 1915 par Hilbert et Klein pour sa compétence en théorie des invariants, alors utile aux recherches de Hilbert sur la relativité générale. Le mémoire de 1918, présenté par Klein à la Société des sciences de Göttingen, lui sert ensuite de travail d’habilitation (1919).',
+            sources: ['dick-noether', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Le second théorème répond à la question de départ : lorsque le groupe de symétrie dépend de fonctions arbitraires, comme en relativité générale, les lois de conservation se réduisent à des identités, ce qui explique la forme inhabituelle de la conservation de l’énergie relevée par Hilbert.',
+            sources: ['gray-hilbert-challenge', 'dick-noether'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Avec les théories de jauge du XXᵉ siècle, le théorème devient une méthode de découverte : on postule une symétrie et l’on en déduit la quantité conservée, la conservation de la charge électrique se lisant ainsi comme conséquence d’une invariance de jauge.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'raum-zeit-materie',
@@ -1831,6 +2162,25 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout contour fermé suffisamment régulier de l’espace borde une surface d’aire minimale, réalisée comme image conforme d’un disque.',
         comment: 'Résolu indépendamment par Radó (1930) et Douglas (1931), dont la méthode — minimiser une fonctionnelle de l’application plutôt que de la surface — se généralisera. Douglas reçoit pour ce travail l’une des premières médailles Fields (1936) ; la question des surfaces minimales de toute topologie est poursuivie par Morse, Tompkins, puis par la théorie moderne des ensembles minimaux.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Lagrange écrit dès 1760 l’équation des surfaces d’aire minimale ; le problème porte le nom du physicien belge Joseph Plateau, dont les expériences sur les lames de savon (Statique expérimentale et théorique des liquides, 1873) montrent qu’un contour de fil de fer borde toujours une telle surface.',
+            sources: ['kline-thought', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Riemann, Weierstrass et Schwarz ne résolvent au XIXᵉ siècle que des cas particuliers, pour des contours polygonaux ; la réhabilitation du principe de Dirichlet par Hilbert (1900-1901) relance les méthodes directes du calcul des variations dont procède la solution de Douglas.',
+            sources: ['kline-thought', 'gray-hilbert-challenge'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Courant reprend et simplifie la méthode de Douglas dans Dirichlet’s Principle, Conformal Mapping, and Minimal Surfaces (1950). Les questions de régularité et de topologie quelconque conduisent ensuite à la théorie géométrique de la mesure : courants de Federer et Fleming et travaux de Reifenberg (1960).',
+            sources: ['reid-courant', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'solutions-faibles-de-navier-stokes',
@@ -1842,7 +2192,26 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'edp-analyse-non-lineaire',
         kind: 'theoreme',
         statement: 'Les équations de Navier–Stokes, qui régissent un fluide visqueux, admettent pour toute donnée initiale d’énergie finie une solution « turbulente » (faible), définie pour tout temps au sens des fonctions généralisées.',
-        comment: 'Thèse soutenue en 1933 et publiée dans les Acta Mathematica (1934) : Leray y crée les solutions faibles, le degré de Leray–Schauder et l’usage systématique des estimations d’énergie. La régularité de ces solutions en dimension trois est l’un des sept problèmes du millénaire (2000). Hopf étend le résultat aux domaines bornés en 1951.',
+        comment: 'Mémoire publié dans les Acta Mathematica (1934), distinct de la thèse d’hydrodynamique que Leray soutient en 1933 : il y crée les solutions faibles et l’usage systématique des estimations d’énergie, la même année que le degré de Leray–Schauder. La régularité de ces solutions en dimension trois est l’un des sept problèmes du millénaire (2000). Hopf étend le résultat aux domaines bornés en 1951.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les équations de Navier (1822) et de Stokes (1845) sont admises par les physiciens depuis le XIXᵉ siècle sans théorème général d’existence pour tout temps. Leray, dont la thèse (1933) est dirigée par l’hydrodynamicien Henri Villat, aborde la question à partir de problèmes d’hydrodynamique.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La régularité reste ouverte, mais le meilleur résultat partiel s’appuie sur les solutions de Leray : Caffarelli, Kohn et Nirenberg montrent en 1982 que l’ensemble de leurs singularités éventuelles est de mesure de Hausdorff unidimensionnelle nulle.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La démarche de Leray (estimations a priori, compacité, passage à la limite faible) devient le schéma standard des preuves d’existence pour les EDP non linéaires, que Jacques-Louis Lions systématise dans Quelques méthodes de résolution des problèmes aux limites non linéaires (1969).',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'espaces-de-sobolev',

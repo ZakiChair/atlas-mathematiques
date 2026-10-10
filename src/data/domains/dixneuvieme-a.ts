@@ -26,7 +26,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1796, end: 1900 },
     continents: ['nombres'],
     places: ['Göttingen', 'Berlin', 'Breslau', 'Saint-Pétersbourg', 'Paris', 'Louvain'],
-    map: { x: 3600, y: 430, size: 3, palette: { fill: '#262117', stroke: '#d1bc8f', accent: '#efdeb9' } },
+    map: { x: 3600, y: 430, size: 3, palette: { fill: '#f1e7da', stroke: '#79572a', accent: '#c08130' } },
     tagline: 'Un livre de 1801 fixe les questions ; un siècle entier apprend à le lire.',
     summary:
       'Les Disquisitiones arithmeticae de Carl Friedrich Gauss (1801) donnent à l’arithmétique des entiers un langage, les congruences, un objet central, les formes quadratiques et leur composition, et un premier grand théorème démontré, la loi de réciprocité quadratique. Tout le siècle se règle sur ce livre : Dirichlet y introduit des séries nouvelles et démontre en 1837 que toute progression arithmétique convenable contient une infinité de nombres premiers ; Kummer invente les nombres idéaux pour sauver l’unicité de la factorisation dans les entiers cyclotomiques ; Dedekind les refonde en théorie générale des idéaux. À Saint-Pétersbourg, Tchebychev encadre le comptage des nombres premiers ; en 1896, sur la voie ouverte par le mémoire de Riemann de 1859, Hadamard et de La Vallée Poussin démontrent le théorème des nombres premiers.',
@@ -176,7 +176,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         name: 'Charles-Jean de La Vallée Poussin',
         years: [1866, 1962],
         origin: 'Louvain',
-        bio: 'Professeur à Louvain pendant plus d’un demi-siècle, de La Vallée Poussin démontre en 1896, indépendamment de Hadamard et au même moment, le théorème des nombres premiers. Sa version, fondée sur un contrôle fin des zéros de la fonction zêta, fournit le premier terme d’erreur explicite.',
+        bio: 'Professeur à Louvain pendant plus d’un demi-siècle, de La Vallée Poussin démontre en 1896, indépendamment de Hadamard et au même moment, le théorème des nombres premiers. Sa version, fondée sur un contrôle fin des zéros de la fonction zêta, lui permet en 1899 de donner un terme d’erreur explicite.',
         theoryId: 'arg-theorie-analytique',
       },
     ],
@@ -226,6 +226,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si a et m sont premiers entre eux, la suite a, a + m, a + 2m, … contient une infinité de nombres premiers.',
         comment: 'La preuve introduit les caractères et les séries L, dont la non-annulation en 1 est le point crucial : c’est la première fois que l’analyse d’une variable continue démontre un énoncé purement arithmétique. Elle ouvre la théorie analytique des nombres, prolongée par Riemann, Hadamard et de La Vallée Poussin.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Legendre avait énoncé le résultat dans son Essai sur la théorie des nombres (1798) et s’en servait dans sa tentative de démonstration de la loi de réciprocité quadratique, sans parvenir à l’établir : la lacune était connue de Gauss comme de Dirichlet.',
+            sources: ['weil-number-theory', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le modèle de la preuve est l’argument d’Euler (1737) : écrire la somme des inverses des puissances des entiers comme un produit sur les nombres premiers montre que la série des inverses des premiers diverge. Dirichlet tord ce produit par ses caractères pour isoler les premiers d’une progression donnée.',
+            sources: ['weil-number-theory', 'dieudonne-abrege'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dirichlet applique aussitôt la même méthode aux formes quadratiques : ses Recherches sur diverses applications de l’analyse infinitésimale à la théorie des nombres (1839-1840) donnent la formule du nombre de classes de formes d’un discriminant donné.',
+            sources: ['dieudonne-abrege', 'goldstein-schappacher-schwermer'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le geste — associer à une question sur les entiers une fonction analytique et lire la réponse sur son comportement près d’un point singulier — devient le schéma de toute la théorie analytique des nombres du siècle suivant.',
+            sources: ['dieudonne-abrege', 'goldstein-schappacher-schwermer'],
+          },
+        ],
       },
       {
         id: 'nombres-ideaux',
@@ -237,6 +261,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'concept',
         statement: 'Dans les entiers cyclotomiques, la décomposition en facteurs premiers peut ne pas être unique ; Kummer adjoint des diviseurs « idéaux », qui ne correspondent à aucun nombre effectif, et rétablit l’unicité.',
         comment: 'Grâce à eux, Kummer démontre le dernier théorème de Fermat pour tous les exposants premiers réguliers (1850). Lamé venait d’échouer précisément sur l’unicité supposée de la factorisation. Le concept sera refondu deux fois : idéaux chez Dedekind (1871), diviseurs constructifs chez Kronecker.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En mars 1847, Lamé annonce à l’Académie des sciences de Paris une démonstration du dernier théorème de Fermat fondée sur la factorisation de xⁿ + yⁿ en entiers cyclotomiques ; Liouville objecte aussitôt que l’unicité de la décomposition n’est pas démontrée. Kummer fait savoir à Liouville, par une lettre publiée la même année, qu’il avait montré dès 1844 que cette unicité est fausse en général et qu’il l’avait rétablie au moyen de ses nombres idéaux.',
+            sources: ['edwards-fermat'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Harold Edwards, le dernier théorème de Fermat n’était pas la motivation première de Kummer : ses travaux de 1844-1847 visent d’abord les lois de réciprocité supérieures que Gauss et Jacobi avaient laissées ouvertes.',
+            sources: ['edwards-fermat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Kummer caractérise en 1850 les exposants premiers « réguliers » par un critère sur les nombres de Bernoulli : p est régulier s’il ne divise aucun des numérateurs de B₂, B₄, …, Bₚ₋₃. Le plus petit premier irrégulier est 37 : sous 100, seuls 37, 59 et 67 échappent à son théorème.',
+            sources: ['edwards-fermat'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le nombre de classes, qui mesure l’écart à la factorisation unique, devient l’invariant central de la théorie algébrique des nombres : le Zahlbericht de Hilbert (1897) en fait le pivot de sa synthèse du siècle.',
+            sources: ['goldstein-schappacher-schwermer'],
+          },
+        ],
       },
       {
         id: 'postulat-de-bertrand',
@@ -315,7 +363,31 @@ export const DIXNEUVIEME_A: Domain[] = [
         theoryId: 'arg-theorie-analytique',
         kind: 'theoreme',
         statement: 'Le nombre π(x) des nombres premiers inférieurs à x est équivalent à x/ln x lorsque x tend vers l’infini.',
-        comment: 'Conjecturé par Gauss et Legendre vers 1800, encadré par Tchebychev, le théorème est démontré indépendamment par Hadamard et de La Vallée Poussin : tous deux montrent que ζ(s) ne s’annule pas sur la droite critique de bord Re(s) = 1, complétant le programme du mémoire de Riemann. Une preuve « élémentaire » ne viendra qu’en 1949 (Selberg, Erdős).',
+        comment: 'Conjecturé par Gauss et Legendre vers 1800, encadré par Tchebychev, le théorème est démontré indépendamment par Hadamard et de La Vallée Poussin : tous deux montrent que ζ(s) ne s’annule pas sur le bord Re(s) = 1 de la bande critique, complétant le programme du mémoire de Riemann. Une preuve « élémentaire » ne viendra qu’en 1949 (Selberg, Erdős).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Vers 1850, Tchebychev montre que si le rapport de π(x) à x/ln x a une limite, celle-ci vaut 1, et l’encadre entre deux constantes voisines de 1 ; mais ses méthodes élémentaires ne prouvent pas l’existence de la limite.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le mémoire de Riemann (1859) indiquait la voie sans en démontrer les étapes. Hadamard établit en 1893 sa théorie des fonctions entières, qui justifie la factorisation de ζ par ses zéros annoncée par Riemann ; von Mangoldt démontre en 1895 la formule explicite reliant les nombres premiers à ces zéros.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En 1899, de La Vallée Poussin élargit la région sans zéros de ζ et en tire un terme d’erreur explicite ; Landau systématise l’ensemble dans son Handbuch der Lehre von der Verteilung der Primzahlen (1909), manuel de référence de la discipline.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le théorème valide a posteriori la méthode de Riemann : l’analyse complexe devient l’outil ordinaire du comptage des premiers, et la question se déplace de l’équivalent asymptotique vers la taille de l’erreur, que l’hypothèse de Riemann gouvernerait.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
     ],
     sources: ['goldstein-schappacher-schwermer', 'dunnington-gauss', 'edwards-fermat', 'weil-number-theory', 'dieudonne-abrege', 'kleiner-abstract-algebra'],
@@ -326,12 +398,13 @@ export const DIXNEUVIEME_A: Domain[] = [
   {
     id: 'algebre-des-groupes',
     name: 'Équations, groupes et algèbres nouvelles',
+    mapName: 'Équations et groupes',
     altNames: ['Naissance de l’algèbre moderne', 'Théorie des groupes au XIXᵉ siècle'],
     era: 'dixneuvieme',
     period: { start: 1799, end: 1895 },
     continents: ['nombres'],
     places: ['Modène', 'Christiania', 'Paris', 'Dublin', 'Cambridge', 'Stettin', 'Leipzig'],
-    map: { x: 4250, y: 580, size: 3, palette: { fill: '#262417', stroke: '#d7ce9d', accent: '#f2ecc9' } },
+    map: { x: 4250, y: 580, size: 3, palette: { fill: '#f3ebdd', stroke: '#7d5e2c', accent: '#c48c31' } },
     tagline: 'Pourquoi le cinquième degré résiste : une question d’équations devient la science des symétries.',
     summary:
       'Trois siècles après la résolution des équations du troisième et du quatrième degré, Ruffini puis Abel démontrent que l’équation générale du cinquième degré ne se résout pas par radicaux. Galois va plus loin : à chaque équation il attache un groupe de permutations de ses racines, dont la structure décide de la résolubilité — mais ses mémoires, refusés ou égarés, ne sont publiés par Liouville qu’en 1846. Pendant ce temps, l’algèbre se démultiplie : quaternions de Hamilton (1843), Ausdehnungslehre de Grassmann (1844), matrices de Cayley (1858). Après 1870, le Traité des substitutions de Jordan, les théorèmes de Sylow et les groupes continus de Lie font du groupe lui-même l’objet central de l’algèbre.',
@@ -441,7 +514,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         name: 'Évariste Galois',
         years: [1811, 1832],
         origin: 'Paris',
-        bio: 'Élève rebelle, républicain emprisonné après Trois Glorieuses, Galois écrit à vingt ans les mémoires qui fondent la théorie des groupes et celle des corps finis. Tué en duel à vingt ans et demi, il n’est publié qu’en 1846 par Liouville ; sa correspondance fournit le critère complet de résolubilité des équations par radicaux.',
+        bio: 'Élève rebelle, républicain emprisonné après les Trois Glorieuses, Galois écrit à vingt ans les mémoires qui fondent la théorie des groupes et celle des corps finis. Tué en duel à vingt ans et demi, il n’est publié qu’en 1846 par Liouville ; sa correspondance fournit le critère complet de résolubilité des équations par radicaux.',
         theoryId: 'adg-equations-et-radicaux',
       },
       {
@@ -526,6 +599,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Il n’existe pas de formule générale exprimant les racines d’une équation du cinquième degré à l’aide de ses coefficients, des quatre opérations et de l’extraction de racines.',
         comment: 'Démonstration complète publiée à compte d’auteur en 1824, développée dans le Journal de Crelle en 1826. Elle clôt trois siècles de recherche ouverts par del Ferro et Cardan, et pose la question que Galois résoudra : quelles équations particulières restent résolubles ?',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans ses Réflexions de 1770-1771, Lagrange montre que les formules du troisième et du quatrième degré passent par une équation auxiliaire de degré moindre, alors que pour le cinquième degré la méthode conduit à une équation du sixième : il doute dès lors qu’une résolution générale par radicaux soit possible.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Abel lui-même croit d’abord, vers 1821, avoir résolu l’équation du cinquième degré ; invité par le mathématicien danois Degen à vérifier sa méthode sur des exemples, il y découvre l’erreur qui l’oriente vers la preuve d’impossibilité.',
+            sources: ['mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Abel cherche ensuite quelles équations restent résolubles : son mémoire de 1829 dans le Journal de Crelle traite celles dont les racines s’expriment rationnellement les unes par les autres avec des substitutions qui commutent — d’où, chez Kronecker, le nom d’équations « abéliennes », puis de groupes abéliens.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’impossibilité ne vaut que pour les radicaux : en 1858, Hermite résout l’équation générale du cinquième degré au moyen des fonctions modulaires elliptiques, voie que Klein reprendra dans ses Leçons sur l’icosaèdre (1884).',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'memoire-de-galois',
@@ -548,6 +645,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Aux sous-groupes du groupe d’une équation correspondent les corps intermédiaires entre le corps des coefficients et celui des racines, et réciproquement ; la décomposition du groupe reflète les adjonctions de radicaux.',
         comment: 'Le « lemme » central du mémoire de 1831, complété par la lettre testamentaire à Chevalier de mai 1832. Cette correspondance entre symétries et extensions de corps est devenue le schéma directeur de toute l’algèbre, jusqu’à la théorie de Galois différentielle et aux motifs.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Élève à Louis-le-Grand, Galois se forme seul en lisant Legendre puis les mémoires de Lagrange sur la résolution des équations ; son premier article, sur les fractions continues périodiques, paraît en 1829 dans les Annales de Gergonne.',
+            sources: ['neumann-galois', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Après le théorème d’Abel, la question n’est plus de résoudre l’équation générale mais de décider, pour une équation donnée, si elle se résout : Galois déplace le problème des formules vers les relations entre les racines, prolongeant la cyclotomie de Gauss et les permutations de Lagrange.',
+            sources: ['wussing-group-concept', 'neumann-galois'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Publiée par Liouville en 1846, la théorie est enseignée par Dedekind à Göttingen dès la fin des années 1850 et exposée par Serret dans la troisième édition de son Cours d’algèbre supérieure (1866), avant le Traité de Jordan (1870).',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En passant du groupe de permutations des racines au groupe des automorphismes d’une extension de corps — chez Dedekind, puis dans la refonte d’Emil Artin (1942) —, la correspondance devient indépendante des équations et sert de modèle à toutes les théories de « Galois » ultérieures.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+        ],
       },
       {
         id: 'quaternions',
@@ -559,6 +680,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'concept',
         statement: 'Nombres à quatre composantes q = a + bi + cj + dk, multipliés selon i² = j² = k² = ijk = −1 ; le produit n’est pas commutatif : ij = k mais ji = −k.',
         comment: 'Découverts le 16 octobre 1843 en chemin vers le Royal Canal, les quaternions sont la première algèbre volontairement non commutative : ils ouvrent la voie à toutes les structures algébriques « libérées » des lois du calcul ordinaire, et leur partie vectorielle engendrera le calcul vectoriel de Gibbs et Heaviside.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans sa « Theory of Conjugate Functions, or Algebraic Couples » (1837), Hamilton définit les nombres complexes comme des couples de réels munis d’opérations : ils décrivent les rotations du plan. Il cherche ensuite, pendant des années, des « triplets » qui feraient de même pour l’espace à trois dimensions.',
+            sources: ['kleiner-abstract-algebra', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Informé par Hamilton, son ami John T. Graves trouve dès décembre 1843 une algèbre à huit dimensions, les octaves, que Cayley publie indépendamment en 1845 ; elle n’est même plus associative.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Frobenius démontre en 1878 que les réels, les complexes et les quaternions sont les seules algèbres associatives de dimension finie sur les réels où l’on peut diviser : la quête de Hamilton reçoit sa réponse définitive.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+        ],
       },
       {
         id: 'ausdehnungslehre',
@@ -649,12 +789,13 @@ export const DIXNEUVIEME_A: Domain[] = [
   {
     id: 'geometries-non-euclidiennes',
     name: 'Géométries non euclidiennes et géométrie différentielle',
+    mapName: 'Géométries non euclidiennes',
     altNames: ['Géométrie hyperbolique', 'Naissance de la géométrie riemannienne'],
     era: 'dixneuvieme',
     period: { start: 1827, end: 1890 },
     continents: ['formes', 'fondements'],
     places: ['Göttingen', 'Kazan', 'Marosvásárhely', 'Bologne', 'Erlangen', 'Leipzig'],
-    map: { x: 3620, y: 1300, size: 3, palette: { fill: '#172326', stroke: '#88c0ce', accent: '#b1e1ed' } },
+    map: { x: 3620, y: 1300, size: 3, palette: { fill: '#cfdeed', stroke: '#264b6d', accent: '#2d72b4' } },
     tagline: 'Le postulat des parallèles cède : l’espace peut être courbe, et la géométrie devient plurielle.',
     summary:
       'Après deux mille ans d’attaques infructueuses contre le cinquième postulat d’Euclide, Gauss, Lobatchevski et János Bolyai construisent indépendamment une géométrie où par un point extérieur à une droite passent plusieurs parallèles. Publiés à Kazan (1829) et en appendice d’un livre hongrois (1832), ces résultats restent d’abord lettre morte. Deux déplacements les font accepter : la géométrie différentielle de Gauss (1827) et Riemann (1854), qui donnent à la courbure un sens intrinsèque, puis les modèles de Beltrami (1868) et Klein (1871), qui montrent que la géométrie hyperbolique est aussi consistante que la géométrie euclidienne. Avec le programme d’Erlangen (1872) et les axiomes d’ordre de Pasch (1882), la géométrie cesse d’être la science d’un espace unique.',
@@ -666,7 +807,7 @@ export const DIXNEUVIEME_A: Domain[] = [
       },
       {
         kind: 'fait',
-        text: 'Beltrami montre en 1868 que la géométrie plane hyperbolique se réalise sur la pseudosphère et dans un modèle intérieur au disque ; Klein en donne en 1871 une version projective où la « droite » hyperbolique est une corde d’un conique. La non-contradiction d’Euclide entraîne alors celle de la géométrie hyperbolique.',
+        text: 'Beltrami montre en 1868 que la géométrie plane hyperbolique se réalise sur la pseudosphère et dans un modèle intérieur au disque ; Klein en donne en 1871 une version projective où la « droite » hyperbolique est une corde d’une conique. La non-contradiction d’Euclide entraîne alors celle de la géométrie hyperbolique.',
         sources: ['gray-worlds', 'laugwitz-riemann'],
       },
       {
@@ -828,6 +969,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'texte',
         statement: 'Premier exposé publié d’une géométrie sans le postulat des parallèles : par un point extérieur à une droite passent deux parallèles limites ; la somme des angles d’un triangle est toujours inférieure à deux droits et décroît avec l’aire.',
         comment: 'Exposée à Kazan dès 1826, la « géométrie imaginaire » de Lobatchevski est raillée ou ignorée ; il la republiera en allemand (1840) et en français (1855), sans succès immédiat. Gauss la lit et apprend le russe pour suivre son auteur, mais garde son admiration pour sa correspondance.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Depuis l’Antiquité, on tente de déduire le cinquième postulat des autres axiomes ; Saccheri (1733) et Lambert (1766) en développent la négation pour la réfuter par l’absurde, et Legendre publie encore des « démonstrations » successives dans les éditions de ses Éléments de géométrie à partir de 1794.',
+            sources: ['bonola-non-euclidean', 'gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lobatchevski tient la géométrie de l’espace physique pour une question d’expérience : dans le mémoire même, il confronte sa géométrie aux parallaxes d’étoiles et conclut que l’écart avec Euclide serait trop petit pour être mesuré.',
+            sources: ['bonola-non-euclidean', 'gray-worlds'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La réception change après la publication de la correspondance de Gauss avec Schumacher (1860-1865), qui révèle l’estime de Gauss pour Lobatchevski ; Hoüel traduit en français ses Geometrische Untersuchungen (1840) en 1866, puis l’Appendix de Bolyai en 1867.',
+            sources: ['bonola-non-euclidean', 'gray-worlds'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’autorité posthume de Gauss, plus que les textes eux-mêmes, déclenche le mouvement : en une décennie, la « géométrie imaginaire » passe de la curiosité provinciale au sujet de recherche, préparant le terrain aux modèles de Beltrami.',
+            sources: ['gray-worlds'],
+          },
+        ],
       },
       {
         id: 'appendix-bolyai',
@@ -864,6 +1029,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'La géométrie hyperbolique plane se réalise localement sur la pseudosphère, surface de révolution à courbure négative constante, et globalement dans l’intérieur d’un disque muni d’une distance convenable.',
         comment: 'Beltrami conclut que toute contradiction de la géométrie hyperbolique en entraînerait une dans la géométrie euclidienne : la consistance relative est établie. C’est le premier « modèle » au sens moderne, et il clôt, pour beaucoup, le problème des parallèles.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1865, Beltrami résout la question de savoir quelles surfaces peuvent se représenter sur un plan de sorte que leurs géodésiques deviennent des droites : ce sont exactement les surfaces de courbure constante. Le résultat contient déjà la carte qui servira de modèle trois ans plus tard.',
+            sources: ['gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'Minding avait établi vers 1839-1840 les formules trigonométriques des surfaces de courbure négative constante, et Codazzi avait remarqué en 1857 qu’elles coïncident avec celles de Lobatchevski ; personne n’en avait encore tiré une interprétation de la géométrie non euclidienne.',
+            sources: ['bonola-non-euclidean'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La même année 1868, après la publication posthume de la leçon de Riemann, Beltrami étend sa construction aux espaces de dimension quelconque dans sa « Teoria fondamentale degli spazii di curvatura costante ».',
+            sources: ['gray-worlds', 'laugwitz-riemann'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’argument de consistance relative par un modèle devient une méthode générale : Klein (1871) et Poincaré (1882) en donnent d’autres versions, et les Grundlagen der Geometrie de Hilbert (1899) l’emploient systématiquement pour prouver l’indépendance des axiomes.',
+            sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+        ],
       },
       {
         id: 'faits-qui-fondent-la-geometrie',
@@ -899,6 +1088,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'texte',
         statement: 'Une géométrie est définie par un groupe de transformations : ses objets d’étude sont les propriétés des figures laissées invariantes par ce groupe. À chaque groupe sa géométrie — projective, affine, euclidienne, hyperbolique.',
         comment: 'Exposé programmatique écrit pour l’entrée de Klein à l’université d’Erlangen : il organise le foisonnement des géométries du siècle en une hiérarchie et fait du groupe l’outil unificateur de la géométrie, anticipant le rôle des groupes en physique du XXᵉ siècle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans son « Sixth Memoir upon Quantics » (1859), Cayley montre que les notions métriques se définissent projectivement à partir d’une conique fixe, l’« absolu » ; Klein en tire en 1871 son modèle projectif des géométries non euclidiennes.',
+            sources: ['gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'À Berlin puis à Paris en 1869-1870, Klein et Lie étudient ensemble les courbes et surfaces laissées invariantes par des familles continues de transformations ; la lecture du Traité des substitutions de Jordan leur fournit le langage des groupes.',
+            sources: ['hawkins-lie-groups', 'wussing-group-concept'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Thomas Hawkins a montré que le texte eut peu d’écho immédiat : son statut de manifeste date surtout des années 1890, quand Klein le republie et le fait traduire. Le programme est donc moins la cause que le résumé, après coup, d’un mouvement porté aussi par Lie.',
+            sources: ['hawkins-lie-groups'],
+          },
+        ],
       },
       {
         id: 'modele-de-poincare',
@@ -932,12 +1140,13 @@ export const DIXNEUVIEME_A: Domain[] = [
   {
     id: 'geometrie-projective-et-algebrique',
     name: 'Géométrie projective et algébrique au XIXᵉ siècle',
+    mapName: 'Géométrie projective et algébrique',
     altNames: ['École de la géométrie moderne', 'De Poncelet à Cremona'],
     era: 'dixneuvieme',
     period: { start: 1822, end: 1900 },
     continents: ['formes'],
     places: ['Paris', 'Nîmes', 'Berlin', 'Bonn', 'Leipzig', 'Milan', 'Rome'],
-    map: { x: 4250, y: 1500, size: 2, palette: { fill: '#172326', stroke: '#88bfce', accent: '#b1e0ed' } },
+    map: { x: 4250, y: 1500, size: 2, palette: { fill: '#cfe3ed', stroke: '#26576d', accent: '#2d89b4' } },
     tagline: 'Ce qui survit à la projection devient l’essentiel : incidence, dualité et invariants.',
     summary:
       'Élève de Monge, Poncelet rédige en captivité à Saratov ce qui devient le Traité des propriétés projectives des figures (1822) : il isole les propriétés conservées par projection — incidence, birapport, coniques — et leur adjoint le principe de continuité. Gergonne oppose à Carnot le principe de dualité (1826) : en géométrie projective plane, points et droites échangent leurs rôles. Möbius (1827) et Plücker (1829) donnent à cette géométrie ses coordonnées — barycentriques puis homogènes —, Steiner sa construction systématique. Après 1850, la jonction avec l’algèbre anglaise des invariants et les surfaces de Riemann fait naître la géométrie algébrique : les 27 droites de la surface cubique (1849), les transformations birationnelles de Cremona (1863), le théorème de Riemann–Roch (1865).',
@@ -1095,6 +1304,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'texte',
         statement: 'Poncelet y isole les propriétés des figures qui survivent à toute projection centrale : alignement, concours, birapport de quatre points, et y traite sur le même pied les points réels, à l’infini ou « imaginaires ».',
         comment: 'Composé à partir des cahiers de Saratov, le traité fonde la géométrie projective comme discipline autonome et redonne vie aux idées oubliées de Desargues et Pascal. Chasles, Steiner et von Staudt prolongeront le programme.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Poncelet hérite de la Géométrie descriptive de Monge (1799) et de la Géométrie de position de Carnot (1803), qui cherchait déjà à couvrir d’un seul énoncé les diverses dispositions d’une même figure.',
+            sources: ['gray-worlds', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'En 1820, un mémoire préparatoire de Poncelet sur les coniques reçoit de Cauchy un rapport réservé sur le principe de continuité, jugé simple induction ; Poncelet maintient le principe dans le Traité et lui consacre son introduction.',
+            sources: ['gray-worlds', 'belhoste-cauchy'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Chasles retrace en 1837, dans son Aperçu historique sur l’origine et le développement des méthodes en géométrie, la filiation de Desargues à Poncelet ; une chaire de géométrie supérieure est créée pour lui à la Sorbonne en 1846. En 1847, la Geometrie der Lage de von Staudt affranchit la géométrie projective de toute mesure.',
+            sources: ['gray-worlds', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le Traité fait de la projection non plus un procédé de dessin mais un critère de classement — propriétés projectives contre propriétés métriques —, hiérarchie que le programme d’Erlangen formalisera en termes de groupes.',
+            sources: ['gray-worlds'],
+          },
+        ],
       },
       {
         id: 'principe-de-continuite',
@@ -1163,6 +1396,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute surface cubique lisse contient exactement 27 droites, réelles ou complexes, dont la configuration d’incidence est la même pour toutes.',
         comment: 'Cayley prouve la finitude, Salmon le compte exact, en réponse à une question posée à Cambridge. Schläfli en donne la classification réelle (1858). Premier triomphe de la géométrie énumérative, l’énoncé fascine encore : les 27 droites gouvernent les fibrations en surfaces del Pezzo.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les formules de Plücker avaient montré dans les années 1830 qu’une quartique plane générale possède 28 tangentes doubles : compter les configurations remarquables des courbes, puis des surfaces, devient un programme. Les résultats de Cayley et de Salmon, issus de leur correspondance, paraissent en 1849 dans le Cambridge and Dublin Mathematical Journal.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-worlds'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le groupe des permutations des 27 droites qui respectent leurs incidences, d’ordre 51 840, est étudié par Jordan dans son Traité des substitutions (1870) ; il sera identifié au XXᵉ siècle au groupe de Weyl du système de racines E₆.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le résultat inaugure une longue tradition de géométrie énumérative — droites, coniques, bitangentes — dont Hilbert fera en 1900 son quinzième problème : fonder rigoureusement le calcul de Schubert.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-hilbert-challenge'],
+          },
+        ],
       },
       {
         id: 'surfaces-de-riemann',
@@ -1207,6 +1459,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur une courbe algébrique de genre g, l’espace des fonctions rationnelles dont les pôles sont majorés par un diviseur D a une dimension égale au degré de D, moins g, plus un terme correctif lié aux différentielles.',
         comment: 'Riemann établit l’inégalité (1857), son élève Roch l’égalité (1865). C’est le premier théorème « global » de la géométrie algébrique : il sera généralisé par Hirzebruch, Grothendieck, puis Atiyah–Singer, en un des fils rouges des mathématiques du XXᵉ siècle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème vient des intégrales abéliennes d’Abel et du problème d’inversion posé par Jacobi : pour le résoudre, Riemann se demande dans sa Théorie des fonctions abéliennes (1857) combien de fonctions méromorphes indépendantes une surface de Riemann admet lorsque l’on prescrit leurs pôles.',
+            sources: ['laugwitz-riemann', 'dieudonne-geometrie-algebrique'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le théorème est repris hors de l’analyse : Brill et Max Noether le reformulent en 1874 dans la langue de la géométrie des courbes planes, Dedekind et Weber le démontrent en 1882 par une théorie purement algébrique des corps de fonctions, calquée sur l’arithmétique des idéaux.',
+            sources: ['dieudonne-geometrie-algebrique', 'goldstein-schappacher-schwermer'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Chaque refondation de la géométrie algébrique — géométrique, arithmétique, puis italienne — se mesure dès lors à sa capacité à redémontrer Riemann–Roch : le théorème sert de pierre de touche autant que d’outil.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
     ],
     sources: ['gray-worlds', 'dieudonne-geometrie-algebrique', 'stedall-sourcebook', 'fauvel-gray-reader', 'mactutor'],
@@ -1222,7 +1493,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1817, end: 1897 },
     continents: ['analyse'],
     places: ['Prague', 'Paris', 'Königsberg', 'Berlin', 'Göttingen'],
-    map: { x: 3620, y: 2200, size: 3, palette: { fill: '#211726', stroke: '#b588ce', accent: '#d8b1ed' } },
+    map: { x: 3620, y: 2200, size: 3, palette: { fill: '#cec0e8', stroke: '#37215e', accent: '#5429a3' } },
     tagline: 'Fini les infiniment petits « évidents » : limites, ε et δ prennent le relais de l’intuition.',
     summary:
       'En 1817, Bolzano démontre « purement analytiquement » le théorème des valeurs intermédiaires ; en 1821, le Cours d’analyse de Cauchy définit limites, continuité et convergence des séries. Ce nouveau régime de preuve déplace toute l’analyse : les fonctions elliptiques d’Abel et Jacobi, le calcul des résidus de Cauchy, les surfaces et l’intégrale de Riemann, les nombres transcendants de Liouville. À Berlin, Weierstrass achève le mouvement : définitions en ε-δ, convergence uniforme, fonctions continues nulle part dérivables (1872), pendant que Dedekind et Cantor fondent le continu sur l’arithmétique. En 1885, le théorème d’approximation de Weierstrass couronne cette « arithmétisation » : toute fonction continue est limite uniforme de polynômes.',
@@ -1408,6 +1679,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'texte',
         statement: 'Cauchy y définit la limite, la continuité, la dérivée comme limite du rapport des accroissements et la convergence des séries, et y démontre les grands théorèmes de l’analyse réelle à partir de ces définitions.',
         comment: 'Écrit pour les élèves de Polytechnique, le cours fait entrer la rigueur dans l’enseignement : les générations suivantes — de Sturm à Riemann — s’y formeront. Ses énoncés comportent des failles (le théorème de la limite continue) qui stimuleront l’invention de la convergence uniforme.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La Théorie des fonctions analytiques de Lagrange (1797) prétendait fonder le calcul sur les développements en séries entières, sans infiniment petits ni limites. Dans sa préface, Cauchy écarte explicitement les raisonnements tirés de la « généralité de l’algèbre » et réclame pour l’analyse la rigueur exigée en géométrie.',
+            sources: ['grabiner-cauchy', 'bottazzini-higher-calculus'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dirichlet donne en 1829 la première démonstration correcte de la convergence des séries de Fourier pour une large classe de fonctions, en relevant une erreur dans l’argument qu’avait proposé Cauchy ; les définitions du Cours deviennent l’instrument de leur propre critique.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Judith Grabiner, le Cours fixe pour un siècle la forme du traité d’analyse : définitions d’abord, théorèmes démontrés à partir d’elles ensuite, au lieu d’un répertoire de méthodes de calcul.',
+            sources: ['grabiner-cauchy'],
+          },
+        ],
       },
       {
         id: 'theoreme-des-residus',
@@ -1487,6 +1777,25 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe des fonctions continues sur tout l’axe réel qui n’admettent de dérivée en aucun point — par exemple certaines séries trigonométriques à fréquences croissantes exhibées par Weierstrass.',
         comment: 'Présentée à l’Académie de Berlin en 1872 (Bolzano et Riemann en avaient eu des intuitions), la fonction de Weierstrass sépare définitivement continuité et régularité géométrique. Ces « monstres » deviendront bientôt des objets physiques : la trajectoire du mouvement brownien est, elle aussi, nulle part dérivable.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1806, Ampère avait cru démontrer qu’une fonction continue est dérivable sauf en des points isolés, et les manuels du milieu du siècle reprenaient l’énoncé. Weierstrass rapporte lui-même que Riemann proposait, vers 1861, la série Σ sin(n²x)/n² comme exemple contraire, sans démonstration publiée.',
+            sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’exemple est publié pour la première fois en 1875 par Paul du Bois-Reymond, avec l’accord de Weierstrass. En 1893, Hermite écrit à Stieltjes qu’il se détourne « avec effroi et horreur » de ces fonctions continues sans dérivées.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’effroi d’Hermite dit la portée du résultat : l’intuition géométrique cesse d’être un garant en analyse, et la courbe « normale » devient un cas particulier dans un monde de fonctions irrégulières.',
+            sources: ['kline-thought', 'gray-platos-ghost'],
+          },
+        ],
       },
       {
         id: 'coupures-de-dedekind',
@@ -1521,6 +1830,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'π n’est racine d’aucune équation polynomiale à coefficients entiers ; en particulier, il est impossible de construire à la règle et au compas un carré d’aire égale à celle d’un cercle donné.',
         comment: 'La preuve de Lindemann clôt le problème de la quadrature du cercle posé depuis l’Antiquité, dont Wantzel avait réglé en 1837 le volet constructible pour la duplication et la trisection. Elle inaugure la théorie moderne des nombres transcendants.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Lambert avait démontré l’irrationalité de π (mémoire lu en 1761, publié en 1768) et Legendre celle de π² dans ses Éléments de géométrie (1794), où il conjecturait déjà que π n’est racine d’aucune équation algébrique à coefficients rationnels.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lindemann généralise la méthode d’Hermite (1873) : une exponentielle de nombre algébrique non nul n’est jamais algébrique. Si π l’était, iπ le serait aussi ; or e élevé à la puissance iπ vaut −1, qui est algébrique.',
+            sources: ['stillwell-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Weierstrass donne en 1885 une démonstration complète du théorème général, dit de Lindemann–Weierstrass ; Hilbert simplifie en 1893 les preuves de la transcendance de e et de π.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En 1900, Hilbert pose en septième problème la transcendance de nombres comme 2 élevé à la puissance √2 ; Gelfond et Schneider le résolvent indépendamment en 1934.',
+            sources: ['gray-hilbert-challenge'],
+          },
+        ],
       },
       {
         id: 'theoreme-d-approximation-de-weierstrass',
@@ -1554,9 +1887,9 @@ export const LINKS_DIXNEUVIEME_A: Link[] = [
     source: 'theorie-des-nombres-fermat',
     target: 'arithmetique-gaussienne',
     kind: 'influence',
-    epistemic: 'fait',
+    epistemic: 'interpretation',
     label: 'Le dernier théorème comme aiguillon',
-    note: 'C’est pour attaquer le dernier théorème de Fermat que Kummer crée les nombres idéaux (1847) : la note marginale de 1637 commande une partie de l’algèbre du XIXᵉ siècle.',
+    note: 'Le dernier théorème de Fermat est l’un des problèmes que Kummer traite avec ses nombres idéaux (1847), même si sa motivation première est discutée : Edwards la situe plutôt dans les lois de réciprocité supérieures. La note marginale de 1637 commande ainsi une partie de l’algèbre du XIXᵉ siècle.',
     sources: ['edwards-fermat', 'goldstein-schappacher-schwermer'],
   },
   {

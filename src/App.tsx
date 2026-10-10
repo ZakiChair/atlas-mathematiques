@@ -4,7 +4,9 @@ import type { Link } from './data/types';
 import { computeLayout } from './map/layout';
 import { MapCanvas, LEVEL_K } from './map/MapCanvas';
 import { EdgeLabels } from './map/EdgeLabels';
+import { ActivityFrieze } from './map/ActivityFrieze';
 import { boundsFor, domainOf } from './map/bounds';
+import { chainOf } from './map/upstream';
 import type { MapController } from './map/controller';
 import { StoreProvider, useStore, type Selection } from './state/store';
 import { parseHash, hashFor } from './lib/router';
@@ -24,6 +26,10 @@ import { LangProvider } from './i18n/lang';
 import { useData } from './i18n/localize';
 
 const NODE_OK = new Set(ATLAS_NODES.map((n) => `${n.kind}:${n.id}`));
+/** hauteur de la frise d'activité (px) */
+const FRIEZE_H = { desktop: 92, mobile: 56 };
+/** largeur réservée au panneau de détail ouvert sur desktop (440 + marges) */
+const PANEL_W = 460;
 
 function AtlasApp() {
   const { state, dispatch } = useStore();
@@ -38,14 +44,22 @@ function AtlasApp() {
 
   const onMapReady = useCallback((c: MapController) => setController(c), []);
   const desktop = useIsDesktop();
+  // frise d'activité : toujours visible sur desktop ; sur mobile, cédée à la feuille de détail
+  const friezeH = desktop ? FRIEZE_H.desktop : state.selection ? 0 : FRIEZE_H.mobile;
+  const friezeHRef = useRef(friezeH);
+  useEffect(() => {
+    friezeHRef.current = friezeH;
+    document.documentElement.style.setProperty('--frieze-h', `${friezeH}px`);
+  }, [friezeH]);
+  const fitInset = useMemo(() => ({ top: desktop ? 64 : 52, bottom: friezeH }), [desktop, friezeH]);
 
   const flyTo = useCallback(
     (sel: Selection) => {
       const b = boundsFor(sel, layout);
       if (!b) return;
       const isDesktop = window.innerWidth >= 1024;
-      // zone visible nette du panneau : 456 px à droite sur desktop, ~35 % en bas sur mobile
-      const inset = isDesktop ? { right: 456 } : { bottom: Math.round(window.innerHeight * 0.35) };
+      // zone visible nette du panneau : 456 px à droite (et la frise en bas) sur desktop, ~35 % en bas sur mobile
+      const inset = isDesktop ? { right: 456, bottom: friezeHRef.current } : { bottom: Math.round(window.innerHeight * 0.35) };
       // sur mobile la sheet mange le bas : fill plus petit
       const fill = sel.kind === 'domain' ? (isDesktop ? 0.6 : 0.42) : 0.5;
       // un domaine atterrit au plus au niveau « Théories » (juste sous le seuil du niveau 2)
@@ -122,6 +136,10 @@ function AtlasApp() {
     return set;
   }, [state.selection, data.links]);
 
+  const selectedDomainId = state.selection ? domainOf(state.selection) : null;
+  // bassin versant du domaine de la sélection (chaîne amont + aval direct)
+  const chain = useMemo(() => (selectedDomainId ? chainOf(data.links, selectedDomainId) : null), [selectedDomainId, data.links]);
+
   const onLinkClick = useCallback((link: Link, pos: { x: number; y: number }) => {
     setPopover({ link, x: pos.x, y: pos.y });
   }, []);
@@ -135,15 +153,30 @@ function AtlasApp() {
         dimmedIds={dimmedIds}
         selection={state.selection}
         relatedIds={relatedIds}
+        chain={chain}
         vision={state.vision}
         naturesKind={state.naturesKind}
+        fitInset={fitInset}
         onSelect={navigate}
         onLinkClick={onLinkClick}
         controllerRef={controllerRef}
         onLevelChange={setLevel}
         onReady={onMapReady}
       />
-      <EdgeLabels />
+      {/* noms des champs : sous l'indicateur de niveau (desktop), au-dessus de la
+          frise, ou de la feuille de détail (≈ 35 % du bas) sur mobile */}
+      <EdgeLabels
+        top={desktop ? 96 : fitInset.top}
+        bottom={friezeH > 0 ? friezeH : Math.round(window.innerHeight * 0.35)}
+      />
+      {friezeH > 0 && (
+        <ActivityFrieze
+          controller={controller}
+          height={friezeH}
+          right={desktop && state.selection ? PANEL_W : 0}
+          selectedDomain={selectedDomainId ? (data.domainById[selectedDomainId] ?? null) : null}
+        />
+      )}
       <TopBar onNavigate={navigate} />
       <FiltersDrawer visibleCount={visibleCount} />
       <Legend />
@@ -153,16 +186,22 @@ function AtlasApp() {
       {popover && (
         <LinkPopover data={popover} onClose={() => setPopover(null)} onGo={(id) => navigate({ kind: 'domain', id }, true)} />
       )}
-      {/* au-dessus de la gouttière des ères (48 px) ; à gauche du panneau quand il est ouvert */}
+      {/* juste au-dessus de la frise ; à gauche du panneau quand il est ouvert */}
       <div
         className={`fixed z-40 ${
-          state.selection ? (desktop ? 'right-[476px] bottom-[60px]' : 'right-4 top-32') : 'right-4 bottom-[60px]'
+          state.selection
+            ? desktop
+              ? 'right-[476px] bottom-[calc(var(--frieze-h)+16px)]'
+              : 'right-4 top-32'
+            : 'right-4 bottom-[calc(var(--frieze-h)+16px)]'
         }`}
       >
         <ZoomControls controller={controller} />
       </div>
+      {/* desktop : sous le titre, au-dessus du premier fleuve ; mobile : au-dessus
+          de la frise, décalé de la gouttière gauche où descendent les noms des champs */}
       {(desktop || !state.selection) && (
-        <div className="fixed bottom-[60px] left-4 z-40">
+        <div className={`fixed z-40 ${desktop ? 'top-[60px] left-4' : 'bottom-[calc(var(--frieze-h)+16px)] left-9'}`}>
           <LevelIndicator level={level} controller={controller} />
         </div>
       )}

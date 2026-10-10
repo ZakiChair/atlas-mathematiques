@@ -26,12 +26,13 @@ export const DIXNEUVIEME_B: Domain[] = [
   {
     id: 'physique-mathematique-xixe',
     name: 'Physique mathématique et équations aux dérivées partielles',
+    mapName: 'Physique mathématique',
     altNames: ['Physique mathématique du XIXᵉ siècle', 'Théorie analytique de la chaleur et du potentiel'],
     era: 'dixneuvieme',
     period: { start: 1807, end: 1900 },
     continents: ['analyse'],
     places: ['Paris', 'Grenoble', 'Nottingham', 'Cambridge', 'Édimbourg', 'Stockholm'],
-    map: { x: 4250, y: 2400, size: 2, palette: { fill: '#1f1726', stroke: '#b392d3', accent: '#d6bdef' } },
+    map: { x: 4250, y: 2400, size: 2, palette: { fill: '#e1d6f0', stroke: '#492975', accent: '#6a2fbc' } },
     tagline: 'La chaleur, l’électricité et la lumière mises en équations : les séries de Fourier et le potentiel refont l’analyse.',
     summary:
       'En 1807, Joseph Fourier dépose à l’Institut un mémoire sur la propagation de la chaleur qui représente toute fonction par une somme de sinus et de cosinus et pose l’équation aux dérivées partielles de la diffusion. Autour de lui et après lui, Poisson, Green, Stokes et Maxwell construisent une théorie mathématique du potentiel, des fluides visqueux et du champ électromagnétique, tandis que Hamilton réécrit la dynamique sous forme canonique. La discipline fournit à l’analyse ses problèmes les plus féconds — convergence des séries trigonométriques, principe de Dirichlet, problème de Cauchy — et, avec Kovalevskaïa et Poincaré, ses premiers théorèmes généraux d’existence et ses premières limites.',
@@ -198,6 +199,20 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'concept',
         statement: 'Toute fonction définie sur un intervalle, même discontinue ou donnée par des formules différentes sur des morceaux, s’écrit comme une somme infinie de sinus et de cosinus de fréquences multiples, dont les coefficients se calculent par des intégrales de la fonction.',
         comment: 'Euler, Daniel Bernoulli et Lagrange avaient rencontré de telles séries dans le problème des cordes vibrantes (1747-1753) sans croire à leur généralité. Fourier l’affirme et donne les formules des coefficients ; Dirichlet (1829) prouve la convergence, Riemann (1854) définit son intégrale pour les étudier, Cantor (1872) en tire ses premiers ensembles. L’analyse harmonique, le traitement du signal et la mécanique quantique en descendent.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Fourier rencontre ces séries en physicien : pour la distribution stationnaire de la chaleur dans une lame rectangulaire indéfinie, la condition imposée sur le bord l’oblige à développer une fonction constante en série de cosinus de multiples impairs. La méthode n’est pas déduite d’une théorie des fonctions, elle est exigée par un problème aux limites.',
+            sources: ['grattan-guinness-fourier', 'bottazzini-higher-calculus'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le mémoire d’habilitation de Riemann sur la représentation des fonctions par des séries trigonométriques (1854), publié par Dedekind en 1867, ouvre l’étude des séries qui ne sont pas de Fourier ; Fejér montre en 1900 que les moyennes des sommes partielles de la série d’une fonction continue convergent vers elle, et le théorème de Riesz–Fischer (1907) fait des coefficients de Fourier, dans le cadre de l’intégrale de Lebesgue, une description complète des fonctions de carré intégrable.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'equation-de-poisson',
@@ -300,6 +315,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'probleme',
         statement: 'Parmi toutes les fonctions prenant des valeurs données au bord d’un domaine, il en existerait une qui rend minimale l’intégrale de Dirichlet ∫|∇u|², et cette fonction est harmonique. Weierstrass objecte qu’une borne inférieure n’est pas nécessairement atteinte.',
         comment: 'Employé par Gauss (1839) et Thomson (1847), enseigné par Dirichlet, le principe est nommé par Riemann en 1857 dans la théorie des fonctions abéliennes, après l’avoir utilisé dans sa thèse de 1851 pour l’existence des fonctions harmoniques et des surfaces de Riemann. Le contre-exemple de Weierstrass (1870) oblige Schwarz, Carl Neumann et Poincaré (balayage, 1890) à des preuves d’existence directes ; Hilbert restaure le principe en 1900-1904, ouvrant la méthode directe du calcul des variations.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème vient de l’électrostatique : trouver le potentiel, fonction harmonique, qui prend des valeurs données sur la surface d’un conducteur. Green (1828) en admet l’existence pour des raisons physiques, puisque la distribution d’équilibre de l’électricité existe ; Gauss (1839) puis Thomson (1847) la ramènent à la minimisation d’une intégrale positive, qui « doit » atteindre son minimum.',
+            sources: ['cannell-green', 'kline-thought', 'bottazzini-higher-calculus'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Hilbert publie en 1900 une démonstration directe du principe et, la même année, consacre deux de ses problèmes de Paris au calcul des variations : le 19ᵉ sur l’analyticité des solutions des problèmes variationnels réguliers, le 20ᵉ sur l’existence de solutions aux problèmes aux limites, au besoin en un sens généralisé.',
+            sources: ['gray-hilbert-challenge', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La leçon de l’épisode — choisir une classe de fonctions assez large pour que la borne inférieure soit atteinte, puis prouver la régularité du minimum — devient la stratégie de l’analyse des équations elliptiques au XXᵉ siècle, menée dans les espaces de Hilbert et de Sobolev.',
+            sources: ['gowers-companion', 'gray-hilbert-challenge'],
+          },
+        ],
       },
       {
         id: 'distribution-de-maxwell',
@@ -344,6 +378,30 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'pm-dynamique-et-probleme-de-cauchy',
         kind: 'texte',
         comment: 'Mémoire couronné en janvier 1889 par le prix du roi Oscar II de Suède ; une erreur, repérée par Phragmén lors de l’impression, conduit Poincaré à détruire le tirage et à publier en 1890 dans les Acta Mathematica une version refondue. Il y établit le théorème de récurrence, la divergence des séries de la mécanique céleste et l’existence de trajectoires « doublement asymptotiques » dont l’enchevêtrement défie la description : la dynamique qualitative et, rétrospectivement, le chaos y trouvent leur origine. Les Méthodes nouvelles de la mécanique céleste (1892-1899) en développent le programme.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le concours, annoncé en 1885 par Mittag-Leffler dans les Acta Mathematica pour le soixantième anniversaire du roi Oscar II, est jugé par Weierstrass, Hermite et Mittag-Leffler ; l’une des questions demande de développer les coordonnées de n corps en séries convergentes pour tout temps, c’est-à-dire de trancher la stabilité du système solaire que Laplace et Lagrange n’avaient établie qu’en approximation.',
+            sources: ['mactutor', 'aubin-dahan-chaos', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Poincaré aborde la question armé de ses mémoires Sur les courbes définies par une équation différentielle (1881-1886), où il étudie l’allure globale des trajectoires — points singuliers, cycles limites — sans chercher à intégrer les équations.',
+            sources: ['aubin-dahan-chaos', 'dieudonne-abrege'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Sundman obtient en 1912 des séries convergentes pour tout temps dans le problème des trois corps, mais si lentes qu’elles sont inutilisables ; George David Birkhoff démontre en 1913 le « dernier théorème géométrique » que Poincaré avait laissé inachevé (1912) et systématise ses méthodes dans Dynamical Systems (1927).',
+            sources: ['aubin-dahan-chaos', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La question de stabilité posée par le concours ne reçoit une réponse partielle qu’avec le théorème KAM (Kolmogorov, 1954 ; Arnold et Moser au début des années 1960), qui montre que la plupart des mouvements quasi périodiques survivent à une petite perturbation.',
+            sources: ['aubin-dahan-chaos', 'gowers-companion'],
+          },
+        ],
       },
     ],
     sources: ['grattan-guinness-fourier', 'cannell-green', 'bottazzini-higher-calculus', 'kline-thought', 'dieudonne-abrege', 'grattan-guinness-companion'],
@@ -355,12 +413,13 @@ export const DIXNEUVIEME_B: Domain[] = [
   {
     id: 'statistique-xixe',
     name: 'Statistique, moyennes et lois du hasard au XIXᵉ siècle',
+    mapName: 'Statistique et lois du hasard',
     altNames: ['Théorie des erreurs et statistique sociale', 'Naissance de la biométrie'],
     era: 'dixneuvieme',
     period: { start: 1809, end: 1900 },
     continents: ['hasard'],
     places: ['Bruxelles', 'Paris', 'Londres', 'Saint-Pétersbourg'],
-    map: { x: 3975, y: 3230, size: 2, palette: { fill: '#261c17', stroke: '#d7b19d', accent: '#f2d7c9' } },
+    map: { x: 3975, y: 3230, size: 2, palette: { fill: '#eed7d2', stroke: '#713428', accent: '#b8452e' } },
     tagline: 'De l’erreur de l’astronome à l’homme moyen, puis à la corrélation : la courbe en cloche conquiert la société.',
     summary:
       'Au début du siècle, Gauss et Laplace achèvent la théorie des erreurs d’observation : la loi normale justifie la méthode des moindres carrés et la moyenne arithmétique. Adolphe Quetelet transporte cette courbe de l’astronomie vers les tailles, les naissances et les crimes et invente l’« homme moyen », pendant que les bureaux de statistique des États accumulent les tableaux. Bienaymé à Paris, Tchebychev à Saint-Pétersbourg donnent à la loi des grands nombres et au théorème central limite leurs premières démonstrations générales. À la fin du siècle, Galton, Edgeworth et Karl Pearson, partis de l’hérédité et de l’évolution, inventent la régression, la corrélation et le test du χ² : la statistique mathématique est née.',
@@ -527,6 +586,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'sx-theorie-des-erreurs',
         kind: 'texte',
         comment: 'Traité de détermination des orbites, publié à Hambourg, dont la dernière section déduit la loi normale des erreurs du postulat que la moyenne arithmétique est la valeur la plus probable, et en tire la méthode des moindres carrés. Gauss y revendique l’usage de la méthode depuis 1795, ce qui déclenche la querelle avec Legendre ; Laplace (1810) lui donne aussitôt la justification par le théorème central limite.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le traité naît de l’astronomie : Cérès, découverte par Piazzi le 1ᵉʳ janvier 1801 puis perdue derrière le Soleil, est retrouvée environ un an plus tard grâce à l’orbite que Gauss calcule à partir de quelques observations. Il faut alors combiner des observations surabondantes et entachées d’erreurs, ce que Tobias Mayer (1750), Boscovich (1757) et Laplace faisaient par des procédés particuliers.',
+            sources: ['stigler-statistics', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Pour Stigler, la synthèse de Gauss et de Laplace fait des moindres carrés, en une quinzaine d’années, la méthode ordinaire de l’astronomie et de la géodésie européennes, alors que la même théorie attendra plusieurs décennies pour pénétrer les sciences sociales.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'La loi des erreurs change ensuite d’objet : Quetelet l’applique en 1835 aux tailles et aux « penchants » des populations, Maxwell en 1860 aux vitesses des molécules d’un gaz.',
+            sources: ['stigler-statistics', 'porter-statistical-thinking'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-gauss-markov-origine',
@@ -621,6 +699,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'concept',
         statement: 'Les enfants de parents de grande taille sont en moyenne grands, mais moins que leurs parents : l’écart à la moyenne de la population est multiplié par un coefficient inférieur à 1 (environ deux tiers), et le phénomène se produit aussi des enfants vers les parents.',
         comment: 'Fondé sur 928 enfants adultes de 205 couples (le « mi-parent » moyenne les deux tailles), le mémoire paru dans le Journal of the Anthropological Institute trace les ellipses d’égale fréquence et définit la droite de régression. D’abord nommée « réversion » (pois de senteur, 1877), la régression devient avec Yule (1897) et Pearson la méthode des moindres carrés appliquée à deux variables ; le « sophisme de la régression » hante depuis l’interprétation des données.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Depuis Hereditary Genius (1869), Galton cherche à mesurer l’hérédité dans le cadre de la théorie de Darwin, son cousin : si chaque enfant s’écarte au hasard de ses parents, la dispersion d’une population devrait croître de génération en génération, ce que les données ne montrent pas. Les expériences sur les graines de pois de senteur (1875-1877), puis les relevés de tailles familiales réunis au milieu des années 1880, sont conçus pour résoudre cette énigme.',
+            sources: ['stigler-statistics', 'porter-statistical-thinking'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En étendant la même analyse à deux mesures d’un même individu (taille et longueur de l’avant-bras), Galton dégage en 1888 la notion de corrélation, que Pearson, Edgeworth et Yule transforment en une algèbre de la dépendance entre variables dans la décennie suivante.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Stigler voit dans la régression la clé conceptuelle qui manquait aux sciences sociales : elle décrit la dépendance entre grandeurs également variables, sans supposer une « vraie valeur » cachée derrière les observations comme le faisait la théorie des erreurs.',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'theoreme-central-limite-tchebychev',
@@ -657,6 +754,20 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'methode',
         statement: 'Pour juger si des effectifs observés dans des catégories s’accordent avec des effectifs théoriques, on calcule la somme des carrés des écarts divisés par les effectifs théoriques ; la loi de cette quantité, indépendante de la loi des données, permet de fixer un seuil de rejet.',
         comment: 'Publié dans le Philosophical Magazine, c’est le premier test d’ajustement général ; Pearson l’applique aux tirages de roulette de Monte-Carlo et aux dés de Weldon. Fisher corrige en 1922 le nombre de degrés de liberté lorsque des paramètres sont estimés, ce qui ouvre une querelle durable. La loi du χ² elle-même était apparue chez Abbe (1863) et Helmert (1876) ; le test fonde la théorie des tests d’hypothèses.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Depuis 1894-1895, Pearson ajuste aux mesures biologiques de Weldon (crabes de la baie de Naples) et à d’autres séries des courbes de fréquence asymétriques. Il lui manque un critère pour décider si un ajustement est acceptable : jusque-là, on comparait courbe et histogramme à l’œil, ou classe par classe.',
+            sources: ['stigler-statistics', 'porter-statistical-thinking'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Le test fait passer la statistique de la description à l’inférence : il ne s’agit plus seulement de résumer des données, mais de confronter une hypothèse à un échantillon par une probabilité calculée. C’est la question que Gosset, Fisher puis Neyman et Egon Pearson reprendront au XXᵉ siècle.',
+            sources: ['stigler-statistics', 'porter-statistical-thinking'],
+          },
+        ],
       },
     ],
     sources: ['stigler-statistics', 'porter-statistical-thinking', 'hacking-taming', 'desrosieres-grands-nombres', 'grattan-guinness-companion', 'mactutor'],
@@ -668,12 +779,13 @@ export const DIXNEUVIEME_B: Domain[] = [
   {
     id: 'logique-mathematique-xixe',
     name: 'Algèbre de la logique, machines et naissance de la logique mathématique',
+    mapName: 'Naissance de la logique mathématique',
     altNames: ['Logique symbolique du XIXᵉ siècle', 'De Babbage à Peano'],
     era: 'dixneuvieme',
     period: { start: 1837, end: 1900 },
     continents: ['fondements', 'hasard'],
     places: ['Londres', 'Cambridge', 'Cork', 'Iéna', 'Turin', 'Cambridge (Mass.)'],
-    map: { x: 4300, y: 4000, size: 2, palette: { fill: '#17261a', stroke: '#96d4a1', accent: '#c1f0ca' } },
+    map: { x: 4300, y: 4000, size: 2, palette: { fill: '#d2eedc', stroke: '#287141', accent: '#2eb85e' } },
     tagline: 'Les raisonnements deviennent un calcul : Boole algébrise la syllogistique, Frege invente l’écriture conceptuelle, Babbage rêve la machine.',
     summary:
       'En 1837, Charles Babbage dessine sa machine analytique, machine à calculer universelle que les notes d’Ada Lovelace (1843) dotent du premier programme publié. La même décennie voit la logique sortir de la syllogistique : De Morgan en 1847, Boole en 1847 et 1854 en font une algèbre où l’on calcule sur les classes comme sur les nombres. Jevons, Peirce et Schröder systématisent cette algèbre et y ajoutent la théorie des relations. En 1879, Frege rompt avec cette tradition en créant la Begriffsschrift, première notation du calcul des prédicats avec quantificateurs, avant de fonder l’arithmétique sur la logique ; Peano, à Turin, achève le siècle en dotant les mathématiques d’un langage symbolique et l’arithmétique de ses axiomes.',
@@ -707,7 +819,7 @@ export const DIXNEUVIEME_B: Domain[] = [
       },
       {
         kind: 'fait',
-        text: 'Boole, fils de cordonnier autodidacte, est professeur au Queen’s College de Cork de 1849 à sa mort ; Frege enseigne toute sa carrière à l’université d’Iéna sans y être jamais professeur titulaire avant 1896 ; Peano dirige à Turin une école active (Vailati, Pieri, Burali-Forti, Vacca) réunie autour du Formulaire de mathématiques.',
+        text: 'Boole, fils de cordonnier autodidacte, est professeur au Queen’s College de Cork de 1849 à sa mort ; Frege enseigne toute sa carrière à l’université d’Iéna sans jamais y être titulaire d’une chaire (il y est nommé professeur honoraire en 1896) ; Peano dirige à Turin une école active (Vailati, Pieri, Burali-Forti, Vacca) réunie autour du Formulaire de mathématiques.',
         sources: ['machale-boole', 'mactutor', 'grattan-guinness-search'],
       },
       {
@@ -743,7 +855,7 @@ export const DIXNEUVIEME_B: Domain[] = [
       { year: 1843, text: 'Ada Lovelace publie ses Notes sur la machine analytique de Babbage.' },
       { year: 1847, text: 'Boole publie The Mathematical Analysis of Logic et De Morgan sa Formal Logic, presque simultanément.' },
       { year: 1854, text: 'An Investigation of the Laws of Thought : l’algèbre de la logique de Boole est achevée.' },
-      { year: 1869, text: 'Jevons présente à la Royal Society son « piano logique », machine mécanique à syllogiser.' },
+      { year: 1869, text: 'Jevons construit son « piano logique », machine mécanique à syllogiser, présentée à la Royal Society en janvier 1870.' },
       { year: 1879, text: 'Frege publie la Begriffsschrift : naissance du calcul des prédicats.' },
       { year: 1884, text: 'Die Grundlagen der Arithmetik : le programme logiciste de Frege.' },
       { year: 1889, text: 'Peano publie les Arithmetices principia : les axiomes de l’arithmétique.' },
@@ -803,7 +915,7 @@ export const DIXNEUVIEME_B: Domain[] = [
         name: 'George Boole',
         years: [1815, 1864],
         origin: 'Lincoln et Cork',
-        bio: 'Instituteur autodidacte à Lincoln, remarqué par De Morgan et Gregory, Boole devient en 1849 professeur de mathématiques au Queen’s College de Cork sans titre universitaire. The Mathematical Analysis of Logic (1847) et surtout The Laws of Thought (1854) fondent l’algèbre de la logique ; il reçoit la médaille royale de la Royal Society en 1844 pour ses travaux sur les invariants.',
+        bio: 'Instituteur autodidacte à Lincoln, remarqué par De Morgan et Gregory, Boole devient en 1849 professeur de mathématiques au Queen’s College de Cork sans titre universitaire. The Mathematical Analysis of Logic (1847) et surtout The Laws of Thought (1854) fondent l’algèbre de la logique ; il reçoit la médaille royale de la Royal Society en 1844 pour son mémoire « On a General Method in Analysis », consacré au calcul des opérations.',
         theoryId: 'lm-algebre-de-la-logique',
       },
       {
@@ -811,7 +923,7 @@ export const DIXNEUVIEME_B: Domain[] = [
         name: 'William Stanley Jevons',
         years: [1835, 1882],
         origin: 'Manchester et Londres',
-        bio: 'Économiste et logicien, professeur à Owens College (Manchester) puis à University College London, Jevons simplifie le calcul de Boole (substitution des similitudes, 1861), construit en 1869 son « piano logique », première machine à résoudre des problèmes de logique, et applique les méthodes de la logique inductive à l’économie et à la statistique (l’indice des prix).',
+        bio: 'Économiste et logicien, professeur à Owens College (Manchester) puis à University College London, Jevons simplifie le calcul de Boole (substitution des similitudes, 1869), construit en 1869 son « piano logique », première machine à résoudre des problèmes de logique, et applique les méthodes de la logique inductive à l’économie et à la statistique (l’indice des prix).',
         theoryId: 'lm-algebre-de-la-logique',
       },
       {
@@ -913,6 +1025,20 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'lm-algebre-de-la-logique',
         kind: 'texte',
         comment: 'Publié à Londres chez Walton and Maberly, le traité donne à l’algèbre de la logique sa forme classique : développement en constituants, élimination, interprétation, et une seconde partie où la probabilité devient une logique des événements. La loi x² = x y distingue la « logique » du nombre ; l’ouvrage fonde ce qu’on appellera l’algèbre de Boole (Huntington, 1904) et, via Shannon (1938), la logique des circuits.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’opuscule de 1847 avait été suscité, selon sa préface, par la controverse qui opposait De Morgan à William Hamilton d’Édimbourg sur la « quantification du prédicat ». Professeur à Cork depuis 1849, Boole reprend le sujet de fond en comble ; le titre complet du traité annonce qu’il veut fonder sur les mêmes lois de la pensée à la fois la logique et la théorie des probabilités.',
+            sources: ['machale-boole', 'grattan-guinness-search'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les successeurs simplifient le calcul : Jevons (Pure Logic, 1864) remplace la somme exclusive de Boole par la réunion inclusive, avec x + x = x, et élimine les termes sans interprétation ; Peirce fait de même indépendamment en 1867, avant que Schröder ne systématise l’ensemble.',
+            sources: ['grattan-guinness-search'],
+          },
+        ],
       },
       {
         id: 'piano-logique',
@@ -924,7 +1050,7 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'lm-machines-a-calculer',
         kind: 'methode',
         statement: 'Un clavier et des tiges mécaniques éliminent, parmi les seize combinaisons possibles de quatre termes, celles que les prémisses excluent ; les combinaisons restantes, visibles en face de l’instrument, donnent toutes les conclusions.',
-        comment: 'Présenté à la Royal Society en janvier 1870, l’instrument mécanise le calcul des combinaisons de Boole et préfigure le « abaque logique » de Marquand (1882), lequel inspire à son tour les relais électromécaniques. Il témoigne que la logique algébrisée est déjà pensée comme un calcul exécutable.',
+        comment: 'Construit en 1869 et présenté à la Royal Society en janvier 1870, l’instrument mécanise le calcul des combinaisons de Boole et préfigure l’« abaque logique » de Marquand (1882), lequel inspire à son tour les relais électromécaniques. Il témoigne que la logique algébrisée est déjà pensée comme un calcul exécutable.',
       },
       {
         id: 'logique-des-relatifs-peirce',
@@ -959,6 +1085,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'lm-logistique',
         kind: 'texte',
         comment: 'Publiée à Halle chez Nebert, l’« écriture conceptuelle » est le premier système formel complet : axiomes de la logique propositionnelle, quantificateurs, identité, et démonstrations décomposées en pas élémentaires ; Frege y définit l’hérédité d’une propriété dans une suite, germe de sa définition du nombre. Peu lue à sa sortie, l’œuvre est saluée par Peano puis par Russell (1902) ; van Heijenoort en fait le point de départ de la logique moderne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La préface expose le but : vérifier jusqu’où l’on peut aller en arithmétique par la seule inférence logique, sans qu’aucun recours à l’intuition ne se glisse inaperçu dans les démonstrations. La langue ordinaire étant trop imprécise pour ce contrôle, Frege construit une écriture à l’image de celle de l’arithmétique et invoque le projet de caractéristique universelle de Leibniz.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les recensions sont rares et réservées : Schröder (1880) reproche à Frege d’ignorer Boole et de multiplier une notation bidimensionnelle peu lisible. Frege répond par une comparaison des deux systèmes, restée inédite de son vivant.',
+            sources: ['grattan-guinness-search', 'sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Transmise par Russell et les Principia Mathematica (1910-1913), la logique de Frege devient la langue de la logique du XXᵉ siècle : Hilbert et Ackermann en isolent le fragment du premier ordre (1928), dont Gödel démontre la complétude (1929-1930).',
+            sources: ['van-heijenoort', 'sep'],
+          },
+        ],
       },
       {
         id: 'grundlagen-der-arithmetik',
@@ -990,6 +1135,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'texte',
         statement: 'Les entiers sont caractérisés par cinq axiomes : 1 est un nombre, tout nombre a un successeur qui est un nombre, 1 n’est successeur de rien, deux nombres de même successeur sont égaux, et toute propriété vraie de 1 et transmise de tout nombre à son successeur vaut pour tous les nombres (induction).',
         comment: 'Rédigé en latin, l’opuscule introduit le symbolisme (∈, ⊃) devenu standard et axiomatise aussi la géométrie. Peano reconnaît sa dette envers le Was sind und was sollen die Zahlen ? (1888) de Dedekind, dont les axiomes reformulent la définition des chaînes ; « axiomes de Dedekind–Peano » serait plus juste. Hilbert (1899) et toute l’axiomatique du XXᵉ siècle en héritent.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Peano vient de la critique de la rigueur en analyse — ses notes au cours de Genocchi (1884) relèvent erreurs et contre-exemples — et de la lecture de Boole, Schröder et Peirce, dont il expose les opérations logiques en tête de son Calcolo geometrico (1888).',
+            sources: ['mactutor', 'grattan-guinness-search'],
+          },
+          {
+            kind: 'fait',
+            text: 'Avant Dedekind, Hermann Grassmann avait défini dans son Lehrbuch der Arithmetik (1861) l’addition et la multiplication des entiers par récurrence à partir du passage au suivant, et démontré leurs propriétés par induction.',
+            sources: ['kline-thought', 'grattan-guinness-search'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Gödel (1931) bâtit le système formel de ses théorèmes d’incomplétude sur la logique des Principia augmentée des axiomes de Peano ; Skolem (1934) montre que l’arithmétique du premier ordre admet des modèles « non standard » : dans ce cadre, les axiomes ne suffisent donc pas à caractériser les entiers.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+        ],
       },
       {
         id: 'formulaire-de-mathematiques',
@@ -1017,7 +1181,7 @@ export const DIXNEUVIEME_B: Domain[] = [
     period: { start: 1872, end: 1914 },
     continents: ['fondements'],
     places: ['Halle', 'Brunswick', 'Göttingen', 'Turin'],
-    map: { x: 3650, y: 4150, size: 3, palette: { fill: '#17261b', stroke: '#9ad6aa', accent: '#c5f1d1' } },
+    map: { x: 3650, y: 4150, size: 3, palette: { fill: '#ddf3e6', stroke: '#2c7d4d', accent: '#31c46e' } },
     tagline: 'En comptant au-delà de l’infini, Cantor donne aux mathématiques leur langue commune — et sa première crise.',
     summary:
       'En étudiant l’unicité des séries trigonométriques, Georg Cantor introduit en 1872 les ensembles dérivés de points, puis démontre en 1874 que les nombres réels ne sont pas dénombrables : il y a plusieurs infinis. En trente ans, il construit les ordinaux et les cardinaux transfinis (ℵ₀, 2^ℵ₀), prouve que le continu a la puissance de la droite et formule l’hypothèse du continu, pendant que Dedekind fonde les entiers sur la théorie des ensembles. Vers 1900, les paradoxes de Burali-Forti et de Russell montrent que la notion intuitive d’ensemble est contradictoire ; Zermelo répond par l’axiome du choix (1904) puis par la première axiomatisation de la théorie (1908), que Hausdorff parachève en 1914 dans les Grundzüge der Mengenlehre.',
@@ -1034,7 +1198,7 @@ export const DIXNEUVIEME_B: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'Pour Ferreirós, la théorie des ensembles n’est pas née de la logique mais de l’analyse : les recherches de Riemann et de ses élèves sur les fonctions « discontinues » et les ensembles de points ont rendu nécessaire un langage ensembleste bien avant les questions de fondements.',
+        text: 'Pour Ferreirós, la théorie des ensembles n’est pas née de la logique mais de l’analyse : les recherches de Riemann et de ses élèves sur les fonctions « discontinues » et les ensembles de points ont rendu nécessaire un langage ensembliste bien avant les questions de fondements.',
         sources: ['ferreiros-labyrinth'],
       },
     ],
@@ -1183,6 +1347,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Les nombres algébriques (racines d’équations à coefficients entiers) peuvent être énumérés un à un ; les nombres réels, non : toute liste de réels laisse échapper, dans tout intervalle, une infinité de nombres.',
         comment: 'Premier article de théorie des ensembles, paru dans le Journal de Crelle : il montre qu’il existe au moins deux infinis, et que « presque tous » les réels sont transcendants — nouvelle preuve de l’existence des transcendants après Liouville (1844). Le titre ne mentionne que les algébriques, peut-être pour ménager Kronecker ; le résultat essentiel est la non-dénombrabilité du continu.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le 29 novembre 1873, Cantor demande à Dedekind si l’on peut mettre en correspondance les entiers et les réels. Dedekind ne sait pas répondre, mais montre que les nombres algébriques se laissent énumérer ; Cantor lui envoie la preuve de la non-dénombrabilité des réels le 7 décembre 1873, et l’article reprend presque littéralement l’argument de Dedekind sur les algébriques.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dès janvier 1874, Cantor demande à Dedekind si une surface peut être mise en correspondance biunivoque avec une ligne ; il lui faut plus de trois ans pour répondre par l’affirmative (1877). La comparaison générale des puissances infinies est ouverte.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Ferreirós, c’est ici que les ensembles cessent d’être un simple langage de l’analyse pour devenir un objet d’étude : l’infini se scinde en grandeurs distinctes, et la question de leur hiérarchie devient un problème mathématique.',
+            sources: ['ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'equipotence-de-la-droite-et-du-plan',
@@ -1206,6 +1389,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'conjecture',
         statement: 'Tout ensemble infini de nombres réels est soit dénombrable, soit en correspondance biunivoque avec tous les réels : il n’existe pas de puissance intermédiaire entre ℵ₀ et celle du continu, 2^ℵ₀.',
         comment: 'Énoncée à la fin de l’article de 1878, l’hypothèse obsède Cantor, qui annonce plusieurs fois de fausses preuves. Hilbert la place en tête de ses problèmes de Paris (1900). Gödel (1938) montre qu’elle ne peut être réfutée dans les axiomes usuels, Cohen (1963) qu’elle ne peut y être démontrée : elle est indécidable dans ZFC, première application des méthodes d’indépendance.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Tous les ensembles infinis de réels que Cantor sait alors traiter tombent dans l’une de deux classes : les entiers, les rationnels et les algébriques sont dénombrables, les intervalles, le plan et l’espace ont la puissance du continu. Il en conclut, « par un procédé d’induction » dont il ne donne pas le détail, qu’il n’y a pas d’autre possibilité.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Cantor démontre en 1884, à la suite de Bendixson (1883), que l’hypothèse est vraie pour les ensembles fermés ; Alexandrov et Hausdorff l’étendent en 1916 aux ensembles boréliens, Souslin (1917) aux ensembles analytiques. La théorie descriptive des ensembles naît en partie de ces tentatives.',
+            sources: ['kanamori-higher-infinite', 'dauben-cantor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’indépendance n’a pas clos la question pour tous : Gödel lui-même (1947) tenait l’hypothèse pour fausse et espérait de nouveaux axiomes pour la trancher, programme que la théorie des grands cardinaux a en partie repris.',
+            sources: ['kanamori-higher-infinite', 'sep'],
+          },
+        ],
       },
       {
         id: 'grundlagen-einer-allgemeinen-mannigfaltigkeitslehre',
@@ -1295,6 +1497,25 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout ensemble peut être bien ordonné, c’est-à-dire ordonné de sorte que toute partie non vide ait un plus petit élément. La preuve choisit simultanément, dans chaque partie non vide, un élément distingué : c’est l’axiome du choix, énoncé explicitement pour la première fois.',
         comment: 'Envoyée à Hilbert le 24 septembre 1904 et publiée dans les Mathematische Annalen, la preuve provoque une tempête : Peano, Borel, Lebesgue, Baire et Jourdain contestent le choix infini non constructif. Zermelo répond en 1908 par une seconde preuve et l’axiomatisation. L’axiome du choix devient un outil majeur (lemme de Zorn, théorèmes d’existence en algèbre et en analyse), puis un objet d’étude avec les indépendances de Gödel et Cohen.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Cantor affirmait dès 1883 que tout ensemble peut être bien ordonné, comme une « loi de pensée » fondamentale, sans le démontrer ; Hilbert demande en 1900, dans son premier problème, un bon ordre explicite du continu. Au congrès international de Heidelberg (août 1904), Julius König soutient au contraire que le continu ne peut pas être bien ordonné ; son argument est rapidement réfuté.',
+            sources: ['moore-zermelo-choice', 'gray-hilbert-challenge'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le principe est aussitôt mis à l’œuvre : Hamel (1905) en tire une base des réels sur les rationnels, Vitali (1905) un ensemble non mesurable au sens de Lebesgue, Steinitz (1910) l’existence d’une clôture algébrique pour tout corps.',
+            sources: ['moore-zermelo-choice'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Gregory Moore, Zermelo n’invente pas le choix mais le rend visible : Cantor, Dedekind et les analystes l’employaient implicitement, par exemple pour montrer qu’une réunion dénombrable d’ensembles dénombrables est dénombrable, et c’est l’énoncé explicite qui en fait un axiome, puis un objet de controverse.',
+            sources: ['moore-zermelo-choice'],
+          },
+        ],
       },
       {
         id: 'axiomatisation-de-zermelo',

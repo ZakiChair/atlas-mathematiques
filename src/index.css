@@ -1,31 +1,40 @@
 @import '@fontsource/cormorant-garamond/400.css';
 @import '@fontsource/cormorant-garamond/500.css';
 @import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
 @import '@fontsource/cormorant-garamond/400-italic.css';
 @import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/cormorant-garamond/600-italic.css';
 @import '@fontsource/dm-sans/400.css';
 @import '@fontsource/dm-sans/500.css';
 @import '@fontsource/dm-sans/700.css';
-@import '@fontsource/kalam/400.css';
-@import '@fontsource/kalam/700.css';
-@import '@fontsource/caveat/400.css';
-@import '@fontsource/caveat/600.css';
 @import 'tailwindcss';
 
+/*
+ * DA « Fleuves et confluences » : papier, encre et lavis. Chaque champ est un
+ * fleuve qui coule avec le temps (gauche → droite) ; les domaines sont des lacs
+ * sur son cours ; les liens sont des courants d'encre.
+ */
 @theme {
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-hand: 'Kalam', 'DM Sans', sans-serif;
-  --font-note: 'Caveat', cursive;
-  --color-ink: #14171b;
-  --color-parchment: #edeee6;
-  --color-secondary: #9ba39c;
-  --color-fait: #9ed1a2;
-  --color-interp: #e8c76a;
+  --color-paper: #f4efe3;
+  --color-paper-2: #ebe4d3;
+  --color-ink: #26231d;
+  --color-soft: #4b463b;
+  --color-muted: #776f60;
+  --color-accent: #1f4e79;
+  --color-accent-strong: #163a5c;
+  --color-sepia: #8a5a1c;
+  --color-fait: #2e6b46;
+  --color-interp: #9a6a12;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  /* hauteur de la frise d'activité (posée par l'application) */
+  --frieze-h: 0px;
+  --paper-halo: rgba(246, 241, 230, 0.88);
 }
 
 html,
@@ -33,40 +42,30 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  background: #14171b;
-  color: #edeee6;
+  background: #f4efe3;
+  color: #26231d;
   font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.55;
 }
 
-/* ——— fond : ardoise + poussière de craie ——— */
+/* ——— fond : papier vergé, vignette chaude ——— */
 .atlas-bg {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 36%, #1d232a 0%, #14171b 68%),
-    linear-gradient(160deg, rgba(159, 200, 224, 0.02), rgba(232, 199, 106, 0.02));
+    radial-gradient(ellipse at 50% 38%, #f8f4ea 0%, #f1ead9 62%, #e7dcc4 100%),
+    #f4efe3;
   pointer-events: none;
 }
 .grain {
   position: fixed;
   inset: 0;
-  opacity: 0.05;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 60;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-/* traces de craie effacée : deux grandes traînées très pâles */
-.chalk-wipe {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    radial-gradient(ellipse 42% 9% at 30% 22%, rgba(237, 238, 230, 0.028), transparent 70%),
-    radial-gradient(ellipse 55% 8% at 68% 64%, rgba(237, 238, 230, 0.022), transparent 70%),
-    radial-gradient(ellipse 36% 7% at 45% 86%, rgba(237, 238, 230, 0.018), transparent 70%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.18 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 svg.atlas-map {
@@ -96,28 +95,85 @@ svg.atlas-map[data-level='3'] .links-layer {
   opacity: 0.3;
 }
 
-/* libellés : taille calculée par territoire (--fs, unités carte), plafond écran */
-.territory-name {
-  font-family: var(--font-hand);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: min(calc(var(--fs, 40) * 1px), calc(30px / var(--k, 1)));
+/* ——— fleuves ——— */
+.river-bed {
+  transition: opacity 300ms ease;
+}
+.river-bank {
+  fill: none;
+  stroke-width: 1.2px;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+.river-current {
+  fill: none;
+  stroke-width: 0.8px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 22 16;
+  stroke-linecap: round;
+  opacity: 0.4;
+}
+.river-sea {
+  pointer-events: none;
+}
+.rivers.has-selection .river-bed {
+  opacity: 0.75;
+}
+.rivers.vision-filiations,
+.rivers.vision-reseaux {
+  opacity: 0.45;
+}
+/* natures : l'encre des lacs prime sur la teinte des champs */
+.rivers.vision-natures {
+  opacity: 0.55;
+}
+/* repères de cumul (résultats déjà recensés en amont) */
+.river-tally {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: calc(13px / var(--k, 1));
   text-anchor: middle;
-  fill: #edeee6;
   paint-order: stroke;
-  stroke: rgba(17, 20, 26, 0.72);
+  stroke: var(--paper-halo);
+  stroke-width: calc(3px / var(--k, 1));
+  pointer-events: none;
+}
+svg.atlas-map[data-level='2'] .river-tally,
+svg.atlas-map[data-level='3'] .river-tally {
+  opacity: 0;
+}
+
+/* ——— libellés : taille calculée par territoire (--fs, unités carte) ———
+   vue d'ensemble : plancher de lisibilité de 6.6 px à l'écran (le nom peut
+   déborder du lac jusqu'à --fs-max), plafond de 28 px */
+.territory-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: min(max(calc(var(--fs, 40) * 1px), calc(6.6px / var(--k, 1))), calc(var(--fs-max, 80) * 1px), calc(28px / var(--k, 1)));
+  text-anchor: middle;
+  fill: var(--label, #26231d);
+  paint-order: stroke;
+  stroke: var(--paper-halo);
   stroke-width: calc(3.5px / var(--k, 1));
+  stroke-linejoin: round;
   transition: fill 200ms ease;
 }
+/* dernière ligne du bloc (tspan) : taille relative au nom */
 .territory-period {
-  font-family: var(--font-note);
-  font-size: min(calc(var(--fs, 40) * 0.78px), calc(23px / var(--k, 1)));
-  text-anchor: middle;
-  fill: #9ba39c;
-  paint-order: stroke;
-  stroke: rgba(17, 20, 26, 0.72);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.74em;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  fill: #6b6354;
   stroke-width: calc(3px / var(--k, 1));
+  transition:
+    fill-opacity 250ms ease,
+    stroke-opacity 250ms ease;
 }
 .territory-labels {
   transition:
@@ -131,13 +187,14 @@ svg.atlas-map[data-level='3'] .territory-labels {
   transform: translateY(calc(var(--r, 200) * -0.66px));
 }
 svg.atlas-map[data-level='1'] .territory-name {
-  font-size: min(calc(var(--fs, 40) * 1px), calc(22px / var(--k, 1)));
+  font-size: min(calc(var(--fs, 40) * 1px), calc(21px / var(--k, 1)));
 }
 /* la période reste dans le panneau dès qu'on entre dans le territoire */
 svg.atlas-map[data-level='1'] .territory-period,
 svg.atlas-map[data-level='2'] .territory-period,
 svg.atlas-map[data-level='3'] .territory-period {
-  opacity: 0;
+  fill-opacity: 0;
+  stroke-opacity: 0;
 }
 svg.atlas-map[data-level='2'] .territory-name,
 svg.atlas-map[data-level='3'] .territory-name {
@@ -149,16 +206,18 @@ svg.atlas-map[data-level='3'] .territory-labels {
   opacity: 0;
 }
 .child-label {
-  font-family: var(--font-hand);
   text-anchor: middle;
   paint-order: stroke;
-  stroke: rgba(17, 20, 26, 0.8);
+  stroke: var(--paper-halo);
+  stroke-linejoin: round;
   pointer-events: none;
 }
 .theory-label {
-  font-size: calc(15px / var(--k, 1));
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: calc(16px / var(--k, 1));
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   stroke-width: calc(3.5px / var(--k, 1));
 }
 /* niveaux 2-3 : les théories s’effacent devant les mathématiciens et descendent sous le centre du blob */
@@ -167,30 +226,61 @@ svg.atlas-map[data-level='3'] .territory-labels {
 }
 svg.atlas-map[data-level='2'] .theory-label,
 svg.atlas-map[data-level='3'] .theory-label {
-  font-size: calc(12px / var(--k, 1));
-  opacity: 0.6;
+  font-size: calc(13px / var(--k, 1));
+  opacity: 0.7;
   transform: translateY(calc(22px / var(--k, 1)));
 }
 .mathematician-label {
-  font-size: calc(16px / var(--k, 1));
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: calc(13.5px / var(--k, 1));
+  fill: #2b2822;
   stroke-width: calc(3px / var(--k, 1));
 }
 .result-label {
   font-family: var(--font-sans);
-  font-size: calc(12.5px / var(--k, 1));
-  fill: #d6d8cc;
+  font-size: calc(12px / var(--k, 1));
+  fill: #4b463b;
   stroke-width: calc(3px / var(--k, 1));
+}
+/* élément choisi dans le panneau : anneau de Prusse, libellé appuyé */
+.child-ring {
+  fill: none;
+  r: calc(13px / var(--k, 1));
+  stroke-width: calc(1.8px / var(--k, 1));
+  pointer-events: none;
+}
+.child-selected .child-label {
+  font-weight: 700;
+  fill: #26231d;
 }
 
 .territory {
   cursor: pointer;
   outline: none;
+  transition: opacity 300ms ease;
 }
 .territory .fill {
   transition: opacity 300ms ease;
 }
-.territory .hatch {
+.territory .rim,
+.territory .waterline {
   pointer-events: none;
+}
+.territory .waterline {
+  fill: none;
+  stroke-width: 0.8px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1.5 4;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+.territory .edge {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-width 200ms ease;
 }
 .territory.dimmed {
   opacity: 0.12;
@@ -198,10 +288,29 @@ svg.atlas-map[data-level='3'] .theory-label {
 }
 /* vision « natures » : territoires sans la nature choisie (restent cliquables) */
 .territory.veil {
-  opacity: 0.16;
+  opacity: 0.2;
 }
-.world.dim-others .territory:not(.dimmed):not(.selected):not(.related):not(.veil) {
-  opacity: 0.55;
+/* sélection : le bassin amont et l'aval direct restent nets, le reste s'efface */
+.world.dim-others .territory:not(.dimmed):not(.selected):not(.related):not(.veil):not(.chain-up):not(.chain-down) {
+  opacity: 0.32;
+}
+.world.dim-others .territory.related {
+  opacity: 0.7;
+}
+.world.dim-others .territory.chain-up[data-gen='2'] {
+  opacity: 0.88;
+}
+.world.dim-others .territory.chain-up[data-gen='3'] {
+  opacity: 0.74;
+}
+.world.dim-others .territory.chain-up[data-gen='4'] {
+  opacity: 0.6;
+}
+.territory .chain-ring {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  pointer-events: none;
 }
 .territory .halo {
   opacity: 0;
@@ -210,69 +319,68 @@ svg.atlas-map[data-level='3'] .theory-label {
 .territory.selected .halo {
   opacity: 1;
 }
-.territory .edge {
-  transition: stroke-width 200ms ease;
-}
-/* survol aux niveaux 0-1 : contour épais + nom en accent */
+/* survol aux niveaux 0-1 : contour appuyé + nom en accent */
 svg.atlas-map[data-level='0'] .territory:hover .edge,
 svg.atlas-map[data-level='1'] .territory:hover .edge {
-  stroke-width: 3.4;
+  stroke-width: 2.6px;
 }
 svg.atlas-map[data-level='0'] .territory:hover .territory-name,
 svg.atlas-map[data-level='1'] .territory:hover .territory-name {
-  fill: var(--accent, #edeee6);
+  fill: var(--accent, #1f4e79);
 }
 .territory:focus-visible {
   outline: none;
 }
 .territory:focus-visible .edge {
-  stroke-width: 4;
+  stroke-width: 3px;
   stroke-opacity: 1;
 }
 
-/* ——— liens : traits de craie ——— */
+/* ——— liens : courants d'encre ——— */
 .link {
   fill: none;
   vector-effect: non-scaling-stroke;
   stroke-linecap: round;
 }
 .link-filiation {
-  stroke: #e8c76a;
-  stroke-width: 2.2px;
+  stroke: #1f3f5b;
+  stroke-width: 1.9px;
 }
 .link-influence {
-  stroke: #9fc8e0;
-  stroke-width: 1.8px;
+  stroke: #3f6f94;
+  stroke-width: 1.6px;
   stroke-dasharray: 8 5;
 }
 .link-affinite {
-  stroke: #c9a0ff;
-  stroke-width: 1.6px;
-  stroke-dasharray: 2 5;
+  stroke: #7a6a98;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1.5 5;
   stroke-linecap: round;
 }
 .link-reaction {
-  stroke: #ff7a5c;
-  stroke-width: 2.2px;
+  stroke: #b5412a;
+  stroke-width: 2px;
 }
 /* densité : discrets par défaut, allumés au survol / à la sélection */
 .link-group {
-  opacity: 0.09;
+  opacity: 0.12;
   transition: opacity 250ms ease;
 }
 .link-group.transversal {
-  opacity: 0.16;
+  opacity: 0.2;
+}
+/* vue d'ensemble : les fleuves d'abord, les liens en filigrane
+   (:where garde la spécificité basse : survol, visions et sélection l'emportent) */
+:where(svg.atlas-map[data-level='0']) .link-group {
+  opacity: 0.08;
+}
+:where(svg.atlas-map[data-level='0']) .link-group.transversal {
+  opacity: 0.13;
 }
 /* petits écrans, vue d'ensemble : traits fins, pas de pointes de flèche */
 @media (max-width: 1023px) {
   svg.atlas-map[data-level='0'] .link {
     stroke-width: 1px;
-  }
-  svg.atlas-map[data-level='0'] .link-group {
-    opacity: 0.07;
-  }
-  svg.atlas-map[data-level='0'] .link-group.transversal {
-    opacity: 0.12;
   }
   svg.atlas-map[data-level='0'] .link-group > g {
     display: none;
@@ -288,22 +396,39 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
 .link-group.hover-link {
   opacity: 0.9;
 }
-.links-layer.has-selection .link-group:not(.selected-link) {
-  opacity: 0.05;
+.links-layer.has-selection .link-group:not(.selected-link):not(.chain-link) {
+  opacity: 0.04;
 }
 .links-layer.has-selection .link-group.selected-link {
   opacity: 1;
 }
-.links-layer.has-selection .link-group.selected-link .link {
-  filter: brightness(1.15);
+/* bassin amont : l'encre de Prusse coule vers le domaine choisi */
+.links-layer.has-selection .link-group.chain-link {
+  opacity: var(--chain-o, 0.5);
+}
+.link-group.chain-link .link {
+  stroke: #1d5f96;
+  stroke-width: 2.2px;
+  stroke-dasharray: 10 7;
+  animation: flow 1.4s linear infinite;
+}
+.link-group.chain-down .link {
+  stroke: #8a5a1c;
+  stroke-width: 2.2px;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -17;
+  }
 }
 .link-label {
-  font-family: var(--font-note);
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: calc(15px / var(--k, 1));
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.01em;
   paint-order: stroke;
-  stroke: rgba(17, 20, 26, 0.85);
+  stroke: var(--paper-halo);
   stroke-width: calc(4px / var(--k, 1));
   stroke-linejoin: round;
   pointer-events: none;
@@ -325,39 +450,38 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   stroke-dasharray: 5 4;
   stroke-linecap: round;
   opacity: 0.9;
+  stroke: currentColor;
 }
 .mlink-group.mlink-filiation {
-  color: #e8c76a;
+  color: #1f3f5b;
 }
 .mlink-group.mlink-influence {
-  color: #9fc8e0;
+  color: #3f6f94;
 }
 .mlink-group.mlink-affinite {
-  color: #c9a0ff;
+  color: #7a6a98;
 }
 .mlink-group.mlink-reaction {
-  color: #ff7a5c;
+  color: #b5412a;
 }
 .mlink-group.mlink-collaboration {
-  color: #9ed1a2;
-}
-.mlink {
-  stroke: currentColor;
+  color: #3f7a3a;
 }
 .mlink-dot {
   fill: currentColor;
-  stroke: rgba(17, 20, 26, 0.9);
+  stroke: #f4efe3;
   stroke-width: 1.5px;
   vector-effect: non-scaling-stroke;
 }
 .mlink-label {
-  font-family: var(--font-note);
+  font-family: var(--font-serif);
+  font-style: italic;
   font-size: calc(14px / var(--k, 1));
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.01em;
   fill: currentColor;
   paint-order: stroke;
-  stroke: rgba(17, 20, 26, 0.85);
+  stroke: var(--paper-halo);
   stroke-width: calc(4px / var(--k, 1));
   stroke-linejoin: round;
   pointer-events: none;
@@ -366,43 +490,44 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
 .mlinks-all .mlink {
   stroke-width: 1.1px;
   stroke-dasharray: 3 4;
-  opacity: 0.17;
+  opacity: 0.22;
 }
 @media (max-width: 1023px) {
   .mlink-label {
     display: none;
   }
   .mlinks-all .mlink {
-    opacity: 0.1;
+    opacity: 0.14;
   }
 }
 
 /* ——— visions ——— */
 .links-layer.vision-filiations .link-group {
-  opacity: 0.5;
+  opacity: 0.55;
 }
 .links-layer.vision-filiations .link-group.transversal {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 .links-layer.vision-filiations .link-group.facts-dim {
-  opacity: 0.14;
+  opacity: 0.16;
 }
 .links-layer.vision-reseaux .link-group,
 .links-layer.vision-reseaux .link-group.transversal {
   opacity: 0.03;
 }
 
-/* ——— graticule ——— */
+/* ——— graticule : méridiens des ères, bandes des champs ——— */
 .graticule-line {
-  stroke: rgba(237, 238, 230, 0.08);
+  stroke: rgba(70, 55, 30, 0.22);
   stroke-width: 1px;
+  stroke-dasharray: 2 7;
   vector-effect: non-scaling-stroke;
 }
 .continent-band {
-  fill: rgba(237, 238, 230, 0.014);
+  fill: transparent;
 }
 .continent-band.alt {
-  fill: rgba(237, 238, 230, 0.032);
+  fill: rgba(120, 96, 52, 0.03);
 }
 
 /* ——— marges : libellés en espace écran ——— */
@@ -411,9 +536,10 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   inset: 0;
   pointer-events: none;
   z-index: 5;
-  font-family: var(--font-hand);
+  font-family: var(--font-serif);
+  font-weight: 700;
   text-transform: uppercase;
-  color: rgba(237, 238, 230, 0.38);
+  color: rgba(60, 50, 35, 0.55);
 }
 .edge-continent {
   position: absolute;
@@ -425,35 +551,6 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   transform-origin: center;
   /* la rotation se fait autour du centre : on place le centre à left+w/2 */
   margin-left: 7px;
-}
-.edge-era {
-  position: absolute;
-  bottom: 10px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  line-height: 1.25;
-}
-.edge-era-name {
-  font-size: 12.5px;
-  letter-spacing: 0.16em;
-}
-.edge-era-range {
-  font-family: var(--font-note);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: rgba(237, 238, 230, 0.34);
-}
-@media (max-width: 1023px) {
-  .edge-era-name {
-    font-size: 10px;
-  }
-  .edge-era-range {
-    font-size: 11px;
-  }
 }
 
 /* ——— marqueurs ——— */
@@ -472,14 +569,59 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   cursor: pointer;
 }
 
-/* ——— UI ardoise ——— */
+/* ——— frise d'activité ——— */
+.frieze {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 30;
+  height: var(--frieze-h);
+  background: rgba(247, 243, 234, 0.94);
+  border-top: 1px solid rgba(60, 48, 30, 0.18);
+  box-shadow: 0 -6px 18px rgba(60, 45, 20, 0.06);
+  user-select: none;
+  touch-action: none;
+}
+.frieze svg {
+  display: block;
+  cursor: pointer;
+}
+.frieze-era {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  fill: rgba(60, 50, 35, 0.6);
+}
+.frieze-tick {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 11.5px;
+  fill: rgba(60, 50, 35, 0.62);
+}
+.frieze-window {
+  fill: rgba(31, 78, 121, 0.06);
+  stroke: #1f4e79;
+  stroke-width: 1.4px;
+}
+.frieze-selected {
+  fill: rgba(181, 65, 42, 0.12);
+  stroke: #b5412a;
+  stroke-width: 1px;
+}
+
+/* ——— interface : cartes de papier ——— */
 .glass {
-  background: rgba(24, 28, 34, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(237, 238, 230, 0.15);
-  border-radius: 12px;
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  background: rgba(250, 247, 240, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(60, 48, 30, 0.16);
+  border-radius: 10px;
+  box-shadow:
+    0 1px 2px rgba(60, 45, 20, 0.08),
+    0 8px 28px rgba(60, 45, 20, 0.12);
 }
 .chip {
   display: inline-flex;
@@ -487,113 +629,124 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   gap: 0.35rem;
   padding: 0.15rem 0.6rem;
   border-radius: 999px;
-  border: 1px solid rgba(237, 238, 230, 0.2);
+  border: 1px solid rgba(38, 35, 29, 0.2);
   font-size: 0.8rem;
-  color: #d6d8cc;
+  color: #4b463b;
+  background: rgba(255, 255, 255, 0.35);
 }
 .chip.active {
-  border-color: rgba(232, 199, 106, 0.75);
-  color: #e8c76a;
+  border-color: rgba(31, 78, 121, 0.7);
+  color: #1f4e79;
+  background: rgba(31, 78, 121, 0.07);
 }
 
-/* titres de section manuscrits (panneaux, tiroirs) */
+/* titres de section (panneaux, tiroirs) : capitales de gravure */
 .section-title {
-  font-family: var(--font-note);
-  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.3rem;
   line-height: 1.2;
-  color: #c9cfc4;
-  border-bottom: 1px solid rgba(237, 238, 230, 0.12);
+  color: #26231d;
+  border-bottom: 1px solid rgba(38, 35, 29, 0.14);
   padding-bottom: 0.25rem;
   margin-bottom: 0.5rem;
 }
 /* variante compacte (légende, filtres) : sans filet, plus petite */
 .section-title-sm {
-  font-family: var(--font-note);
-  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
   line-height: 1.25;
-  color: #c9cfc4;
+  color: #26231d;
 }
 
 .badge-fait,
 .badge-interp {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.1rem 0.45rem;
+  padding: 0.06rem 0.42rem;
   border-radius: 4px;
+  border: 1px solid;
   vertical-align: middle;
 }
 .badge-fait {
-  color: #14171b;
-  background: #9ed1a2;
+  color: #245a3a;
+  background: #e0ecdf;
+  border-color: #b5d0ba;
 }
 .badge-interp {
-  color: #14171b;
-  background: #e8c76a;
+  color: #7d520c;
+  background: #f5e6c4;
+  border-color: #e0c27f;
 }
 
-/* nature d'un résultat : pastille creuse, teinte par genre */
+/* nature d'un résultat : pastille creuse, encre par genre */
 .badge-kind {
   display: inline-block;
   font-size: 0.64rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.08rem 0.42rem;
+  padding: 0.06rem 0.42rem;
   border-radius: 4px;
   border: 1px solid currentColor;
   vertical-align: middle;
   white-space: nowrap;
-  color: #d6d8cc;
+  color: #4b463b;
 }
 .badge-kind-theoreme {
-  color: #e8c76a;
+  color: #1f4e79;
 }
 .badge-kind-conjecture {
-  color: #c9a0ff;
+  color: #6b4c9a;
 }
 .badge-kind-concept {
-  color: #9fc8e0;
+  color: #2a7383;
 }
 .badge-kind-methode {
-  color: #9ed1a2;
+  color: #3f7a3a;
 }
 .badge-kind-texte {
-  color: #e8b08a;
+  color: #8a5a1c;
 }
 .badge-kind-probleme {
-  color: #ff8f80;
+  color: #b23a22;
 }
 
 .panel-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(237, 238, 230, 0.25) transparent;
+  scrollbar-color: rgba(38, 35, 29, 0.25) transparent;
 }
 
-/* mobile : le flou d'arrière-plan par carte coûte très cher au défilement —
-   on le remplace par un fond quasi opaque (même rendu ardoise) */
+/* mobile : le flou d'arrière-plan coûte très cher au défilement —
+   on le remplace par un fond quasi opaque (même papier) */
 @media (max-width: 1023px) {
   .glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: rgba(24, 28, 34, 0.94);
+    background: rgba(250, 247, 240, 0.98);
   }
 }
 
 button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #9fc8e0;
+  outline: 2px solid #1f4e79;
   outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .layer,
   .link-group,
+  .territory,
   .territory .fill,
   .territory .halo {
     transition: none !important;
+  }
+  .link-group.chain-link .link {
+    animation: none;
   }
 }

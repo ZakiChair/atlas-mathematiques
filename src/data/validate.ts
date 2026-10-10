@@ -70,6 +70,8 @@ export function validateAtlas(input: AtlasInput): string[] {
     if (m.period.start === 0 || m.period.end === 0) errors.push(`${ctx} : l'année 0 n'existe pas`);
     if (!m.summary.trim()) errors.push(`${ctx} : summary vide`);
     if (!m.tagline.trim()) errors.push(`${ctx} : tagline vide`);
+    if (m.mapName !== undefined && (!m.mapName.trim() || m.mapName.length > 40))
+      errors.push(`${ctx} : mapName vide ou trop long (40 caractères au plus)`);
     if (m.places.length === 0) errors.push(`${ctx} : aucun lieu (places)`);
     for (const c of [m.map.palette.fill, m.map.palette.stroke, m.map.palette.accent]) {
       if (!HEX.test(c)) errors.push(`${ctx} : couleur invalide « ${c} »`);
@@ -137,6 +139,18 @@ export function validateAtlas(input: AtlasInput): string[] {
         errors.push(`${ctx} : résultat ${f.id} : année ${f.year} hors [${lo}, ${hi}]`);
       }
       if (!f.comment.trim()) errors.push(`${ctx} : résultat ${f.id} : commentaire vide`);
+      // récit contexte / portée : les deux vont ensemble, chaque énoncé est sourcé
+      const nc = f.context?.length ?? 0;
+      const ni = f.impact?.length ?? 0;
+      if (nc > 0 !== ni > 0) errors.push(`${ctx} : résultat ${f.id} : récit incomplet (context et impact vont ensemble)`);
+      if (nc > 3 || ni > 3) errors.push(`${ctx} : résultat ${f.id} : récit trop long (3 énoncés au plus par partie)`);
+      [...(f.context ?? []), ...(f.impact ?? [])].forEach((s, i) => {
+        const sctx = `${ctx} : résultat ${f.id} récit #${i}`;
+        if (!s.text.trim()) errors.push(`${sctx} : texte vide`);
+        if (s.kind !== 'fait' && s.kind !== 'interpretation') errors.push(`${sctx} : type inconnu « ${String(s.kind)} »`);
+        if (!s.sources || s.sources.length === 0) errors.push(`${sctx} : aucune source`);
+        checkSources(s.sources, sctx);
+      });
     }
     for (const rid of m.relatedMathematicianIds ?? []) {
       if (!globalMathematicianIds.has(rid)) {

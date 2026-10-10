@@ -28,7 +28,7 @@ export function VisionPanel() {
     >
       <div className="flex items-start justify-between gap-2">
         <h2 className="section-title flex-1 !mb-0">{t('vision.title')}</h2>
-        <button aria-label={t('vision.close')} className="p-1 hover:bg-white/10 rounded shrink-0" onClick={() => dispatch({ type: 'toggle-ui', key: 'visionOpen' })}>
+        <button aria-label={t('vision.close')} className="p-1 hover:bg-ink/8 rounded shrink-0" onClick={() => dispatch({ type: 'toggle-ui', key: 'visionOpen' })}>
           <X size={16} />
         </button>
       </div>
@@ -40,12 +40,12 @@ export function VisionPanel() {
               key={v}
               data-vision={v}
               className={`text-left px-3 py-2 rounded-lg border transition ${
-                active ? 'border-[#e8c76a]/60 bg-white/5' : 'border-transparent hover:bg-white/5'
+                active ? 'border-accent/60 bg-ink/5' : 'border-transparent hover:bg-ink/5'
               }`}
               onClick={() => dispatch({ type: 'set-vision', vision: v })}
             >
-              <div className="font-hand leading-tight">{t(VISION_I18N[v].name)}</div>
-              <div className="text-xs text-[#9ba39c] mt-0.5">{t(VISION_I18N[v].desc)}</div>
+              <div className="font-serif font-bold text-lg leading-tight">{t(VISION_I18N[v].name)}</div>
+              <div className="text-xs text-muted mt-0.5">{t(VISION_I18N[v].desc)}</div>
             </button>
           );
         })}
@@ -59,7 +59,7 @@ export function VisionPanel() {
               return (
                 <button
                   key={k}
-                  className={`rounded transition ${active ? 'ring-1 ring-white/70' : 'opacity-55 hover:opacity-100'}`}
+                  className={`rounded transition ${active ? 'ring-1 ring-ink/60' : 'opacity-55 hover:opacity-100'}`}
                   onClick={() => dispatch({ type: 'set-natures-kind', kind: active ? null : k })}
                 >
                   <KindBadge kind={k} />

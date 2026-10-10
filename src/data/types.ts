@@ -152,6 +152,14 @@ export interface Result {
   statement?: string;
   /** Pourquoi ce résultat compte : place dans le domaine, ce qu'il rend possible, ce qu'il ferme. */
   comment: string;
+  /**
+   * Récit « contexte » (grands résultats seulement) : ce qui y a conduit — problème
+   * posé, état antérieur des connaissances, motivation. 1 à 3 énoncés typés et sourcés ;
+   * toujours accompagné d'`impact`.
+   */
+  context?: Statement[];
+  /** Récit « portée » : ce que le résultat a ouvert, permis ou fermé. 1 à 3 énoncés typés et sourcés. */
+  impact?: Statement[];
 }
 
 /** Lien entre deux mathématicien·nes : filiation (maître/élève), influence, collaboration, affinité ou rupture. */
@@ -190,6 +198,11 @@ export interface KeyDate {
 export interface Domain {
   id: string;
   name: string;
+  /**
+   * Nom court inscrit dans le lac sur la carte (3 lignes de 15 capitales au
+   * plus). À défaut : la partie de `name` avant « : ».
+   */
+  mapName?: string;
   altNames?: string[];
   era: EraId;
   period: Period;

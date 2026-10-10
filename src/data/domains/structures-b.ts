@@ -33,7 +33,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1900, end: 1955 },
     continents: ['hasard'],
     places: ['Paris', 'Saint-Pétersbourg', 'Moscou', 'Cambridge (Mass.)', 'Princeton', 'Tokyo'],
-    map: { x: 4950, y: 3100, size: 3, palette: { fill: '#261d17', stroke: '#d9b7a1', accent: '#f3ddcd' } },
+    map: { x: 4950, y: 3100, size: 3, palette: { fill: '#f3e4dd', stroke: '#7d452c', accent: '#c45f31' } },
     tagline: 'Le hasard devient une mesure : en un demi-siècle, le calcul des probabilités passe des jeux de dés aux trajectoires browniennes.',
     summary:
       'Entre la thèse de Bachelier (1900) et les traités de Feller et de Doob (1950-1953), le calcul des probabilités change de nature. La théorie de la mesure de Borel et de Lebesgue lui fournit un langage ; Markov, Borel, Lévy et Khintchine démontrent des théorèmes limites d’un type nouveau (lois fortes, logarithme itéré, lois stables) ; Wiener construit rigoureusement le mouvement brownien. En 1933, les Grundbegriffe de Kolmogorov fixent les axiomes : une probabilité est une mesure de masse totale 1, une variable aléatoire une fonction mesurable. Sur cette base, Doob et Itô bâtissent la théorie des processus stochastiques, martingales et calcul stochastique, qui irriguera la physique, la finance et la statistique de la seconde moitié du siècle.',
@@ -226,6 +226,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'concept',
         statement: 'Suite de variables aléatoires où la loi de chaque terme ne dépend du passé que par l’intermédiaire du terme immédiatement précédent ; Markov montre que la loi des grands nombres et le théorème central limite subsistent sous cette dépendance.',
         comment: 'Première rupture avec l’hypothèse d’indépendance qui dominait depuis Bernoulli. Markov répondait, selon les historiens, à Nekrassov, qui tirait de l’indépendance supposée des actes humains un argument en faveur du libre arbitre. Les chaînes de Markov deviennent, par Kolmogorov (1931) et Feller, le modèle de base des processus aléatoires, puis des algorithmes de simulation (Metropolis, 1953).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Markov prolonge le programme de l’école de Saint-Pétersbourg : établir les théorèmes limites sous des hypothèses de plus en plus faibles. Son maître Tchebychev avait démontré en 1867 la loi des grands nombres pour des variables indépendantes à l’aide de l’inégalité qui porte son nom ; la question restait de savoir si l’indépendance était nécessaire.',
+            sources: ['mactutor', 'von-plato-creating'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Markov applique lui-même son modèle en 1913 à la succession des voyelles et des consonnes dans le texte d’Eugène Onéguine de Pouchkine. Kolmogorov étend la théorie, au milieu des années 1930, aux chaînes à une infinité dénombrable d’états.',
+            sources: ['mactutor', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En montrant qu’une dépendance contrôlée n’empêche pas les théorèmes limites, Markov déplace la question : il ne s’agit plus de supposer l’indépendance, mais de décrire la structure de la dépendance, ce qui devient le programme même de la théorie des processus stochastiques.',
+            sources: ['von-plato-creating'],
+          },
+        ],
       },
       {
         id: 'loi-forte-des-grands-nombres',
@@ -261,6 +280,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe une mesure de probabilité sur l’espace des fonctions continues telle que les accroissements d’une trajectoire sur des intervalles disjoints soient indépendants et gaussiens, de variance proportionnelle à la durée. Presque toutes les trajectoires sont continues et, comme Wiener le montre avec Paley et Zygmund en 1933, nulle part dérivables.',
         comment: 'Wiener part de la description physique d’Einstein (1905) et de Perrin et des intégrales de Daniell pour construire la « mesure de Wiener ». Le mouvement brownien devient l’objet central des processus : Lévy en étudie les trajectoires, Kolmogorov en fait un cas de diffusion, Itô l’intègre, Donsker le présente comme limite universelle des marches aléatoires.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Einstein (1905) et Smoluchowski (1906) expliquent le mouvement brownien par les chocs moléculaires et en déduisent que le carré moyen du déplacement croît proportionnellement au temps ; Perrin vérifie expérimentalement cette loi à partir de 1908. Bachelier avait obtenu la même structure en 1900 pour les cours de la Bourse, sans que les physiciens le citent.',
+            sources: ['von-plato-creating'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'La mesure de Wiener est le premier exemple effectivement construit d’une probabilité sur un espace de fonctions : elle montre que le programme de la mesure peut traiter un objet de la physique, et le théorème d’extension de Kolmogorov (1933) la retrouvera comme cas particulier d’une construction générale.',
+            sources: ['von-plato-creating', 'shafer-vovk-grundbegriffe'],
+          },
+          {
+            kind: 'fait',
+            text: 'En 1944, Kakutani relie le mouvement brownien plan aux fonctions harmoniques : la solution du problème de Dirichlet s’obtient en moyennant la donnée au bord au point où une trajectoire issue de l’intérieur sort du domaine. Ce lien entre processus et théorie du potentiel sera systématisé par Doob.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'loi-du-logarithme-itere',
@@ -307,6 +345,25 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'pmo-axiomatisation-et-mesure',
         kind: 'texte',
         comment: 'Fascicule de 62 pages paru dans les Ergebnisse der Mathematik de Springer. Six axiomes définissent un espace de probabilité comme un espace mesuré de masse 1 ; l’espérance conditionnelle, les espaces de dimension infinie et la loi du zéro-un y sont traités. Le texte répond au sixième problème de Hilbert et devient en une génération le cadre commun de la discipline, malgré la concurrence de la théorie fréquentiste de von Mises.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Plusieurs axiomatisations précèdent celle de 1933 : Serge Bernstein en propose une en 1917, Richard von Mises sa théorie des collectifs en 1919, et Antoni Łomnicki définit dès 1923 les probabilités par des mesures. Kolmogorov lui-même publie en 1929 une première esquisse, « La théorie générale de la mesure et le calcul des probabilités ».',
+            sources: ['shafer-vovk-grundbegriffe', 'kolmogorov-selected'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le fascicule est traduit en russe en 1936 et en anglais en 1950, sous le titre Foundations of the Theory of Probability ; Doob, dans Stochastic Processes (1953), en fait le point de départ explicite de la théorie des processus.',
+            sources: ['shafer-vovk-grundbegriffe', 'von-plato-creating'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’adoption du cadre est progressive : elle ne devient générale qu’après la Seconde Guerre mondiale, lorsque les traités de Cramér (1945) et de Doob (1953) imposent aux statisticiens comme aux probabilistes le langage des espaces mesurés.',
+            sources: ['shafer-vovk-grundbegriffe', 'von-plato-creating'],
+          },
+        ],
       },
       {
         id: 'theoreme-d-extension-de-kolmogorov',
@@ -371,12 +428,13 @@ export const STRUCTURES_B: Domain[] = [
   {
     id: 'statistique-mathematique',
     name: 'Statistique mathématique, décision et jeux',
+    mapName: 'Statistique mathématique',
     altNames: ['Statistique inférentielle classique', 'Théorie de la décision et recherche opérationnelle'],
     era: 'structures',
     period: { start: 1908, end: 1960 },
     continents: ['hasard'],
     places: ['Dublin', 'Rothamsted', 'Londres', 'Berkeley', 'New York', 'Princeton', 'Leningrad'],
-    map: { x: 5600, y: 3350, size: 2, palette: { fill: '#261b17', stroke: '#d19f8f', accent: '#efc6b9' } },
+    map: { x: 5600, y: 3350, size: 2, palette: { fill: '#f1ddda', stroke: '#79362a', accent: '#c04630' } },
     tagline: 'Inférer, tester, décider : de la brasserie Guinness aux salles de guerre, la statistique devient une théorie de l’action sous incertitude.',
     summary:
       'En 1908, un brasseur de Dublin publie sous pseudonyme la loi des petits échantillons ; en 1922, Fisher définit la vraisemblance, l’efficacité et l’exhaustivité et fait de la statistique une branche des mathématiques. Neyman et Egon Pearson reformulent les tests comme un choix entre deux hypothèses avec deux risques d’erreur (1933), puis Neyman invente les intervalles de confiance (1937). Dans les années 1940, Wald conçoit la statistique comme une théorie de la décision, inspirée de la théorie des jeux de von Neumann et Morgenstern, tandis que Kantorovitch et Dantzig inventent la programmation linéaire et que Nash généralise l’équilibre aux jeux à n joueurs. Les querelles de Fisher avec Karl Pearson, puis avec Neyman, scandent cette histoire.',
@@ -578,6 +636,30 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'methode',
         statement: 'Pour estimer un paramètre inconnu, choisir la valeur qui rend les observations les plus probables. Fisher montre que cet estimateur est convergent et, asymptotiquement, de variance minimale, celle-ci étant l’inverse d’une quantité qu’il appelle l’information.',
         comment: 'L’article des Philosophical Transactions fixe le vocabulaire moderne (paramètre, statistique, vraisemblance, efficacité, exhaustivité) et fait de l’estimation un problème mathématique bien posé. La borne de Cramér–Rao (1945), la théorie asymptotique de Le Cam et les modèles statistiques contemporains en découlent ; la notion d’information de Fisher irrigue aussi la géométrie de l’information.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La biométrie de Karl Pearson estime les paramètres par la méthode des moments (1894). Fisher, à peine sorti de Cambridge, propose dès 1912 un « critère absolu » qui revient à maximiser la probabilité des observations, puis calcule en 1915 la loi exacte du coefficient de corrélation, travail qui l’oppose durablement à Pearson.',
+            sources: ['fisher-box-fisher', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans l’article de 1922, Fisher prend soin de distinguer la vraisemblance d’une probabilité a posteriori : il rejette la « probabilité inverse » de Bayes et de Laplace, qui suppose une loi a priori sur le paramètre.',
+            sources: ['lehmann-fisher-neyman', 'fisher-box-fisher'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les propriétés asymptotiques annoncées par Fisher reçoivent une démonstration rigoureuse, sous des conditions de régularité devenues classiques, dans Mathematical Methods of Statistics de Cramér (1945).',
+            sources: ['lehmann-fisher-neyman', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La vraisemblance survit aux querelles d’écoles : Neyman et Pearson en tirent dès 1928 le rapport de vraisemblance comme critère de test, et les bayésiens en font le terme par lequel les données modifient la loi a priori, de sorte qu’elle devient le seul objet commun aux statistiques rivales.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+        ],
       },
       {
         id: 'statistical-methods-for-research-workers',
@@ -600,6 +682,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un jeu à deux joueurs à somme nulle, si chacun peut tirer sa stratégie au sort (stratégies mixtes), le gain que le premier peut se garantir en maximisant le pire cas est égal à la perte que le second peut se garantir en la minimisant : le jeu a une valeur.',
         comment: 'Borel avait posé le problème en 1921 et doutait de la réponse générale ; von Neumann le démontre dans les Mathematische Annalen par un argument topologique, puis Ville (1938) par la convexité. Le théorème fonde la théorie des jeux, la théorie de la décision de Wald et, par la dualité, la programmation linéaire ; Nash l’étend en 1950 aux jeux à n joueurs.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les jeux ont déjà une place dans la culture mathématique de Göttingen : Zermelo applique en 1913 la théorie des ensembles au jeu d’échecs. Von Neumann présente sa démonstration du minimax à la Société mathématique de Göttingen en décembre 1926, avant de la publier sous le titre « Zur Theorie der Gesellschaftsspiele » (« Sur la théorie des jeux de société »).',
+            sources: ['leonard-game-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Kakutani généralise en 1941 le théorème du point fixe de Brouwer aux correspondances, précisément pour redémontrer simplement le minimax et le lemme de point fixe de von Neumann ; c’est ce théorème que Nash emploie en 1950.',
+            sources: ['leonard-game-theory', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En 1953, Fréchet fait traduire les notes de Borel dans Econometrica et lui attribue l’initiative de la théorie des jeux ; von Neumann lui répond dans le même numéro. L’échange fixe les termes de la querelle de priorité : à Borel la question et les stratégies mixtes, à von Neumann le théorème général.',
+            sources: ['leonard-game-theory'],
+          },
+        ],
       },
       {
         id: 'lemme-de-neyman-pearson',
@@ -612,6 +713,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour départager deux hypothèses simples à un niveau de risque de première espèce fixé, le test le plus puissant consiste à rejeter la première hypothèse lorsque le rapport des vraisemblances dépasse un seuil convenable.',
         comment: 'Publié dans les Philosophical Transactions, le lemme donne aux tests une théorie de l’optimalité et introduit la fonction puissance. Il structure toute la statistique des tests (tests uniformément les plus puissants, tests du rapport de vraisemblance de Wilks) et, pour Fisher, trahit l’esprit de l’inférence scientifique en la réduisant à un contrôle de qualité industriel.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1926, Gosset suggère à Egon Pearson, dans une lettre, qu’un test n’a de sens que si l’on peut envisager une hypothèse alternative rendant les observations plus probables. Pearson soumet l’idée à Neyman ; leur premier article commun, en deux parties dans Biometrika (1928), propose le rapport des vraisemblances comme critère, sans encore en démontrer l’optimalité.',
+            sources: ['lehmann-fisher-neyman', 'reid-neyman'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La théorie trouve sa forme de manuel avec Testing Statistical Hypotheses (1959) d’Erich Lehmann, élève de Neyman à Berkeley, qui organise toute la théorie des tests autour du lemme et de ses extensions.',
+            sources: ['lehmann-fisher-neyman', 'reid-neyman'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En évaluant un test par ses deux risques d’erreur plutôt que par la force d’une évidence, le lemme prépare la théorie de la décision : Wald, dès 1939, reformule tests et estimation comme le choix d’une règle qui minimise un risque.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+        ],
       },
       {
         id: 'the-design-of-experiments',
@@ -725,7 +845,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1928, end: 1956 },
     continents: ['fondements', 'hasard'],
     places: ['Vienne', 'Princeton', 'Cambridge', 'Göttingen', 'New York', 'Murray Hill'],
-    map: { x: 5350, y: 3900, size: 3, palette: { fill: '#172618', stroke: '#79c87c', accent: '#a0e9a2' } },
+    map: { x: 5350, y: 3900, size: 3, palette: { fill: '#c3e9d3', stroke: '#22623d', accent: '#2aa75e' } },
     tagline: 'Ce qu’une procédure mécanique peut et ne peut pas faire : la logique découvre ses limites et invente l’ordinateur.',
     summary:
       'En 1928, Hilbert et Ackermann posent le problème de la décision : existe-t-il une procédure mécanique qui tranche la validité de tout énoncé logique ? En moins de dix ans, la question reçoit une réponse négative et, chemin faisant, la notion de « procédure mécanique » est définie. Gödel démontre la complétude de la logique du premier ordre (1930) puis l’incomplétude de toute arithmétique formalisée (1931) ; Church, Kleene et Gödel définissent le lambda-calcul et les fonctions récursives ; Turing décrit en 1936 une machine abstraite dont il montre qu’il existe une version universelle et un problème (l’arrêt) qu’elle ne peut résoudre. Après la guerre, ces idées passent dans les circuits de Shannon, l’architecture de l’EDVAC et la théorie de l’information : la logique mathématique devient informatique.',
@@ -921,6 +1041,30 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout système formel cohérent, assez riche pour exprimer l’arithmétique et dont les axiomes sont reconnaissables mécaniquement, contient des énoncés vrais qu’il ne peut ni démontrer ni réfuter (premier théorème) ; en particulier, il ne peut démontrer l’énoncé qui exprime sa propre cohérence (second théorème).',
         comment: 'Publié dans les Monatshefte für Mathematik und Physik, l’article de 25 pages répond négativement aux deux premières questions du programme de Hilbert tel qu’énoncé à Bologne (complétude et cohérence de l’arithmétique). Von Neumann, qui avait entrevu le second théorème, en tire aussitôt la conclusion que le programme est irréalisable ; Gödel reste plus prudent. Les méthodes (arithmétisation, diagonale, fonctions récursives primitives) fondent la théorie de la calculabilité.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Au congrès de Bologne (1928), Hilbert présente la complétude et la cohérence de l’arithmétique comme des questions ouvertes de son programme. Gödel, qui vient d’établir la complétude de la logique du premier ordre, cherche d’abord à démontrer la cohérence de l’analyse relativement à l’arithmétique, et découvre en chemin que la démontrabilité peut s’exprimer dans l’arithmétique elle-même.',
+            sources: ['dawson-godel', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Gödel annonce le premier théorème le 7 septembre 1930, lors de la discussion finale du colloque de Königsberg sur l’épistémologie des sciences exactes, sans susciter de réaction notable en dehors de celle de von Neumann.',
+            sources: ['dawson-godel'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Rosser (1936) remplace l’hypothèse technique d’ω-cohérence par la simple cohérence. Dans une note de 1963, Gödel écrit que c’est la définition de la calculabilité par Turing qui permet d’énoncer le théorème pour tout système formel, et non plus pour les seuls systèmes apparentés aux Principia.',
+            sources: ['sep', 'van-heijenoort'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Longtemps, l’incomplétude passe pour un phénomène réservé aux énoncés fabriqués par diagonalisation ; il faut attendre 1977 et le théorème de Paris–Harrington pour qu’un énoncé combinatoire d’allure ordinaire soit montré vrai mais indémontrable dans l’arithmétique de Peano.',
+            sources: ['sep'],
+          },
+        ],
       },
       {
         id: 'lambda-calcul',
@@ -977,6 +1121,25 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'cal-modeles-de-calcul',
         kind: 'texte',
         comment: 'Reçu par la London Mathematical Society le 28 mai 1936 et publié dans ses Proceedings, l’article définit les nombres réels calculables, la machine qui porte le nom de son auteur, la machine universelle et l’indécidabilité, et conclut par l’insolubilité de l’Entscheidungsproblem. Church ayant publié le sien quelques semaines plus tôt, Turing ajoute un appendice d’équivalence. Le texte est tenu pour l’acte de naissance de l’informatique théorique.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Turing rencontre l’Entscheidungsproblem au printemps 1935, dans le cours de Max Newman sur les fondements des mathématiques à Cambridge, où la question est formulée comme celle de l’existence d’un procédé « mécanique ». C’est en prenant ce mot au sérieux, par l’analyse d’un calculateur humain, que Turing construit sa machine.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dans sa thèse de Princeton (1938, publiée en 1939), Turing introduit les machines « à oracle », qui consultent une réponse à un problème insoluble ; Post en tire en 1944 la théorie des degrés d’insolubilité et des ensembles récursivement énumérables.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les méthodes de 1936 passent aux mathématiques ordinaires : Post et A. A. Markov fils démontrent en 1947, indépendamment, l’indécidabilité du problème du mot pour les semi-groupes, et Novikov (1955) puis Boone obtiennent le même résultat pour les groupes.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'machine-de-turing-universelle',
@@ -1041,6 +1204,25 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'cal-information-et-machines',
         kind: 'texte',
         comment: 'Article en deux parties du Bell System Technical Journal : la quantité d’information d’une source est mesurée par son entropie (en « bits », mot suggéré par Tukey), tout canal bruité possède une capacité, et l’on peut transmettre sans erreur à tout débit inférieur à cette capacité grâce à un codage convenable, dont l’existence est prouvée par un argument probabiliste. Le texte crée la théorie de l’information, fonde la théorie des codes et relie la communication à la physique statistique et aux probabilités.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Shannon part des travaux d’ingénieurs des Bell Laboratories qu’il cite en ouverture : Harry Nyquist (1924) sur la vitesse de transmission télégraphique et Ralph Hartley (1928), qui propose de mesurer l’information par le logarithme du nombre de messages possibles.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pendant la guerre, Shannon travaille à la cryptographie ; son rapport classifié de 1945, « A Mathematical Theory of Cryptography », contient déjà plusieurs notions de 1948, dont l’entropie et la redondance d’une langue.',
+            sources: ['mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’article est repris en volume dès 1949, sous le titre The Mathematical Theory of Communication, avec un essai de Warren Weaver qui en vulgarise la portée. En 1953, Brockway McMillan et Alexandre Khintchine donnent des démonstrations mathématiquement rigoureuses des théorèmes de Shannon sur les sources.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'computing-machinery-and-intelligence',
@@ -1062,13 +1244,14 @@ export const STRUCTURES_B: Domain[] = [
   {
     id: 'fondements-hilbert-brouwer',
     name: 'Programme de Hilbert, logicisme et intuitionnisme',
+    mapName: 'Crise des fondements',
     altNames: ['Crise des fondements', 'Écoles des fondements'],
     era: 'structures',
     period: { start: 1899, end: 1940 },
     continents: ['fondements'],
     places: ['Göttingen', 'Cambridge', 'Amsterdam', 'Varsovie', 'Oslo'],
-    map: { x: 4850, y: 4100, size: 2, palette: { fill: '#17261a', stroke: '#79c88a', accent: '#a0e9b0' } },
-    tagline: 'Que garantit les mathématiques ? Logique, intuition ou règles formelles : trois réponses s’affrontent, et la logique en sort transformée.',
+    map: { x: 4850, y: 4100, size: 2, palette: { fill: '#cfedd9', stroke: '#266d3f', accent: '#2db45c' } },
+    tagline: 'Qu’est-ce qui garantit les mathématiques ? Logique, intuition ou règles formelles : trois réponses s’affrontent, et la logique en sort transformée.',
     summary:
       'En 1899, les Grundlagen der Geometrie de Hilbert font de l’axiome une hypothèse sur des objets indéterminés, dont on peut prouver l’indépendance et la cohérence relative par des modèles. Les paradoxes de la théorie des ensembles obligent alors à trancher : Russell et Whitehead reconstruisent les mathématiques dans la logique (Principia Mathematica, 1910-1913), Brouwer les ramène aux constructions mentales et récuse le tiers exclu (1907-1908), Hilbert propose de fonder l’infini sur une métamathématique finitiste, élaborée avec Bernays et Ackermann. Pendant ce temps, la logique du premier ordre prend son autonomie : théorème de Löwenheim–Skolem, système de Zermelo–Fraenkel, vérité définie par Tarski, déduction naturelle de Gentzen. La querelle culmine à la fin des années 1920 et se referme sur les théorèmes de Gödel (1931) et la preuve de Gentzen (1936).',
     methods: [
@@ -1169,7 +1352,7 @@ export const STRUCTURES_B: Domain[] = [
         name: 'David Hilbert',
         years: [1862, 1943],
         origin: 'Königsberg et Göttingen',
-        bio: 'Professeur à Göttingen de 1895 à sa retraite, Hilbert domine la mathématique de son temps par vagues successives : invariants, Zahlbericht, fondements de la géométrie, équations intégrales, physique, puis, dans les années 1920, la métamathématique. Son programme — fonder l’infini sur des démonstrations finitistes de cohérence — est élaboré avec Bernays et borne par les théorèmes de Gödel. En 1933, il assiste à la destruction de son école par le régime nazi.',
+        bio: 'Professeur à Göttingen de 1895 à sa retraite, Hilbert domine la mathématique de son temps par vagues successives : invariants, Zahlbericht, fondements de la géométrie, équations intégrales, physique, puis, dans les années 1920, la métamathématique. Son programme — fonder l’infini sur des démonstrations finitistes de cohérence — est élaboré avec Bernays et borné par les théorèmes de Gödel. En 1933, il assiste à la destruction de son école par le régime nazi.',
         theoryId: 'fhb-axiomatique-et-metamathematique',
       },
       {
@@ -1277,6 +1460,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'probleme',
         statement: 'Une liste de problèmes non résolus — cohérence de l’arithmétique, hypothèse du continu, axiomatisation de la physique, huitième problème (hypothèse de Riemann), dixième (résolution des équations diophantiennes) — présentée comme un programme pour le siècle.',
         comment: 'Conférence du 8 août 1900 au congrès de Paris ; le texte complet (23 problèmes) paraît dans les Nachrichten de Göttingen. Le troisième est résolu par Dehn dès 1900, le premier et le second reçoivent des réponses négatives ou relatives (Gödel 1931, 1940 ; Cohen 1963), le dixième est résolu négativement par Matiyasevitch (1970), le huitième reste ouvert. La liste a orienté les carrières de plusieurs générations.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Invité à prononcer l’une des grandes conférences du deuxième congrès international, Hilbert hésite entre une réponse à la conférence de Poincaré au congrès de Zurich (1897) sur les rapports de l’analyse et de la physique, et une liste de problèmes ouverts ; après avoir consulté Minkowski et Hurwitz, il choisit la seconde voie, que lui recommandait Minkowski.',
+            sources: ['reid-hilbert', 'gray-hilbert-challenge'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Faute de temps, Hilbert n’expose oralement que dix problèmes le 8 août 1900 ; le texte complet circule ensuite en allemand, puis en anglais dès 1902 dans le Bulletin of the American Mathematical Society, dans la traduction de Mary Winston Newson.',
+            sources: ['gray-hilbert-challenge'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La conviction affichée en 1900 — « en mathématiques, il n’y a pas d’ignorabimus » — est mise à l’épreuve par le siècle : le premier, le deuxième et le dixième problème reçoivent des réponses d’indépendance ou d’impossibilité, qui font de la question « ce problème a-t-il une solution ? » un objet mathématique à part entière.',
+            sources: ['gray-hilbert-challenge', 'reid-hilbert'],
+          },
+        ],
       },
       {
         id: 'the-principles-of-mathematics',
@@ -1320,6 +1522,30 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'fhb-logicisme',
         kind: 'texte',
         comment: 'Trois volumes (1910, 1912, 1913) qui dérivent les mathématiques de primitives logiques, dans une théorie ramifiée des types évitant les paradoxes. Il faut attendre la proposition ∗54·43, plusieurs centaines de pages après le début, pour la démonstration que 1 + 1 = 2, commentée par les auteurs : « l’énoncé ci-dessus est parfois utile ». L’ouvrage impose la logique symbolique comme discipline et fournit à Gödel le système de référence de ses théorèmes de 1931.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Après la découverte de son paradoxe (1901), Russell essaie plusieurs issues avant d’exposer la théorie ramifiée des types dans « Mathematical Logic as Based on the Theory of Types » (American Journal of Mathematics, 1908), qui fournit le cadre logique des Principia.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le « principe du cercle vicieux », qui interdit de définir un objet par une totalité à laquelle il appartient et gouverne la hiérarchie ramifiée, répond en partie aux critiques que Poincaré adresse en 1905-1906 au logicisme et aux définitions imprédicatives.',
+            sources: ['sep', 'ewald-kant-hilbert'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Ramsey propose en 1925 de remplacer la hiérarchie ramifiée par une théorie simple des types, l’année où paraît la seconde édition des Principia (1925-1927) ; Church formalise en 1940 la théorie simple des types à l’aide du lambda-calcul, ancêtre des théories des types des assistants de preuve.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Comme thèse philosophique, le logicisme est généralement jugé non abouti : les axiomes d’infini et de réductibilité, indispensables aux Principia, ne passent pas pour des vérités logiques, ce que Russell lui-même finit par concéder.',
+            sources: ['sep'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-lowenheim-skolem',
@@ -1431,8 +1657,27 @@ export const STRUCTURES_B: Domain[] = [
         mathematicianId: 'gentzen',
         theoryId: 'fhb-axiomatique-et-metamathematique',
         kind: 'theoreme',
-        statement: 'La cohérence de l’arithmétique de Peano se démontre en admettant, parmi les moyens finitistes, le seul principe d’induction transfinie jusqu’à l’ordinal ε₀ ; Gentzen montre aussi que ce principe n’est pas démontrable dans l’arithmétique, bornant exactement sa force.',
+        statement: 'La cohérence de l’arithmétique de Peano se démontre en admettant, parmi les moyens finitistes, le seul principe d’induction transfinie jusqu’à l’ordinal ε₀ ; Gentzen montre ensuite (1943) que ce principe n’est pas démontrable dans l’arithmétique, bornant exactement sa force.',
         comment: 'Publiée dans les Mathematische Annalen après une première version retirée à la demande de Bernays, la démonstration échappe au second théorème de Gödel en ajoutant un principe unique et identifiable. Elle fonde l’analyse ordinale de la théorie de la démonstration : mesurer la force d’une théorie par l’ordinal jusqu’auquel l’induction y est prouvable (Takeuti, Schütte, Feferman) prolonge le programme de Hilbert plutôt qu’il ne l’enterre.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le second théorème de Gödel (1931) interdit toute preuve de cohérence de l’arithmétique formalisable dans l’arithmétique elle-même. En 1933, Gentzen montre que l’arithmétique classique est cohérente si l’arithmétique intuitionniste l’est ; il retire son article en apprenant que Gödel vient de publier le même résultat.',
+            sources: ['sep', 'dawson-godel'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Gentzen publie en 1938 une seconde démonstration, fondée sur le calcul des séquents, puis établit en 1943 que l’induction jusqu’à ε₀ n’est pas démontrable dans l’arithmétique de Peano, ce qui montre que son principe additionnel est exactement ce qui manque à l’arithmétique.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La portée de la démonstration reste discutée : pour les uns, elle accomplit un programme de Hilbert révisé ; pour d’autres, l’induction transfinie jusqu’à ε₀ n’est pas plus évidente que la cohérence de l’arithmétique qu’elle est censée garantir.',
+            sources: ['sep'],
+          },
+        ],
       },
     ],
     sources: ['reid-hilbert', 'van-dalen-brouwer', 'feferman-tarski', 'grattan-guinness-search', 'ewald-kant-hilbert', 'gray-hilbert-challenge', 'sep'],
@@ -1449,7 +1694,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1934, end: 1970 },
     continents: ['fondements', 'nombres', 'formes'],
     places: ['Paris', 'Nancy', 'Strasbourg', 'Chicago', 'Princeton'],
-    map: { x: 5800, y: 4250, size: 2, palette: { fill: '#172619', stroke: '#84cd8e', accent: '#acecb5' } },
+    map: { x: 5800, y: 4250, size: 2, palette: { fill: '#cbecd7', stroke: '#256a3f', accent: '#2caf5e' } },
     tagline: 'Un auteur imaginaire, un traité collectif : réécrire les mathématiques entières à partir de quelques structures mères.',
     summary:
       'En décembre 1934, quelques jeunes normaliens — Weil, Cartan, Chevalley, Delsarte, Dieudonné, bientôt rejoints par Ehresmann — se réunissent à Paris pour réécrire le cours d’analyse : le projet devient, au congrès de Besse-en-Chandesse (juillet 1935), un traité complet des mathématiques signé d’un nom inventé, Nicolas Bourbaki. Le premier fascicule paraît en 1939 ; la guerre disperse le groupe, qui renaît en 1945 et fait paraître les Éléments de mathématique, organisés non par disciplines mais par « structures ». Autour du même mouvement structuraliste, Eilenberg et Mac Lane créent la théorie des catégories (1945), Cartan anime le séminaire qui impose faisceaux et algèbre homologique, et le Séminaire Bourbaki (1948) devient l’observatoire des mathématiques vivantes.',
@@ -1478,7 +1723,7 @@ export const STRUCTURES_B: Domain[] = [
       },
       {
         kind: 'fait',
-        text: 'La guerre disperse le groupe : Weil, emprisonné pour insoumission en 1940, part pour les États-Unis ; Cartan enseigne dans la clandestinité ; Schwengberdt (René de Possel quitte le projet dès 1941). Le groupe se reconstitue en 1945, recrute Samuel, Serre, Grothendieck, et le Séminaire Bourbaki est lancé en 1948, avec trois sessions annuelles d’exposés rédigés.',
+        text: 'La guerre disperse le groupe : Weil, emprisonné pour insoumission en 1940, part pour les États-Unis ; Cartan enseigne dans la clandestinité. Le groupe se reconstitue en 1945, recrute Samuel, Serre, Grothendieck, et le Séminaire Bourbaki est lancé en 1948, avec trois sessions annuelles d’exposés rédigés.',
         sources: ['mashaal-bourbaki'],
       },
       {
@@ -1614,6 +1859,30 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'bb-structures-et-axiomatique',
         kind: 'texte',
         comment: 'Le Fascicule de résultats de la théorie des ensembles paraît chez Hermann en 1939 ; la guerre retarde la suite, qui reprend en 1945. Le singulier « mathématique » affiche le programme : une seule science, ordonnée déductivement des structures mères aux théories particulières. Le traité comportera une dizaine de livres (ensembles, algèbre, topologie générale, fonctions d’une variable réelle, espaces vectoriels topologiques, intégration, algèbre commutative, groupes de Lie, variétés, théorie spectrale) et plusieurs milliers de pages.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le traité d’analyse projeté en décembre 1934 change de nature dans les congrès qui suivent : pour l’écrire avec la généralité voulue, il faut d’abord exposer les ensembles, l’algèbre et la topologie générale, et l’ouvrage adopte un ordre déductif allant du général au particulier.',
+            sources: ['beaulieu-bourbaki', 'mashaal-bourbaki'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Leo Corry, ce choix étend à toutes les mathématiques l’image de l’algèbre fixée par la Moderne Algebra de van der Waerden (1930-1931), qui présentait les théories à partir de structures définies par axiomes.',
+            sources: ['corry-structures'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Malgré la dispersion du groupe, les premiers livres paraissent pendant la guerre chez Hermann : les deux premiers chapitres de la Topologie générale en 1940, le premier chapitre de l’Algèbre en 1942.',
+            sources: ['mashaal-bourbaki'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les Éléments fixent pour la génération d’après-guerre une grande part du vocabulaire et des notations de base, comme les termes injection, surjection et bijection, au point que leur style d’exposition devient la norme des cours universitaires bien au-delà de la France.',
+            sources: ['mashaal-bourbaki'],
+          },
+        ],
       },
       {
         id: 'general-theory-of-natural-equivalences',
@@ -1624,6 +1893,25 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'bb-categories-et-algebre-homologique',
         kind: 'texte',
         comment: 'Article des Transactions de l’AMS qui introduit les notions de catégorie, de foncteur et de transformation naturelle, inventées pour donner un sens précis à la « naturalité » des isomorphismes en topologie algébrique. Les auteurs le pensaient sans autre application : la théorie des catégories deviendra le langage de l’algèbre homologique, de la géométrie algébrique de Grothendieck, puis de la logique et de l’informatique théorique — et l’objet d’un désaccord célèbre au sein de Bourbaki, qui refusa de l’adopter comme fondement.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La collaboration naît en 1941 à l’université du Michigan, où Mac Lane expose ses calculs d’extensions de groupes ; Eilenberg y reconnaît les groupes qui apparaissent dans un calcul d’homologie de Steenrod. Leur article « Group Extensions and Homology » (Annals of Mathematics, 1942) et une note sur les isomorphismes naturels (1942) précèdent l’article de 1945.',
+            sources: ['mactutor', 'corry-structures'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Eilenberg et Steenrod emploient catégories et foncteurs pour axiomatiser l’homologie dans Foundations of Algebraic Topology (1952) ; Grothendieck définit les catégories abéliennes dans « Tôhoku » (1957) et Daniel Kan les foncteurs adjoints (1958).',
+            sources: ['corry-structures', 'dieudonne-topology'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Conçue comme un langage auxiliaire, la théorie devient dans les années 1960 un candidat au fondement des mathématiques : Lawvere propose en 1964 une théorie élémentaire de la catégorie des ensembles, rivale de l’axiomatique de Zermelo–Fraenkel.',
+            sources: ['sep'],
+          },
+        ],
       },
       {
         id: 'l-architecture-des-mathematiques',
@@ -1673,6 +1961,25 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur une variété de Stein (analogue complexe d’une variété affine), tout faisceau analytique cohérent est engendré par ses sections globales (théorème A) et sa cohomologie est nulle en tous degrés strictement positifs (théorème B).',
         comment: 'Élaborés avec Serre dans le séminaire Cartan de 1951-1952, à partir des faisceaux de Leray et des idées d’Oka, les théorèmes A et B achèvent la synthèse entre analyse complexe et algèbre homologique. Serre en transporte le schéma en géométrie algébrique (FAC, 1955), où il devient le traitement standard de la cohomologie des faisceaux — la voie directe vers les EGA.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Leray définit les faisceaux et leur cohomologie pendant sa captivité, dans des travaux publiés à partir de 1946 ; Kiyoshi Oka, qui s’attaque depuis 1936 aux problèmes de Cousin et de Levi sur les domaines d’holomorphie, introduit en 1950 des « idéaux de domaines indéterminés » équivalents aux faisceaux cohérents. Karl Stein dégage en 1951 la classe de variétés qui porte son nom.',
+            sources: ['dieudonne-topology', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les deux théorèmes donnent une solution uniforme des problèmes de Cousin sur les variétés de Stein : le premier problème y est toujours soluble, le second dès qu’une obstruction purement topologique s’annule.',
+            sources: ['dieudonne-topology'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le séminaire Cartan fait de la cohomologie des faisceaux l’outil commun de l’analyse complexe, de la topologie et de la géométrie algébrique ; Hirzebruch s’en sert dès 1954 pour démontrer le théorème de Riemann–Roch en toute dimension pour les variétés projectives.',
+            sources: ['dieudonne-topology', 'dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
       {
         id: 'groupes-de-chevalley',

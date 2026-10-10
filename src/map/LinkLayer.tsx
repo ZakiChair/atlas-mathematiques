@@ -1,14 +1,18 @@
-import { memo, useMemo } from 'react';
-import type { Link, LinkKind } from '../data/types';
+import { memo, useMemo, type CSSProperties } from 'react';
+import type { Link } from '../data/types';
 import { useLang } from '../i18n/lang';
 import { useData, LINK_KIND_I18N } from '../i18n/localize';
 import { linkGeometry, isTransversal, type LinkGeometry } from './links';
 import type { AtlasLayout } from './layout';
 import type { Filters, VisionId } from '../state/store';
+import { linkKey, type Chain } from './upstream';
+import { DOWNSTREAM_INK, LINK_INK, UPSTREAM_INK } from './fieldColors';
 
 const DEG = 180 / Math.PI;
 /** contre-échelle : la géométrie dessinée reste en pixels écran */
 const counterScale = { transform: 'scale(calc(1 / var(--k)))', transformBox: 'fill-box' } as const;
+/** opacité d'un courant du bassin amont selon la génération de sa source */
+const CHAIN_OPACITY = [1, 1, 0.72, 0.5, 0.36];
 
 interface Props {
   layout: AtlasLayout;
@@ -17,17 +21,11 @@ interface Props {
   dimmedIds: Set<string>;
   selectedDomainId: string | null;
   hoveredDomainId: string | null;
+  chain: Chain | null;
   onLinkClick: (link: Link, pos: { x: number; y: number }) => void;
 }
 
-const ARROW_COLOR: Record<LinkKind, string> = {
-  filiation: '#e8c76a',
-  influence: '#9fc8e0',
-  affinite: '#c9a0ff',
-  reaction: '#ff7a5c',
-};
-
-export const LinkLayer = memo(function LinkLayer({ layout, filters, vision, dimmedIds, selectedDomainId, hoveredDomainId, onLinkClick }: Props) {
+export const LinkLayer = memo(function LinkLayer({ layout, filters, vision, dimmedIds, selectedDomainId, hoveredDomainId, chain, onLinkClick }: Props) {
   const { t } = useLang();
   const { links } = useData();
   const geoms = useMemo(() => {
@@ -39,6 +37,9 @@ export const LinkLayer = memo(function LinkLayer({ layout, filters, vision, dimm
     }
     return out;
   }, [layout, links]);
+  // les liens localisés sont des copies : on compare par clé
+  const upKeys = useMemo(() => new Set(chain ? [...chain.upstreamLinks].map(linkKey) : []), [chain]);
+  const downKeys = useMemo(() => new Set(chain ? [...chain.downstreamLinks].map(linkKey) : []), [chain]);
 
   const focusId = selectedDomainId ?? hoveredDomainId;
   const layerCls = `links-layer layer vision-${vision}${selectedDomainId ? ' has-selection' : hoveredDomainId ? ' has-hover' : ''}`;
@@ -47,35 +48,53 @@ export const LinkLayer = memo(function LinkLayer({ layout, filters, vision, dimm
     <g className={layerCls}>
       {geoms.map((g) => {
         const l = g.link;
-        // vision « filiations & ruptures » : on ne garde que les généalogies et les ruptures
-        if (vision === 'filiations' && l.kind !== 'filiation' && l.kind !== 'reaction') return null;
+        const key = linkKey(l);
+        const inChain = upKeys.has(key);
+        const inDown = downKeys.has(key);
+        // vision « filiations & ruptures » : on ne garde que les généalogies et les ruptures (et le bassin choisi)
+        if (vision === 'filiations' && l.kind !== 'filiation' && l.kind !== 'reaction' && !inChain) return null;
         if (!filters.linkKinds[l.kind]) return null;
         if (dimmedIds.has(l.source) || dimmedIds.has(l.target)) return null;
         const transversal = isTransversal(l);
-        if (filters.transversalOnly && !transversal) return null;
+        if (filters.transversalOnly && !transversal && !inChain) return null;
         const factsDim = filters.factsOnly && l.epistemic === 'interpretation';
         const isSel = selectedDomainId !== null && (l.source === selectedDomainId || l.target === selectedDomainId);
         const isHover = !isSel && focusId !== null && (l.source === focusId || l.target === focusId);
-        const groupCls = `link-group${transversal ? ' transversal' : ''}${factsDim ? ' facts-dim' : ''}${isSel ? ' selected-link' : ''}${isHover ? ' hover-link' : ''}`;
-        const hasArrow = l.kind === 'influence' || l.kind === 'reaction';
+        const groupCls = `link-group${transversal ? ' transversal' : ''}${factsDim ? ' facts-dim' : ''}${isSel ? ' selected-link' : ''}${
+          isHover ? ' hover-link' : ''
+        }${inChain ? ' chain-link' : ''}${inDown ? ' chain-down' : ''}`;
+        const gen = inChain ? (chain?.upstream.get(l.source) ?? 1) : 0;
+        const style = inChain ? ({ '--chain-o': String(CHAIN_OPACITY[Math.min(gen, 4)]) } as CSSProperties) : undefined;
+        const ink = inChain ? UPSTREAM_INK : inDown ? DOWNSTREAM_INK : LINK_INK[l.kind];
+        // le sens compte dans le bassin : pointe de flèche sur tout courant qui y participe
+        const hasArrow = l.kind === 'influence' || l.kind === 'reaction' || inChain || inDown;
         return (
-          <g key={`${l.source}|${l.target}|${l.kind}`} className={groupCls}>
+          <g key={key} className={groupCls} style={style}>
             <path className={`link link-${l.kind}`} d={g.d} />
             {/* pointe de flèche dessinée (≈11 px écran), origine = pointe sur le bord cible */}
             {hasArrow && (
               <g transform={`translate(${g.x2} ${g.y2}) rotate(${g.endAngle * DEG})`}>
-                <path d="M0 0 L-11 -4.5 L-11 4.5 Z" fill={ARROW_COLOR[l.kind]} style={{ ...counterScale, transformOrigin: '100% 50%' }} />
+                <path d="M0 0 L-11 -4.5 L-11 4.5 Z" fill={ink} style={{ ...counterScale, transformOrigin: '100% 50%' }} />
               </g>
             )}
             {/* barre perpendiculaire des ruptures (≈14 px écran) */}
             {l.kind === 'reaction' && (
               <g transform={`translate(${g.mid.x} ${g.mid.y}) rotate(${(g.midAngle + Math.PI / 2) * DEG})`}>
-                <line x1={0} y1={-7} x2={0} y2={7} stroke="#ff7a5c" strokeWidth={3} strokeLinecap="round" style={{ ...counterScale, transformOrigin: '50% 50%' }} />
+                <line
+                  x1={0}
+                  y1={-7}
+                  x2={0}
+                  y2={7}
+                  stroke={LINK_INK.reaction}
+                  strokeWidth={3}
+                  strokeLinecap="round"
+                  style={{ ...counterScale, transformOrigin: '50% 50%' }}
+                />
               </g>
             )}
             {/* libellé au milieu de la courbe, uniquement pour les liens du domaine sélectionné */}
             {isSel && (
-              <text className="link-label" x={g.mid.x} y={g.mid.y} dy="-0.6em" textAnchor="middle" fill={ARROW_COLOR[l.kind]}>
+              <text className="link-label" x={g.mid.x} y={g.mid.y} dy="-0.6em" textAnchor="middle" fill={ink}>
                 {t(LINK_KIND_I18N[l.kind])} — {l.label}
               </text>
             )}

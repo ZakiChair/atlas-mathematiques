@@ -49,7 +49,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 400, end: 1550, approx: true },
     continents: ['nombres', 'analyse'],
     places: ['Kusumapura', 'Ujjain', 'Bijapur', 'Kerala'],
-    map: { x: 1230, y: 430, size: 3, palette: { fill: '#262417', stroke: '#cabf7d', accent: '#eae0a4' } },
+    map: { x: 1230, y: 430, size: 3, palette: { fill: '#ede1cf', stroke: '#6d5126', accent: '#b47e2d' } },
     tagline: 'Des versets à mémoriser qui contiennent le zéro, le sinus, les équations indéterminées et, au bout de mille ans, les séries infinies.',
     summary:
       'Entre le Vᵉ et le XVIᵉ siècle, les astronomes-mathématiciens de l’Inde composent en vers sanskrits des traités (siddhānta) où la mathématique sert d’abord au calcul des mouvements célestes. Āryabhaṭa (499) y introduit la table des sinus et la résolution des équations linéaires indéterminées ; Brahmagupta (628) fixe les règles du zéro et des nombres négatifs et étudie les quadrilatères inscrits ; Bhāskara II (vers 1150) donne à l’algèbre sa forme classique avec la méthode chakravāla. Transmise au monde islamique au VIIIᵉ siècle, la numération décimale de position est l’héritage le plus universel de cette tradition. Au Kerala, de Mādhava (vers 1400) à Nīlakaṇṭha (1500), une école isolée découvre les développements en série du sinus, du cosinus et de l’arc tangente, deux siècles et demi avant Newton et Leibniz.',
@@ -234,6 +234,30 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'mi-arithmetique-et-algebre',
         kind: 'texte',
         comment: 'Traité astronomique en 24 chapitres dont deux sont mathématiques. Le chapitre XVIII donne les règles d’addition, de soustraction et de multiplication des « biens », des « dettes » et du zéro, la résolution de l’équation du second degré et l’identité de composition (bhāvanā) pour Nx² + 1 = y². C’est le premier texte connu qui traite le zéro et les négatifs comme des nombres soumis à des règles ; adapté en arabe vers 770, il porte l’algèbre indienne à Bagdad.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Brahmagupta compose le traité en 628 à Bhinmal, dans la tradition des siddhāntas astronomiques, et consacre un chapitre à l’examen critique des traités antérieurs, Āryabhaṭa en tête ; arithmétique et algèbre y occupent deux chapitres sur vingt-quatre.',
+            sources: ['plofker-india', 'colebrooke-algebra'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La numération décimale de position, déjà en usage chez les astronomes, faisait du zéro un signe avant d’en faire un nombre ; pour résoudre des équations où des quantités se soustraient, il fallait encore des règles de calcul sur les « dettes » et sur le zéro, et c’est ce besoin de l’algèbre (bījagaṇita) que Brahmagupta satisfait.',
+            sources: ['plofker-india'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Bhāskara II reprend et discute ces règles vers 1150 dans le Bījagaṇita ; en Europe, elles ne deviennent lisibles qu’avec la traduction anglaise des chapitres XII et XVIII par Henry Thomas Colebrooke (1817).',
+            sources: ['colebrooke-algebra', 'plofker-india'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les règles des signes ne voyagent pas avec la numération : les équations de l’algèbre arabe classique, d’al-Khwārizmī à Khayyām, n’ont que des coefficients et des racines positifs, et l’Europe n’admettra pleinement les nombres négatifs qu’à l’époque moderne.',
+            sources: ['katz-history', 'rashed-sciences-arabes'],
+          },
+        ],
       },
       {
         id: 'formule-de-brahmagupta',
@@ -270,6 +294,25 @@ export const MEDIEVAL: Domain[] = [
         kind: 'methode',
         statement: 'Pour résoudre en entiers Nx² + 1 = y² lorsque N n’est pas un carré, on part d’une solution approchée Nx² + k = y², on la compose avec la solution triviale de N·1² + (m² − N) = m² en choisissant m de sorte que (x + ym)/|k| soit entier et m² − N petit, et l’on recommence jusqu’à obtenir k = 1.',
         comment: 'Attribuée par Udayadivākara (1073) à Jayadeva, la méthode est exposée dans le Bījagaṇita de Bhāskara II, qui l’applique à N = 61 (x = 226 153 980, y = 1 766 319 049). Elle anticipe de six siècles la résolution générale de l’« équation de Pell » par Lagrange (1768) ; André Weil y voit le sommet de l’algèbre indienne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Brahmagupta avait découvert en 628 la composition (bhāvanā), qui tire de deux solutions de Nx² + k = y² une solution pour le produit des k, et montré qu’on en déduit une solution de Nx² + 1 = y² lorsque k vaut ±1, ±2 ou ±4 ; il manquait un procédé pour atteindre ces cas à partir d’une solution approchée quelconque.',
+            sources: ['plofker-india', 'weil-number-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Sans rien savoir de la tradition indienne, Fermat lance en 1657 un défi sur la même équation, en citant notamment le cas N = 61 ; Brouncker et Wallis proposent une méthode de résolution, et Lagrange démontre en 1768 que l’équation a toujours une solution.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les Européens ne découvrent le chakravāla qu’en 1817, avec la traduction du Bījagaṇita par Colebrooke, un demi-siècle après Lagrange.',
+            sources: ['colebrooke-algebra', 'weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'serie-de-madhava-pour-pi',
@@ -283,6 +326,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'La circonférence d’un cercle de diamètre d vaut 4d(1 − 1/3 + 1/5 − 1/7 + …), autrement dit π/4 = 1 − 1/3 + 1/5 − … ; Mādhava ajoute des termes correctifs qui rendent la série utilisable et obtient π à onze décimales.',
         comment: 'Connue par les citations de Nīlakaṇṭha et par la justification du Yuktibhāṣā (vers 1530), qui la déduit d’une sommation de puissances sur des subdivisions de plus en plus fines. C’est le premier développement en série infinie d’une constante mathématique ; Gregory (1671) et Leibniz (1674) la retrouveront indépendamment.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Depuis Āryabhaṭa (499), qui qualifie d’« approchée » sa valeur 62832/20000, les astronomes indiens savent ne disposer que d’approximations de π ; leurs tables de sinus, calculées sur un rayon de 3438, en réclament de plus précises.',
+            sources: ['shukla-sarma-aryabhatiya', 'plofker-india'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le calcul de π s’inscrit vraisemblablement dans le même programme que celui des sinus : rectifier l’arc de cercle avec la précision qu’exigent les tables astronomiques.',
+            sources: ['plofker-india'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La série reste inconnue hors du Kerala ; les Européens n’en apprennent l’existence qu’en 1834, par l’article de Charles Whish sur la quadrature hindoue du cercle publié dans les Transactions of the Royal Asiatic Society.',
+            sources: ['plofker-india', 'joseph-crest'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Cette redécouverte a conduit à parler de série de « Mādhava–Leibniz » et à réviser le récit qui faisait naître les séries infinies dans l’Europe du XVIIᵉ siècle ; elle n’a cependant eu aucune postérité mathématique, Gregory et Leibniz travaillant sans la connaître.',
+            sources: ['plofker-india', 'joseph-crest'],
+          },
+        ],
       },
       {
         id: 'series-de-madhava-sinus-cosinus',
@@ -333,7 +400,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 800, end: 1300, approx: true },
     continents: ['nombres'],
     places: ['Bagdad', 'Le Caire', 'Ispahan', 'Nichapour'],
-    map: { x: 1600, y: 620, size: 3, palette: { fill: '#262117', stroke: '#d3bc92', accent: '#efdebd' } },
+    map: { x: 1600, y: 620, size: 3, palette: { fill: '#ede4cf', stroke: '#6d5826', accent: '#b48b2d' } },
     tagline: 'À Bagdad, un « abrégé du calcul par la restauration et la comparaison » donne son nom à une discipline nouvelle : l’algèbre.',
     summary:
       'Vers 820, à la cour du calife al-Ma’mūn, al-Khwārizmī rédige le Kitāb al-jabr wa-l-muqābala, premier traité consacré à la résolution systématique des équations du premier et du second degré, et un livre sur le calcul indien qui diffuse la numération décimale de position. Ses successeurs élargissent le champ : Abū Kāmil introduit les coefficients irrationnels et les problèmes indéterminés, al-Karajī et al-Samaw’al bâtissent une arithmétique des polynômes, Omar Khayyām classe les équations cubiques et les résout par intersection de coniques, Sharaf al-Dīn al-Ṭūsī étudie leurs racines par des méthodes qui touchent au calcul des maxima. Traduite en latin à Tolède au XIIᵉ siècle, cette algèbre est le point de départ de celle de l’Europe.',
@@ -496,6 +563,30 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'aa-al-jabr-wa-l-muqabala',
         kind: 'texte',
         comment: '« Abrégé du calcul par la restauration et la comparaison » : six équations canoniques, algorithmes et démonstrations par figures, puis chapitres sur les transactions, la mesure des surfaces et les héritages. Premier traité où l’équation est l’objet même de l’étude. Traduit en latin par Robert de Chester (1145) et Gérard de Crémone, il fixe pour l’Europe le vocabulaire et la méthode de l’algèbre jusqu’à Cardan.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans sa préface, al-Khwārizmī dit avoir composé, à l’encouragement du calife al-Ma’mūn, un abrégé limité à ce qu’il y a de plus facile et de plus utile dans le calcul : partages et héritages, transactions, arpentage des terres et creusement des canaux.',
+            sources: ['rashed-al-khwarizmi'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les procédures du second degré sont bien plus anciennes (tablettes babyloniennes, règle de Brahmagupta en 628), mais aucun texte connu n’en avait fait l’objet d’une discipline ; les Arithmétiques de Diophante ne seront traduites en arabe que vers 870, un demi-siècle plus tard.',
+            sources: ['rashed-al-khwarizmi', 'robson-mesopotamia', 'plofker-india'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Dès la fin du IXᵉ siècle, Thābit ibn Qurra justifie les règles d’al-Khwārizmī par le livre II des Éléments, et Abū Kāmil (vers 900) se présente comme son continuateur : l’algèbre devient une tradition, avec ses commentaires et ses prolongements.',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par les versions latines, al-jabr devient « algebra » et le titre d’un livre devient le nom d’une discipline ; Cardan, dans l’Ars magna (1545), désigne encore al-Khwārizmī comme l’initiateur de l’art.',
+            sources: ['katz-history'],
+          },
+        ],
       },
       {
         id: 'livre-du-calcul-indien',
@@ -542,6 +633,25 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'aa-arithmetisation-de-l-algebre',
         kind: 'texte',
         comment: 'Dédié au vizir Fakhr al-Mulk, le traité expose les opérations sur les monômes et les polynômes considérés comme des nombres, puis une longue collection de problèmes déterminés et indéterminés empruntés à Abū Kāmil et à Diophante. Il ouvre le programme d’arithmétisation de l’algèbre que poursuivra al-Samaw’al et que Franz Woepcke fera connaître en Europe en 1853.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Al-Karajī hérite de deux traditions : l’algèbre d’al-Khwārizmī et d’Abū Kāmil, et les Arithmétiques de Diophante, traduites par Qusṭā ibn Lūqā vers 870 dans le vocabulaire même de l’algèbre.',
+            sources: ['rashed-sciences-arabes'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Traiter les problèmes diophantiens exige de calculer sur des expressions qui mêlent plusieurs puissances de l’inconnue : pour Rashed, c’est ce besoin qui conduit al-Karajī à appliquer à l’algèbre les opérations de l’arithmétique.',
+            sources: ['rashed-sciences-arabes'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Vers 1150, al-Samaw’al bâtit l’al-Bāhir sur les traités d’al-Karajī, qu’il cite, et en complète le programme par la division des polynômes et les puissances négatives ; c’est par lui que sont connues la table binomiale et la récurrence attribuées à al-Karajī.',
+            sources: ['rashed-sciences-arabes', 'oaks-polynomials'],
+          },
+        ],
       },
       {
         id: 'triangle-arithmetique-al-karaji',
@@ -567,6 +677,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute équation de degré au plus trois à coefficients positifs se ramène à l’un de vingt-cinq types, dont quatorze cubiques qui ne se réduisent pas à un degré inférieur ; chacun de ces quatorze types admet une racine positive construite comme abscisse du point d’intersection de deux coniques (cercle, parabole ou hyperbole) convenablement choisies.',
         comment: 'Première théorie générale des équations cubiques. Khayyām établit pour chaque type l’existence et parfois le nombre des racines positives, mais ne sait pas les calculer par radicaux, ce qu’il dit explicitement. La résolution algébrique viendra de del Ferro et Cardan au XVIᵉ siècle ; la méthode des coniques sera reprise par Descartes dans La Géométrie.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Khayyām rappelle lui-même l’origine du problème : al-Māhānī avait ramené un lemme d’Archimède sur la section de la sphère par un plan à une équation entre cubes, carrés et nombres sans parvenir à la résoudre, et Abū Jaʿfar al-Khāzin l’avait ensuite résolue par les sections coniques.',
+            sources: ['rashed-khayyam', 'katz-sourcebook'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Ces solutions restaient ponctuelles : le projet de Khayyām est de substituer à une collection de problèmes résolus au cas par cas une théorie qui épuise tous les types possibles.',
+            sources: ['rashed-khayyam', 'berggren-islam'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Vers 1200, Sharaf al-Dīn al-Ṭūsī reprend la classification pour étudier l’existence et le nombre des racines ; en Europe, le traité reste inconnu jusqu’à l’édition et la traduction française de Franz Woepcke (1851).',
+            sources: ['rashed-khayyam', 'rashed-sharaf-al-din'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Ni Cardan ni Descartes ne connaissent Khayyām : la construction des racines par intersection de coniques, reprise dans La Géométrie (1637), est une redécouverte et non un héritage.',
+            sources: ['katz-history', 'rashed-khayyam'],
+          },
+        ],
       },
       {
         id: 'al-bahir',
@@ -603,12 +737,13 @@ export const MEDIEVAL: Domain[] = [
   {
     id: 'geometrie-arabe',
     name: 'Géométrie, optique et trigonométrie du monde islamique',
+    mapName: 'Géométrie et optique du monde islamique',
     altNames: ['Géométrie arabe', 'Sciences mathématiques de Bagdad à Samarcande'],
     era: 'medieval',
     period: { start: 850, end: 1450, approx: true },
     continents: ['formes', 'analyse'],
     places: ['Bagdad', 'Le Caire', 'Ghazni', 'Maragha', 'Samarcande'],
-    map: { x: 1400, y: 1450, size: 2, palette: { fill: '#172226', stroke: '#84bbcd', accent: '#acdcec' } },
+    map: { x: 1400, y: 1450, size: 2, palette: { fill: '#cbdaec', stroke: '#25456a', accent: '#2c69af' } },
     tagline: 'Euclide, Archimède et Apollonius traduits, corrigés, prolongés : six siècles de géométrie, de l’optique du Caire aux observatoires de Maragha et de Samarcande.',
     summary:
       'À partir du IXᵉ siècle, les géomètres de langue arabe traduisent les Éléments, les Coniques, les traités d’Archimède et l’Almageste, puis les prolongent : Thābit ibn Qurra calcule des volumes par sommation et découvre une règle pour les nombres amiables ; Ibn al-Haytham fonde l’optique géométrique sur l’expérience et résout le problème du miroir sphérique par les coniques ; Abū l-Wafā’, al-Bīrūnī puis Naṣīr al-Dīn al-Ṭūsī font de la trigonométrie plane et sphérique une discipline autonome ; al-Kāshī, à Samarcande, calcule π à seize décimales et systématise les fractions décimales. Les tentatives de démontrer le cinquième postulat, de Thābit à Ṭūsī, nourriront la réflexion européenne sur les parallèles.',
@@ -820,6 +955,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'probleme',
         statement: 'Étant donnés un miroir sphérique, une source lumineuse et l’œil, trouver le point du miroir où le rayon se réfléchit de l’une vers l’autre, c’est-à-dire où les angles d’incidence et de réflexion sont égaux.',
         comment: 'Le problème, déjà posé par Ptolémée, conduit à une équation du quatrième degré ; Ibn al-Haytham le résout au livre V du Traité d’optique par l’intersection d’un cercle et d’une hyperbole. Huygens, Barrow et Sluse y reviennent au XVIIᵉ siècle ; l’impossibilité d’une construction à la règle et au compas n’a été démontrée qu’en 1965 (Jack Elkin) et une solution algébrique complète donnée en 1997 par Peter Neumann.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le problème s’inscrit dans l’étude de la réflexion du livre V du Kitāb al-Manāẓir : pour chaque type de miroir (plan, sphérique, cylindrique, conique, convexe ou concave), Ibn al-Haytham cherche le point où un rayon issu d’un objet donné se réfléchit vers un œil donné ; le miroir sphérique est le cas le plus difficile.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La solution suppose la maîtrise des Coniques d’Apollonius, traduites en arabe au IXᵉ siècle : le problème montre la géométrie grecque des coniques devenue un instrument de la physique.',
+            sources: ['berggren-islam', 'rashed-sciences-arabes'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Passé en latin avec le De aspectibus vers 1200, puis imprimé par Risner en 1572, le problème garde en Europe le nom latinisé de son auteur ; Witelo en reprend la solution dans sa Perspectiva.',
+            sources: ['sabra-optics', 'rashed-sciences-arabes'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Rare problème médiéval resté vivant jusqu’à l’époque contemporaine, il sert de banc d’essai aux méthodes successives : coniques au XVIIᵉ siècle, puis théorie des constructions à la règle et au compas au XXᵉ siècle.',
+            sources: ['katz-history'],
+          },
+        ],
       },
       {
         id: 'tahdid-al-biruni',
@@ -854,7 +1013,21 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'ga-traductions-et-heritage-grec',
         kind: 'probleme',
         statement: 'Dans un quadrilatère dont deux côtés égaux sont perpendiculaires à la base, les deux angles au sommet sont égaux ; démontrer qu’ils sont droits, et non aigus ou obtus, équivaut à démontrer le cinquième postulat d’Euclide.',
-        comment: 'Ṭūsī reprend la figure déjà étudiée par Khayyām et croit réfuter les hypothèses de l’angle aigu et de l’angle obtus en s’appuyant sur un postulat équivalent. Une recension de son travail, publiée à Rome en 1594, est lue par Wallis puis par Saccheri, dont l’Euclides ab omni naevo vindicatus (1733) part de ce même quadrilatère : le chemin vers les géométries non euclidiennes passe par Maragha.',
+        comment: 'Ṭūsī reprend la figure déjà étudiée par Khayyām et croit réfuter les hypothèses de l’angle aigu et de l’angle obtus en s’appuyant sur un postulat équivalent. Une recension attribuée à Ṭūsī mais due à un « pseudo-Ṭūsī », imprimée à Rome en 1594, est lue par Wallis puis par Saccheri, dont l’Euclides ab omni naevo vindicatus (1733) part de ce même quadrilatère : le chemin vers les géométries non euclidiennes passe par Maragha.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le cinquième postulat paraît moins évident que les autres dès l’Antiquité : Ptolémée puis Proclus tentent de le démontrer. En langue arabe, Thābit ibn Qurra, Ibn al-Haytham puis Khayyām, dans son commentaire des postulats d’Euclide (1077), reprennent la question, les deux derniers en raisonnant sur des quadrilatères à deux ou trois angles droits.',
+            sources: ['heath-greek', 'rashed-sciences-arabes', 'rashed-khayyam'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Le programme est fermé au XIXᵉ siècle : Lobatchevski (1829) et Bolyai (1832) développent la géométrie de l’hypothèse de l’angle aigu au lieu de la réfuter, et Beltrami (1868) en donne un modèle ; le quadrilatère de Khayyām et de Ṭūsī devient rétrospectivement l’une des premières figures où se lit l’alternative.',
+            sources: ['gray-worlds'],
+          },
+        ],
       },
       {
         id: 'couple-de-tusi',
@@ -879,6 +1052,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'methode',
         statement: 'En calculant les périmètres de polygones réguliers inscrits et circonscrits à 3 × 2²⁸ côtés, al-Kāshī obtient 2π = 6,2831853071795865, soit neuf positions sexagésimales, et convertit le résultat en décimales.',
         comment: 'Al-Kāshī fixe d’avance la précision requise (l’erreur sur la circonférence d’un cercle de la taille de l’univers doit être inférieure à l’épaisseur d’un crin de cheval) et en déduit le nombre d’étapes ; il contrôle chaque calcul par des bornes d’erreur. Le record, qui dépasse de loin Zu Chongzhi, ne sera battu qu’en 1596 par Ludolph van Ceulen.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Al-Kāshī juge insuffisantes les valeurs héritées, depuis l’encadrement d’Archimède (3 + 10/71 < π < 3 + 1/7, obtenu avec des polygones de 96 côtés) jusqu’aux approximations des astronomes de langue arabe, faute d’un contrôle de l’erreur.',
+            sources: ['heath-greek', 'berggren-islam'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le calcul s’inscrit dans le programme de l’observatoire d’Ulugh Beg, dont les tables exigent des valeurs trigonométriques d’une précision nouvelle ; le même souci guide le calcul du sinus de 1° par itération.',
+            sources: ['berggren-islam', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Le résultat n’a pas atteint l’Europe : van Ceulen et ses successeurs repartent des polygones d’Archimède, et l’école de Samarcande ne survit guère à la mort d’Ulugh Beg (1449).',
+            sources: ['berggren-islam', 'youschkevitch-arabes'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le Traité sur la circonférence n’est édité, avec une traduction allemande, qu’en 1953, par Paul Luckey.',
+            sources: ['youschkevitch-arabes'],
+          },
+        ],
       },
       {
         id: 'miftah-al-hisab',
@@ -906,7 +1103,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1000, end: 1350, approx: true },
     continents: ['hasard', 'nombres'],
     places: ['Hangzhou', 'Pékin', 'Sichuan'],
-    map: { x: 1350, y: 3150, size: 2, palette: { fill: '#261d17', stroke: '#cda184', accent: '#ecc6ac' } },
+    map: { x: 1350, y: 3150, size: 2, palette: { fill: '#e8c4c0', stroke: '#5e2821', accent: '#a33729' } },
     tagline: 'Sous les Song et les Yuan, quatre maîtres portent le calcul sur baguettes à son sommet : équations de degré dix, restes simultanés, quatre inconnues sur un même tableau.',
     summary:
       'Entre le XIᵉ et le début du XIVᵉ siècle, la tradition des Neuf Chapitres connaît son apogée algébrique. Jia Xian dispose le triangle des coefficients binomiaux et des méthodes d’extraction de racines ; Qin Jiushao (1247) résout numériquement des équations jusqu’au degré dix et généralise le problème des restes par la méthode dayan ; Li Ye (1248) fonde l’art de l’inconnue céleste (tian yuan), qui écrit les polynômes en colonnes de baguettes ; Yang Hui (1261) commente les classiques et conserve les méthodes de Jia Xian ; Zhu Shijie (1303) étend le tian yuan à quatre inconnues et élimine entre équations polynomiales. Cette algèbre, sans contacts établis avec l’Occident, s’éteint presque sous les Ming et n’est redécouverte en Chine qu’au XVIIIᵉ siècle.',
@@ -1036,7 +1233,7 @@ export const MEDIEVAL: Domain[] = [
         years: [1249, 1314],
         yearsApprox: true,
         origin: 'Pékin et Yangzhou',
-        bio: 'Originaire de Yanjing (Pékin), Zhu Shijie parcourt la Chine comme maître itinérant et s’installe une vingtaine d’années à Yangzhou, où affluent ses élèves. Le Siyuan yujian (1303) étend l’inconnue céleste à quatre variables, élimine entre équations polynomiales de haut degré et somme les séries par différences finies. Le livre devient illisible sous les Ming, survit grâce à des copies coréenne et japonaise, et n’est réintégré en Chine qu’au début du XIXᵉ siècle.',
+        bio: 'Originaire de Yanjing (Pékin), Zhu Shijie parcourt la Chine comme maître itinérant et s’installe une vingtaine d’années à Yangzhou, où affluent ses élèves. Le Siyuan yujian (1303) étend l’inconnue céleste à quatre variables, élimine entre équations polynomiales de haut degré et somme les séries par différences finies. Le livre devient illisible sous les Ming et n’est réintégré en Chine qu’au début du XIXᵉ siècle ; c’est son manuel d’initiation, le Suanxue qimeng (1299), qui survit grâce à des copies coréennes et japonaises.',
         theoryId: 'acs-tian-yuan',
       },
     ],
@@ -1075,7 +1272,31 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'acs-dayan-et-sommations',
         kind: 'methode',
         statement: 'Pour trouver un nombre qui, divisé par plusieurs modules donnés, laisse des restes prescrits, Qin Jiushao réduit les modules à des facteurs premiers entre eux, calcule pour chacun un multiplicateur par l’algorithme de recherche dayan (analogue de l’algorithme d’Euclide) et combine les produits obtenus.',
-        comment: 'Premier algorithme général du problème des restes avec modules quelconques, quatre siècles avant les méthodes d’Euler et de Gauss, qu’elle égale en généralité. Qin l’applique à dix problèmes (calendrier, ouvrages, trésorerie). Ulrich Libbrecht en a fait l’étude de référence en 1973 ; elle entre au programme des manuels de théorie des nombres sous le nom de « théorème des restes chinois ».',
+        comment: 'Premier algorithme général du problème des restes avec modules quelconques, plus de cinq siècles avant les méthodes d’Euler et de Gauss, qu’elle égale en généralité. Qin l’applique à dix problèmes (calendrier, ouvrages, trésorerie). Ulrich Libbrecht en a fait l’étude de référence en 1973 ; elle entre au programme des manuels de théorie des nombres sous le nom de « théorème des restes chinois ».',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le Sunzi suanjing, manuel de date incertaine (sans doute entre le IIIᵉ et le Vᵉ siècle), pose déjà le problème d’un nombre qui laisse les restes 2, 3 et 2 quand on le divise par 3, 5 et 7, et en donne la solution 23, mais pour des modules premiers entre eux et sans procédure générale de calcul des multiplicateurs.',
+            sources: ['martzloff-chine', 'libbrecht-qin'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les astronomes chargés du calendrier calculaient une « origine supérieure » (shangyuan), date lointaine où plusieurs cycles coïncident, ce qui revient à résoudre des restes simultanés ; Qin Jiushao rattache sa méthode à cette pratique.',
+            sources: ['libbrecht-qin', 'martzloff-chine'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Peu lue en Chine après les Song, la méthode est révélée aux Européens en 1852 par le missionnaire Alexander Wylie ; on y reconnaît ensuite l’équivalent de la résolution donnée par Gauss dans les Disquisitiones arithmeticae (1801).',
+            sources: ['libbrecht-qin'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Arrivée après Gauss, elle n’a eu aucune part à la théorie européenne des congruences : le nom de « théorème des restes chinois » consacre une priorité, non une filiation.',
+            sources: ['libbrecht-qin', 'martzloff-chine'],
+          },
+        ],
       },
       {
         id: 'extraction-de-racines-qin-jiushao',
@@ -1087,6 +1308,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'methode',
         statement: 'Pour résoudre une équation polynomiale à coefficients numériques, on estime le premier chiffre de la racine, on transforme le tableau des coefficients par décalages répétés — ce qui revient au schéma dit de Ruffini–Horner — et l’on recommence jusqu’à la précision voulue, avec signes quelconques et racines négatives admises.',
         comment: 'Qin Jiushao l’applique à vingt-six équations, dont −x⁴ + 763200x² − 40642560000 = 0 et une équation du dixième degré. La méthode généralise l’extraction des racines des Neuf Chapitres via Jia Xian ; elle est équivalente à celle que Ruffini (1804) et Horner (1819) redécouvriront en Europe, et comparable aux procédés de Sharaf al-Dīn al-Ṭūsī, sans contact démontré.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les Neuf Chapitres donnent déjà des procédures d’extraction des racines carrées et cubiques, commentées par Liu Hui (263) ; vers 1050, Jia Xian les généralise par une méthode d’additions et de multiplications successives que Yang Hui conserve en 1261.',
+            sources: ['martzloff-chine', 'lam-yang-hui'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les problèmes concrets du Shushu jiuzhang (arpentage, fortifications, calendrier) conduisent à des équations de degré élevé et à coefficients de signes quelconques, que l’extraction classique des racines carrées et cubiques ne couvrait pas.',
+            sources: ['libbrecht-qin'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Li Ye (1248) et Zhu Shijie (1303) résolvent par la même procédure les équations que produit l’art de l’inconnue céleste.',
+            sources: ['martzloff-chine', 'hoe-siyuan-yujian'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Sous les Ming, la diffusion du boulier et le déclin de l’enseignement des classiques font oublier la procédure ; elle n’est réétudiée qu’à partir de la fin du XVIIIᵉ siècle, avec la reconstitution du Shushu jiuzhang.',
+            sources: ['martzloff-chine'],
+          },
+        ],
       },
       {
         id: 'ceyuan-haijing',
@@ -1120,6 +1365,25 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'acs-tian-yuan',
         kind: 'texte',
         comment: 'Sommet de l’algèbre chinoise : 288 problèmes dont les plus avancés posent jusqu’à quatre inconnues (ciel, terre, homme, chose) rangées dans les quatre directions du tableau, avec élimination systématique entre équations polynomiales. Le livre contient aussi les sommations de séries par différences finies. John Hoe en a donné en 1977 une traduction commentée des procédures.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le Ceyuan haijing de Li Ye (1248) avait fixé l’écriture d’une seule inconnue ; selon la préface du Siyuan yujian, des auteurs antérieurs, dont les ouvrages sont perdus, étaient déjà passés à deux puis à trois inconnues, et Zhu Shijie systématise le passage à quatre.',
+            sources: ['hoe-siyuan-yujian', 'martzloff-chine'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Devenu illisible sous les Ming, le livre n’est retrouvé et commenté en Chine qu’au début du XIXᵉ siècle.',
+            sources: ['martzloff-chine', 'hoe-siyuan-yujian'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’élimination entre équations polynomiales n’a d’équivalent européen qu’avec les travaux de la fin du XVIIᵉ et du XVIIIᵉ siècle (Bézout, 1779) ; faute de transmission, la comparaison mesure l’avance technique de Zhu Shijie sans établir de filiation.',
+            sources: ['hoe-siyuan-yujian', 'martzloff-chine'],
+          },
+        ],
       },
       {
         id: 'sommation-des-piles-zhu-shijie',
@@ -1148,14 +1412,14 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1000, end: 1450, approx: true },
     continents: ['analyse', 'nombres'],
     places: ['Reims', 'Tolède', 'Pise', 'Oxford', 'Paris'],
-    map: { x: 1450, y: 2300, size: 2, palette: { fill: '#201726', stroke: '#b288ce', accent: '#d5b1ed' } },
+    map: { x: 1450, y: 2300, size: 2, palette: { fill: '#dacfed', stroke: '#42266d', accent: '#602db4' } },
     tagline: 'Des jetons de Gerbert aux graphes d’Oresme : l’Occident apprend à calculer en chiffres, à lire Euclide en latin et à mesurer la variation du mouvement.',
     summary:
-      'Entre l’an mil et 1450, le latin redevient une langue mathématique. Gerbert d’Aurillac enseigne à Reims l’abaque à jetons numérotés ; les traducteurs de Tolède — Adélard de Bath, Gérard de Crémone — donnent en latin les Éléments et l’algèbre d’al-Khwārizmī ; Léonard de Pise (Fibonacci) rédige en 1202 le Liber abaci, qui impose les chiffres indo-arabes et les méthodes arabes du calcul commercial et de l’algèbre ; Jordanus de Nemore écrit la première algèbre latine en lettres. Aux XIVᵉ siècle, les calculateurs de Merton College à Oxford (Bradwardine, Heytesbury, Swineshead) quantifient la variation des mouvements, et Nicole Oresme en tire une géométrie des « formes » et les premières études de séries, dont la divergence de la série harmonique.',
+      'Entre l’an mil et 1450, le latin redevient une langue mathématique. Gerbert d’Aurillac enseigne à Reims l’abaque à jetons numérotés ; les traducteurs de Tolède — Adélard de Bath, Gérard de Crémone — donnent en latin les Éléments et l’algèbre d’al-Khwārizmī ; Léonard de Pise (Fibonacci) rédige en 1202 le Liber abaci, qui impose les chiffres indo-arabes et les méthodes arabes du calcul commercial et de l’algèbre ; Jordanus de Nemore écrit la première algèbre latine en lettres. Au XIVᵉ siècle, les calculateurs de Merton College à Oxford (Bradwardine, Heytesbury, Swineshead) quantifient la variation des mouvements, et Nicole Oresme en tire une géométrie des « formes » et les premières études de séries, dont la divergence de la série harmonique.',
     methods: [
       {
         kind: 'fait',
-        text: 'Le calcul pratique passe par deux instruments rivaux : l’abaque à jetons (les apices de Gerbert portent déjà des chiffres ghubar), puis, après les traductions du XIIᵉ siècle, l’algorisme, calcul écrit aux chiffres indo-arabes exposé dans les traités de Carmen de algorismo (Alexandre de Villedieu, vers 1240) et de Sacrobosco.',
+        text: 'Le calcul pratique passe par deux instruments rivaux : l’abaque à jetons (les apices de Gerbert portent déjà des chiffres ghubar), puis, après les traductions du XIIᵉ siècle, l’algorisme, calcul écrit aux chiffres indo-arabes exposé dans le Carmen de algorismo d’Alexandre de Villedieu (vers 1200-1225) et l’Algorismus de Sacrobosco.',
         sources: ['burnett-numerals', 'katz-history'],
       },
       {
@@ -1326,6 +1590,25 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'olm-elements-et-algebre-latine',
         kind: 'texte',
         comment: 'Quinze chapitres : lecture et écriture des chiffres indiens, opérations, fractions, règle de trois, alliages, compagnies, fausse position, puis algèbre au sens d’al-Khwārizmī et d’Abū Kāmil. La seconde édition (1228) est celle qui survit. Par les écoles d’abaque italiennes, le livre forme deux siècles de maîtres de calcul et prépare l’algèbre de la Renaissance ; la traduction anglaise de Sigler (2002) l’a rendu lisible.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Au XIIᵉ siècle, les adaptations latines du Livre du calcul indien (Dixit Algorizmi) ont fait connaître les chiffres indo-arabes dans les milieux savants ; Fibonacci en fait un enseignement complet du calcul marchand et dédie la seconde rédaction (1228) à Michel Scot, astrologue de Frédéric II.',
+            sources: ['burnett-numerals', 'sigler-liber-abaci'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'La diffusion passe moins par ce long traité latin que par les manuels en langue vulgaire des maîtres d’abaque, qui s’en inspirent ; Luca Pacioli, dans la Summa (1494), reconnaît encore Léonard de Pise pour l’une de ses sources principales.',
+            sources: ['katz-history', 'burnett-numerals'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le texte latin n’est imprimé qu’en 1857, dans l’édition de Baldassarre Boncompagni, sur laquelle repose la traduction de Sigler.',
+            sources: ['sigler-liber-abaci'],
+          },
+        ],
       },
       {
         id: 'suite-de-fibonacci',
@@ -1358,7 +1641,7 @@ export const MEDIEVAL: Domain[] = [
         mathematicianId: 'jordanus-de-nemore',
         theoryId: 'olm-elements-et-algebre-latine',
         kind: 'texte',
-        comment: 'Quatre livres de problèmes du type « un nombre partagé en deux parties dont on connaît telle relation, retrouver les parties », où les inconnues et les données sont notées par des lettres et transformées selon des règles générales préalablement démontrées. Barnabas Hughes y voit, non une algèbre rhétorique, mais le premier programme de réduction systématique des problèmes à des formes canoniques en Occident ; Viète en reprendra le titre (De numerosa potentiarum resolutione) et l’ambition.',
+        comment: 'Quatre livres de problèmes du type « un nombre partagé en deux parties dont on connaît telle relation, retrouver les parties », où les inconnues et les données sont notées par des lettres et transformées selon des règles générales préalablement démontrées. Barnabas Hughes y voit, non une algèbre rhétorique, mais le premier programme de réduction systématique des problèmes à des formes canoniques en Occident.',
       },
       {
         id: 'tractatus-de-proportionibus',
@@ -1368,7 +1651,7 @@ export const MEDIEVAL: Domain[] = [
         mathematicianId: 'bradwardine',
         theoryId: 'olm-calculatores-et-latitude',
         kind: 'texte',
-        comment: 'Pour décrire comment la vitesse dépend de la force motrice et de la résistance, Bradwardine compose les rapports par multiplication (la vitesse croît comme le rapport des rapports, en termes modernes : variation exponentielle du logarithme du rapport F/R) et corrige ainsi la « loi du mouvement » d’Aristote, dont il montre qu’elle prédit une vitesse finie pour une force inférieure à la résistance. Le traité, imprimé en 1495, reste un classique jusqu’au XVIᵉ siècle.',
+        comment: 'Pour décrire comment la vitesse dépend de la force motrice et de la résistance, Bradwardine compose les rapports par multiplication (en termes modernes : la vitesse est proportionnelle au logarithme du rapport F/R) et corrige ainsi la « loi du mouvement » d’Aristote, dont il montre qu’elle prédit une vitesse finie pour une force inférieure à la résistance. Le traité, imprimé en 1495, reste un classique jusqu’au XVIᵉ siècle.',
       },
       {
         id: 'latitude-des-formes',
@@ -1382,6 +1665,25 @@ export const MEDIEVAL: Domain[] = [
         kind: 'concept',
         statement: 'Toute qualité variable (chaleur, vitesse) est figurée par une surface : la base représente le temps ou le sujet, la hauteur en chaque point l’intensité de la qualité ; l’aire de la figure mesure la quantité totale de la qualité — la distance parcourue, pour une vitesse.',
         comment: 'Oresme en tire la démonstration géométrique de la règle de la vitesse moyenne de Merton (l’aire du triangle) et la somme de séries infinies par découpages de figures. Ces représentations ont souvent été présentées comme une anticipation des coordonnées de Descartes et du calcul intégral ; Clagett préfère y voir l’aboutissement propre de la mécanique scolastique.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les théologiens débattent depuis le XIIIᵉ siècle de l’« intension et rémission des formes » : comment une qualité comme la charité ou la chaleur peut-elle croître ou décroître ? À Oxford, vers 1335, Guillaume Heytesbury énonce la règle de la vitesse moyenne, que les calculatores démontrent par des raisonnements arithmétiques.',
+            sources: ['grant-sourcebook', 'clagett-oresme'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Un abrégé, le Tractatus de latitudinibus formarum, attribué à Oresme mais sans doute dû à un disciple, est imprimé à Padoue en 1482 et plusieurs fois réédité : la méthode des figures circule ainsi dans les universités jusqu’au XVIᵉ siècle.',
+            sources: ['clagett-oresme'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Que Galilée ait connu cette tradition par les manuels du XVIᵉ siècle reste discuté ; sa démonstration de la loi de la chute dans les Discorsi (1638) repose en tout cas sur la même figure triangulaire de la vitesse.',
+            sources: ['clagett-oresme', 'grant-sourcebook'],
+          },
+        ],
       },
       {
         id: 'divergence-de-la-serie-harmonique',
@@ -1394,6 +1696,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme 1 + 1/2 + 1/3 + 1/4 + … dépasse toute grandeur donnée : en groupant les termes par paquets dont la longueur double (de 1/3 + 1/4 à 1/2, puis quatre termes ≥ 1/2, puis huit, …), on fait apparaître une infinité de paquets chacun supérieur à un demi.',
         comment: 'Dans les Questions super geometriam Euclidis, Oresme distingue les séries dont la somme est finie de celles qui « deviennent infinies » : c’est la première preuve connue de la divergence d’une série. Le résultat est oublié, puis redémontré par Mengoli (1647) et les Bernoulli ; l’argument par groupement reste celui des manuels.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les calculatores d’Oxford somment déjà des séries infinies à propos de mouvements hypothétiques : Richard Swineshead, dans le Liber calculationum (vers 1350), établit en substance que 1/2 + 2/4 + 3/8 + … vaut 2.',
+            sources: ['clagett-oresme', 'grant-sourcebook'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La question touche à l’infini d’Aristote : une grandeur à laquelle on ajoute sans fin des parties de plus en plus petites reste-t-elle finie ? Oresme répond en distinguant les cas, ce qui suppose de comparer les séries entre elles.',
+            sources: ['clagett-oresme'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Euler précise en 1734 la vitesse de la divergence : la somme des n premiers termes diffère de log n d’une quantité qui tend vers une constante, notée depuis γ.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’argument de groupement contient en germe le critère de condensation de Cauchy (1821) et reste l’exemple type d’une série dont le terme général tend vers zéro sans que la somme soit finie.',
+            sources: ['hairer-wanner-analysis'],
+          },
+        ],
       },
     ],
     sources: ['sigler-liber-abaci', 'busard-adelard', 'hughes-jordanus', 'clagett-oresme', 'burnett-numerals', 'grant-sourcebook', 'katz-history'],
@@ -1410,7 +1736,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1100, end: 1400, approx: true },
     continents: ['fondements'],
     places: ['Paris', 'Oxford'],
-    map: { x: 1450, y: 4100, size: 1, palette: { fill: '#17261b', stroke: '#7dca92', accent: '#a4eab8' } },
+    map: { x: 1450, y: 4100, size: 1, palette: { fill: '#c3e9d2', stroke: '#22623c', accent: '#2aa75c' } },
     tagline: 'Dans les écoles de Paris et d’Oxford, la logique aristotélicienne devient une science des termes, des conséquences et des paradoxes que l’on redécouvrira au XIXᵉ siècle.',
     summary:
       'Entre Abélard et Albert de Saxe, les facultés des arts de Paris et d’Oxford développent une logique propre, la logica modernorum, greffée sur l’Organon d’Aristote connu par Boèce puis par les traductions du grec. On y théorise la supposition (ce pour quoi un terme « tient » dans une proposition), les syncatégorèmes, les conséquences (règles de l’implication), les obligations et les insolubles, dont le paradoxe du menteur. Guillaume d’Ockham donne à cette logique une assise nominaliste, Jean Buridan une forme systématique ; les débats sur l’infini et le continu, menés dans les commentaires à la Physique d’Aristote, touchent directement aux mathématiques. Jugée stérile par les humanistes, cette tradition n’est relue sérieusement qu’au XXᵉ siècle.',
@@ -1579,6 +1905,25 @@ export const MEDIEVAL: Domain[] = [
         kind: 'concept',
         statement: 'Un même terme ne « tient » pas toujours pour la même chose : « homme » supposant personnellement parle d’individus, simplement de l’espèce, matériellement du mot lui-même ; le temps et le mode du verbe amplifient ou restreignent le domaine de supposition, ce qui règle la lecture des propositions quantifiées et temporelles.',
         comment: 'Élaborée entre 1130 et 1260, la théorie donne à la logique médiévale son originalité : une sémantique fine du discours ordinaire, capable de traiter les ambiguïtés de portée que la logique des prédicats formalisera au XIXᵉ siècle. Les logiciens modernes (Kneale, de Rijk, puis la sémantique formelle) l’ont relue comme une théorie de la référence contextuelle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L. M. de Rijk a édité dans la Logica Modernorum (1962-1967) les traités anonymes du XIIᵉ siècle sur les sophismes et les propriétés des termes, où la doctrine prend forme avant les manuels du XIIIᵉ siècle.',
+            sources: ['de-rijk-logica-modernorum'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour de Rijk, c’est l’étude des sophismes, stimulée par la redécouverte des Réfutations sophistiques d’Aristote, qui pousse les maîtres à classer les usages d’un même terme selon son contexte, en s’appuyant sur la grammaire du latin scolaire.',
+            sources: ['de-rijk-logica-modernorum', 'kretzmann-cambridge-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Au XIVᵉ siècle, Ockham redéfinit la supposition simple comme renvoi au concept mental, non à une nature commune ; avec Buridan, les modes de la supposition personnelle (déterminée, confuse, distributive) deviennent l’instrument d’analyse des propositions quantifiées.',
+            sources: ['sep', 'kretzmann-cambridge-history'],
+          },
+        ],
       },
       {
         id: 'rasoir-d-ockham',
@@ -1614,6 +1959,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'probleme',
         statement: 'La proposition « cette proposition est fausse », si elle est vraie, est fausse, et si elle est fausse, vraie ; les solutions scolastiques interdisent à un terme de supposer pour la proposition entière dont il fait partie (restrictio), « cassent » la proposition, ou admettent qu’elle signifie plus qu’elle ne semble.',
         comment: 'Le huitième chapitre des Sophismata de Buridan discute une dizaine de solutions avant de proposer la sienne : toute proposition implique sa propre vérité, ce qui rend le menteur simplement faux. Paul Spade a catalogué plus d’une centaine de traités d’insolubilia ; redécouverts au XXᵉ siècle, ils éclairent les réponses de Tarski et de Kripke au paradoxe.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les Latins rencontrent le paradoxe moins par les sources antiques que par un passage des Réfutations sophistiques d’Aristote, traduites au XIIᵉ siècle, sur celui qui jure qu’il se parjure ; les premiers traités d’insolubilia datent de la fin du XIIᵉ ou du début du XIIIᵉ siècle.',
+            sources: ['spade-mediaeval-liar', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Avant Buridan, Thomas Bradwardine soutient dans ses Insolubilia (vers 1325) qu’une proposition signifie tout ce qui suit de ce qu’elle signifie : le menteur signifie donc à la fois qu’il est vrai et qu’il est faux, et n’est pas vrai.',
+            sources: ['sep', 'spade-mediaeval-liar'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La littérature des insolubles se prolonge jusqu’au début du XVᵉ siècle : Paul de Venise discute encore une quinzaine de solutions dans sa Logica magna (vers 1400), avant que les humanistes ne délaissent le genre.',
+            sources: ['spade-mediaeval-liar', 'kretzmann-cambridge-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La restrictio, qui interdit à un terme de renvoyer à la proposition dont il fait partie, a été comparée au principe du cercle vicieux de Russell (1908) et à la hiérarchie des langages de Tarski ; la parenté est réelle mais sans filiation, les logiciens modernes ayant retrouvé le problème par la théorie des ensembles.',
+            sources: ['sep', 'van-heijenoort'],
+          },
+        ],
       },
       {
         id: 'questions-sur-la-physique-infini',
@@ -1627,6 +1996,20 @@ export const MEDIEVAL: Domain[] = [
         kind: 'probleme',
         statement: 'Le continu est-il composé d’indivisibles, et l’infini peut-il être actuel ? Grégoire de Rimini soutient que le continu contient une infinité actuelle de parties et distingue des infinis de tailles différentes ; Buridan et Albert de Saxe discutent ces thèses question par question, avec les outils de la logique des termes.',
         comment: 'Ces disputations, menées dans les commentaires à la Physique d’Aristote, forment le arrière-plan conceptuel des mathématiques du mouvement d’Oxford et d’Oresme. Les distinctions de Grégoire de Rimini sur les infinis ont été relues au XXᵉ siècle comme une esquisse, sans théorie des ensembles, des problèmes que Cantor tranchera.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Aristote n’admet qu’un infini potentiel (Physique, livre III) et refuse que le continu soit composé d’indivisibles (livre VI) ; au début du XIVᵉ siècle, Henri de Harclay et Walter Chatton défendent pourtant une composition du continu par des indivisibles, que Bradwardine combat dans son De continuo.',
+            sources: ['sep', 'kretzmann-cambridge-history'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Les arguments géométriques échangés dans ces disputes, comme les cercles concentriques dont on met les points en correspondance, reviennent chez Galilée, dont le paradoxe des carrés (Discorsi, 1638) pose la même question des infinis comparables, avant que Bolzano (1851) puis Cantor n’en fassent une théorie.',
+            sources: ['sep', 'ferreiros-labyrinth'],
+          },
+        ],
       },
     ],
     sources: ['kneale-logic', 'kretzmann-cambridge-history', 'de-rijk-logica-modernorum', 'spade-mediaeval-liar', 'marenbon-abelard', 'sep'],

@@ -50,7 +50,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['nombres'],
     places: ['Princeton', 'Tokyo', 'Harvard', 'Bonn', 'Cambridge', 'Oxford', 'Durham (New Hampshire)'],
-    map: { x: 6300, y: 430, size: 3, palette: { fill: '#262217', stroke: '#c7b075', accent: '#e8d29c' } },
+    map: { x: 6300, y: 430, size: 3, palette: { fill: '#e8dbc0', stroke: '#5e4b21', accent: '#a37c29' } },
     tagline: 'Courbes elliptiques, formes modulaires et représentations de Galois : la marge de Fermat enfin remplie.',
     summary:
       'Après 1955, la théorie des nombres se réorganise autour de trois objets : les courbes elliptiques, les formes modulaires et les représentations du groupe de Galois. La conjecture de Taniyama–Shimura–Weil affirme que les deux premiers sont liés ; la lettre de Langlands à Weil (1967) élargit cette correspondance en un programme reliant formes automorphes et représentations galoisiennes. Armés des outils de la géométrie algébrique de Grothendieck, Faltings démontre la conjecture de Mordell (1983) et Wiles le dernier théorème de Fermat (1995). Parallèlement, les méthodes analytiques et combinatoires produisent le théorème de Green–Tao (2004) et les écarts bornés entre nombres premiers de Yitang Zhang (2013).',
@@ -321,6 +321,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une courbe algébrique de genre au moins 2 définie sur un corps de nombres n’a qu’un nombre fini de points rationnels. En particulier, pour chaque exposant n > 2, l’équation de Fermat n’a qu’un nombre fini de solutions primitives.',
         comment: 'Conjecturé par Mordell en 1922, l’énoncé est obtenu par Faltings en démontrant d’abord les conjectures de Tate et de Chafarevitch sur les variétés abéliennes, à l’aide de la théorie des hauteurs et des outils de Grothendieck. Vojta (1991) et Bombieri en donnent une seconde preuve ; la démonstration n’est pas effective : elle ne permet pas de trouver les points.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Mordell formule la conjecture en 1922, dans l’article où il démontre que les points rationnels d’une courbe elliptique forment un groupe de type fini ; Weil étend ce théorème de finitude aux jacobiennes en 1928, mais la conjecture elle-même résiste six décennies.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur les corps de fonctions, elle est démontrée par Manin (1963) puis par Grauert (1965). Parshin montre en 1968 qu’elle découlerait d’une conjecture de finitude de Chafarevitch sur les courbes à mauvaise réduction prescrite : c’est la voie que suit Faltings.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Faltings reçoit la médaille Fields en 1986. En 1991, il étend la méthode de Vojta et démontre la conjecture de Lang sur les points rationnels des sous-variétés des variétés abéliennes, dont le théorème de Mordell est un cas particulier.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le théorème installe un écart durable entre finitude et effectivité : on sait qu’il n’y a qu’un nombre fini de points sans savoir les borner. Une version effective découlerait de la conjecture abc (Masser et Oesterlé, 1985), ce qui fait de cette dernière l’un des grands enjeux ouverts de la géométrie diophantienne.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'conjecture-de-modularite-de-serre',
@@ -345,6 +369,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute courbe elliptique semi-stable sur les rationnels est modulaire. Combiné au théorème de Ribet, cela interdit l’existence d’une courbe de Frey associée à une solution de xⁿ + yⁿ = zⁿ avec n > 2 : le dernier théorème de Fermat est vrai.',
         comment: 'Cent neuf pages dans les Annals of Mathematics, suivies de l’article de Taylor et Wiles qui répare la lacune de 1993. La méthode (déformations galoisiennes de Mazur, systèmes d’Euler de Kolyvagin et Flach, puis « systèmes de Taylor–Wiles ») devient la technique standard pour relever la modularité ; elle clôt la question posée par Fermat vers 1637 et ouvre deux décennies de théorèmes de modularité.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 1985, Gerhard Frey associe à une hypothétique solution de l’équation de Fermat une courbe elliptique si singulière qu’elle ne devrait pas être modulaire ; Serre précise l’énoncé qui manque, et Ribet le démontre en 1986. Le problème de Fermat devient ainsi un cas particulier de la conjecture de modularité.',
+            sources: ['singh-fermat', 'mazur-gadfly'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’attaque de Wiles n’est envisageable que grâce à une boîte à outils constituée dans les années 1970-1980 : la théorie d’Iwasawa, à laquelle il a contribué avec Mazur (1984), et la théorie des déformations des représentations galoisiennes de Mazur (1989).',
+            sources: ['singh-fermat', 'wiles-modular'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La méthode de Taylor–Wiles est affinée par Fred Diamond (1996), puis permet à Breuil, Conrad, Diamond et Taylor d’établir en 2001 la modularité de toutes les courbes elliptiques sur les rationnels ; elle sert encore à démontrer la conjecture de Sato–Tate (Clozel, Harris, Shepherd-Barron et Taylor, 2008).',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Au-delà de Fermat, la preuve fait de la stratégie « R = T » (identifier un anneau de déformations à une algèbre de Hecke) la voie d’accès générale à la réciprocité de Langlands ; ses généralisations à d’autres groupes et à d’autres corps occupent depuis une large part de la théorie des nombres.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-modularite',
@@ -393,6 +441,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe une infinité de couples de nombres premiers consécutifs dont la différence est inférieure à 70 000 000.',
         comment: 'Premier résultat d’écart borné, obtenu en renforçant le théorème de Bombieri–Vinogradov dans le cadre du crible de Goldston, Pintz et Yıldırım. Le projet collaboratif Polymath8, puis la méthode de Maynard (2013), ramènent la borne à 246 ; la conjecture des nombres premiers jumeaux (écart 2) reste ouverte.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'En 2005, Daniel Goldston, János Pintz et Cem Yıldırım montrent que les écarts entre nombres premiers consécutifs sont infiniment souvent très petits devant leur taille moyenne, et que des écarts bornés découleraient d’une répartition des nombres premiers dans les progressions arithmétiques un peu meilleure que celle garantie par le théorème de Bombieri–Vinogradov (1965).',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Yitang Zhang, alors chargé de cours à l’université du New Hampshire, obtient cette amélioration pour des modules sans grand facteur premier ; il soumet son article aux Annals of Mathematics en avril 2013, et il est accepté en quelques semaines.',
+            sources: ['mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Terence Tao lance en juin 2013 le projet Polymath8 pour optimiser la borne. En novembre 2013, James Maynard, et indépendamment Tao, proposent une variante du crible qui obtient des écarts bornés sans le résultat de Zhang et donne des intervalles bornés contenant autant de nombres premiers qu’on veut.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les nombres premiers jumeaux restent hors de portée : les cribles connus butent sur l’« obstacle de parité », et même la conjecture d’Elliott–Halberstam ne donnerait qu’un écart de 6. L’épisode a rouvert un domaine que l’on croyait bloqué plus qu’il ne l’a clos.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
     ],
     sources: ['singh-fermat', 'wiles-modular', 'gelbart-langlands', 'mazur-gadfly', 'shimura-map', 'lang-shimura-taniyama', 'gowers-companion', 'mactutor'],
@@ -408,7 +480,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['nombres', 'formes'],
     places: ['Chicago', 'Cambridge', 'New Brunswick', 'Princeton', 'Moscou', 'Bonn', 'Pasadena'],
-    map: { x: 7000, y: 560, size: 2, palette: { fill: '#262417', stroke: '#d6cf9a', accent: '#f1ecc5' } },
+    map: { x: 7000, y: 560, size: 2, palette: { fill: '#f0e6d6', stroke: '#755829', accent: '#bc862f' } },
     tagline: 'Dix mille pages pour classer les groupes finis simples, un Monstre qui parle aux formes modulaires, et des symétries déformées venues de la physique.',
     summary:
       'L’algèbre de la seconde moitié du XXᵉ siècle est dominée par un chantier collectif : la classification des groupes finis simples, ouverte par le théorème de Feit–Thompson (1963), organisée par Gorenstein (1972), annoncée en 1983 et achevée en 2004. En chemin apparaissent les groupes sporadiques de Conway et le Monstre, dont les liens inattendus avec les formes modulaires (« Monstrous Moonshine ») sont expliqués par Borcherds grâce aux algèbres de vertex. Parallèlement, Tits géométrise les groupes de Lie et algébriques par ses immeubles, Kac et Moody étendent les algèbres de Lie à la dimension infinie, Kazhdan et Lusztig refondent la théorie des représentations, et Drinfeld et Jimbo tirent de la physique statistique les groupes quantiques.',
@@ -425,7 +497,7 @@ export const CONTEMPORAIN_A: Domain[] = [
       },
       {
         kind: 'interpretation',
-        text: 'Pour Ronald Solomon, la classification est moins un théorème qu’un programme de recherche de trente ans, dont la fiabilité repose sur une « seconde génération » de preuves (Gorenstein, Lyons, Solomon) entreprise en 1994 pour en réduire la longueur et en vérifier les maillons.',
+        text: 'Pour Ronald Solomon, la classification est moins un théorème qu’un programme de recherche de trente ans, dont la fiabilité repose sur une « seconde génération » de preuves (Gorenstein, Lyons, Solomon), lancée au début des années 1980 et publiée en volumes à partir de 1994, pour en réduire la longueur et en vérifier les maillons.',
         sources: ['solomon-classification'],
       },
     ],
@@ -521,7 +593,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         name: 'Daniel Gorenstein',
         years: [1923, 1992],
         origin: 'New Brunswick',
-        bio: 'Formé à Harvard chez Zariski en géométrie algébrique (les anneaux de Gorenstein portent son nom), Gorenstein se tourne vers les groupes finis dans les années 1950. Professeur à Rutgers, il conçoit en 1972 le programme de classification des groupes finis simples, en dirige l’exécution et en annonce l’achèvement en 1983 ; il lance en 1982 avec Lyons et Solomon la rédaction d’une preuve révisée.',
+        bio: 'Formé à Harvard chez Zariski en géométrie algébrique (les anneaux de Gorenstein portent son nom), Gorenstein se tourne vers les groupes finis dans les années 1950. Professeur à Rutgers, il conçoit en 1972 le programme de classification des groupes finis simples, en dirige l’exécution et en annonce l’achèvement en 1983 ; il lance au début des années 1980 avec Lyons et Solomon la rédaction d’une preuve révisée, dont le premier volume paraît en 1994.',
         theoryId: 'alc-groupes-finis-simples',
       },
       {
@@ -602,6 +674,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout groupe fini dont l’ordre est impair est résoluble ; de manière équivalente, tout groupe fini simple non abélien est d’ordre pair, donc contient une involution.',
         comment: 'Conjecturé par Burnside en 1911, démontré en 255 pages mêlant théorie des caractères et analyse locale, le théorème garantit que tout groupe simple possède des involutions, dont les centralisateurs deviennent l’outil de la classification. Sa longueur, inédite en 1963, annonce le style du programme à venir ; il est entièrement formalisé en Coq par l’équipe de Gonthier en 2012.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Burnside énonce la conjecture dans la seconde édition de sa Theory of Groups of Finite Order (1911). Les premiers pas sont le théorème de Suzuki (1957) sur les CA-groupes d’ordre impair, puis celui de Feit, Marshall Hall et Thompson (1960) sur les CN-groupes d’ordre impair, dont Feit et Thompson généralisent les méthodes.',
+            sources: ['solomon-classification', 'gorenstein-finite-simple-groups'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’enjeu dépasse la résolubilité : le théorème de Brauer–Fowler (1955) montre qu’un centralisateur d’involution donné ne détermine qu’un nombre fini de groupes simples. Si tout groupe simple possède des involutions, une classification par les centralisateurs, telle que Brauer la propose au congrès d’Amsterdam (1954), devient concevable.',
+            sources: ['solomon-classification'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Gorenstein et Walter classent en 1965 les groupes simples à 2-sous-groupe de Sylow diédral ; Thompson réemploie l’analyse locale du théorème pour classer les N-groupes (1968-1974), d’où les groupes simples minimaux, et reçoit la médaille Fields en 1970.',
+            sources: ['solomon-classification', 'gorenstein-finite-simple-groups'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le théorème est lu comme l’acte de naissance du programme de classification : il en fournit le point de départ logique, les techniques et l’échelle, et il convainc les spécialistes qu’une liste complète des groupes simples est à portée.',
+            sources: ['solomon-classification'],
+          },
+        ],
       },
       {
         id: 'immeubles-de-tits',
@@ -658,6 +754,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Les coefficients de la fonction modulaire j (196 884, 21 493 760, …) sont des sommes simples de dimensions de représentations du Monstre (1, 196 883, 21 296 876, …) ; plus généralement, à chaque élément du Monstre correspond une fonction modulaire « de genre zéro » dont les coefficients sont les traces de l’élément sur une représentation graduée.',
         comment: 'Partie de l’observation de McKay (1978) et des calculs de Thompson, la conjecture relie deux mondes sans contact apparent, d’où le mot « moonshine » (chimère). Frenkel, Lepowsky et Meurman construisent la représentation graduée (le module du Monstre, 1988), Borcherds démontre les conjectures (1992) ; des « moonshines » analogues sont découverts depuis (Mathieu moonshine, 2010).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le Monstre est prédit en 1973 par Bernd Fischer et Robert Griess, et sa table de caractères est calculée avant que son existence soit établie : sa plus petite représentation non triviale serait de dimension 196 883. En 1978, John McKay remarque que le coefficient 196 884 de la fonction modulaire j vaut 196 883 + 1.',
+            sources: ['ronan-symmetry-monster'],
+          },
+          {
+            kind: 'fait',
+            text: 'Thompson vérifie que les coefficients suivants se décomposent de même et propose d’étudier les traces des autres éléments du groupe ; Conway et Norton calculent ces séries et publient leurs conjectures en 1979 dans le Bulletin of the London Mathematical Society.',
+            sources: ['ronan-symmetry-monster', 'gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Pour construire la représentation graduée attendue, Frenkel, Lepowsky et Meurman s’appuient sur les algèbres de vertex que Borcherds axiomatise en 1986 ; leur livre de 1988 en fait une théorie à part entière, liée à la théorie conforme des champs.',
+            sources: ['ronan-symmetry-monster', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le moonshine sert depuis de paradigme : une coïncidence numérique entre deux théories sans contact apparent, prise au sérieux, peut révéler une structure profonde, ici empruntée à la physique des cordes.',
+            sources: ['ronan-symmetry-monster'],
+          },
+        ],
       },
       {
         id: 'polynomes-de-kazhdan-lusztig',
@@ -680,7 +800,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'alc-groupes-finis-simples',
         kind: 'theoreme',
         statement: 'Il existe un groupe fini simple, d’ordre environ 8 × 10⁵³, agissant comme groupe d’automorphismes d’une algèbre commutative non associative de dimension 196 884 : le Monstre prédit par Fischer et Griess en 1973.',
-        comment: 'Griess construit le groupe « à la main », sans ordinateur, dans un article de cent deux pages (annoncé en janvier 1980, publié en 1982) ; Tits simplifie la construction et prouve l’unicité en 1984. Le plus grand des groupes sporadiques est ainsi établi avant même l’achèvement de la classification ; son algèbre de Griess est le point de départ du moonshine.',
+        comment: 'Griess construit le groupe « à la main », sans ordinateur, dans un article de cent deux pages (annoncé en janvier 1980, publié en 1982) ; Tits simplifie la construction ; l’unicité est établie par Griess, Meierfrankenfeld et Segev (1989). Le plus grand des groupes sporadiques est ainsi établi avant même l’achèvement de la classification ; son algèbre de Griess est le point de départ du moonshine.',
       },
       {
         id: 'classification-des-groupes-finis-simples',
@@ -691,7 +811,26 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'alc-groupes-finis-simples',
         kind: 'theoreme',
         statement: 'Tout groupe fini simple est isomorphe à un groupe cyclique d’ordre premier, à un groupe alterné de degré au moins 5, à un groupe de type de Lie (seize familles), ou à l’un des vingt-six groupes sporadiques.',
-        comment: 'Gorenstein annonce l’achèvement en 1983, après l’article de Norton et Griess sur l’unicité du Monstre ; la preuve, répartie sur quelque cinq cents articles, comporte en réalité une lacune (groupes quasi-minces) comblée en 2004. L’énoncé est l’un des résultats les plus utilisés de l’algèbre contemporaine (groupes de permutation, théorie de Galois inverse, combinatoire), et l’un des plus difficiles à vérifier.',
+        comment: 'Gorenstein annonce l’achèvement en 1983 ; la preuve, répartie sur quelque cinq cents articles, comporte en réalité une lacune (groupes quasi-minces) comblée en 2004. L’énoncé est l’un des résultats les plus utilisés de l’algèbre contemporaine (groupes de permutation, théorie de Galois inverse, combinatoire), et l’un des plus difficiles à vérifier.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'De 1965 au milieu des années 1970, la découverte de nouveaux groupes sporadiques (Janko, Conway, Fischer et d’autres) porte leur nombre à vingt-six, tandis que les théorèmes d’Aschbacher sur le type caractéristique 2 et les composantes accélèrent l’exécution du programme exposé par Gorenstein en 1972.',
+            sources: ['solomon-classification', 'ronan-symmetry-monster'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Des conjectures anciennes deviennent des corollaires vérifiés sur la liste, comme la conjecture de Schreier (le groupe des automorphismes extérieurs d’un groupe fini simple est résoluble) ; le théorème d’O’Nan–Scott ramène l’étude des groupes de permutations primitifs aux groupes simples, ce qui fait de la classification un outil de la combinatoire.',
+            sources: ['solomon-classification', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La dépendance d’une grande partie de l’algèbre finie envers une preuve que personne ne maîtrise seul pose un problème de transmission du savoir : le projet de seconde génération de Gorenstein, Lyons et Solomon vise aussi à en fixer une version lisible tant que ses artisans sont en activité.',
+            sources: ['solomon-classification'],
+          },
+        ],
       },
       {
         id: 'groupes-quantiques',
@@ -753,7 +892,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['formes', 'nombres'],
     places: ['Paris', 'Bures-sur-Yvette', 'Princeton', 'Harvard', 'Kyoto', 'Bonn'],
-    map: { x: 6300, y: 1300, size: 3, palette: { fill: '#172226', stroke: '#9dc8d7', accent: '#c9e7f2' } },
+    map: { x: 6300, y: 1300, size: 3, palette: { fill: '#dae9f1', stroke: '#2a5c79', accent: '#308bc0' } },
     tagline: 'Refonder la géométrie sur les faisceaux et les schémas, jusqu’à ce que les équations sur les corps finis livrent leur topologie.',
     summary:
       'Entre 1955 et 1970, la géométrie algébrique est reconstruite de fond en comble. Serre importe les faisceaux et la cohomologie dans la géométrie des variétés (FAC, 1955) ; Grothendieck élargit les variétés en schémas, les recouvrements en topologies, et rédige avec Dieudonné les Éléments de géométrie algébrique tout en animant le séminaire de l’IHÉS. La cohomologie étale, construite pour les conjectures de Weil, permet à Deligne de les démontrer en 1974. Hironaka résout les singularités, Mumford construit les espaces de modules, Mori relance la classification birationnelle en dimension 3, tandis que Kontsevich et Voevodsky prolongent l’héritage vers la physique des cordes et la théorie homotopique des schémas.',
@@ -966,6 +1105,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'concept',
         statement: 'Un schéma est un espace annelé localement isomorphe au spectre d’un anneau commutatif (ensemble des idéaux premiers, muni de la topologie de Zariski et d’un faisceau structural). Les variétés, les anneaux d’entiers des corps de nombres et les familles d’équations à paramètres en sont des cas particuliers.',
         comment: 'Conçus en 1957-1958 et exposés dans EGA I (1960), les schémas réalisent le rêve de Kronecker d’une géométrie commune aux nombres et aux fonctions : le même objet porte des points sur tous les corps, des éléments nilpotents et des morphismes de changement de base. Ils sont le fondement de toute la géométrie arithmétique ultérieure, de Deligne à Faltings et Wiles.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Weil construit dans ses Foundations of Algebraic Geometry (1946) des variétés abstraites sur un corps quelconque, pour fonder sa démonstration de l’hypothèse de Riemann pour les courbes sur les corps finis ; Serre les munit en 1955 de faisceaux cohérents. Dans les deux cadres, le corps de base est fixé et les éléments nilpotents sont exclus.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Grothendieck cherche un langage où une variété, ses réductions modulo les nombres premiers et les familles de variétés se traitent d’un même geste, ce qu’exige à ses yeux une démonstration des conjectures de Weil ; son exposé au congrès international d’Édimbourg (1958) en annonce le programme.',
+            sources: ['dieudonne-geometrie-algebrique', 'jackson-grothendieck'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les schémas deviennent la langue du séminaire SGA (1960-1969) et de la cohomologie étale ; Mumford en diffuse l’usage hors de l’IHÉS par ses notes de cours de Harvard, le « Red Book » (vers 1967).',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Pierre Cartier, les schémas ouvrent une transformation de la notion même d’espace, que prolongent les topos de Grothendieck puis la géométrie non commutative de Connes et les travaux de Kontsevich.',
+            sources: ['cartier-mad-day'],
+          },
+        ],
       },
       {
         id: 'elements-de-geometrie-algebrique',
@@ -1000,6 +1163,25 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété algébrique sur un corps de caractéristique zéro est l’image d’une variété lisse par un morphisme propre et birationnel, obtenu par une suite d’éclatements le long de centres lisses.',
         comment: 'Après les cas des courbes, des surfaces (Walker, Zariski) et des solides (Zariski, 1944), Hironaka traite toutes les dimensions par une récurrence subtile sur des invariants des singularités. Le théorème est un outil quotidien (compactifications, théorie de Hodge mixte, intégration motivique) ; la caractéristique positive reste ouverte au-delà de la dimension 3.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Hironaka soutient sa thèse à Harvard en 1960 sous la direction de Zariski, qui forme dans les mêmes années Michael Artin et David Mumford. Zariski avait fait de la résolution un problème central de la géométrie algébrique en la traitant par les valuations jusqu’en dimension 3, sans parvenir à franchir ce seuil.',
+            sources: ['mactutor', 'dieudonne-geometrie-algebrique'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Joint au théorème de compactification de Nagata, le théorème permet de compléter toute variété lisse en une variété propre lisse en ajoutant un diviseur à croisements normaux ; Deligne fonde sur cette construction la théorie de Hodge mixte des variétés non compactes (1971).',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La longueur et la difficulté de la preuve originale suscitent, à partir de la fin des années 1980, un effort de simplification qui aboutit à des versions algorithmiques et canoniques de la résolution, aujourd’hui enseignées en cours avancé.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'motifs',
@@ -1035,6 +1217,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour une variété projective lisse sur un corps fini à q éléments, les valeurs propres du Frobenius sur le i-ième groupe de cohomologie ℓ-adique sont des entiers algébriques de valeur absolue q^(i/2) : c’est l’analogue de l’hypothèse de Riemann pour les fonctions zêta de ces variétés.',
         comment: 'Deligne combine la cohomologie étale, la théorie de Lefschetz des pinceaux, la monodromie et une idée venue de Rankin sur les formes modulaires. Le résultat achève le programme de Weil (1949), entraîne la conjecture de Ramanujan–Petersson sur les coefficients de la fonction τ et fonde la théorie des poids ; « Weil II » (1980) l’étend aux faisceaux et aux variétés non propres.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Weil énonce ses conjectures en 1949, après avoir démontré l’hypothèse de Riemann pour les courbes et calculé le cas des hypersurfaces diagonales. Dwork démontre la rationalité des fonctions zêta en 1960 par des méthodes p-adiques ; Grothendieck, avec Artin et Verdier, en obtient par la cohomologie étale la rationalité et l’équation fonctionnelle au milieu des années 1960.',
+            sources: ['deligne-weil-i', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour l’analogue de l’hypothèse de Riemann, Grothendieck envisage une démonstration fondée sur ses « conjectures standard » sur les cycles algébriques, formulées vers 1968 ; elles sont toujours ouvertes.',
+            sources: ['grothendieck-recoltes', 'jackson-grothendieck'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La démonstration contourne les conjectures standard. Elle entraîne des majorations de sommes exponentielles en plusieurs variables, devenues un outil de la théorie analytique des nombres.',
+            sources: ['deligne-weil-i', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le résultat est lu à la fois comme la validation du programme cohomologique de Grothendieck et comme la preuve que ce programme pouvait aboutir sans les motifs ; la coexistence de ces deux lectures pèse sur la réception ultérieure des motifs.',
+            sources: ['jackson-grothendieck', 'grothendieck-recoltes'],
+          },
+        ],
       },
       {
         id: 'programme-du-modele-minimal',
@@ -1086,7 +1292,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1956, end: null },
     continents: ['formes'],
     places: ['Princeton', 'Berkeley', 'Oxford', 'Bures-sur-Yvette', 'Saint-Pétersbourg', 'Stony Brook', 'Stanford'],
-    map: { x: 7000, y: 1500, size: 3, palette: { fill: '#171f26', stroke: '#84accd', accent: '#accfec' } },
+    map: { x: 7000, y: 1500, size: 3, palette: { fill: '#c0d6e8', stroke: '#21445e', accent: '#296ea3' } },
     tagline: 'Classer les variétés dimension par dimension : sphères exotiques, chirurgie, théories de jauge, et le flot de Ricci qui éteint la conjecture de Poincaré.',
     summary:
       'La découverte des sphères exotiques de Milnor (1956) ouvre l’ère de la topologie différentielle : cobordisme de Thom, théorème du h-cobordisme de Smale (1961), qui règle la conjecture de Poincaré en dimension au moins 5. La dimension 4 résiste : Freedman la traite topologiquement (1982), Donaldson révèle par les théories de jauge des phénomènes différentiables sans analogue (1983), et la dimension 3 est réorganisée par la conjecture de géométrisation de Thurston (1982), démontrée par Perelman (2003) au moyen du flot de Ricci de Hamilton. En parallèle, le théorème de l’indice d’Atiyah–Singer (1963) relie topologie et analyse, et le polynôme de Jones (1984) fonde la topologie quantique. Le domaine est marqué par deux premières : Edward Witten, premier physicien médaillé Fields (1990), et Maryam Mirzakhani, première femme médaillée (2014).',
@@ -1318,6 +1524,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Un cobordisme simplement connexe entre deux variétés simplement connexes de dimension ≥ 5, dont les inclusions sont des équivalences d’homotopie, est un produit : les deux bords sont difféomorphes. Il s’ensuit qu’une variété homotopiquement équivalente à la sphère Sⁿ, n ≥ 5, lui est homéomorphe.',
         comment: 'En grande dimension, la place disponible permet d’éliminer par « chirurgie » les points critiques d’une fonction de Morse : c’est le « tour de passe-passe de Whitney ». Smale résout ainsi la conjecture de Poincaré là où personne ne regardait ; les dimensions 3 et 4, où le tour échoue, résistent encore respectivement quarante et vingt ans.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Poincaré demande en 1904, dans le cinquième complément à l’Analysis situs, si une variété fermée simplement connexe de dimension 3 est une sphère ; les tentatives de démonstration échouent pendant un demi-siècle et la question est étendue aux dimensions supérieures. Les sphères exotiques de Milnor (1956) obligent en outre à distinguer homéomorphie et difféomorphie.',
+            sources: ['dieudonne-topology', 'szpiro-poincare'],
+          },
+          {
+            kind: 'fait',
+            text: 'Smale annonce en 1960 la conjecture de Poincaré généralisée en dimension ≥ 5, à partir de la théorie de Morse ; John Stallings (dimension ≥ 7) puis Christopher Zeeman (dimension ≥ 5) en donnent, par des méthodes linéaires par morceaux, des démonstrations indépendantes.',
+            sources: ['szpiro-poincare', 'dieudonne-topology'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le théorème devient l’outil de base de la classification des variétés de grande dimension : Kervaire et Milnor l’utilisent pour dénombrer les sphères exotiques (1963), Barden, Mazur et Stallings l’étendent au cas non simplement connexe (théorème du s-cobordisme), et la théorie de la chirurgie de Browder, Novikov, Sullivan et Wall s’en nourrit.',
+            sources: ['dieudonne-topology', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le résultat installe un paradoxe durable : la grande dimension devient la plus facile, et les dimensions 3 et 4 apparaissent comme des cas exceptionnels qui exigeront des méthodes entièrement nouvelles, venues de l’analyse et de la physique.',
+            sources: ['gowers-companion', 'szpiro-poincare'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-l-indice',
@@ -1329,6 +1559,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'L’indice analytique d’un opérateur différentiel elliptique sur une variété compacte (dimension de son noyau moins celle de son conoyau) est égal à un indice topologique calculé à partir des classes caractéristiques du fibré tangent et du symbole de l’opérateur.',
         comment: 'Annoncé en 1963 et publié en 1968 (Annals of Mathematics), le théorème contient le théorème de Riemann–Roch et ceux de Hirzebruch sur la signature, et se démontre en K-théorie. Il engendre la géométrie non commutative, le théorème de l’indice des familles et les arguments d’anomalies de la physique quantique des champs.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Vers 1960, Israel Gelfand pose le problème de calculer l’indice d’un opérateur elliptique par des invariants topologiques. Hirzebruch a obtenu en 1954 son théorème de Riemann–Roch et sa formule de la signature, qui ont l’allure de cas particuliers, et Atiyah et Hirzebruch viennent de construire la K-théorie topologique à partir de la périodicité de Bott (1959).',
+            sources: ['gowers-companion', 'atiyah-twentieth-century'],
+          },
+          {
+            kind: 'fait',
+            text: 'La question de départ porte sur l’intégralité du genre Â des variétés spin : Atiyah et Singer l’interprètent en 1962 comme l’indice d’un opérateur de Dirac, qu’ils doivent construire dans ce cadre.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le théorème est prolongé par la formule du point fixe d’Atiyah–Bott (1966-1967), l’indice des familles et le théorème d’Atiyah–Patodi–Singer pour les variétés à bord (1975) ; une démonstration par l’équation de la chaleur, due notamment à Patodi et à Gilkey au début des années 1970, le rattache à l’analyse spectrale.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Atiyah, le théorème incarne la réunification de la topologie, de l’analyse et de la physique au XXᵉ siècle ; l’opérateur de Dirac y devient un pont entre géométrie et théorie quantique des champs.',
+            sources: ['atiyah-twentieth-century'],
+          },
+        ],
       },
       {
         id: 'stabilite-structurelle-et-morphogenese',
@@ -1420,6 +1674,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété simplement connexe fermée de dimension 3 est homéomorphe à la sphère ; plus généralement, le flot de Ricci avec chirurgie décompose toute variété de dimension 3 selon les huit géométries de Thurston.',
         comment: 'Déposée sur arXiv en trois notes non soumises à revue (2002-2003), la preuve est vérifiée par la communauté entre 2004 et 2006. Perelman y introduit une entropie, une longueur réduite et un « œil de lynx » sur les singularités (κ-solutions). Le Clay Institute la retient en 2010 comme la première solution d’un problème du millénaire ; le lauréat refuse le prix.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Après les dimensions ≥ 5 (Smale, 1961) et 4 (Freedman, 1982), seule la dimension 3, celle de la question de Poincaré (1904), reste ouverte. En 1982, Thurston l’inclut dans sa conjecture de géométrisation et Hamilton introduit le flot de Ricci, dont il développe pendant vingt ans le programme : faire converger une métrique quelconque en traitant les singularités par chirurgie.',
+            sources: ['szpiro-poincare', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Perelman, chercheur à l’institut Steklov de Saint-Pétersbourg, découvre les travaux de Hamilton lors de séjours aux États-Unis au début des années 1990, puis travaille seul pendant plusieurs années avant de déposer sa première prépublication en novembre 2002.',
+            sources: ['nasar-gruber-manifold-destiny', 'szpiro-poincare'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La preuve établit aussi la conjecture d’elliptisation, selon laquelle une variété fermée de dimension 3 à groupe fondamental fini est un quotient de la sphère, et achève avec la géométrisation la description des variétés de dimension 3.',
+            sources: ['szpiro-poincare', 'gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le flot de Ricci avec chirurgie s’impose comme méthode générale de l’analyse géométrique, et l’épisode (dépôt sur arXiv sans soumission à une revue, puis vérification collective) est souvent cité comme un tournant dans les modes de validation des démonstrations.',
+            sources: ['szpiro-poincare', 'nasar-gruber-manifold-destiny'],
+          },
+        ],
       },
       {
         id: 'volumes-de-weil-petersson',
@@ -1441,12 +1719,13 @@ export const CONTEMPORAIN_A: Domain[] = [
   {
     id: 'systemes-dynamiques-et-chaos',
     name: 'Systèmes dynamiques, chaos et fractales',
+    mapName: 'Systèmes dynamiques et chaos',
     altNames: ['Théorie du chaos', 'Dynamique holomorphe'],
     era: 'contemporain',
     period: { start: 1954, end: null },
     continents: ['analyse', 'hasard'],
     places: ['Moscou', 'MIT', 'Berkeley', 'Bures-sur-Yvette', 'Los Alamos', 'Orsay'],
-    map: { x: 6250, y: 2200, size: 2, palette: { fill: '#201726', stroke: '#b084cd', accent: '#d2acec' } },
+    map: { x: 6250, y: 2200, size: 2, palette: { fill: '#ccc0e8', stroke: '#35215e', accent: '#5029a3' } },
     tagline: 'Des solutions régulières qui persistent aux orbites qui se mélangent : l’imprévisible devient un objet mathématique.',
     summary:
       'Le théorème KAM (1954-1963) établit la persistance des mouvements quasi périodiques sous petite perturbation, tandis que la théorie ergodique, relancée par Kolmogorov et Sinaï (entropie, 1958-1959), mesure le mélange. Lorenz exhibe en 1963 un attracteur sensible aux conditions initiales, Ruelle et Takens en font le modèle de la turbulence (1971), et Feigenbaum découvre des constantes universelles dans la route vers le chaos (1978). Mandelbrot impose les fractales comme géométrie du désordre ; l’école d’Orsay (Douady, Hubbard, Yoccoz) fournit à la dynamique holomorphe ses outils, de la connexité de l’ensemble de Mandelbrot à l’optimalité de la condition de Bruno.',
@@ -1630,6 +1909,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Les tores lagrangiens d’un système hamiltonien intégrable dont les fréquences vérifient une condition diophantienne persistent, légèrement déformés, sous toute perturbation suffisamment petite ; ils remplissent la majeure partie de l’espace des phases.',
         comment: 'Annoncé par Kolmogorov au congrès d’Amsterdam (1954), démontré par Arnold pour les hamiltoniens analytiques (1963) et par Moser pour les applications de l’anneau de classe finie (1962), le théorème mesure à quel point la mécanique céleste échappe à l’ergodicité : la stabilité du système solaire n’est ni prouvée ni exclue, mais elle est « probable ».',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dans Les Méthodes nouvelles de la mécanique céleste (1892-1899), Poincaré montre que les séries de perturbation des astronomes se heurtent aux « petits diviseurs » et doute de leur convergence. Siegel démontre en 1942 qu’un problème de linéarisation à petits diviseurs peut être résolu sous une condition diophantienne, premier succès de ce type.',
+            sources: ['aubin-dahan-chaos', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’annonce de Kolmogorov (note aux Doklady puis exposé au congrès d’Amsterdam, 1954) ne donne qu’une esquisse de démonstration ; il faut près de dix ans de travail à Arnold et à Moser pour en tirer des preuves complètes.',
+            sources: ['aubin-dahan-chaos'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les simulations de Hénon et Heiles (1964), sur un modèle de mouvement stellaire dans une galaxie, montrent la coexistence de courbes invariantes et de régions chaotiques que décrit le théorème ; la même année, Arnold exhibe la diffusion qui en limite la portée.',
+            sources: ['gleick-chaos', 'aubin-dahan-chaos'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le théorème ruine l’espoir, répandu en physique statistique, que les systèmes hamiltoniens génériques soient ergodiques, et impose l’image d’un espace des phases où ordre et chaos s’entremêlent ; Aubin et Dahan Dalmedico y voient l’une des racines de la théorie du chaos, antérieure à l’usage massif de l’ordinateur.',
+            sources: ['aubin-dahan-chaos'],
+          },
+        ],
       },
       {
         id: 'entropie-de-kolmogorov-sinai',
@@ -1640,7 +1943,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'sdc-chaos-et-theorie-ergodique',
         kind: 'concept',
         statement: 'À tout système dynamique mesuré est associé un nombre non négatif, taux moyen de production d’information par itération ; les systèmes isomorphes ont même entropie, et une entropie positive caractérise le comportement chaotique.',
-        comment: 'Kolmogorov transpose en 1958 l’entropie de Shannon à la théorie ergodique, Sinaï en donne la définition définitive (1959) et montre que le système est engendré par une seule partition lorsque l’entropie est finie. L’invariant distingue enfin les décalages de Bernoulli d’entropies différentes, question ouverte depuis Birkhoff ; il est complété par le théorème d’Ornstein (1970).',
+        comment: 'Kolmogorov transpose en 1958 l’entropie de Shannon à la théorie ergodique, Sinaï en donne la définition définitive (1959) et montre qu’elle se calcule sur une partition génératrice ; Krieger établira (1970) qu’un système d’entropie finie admet une partition génératrice finie. L’invariant distingue enfin les décalages de Bernoulli d’entropies différentes, question ouverte depuis Birkhoff ; il est complété par le théorème d’Ornstein (1970).',
       },
       {
         id: 'fer-a-cheval-de-smale',
@@ -1653,6 +1956,25 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'concept',
         statement: 'Un difféomorphisme qui étire et replie une bande du plan en forme de fer à cheval possède un ensemble invariant sur lequel sa dynamique est conjuguée au décalage de Bernoulli sur les suites binaires : chaos complet, démontré géométriquement.',
         comment: 'Construit à la plage de Rio en 1960, selon le récit de Smale lui-même, en tentant de comprendre les oscillateurs forcés étudiés par Cartwright–Littlewood et Levinson, le fer à cheval fournit le premier modèle rigoureux d’hyperbolicité. Il fonde le « programme de stabilité structurelle » de Smale et relie la dynamique à la topologie de l’époque.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Smale conjecture vers 1959 que les systèmes dynamiques génériques sont simples, avec un nombre fini d’orbites périodiques (systèmes dits de Morse–Smale). Norman Levinson lui signale que ses travaux sur l’oscillateur de Van der Pol forcé, prolongeant ceux de Cartwright et Littlewood, contiennent un contre-exemple : une infinité d’orbites périodiques qui persistent sous perturbation.',
+            sources: ['gleick-chaos', 'aubin-dahan-chaos'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Avec les flots géodésiques et les systèmes étudiés par Anosov dans les années 1960, le fer à cheval fonde la théorie des systèmes hyperboliques, que Smale synthétise en 1967 dans « Differentiable dynamical systems » (Bulletin of the American Mathematical Society) : axiome A, ensembles basiques, stabilité structurelle.',
+            sources: ['aubin-dahan-chaos'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le fer à cheval donne au chaos un modèle géométrique avant que le mot ne soit en usage ; pour Aubin et Dahan Dalmedico, c’est la rencontre de ce point de vue topologique avec l’expérimentation numérique et la physique qui crée le domaine dans les années 1970.',
+            sources: ['aubin-dahan-chaos'],
+          },
+        ],
       },
       {
         id: 'deterministic-nonperiodic-flow',
@@ -1743,6 +2065,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'L’ensemble de Mandelbrot est connexe : Douady et Hubbard construisent un isomorphisme conforme entre l’extérieur de l’ensemble et l’extérieur du disque unité, en transplantant les rayons externes par les « coordonnées de Böttcher ».',
         comment: 'La preuve inaugure la « chirurgie de Douady–Hubbard » et la description combinatoire de la dynamique quadratique (rayons externes, portraits d’orbites, arbres de Hubbard). Le même article pose les deux grandes questions restantes : la connexité locale (MLC) et la densité de l’hyperbolicité.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Fatou et Julia fondent vers 1918-1920 la théorie de l’itération des fractions rationnelles, le mémoire de Julia étant couronné par l’Académie des sciences en 1918 ; le sujet est ensuite peu étudié pendant un demi-siècle.',
+            sources: ['mandelbrot-fractal-geometry', 'gleick-chaos'],
+          },
+          {
+            kind: 'fait',
+            text: 'À la fin des années 1970, John Hubbard étudie à Orsay la méthode de Newton pour les polynômes complexes, puis se tourne avec Adrien Douady vers l’itération de z ↦ z² + c ; les images calculées par Mandelbrot en 1980 posent la question de la structure de l’ensemble des paramètres.',
+            sources: ['gleick-chaos'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'En 1985, Douady et Hubbard introduisent les applications « à allure polynomiale », qui expliquent pourquoi de petites copies de l’ensemble de Mandelbrot apparaissent dans de nombreuses familles de fonctions holomorphes.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La démonstration fait d’une image d’ordinateur un objet mathématique à part entière et installe à Orsay une école de dynamique holomorphe, dont Yoccoz (médaille Fields 1994) est l’un des héritiers.',
+            sources: ['gleick-chaos', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'condition-de-bruno-yoccoz',
@@ -1770,7 +2116,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1957, end: null },
     continents: ['analyse'],
     places: ['Princeton', 'Chicago', 'Lund', 'New York', 'Pise', 'Paris', 'Los Angeles'],
-    map: { x: 6950, y: 2350, size: 2, palette: { fill: '#201726', stroke: '#b38bd0', accent: '#d6b5ee' } },
+    map: { x: 6950, y: 2350, size: 2, palette: { fill: '#e5ddf3', stroke: '#472c7d', accent: '#6231c4' } },
     tagline: 'Estimer, localiser, régulariser : l’art de dompter les solutions des équations de la physique.',
     summary:
       'L’analyse de la seconde moitié du XXᵉ siècle s’organise autour des équations aux dérivées partielles et de l’analyse harmonique « dure ». L’école de Chicago (Calderón, Zygmund, puis Stein et Fefferman à Princeton) fait des intégrales singulières un calcul d’opérateurs ; De Giorgi et Nash démontrent la régularité des solutions elliptiques (1957), Hörmander et Nirenberg fondent l’analyse microlocale. Crandall et Lions introduisent les solutions de viscosité (1983), Bourgain transpose l’analyse harmonique aux équations dispersives, et le transport optimal (Villani) et la théorie cinétique (amortissement Landau, Mouhot–Villani) réunissent probabilités, géométrie et physique. La régularité des équations de Navier–Stokes, posée comme problème du millénaire en 2000, résiste toujours.',
@@ -1782,7 +2128,7 @@ export const CONTEMPORAIN_A: Domain[] = [
       },
       {
         kind: 'fait',
-        text: 'Les solutions de viscosité de Crandall et Lions donnent un sens aux équations de Hamilton–Jacobi entièrement non linéaires, là où aucune solution classique n’existe : on teste l’équation par des fonctions régulières tangentees par en haut et par en bas, avec existence et unicité automatiques.',
+        text: 'Les solutions de viscosité de Crandall et Lions donnent un sens aux équations de Hamilton–Jacobi entièrement non linéaires, là où aucune solution classique n’existe : on teste l’équation par des fonctions régulières tangentes par en haut et par en bas, avec existence et unicité automatiques.',
         sources: ['gowers-companion', 'villani-theoreme-vivant'],
       },
       {
@@ -1835,7 +2181,7 @@ export const CONTEMPORAIN_A: Domain[] = [
       { year: 1994, text: 'Médailles Fields à Bourgain et à Lions.' },
       { year: 2000, text: 'Navier–Stokes figure parmi les sept problèmes du millénaire de l’Institut Clay.' },
       { year: 2006, text: 'Médaille Fields à Tao ; Lott–Villani et Sturm fondent la courbure de Ricci synthétique.' },
-      { year: 2010, text: 'Médaille Fields à Villani pour l’amortissement Landau et les bornes de regularité du transport optimal.' },
+      { year: 2010, text: 'Médaille Fields à Villani pour l’amortissement Landau et les bornes de régularité du transport optimal.' },
     ],
     theories: [
       {
@@ -1866,7 +2212,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         name: 'Alberto Calderón',
         years: [1920, 1998],
         origin: 'Buenos Aires et Chicago',
-        bio: 'Ingénieur reconverti, élève de Zygmund à Chicago (thèse en 1950), Calderón construit avec lui la théorie moderne des intégrales singulières (1952), démontre le théorème d’unicité dans le Cauchy pour les EDP et calcule le noyau de l’« intégrale de Cauchy » sur une courbe lipschitzienne (1977). Professeur au MIT puis à Chicago, il reçoit la médaille nationale des Sciences (1991) et le prix Wolf (1989).',
+        bio: 'Ingénieur reconverti, élève de Zygmund à Chicago (thèse en 1950), Calderón construit avec lui la théorie moderne des intégrales singulières (1952), démontre le théorème d’unicité dans le problème de Cauchy pour les EDP et calcule le noyau de l’« intégrale de Cauchy » sur une courbe lipschitzienne (1977). Professeur au MIT puis à Chicago, il reçoit la médaille nationale des Sciences (1991) et le prix Wolf (1989).',
         theoryId: 'anc-analyse-harmonique',
       },
       {
@@ -1906,7 +2252,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         name: 'Charles Fefferman',
         years: [1949, null],
         origin: 'Princeton',
-        bio: 'Enfant prodige, professeur titulaire à Chicago à vingt-deux ans puis à Princeton, Fefferman démontre avec Stein la dualité H¹–BMO (1971) et résout la convergence presque partielle des séries de Fourier en dimension 1. Médaille Fields 1978, il travaille ensuite sur les équations de la mécanique quantique et la stabilité de la matière (avec Lieb), et rédige la description officielle du problème Navier–Stokes pour l’Institut Clay.',
+        bio: 'Enfant prodige, professeur titulaire à Chicago à vingt-deux ans puis à Princeton, Fefferman démontre avec Stein la dualité H¹–BMO (1971) et donne une nouvelle démonstration du théorème de Carleson sur la convergence presque partout des séries de Fourier. Médaille Fields 1978, il travaille ensuite sur les équations de la mécanique quantique et la stabilité de la matière (avec Lieb), et rédige la description officielle du problème Navier–Stokes pour l’Institut Clay.',
         theoryId: 'anc-analyse-harmonique',
       },
       {
@@ -1938,7 +2284,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         name: 'Terence Tao',
         years: [1975, null],
         origin: 'Los Angeles',
-        bio: 'Né à Adélaïde, docteur à Princeton à vingt et un ans chez Elias Stein, Tao est professeur à l’UCLA. Théorème de Green–Tao (2004), théorie des ensembles de restriction, solveurs d’équations dispersives, réfutation de la conjecture d’Orbit d’Erdős (2015) et blog de recherche devenu institution : sa production couvre une dizaine de domaines. Médaille Fields 2006, prix Breakthrough 2014.',
+        bio: 'Né à Adélaïde, docteur à Princeton à vingt et un ans chez Elias Stein, Tao est professeur à l’UCLA. Théorème de Green–Tao (2004), théorie des ensembles de restriction, solveurs d’équations dispersives, résolution du problème de la discrépance d’Erdős (2015) et blog de recherche devenu institution : sa production couvre une dizaine de domaines. Médaille Fields 2006, prix Breakthrough 2014.',
         theoryId: 'anc-analyse-harmonique',
       },
     ],
@@ -1978,6 +2324,25 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute solution faible d’une équation elliptique à coefficients uniformément elliptiques mais simplement mesurables est höldérienne : la régularité naît de l’équation seule, sans hypothèse sur les coefficients. C’est la solution du dix-neuvième problème de Hilbert.',
         comment: 'Démontré indépendamment par De Giorgi (1957, par itération sur les niveaux d’énergie) et Nash (1958, par une inégalité de Harnack parabolique), le théorème fonde l’analyse des EDP non linéaires ; l’itération de Moser (1961) en donne la forme canonique. Il justifie l’usage des solutions faibles hérité de Leray et Sobolev.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Hilbert demande en 1900 (dix-neuvième problème) si les solutions des problèmes réguliers du calcul des variations sont nécessairement analytiques. Bernstein (1904), puis Schauder et Morrey dans les années 1930, répondent pour des solutions déjà assez régulières ou en dimension 2 ; manque le passage, en dimension quelconque, des solutions faibles aux solutions höldériennes.',
+            sources: ['gray-hilbert-challenge', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Nash aborde la question lors de son séjour au Courant Institute (1956-1957), dans l’entourage de Nirenberg, sans connaître le travail que De Giorgi mène au même moment en Italie.',
+            sources: ['jackson-nirenberg-interview', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'De Giorgi montre en 1968, par un contre-exemple, que le théorème ne s’étend pas aux systèmes d’équations elliptiques : la régularité des solutions faibles est propre aux équations scalaires, ce qui oriente la théorie des systèmes vers la régularité partielle.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'inegalites-de-gagliardo-nirenberg',
@@ -2022,7 +2387,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'anc-analyse-harmonique',
         kind: 'theoreme',
         statement: 'Le dual de l’espace de Hardy réel H¹ (fonctions dont la fonction maximale est intégrable) est l’espace BMO des fonctions à oscillation moyenne bornée, introduit par John et Nirenberg (1961) ; en particulier les opérateurs de Calderón–Zygmund envoient L^∞ dans BMO.',
-        comment: 'Le résultat donne à l’analyse harmonique son couple d’espaces limites, là où L¹ et L^∞ échouent ; il est la clé du théorème de Fefferman sur la convergence presque partout des séries de Fourier et des estimations de l’intégrale de Cauchy de Calderón. BMO intervient ensuite dans les EDP (problèmes de jauge, Navier–Stokes critique).',
+        comment: 'Le résultat donne à l’analyse harmonique son couple d’espaces limites, là où L¹ et L^∞ échouent ; il est la clé des estimations de l’intégrale de Cauchy de Calderón. BMO intervient ensuite dans les EDP (problèmes de jauge, Navier–Stokes critique).',
       },
       {
         id: 'the-analysis-of-linear-partial-differential-operators',
@@ -2046,6 +2411,25 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'concept',
         statement: 'Une fonction continue est solution de viscosité d’une équation de Hamilton–Jacobi si toute fonction régulière qui la touche par en haut (resp. par en bas) satisfait l’équation avec le bon sens de l’inégalité ; sous des hypothèses générales, il existe une unique telle solution, limite des solutions régularisées par viscosité.',
         comment: 'La notion rend possible l’existence et l’unicité pour des équations entièrement non linéaires sans solution classique ; elle unifie le contrôle optimal, la théorie des jeux différentiels, les fronts de propagation et l’homogénéisation, et a valu à Lions une partie de sa médaille Fields (1994).',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les équations de Hamilton–Jacobi gouvernent la fonction valeur du contrôle optimal et des jeux différentiels ; elles n’ont en général pas de solution classique globale, car leurs caractéristiques se croisent et des points anguleux apparaissent. Pour les lois de conservation, la viscosité évanescente et les solutions entropiques de Kruzhkov (1970) offraient déjà un modèle de sélection de la bonne solution faible.',
+            sources: ['gowers-companion'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Crandall, Evans et Lions simplifient la définition dès 1984 ; Jensen (1988) puis Ishii (1989) établissent l’unicité pour les équations du second ordre, et le « User’s guide » de Crandall, Ishii et Lions (1992) fixe la théorie.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Les solutions de viscosité deviennent l’un des fils de l’œuvre de Lions, jusqu’aux jeux à champ moyen introduits avec Jean-Michel Lasry en 2006, dont l’une des deux équations est de type Hamilton–Jacobi–Bellman.',
+            sources: ['mactutor'],
+          },
+        ],
       },
       {
         id: 'methode-de-bourgain-nls',
@@ -2090,6 +2474,30 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour l’équation de Vlasov–Poisson des plasmas, toute perturbation suffisamment régulière d’un équilibre stable s’amortit sans dissipation, par mélange dans l’espace des phases : le champ électrique décroît exponentiellement, comme Landau l’avait prédit en 1946 dans le régime linéarisé.',
         comment: 'Prépublié en 2009 et publié aux Acta Mathematica (2011), le résultat clôt une question ouverte depuis soixante ans et inaugure l’étude rigoureuse de la turbulence faible en théorie cinétique. La preuve, dont Villani tire le récit Théorème vivant, a été partagée en temps réel sur son blog et par courriel.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’équation de Vlasov (1938) décrit un plasma sans collisions ; en 1946, Landau montre que, dans sa version linéarisée, les oscillations du champ électrique s’amortissent sans dissipation, effet observé expérimentalement dans les années 1960. Sa persistance en régime non linéaire, où les perturbations peuvent se répondre par des « échos », restait sans démonstration.',
+            sources: ['villani-theoreme-vivant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Villani et Clément Mouhot viennent de la théorie cinétique de l’équation de Boltzmann, où Villani a établi avec Laurent Desvillettes des résultats de convergence vers l’équilibre ; Théorème vivant relate le travail qui mène de leurs premières discussions à la prépublication de 2009.',
+            sources: ['villani-theoreme-vivant', 'mactutor'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Villani reçoit en 2010 la médaille Fields, au titre de ses démonstrations de l’amortissement Landau non linéaire et de la convergence vers l’équilibre pour l’équation de Boltzmann.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’article, de plus de cent pages, montre que l’analyse des EDP peut traiter rigoureusement un phénomène de physique des plasmas jusque-là admis sur la foi du calcul linéarisé et de l’expérience.',
+            sources: ['villani-theoreme-vivant'],
+          },
+        ],
       },
     ],
     sources: ['gowers-companion', 'villani-theoreme-vivant', 'jackson-nirenberg-interview', 'hairer-wanner-analysis', 'mactutor'],
@@ -2346,6 +2754,6 @@ export const MATHEMATICIAN_LINKS_CONTEMPORAIN_A: MathematicianLink[] = [
   { source: 'douady', target: 'yoccoz', kind: 'filiation', note: 'Yoccoz se forme au séminaire de dynamique holomorphe de Douady à Orsay et prolonge ses méthodes (puzzles, renormalisation).', epistemic: 'fait' },
   // — analyse contemporaine —
   { source: 'calderon', target: 'stein', kind: 'influence', note: 'Stein, élève de Zygmund, hérite à Princeton du programme des intégrales singulières ouvert par Calderón à Chicago.', epistemic: 'interpretation' },
-  { source: 'stein', target: 'fefferman', kind: 'filiation', note: 'Thèse de Princeton dirigée par Stein (1974) ; la dualité H¹–BMO est cosignée maître et élève.', epistemic: 'fait' },
+  { source: 'stein', target: 'fefferman', kind: 'filiation', note: 'Thèse de Princeton dirigée par Stein (1969) ; la dualité H¹–BMO est cosignée maître et élève.', epistemic: 'fait' },
   { source: 'lions-pierre-louis', target: 'villani', kind: 'filiation', note: 'Thèse de l’ENS dirigée par Pierre-Louis Lions (1998) ; Villani prolonge le programme cinétique et variationnel de son maître.', epistemic: 'fait' },
 ];

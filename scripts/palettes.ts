@@ -1,22 +1,20 @@
 /**
- * Régénère les palettes des 58 domaines pour la DA « ardoise et craie » :
- * une teinte pastel de craie par continent, avec une variation déterministe
- * par domaine (hachage de l'id). Réécrit le littéral `palette: { … }` dans
- * les fichiers d'ère ET dans docs/corpus/BRIEF.md (source de vérité).
+ * Régénère les palettes des 58 domaines pour la DA « fleuves et confluences » :
+ * papier clair, encre et lavis d'aquarelle. Une famille de teintes par champ
+ * (la même que celle de son fleuve), avec une variation déterministe par domaine
+ * (hachage de l'id). Réécrit le littéral `palette: { … }` dans les fichiers
+ * d'ère ET dans docs/corpus/BRIEF.md (source de vérité).
  *
- * Usage : npx tsx scripts/chalk-palettes.ts
+ *   fill   : lavis pâle du lac (aplat)
+ *   stroke : encre teintée (contour, libellés)
+ *   accent : pigment saturé (halo, marqueurs)
+ *
+ * Usage : npx tsx scripts/palettes.ts
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { DOMAINS } from '../src/data';
 import type { ContinentId } from '../src/data/types';
-
-const HUE: Record<ContinentId, number> = {
-  nombres: 45, // jaune craie
-  formes: 200, // bleu craie
-  analyse: 275, // violet craie
-  hasard: 22, // orange craie
-  fondements: 130, // vert craie
-};
+import { FIELD_HUE } from '../src/map/fieldColors';
 
 /** Petit hachage stable (FNV-1a) pour un jitter déterministe. */
 function hash(s: string): number {
@@ -49,22 +47,22 @@ interface Palette {
   accent: string;
 }
 
-function chalkPalette(id: string, continent: ContinentId): Palette {
+function watercolorPalette(id: string, continent: ContinentId): Palette {
   const j = hash(id);
-  const dh = (j % 17) - 8; // ±8° de teinte
-  const dl = ((j >> 5) % 7) - 3; // ±3 points de luminosité sur le trait
-  const h = HUE[continent] + dh;
+  const dh = (j % 15) - 7; // ±7° de teinte
+  const dl = ((j >> 5) % 5) - 2; // ±2 points de luminosité
+  const h = FIELD_HUE[continent] + dh;
   return {
-    fill: hsl(h, 24, 12),
-    stroke: hsl(h, 42, 71 + dl),
-    accent: hsl(h, 62, 85 + dl),
+    fill: hsl(h, 46, 89 + dl),
+    stroke: hsl(h, 48, 31 + dl),
+    accent: hsl(h, 60, 46 + dl),
   };
 }
 
 // ——— calcul des palettes ———
 const palettes = new Map<string, Palette>();
 for (const d of DOMAINS) {
-  palettes.set(d.id, chalkPalette(d.id, d.continents[0]));
+  palettes.set(d.id, watercolorPalette(d.id, d.continents[0]));
 }
 
 // ——— application aux fichiers d'ère ———
@@ -115,8 +113,8 @@ for (let i = 0; i < lines.length; i++) {
 }
 writeFileSync(briefPath, lines.join('\n'));
 
-console.log(`palettes craie appliquées : ${appliedData} domaines (données), ${appliedBrief} lignes (brief)`);
-for (const c of Object.keys(HUE) as ContinentId[]) {
+console.log(`palettes aquarelle appliquées : ${appliedData} domaines (données), ${appliedBrief} lignes (brief)`);
+for (const c of Object.keys(FIELD_HUE) as ContinentId[]) {
   const n = DOMAINS.filter((d) => d.continents[0] === c).length;
-  console.log(`  ${c} : ${n} domaines, teinte de base ${HUE[c]}°`);
+  console.log(`  ${c} : ${n} domaines, teinte de base ${FIELD_HUE[c]}°`);
 }
