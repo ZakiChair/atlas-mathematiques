@@ -17,7 +17,7 @@ type Nav = (sel: Selection | null) => void;
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mb-5">
-      <h3 className="font-serif text-lg border-b border-white/10 pb-1 mb-2">{title}</h3>
+      <h3 className="section-title">{title}</h3>
       {children}
     </section>
   );
@@ -29,7 +29,7 @@ function SourceList({ order, data }: { order: string[]; data: AtlasData }) {
     <ol className="list-decimal pl-5 space-y-1.5 text-sm">
       {order.map((sid) => {
         const s: Source | undefined = data.sourceById[sid];
-        if (!s) return <li key={sid} className="text-[#a39c8c]">{sid}</li>;
+        if (!s) return <li key={sid} className="text-[#9ba39c]">{sid}</li>;
         return (
           <li key={sid}>
             {s.author}, <em>{s.title}</em>
@@ -39,7 +39,7 @@ function SourceList({ order, data }: { order: string[]; data: AtlasData }) {
             {s.url ? (
               <>
                 {' '}
-                <a href={s.url} target="_blank" rel="noreferrer" className="text-[#8fd3ff] underline">
+                <a href={s.url} target="_blank" rel="noreferrer" className="text-[#9fc8e0] underline">
                   {t('panel.sourceLink')}
                 </a>
               </>
@@ -54,8 +54,8 @@ function SourceList({ order, data }: { order: string[]; data: AtlasData }) {
 function ResultLine({ r, nav }: { r: Result; nav: Nav }) {
   const { lang } = useLang();
   return (
-    <button className="text-sm text-left text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'result', id: r.id })}>
-      {r.title} <span className="text-[#a39c8c]">({formatYear(r.year, lang, r.yearApprox)})</span>
+    <button className="text-sm text-left text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'result', id: r.id })}>
+      {r.title} <span className="text-[#9ba39c]">({formatYear(r.year, lang, r.yearApprox)})</span>
     </button>
   );
 }
@@ -72,9 +72,9 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
     <>
       <div className="h-1.5 rounded-full mb-4" style={{ background: `linear-gradient(90deg, ${m.map.palette.fill}, ${m.map.palette.accent})` }} />
       <h2 className="font-serif text-3xl leading-tight">{m.name}</h2>
-      {m.altNames && m.altNames.length > 0 && <p className="text-xs text-[#a39c8c] mt-0.5">{t('panel.also')} {m.altNames.join(' · ')}</p>}
-      <p className="font-serif italic text-[#cfc8b8] mt-1">{m.tagline}</p>
-      <p className="text-sm text-[#a39c8c] mt-1">
+      {m.altNames && m.altNames.length > 0 && <p className="text-xs text-[#9ba39c] mt-0.5">{t('panel.also')} {m.altNames.join(' · ')}</p>}
+      <p className="font-serif italic text-[#d6d8cc] mt-1">{m.tagline}</p>
+      <p className="text-sm text-[#9ba39c] mt-1">
         {formatPeriod(m.period, lang)} · {m.places.join(', ')} ·{' '}
         {m.continents.map((r) => data.continents.find((x) => x.id === r)?.name ?? r).join(', ')}
       </p>
@@ -95,7 +95,7 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
         <ol className="border-l border-white/15 pl-4 space-y-1.5">
           {m.keyDates.map((k, i) => (
             <li key={i} className="text-sm">
-              <span className="font-serif text-[#e8d9a8] mr-2 whitespace-nowrap">{formatYear(k.year, lang)}</span>
+              <span className="font-serif text-[#e8c76a] mr-2 whitespace-nowrap">{formatYear(k.year, lang)}</span>
               {k.text}
             </li>
           ))}
@@ -105,8 +105,8 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
         <div className="grid gap-2">
           {m.theories.map((s) => (
             <button key={s.id} className="text-left glass p-3 hover:border-white/30 transition" onClick={() => nav({ kind: 'theory', id: s.id })}>
-              <div className="font-serif text-base">{s.name} <span className="text-xs text-[#a39c8c]">{s.period ? formatPeriod(s.period, lang) : ''}</span></div>
-              <p className="text-xs text-[#a39c8c] mt-0.5">{s.summary}</p>
+              <div className="font-serif text-base">{s.name} <span className="text-xs text-[#9ba39c]">{s.period ? formatPeriod(s.period, lang) : ''}</span></div>
+              <p className="text-xs text-[#9ba39c] mt-0.5">{s.summary}</p>
               <div className="flex flex-wrap gap-1 mt-1.5">
                 {s.traits.slice(0, 4).map((tr) => (
                   <span key={tr} className="chip !text-[0.65rem] !py-0">{tr}</span>
@@ -122,7 +122,7 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
             <li key={f.id}>
               <button className="w-full text-left text-sm px-2 py-1.5 rounded-lg hover:bg-white/5 flex justify-between gap-2" onClick={() => nav({ kind: 'mathematician', id: f.id })}>
                 <span>{f.name}</span>
-                <span className="text-xs text-[#a39c8c] text-right">
+                <span className="text-xs text-[#9ba39c] text-right">
                   {formatLifespan(f.years, lang, f.yearsApprox)} · {f.origin}
                 </span>
               </button>
@@ -149,10 +149,10 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
               return (
                 <li key={i} className="text-sm">
                   <div className="flex items-center gap-1.5">
-                    <Icon size={14} className="text-[#a39c8c] shrink-0" />
-                    <span className="text-xs uppercase tracking-wider text-[#a39c8c]">{t(LINK_KIND_I18N[l.kind])}</span>
+                    <Icon size={14} className="text-[#9ba39c] shrink-0" />
+                    <span className="text-xs uppercase tracking-wider text-[#9ba39c]">{t(LINK_KIND_I18N[l.kind])}</span>
                     {other && (
-                      <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'domain', id: other.id })}>
+                      <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'domain', id: other.id })}>
                         {other.name}
                       </button>
                     )}
@@ -160,8 +160,8 @@ function DomainView({ m, nav }: { m: Domain; nav: Nav }) {
                       {l.epistemic === 'fait' ? t('statement.fact') : t('statement.interp')}
                     </span>
                   </div>
-                  <div className="pl-5 text-[#cfc8b8]">{l.label}</div>
-                  <div className="pl-5 text-xs text-[#a39c8c]">{l.note}</div>
+                  <div className="pl-5 text-[#d6d8cc]">{l.label}</div>
+                  <div className="pl-5 text-xs text-[#9ba39c]">{l.note}</div>
                 </li>
               );
             })}
@@ -182,7 +182,7 @@ function TheoryView({ s, m, nav }: { s: Theory; m: Domain; nav: Nav }) {
   return (
     <>
       <h2 className="font-serif text-2xl">{s.name}</h2>
-      {s.period && <p className="text-sm text-[#a39c8c]">{formatPeriod(s.period, lang)}</p>}
+      {s.period && <p className="text-sm text-[#9ba39c]">{formatPeriod(s.period, lang)}</p>}
       <p className="text-sm mt-2">{s.summary}</p>
       <div className="flex flex-wrap gap-1.5 mt-3">
         {s.traits.map((tr) => (
@@ -194,7 +194,7 @@ function TheoryView({ s, m, nav }: { s: Theory; m: Domain; nav: Nav }) {
           <ul className="space-y-1">
             {mathematicians.map((f) => (
               <li key={f.id}>
-                <button className="text-sm text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'mathematician', id: f.id })}>
+                <button className="text-sm text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'mathematician', id: f.id })}>
                   {f.name}
                 </button>
               </li>
@@ -237,14 +237,14 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
   return (
     <>
       <h2 className="font-serif text-2xl">{f.name}</h2>
-      <p className="text-sm text-[#a39c8c]">
+      <p className="text-sm text-[#9ba39c]">
         {formatLifespan(f.years, lang, f.yearsApprox)} · {f.origin}
       </p>
       <p className="text-sm mt-2">{f.bio}</p>
       {theory && (
         <p className="text-sm mt-2">
           {t('panel.theory')}{' '}
-          <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'theory', id: theory.id })}>
+          <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'theory', id: theory.id })}>
             {theory.name}
           </button>
         </p>
@@ -253,8 +253,8 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
         <Section title={t('panel.results')}>
           {resultsByDomain.map(({ m: gm, results }) => (
             <div key={gm.id} className="mb-2">
-              <div className="text-xs uppercase tracking-wider text-[#a39c8c] mb-0.5">
-                <button className="hover:text-[#e8d9a8]" onClick={() => nav({ kind: 'domain', id: gm.id })}>
+              <div className="text-xs uppercase tracking-wider text-[#9ba39c] mb-0.5">
+                <button className="hover:text-[#e8c76a]" onClick={() => nav({ kind: 'domain', id: gm.id })}>
                   {gm.name}
                 </button>
               </div>
@@ -276,8 +276,8 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
             {network.map(({ link, other, home: oh, outgoing }) =>
               other ? (
                 <li key={`${link.source}|${link.target}|${link.kind}`} className="text-sm">
-                  <span className="text-xs uppercase tracking-wider text-[#a39c8c] mr-2">{t(MATHEMATICIAN_LINK_KIND_I18N[link.kind])}</span>
-                  <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'mathematician', id: other.id })}>
+                  <span className="text-xs uppercase tracking-wider text-[#9ba39c] mr-2">{t(MATHEMATICIAN_LINK_KIND_I18N[link.kind])}</span>
+                  <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'mathematician', id: other.id })}>
                     {other.name}
                   </button>
                   {link.epistemic && (
@@ -288,16 +288,16 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
                   {oh && oh.id !== home.id && (
                     <>
                       {' '}
-                      <span className="text-[#a39c8c]">
+                      <span className="text-[#9ba39c]">
                         (
-                        <button className="hover:text-[#e8d9a8]" onClick={() => nav({ kind: 'domain', id: oh.id })}>
+                        <button className="hover:text-[#e8c76a]" onClick={() => nav({ kind: 'domain', id: oh.id })}>
                           {oh.name}
                         </button>
                         )
                       </span>
                     </>
                   )}
-                  <span className="block text-[#cfc8b8] pl-2 border-l border-white/10 mt-0.5">
+                  <span className="block text-[#d6d8cc] pl-2 border-l border-white/10 mt-0.5">
                     {!outgoing && link.kind !== 'collaboration' && link.kind !== 'affinite' ? `${other.name} → ${f.name} : ` : ''}
                     {link.note}
                   </span>
@@ -309,7 +309,7 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
       )}
       <p className="text-sm">
         {t('panel.domain')}{' '}
-        <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'domain', id: home.id })}>
+        <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'domain', id: home.id })}>
           {home.name}
         </button>
       </p>
@@ -319,7 +319,7 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
           {also.map((a, i) => (
             <span key={a.id}>
               {i > 0 && ', '}
-              <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'domain', id: a.id })}>
+              <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'domain', id: a.id })}>
                 {a.name}
               </button>
             </span>
@@ -332,22 +332,44 @@ function MathematicianView({ f, r, nav }: { f: Mathematician; r: Resolved; nav: 
 
 function ResultView({ f, r, nav }: { f: Result; r: Resolved; nav: Nav }) {
   const { t, lang } = useLang();
+  const data = useData();
   const m = r.domain!;
   const author = r.mathematician;
   const theory = f.theoryId ? m.theories.find((s) => s.id === f.theoryId) : undefined;
   const also = m.results.filter((x) => x.id !== f.id && (f.theoryId ? x.theoryId === f.theoryId : true)).slice(0, 3);
+  // « Ce qui y a conduit » : les repères du domaine qui précèdent, et les héritages reçus
+  const before = m.keyDates.filter((k) => k.year < f.year).slice(-2);
+  const heritage = data.links.filter((l) => l.target === m.id && (l.kind === 'filiation' || l.kind === 'influence')).slice(0, 3);
+  // « Ce que ça a ouvert » : les repères qui suivent, et ce que le domaine a transmis
+  const after = m.keyDates.filter((k) => k.year > f.year).slice(0, 2);
+  const legacy = data.links.filter((l) => l.source === m.id).slice(0, 3);
+  const linkLine = (l: (typeof data.links)[number], outgoing: boolean) => {
+    const otherId = outgoing ? l.target : l.source;
+    const other = data.domainById[otherId];
+    return (
+      <li key={`${l.source}|${l.target}|${l.kind}`} className="text-sm">
+        <span className="text-xs uppercase tracking-wider text-[#9ba39c] mr-1.5">{t(LINK_KIND_I18N[l.kind])}</span>
+        {other && (
+          <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'domain', id: other.id })}>
+            {other.name}
+          </button>
+        )}
+        <span className="block text-[#d6d8cc] pl-2 border-l border-white/10 mt-0.5">{l.label}</span>
+      </li>
+    );
+  };
   return (
     <>
       <div className="min-w-0">
         <div className="flex items-center gap-2 flex-wrap mb-1.5">
           <KindBadge kind={f.kind} />
-          <span className="text-sm text-[#a39c8c]">{formatYear(f.year, lang, f.yearApprox)}</span>
+          <span className="text-sm text-[#9ba39c]">{formatYear(f.year, lang, f.yearApprox)}</span>
         </div>
         <h2 className="font-serif text-2xl leading-tight">{f.title}</h2>
-        {f.altTitle && <p className="font-serif italic text-[#a39c8c]">{f.altTitle}</p>}
-        <p className="text-sm text-[#a39c8c] mt-1">
+        {f.altTitle && <p className="font-serif italic text-[#9ba39c]">{f.altTitle}</p>}
+        <p className="text-sm text-[#9ba39c] mt-1">
           {author ? (
-            <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'mathematician', id: author.id })}>
+            <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'mathematician', id: author.id })}>
               {f.authorName}
             </button>
           ) : (
@@ -357,7 +379,7 @@ function ResultView({ f, r, nav }: { f: Result; r: Resolved; nav: Nav }) {
         {theory && (
           <p className="text-sm mt-1">
             {t('panel.theory')}{' '}
-            <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'theory', id: theory.id })}>
+            <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'theory', id: theory.id })}>
               {theory.name}
             </button>
           </p>
@@ -365,15 +387,45 @@ function ResultView({ f, r, nav }: { f: Result; r: Resolved; nav: Nav }) {
       </div>
       {f.statement && (
         <Section title={t('panel.statement')}>
-          <p className="text-sm leading-relaxed text-[#cfc8b8] font-serif text-[0.95rem] border-l-2 border-[#e8d9a8]/40 pl-3">{f.statement}</p>
+          <p className="text-sm leading-relaxed text-[#d6d8cc] font-serif text-[0.95rem] border-l-2 border-[#e8c76a]/40 pl-3">{f.statement}</p>
         </Section>
       )}
       <Section title={t('panel.place')}>
         <p className="text-sm leading-relaxed">{f.comment}</p>
       </Section>
+      {(before.length > 0 || heritage.length > 0) && (
+        <Section title={t('panel.resultRoots')}>
+          {before.length > 0 && (
+            <ol className="border-l border-white/15 pl-4 space-y-1.5 mb-2">
+              {before.map((k, i) => (
+                <li key={i} className="text-sm">
+                  <span className="font-serif text-[#e8c76a] mr-2 whitespace-nowrap">{formatYear(k.year, lang)}</span>
+                  {k.text}
+                </li>
+              ))}
+            </ol>
+          )}
+          <ul className="space-y-2">{heritage.map((l) => linkLine(l, false))}</ul>
+        </Section>
+      )}
+      {(after.length > 0 || legacy.length > 0) && (
+        <Section title={t('panel.resultLegacy')}>
+          {after.length > 0 && (
+            <ol className="border-l border-white/15 pl-4 space-y-1.5 mb-2">
+              {after.map((k, i) => (
+                <li key={i} className="text-sm">
+                  <span className="font-serif text-[#e8c76a] mr-2 whitespace-nowrap">{formatYear(k.year, lang)}</span>
+                  {k.text}
+                </li>
+              ))}
+            </ol>
+          )}
+          <ul className="space-y-2">{legacy.map((l) => linkLine(l, true))}</ul>
+        </Section>
+      )}
       <p className="text-sm mt-2">
         {t('panel.domain')}{' '}
-        <button className="text-[#e8d9a8] hover:underline" onClick={() => nav({ kind: 'domain', id: m.id })}>
+        <button className="text-[#e8c76a] hover:underline" onClick={() => nav({ kind: 'domain', id: m.id })}>
           {m.name}
         </button>
       </p>

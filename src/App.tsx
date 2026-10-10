@@ -12,6 +12,7 @@ import { ATLAS_NODES } from './data/nodes';
 import { TopBar } from './ui/TopBar';
 import { FiltersDrawer, computeDimmed } from './ui/FiltersDrawer';
 import { Legend } from './ui/Legend';
+import { VisionPanel } from './ui/VisionPanel';
 import { MethodModal } from './ui/MethodModal';
 import { IntroOverlay } from './ui/IntroOverlay';
 import { Panel } from './ui/Panel';
@@ -134,6 +135,8 @@ function AtlasApp() {
         dimmedIds={dimmedIds}
         selection={state.selection}
         relatedIds={relatedIds}
+        vision={state.vision}
+        naturesKind={state.naturesKind}
         onSelect={navigate}
         onLinkClick={onLinkClick}
         controllerRef={controllerRef}
@@ -144,6 +147,7 @@ function AtlasApp() {
       <TopBar onNavigate={navigate} />
       <FiltersDrawer visibleCount={visibleCount} />
       <Legend />
+      <VisionPanel />
       <MethodModal />
       <Panel nav={(sel) => navigate(sel, true)} />
       {popover && (

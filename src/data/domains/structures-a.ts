@@ -24,7 +24,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1890, end: 1945 },
     continents: ['nombres'],
     places: ['Göttingen', 'Berlin', 'Hambourg', 'Amsterdam'],
-    map: { x: 4950, y: 430, size: 3, palette: { fill: '#3b2e10', stroke: '#d4b880', accent: '#f7dc8c' } },
+    map: { x: 4950, y: 430, size: 3, palette: { fill: '#262317', stroke: '#d0c18b', accent: '#eee1b5' } },
     tagline: 'Des invariants de Hilbert aux anneaux de Noether : l’algèbre cesse d’être un calcul pour devenir l’étude des structures.',
     summary:
       'Entre le théorème de la base de Hilbert (1890) et la Moderne Algebra de van der Waerden (1930), l’algèbre change d’objet : au lieu de résoudre des équations ou de calculer des invariants, elle étudie des systèmes définis par des axiomes : corps, anneaux, idéaux, modules, algèbres. Steinitz classe les corps abstraits (1910), Wedderburn décrit la structure des algèbres (1908), Emmy Noether réécrit la théorie des idéaux à partir de la condition de chaîne ascendante (1921) et Artin refonde la théorie de Galois sur les automorphismes. Née à Göttingen et à Hambourg, dispersée par l’exil après 1933, cette « algèbre moderne » fournit le langage que la topologie, la géométrie algébrique et la théorie des nombres adopteront.',
@@ -328,7 +328,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1896, end: 1960 },
     continents: ['nombres'],
     places: ['Göttingen', 'Cambridge', 'Tokyo', 'Hambourg', 'Moscou', 'Princeton', 'Oslo'],
-    map: { x: 5600, y: 600, size: 2, palette: { fill: '#3d3014', stroke: '#d9b85a', accent: '#ffe08a' } },
+    map: { x: 5600, y: 600, size: 2, palette: { fill: '#262317', stroke: '#d0c18b', accent: '#eee1b5' } },
     tagline: 'Corps de classes à Tokyo et Hambourg, méthode du cercle à Cambridge : la théorie des nombres se dédouble.',
     summary:
       'Après le Zahlbericht de Hilbert (1897) et la Geometrie der Zahlen de Minkowski (1896), la théorie des nombres suit deux voies. La voie algébrique décrit toutes les extensions abéliennes d’un corps de nombres : Takagi (1920) puis Artin (1927) achèvent la théorie du corps de classes, que Hasse complète par le principe local-global. La voie analytique, née à Cambridge de la rencontre de Hardy, Littlewood et Ramanujan, invente la méthode du cercle (1918) pour compter partitions et sommes de puissances ; Vinogradov la transforme en théorie des sommes trigonométriques et Selberg lui adjoint le crible, la preuve élémentaire du théorème des nombres premiers (1949) et la formule des traces (1956). Les deux voies se rejoindront dans le programme de Langlands.',
@@ -666,7 +666,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1895, end: 1960 },
     continents: ['formes'],
     places: ['Paris', 'Bonn', 'Moscou', 'Princeton', 'Zurich', 'Varsovie'],
-    map: { x: 4950, y: 1300, size: 3, palette: { fill: '#1f3a3a', stroke: '#7fd1c8', accent: '#5cffe6' } },
+    map: { x: 4950, y: 1300, size: 3, palette: { fill: '#172326', stroke: '#7db9ca', accent: '#a4dbea' } },
     tagline: 'Compter les trous plutôt que mesurer les longueurs : la forme sans métrique devient une science.',
     summary:
       'Entre l’Analysis situs de Poincaré (1895) et les axiomes d’Eilenberg et Steenrod (1945), la topologie naît et s’organise. Poincaré invente l’homologie simpliciale et laisse la conjecture qui porte son nom ; Brouwer établit le point fixe et l’invariance de la dimension (1911) ; Hausdorff (1914) et l’école de Moscou (Alexandrov, Urysohn) définissent les espaces topologiques et la dimension ; Lefschetz, Alexander, Hopf, puis Hurewicz (1935) et Whitney passent de l’homologie aux groupes d’homotopie, aux fibrations et aux classes caractéristiques. Noether y introduit les groupes abstraits : la topologie devient algébrique, puis axiomatique.',
@@ -999,7 +999,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1890, end: 1955 },
     continents: ['formes', 'nombres'],
     places: ['Rome', 'Bologne', 'Baltimore', 'Cambridge', 'Chicago', 'São Paulo'],
-    map: { x: 5600, y: 1550, size: 2, palette: { fill: '#143b32', stroke: '#86d6b8', accent: '#8fffd6' } },
+    map: { x: 5600, y: 1550, size: 2, palette: { fill: '#172026', stroke: '#79a9c8', accent: '#a0cce9' } },
     tagline: 'Des surfaces de Castelnuovo et Enriques aux corps finis de Weil : la géométrie algébrique refait ses fondements.',
     summary:
       'Héritiers de Cremona, les géomètres italiens Castelnuovo, Enriques et Severi construisent entre 1890 et 1920 la théorie des surfaces algébriques : critère de rationalité, classification d’Enriques, fonctions de plusieurs variables complexes. Leur intuition superbe mais leurs démonstrations fragiles provoquent une refonte : Zariski et van der Waerden fondent la géométrie sur l’algèbre commutative, Hodge la rattache à l’analyse harmonique, et André Weil, dans les Foundations (1946), la libère des nombres complexes pour démontrer l’hypothèse de Riemann des courbes sur les corps finis (1948) et formuler les conjectures (1949) qui conduiront à Grothendieck et à Deligne.',
@@ -1266,7 +1266,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1900, end: 1955 },
     continents: ['analyse'],
     places: ['Paris', 'Stockholm', 'Göttingen', 'Budapest', 'Lwów', 'Princeton'],
-    map: { x: 4950, y: 2200, size: 3, palette: { fill: '#2a1f4a', stroke: '#a08fe0', accent: '#c69cff' } },
+    map: { x: 4950, y: 2200, size: 3, palette: { fill: '#201726', stroke: '#b58bd0', accent: '#d8b5ee' } },
     tagline: 'Une fonction devient un point : mesure, intégrale et espaces abstraits donnent à l’analyse son langage du siècle.',
     summary:
       'Entre l’intégrale de Lebesgue (1902) et la Théorie des distributions de Schwartz (1950), l’analyse change d’échelle : les fonctions deviennent les points d’espaces vectoriels que l’on étudie pour eux-mêmes. Fredholm traite les équations intégrales comme des systèmes linéaires de dimension infinie (1903) ; Fréchet axiomatise les espaces métriques (1906) ; Riesz représente les formes linéaires et fonde l’école hongroise ; Banach et Steinhaus, à Lwów, dégagent les théorèmes généraux des espaces normés ; von Neumann axiomatise les espaces de Hilbert pour la mécanique quantique (1929). La Théorie des opérations linéaires (1932) et les distributions achèvent cette refonte, au service des probabilités et des équations aux dérivées partielles.',
@@ -1583,7 +1583,7 @@ export const STRUCTURES_A: Domain[] = [
     period: { start: 1900, end: 1960 },
     continents: ['analyse'],
     places: ['Paris', 'Padoue', 'Göttingen', 'Zurich', 'Moscou', 'New York'],
-    map: { x: 5600, y: 2450, size: 2, palette: { fill: '#2f2a44', stroke: '#9d94d6', accent: '#ff8fb1' } },
+    map: { x: 5600, y: 2450, size: 2, palette: { fill: '#201726', stroke: '#c1a1d9', accent: '#e4cdf3' } },
     tagline: 'Du calcul absolu de Ricci aux solutions faibles de Leray : les équations de la physique deviennent une théorie.',
     summary:
       'Au début du siècle, les équations aux dérivées partielles sortent de leur cas par cas : Hadamard définit les problèmes bien posés (1902), le calcul différentiel absolu de Ricci et Levi-Civita (1900) donne à la relativité générale son langage, et le théorème de Noether (1918) relie symétries et lois de conservation. Göttingen, avec Weyl, Hilbert et Courant, unit analyse et physique ; dispersée en 1933, l’école renaît à New York autour de Courant. Schauder (1930), Douglas (1931), Leray (1934) et Sobolev (1936-1938) créent les outils de l’analyse non linéaire : points fixes, solutions faibles, espaces fonctionnels et faisceaux.',

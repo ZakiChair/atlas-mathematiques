@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useReducer, type Dispatch, type ReactNode } from 'react';
-import type { LinkKind, NodeKind, ContinentId } from '../data/types';
+import type { LinkKind, NodeKind, ContinentId, ResultKind } from '../data/types';
 import { TIME_BOUNDS } from '../data/eras';
 
 export interface Selection {
@@ -16,16 +16,23 @@ export interface Filters {
   transversalOnly: boolean;
 }
 
+/** Modes de lecture superposés à la carte. */
+export type VisionId = 'structure' | 'filiations' | 'reseaux' | 'natures';
+
 export interface UiState {
   filtersOpen: boolean;
   legendOpen: boolean;
   methodOpen: boolean;
+  visionOpen: boolean;
   introSeen: boolean;
 }
 
 export interface AtlasState {
   selection: Selection | null;
   filters: Filters;
+  vision: VisionId;
+  /** Vision « natures » : ne garder qu'une nature (null = toutes). */
+  naturesKind: ResultKind | null;
   ui: UiState;
 }
 
@@ -38,7 +45,9 @@ export type Action =
   | { type: 'toggle-facts-only' }
   | { type: 'toggle-transversal-only' }
   | { type: 'reset-filters' }
-  | { type: 'toggle-ui'; key: 'filtersOpen' | 'legendOpen' | 'methodOpen' }
+  | { type: 'set-vision'; vision: VisionId }
+  | { type: 'set-natures-kind'; kind: ResultKind | null }
+  | { type: 'toggle-ui'; key: 'filtersOpen' | 'legendOpen' | 'methodOpen' | 'visionOpen' }
   | { type: 'close-ui' }
   | { type: 'intro-seen' };
 
@@ -55,7 +64,9 @@ export function initialState(): AtlasState {
       factsOnly: false,
       transversalOnly: false,
     },
-    ui: { filtersOpen: false, legendOpen: false, methodOpen: false, introSeen },
+    vision: 'structure',
+    naturesKind: null,
+    ui: { filtersOpen: false, legendOpen: false, methodOpen: false, visionOpen: false, introSeen },
   };
 }
 
@@ -97,10 +108,14 @@ export function reducer(state: AtlasState, action: Action): AtlasState {
           transversalOnly: false,
         },
       };
+    case 'set-vision':
+      return { ...state, vision: action.vision, naturesKind: action.vision === 'natures' ? state.naturesKind : null };
+    case 'set-natures-kind':
+      return { ...state, naturesKind: action.kind };
     case 'toggle-ui':
       return { ...state, ui: { ...state.ui, [action.key]: !state.ui[action.key] } };
     case 'close-ui':
-      return { ...state, ui: { ...state.ui, filtersOpen: false, legendOpen: false, methodOpen: false } };
+      return { ...state, ui: { ...state.ui, filtersOpen: false, legendOpen: false, methodOpen: false, visionOpen: false } };
     case 'intro-seen': {
       try {
         localStorage.setItem(INTRO_KEY, '1');

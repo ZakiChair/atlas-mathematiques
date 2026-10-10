@@ -69,7 +69,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1947, end: null },
     continents: ['hasard', 'nombres'],
     places: ['Budapest', 'Toronto', 'Waterloo', 'Urbana', 'Princeton', 'Cambridge', 'MIT'],
-    map: { x: 6250, y: 3000, size: 2, palette: { fill: '#4a2a1a', stroke: '#e0a070', accent: '#ffb86b' } },
+    map: { x: 6250, y: 3000, size: 2, palette: { fill: '#261c17', stroke: '#ca967d', accent: '#eabba4' } },
     tagline: 'Compter sans énumérer, prouver l’existence en tirant au sort, colorier une carte avec douze cents heures de machine.',
     summary:
       'Longtemps tenue pour un recueil de récréations, la combinatoire devient après 1945 une discipline à part entière, portée par l’école hongroise autour de Paul Erdős et par les besoins nouveaux de l’informatique. Trois gestes la caractérisent : la méthode probabiliste, qui établit l’existence d’un objet en montrant qu’un objet tiré au hasard convient presque toujours ; la théorie des graphes structurelle, de Tutte aux mineurs de Robertson et Seymour ; et la combinatoire énumérative et additive, qui, de Rota à Szemerédi et Gowers, relie les dénombrements à l’algèbre et à l’analyse. La démonstration du théorème des quatre couleurs par ordinateur (1976) en fait aussi le lieu d’un débat sur ce qu’est une preuve.',
@@ -417,7 +417,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['hasard'],
     places: ['Princeton', 'Stanford', 'Ithaca', 'Paris', 'Rehovot', 'Genève', 'Warwick'],
-    map: { x: 6950, y: 3250, size: 2, palette: { fill: '#4a1f2a', stroke: '#e08aa0', accent: '#ff8fa3' } },
+    map: { x: 6950, y: 3250, size: 2, palette: { fill: '#261c17', stroke: '#d4aa96', accent: '#f0d0c1' } },
     tagline: 'Des matrices nucléaires aux données massives : le hasard devient géométrie, la statistique devient calcul.',
     summary:
       'Après l’axiomatisation de Kolmogorov, les probabilités se déplacent vers l’étude des phénomènes critiques : matrices aléatoires (la loi du demi-cercle de Wigner, la distribution de Tracy–Widom), percolation et marches aléatoires (Kesten), inégalités de concentration (Talagrand), puis courbes aléatoires conformément invariantes (SLE de Schramm, travaux de Werner et Smirnov) et équations aux dérivées partielles stochastiques singulières (Hairer). La statistique connaît parallèlement une révolution computationnelle : l’analyse exploratoire de Tukey, le bootstrap d’Efron, le Lasso de Tibshirani et l’acquisition comprimée de Donoho, Candès et Tao font du calcul intensif une méthode d’inférence.',
@@ -765,7 +765,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1948, end: null },
     continents: ['hasard', 'nombres'],
     places: ['Murray Hill', 'Stanford', 'MIT', 'Rehovot', 'Seattle', 'Cheltenham'],
-    map: { x: 6600, y: 3560, size: 2, palette: { fill: '#4a1c14', stroke: '#e07a5a', accent: '#ffd23f' } },
+    map: { x: 6600, y: 3560, size: 2, palette: { fill: '#261e17', stroke: '#d1ad8f', accent: '#efd1b9' } },
     tagline: 'Après Shannon, le secret devient un objet mathématique ; après Diffie et Hellman, il se passe de clé partagée.',
     summary:
       'En 1948-1949, Claude Shannon donne à la communication et au secret des fondements mathématiques : l’entropie mesure l’information, et la sécurité parfaite s’énonce comme un théorème. Deux branches s’ensuivent aux laboratoires Bell : les codes correcteurs d’erreurs (Hamming, Reed–Solomon, algorithmes de Berlekamp), qui rendent possible la transmission fiable sur des canaux bruités, et la cryptographie, bouleversée en 1976 par la clé publique de Diffie et Hellman, puis par RSA (1977). À partir de 1982, Goldwasser, Micali et leurs successeurs refondent la discipline sur la théorie de la complexité : sécurité prouvable, chiffrement probabiliste, preuves à divulgation nulle de connaissance.',
@@ -1098,7 +1098,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1959, end: null },
     continents: ['fondements', 'hasard'],
     places: ['Toronto', 'Berkeley', 'Moscou', 'Stanford', 'Harvard', 'Jérusalem', 'Princeton'],
-    map: { x: 6250, y: 3900, size: 3, palette: { fill: '#1a3a30', stroke: '#86c9b2', accent: '#9effe0' } },
+    map: { x: 6250, y: 3900, size: 3, palette: { fill: '#17261a', stroke: '#80cb8f', accent: '#a8ebb6' } },
     tagline: 'Ce qui est calculable est acquis depuis Turing ; reste à savoir ce qui est calculable en temps raisonnable.',
     summary:
       'De la calculabilité des années 1930, l’informatique théorique hérite les modèles de calcul ; elle y ajoute la question du coût. Hartmanis et Stearns fondent en 1965 la théorie de la complexité, Cook et Levin montrent en 1971 que le problème de satisfaisabilité capte toute la classe NP, et Karp montre en 1972 que des dizaines de problèmes concrets partagent ce statut. Le problème P = NP devient la grande question ouverte du siècle. Autour de lui : l’analyse d’algorithmes (Knuth), les algorithmes rapides (Strassen), le comptage (Valiant), les bornes inférieures (Razborov), la dérandomisation et le pseudo-aléa (Wigderson), les preuves vérifiables probabilistiquement (théorème PCP) et l’algorithme quantique de Shor (1994), qui fait de la factorisation un problème facile... pour une machine qui n’existe pas encore.',
@@ -1461,7 +1461,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1960, end: null },
     continents: ['fondements'],
     places: ['Stanford', 'Berkeley', 'Jérusalem', 'Stockholm', 'Leningrad', 'Paris', 'Oxford'],
-    map: { x: 6950, y: 4100, size: 2, palette: { fill: '#1d3a26', stroke: '#8fc4a8', accent: '#a8ffd0' } },
+    map: { x: 6950, y: 4100, size: 2, palette: { fill: '#17261c', stroke: '#7dca94', accent: '#a4eab9' } },
     tagline: 'Après Gödel, l’indécidable devient un outil : on construit des univers ensemblistes comme on construit des contre-exemples.',
     summary:
       'La logique d’après-guerre hérite du programme de Hilbert brisé par Gödel et le transforme. En 1963, Paul Cohen invente le forcing et démontre l’indépendance de l’hypothèse du continu : les axiomes ZF n’épuisent pas l’infini. Solovay, Shelah, Woodin explorent depuis les mondes possibles de la théorie des ensembles, où les grands cardinaux servent d’échelle de consistance. Parallèlement, la théorie des modèles (Morley, Ax–Kochen, Shelah, Hrushovski) applique la logique à l’algèbre et à la géométrie, l’analyse non standard de Robinson légalise les infiniment petits, et les théories des types de Martin-Löf, Girard et Voevodsky fondent un langage où preuve et programme coïncident — jusqu’aux fondements univalents.',
@@ -1841,7 +1841,7 @@ export const CONTEMPORAIN_B: Domain[] = [
     period: { start: 1946, end: null },
     continents: ['analyse', 'fondements'],
     places: ['Los Alamos', 'New York', 'Teddington', 'Yorktown Heights', 'Eindhoven', 'Linz', 'Rocquencourt', 'Pittsburgh'],
-    map: { x: 6620, y: 2560, size: 2, palette: { fill: '#2a2d3e', stroke: '#9aa3c7', accent: '#f2d16b' } },
+    map: { x: 6620, y: 2560, size: 2, palette: { fill: '#1f1726', stroke: '#a780cb', accent: '#cba8eb' } },
     tagline: 'La machine calcule d’abord pour la physique et la guerre ; bientôt elle calcule des preuves, puis les vérifie.',
     summary:
       'L’ordinateur, conçu pendant la Seconde Guerre mondiale, transforme la pratique mathématique. Trois traditions se distinguent : l’analyse numérique (méthode de Monte-Carlo d’Ulam et Metropolis, analyse d’erreur de Wilkinson, théorème d’équivalence de Lax, FFT de Cooley et Tukey, SVD de Golub), qui fait du calcul approché une science de la stabilité ; le calcul formel (bases de Gröbner de Buchberger, algorithmes de Risch et de Zeilberger), qui exécute exactement ce que l’analyste faisait à la main ; et la démonstration assistée, de l’Automath de de Bruijn au calcul des constructions de Coquand et Huet, jusqu’aux preuves formelles des quatre couleurs (Gonthier), de la conjecture de Kepler (Hales, projet Flyspeck) et du « liquid tensor experiment » en Lean.',

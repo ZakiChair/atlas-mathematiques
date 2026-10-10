@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SlidersHorizontal, Info, BookOpen, Search, X } from 'lucide-react';
+import { SlidersHorizontal, Info, BookOpen, Search, X, Layers } from 'lucide-react';
 import { useStore } from '../state/store';
 import { SearchBox } from './SearchBox';
 import { LangSwitcher } from '../i18n/LangSwitcher';
@@ -32,10 +32,10 @@ export function TopBar({ onNavigate }: Props) {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 pointer-events-none">
       <div className="pointer-events-auto shrink-0">
-        <h1 className="font-serif text-xl sm:text-2xl leading-none">
-          {t('app.title.a')} <em className="font-light">{t('app.title.em')}</em> {t('app.title.b')}
+        <h1 className="font-hand font-bold text-xl sm:text-2xl leading-none">
+          {t('app.title.a')} <em className="font-note font-normal not-italic text-[1.15em] align-[-0.08em] inline-block">{t('app.title.em')}</em> {t('app.title.b')}
         </h1>
-        <p className="text-[0.7rem] text-[#a39c8c] hidden sm:block">{t('app.subtitle')}</p>
+        <p className="text-[0.7rem] text-[#9ba39c] hidden sm:block">{t('app.subtitle')}</p>
       </div>
       <div className="flex-1 pointer-events-auto hidden sm:flex justify-center">
         <SearchBox onPick={pick} />
@@ -49,6 +49,9 @@ export function TopBar({ onNavigate }: Props) {
         >
           <Search size={17} />
         </button>
+        <button className="glass p-2.5 hover:bg-white/10" aria-label={t('nav.visions')} onClick={() => dispatch({ type: 'toggle-ui', key: 'visionOpen' })}>
+          <Layers size={17} />
+        </button>
         <button className="glass p-2.5 hover:bg-white/10" aria-label={t('nav.filters')} onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
           <SlidersHorizontal size={17} />
         </button>
@@ -61,7 +64,7 @@ export function TopBar({ onNavigate }: Props) {
         <LangSwitcher />
       </div>
       {mobileSearch && (
-        <div className="fixed inset-0 z-50 bg-[#0a0910]/95 p-4 pointer-events-auto" role="dialog" aria-modal="true" aria-label={t('nav.searchDialog')} data-testid="search-overlay">
+        <div className="fixed inset-0 z-50 bg-[#14171b]/95 p-4 pointer-events-auto" role="dialog" aria-modal="true" aria-label={t('nav.searchDialog')} data-testid="search-overlay">
           <div className="flex items-start gap-2">
             <div className="flex-1">
               <SearchBox onPick={pick} autoFocus />

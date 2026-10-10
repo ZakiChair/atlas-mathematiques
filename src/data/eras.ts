@@ -16,6 +16,7 @@ export const ERAS: Era[] = [
   {
     id: 'renaissance',
     name: 'Renaissance et révolution scientifique',
+    shortName: 'Renaissance',
     period: { start: 1450, end: 1700 },
     tagline: 'Équations du troisième degré, coordonnées, hasard calculé, calcul infinitésimal.',
   },

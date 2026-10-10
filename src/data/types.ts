@@ -38,6 +38,8 @@ export type EraId =
 export interface Era {
   id: EraId;
   name: string;
+  /** Libellé court pour la gouttière des ères (par défaut : name). */
+  shortName?: string;
   period: Period;
   tagline: string;
 }

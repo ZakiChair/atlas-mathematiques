@@ -32,7 +32,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -1800, end: -300, approx: true },
     continents: ['nombres', 'hasard'],
     places: ['Babylone', 'Nippur', 'Thèbes', 'Suse'],
-    map: { x: 300, y: 420, size: 2, palette: { fill: '#3d3014', stroke: '#d9b85a', accent: '#ffe08a' } },
+    map: { x: 300, y: 420, size: 2, palette: { fill: '#262217', stroke: '#d1c18f', accent: '#efe1b9' } },
     tagline: 'Sur l’argile et le papyrus, des procédures sans théorèmes : la première mathématique est un métier de scribe.',
     summary:
       'Entre le début du IIᵉ millénaire et l’époque séleucide, les scribes de Mésopotamie et d’Égypte produisent des tables, des exercices et des procédures numériques d’une grande sûreté : numération sexagésimale de position, tables de réciproques, problèmes du second degré, fractions unitaires, volumes de greniers et de pyramides. Rien n’y est démontré au sens grec, mais tout y est contrôlé par la pratique scolaire. Aux derniers siècles avant notre ère, les astronomes de Babylone et d’Uruk prolongent cette tradition par des éphémérides arithmétiques du Soleil, de la Lune et des planètes, dont les paramètres passeront chez Hipparque et Ptolémée.',
@@ -246,7 +246,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -530, end: 400, approx: true },
     continents: ['nombres'],
     places: ['Crotone', 'Tarente', 'Alexandrie'],
-    map: { x: 760, y: 560, size: 2, palette: { fill: '#3a2f1a', stroke: '#c9a652', accent: '#f2c94c' } },
+    map: { x: 760, y: 560, size: 2, palette: { fill: '#262217', stroke: '#d3bf92', accent: '#efe0bd' } },
     tagline: 'Des cailloux disposés en triangles aux problèmes indéterminés de Diophante : le nombre devient objet de science.',
     summary:
       'L’arithmétique grecque naît dans les cercles pythagoriciens d’Italie du Sud, où le nombre entier, figuré par des cailloux, est pensé comme principe de toutes choses, puis se constitue en théorie démonstrative dans les livres VII à IX des Éléments d’Euclide : divisibilité, nombres premiers, nombres parfaits. À l’époque impériale, Nicomaque de Gérase en fixe la version philosophique, qui nourrira tout le Moyen Âge latin, tandis que Diophante d’Alexandrie ouvre une voie entièrement différente, celle des problèmes indéterminés résolus en nombres rationnels avec une notation abrégée. Hypatie, qui commente Diophante, ferme cette histoire au début du Vᵉ siècle.',
@@ -508,7 +508,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -600, end: -250, approx: true },
     continents: ['formes', 'fondements'],
     places: ['Milet', 'Crotone', 'Athènes', 'Cnide', 'Alexandrie'],
-    map: { x: 450, y: 1250, size: 3, palette: { fill: '#123a3a', stroke: '#7fd8cf', accent: '#3ddbd9' } },
+    map: { x: 450, y: 1250, size: 3, palette: { fill: '#172126', stroke: '#9dc2d7', accent: '#c9e3f2' } },
     tagline: 'Trois siècles pour inventer la démonstration, et un livre, les Éléments, pour en fixer la forme pendant deux millénaires.',
     summary:
       'Entre Thalès de Milet et Euclide d’Alexandrie, la géométrie grecque passe de recettes de mesure à une science démonstrative : on y prouve, à partir de principes explicites, des propositions générales sur des figures idéales. La découverte de l’incommensurabilité de la diagonale du carré, les trois problèmes classiques, la quadrature des lunules par Hippocrate de Chios, la théorie des proportions et la méthode d’exhaustion d’Eudoxe forment le matériau que les Éléments organisent vers 300 en treize livres. Ce livre, le plus édité après la Bible, définit pour l’Occident, le monde arabe et au-delà ce que signifie « démontrer ».',
@@ -790,7 +790,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -300, end: 350, approx: true },
     continents: ['analyse', 'formes'],
     places: ['Alexandrie', 'Syracuse', 'Pergé', 'Rhodes'],
-    map: { x: 560, y: 2250, size: 3, palette: { fill: '#2a1f4a', stroke: '#a08fe0', accent: '#c69cff' } },
+    map: { x: 560, y: 2250, size: 3, palette: { fill: '#211726', stroke: '#b488ce', accent: '#d7b1ed' } },
     tagline: 'Mesurer le courbe, maîtriser les coniques, calculer le ciel : le sommet de la mathématique antique.',
     summary:
       'Après Euclide, la géométrie grecque atteint son plus haut degré de puissance avec Archimède, qui mesure le cercle, la parabole, la sphère et les spirales par exhaustion et découvre ses résultats par une méthode mécanique, et avec Apollonius, dont les Coniques restent inégalées jusqu’à Descartes. L’astronomie fournit un second foyer : Hipparque, puis Ptolémée dans l’Almageste, créent la trigonométrie des cordes et un modèle quantitatif du ciel qui absorbe les paramètres babyloniens. Héron d’Alexandrie représente la tradition métrique et mécanique, et Pappus, au IVᵉ siècle, dresse dans sa Collection l’inventaire de cet héritage, dont la redécouverte au XVIᵉ siècle lance la science moderne.',
@@ -1059,7 +1059,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -200, end: 500, approx: true },
     continents: ['hasard', 'nombres'],
     places: ['Chang’an', 'Luoyang', 'Jiankang'],
-    map: { x: 520, y: 3200, size: 2, palette: { fill: '#4a2a1a', stroke: '#e0a070', accent: '#ffb86b' } },
+    map: { x: 520, y: 3200, size: 2, palette: { fill: '#261c17', stroke: '#d0a38b', accent: '#eec9b5' } },
     tagline: 'Sur un tableau à baguettes, des procédures exactes pour mesurer, répartir et résoudre : une mathématique d’algorithmes sans axiomes.',
     summary:
       'La tradition mathématique chinoise se fixe sous les Han autour des Neuf Chapitres sur l’art mathématique, recueil de problèmes administratifs résolus par des procédures sur le tableau à baguettes : règle de trois, fausses positions, extractions de racines, mesure du cercle, et la méthode fangcheng qui résout des systèmes linéaires par élimination, avec des nombres négatifs dûment notés. En 263, Liu Hui commente le classique, en justifie les procédures et calcule π par itération sur les polygones ; vers 400, le Sunzi suanjing pose le premier problème de restes ; au Vᵉ siècle, Zu Chongzhi encadre π entre 3,1415926 et 3,1415927, un record millénaire. Cette tradition, indépendante de la Grèce, court sans rupture jusqu’à l’âge d’or des Song et des Yuan.',
@@ -1277,7 +1277,7 @@ export const ANTIQUITE: Domain[] = [
     period: { start: -450, end: 485, approx: true },
     continents: ['fondements'],
     places: ['Élée', 'Athènes', 'Stagire'],
-    map: { x: 480, y: 4150, size: 1, palette: { fill: '#1d3a26', stroke: '#8fc4a8', accent: '#a8ffd0' } },
+    map: { x: 480, y: 4150, size: 1, palette: { fill: '#172619', stroke: '#75c780', accent: '#9ce8a6' } },
     tagline: 'Qu’est-ce que démontrer ? Des paradoxes de Zénon au commentaire de Proclus, la réflexion antique sur la preuve.',
     summary:
       'Les paradoxes de Zénon d’Élée, au milieu du Vᵉ siècle avant notre ère, mettent à l’épreuve les notions de divisibilité, de mouvement et d’infini ; Platon fait des mathématiques le modèle du savoir vrai et de la dialectique ; Aristote construit à Stagire puis à Athènes la première théorie formelle de la déduction, la syllogistique, et dans les Seconds Analytiques une théorie de la science démonstrative qui collera longtemps aux Éléments d’Euclide. Les stoïciens, avec Chrysippe, inventent une logique des propositions distincte de la logique des termes. Enfin Proclus, au Vᵉ siècle de notre ère, écrit en commentant Euclide la première histoire et la première philosophie des mathématiques proprement dites.',

@@ -27,11 +27,11 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </div>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-2">
+        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">
           {t('filters.period', { start: formatYear(start, lang), end: formatYear(end, lang) })}
         </h3>
         <div className="flex flex-col gap-1" data-testid="period-filter">
-          <label className="text-xs text-[#a39c8c] flex justify-between">
+          <label className="text-xs text-[#9ba39c] flex justify-between">
             {t('filters.start')}
             <input
               type="range"
@@ -43,10 +43,10 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
                 const v = Math.min(Number(e.target.value), end);
                 dispatch({ type: 'set-period', period: [v, end] });
               }}
-              className="w-40 accent-[#e8d9a8]"
+              className="w-40 accent-[#e8c76a]"
             />
           </label>
-          <label className="text-xs text-[#a39c8c] flex justify-between">
+          <label className="text-xs text-[#9ba39c] flex justify-between">
             {t('filters.end')}
             <input
               type="range"
@@ -58,7 +58,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
                 const v = Math.max(Number(e.target.value), start);
                 dispatch({ type: 'set-period', period: [start, v] });
               }}
-              className="w-40 accent-[#e8d9a8]"
+              className="w-40 accent-[#e8c76a]"
             />
           </label>
         </div>
@@ -80,7 +80,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-2">{t('filters.continents')}</h3>
+        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">{t('filters.continents')}</h3>
         <div className="flex flex-wrap gap-1.5">
           {continents.map((r) => {
             const active = filters.continents.includes(r.id);
@@ -94,7 +94,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-2">{t('filters.linkTypes')}</h3>
+        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">{t('filters.linkTypes')}</h3>
         <div className="flex flex-wrap gap-1.5">
           {KINDS.map((k) => (
             <button key={k} className={`chip ${filters.linkKinds[k] ? 'active' : ''}`} onClick={() => dispatch({ type: 'toggle-link-kind', kind: k })}>
@@ -107,11 +107,11 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
             type="checkbox"
             checked={filters.transversalOnly}
             onChange={() => dispatch({ type: 'toggle-transversal-only' })}
-            className="accent-[#e8d9a8]"
+            className="accent-[#e8c76a]"
             data-testid="transversal-only"
           />
           {t('filters.transversal')}
-          <span className="text-xs text-[#a39c8c]">{t('filters.transversalHint')}</span>
+          <span className="text-xs text-[#9ba39c]">{t('filters.transversalHint')}</span>
         </label>
       </section>
 
@@ -121,7 +121,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
             type="checkbox"
             checked={filters.factsOnly}
             onChange={() => dispatch({ type: 'toggle-facts-only' })}
-            className="accent-[#9ad1a5]"
+            className="accent-[#9ed1a2]"
             data-testid="facts-only"
           />
           {t('filters.factsOnly')}
@@ -129,7 +129,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <div className="flex items-center justify-between border-t border-white/10 pt-3">
-        <span className="text-xs text-[#a39c8c]">{t('filters.visible', { n: visibleCount, s: visibleCount > 1 ? 's' : '' })}</span>
+        <span className="text-xs text-[#9ba39c]">{t('filters.visible', { n: visibleCount, s: visibleCount > 1 ? 's' : '' })}</span>
         <button className="chip" onClick={() => dispatch({ type: 'reset-filters' })}>
           <RotateCcw size={12} /> {t('filters.reset')}
         </button>

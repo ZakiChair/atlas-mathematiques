@@ -37,6 +37,17 @@ fichier d’ère pendant la rédaction du corpus).
   carte aux figures liées, quel que soit leur territoire.
 - **Natures des résultats** : théorème, conjecture, concept, méthode, texte, problème, signalées
   par un badge coloré (légende).
+- **Visions** (bouton « Visions » dans l’en-tête) : quatre lectures de la carte —
+  *structure* (vue neutre), *filiations & ruptures* (seuls les liens de filiation et de rupture
+  restent, jaune craie et sanguine), *réseaux de figures* (la toile des liens entre
+  mathématicien·nes en filigrane), *natures de résultats* (chaque territoire prend la couleur de
+  la nature dominante de ses résultats ; filtrable par nature).
+- **Fiches résultats** : chaque résultat est précédé de « Ce qui y a conduit » (dates clés et
+  liens entrants) et suivi de « Ce que ça a ouvert » (dates clés ultérieures et liens sortants).
+
+La direction artistique est un tableau noir : ardoise sombre, territoires tracés à la craie
+pastel (une teinte par continent), hachures d’orientation distincte par continent, titres
+manuscrits (Kalam) et annotations à la craie (Caveat).
 
 ## Corpus
 

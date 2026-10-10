@@ -3,14 +3,14 @@ import * as d3 from 'd3';
 import { MAP_SIZE } from '../data';
 import { useLang } from '../i18n/lang';
 import { useData } from '../i18n/localize';
-import type { Link } from '../data/types';
+import type { Link, ResultKind } from '../data/types';
 import type { AtlasLayout, TerritoryLayout } from './layout';
 import { Graticule } from './Graticule';
 import { Territory } from './Territory';
 import { LinkLayer } from './LinkLayer';
 import { MathematicianLinkLayer } from './MathematicianLinkLayer';
 import type { MapController, Bounds, ViewportInset } from './controller';
-import type { Filters, Selection } from '../state/store';
+import type { Filters, Selection, VisionId } from '../state/store';
 import { domainOf } from './bounds';
 import { LEVEL_K, levelFor, publishView } from './viewStore';
 
@@ -25,6 +25,8 @@ interface Props {
   dimmedIds: Set<string>;
   selection: Selection | null;
   relatedIds: Set<string>;
+  vision: VisionId;
+  naturesKind: ResultKind | null;
   onSelect: (sel: Selection | null, fly: boolean) => void;
   onLinkClick: (link: Link, pos: { x: number; y: number }) => void;
   controllerRef: MutableRefObject<MapController | null>;
@@ -32,7 +34,7 @@ interface Props {
   onReady: (controller: MapController) => void;
 }
 
-export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, onSelect, onLinkClick, controllerRef, onLevelChange, onReady }: Props) {
+export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, vision, naturesKind, onSelect, onLinkClick, controllerRef, onLevelChange, onReady }: Props) {
   const { t } = useLang();
   const { domainById } = useData();
   const svgRef = useRef<SVGSVGElement>(null);
@@ -195,7 +197,7 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, o
   const selectedDomainId = selection ? domainOf(selection) : null;
   const selectedChildId = selection && selection.kind !== 'domain' ? selection.id : undefined;
 
-  const worldClass = `world${selection ? ' dim-others' : ''}`;
+  const worldClass = `world vision-${vision}${selection ? ' dim-others' : ''}`;
 
   return (
     <svg ref={svgRef} className="atlas-map" data-level="0" role="application" aria-label={t('map.aria')}>
@@ -205,14 +207,37 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, o
           <feDisplacementMap in="SourceGraphic" in2="n" scale="14" />
         </filter>
         <filter id="halo-blur" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="16" />
+          <feGaussianBlur stdDeviation="9" />
         </filter>
+        {/* dessin tremblé léger des liserés de craie */}
+        <filter id="chalk-edge" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="7" />
+        </filter>
+        {/* hachures de craie : une orientation par continent */}
+        <pattern id="hatch-nombres" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
+        </pattern>
+        <pattern id="hatch-formes" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
+        </pattern>
+        <pattern id="hatch-analyse" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
+        </pattern>
+        <pattern id="hatch-hasard" width="26" height="26" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.10)" strokeWidth="2" strokeLinecap="round" />
+        </pattern>
+        <pattern id="hatch-fondements" width="26" height="26" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="26" stroke="rgba(237,238,230,0.08)" strokeWidth="2" strokeLinecap="round" />
+          <line x1="0" y1="0" x2="26" y2="0" stroke="rgba(237,238,230,0.08)" strokeWidth="2" strokeLinecap="round" />
+        </pattern>
       </defs>
       <g ref={worldRef} className={worldClass}>
         <Graticule />
         <LinkLayer
           layout={layout}
           filters={filters}
+          vision={vision}
           dimmedIds={dimmedIds}
           selectedDomainId={selectedDomainId}
           hoveredDomainId={hoveredId}
@@ -221,6 +246,7 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, o
         <MathematicianLinkLayer
           layout={layout}
           selectedId={selection?.kind === 'mathematician' ? selection.id : null}
+          vision={vision}
           onSelect={(sel) => onSelect(sel, true)}
         />
         {layout.territories.map((t) => {
@@ -235,6 +261,8 @@ export function MapCanvas({ layout, filters, dimmedIds, selection, relatedIds, o
               selectedChildId={selectedChildId}
               dimmed={dimmedIds.has(t.id)}
               related={relatedIds.has(t.id)}
+              vision={vision}
+              naturesKind={naturesKind}
               onSelect={handleSelect}
               onHover={onHover}
             />

@@ -4,7 +4,7 @@ import { useLang } from '../i18n/lang';
 import { useData, LINK_KIND_I18N } from '../i18n/localize';
 import { linkGeometry, isTransversal, type LinkGeometry } from './links';
 import type { AtlasLayout } from './layout';
-import type { Filters } from '../state/store';
+import type { Filters, VisionId } from '../state/store';
 
 const DEG = 180 / Math.PI;
 /** contre-échelle : la géométrie dessinée reste en pixels écran */
@@ -13,6 +13,7 @@ const counterScale = { transform: 'scale(calc(1 / var(--k)))', transformBox: 'fi
 interface Props {
   layout: AtlasLayout;
   filters: Filters;
+  vision: VisionId;
   dimmedIds: Set<string>;
   selectedDomainId: string | null;
   hoveredDomainId: string | null;
@@ -20,13 +21,13 @@ interface Props {
 }
 
 const ARROW_COLOR: Record<LinkKind, string> = {
-  filiation: '#e8d9a8',
-  influence: '#8fd3ff',
+  filiation: '#e8c76a',
+  influence: '#9fc8e0',
   affinite: '#c9a0ff',
-  reaction: '#ff6b5a',
+  reaction: '#ff7a5c',
 };
 
-export const LinkLayer = memo(function LinkLayer({ layout, filters, dimmedIds, selectedDomainId, hoveredDomainId, onLinkClick }: Props) {
+export const LinkLayer = memo(function LinkLayer({ layout, filters, vision, dimmedIds, selectedDomainId, hoveredDomainId, onLinkClick }: Props) {
   const { t } = useLang();
   const { links } = useData();
   const geoms = useMemo(() => {
@@ -40,12 +41,14 @@ export const LinkLayer = memo(function LinkLayer({ layout, filters, dimmedIds, s
   }, [layout, links]);
 
   const focusId = selectedDomainId ?? hoveredDomainId;
-  const layerCls = `links-layer layer${selectedDomainId ? ' has-selection' : hoveredDomainId ? ' has-hover' : ''}`;
+  const layerCls = `links-layer layer vision-${vision}${selectedDomainId ? ' has-selection' : hoveredDomainId ? ' has-hover' : ''}`;
 
   return (
     <g className={layerCls}>
       {geoms.map((g) => {
         const l = g.link;
+        // vision « filiations & ruptures » : on ne garde que les généalogies et les ruptures
+        if (vision === 'filiations' && l.kind !== 'filiation' && l.kind !== 'reaction') return null;
         if (!filters.linkKinds[l.kind]) return null;
         if (dimmedIds.has(l.source) || dimmedIds.has(l.target)) return null;
         const transversal = isTransversal(l);
@@ -67,7 +70,7 @@ export const LinkLayer = memo(function LinkLayer({ layout, filters, dimmedIds, s
             {/* barre perpendiculaire des ruptures (≈14 px écran) */}
             {l.kind === 'reaction' && (
               <g transform={`translate(${g.mid.x} ${g.mid.y}) rotate(${(g.midAngle + Math.PI / 2) * DEG})`}>
-                <line x1={0} y1={-7} x2={0} y2={7} stroke="#ff6b5a" strokeWidth={3} style={{ ...counterScale, transformOrigin: '50% 50%' }} />
+                <line x1={0} y1={-7} x2={0} y2={7} stroke="#ff7a5c" strokeWidth={3} strokeLinecap="round" style={{ ...counterScale, transformOrigin: '50% 50%' }} />
               </g>
             )}
             {/* libellé au milieu de la courbe, uniquement pour les liens du domaine sélectionné */}

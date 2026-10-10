@@ -1,10 +1,12 @@
 import { memo, useMemo, type CSSProperties } from 'react';
-import type { Domain } from '../data/types';
+import type { Domain, ResultKind } from '../data/types';
 import { organicPath, type TerritoryLayout } from './layout';
 import { LITE } from './lite';
 import { levelFor, useViewTransform } from './viewStore';
 import { useLang } from '../i18n/lang';
 import { formatLifespan, formatPeriod, formatYear } from '../lib/years';
+import type { VisionId } from '../state/store';
+import { KIND_CHALK, dominantKind, domainHasKind } from './visionPalettes';
 
 const MAX_LINE = 15;
 const MAX_LINES = 3;
@@ -49,14 +51,21 @@ interface Props {
   selectedChildId?: string;
   dimmed: boolean;
   related: boolean;
+  vision: VisionId;
+  naturesKind: ResultKind | null;
   onSelect: (kind: 'domain' | 'theory' | 'mathematician' | 'result', id: string, territory: TerritoryLayout) => void;
   onHover?: (id: string | null) => void;
 }
 
-export const Territory = memo(function Territory({ domain, layout, selected, selectedChildId, dimmed, related, onSelect, onHover }: Props) {
+export const Territory = memo(function Territory({ domain, layout, selected, selectedChildId, dimmed, related, vision, naturesKind, onSelect, onHover }: Props) {
   const { lang } = useLang();
   const { x, y, r } = layout;
+  // vision « natures » : la couleur du territoire vient de la nature dominante de ses résultats
+  const kindPalette = vision === 'natures' ? KIND_CHALK[dominantKind(domain.results)] : null;
   const palette = domain.map.palette;
+  const stroke = kindPalette?.stroke ?? palette.stroke;
+  const accent = kindPalette?.accent ?? palette.accent;
+  const veiled = vision === 'natures' && naturesKind !== null && !domainHasKind(domain, naturesKind);
 
   // Re-rendu à chaque frame de zoom/pan (léger : tests booléens seulement) pour
   // ne monter dans le DOM que les enfants du niveau courant ET visibles à
@@ -77,12 +86,13 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
   const mathById = useMemo(() => new Map(domain.mathematicians.map((f) => [f.id, f])), [domain]);
   const resultById = useMemo(() => new Map(domain.results.map((f) => [f.id, f])), [domain]);
 
-  const cls = `territory${selected ? ' selected' : ''}${dimmed ? ' dimmed' : ''}${related ? ' related' : ''}`;
+  const cls = `territory${selected ? ' selected' : ''}${dimmed ? ' dimmed' : ''}${related ? ' related' : ''}${veiled ? ' veil' : ''}`;
 
   // nom : lignes + taille en unités carte pour tenir dans ≈1.55 r
+  // (Kalam est plus large qu'un serif : facteur 0.7 par caractère)
   const lines = wrapName(domain.name);
   const longest = Math.max(...lines.map((l) => l.length), 1);
-  const fs = Math.min(0.19 * r, (1.55 * r) / (longest * 0.62));
+  const fs = Math.min(0.19 * r, (1.55 * r) / (longest * 0.7));
   // interligne en em : suit la taille effective (réduite par CSS aux niveaux ≥ 1)
   const lineH = fs * 1.05;
   const nameTop = y - ((lines.length - 1) * lineH) / 2 - (lines.length > 0 ? fs * 0.1 : 0);
@@ -90,7 +100,7 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
   const vars = {
     '--fs': String(fs),
     '--r': String(r),
-    '--accent': palette.accent,
+    '--accent': accent,
   } as CSSProperties;
 
   return (
@@ -126,16 +136,36 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
           className="halo"
           d={layout.path}
           fill="none"
-          stroke={palette.accent}
-          strokeWidth={10}
+          stroke={accent}
+          strokeWidth={8}
+          strokeOpacity={0.55}
+          strokeLinecap="round"
           filter={LITE ? undefined : 'url(#halo-blur)'}
         />
       )}
-      {/* aplat + grain papier (feTurbulence : desktop seulement) */}
-      <path className="fill" d={layout.path} fill={palette.fill} fillOpacity={0.55} filter={LITE ? undefined : 'url(#paper-grain)'} />
-      <path className="edge" d={layout.path} fill="none" stroke={palette.stroke} strokeWidth={selected ? 3.4 : 1.8} strokeOpacity={0.9} />
+      {/* aplat ardoise + grain (feTurbulence : desktop seulement) */}
+      <path
+        className="fill"
+        d={layout.path}
+        fill={kindPalette ? kindPalette.stroke : palette.fill}
+        fillOpacity={kindPalette ? 0.12 : 0.8}
+        filter={LITE ? undefined : 'url(#paper-grain)'}
+      />
+      {/* hachures de craie, orientation par continent */}
+      <path className="hatch" d={layout.path} fill={`url(#hatch-${domain.continents[0]})`} />
+      {/* liseré de craie (dessin tremblé léger sur desktop) */}
+      <path
+        className="edge"
+        d={layout.path}
+        fill="none"
+        stroke={stroke}
+        strokeWidth={selected ? 3.4 : 1.8}
+        strokeOpacity={0.9}
+        strokeLinecap="round"
+        filter={LITE ? undefined : 'url(#chalk-edge)'}
+      />
       {/* isoligne pointillée (même forme, r + 18) */}
-      <path d={layout.isoPath} fill="none" stroke={palette.stroke} strokeWidth={1} strokeOpacity={0.4} strokeDasharray="5 7" />
+      <path d={layout.isoPath} fill="none" stroke={stroke} strokeWidth={1} strokeOpacity={0.4} strokeDasharray="5 7" strokeLinecap="round" />
       <title>{domain.name}</title>
 
       <g className="territory-labels">
@@ -162,8 +192,8 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
             const blob = organicPath(c.x, c.y, r * 0.16, `theory:${c.id}`, 0.22);
             return (
               <g key={c.id}>
-                <path d={blob} fill={palette.accent} fillOpacity={0.16} stroke={palette.accent} strokeOpacity={0.5} strokeWidth={1.2} />
-                <text className="child-label theory-label" x={c.x} y={c.y} fill={palette.stroke}>
+                <path d={blob} fill={accent} fillOpacity={0.16} stroke={accent} strokeOpacity={0.5} strokeWidth={1.2} />
+                <text className="child-label theory-label" x={c.x} y={c.y} fill={stroke}>
                   {wrapWords(shortTheoryName(s.name), 18, 2).map((l, i, arr) => (
                     <tspan key={i} x={c.x} dy={i === 0 ? `${-(arr.length - 1) * 0.55}em` : '1.1em'}>
                       {l}
@@ -205,12 +235,12 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
                   className="marker-mathematician"
                   cx={c.x}
                   cy={c.y}
-                  fill={isSel ? palette.accent : '#ece6d8'}
+                  fill={isSel ? accent : '#edeee6'}
                   fillOpacity={isSel ? 1 : 0.85}
-                  stroke={isSel ? '#fff' : palette.stroke}
+                  stroke={isSel ? '#fff' : stroke}
                   style={{ r: isSel ? 'calc(7px / var(--k))' : 'calc(5px / var(--k))' }}
                 />
-                <text className="child-label mathematician-label" x={c.x} y={c.y} fill="#ece6d8" dy={c.vside === 'below' ? '1.7em' : '-0.9em'}>
+                <text className="child-label mathematician-label" x={c.x} y={c.y} fill="#edeee6" dy={c.vside === 'below' ? '1.7em' : '-0.9em'}>
                   {f.name}
                 </text>
                 <circle
@@ -232,7 +262,7 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
           })}
       </g>
 
-      {/* résultats — niveau 3 */}
+      {/* résultats — niveau 3 (colorés par nature dans la vision « natures ») */}
       <g className="layer layer-3">
         {showResults &&
           layout.children
@@ -241,16 +271,17 @@ export const Territory = memo(function Territory({ domain, layout, selected, sel
             const f = resultById.get(c.id);
             if (!f) return null;
             const isSel = selectedChildId === f.id;
+            const kindVeil = vision === 'natures' && naturesKind !== null && f.kind !== naturesKind;
             const s = 14;
             const d = `M ${c.x} ${c.y - s} L ${c.x + s} ${c.y} L ${c.x} ${c.y + s} L ${c.x - s} ${c.y} Z`;
             return (
               <g key={c.id}>
                 <path
-                  className="result-diamond"
+                  className={`result-diamond${kindVeil ? ' result-veil' : ''}`}
                   d={d}
-                  fill={isSel ? palette.accent : '#ece6d8'}
+                  fill={kindPalette ? KIND_CHALK[f.kind].stroke : isSel ? accent : '#edeee6'}
                   fillOpacity={0.9}
-                  stroke={palette.stroke}
+                  stroke={stroke}
                   style={{ transform: 'scale(calc(0.55 / var(--k)))', transformBox: 'fill-box', transformOrigin: 'center' }}
                 />
                 <text

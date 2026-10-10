@@ -5,8 +5,8 @@ import type { Lang } from '../i18n/lang';
 import { formatPeriod } from '../lib/years';
 
 const FONT = 10.5;
-/** largeur moyenne d'une capitale Cormorant espacée de 0.16em, à FONT px */
-const CHAR_W = FONT * 0.76;
+/** largeur moyenne d'une capitale Kalam espacée, à FONT px (marge généreuse) */
+const CHAR_W = FONT * 0.95;
 const PAD = 12;
 /** dépassement toléré d'un libellé hors de sa bande (fraction de sa longueur) */
 const OVERFLOW = 0.15;
@@ -64,7 +64,7 @@ export function eraLabels(v: ViewTransform, eras: Era[], lang: Lang): EdgeLabel[
   for (const band of ERA_BANDS) {
     const era = eraById.get(band.era);
     if (!era) continue;
-    const name = era.name.toUpperCase();
+    const name = (era.shortName ?? era.name).toUpperCase();
     const range = formatPeriod(era.period, lang);
     const len = Math.max(name.length * CHAR_W * 1.15, range.length * CHAR_W * 0.9) + PAD + 4;
     const x0 = Math.max(LEFT_GUTTER, v.x + band.x0 * v.k);

@@ -26,7 +26,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1796, end: 1900 },
     continents: ['nombres'],
     places: ['Göttingen', 'Berlin', 'Breslau', 'Saint-Pétersbourg', 'Paris', 'Louvain'],
-    map: { x: 3600, y: 430, size: 3, palette: { fill: '#4a3a24', stroke: '#c9a86a', accent: '#ffd27a' } },
+    map: { x: 3600, y: 430, size: 3, palette: { fill: '#262117', stroke: '#d1bc8f', accent: '#efdeb9' } },
     tagline: 'Un livre de 1801 fixe les questions ; un siècle entier apprend à le lire.',
     summary:
       'Les Disquisitiones arithmeticae de Carl Friedrich Gauss (1801) donnent à l’arithmétique des entiers un langage, les congruences, un objet central, les formes quadratiques et leur composition, et un premier grand théorème démontré, la loi de réciprocité quadratique. Tout le siècle se règle sur ce livre : Dirichlet y introduit des séries nouvelles et démontre en 1837 que toute progression arithmétique convenable contient une infinité de nombres premiers ; Kummer invente les nombres idéaux pour sauver l’unicité de la factorisation dans les entiers cyclotomiques ; Dedekind les refonde en théorie générale des idéaux. À Saint-Pétersbourg, Tchebychev encadre le comptage des nombres premiers ; en 1896, sur la voie ouverte par le mémoire de Riemann de 1859, Hadamard et de La Vallée Poussin démontrent le théorème des nombres premiers.',
@@ -331,7 +331,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1799, end: 1895 },
     continents: ['nombres'],
     places: ['Modène', 'Christiania', 'Paris', 'Dublin', 'Cambridge', 'Stettin', 'Leipzig'],
-    map: { x: 4250, y: 580, size: 3, palette: { fill: '#45331c', stroke: '#e0b35c', accent: '#ffd36b' } },
+    map: { x: 4250, y: 580, size: 3, palette: { fill: '#262417', stroke: '#d7ce9d', accent: '#f2ecc9' } },
     tagline: 'Pourquoi le cinquième degré résiste : une question d’équations devient la science des symétries.',
     summary:
       'Trois siècles après la résolution des équations du troisième et du quatrième degré, Ruffini puis Abel démontrent que l’équation générale du cinquième degré ne se résout pas par radicaux. Galois va plus loin : à chaque équation il attache un groupe de permutations de ses racines, dont la structure décide de la résolubilité — mais ses mémoires, refusés ou égarés, ne sont publiés par Liouville qu’en 1846. Pendant ce temps, l’algèbre se démultiplie : quaternions de Hamilton (1843), Ausdehnungslehre de Grassmann (1844), matrices de Cayley (1858). Après 1870, le Traité des substitutions de Jordan, les théorèmes de Sylow et les groupes continus de Lie font du groupe lui-même l’objet central de l’algèbre.',
@@ -654,7 +654,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1827, end: 1890 },
     continents: ['formes', 'fondements'],
     places: ['Göttingen', 'Kazan', 'Marosvásárhely', 'Bologne', 'Erlangen', 'Leipzig'],
-    map: { x: 3620, y: 1300, size: 3, palette: { fill: '#123a3a', stroke: '#7fd8cf', accent: '#3ddbd9' } },
+    map: { x: 3620, y: 1300, size: 3, palette: { fill: '#172326', stroke: '#88c0ce', accent: '#b1e1ed' } },
     tagline: 'Le postulat des parallèles cède : l’espace peut être courbe, et la géométrie devient plurielle.',
     summary:
       'Après deux mille ans d’attaques infructueuses contre le cinquième postulat d’Euclide, Gauss, Lobatchevski et János Bolyai construisent indépendamment une géométrie où par un point extérieur à une droite passent plusieurs parallèles. Publiés à Kazan (1829) et en appendice d’un livre hongrois (1832), ces résultats restent d’abord lettre morte. Deux déplacements les font accepter : la géométrie différentielle de Gauss (1827) et Riemann (1854), qui donnent à la courbure un sens intrinsèque, puis les modèles de Beltrami (1868) et Klein (1871), qui montrent que la géométrie hyperbolique est aussi consistante que la géométrie euclidienne. Avec le programme d’Erlangen (1872) et les axiomes d’ordre de Pasch (1882), la géométrie cesse d’être la science d’un espace unique.',
@@ -937,7 +937,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1822, end: 1900 },
     continents: ['formes'],
     places: ['Paris', 'Nîmes', 'Berlin', 'Bonn', 'Leipzig', 'Milan', 'Rome'],
-    map: { x: 4250, y: 1500, size: 2, palette: { fill: '#1f3a4a', stroke: '#6fb7d9', accent: '#7ae0ff' } },
+    map: { x: 4250, y: 1500, size: 2, palette: { fill: '#172326', stroke: '#88bfce', accent: '#b1e0ed' } },
     tagline: 'Ce qui survit à la projection devient l’essentiel : incidence, dualité et invariants.',
     summary:
       'Élève de Monge, Poncelet rédige en captivité à Saratov ce qui devient le Traité des propriétés projectives des figures (1822) : il isole les propriétés conservées par projection — incidence, birapport, coniques — et leur adjoint le principe de continuité. Gergonne oppose à Carnot le principe de dualité (1826) : en géométrie projective plane, points et droites échangent leurs rôles. Möbius (1827) et Plücker (1829) donnent à cette géométrie ses coordonnées — barycentriques puis homogènes —, Steiner sa construction systématique. Après 1850, la jonction avec l’algèbre anglaise des invariants et les surfaces de Riemann fait naître la géométrie algébrique : les 27 droites de la surface cubique (1849), les transformations birationnelles de Cremona (1863), le théorème de Riemann–Roch (1865).',
@@ -1222,7 +1222,7 @@ export const DIXNEUVIEME_A: Domain[] = [
     period: { start: 1817, end: 1897 },
     continents: ['analyse'],
     places: ['Prague', 'Paris', 'Königsberg', 'Berlin', 'Göttingen'],
-    map: { x: 3620, y: 2200, size: 3, palette: { fill: '#2e2a38', stroke: '#9a8fb8', accent: '#d0c8f0' } },
+    map: { x: 3620, y: 2200, size: 3, palette: { fill: '#211726', stroke: '#b588ce', accent: '#d8b1ed' } },
     tagline: 'Fini les infiniment petits « évidents » : limites, ε et δ prennent le relais de l’intuition.',
     summary:
       'En 1817, Bolzano démontre « purement analytiquement » le théorème des valeurs intermédiaires ; en 1821, le Cours d’analyse de Cauchy définit limites, continuité et convergence des séries. Ce nouveau régime de preuve déplace toute l’analyse : les fonctions elliptiques d’Abel et Jacobi, le calcul des résidus de Cauchy, les surfaces et l’intégrale de Riemann, les nombres transcendants de Liouville. À Berlin, Weierstrass achève le mouvement : définitions en ε-δ, convergence uniforme, fonctions continues nulle part dérivables (1872), pendant que Dedekind et Cantor fondent le continu sur l’arithmétique. En 1885, le théorème d’approximation de Weierstrass couronne cette « arithmétisation » : toute fonction continue est limite uniforme de polynômes.',

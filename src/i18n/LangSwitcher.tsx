@@ -12,7 +12,7 @@ export function LangSwitcher() {
           aria-pressed={lang === l}
           onClick={() => setLang(l)}
           className={`px-2.5 py-2 uppercase tracking-wide transition rounded-lg ${
-            lang === l ? 'text-[#e8d9a8] font-bold' : 'text-[#a39c8c] hover:text-[#ece6d8]'
+            lang === l ? 'text-[#e8c76a] font-bold' : 'text-[#9ba39c] hover:text-[#edeee6]'
           }`}
         >
           {l}

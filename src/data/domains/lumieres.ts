@@ -24,7 +24,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1700, end: 1790 },
     continents: ['analyse'],
     places: ['Bâle', 'Saint-Pétersbourg', 'Berlin', 'Paris'],
-    map: { x: 2900, y: 2100, size: 3, palette: { fill: '#2a1f4a', stroke: '#a08fe0', accent: '#c69cff' } },
+    map: { x: 2900, y: 2100, size: 3, palette: { fill: '#221726', stroke: '#c092d3', accent: '#e1bdef' } },
     tagline: 'Le calcul de Leibniz devient une science des fonctions, des séries et des équations différentielles, écrite pour l’essentiel par un seul homme.',
     summary:
       'Entre les leçons de Jean Bernoulli à Bâle et la mort d’Euler à Saint-Pétersbourg, le calcul différentiel et intégral change de nature : il cesse d’être une méthode pour les courbes et devient l’analyse, c’est-à-dire l’étude des fonctions, des séries et des équations différentielles. Euler lui donne sa langue (f(x), e, i, π, Σ), ses manuels (Introductio, Institutiones) et ses résultats emblématiques, du problème de Bâle à la formule e^(iθ) = cos θ + i sin θ. Autour de lui, Taylor, Daniel Bernoulli, Clairaut et d’Alembert appliquent ce calcul aux fluides, aux cordes vibrantes et à la figure de la Terre, et ouvrent la théorie des équations aux dérivées partielles.',
@@ -281,7 +281,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1740, end: 1830 },
     continents: ['analyse', 'formes'],
     places: ['Paris', 'Berlin', 'Turin'],
-    map: { x: 3100, y: 2600, size: 2, palette: { fill: '#2a2d3e', stroke: '#9aa3c7', accent: '#f2d16b' } },
+    map: { x: 3100, y: 2600, size: 2, palette: { fill: '#1f1726', stroke: '#bd9dd7', accent: '#e0c9f2' } },
     tagline: 'La mécanique quitte les figures et les leviers pour devenir un calcul : des équations déduites de principes, sans un seul dessin.',
     summary:
       'Entre le Traité de dynamique de d’Alembert (1743) et les derniers volumes de la Mécanique céleste (1825), la mécanique newtonienne est refondée en une science d’équations. Maupertuis y introduit le principe de moindre action, Lagrange les équations générales du mouvement fondées sur les vitesses virtuelles et le calcul des variations, Laplace la théorie du potentiel et le calcul des perturbations planétaires. En 1788, la Méchanique analitique de Lagrange se flatte de ne contenir aucune figure : la géométrie du mouvement est devenue de l’analyse pure, et la mécanique céleste le premier succès de la physique mathématique.',
@@ -522,7 +522,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1730, end: 1800 },
     continents: ['nombres'],
     places: ['Saint-Pétersbourg', 'Berlin', 'Cambridge', 'Paris'],
-    map: { x: 2975, y: 500, size: 2, palette: { fill: '#3a2f1a', stroke: '#c9a652', accent: '#f2c94c' } },
+    map: { x: 2975, y: 500, size: 2, palette: { fill: '#262417', stroke: '#c8bc79', accent: '#e9dea0' } },
     tagline: 'Les énigmes laissées par Fermat deviennent des théorèmes démontrés, et les nombres premiers rencontrent l’analyse.',
     summary:
       'Pendant soixante-dix ans, la théorie des nombres est presque l’œuvre d’un seul homme : Euler démontre un à un les énoncés de Fermat, du petit théorème aux deux carrés, introduit l’indicatrice φ(n) et relie les nombres premiers à la fonction ζ par le produit eulérien. Autour de sa correspondance avec Goldbach naissent les grandes conjectures ; avec Lagrange (quatre carrés, équation de Pell, théorème de Wilson), Waring et Legendre (réciprocité quadratique, formes quadratiques), l’arithmétique devient une théorie organisée, que l’Essai sur la théorie des nombres (1798) transmet à Gauss.',
@@ -788,7 +788,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1730, end: 1810 },
     continents: ['formes'],
     places: ['Milan', 'Berlin', 'Saint-Pétersbourg', 'Mézières', 'Paris'],
-    map: { x: 2975, y: 1400, size: 2, palette: { fill: '#143b32', stroke: '#86d6b8', accent: '#8fffd6' } },
+    map: { x: 2975, y: 1400, size: 2, palette: { fill: '#172126', stroke: '#9dc5d7', accent: '#c9e5f2' } },
     tagline: 'Entre la critique du cinquième postulat et la géométrie des surfaces, le XVIIIᵉ siècle prépare sans le savoir les géométries non euclidiennes.',
     summary:
       'La géométrie du siècle des Lumières avance sur trois fronts. Celui des fondements : Saccheri (1733) puis Lambert (1766) explorent les conséquences de la négation du postulat des parallèles, sans oser conclure à une géométrie autre. Celui des courbes et des surfaces : Clairaut ouvre la géométrie différentielle de l’espace (1731), Euler définit les courbures principales (1760), Meusnier son théorème (1776). Celui enfin des configurations : Euler compte les ponts de Königsberg (1736) et les faces des polyèdres (1750), Monge fonde la géométrie descriptive (1799) et Carnot la géométrie de position (1803), prémices de la topologie et du renouveau projectif.',
@@ -1036,7 +1036,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1718, end: 1812 },
     continents: ['hasard'],
     places: ['Londres', 'Paris', 'Tunbridge Wells'],
-    map: { x: 2975, y: 3250, size: 2, palette: { fill: '#3f2230', stroke: '#d59bb6', accent: '#ffc2d6' } },
+    map: { x: 2975, y: 3250, size: 2, palette: { fill: '#261d17', stroke: '#d6b39a', accent: '#f1d8c5' } },
     tagline: 'Du calcul des jeux à la probabilité des causes : le hasard devient un instrument de raisonnement sur le monde.',
     summary:
       'Après l’Ars conjectandi (1713), le calcul des probabilités change d’échelle et d’ambition. De Moivre en fait un outil d’approximation (loi normale, 1733), Bayes et Price retournent la question des causes (1763), Buffon y soumet la géométrie (aiguille, 1777) et Condorcet les votes (1785). Laplace couronne le siècle : la Théorie analytique des probabilités (1812) unifie analyse des erreurs, probabilité inverse et grands nombres, pendant que Legendre publie la méthode des moindres carrés (1805). Le « calcul » devient le langage de l’incertitude raisonnable.',
@@ -1308,7 +1308,7 @@ export const LUMIERES: Domain[] = [
     period: { start: 1696, end: 1797 },
     continents: ['fondements', 'analyse'],
     places: ['Paris', 'Dublin', 'Édimbourg', 'Berlin'],
-    map: { x: 2975, y: 4120, size: 1, palette: { fill: '#263a1c', stroke: '#a9cf7f', accent: '#dcff9e' } },
+    map: { x: 2975, y: 4120, size: 1, palette: { fill: '#172619', stroke: '#75c77f', accent: '#9ce8a5' } },
     tagline: 'Que vaut une différentielle ? Un siècle de objections, de l’Académie de Paris à l’évêque de Cloyne.',
     summary:
       'Le calcul infinitésimal triomphe dès sa première publication française, l’Analyse des infiniment petits de L’Hôpital (1696) ; mais sa logique est aussitôt contestée. Rolle attaque à l’Académie (1701), Varignon défend ; Berkeley dénonce les « fantômes de quantités disparues » (1734), Maclaurin répond par un traité en deux volumes (1742) ; d’Alembert propose la limite dans l’Encyclopédie (1765) et Lagrange tente de fonder le tout sur les séries de Taylor (1797). La querelle, jamais tranchée au siècle, prépare la refonte de l’analyse par Cauchy et Weierstrass.',

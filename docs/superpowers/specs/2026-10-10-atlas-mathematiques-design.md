@@ -70,6 +70,16 @@ méthode, réseau des mathématicien·nes (arcs sur la carte quand une figure es
 sélectionnée), URL synchronisée (`#/domaine/:id`, `#/theorie/:id`,
 `#/mathematicien/:id`, `#/resultat/:id`), interface FR/EN (corpus FR seulement).
 
+Direction artistique « tableau noir » (v0.2) : ardoise sombre, territoires à la
+craie pastel (une teinte par continent, régénérée par `scripts/chalk-palettes.ts`),
+hachures d’orientation distincte par continent, titres manuscrits (Kalam) et
+annotations (Caveat) ; les panneaux gardent un serif éditorial (Cormorant).
+Quatre **visions** de lecture : structure (neutre), filiations & ruptures (les
+autres liens s’effacent), réseaux de figures (toile en filigrane), natures de
+résultats (territoires colorés par nature dominante, voile sur les autres).
+Les fiches résultats ajoutent « Ce qui y a conduit » et « Ce que ça a ouvert »,
+dérivés des dates clés et des liens du domaine.
+
 ## 6. Validation
 
 `npm run typecheck`, `npm run lint`, `npm test` (validation du corpus, recherche,

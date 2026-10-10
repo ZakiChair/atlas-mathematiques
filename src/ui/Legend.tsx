@@ -15,7 +15,7 @@ const SAMPLES: { kind: LinkKind; labelKey: UiKey; dash?: string }[] = [
   { kind: 'reaction', labelKey: 'legend.reaction' },
 ];
 
-const COLORS: Record<LinkKind, string> = { filiation: '#e8d9a8', influence: '#8fd3ff', affinite: '#c9a0ff', reaction: '#ff6b5a' };
+const COLORS: Record<LinkKind, string> = { filiation: '#e8c76a', influence: '#9fc8e0', affinite: '#c9a0ff', reaction: '#ff7a5c' };
 
 export function Legend() {
   const { state, dispatch } = useStore();
@@ -29,7 +29,7 @@ export function Legend() {
           <X size={16} />
         </button>
       </div>
-      <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-1.5">{t('legend.links')}</h3>
+      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.links')}</h3>
       <ul className="space-y-1.5 mb-3">
         {SAMPLES.map((s) => (
           <li key={s.kind} className="flex items-center gap-2 text-sm">
@@ -40,20 +40,20 @@ export function Legend() {
           </li>
         ))}
       </ul>
-      <p className="text-xs text-[#a39c8c] mb-3">{t('legend.hint')}</p>
-      <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-1.5">{t('legend.levels')}</h3>
+      <p className="text-xs text-[#9ba39c] mb-3">{t('legend.hint')}</p>
+      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.levels')}</h3>
       <p className="text-sm mb-3">{LEVEL_I18N.map((k) => t(k)).join(' · ')}</p>
-      <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-1.5">{t('legend.results')}</h3>
+      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.results')}</h3>
       <p className="text-sm mb-3 flex flex-wrap gap-1.5">
         {RESULT_KINDS.map((k) => (
           <KindBadge key={k} kind={k} />
         ))}
       </p>
-      <h3 className="text-xs uppercase tracking-widest text-[#a39c8c] mb-1.5">{t('legend.statements')}</h3>
+      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.statements')}</h3>
       <p className="text-sm mb-3">
         <span className="badge-fait">{t('statement.fact')}</span> <span className="badge-interp">{t('statement.interp')}</span>
       </p>
-      <p className="text-xs italic text-[#a39c8c]">{t('legend.note')}</p>
+      <p className="text-xs italic text-[#9ba39c]">{t('legend.note')}</p>
     </div>
   );
 }
