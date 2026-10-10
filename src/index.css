@@ -1,0 +1,526 @@
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/700.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --color-ink: #0a0910;
+  --color-parchment: #ece6d8;
+  --color-secondary: #a39c8c;
+  --color-fait: #9ad1a5;
+  --color-interp: #e0b35c;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #0a0910;
+  color: #ece6d8;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* ——— fond : vignette + grain ——— */
+.atlas-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, #141221 0%, #0a0910 70%);
+  pointer-events: none;
+}
+.grain {
+  position: fixed;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 60;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+svg.atlas-map {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  display: block;
+}
+
+/* ——— couches du zoom sémantique ——— */
+.layer {
+  transition: opacity 250ms ease;
+}
+svg.atlas-map[data-level='0'] .layer-1,
+svg.atlas-map[data-level='0'] .layer-2,
+svg.atlas-map[data-level='0'] .layer-3,
+svg.atlas-map[data-level='1'] .layer-2,
+svg.atlas-map[data-level='1'] .layer-3,
+svg.atlas-map[data-level='2'] .layer-3 {
+  opacity: 0;
+  pointer-events: none;
+}
+svg.atlas-map[data-level='2'] .links-layer,
+svg.atlas-map[data-level='3'] .links-layer {
+  opacity: 0.3;
+}
+
+/* libellés : taille calculée par territoire (--fs, unités carte), plafond écran */
+.territory-name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: min(calc(var(--fs, 40) * 1px), calc(30px / var(--k, 1)));
+  text-anchor: middle;
+  fill: #ece6d8;
+  paint-order: stroke;
+  stroke: rgba(10, 9, 16, 0.65);
+  stroke-width: calc(3.5px / var(--k, 1));
+  transition: fill 200ms ease;
+}
+.territory-period {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: min(calc(var(--fs, 40) * 0.6px), calc(18px / var(--k, 1)));
+  text-anchor: middle;
+  fill: #a39c8c;
+  paint-order: stroke;
+  stroke: rgba(10, 9, 16, 0.65);
+  stroke-width: calc(3px / var(--k, 1));
+}
+.territory-labels {
+  transition:
+    opacity 250ms ease,
+    transform 300ms ease;
+}
+/* niveaux ≥ 1 : le nom monte vers le haut du territoire pour laisser la place aux enfants */
+svg.atlas-map[data-level='1'] .territory-labels,
+svg.atlas-map[data-level='2'] .territory-labels,
+svg.atlas-map[data-level='3'] .territory-labels {
+  transform: translateY(calc(var(--r, 200) * -0.66px));
+}
+svg.atlas-map[data-level='1'] .territory-name {
+  font-size: min(calc(var(--fs, 40) * 1px), calc(22px / var(--k, 1)));
+}
+/* la période reste dans le panneau dès qu'on entre dans le territoire */
+svg.atlas-map[data-level='1'] .territory-period,
+svg.atlas-map[data-level='2'] .territory-period,
+svg.atlas-map[data-level='3'] .territory-period {
+  opacity: 0;
+}
+svg.atlas-map[data-level='2'] .territory-name,
+svg.atlas-map[data-level='3'] .territory-name {
+  font-size: min(calc(var(--fs, 40) * 1px), calc(16px / var(--k, 1)));
+}
+/* niveaux 2-3 : le nom du domaine est dans le fil d'Ariane et le panneau */
+svg.atlas-map[data-level='2'] .territory-labels,
+svg.atlas-map[data-level='3'] .territory-labels {
+  opacity: 0;
+}
+.child-label {
+  font-family: var(--font-serif);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(10, 9, 16, 0.8);
+  pointer-events: none;
+}
+.theory-label {
+  font-size: calc(16px / var(--k, 1));
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  stroke-width: calc(3.5px / var(--k, 1));
+}
+/* niveaux 2-3 : les théories s’effacent devant les mathématiciens et descendent sous le centre du blob */
+.theory-label {
+  transition: opacity 250ms ease;
+}
+svg.atlas-map[data-level='2'] .theory-label,
+svg.atlas-map[data-level='3'] .theory-label {
+  font-size: calc(12px / var(--k, 1));
+  opacity: 0.6;
+  transform: translateY(calc(22px / var(--k, 1)));
+}
+.mathematician-label {
+  font-size: calc(16px / var(--k, 1));
+  stroke-width: calc(3px / var(--k, 1));
+}
+.result-label {
+  font-family: var(--font-sans);
+  font-size: calc(12.5px / var(--k, 1));
+  fill: #cfc8b8;
+  stroke-width: calc(3px / var(--k, 1));
+}
+
+.territory {
+  cursor: pointer;
+  outline: none;
+}
+.territory .fill {
+  transition: opacity 300ms ease;
+}
+.territory.dimmed {
+  opacity: 0.12;
+  pointer-events: none;
+}
+.world.dim-others .territory:not(.dimmed):not(.selected):not(.related) {
+  opacity: 0.55;
+}
+.world.dim-others {
+  /* quand une sélection existe */
+}
+.territory .halo {
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+.territory.selected .halo {
+  opacity: 1;
+}
+.territory .edge {
+  transition: stroke-width 200ms ease;
+}
+/* survol aux niveaux 0-1 : contour épais + nom en accent */
+svg.atlas-map[data-level='0'] .territory:hover .edge,
+svg.atlas-map[data-level='1'] .territory:hover .edge {
+  stroke-width: 3.4;
+}
+svg.atlas-map[data-level='0'] .territory:hover .territory-name,
+svg.atlas-map[data-level='1'] .territory:hover .territory-name {
+  fill: var(--accent, #ece6d8);
+}
+.territory:focus-visible {
+  outline: none;
+}
+.territory:focus-visible .edge {
+  stroke-width: 4;
+  stroke-opacity: 1;
+}
+
+/* ——— liens ——— */
+.link {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.link-filiation {
+  stroke: #e8d9a8;
+  stroke-width: 2.2px;
+}
+.link-influence {
+  stroke: #8fd3ff;
+  stroke-width: 1.8px;
+  stroke-dasharray: 8 5;
+}
+.link-affinite {
+  stroke: #c9a0ff;
+  stroke-width: 1.6px;
+  stroke-dasharray: 2 5;
+  stroke-linecap: round;
+}
+.link-reaction {
+  stroke: #ff6b5a;
+  stroke-width: 2.2px;
+}
+/* densité : discrets par défaut, allumés au survol / à la sélection */
+.link-group {
+  opacity: 0.09;
+  transition: opacity 250ms ease;
+}
+.link-group.transversal {
+  opacity: 0.16;
+}
+/* petits écrans, vue d'ensemble : traits fins, pas de pointes de flèche */
+@media (max-width: 1023px) {
+  svg.atlas-map[data-level='0'] .link {
+    stroke-width: 1px;
+  }
+  svg.atlas-map[data-level='0'] .link-group {
+    opacity: 0.07;
+  }
+  svg.atlas-map[data-level='0'] .link-group.transversal {
+    opacity: 0.12;
+  }
+  svg.atlas-map[data-level='0'] .link-group > g {
+    display: none;
+  }
+  /* les libellés de liens encombrent un petit écran : la feuille les liste */
+  .link-label {
+    display: none;
+  }
+}
+.link-group.facts-dim {
+  opacity: 0.06;
+}
+.link-group.hover-link {
+  opacity: 0.9;
+}
+.links-layer.has-selection .link-group:not(.selected-link) {
+  opacity: 0.05;
+}
+.links-layer.has-selection .link-group.selected-link {
+  opacity: 1;
+}
+.links-layer.has-selection .link-group.selected-link .link {
+  filter: brightness(1.15);
+}
+.link-label {
+  font-family: var(--font-sans);
+  font-size: calc(11px / var(--k, 1));
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  paint-order: stroke;
+  stroke: rgba(10, 9, 16, 0.85);
+  stroke-width: calc(4px / var(--k, 1));
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.link-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 14px;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  pointer-events: stroke;
+}
+
+/* ——— liens entre mathématiciens (affichés à la sélection d’un mathématicien) ——— */
+.mlink {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 1.5px;
+  stroke-dasharray: 5 4;
+  opacity: 0.9;
+}
+.mlink-group.mlink-filiation {
+  color: #e8d9a8;
+}
+.mlink-group.mlink-influence {
+  color: #8fd3ff;
+}
+.mlink-group.mlink-affinite {
+  color: #c9a0ff;
+}
+.mlink-group.mlink-reaction {
+  color: #ff6b5a;
+}
+.mlink-group.mlink-collaboration {
+  color: #7de8a8;
+}
+.mlink {
+  stroke: currentColor;
+}
+.mlink-dot {
+  fill: currentColor;
+  stroke: rgba(10, 9, 16, 0.9);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+.mlink-label {
+  font-family: var(--font-sans);
+  font-size: calc(10.5px / var(--k, 1));
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  fill: currentColor;
+  paint-order: stroke;
+  stroke: rgba(10, 9, 16, 0.85);
+  stroke-width: calc(4px / var(--k, 1));
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+@media (max-width: 1023px) {
+  .mlink-label {
+    display: none;
+  }
+}
+
+/* ——— graticule ——— */
+.graticule-line {
+  stroke: rgba(236, 230, 216, 0.07);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+.continent-band {
+  fill: rgba(236, 230, 216, 0.012);
+}
+.continent-band.alt {
+  fill: rgba(236, 230, 216, 0.03);
+}
+
+/* ——— marges : libellés en espace écran ——— */
+.edge-labels {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  color: rgba(236, 230, 216, 0.34);
+}
+.edge-continent {
+  position: absolute;
+  left: 6px;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center;
+  /* la rotation se fait autour du centre : on place le centre à left+w/2 */
+  margin-left: 7px;
+}
+.edge-era {
+  position: absolute;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+.edge-era-name {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+.edge-era-range {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(236, 230, 216, 0.24);
+}
+@media (max-width: 1023px) {
+  .edge-era-name {
+    font-size: 10px;
+  }
+  .edge-era-range {
+    font-size: 9px;
+  }
+}
+
+/* ——— marqueurs ——— */
+.marker-mathematician {
+  stroke-width: calc(1.4px / var(--k, 1));
+}
+.result-diamond {
+  stroke-width: calc(1px / var(--k, 1));
+}
+.child-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+/* ——— UI verre sombre ——— */
+.glass {
+  background: rgba(20, 18, 30, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(236, 230, 216, 0.14);
+  border-radius: 12px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(236, 230, 216, 0.18);
+  font-size: 0.8rem;
+  color: #cfc8b8;
+}
+.chip.active {
+  border-color: rgba(232, 217, 168, 0.7);
+  color: #e8d9a8;
+}
+
+.badge-fait,
+.badge-interp {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.badge-fait {
+  color: #0a0910;
+  background: #9ad1a5;
+}
+.badge-interp {
+  color: #0a0910;
+  background: #e0b35c;
+}
+
+/* nature d'un résultat : pastille creuse, teinte par genre */
+.badge-kind {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.08rem 0.42rem;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #cfc8b8;
+}
+.badge-kind-theoreme {
+  color: #e8d9a8;
+}
+.badge-kind-conjecture {
+  color: #c9a0ff;
+}
+.badge-kind-concept {
+  color: #8fd3ff;
+}
+.badge-kind-methode {
+  color: #9ad1a5;
+}
+.badge-kind-texte {
+  color: #f0b58f;
+}
+.badge-kind-probleme {
+  color: #ff8f80;
+}
+
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(236, 230, 216, 0.25) transparent;
+}
+
+/* mobile : le flou d'arrière-plan par carte coûte très cher au défilement —
+   on le remplace par un fond quasi opaque (même rendu sombre) */
+@media (max-width: 1023px) {
+  .glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(20, 18, 30, 0.93);
+  }
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #8fd3ff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .link-group,
+  .territory .fill,
+  .territory .halo {
+    transition: none !important;
+  }
+}
