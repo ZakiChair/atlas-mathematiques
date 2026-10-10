@@ -12,8 +12,8 @@ export function IntroOverlay() {
         <div className="flex justify-end mb-2">
           <LangSwitcher />
         </div>
-        <h1 className="font-serif text-3xl mb-1">
-          {t('app.title.a')} <em className="font-light">{t('app.title.em')}</em> {t('app.title.b')}
+        <h1 className="font-hand font-bold text-3xl mb-1">
+          {t('app.title.a')} <em className="font-note not-italic font-normal">{t('app.title.em')}</em> {t('app.title.b')}
         </h1>
         <p className="text-[#9ba39c] text-sm mb-5">{t('app.subtitle')}</p>
         <p className="text-sm leading-relaxed text-left">{t('intro.body')}</p>

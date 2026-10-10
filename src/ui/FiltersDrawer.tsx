@@ -20,14 +20,14 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
   return (
     <aside className="glass fixed top-20 right-4 w-80 max-h-[calc(100%-7rem)] overflow-auto panel-scroll p-4 z-40" aria-label={t('filters.title')}>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="font-serif text-lg">{t('filters.title')}</h2>
+        <h2 className="section-title-sm">{t('filters.title')}</h2>
         <button aria-label={t('filters.close')} className="p-1 hover:bg-white/10 rounded" onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
           <X size={16} />
         </button>
       </div>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">
+        <h3 className="section-title-sm mb-2">
           {t('filters.period', { start: formatYear(start, lang), end: formatYear(end, lang) })}
         </h3>
         <div className="flex flex-col gap-1" data-testid="period-filter">
@@ -80,7 +80,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">{t('filters.continents')}</h3>
+        <h3 className="section-title-sm mb-2">{t('filters.continents')}</h3>
         <div className="flex flex-wrap gap-1.5">
           {continents.map((r) => {
             const active = filters.continents.includes(r.id);
@@ -94,7 +94,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <section className="mb-4">
-        <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-2">{t('filters.linkTypes')}</h3>
+        <h3 className="section-title-sm mb-2">{t('filters.linkTypes')}</h3>
         <div className="flex flex-wrap gap-1.5">
           {KINDS.map((k) => (
             <button key={k} className={`chip ${filters.linkKinds[k] ? 'active' : ''}`} onClick={() => dispatch({ type: 'toggle-link-kind', kind: k })}>

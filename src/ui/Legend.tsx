@@ -24,12 +24,12 @@ export function Legend() {
   return (
     <div className="glass fixed bottom-24 left-4 w-72 p-4 z-40" role="dialog" aria-label={t('legend.title')}>
       <div className="flex items-center justify-between mb-2">
-        <h2 className="font-serif text-lg">{t('legend.title')}</h2>
+        <h2 className="section-title-sm">{t('legend.title')}</h2>
         <button aria-label={t('legend.close')} className="p-1 hover:bg-white/10 rounded" onClick={() => dispatch({ type: 'toggle-ui', key: 'legendOpen' })}>
           <X size={16} />
         </button>
       </div>
-      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.links')}</h3>
+      <h3 className="section-title-sm mb-1.5">{t('legend.links')}</h3>
       <ul className="space-y-1.5 mb-3">
         {SAMPLES.map((s) => (
           <li key={s.kind} className="flex items-center gap-2 text-sm">
@@ -41,15 +41,15 @@ export function Legend() {
         ))}
       </ul>
       <p className="text-xs text-[#9ba39c] mb-3">{t('legend.hint')}</p>
-      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.levels')}</h3>
+      <h3 className="section-title-sm mb-1.5">{t('legend.levels')}</h3>
       <p className="text-sm mb-3">{LEVEL_I18N.map((k) => t(k)).join(' · ')}</p>
-      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.results')}</h3>
+      <h3 className="section-title-sm mb-1.5">{t('legend.results')}</h3>
       <p className="text-sm mb-3 flex flex-wrap gap-1.5">
         {RESULT_KINDS.map((k) => (
           <KindBadge key={k} kind={k} />
         ))}
       </p>
-      <h3 className="text-xs uppercase tracking-widest text-[#9ba39c] mb-1.5">{t('legend.statements')}</h3>
+      <h3 className="section-title-sm mb-1.5">{t('legend.statements')}</h3>
       <p className="text-sm mb-3">
         <span className="badge-fait">{t('statement.fact')}</span> <span className="badge-interp">{t('statement.interp')}</span>
       </p>

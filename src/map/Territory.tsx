@@ -60,8 +60,12 @@ interface Props {
 export const Territory = memo(function Territory({ domain, layout, selected, selectedChildId, dimmed, related, vision, naturesKind, onSelect, onHover }: Props) {
   const { lang } = useLang();
   const { x, y, r } = layout;
-  // vision « natures » : la couleur du territoire vient de la nature dominante de ses résultats
-  const kindPalette = vision === 'natures' ? KIND_CHALK[dominantKind(domain.results)] : null;
+  // vision « natures » : la couleur du territoire vient de la nature dominante de
+  // ses résultats — ou de la nature filtrée quand une pastille est active (le
+  // territoire la possédant se teinte alors de cette nature).
+  const kindKey =
+    naturesKind !== null && domainHasKind(domain, naturesKind) ? naturesKind : dominantKind(domain.results);
+  const kindPalette = vision === 'natures' ? KIND_CHALK[kindKey] : null;
   const palette = domain.map.palette;
   const stroke = kindPalette?.stroke ?? palette.stroke;
   const accent = kindPalette?.accent ?? palette.accent;

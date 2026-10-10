@@ -506,6 +506,13 @@ svg.atlas-map[data-level='1'] .territory:hover .territory-name {
   padding-bottom: 0.25rem;
   margin-bottom: 0.5rem;
 }
+/* variante compacte (légende, filtres) : sans filet, plus petite */
+.section-title-sm {
+  font-family: var(--font-note);
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: #c9cfc4;
+}
 
 .badge-fait,
 .badge-interp {
