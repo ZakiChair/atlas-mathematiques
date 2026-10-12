@@ -12,6 +12,7 @@ describe('années MacTutor', () => {
     expect(parseYear('about 325 BC')).toEqual({ year: -325, approx: true });
     expect(parseYear('March 415')).toEqual({ year: 415, approx: false });
     expect(parseYear('10 June 0940')).toEqual({ year: 940, approx: false });
+    expect(parseYear('18th March 2026')).toEqual({ year: 2026, approx: false });
     expect(parseYear('598')).toEqual({ year: 598, approx: false });
   });
 

@@ -21,7 +21,7 @@ function field(html: string, label: 'Born' | 'Died'): string | null {
 
 /** « about 325 BC » → −325 (approx), « 10 June 0940 » → 940, « March 415 » → 415. */
 export function parseYear(text: string): LifeYear | null {
-  const m = text.match(/(about|c\.|circa)?\s*(?:\d{1,2}\s+)?(?:[A-Z][a-z]+\s+)?(\d{1,4})\s*(BC)?/);
+  const m = text.match(/(about|c\.|circa)?\s*(?:\d{1,2}(?:st|nd|rd|th)?\s+)?(?:[A-Z][a-z]+\s+)?(\d{1,4})\s*(BC)?/);
   if (!m) return null;
   const n = Number(m[2]);
   if (!Number.isFinite(n) || n === 0) return null;
