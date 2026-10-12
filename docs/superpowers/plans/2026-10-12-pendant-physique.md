@@ -14,7 +14,8 @@ Arbitrages validés :
   contexte/portée sourcés, théories, résultats).
 - **Résultats clés** : flag `Result.major` — une trentaine éditoriale **plus**
   les résultats phares des 43 grandes figures (déjà désignés) ; rendu en gros
-  losange avec titre dès le niveau 2, badge dans la fiche.
+  losange avec titre dès le niveau 2, badge dans la fiche. Livré : 36 majors
+  mathématiques + 23 dans les domaines physiques (59 au total).
 - **Physicien·nes** : figures à part entière dans leurs domaines physiques ;
   celles déjà dans l'atlas sont réutilisées par `relatedMathematicianIds`.
 
@@ -39,7 +40,9 @@ Arbitrages validés :
 - Tests : rendu niveau 2, pas de régression e2e.
 
 ### 5.2 Domaines physiques (squelettes)
-Quinze domaines, écrits par ère dans quatre fichiers :
+Quinze domaines, écrits par ère dans quatre fichiers — **livrés** (état au
+merge : 176 figures canoniques + fiches dans les 15 domaines, récits et
+théories sourcés, 0 écart MacTutor strict) :
 
 | Fichier | Domaines | Carte (x, y, ère) |
 |---|---|---|
@@ -56,22 +59,39 @@ Poincaré, Noether, Minkowski…), liens entrants/sortants documentés.
 ### 5.3 Figures physicien·nes
 ~120 au total (8–10 par domaine), fiches courtes du modèle § 11 du brief
 (bio ≤ 280 car., années MacTutor, slug, `sources: ['mactutor']`), dans
-`src/data/figures/physique-a/b/c.ts`. Les physicien·nes déjà figures de
+`src/data/figures/physique-a/b/c/d.ts`. Les physicien·nes déjà figures de
 l'atlas ne sont **pas** redéfinis (`relatedMathematicianIds`).
+**Livré** : 176 figures dans les domaines physiques (canoniques + fiches) ;
+Einstein, Curie et Dirac promus grandes figures avec apports et phares.
 
 ### 5.4 Interconnexions
 - Liens de domaines maths → physique et retour (filiation/influence, labels
   explicites : « l'analyse sert le ciel », « la mesure fait la statistique ») ;
   au plus un `principal` par domaine d'arrivée, y compris côté physique.
+  **Livré** : 50 liens de domaines touchant la bande physique, 82 liens de
+  figures croisés.
 - Liens de figures croisés (Hilbert ↔ Einstein, Ricci/Grossmann → Einstein,
   Noether → relativité, Wigner → groupes, Itô/Wiener → physique statistique…).
 - Quelques grandes figures physiques candidates aux médailles (Newton déjà
   grande figure ; Maxwell, Einstein, Curie, Dirac proposés — validation
-  éditoriale).
+  éditoriale). **Retenu** : Einstein, Curie, Dirac (Maxwell déjà couvert par
+  sa fiche canonique, non promu).
 
 ### 5.5 Verrous et vérifications
-- README et brief § 12 mis à jour ; stats régénérées.
+- README et brief § 12 mis à jour ; stats régénérées (73 domaines,
+  1 351 figures, 787 résultats, 59 majeurs). ✅
 - `mactutor --strict` étendu aux domaines physiques ; écarts consignés.
-- Suite complète : typecheck, lint, test, build, e2e.
-- Densité : niveau 3 sur les domaines physiques les plus denses.
+  **0 écart** sur les 15 domaines (120 figures contrôlées). ✅
+- Suite complète : typecheck, lint (58/58), build, e2e (44 passés,
+  2 ignorés — inchangé). ✅
+- Densité : niveau 3 contrôlé sur `mecanique-quantique` (20 figures
+  canoniques) — aucun chevauchement, désencombrement conforme. ✅
 - PR `pendant-physique` → `vagues-corpus` (ou `main` si #2 fusionnée).
+
+### Arbitrages de fusion (dedup inter-fichiers)
+- `friedmann` canonique dans `gravitation-et-cosmologie` ;
+  `relativite-et-gravitation` le relie (`relatedMathematicianIds`).
+- `peierls`, `uhlenbeck-george`, `kramers` : fiches uniques dans `physique-c`.
+- `robertson` : fiche unique dans `physique-d` (FLRW).
+- `darrigol-electrodynamics` déclaré dans `physique-b`, `north-measure-universe`
+  dans `physique-c` — les autres fichiers les citent sans les redéclarer.

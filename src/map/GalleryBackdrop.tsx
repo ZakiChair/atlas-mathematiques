@@ -11,7 +11,7 @@ const TICK_Y = 116;
 const tickLabel = (y: number) => (y < 0 ? `−${-y}` : String(y));
 
 /**
- * Fond de la carte « Galerie » : les cinq bandes des champs, très pâles, les
+ * Fond de la carte « Galerie » : les six bandes des champs, très pâles, les
  * frontières des ères et quelques années en filigrane (les ères sont nommées
  * par la frise). Tout le reste est posé dessus.
  */

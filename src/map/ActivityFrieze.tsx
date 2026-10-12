@@ -28,7 +28,7 @@ interface Props {
 const tickLabel = (y: number) => (y < 0 ? `−${-y}` : String(y));
 
 /**
- * Frise d'activité des cinq champs : un courant par champ, épais du nombre de
+ * Frise d'activité des six champs : un courant par champ, épais du nombre de
  * résultats recensés par tranche de la carte. Même échelle du temps que la
  * carte ; la fenêtre encadre la portion visible ; clic ou glisser = déplacer la
  * carte à cette époque.

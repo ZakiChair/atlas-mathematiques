@@ -905,5 +905,23 @@ Avenant « Galerie » (plan `docs/superpowers/plans/2026-10-12-pendant-physique.
   lien documenté vers un domaine mathématique.
 - **Résultats majeurs** : `major: true` sur `Result` — une trentaine
   éditoriale dans tout l'atlas ; les résultats phares des grandes figures
-  bénéficient du même traitement visuel sans porter le flag.
-- Domaines et cibles : voir le plan § 5.2 (~15 domaines, ~120 figures).
+  bénéficient du même traitement visuel sans porter le flag. Livré : 36
+  résultats majeurs mathématiques et 23 physiques (59 au total).
+- Domaines livrés (15) :
+  - `physique-a` : `optique-antique-et-medievale` (−300→1310),
+    `astronomie-mathematique` (150→1619), `mecanique-impetus-et-galilee`
+    (1340→1644) ;
+  - `physique-b` : `mecanique-celeste` (1687→1846), `ondes-et-acoustique`
+    (1747→1845), `electricite-et-electromagnetisme` (1785→1888),
+    `optique-ondulatoire` (1801→1862),
+    `thermodynamique-et-mecanique-statistique` (1824→1902) ;
+  - `physique-c` : `relativite-et-gravitation` (1905→1939),
+    `mecanique-quantique` (1900→1935), `rayonnement-et-particules`
+    (1895→1945), `theorie-quantique-des-champs` (1927→1979) ;
+  - `physique-d` : `physique-statistique-et-matiere-condensee` (1937→1990),
+    `gravitation-et-cosmologie` (1922→2000), `chaos-physique-et-non-lineaire`
+    (1963→2000).
+- Figures livrées : 176 (canoniques et fiches confondues) ; Einstein, Curie et
+  Dirac sont grandes figures. Les personnes déjà dans l'atlas (Newton,
+  Maxwell, Boltzmann, Poincaré…) sont réutilisées, jamais redéfinies :
+  arbitrages de déduplication consignés au § « Arbitrages de fusion » du plan.

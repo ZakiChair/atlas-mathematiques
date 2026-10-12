@@ -46,7 +46,7 @@ export const PHYSIQUE_B: Domain[] = [
     period: { start: 1687, end: 1846 },
     continents: ['physique'],
     places: ['Cambridge', 'Paris', 'Greenwich', 'Saint-Pétersbourg', 'Göttingen', 'Berlin'],
-    map: { x: 2900, y: 4700, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 2900, y: 4700, size: 2, palette: { fill: '#c6ece7', stroke: '#26645d', accent: '#268278' } },
     tagline: 'L’univers comme un problème de calcul : les lois de Newton, l’équation de la Lune, la planète découverte à la pointe du crayon.',
     summary:
       'Des Principia de Newton (1687) à la découverte de Neptune (1846), le ciel devient le grand laboratoire de l’analyse. La loi de la gravitation universelle soumet l’orbite de la Lune (Clairaut, Euler), les comètes (Halley, Clairaut), la figure de la Terre (Maupertuis, La Condamine) et les perturbations des planètes (Lagrange, Laplace) à un calcul de plus en plus serré, tandis que les observatoires — Greenwich, Paris, puis Göttingen et Berlin — fournissent les positions à battre. En 1846, en retournant les équations de la perturbation pour en déduire la position du corps perturbateur, Urbain Le Verrier et John Couch Adams localisent chacun une huitième planète, Neptune, découverte au télescope de Berlin : le triomphe public de la mécanique du ciel.',
@@ -490,7 +490,7 @@ export const PHYSIQUE_B: Domain[] = [
     period: { start: 1747, end: 1845 },
     continents: ['physique'],
     places: ['Paris', 'Berlin', 'Saint-Pétersbourg', 'Prague', 'Londres', 'Utrecht'],
-    map: { x: 3450, y: 5150, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 3450, y: 5150, size: 2, palette: { fill: '#d5f1ee', stroke: '#2b736c', accent: '#2a9288' } },
     tagline: 'Le champ de bataille de la fonction : une corde qui vibre, des figures de sable, et un son qui change de hauteur quand la source bouge.',
     summary:
       'En 1747, d’Alembert écrit la première équation des ondes ; vingt ans de querelle avec Euler et Daniel Bernoulli sur la « fonction quelconque » font de la corde vibrante le creuset de l’analyse. Le domaine change ensuite d’oreille : Chladni rend les vibrations visibles avec ses figures de sable (1787), Sophie Germain en tire la théorie des plaques élastiques, Laplace corrige la vitesse du son par l’échauffement adiabatique, et les expérimentateurs — Savart, Wheatstone — donnent à la fréquence son instrument de mesure. En 1842, Doppler prédit le décalage de fréquence des sources en mouvement, vérifié par les trompettistes de Buys Ballot en 1845 : le son devient une physique des observateurs.',
@@ -816,7 +816,7 @@ export const PHYSIQUE_B: Domain[] = [
     period: { start: 1785, end: 1888 },
     continents: ['physique'],
     places: ['Paris', 'Copenhague', 'Londres', 'Pavie', 'Göttingen', 'Cambridge', 'Karlsruhe'],
-    map: { x: 4000, y: 4800, size: 3, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 4000, y: 4800, size: 3, palette: { fill: '#d1f0ec', stroke: '#2a6f66', accent: '#298e81' } },
     tagline: 'De la balance de torsion aux ondes hertziennes : un siècle pour unir l’électricité, le magnétisme et la lumière en un seul champ.',
     summary:
       'En 1785, Coulomb mesure au centième la force des charges : l’électricité entre dans le programme newtonien. La pile de Volta (1800) donne un courant continu ; vingt ans plus tard, l’aiguille d’Ørsted (1820) révèle le lien entre courant et aimant, qu’Ampère convertit en électrodynamique mathématique et Faraday en lignes de champ — l’induction (1831), les diélectriques, la rotation du plan de polarisation (1845). Maxwell fait alors du champ une variable dynamique : ses équations (1865) prédisent que la lumière est une onde électromagnétique, que Hertz produit et mesure à Karlsruhe en 1888. L’unification des trois phénomènes est accomplie.',
@@ -1255,7 +1255,7 @@ export const PHYSIQUE_B: Domain[] = [
     period: { start: 1824, end: 1902 },
     continents: ['physique'],
     places: ['Paris', 'Manchester', 'Heilbronn', 'Glasgow', 'Berlin', 'Zurich', 'Vienne', 'New Haven'],
-    map: { x: 4300, y: 5100, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 4300, y: 5100, size: 2, palette: { fill: '#d5f1f1', stroke: '#2b7371', accent: '#2a9291' } },
     tagline: 'De la machine à vapeur aux atomes : le cycle de Carnot, l’équivalence de la chaleur et du travail, puis l’entropie qui ne revient jamais en arrière.',
     summary:
       'Le mémoire de Sadi Carnot (1824) pose la question du siècle : quelle est la puissance motrice maximale de la chaleur ? Clapeyron la traduit en diagramme (1834) ; Mayer et Joule établissent l’équivalence chaleur-travail (1842-1847), Helmholtz en fait le principe de conservation de l’énergie. Clausius et Kelvin réconcilient Carnot et Joule en un second principe (1850-1851), qu’exprime l’entropie (1865). La théorie cinétique des gaz transforme alors la température en mouvement moyen des molécules : distribution de Maxwell (1860), théorème H de Boltzmann (1872), entropie statistique S = k log W (1877). Gibbs achève l’édifice en 1902 avec les ensembles statistiques, juste avant que la mécanique quantique ne vienne en modifier les fondements.',
@@ -1666,7 +1666,7 @@ export const PHYSIQUE_B: Domain[] = [
     period: { start: 1801, end: 1862 },
     continents: ['physique'],
     places: ['Londres', 'Paris', 'Ville-d’Avray', 'Sèvres', 'Montmartre', 'Dublin'],
-    map: { x: 3650, y: 4550, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 3650, y: 4550, size: 2, palette: { fill: '#cdeeed', stroke: '#296b69', accent: '#288a87' } },
     tagline: 'Deux fentes, un point noir au milieu d’une ombre, et la lumière cesse d’être un jet de corpuscules : le siècle des franges et de l’éther.',
     summary:
       'En 1801, Thomas Young exhibe les franges d’interférence ; vingt ans plus tard, Fresnel construit l’optique ondulatoire complète — principe de Huygens-Fresnel, diffraction, vibrations transversales expliquant la polarisation — que valide la tache d’Arago, prédite par Poisson pour réfuter la théorie. La défaite de l’école corpusculaire de Laplace et Biot est consommée en 1850 quand Foucault montre que la lumière va plus lentement dans l’eau que dans l’air, l’inverse des prédictions émissionnistes. Reste l’éther : Fresnel invente son coefficient d’entraînement, Fizeau le mesure, et la vitesse de la lumière devient une constante expérimentale — celle que Maxwell identifiera à la vitesse électromagnétique.',

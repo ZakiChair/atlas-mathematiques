@@ -19,7 +19,7 @@ describe('libellés de la carte', () => {
     );
   });
 
-  it('vue d’ensemble desktop : les cinq champs sont nommés dans la marge, entre titre et frise', () => {
+  it('vue d’ensemble desktop : les six champs sont nommés dans la marge, entre titre et frise', () => {
     const [w, h, top, frieze] = [1440, 900, 64, 92];
     const k = Math.min(w / MAP_SIZE.width, (h - top - frieze) / MAP_SIZE.height);
     const v = { k, x: w / 2 - (k * MAP_SIZE.width) / 2, y: top + (h - top - frieze) / 2 - (k * MAP_SIZE.height) / 2, width: w, height: h };

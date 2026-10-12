@@ -49,7 +49,7 @@ export const PHYSIQUE_A: Domain[] = [
     period: { start: -300, end: 1310, approx: true },
     continents: ['physique'],
     places: ['Alexandrie', 'Bagdad', 'Le Caire', 'Oxford', 'Paris', 'Freiberg'],
-    map: { x: 1300, y: 4750, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 1300, y: 4750, size: 2, palette: { fill: '#d1f0eb', stroke: '#2a6f65', accent: '#298e7f' } },
     tagline: 'Du rayon visuel d’Euclide aux gouttes de pluie de Thierry de Freiberg : la lumière devient géométrie, puis expérience.',
     summary:
       'L’optique est la première physique mathématique : Euclide y décrit la vision par des rayons en ligne droite et les miroirs par des angles égaux, et Ptolémée y ajoute les premières tables de mesure de la réfraction. À Bagdad puis au Caire, Ibn al-Haytham en refond l’objet — ce n’est plus l’œil qui émet des rayons, mais la lumière qui entre dans l’œil depuis chaque point de l’objet — et il y fonde une méthode mêlant géométrie, anatomie et dispositifs expérimentaux. Traduit en latin, son livre nourrit les Perspectivae de Grosseteste, Peckham et Witelo, jusqu’à l’explication de l’arc-en-ciel par Thierry de Freiberg.',
@@ -419,7 +419,7 @@ export const PHYSIQUE_A: Domain[] = [
     period: { start: 150, end: 1619, approx: true },
     continents: ['physique'],
     places: ['Alexandrie', 'Damas', 'Maragha', 'Samarcande', 'Nuremberg', 'Hven', 'Prague'],
-    map: { x: 2150, y: 4950, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 2150, y: 4950, size: 2, palette: { fill: '#d5f1f0', stroke: '#2b7370', accent: '#2a928f' } },
     tagline: 'Quatorze siècles pour sauver les phénomènes : de l’Almageste aux données de Tycho, puis aux ellipses de Kepler.',
     summary:
       'De l’Almageste de Ptolémée à l’Astronomia nova de Kepler, l’astronomie est la science mathématique par excellence : composer des mouvements circulaires pour reproduire les positions observées. L’école de Maragha et Ibn al-Shātir en corrigent les modèles sans en briser le cadre ; la restauration humaniste de l’Almageste par Peurbach et Regiomontanus ouvre la voie à Copernic ; les instruments de Tycho Brahe multiplient la précision par dix. Kepler tire alors des données de Mars l’ellipse et la loi des aires, avant que la troisième loi ne clôture la période en 1619.',
@@ -826,7 +826,7 @@ export const PHYSIQUE_A: Domain[] = [
     period: { start: 1340, end: 1644, approx: true },
     continents: ['physique'],
     places: ['Oxford', 'Paris', 'Salamanque', 'Leyde', 'Padoue', 'Florence'],
-    map: { x: 2350, y: 5150, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 2350, y: 5150, size: 2, palette: { fill: '#c6eceb', stroke: '#266462', accent: '#26827f' } },
     tagline: 'Des sophismata d’Oxford au baromètre de Torricelli : la chute des corps devient une science du nombre et de la mesure.',
     summary:
       'Entre les calculatores d’Oxford et les disciples de Galilée s’accomplit la plus profonde transformation de la physique : le mouvement cesse d’être un état qualifié pour devenir une grandeur mesurée. Bradwardine refond les rapports de force, Buridan explique le projectile par l’impetus, Oresme dessine les vitesses en aires ; Stevin et Galilée achèvent la statique du plan incliné et la loi des chutes, et Torricelli fait du vide un instrument de laboratoire.',

@@ -1,11 +1,14 @@
 # Atlas des mathématiques
 
 Cartographie interactive de l’histoire des mathématiques, présentée comme une planche murale
-claire : cinq bandes de champs très pâles (nombres, formes, analyse, hasard et calcul,
-fondements) déroulent le temps de gauche à droite, de Babylone à aujourd’hui ; les domaines
-sont des disques pâles posés sur leur bande et leur époque. Dès la vue d’ensemble, une
-quarantaine de grandes figures sont visibles en médailles à leur initiale, avec leur nom et
-leur résultat phare ; les seuls liens tracés par défaut sont les lignées principales (un
+claire : six bandes de champs très pâles (nombres, formes, analyse, hasard et calcul,
+fondements, et physique en pendant) déroulent le temps de gauche à droite, de Babylone à
+aujourd’hui ; les domaines sont des disques pâles posés sur leur bande et leur époque. La
+bande physique rend visibles les allers-retours entre les deux disciplines : les mêmes arcs
+de transmission relient les domaines mathématiques aux domaines où leur outillage a porté
+(mécanique, optique, thermodynamique, relativité, quantique, chaos…). Dès la vue d’ensemble,
+une quarantaine de grandes figures sont visibles en médailles à leur initiale, avec leur nom
+et leur résultat phare ; les seuls liens tracés par défaut sont les lignées principales (un
 ascendant par domaine) et les ruptures. Le zoom révèle progressivement les théories, puis les
 figures, puis les résultats ; chaque fiche distingue faits documentés et interprétations,
 sourcés.
@@ -29,9 +32,10 @@ données et brief).
 - **Zoom sémantique** : Domaines → Théories → Mathématiciens → Résultats (molette, pincement,
   boutons +/−, ou l’indicateur de niveau sous le titre ; au-dessus de la frise sur mobile).
   Le niveau 0 montre déjà les grandes figures ; au niveau 1, leur résultat phare s’ajoute sous
-  leur nom ; le niveau 2 révèle les points des figures ordinaires et les noms des figures à
-  résultats ; le niveau 3, les résultats et les noms des fiches courtes.
-- **Frise d’activité** (bas de l’écran) : l’épaisseur des cinq champs au fil du temps, en nombre
+  leur nom ; le niveau 2 révèle les points des figures ordinaires, les noms des figures à
+  résultats et les « résultats majeurs » (losanges plus grands, titre visible dès ce niveau) ;
+  le niveau 3, les autres résultats et les noms des fiches courtes.
+- **Frise d’activité** (bas de l’écran) : l’épaisseur des six champs au fil du temps, en nombre
   de résultats recensés ; la fenêtre suit la portion visible de la carte, la période du domaine
   choisi y est marquée. Clic ou glisser pour se déplacer dans le temps, flèches au clavier.
 - **Amont et aval** : choisir un domaine colore son amont en bleu de Prusse et son aval en
@@ -54,7 +58,9 @@ données et brief).
 - **Réseau des mathématicien·nes** : la fiche d’une figure liste ses liens ; quand une figure
   est sélectionnée, des arcs la relient sur la carte aux figures liées.
 - **Natures des résultats** : théorème, conjecture, concept, méthode, texte, problème, signalées
-  par un badge coloré (légende).
+  par un badge coloré (légende). Une sélection éditoriale de résultats majeurs — ceux qui ont
+  fondé un domaine, clos une question séculaire ou ouvert une ère — porte en plus la pastille
+  « Résultat majeur » et apparaît dès le niveau 2.
 - **Fiches résultats** : « D’où vient l’idée » (1 à 2 énoncés) et « Idée de la démonstration »
   (3 à 6 étapes en langage courant), rédigés pour l’instant sur 3 résultats modèles, en cours
   pour les théorèmes, conjectures et problèmes (vague 3) ; puis « Ce qui y a conduit » et
@@ -71,21 +77,25 @@ Fraunces, texte et étiquettes en DM Sans.
 
 ## Corpus
 
-58 domaines (antiquité 6, monde médiéval 6, renaissance et révolution scientifique 8, siècle des
-lumières 6, xixᵉ siècle 9, âge des structures 11, contemporain 12), 176 théories, 1 175 figures,
-647 résultats commentés (224 texte, 223 théorème, 105 concept, 55 méthode, 24 problème,
-16 conjecture), 486 repères chronologiques, 182 liens entre domaines, 148 liens entre figures,
-223 sources (livres, articles, textes primaires, archives web). 174 résultats portent un récit
-« contexte / portée » (593 énoncés : 400 faits, 193 interprétations). 43 grandes figures portent
-une signature typée et sourcée, 2 à 4 apports et 1 à 3 résultats phares ; les théorèmes sont
-tous dotés de « D’où vient l’idée » et « Idée de la démonstration », et les conjectures et
-problèmes de « D’où vient l’idée » ; 1 127 figures renvoient à leur biographie MacTutor.
+73 domaines — 58 de mathématiques répartis sur sept ères (antiquité 6, monde médiéval 6,
+renaissance et révolution scientifique 8, siècle des lumières 6, xixᵉ siècle 9, âge des
+structures 11, contemporain 12) et 15 de physique, de l’optique antique au chaos non
+linéaire —, 227 théories, 1 351 figures, 787 résultats commentés (246 texte, 242 théorème,
+183 concept, 67 méthode, 33 problème, 16 conjecture), 648 repères chronologiques, 232 liens
+entre domaines, 230 liens entre figures, 345 sources (livres, articles, textes primaires,
+archives web). 174 résultats portent un récit « contexte / portée » (593 énoncés : 400 faits,
+193 interprétations). 43 grandes figures portent une signature typée et sourcée, 2 à 4 apports
+et 1 à 3 résultats phares ; les théorèmes sont tous dotés de « D’où vient l’idée » et « Idée
+de la démonstration », et les conjectures et problèmes de « D’où vient l’idée » ; les figures
+renvoient à leur biographie MacTutor quand elle existe (couverture contrôlée par
+`scripts/mactutor.ts`, écarts consignés dans `docs/corpus/ecarts-mactutor.md`).
 
 Les données vivent dans `src/data/` :
 
 - `domains/*.ts` — dix fichiers d’ère (`antiquite`, `medieval`, `renaissance`, `lumieres`,
-  `dixneuvieme-a/b`, `structures-a/b`, `contemporain-a/b`), chacun exportant ses domaines, ses
-  sources spécialisées, ses liens entre domaines et ses liens entre figures (schéma dans `types.ts`) ;
+  `dixneuvieme-a/b`, `structures-a/b`, `contemporain-a/b`) et quatre fichiers pour le pendant
+  physique (`physique-a/b/c/d`), chacun exportant ses domaines, ses sources spécialisées, ses
+  liens entre domaines et ses liens entre figures (schéma dans `types.ts`) ;
 - `sources-core.ts` — la bibliographie socle (`CORE_SOURCES`) : histoires générales, recueils
   de textes et grandes monographies ;
 - `sources.ts` — le registre des sources : ré-exporte le socle et agrège les sources

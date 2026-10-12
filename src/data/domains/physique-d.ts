@@ -49,7 +49,7 @@ export const PHYSIQUE_D: Domain[] = [
     period: { start: 1937, end: 1990 },
     continents: ['physique'],
     places: ['Kharkov', 'Moscou', 'Leyde', 'Zurich', 'Cambridge', 'Ithaca', 'Murray Hill', 'Urbana'],
-    map: { x: 6450, y: 4750, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 6450, y: 4750, size: 2, palette: { fill: '#cdeeee', stroke: '#296b6b', accent: '#288a8a' } },
     tagline: 'Quand d’innombrables particules changent d’état ensemble : transitions de phase, supraconductivité et renormalisation.',
     summary:
       'De la solution exacte du modèle d’Ising par Onsager (1944) à la théorie microscopique de la supraconductivité de Bardeen, Cooper et Schrieffer (1957), la matière condensée devient le terrain où les transitions de phase se pensent en termes de symétries brisées et d’échelles. La théorie de Landau (1937), les liquides de Fermi et l’école soviétique du Landau–Lifchits ancrent la phénoménologie ; le groupe de renormalisation de Kadanoff et Wilson (1966-1971) unifie les phénomènes critiques, Anderson localise les électrons dans le désordre (1958) et Parisi résout le verre de spin (1979). Contre le réductionnisme, Anderson proclame en 1972 que « plus, c’est différent » : à chaque niveau de complexité, des lois nouvelles émergent.',
@@ -554,7 +554,7 @@ export const PHYSIQUE_D: Domain[] = [
     period: { start: 1922, end: 2000 },
     continents: ['physique'],
     places: ['Petrograd', 'Louvain', 'Pasadena', 'Cambridge', 'Princeton', 'Holmdel', 'Moscou', 'Austin'],
-    map: { x: 6750, y: 5000, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 6750, y: 5000, size: 2, palette: { fill: '#d1f0ec', stroke: '#2a6f66', accent: '#298e81' } },
     tagline: 'L’univers devient un objet d’histoire : expansion mesurée, écho fossile, singularités démontrées et matière invisible.',
     summary:
       'Des solutions en expansion de Friedmann (1922) à l’« atome primitif » de Lemaître (1927-1931) et à la loi de Hubble (1929), la relativité générale donne à la cosmologie son cadre mathématique : les métriques de Friedmann–Lemaître–Robertson–Walker, le big bang chaud de la nucléosynthèse d’Alpher–Gamow (1948) face à l’état stationnaire de Bondi, Gold et Hoyle (1948) — débat tranché par le fond diffus découvert par Penzias et Wilson (1965). Les théorèmes de singularité de Penrose et Hawking (1965-1970) montrent que la gravitation produit des bords que la géométrie seule ne referme pas ; les courbes de rotation de Rubin imposent la matière noire (vers 1980), et l’inflation de Guth (1981) réécrit les conditions initiales.',
@@ -1053,7 +1053,7 @@ export const PHYSIQUE_D: Domain[] = [
     period: { start: 1963, end: 2000 },
     continents: ['physique'],
     places: ['Los Alamos', 'Novossibirsk', 'Murray Hill', 'Princeton', 'Saclay', 'Bruxelles', 'Zurich'],
-    map: { x: 7050, y: 4650, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    map: { x: 7050, y: 4650, size: 2, palette: { fill: '#c6eceb', stroke: '#266462', accent: '#26827f' } },
     tagline: 'Non linéaire, le monde physique devient imprévisible : solitons, turbulence, structures dissipatives et chaos quantique.',
     summary:
       'La récurrence de Fermi–Pasta–Ulam (1955), calculée sur le premier grand ordinateur, ruine l’équipartition attendue ; les solitons de Zabusky et Kruskal (1965) en livrent la clé et ouvrent la théorie de l’intégrabilité. Côté dissipatif, l’attracteur de Lorenz (1963) puis le scénario de Ruelle–Takens (1971) relisent la turbulence, Feigenbaum mesure des constantes universelles (1978) et les expériences de Gollub–Swinney puis de Libchaber confirment le chaos dans les fluides ; côté hamiltonien, le critère de Chirikov cartographie la stochastisation de l’espace des phases. L’école de Prigogine fait du loin-de-l’équilibre une physique des structures dissipatives : le chaos cesse d’être un bruit pour devenir un régime mesurable des systèmes physiques.',
