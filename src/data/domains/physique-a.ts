@@ -815,6 +815,469 @@ export const PHYSIQUE_A: Domain[] = [
     ],
     sources: ['neugebauer-hama', 'evans-astronomy', 'toomer-almagest', 'kennedy-planetary', 'grant-planets', 'kuhn-copernican', 'westman-copernican', 'thoren-brahe', 'voelkel-astronomia', 'caspar-kepler', 'dreyer-astronomy'],
   },
+  // ───────────────────────────────────────────────────────────────────────────
+  // De l’impetus à Galilée
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    id: 'mecanique-impetus-et-galilee',
+    name: 'De l’impetus à Galilée',
+    mapName: 'Impetus et Galilée',
+    altNames: ['Mécanique scolastique et galiléenne', 'Calculatores, impetus et Discours'],
+    era: 'renaissance',
+    period: { start: 1340, end: 1644, approx: true },
+    continents: ['physique'],
+    places: ['Oxford', 'Paris', 'Salamanque', 'Leyde', 'Padoue', 'Florence'],
+    map: { x: 2350, y: 5150, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    tagline: 'Des sophismata d’Oxford au baromètre de Torricelli : la chute des corps devient une science du nombre et de la mesure.',
+    summary:
+      'Entre les calculatores d’Oxford et les disciples de Galilée s’accomplit la plus profonde transformation de la physique : le mouvement cesse d’être un état qualifié pour devenir une grandeur mesurée. Bradwardine refond les rapports de force, Buridan explique le projectile par l’impetus, Oresme dessine les vitesses en aires ; Stevin et Galilée achèvent la statique du plan incliné et la loi des chutes, et Torricelli fait du vide un instrument de laboratoire.',
+    methods: [
+      {
+        kind: 'fait',
+        text: 'La méthode des rapports : Bradwardine (1328) veut qu’à toute proportion géométrique entre force et résistance corresponde une proportion arithmétique des vitesses — la « fonction » du mouvement s’écrit en rapports composés, selon la logique d’Euclide et de Campanus.',
+        sources: ['clagett-mechanics', 'grant-sourcebook'],
+      },
+      {
+        kind: 'fait',
+        text: 'La mesure des intensités : les Calculatores définissent mouvements uniforme, uniformément difforme et difforme, puis démontrent que la distance d’un mouvement uniformément accéléré égale celle d’un mouvement uniforme à la vitesse du milieu du temps — Oresme le figure en aires, latitude contre longitude.',
+        sources: ['clagett-mechanics', 'clagett-oresme'],
+      },
+      {
+        kind: 'fait',
+        text: 'La balance démonstrative : Jordanus puis Stevin déduisent les conditions d’équilibre du plan incliné et de la poulie en supposant qu’aucun poids ne monte plus haut que ce que la descente de l’autre permet — ancêtre du principe des travaux virtuels.',
+        sources: ['moody-clagett-ponderibus', 'dijksterhuis'],
+      },
+      {
+        kind: 'fait',
+        text: 'L’expérimentation mesurée : Galilée règle des plans inclinés — rainure polie, pendules, horloge à eau — et compare les espaces aux carrés des temps ; Riccioli laisse choir des boules de la tour des Asinelli en dénombrant les temps au pendule.',
+        sources: ['drake-galileo', 'dijksterhuis'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Pour Koyré, la révolution de Galilée n’est pas « plus d’expérience » mais un autre rapport à l’expérience : la loi mathématique idéale — la chute dans le vide — prime les corps réels que l’expérience ne fait qu’approcher, renversant la physique du sens commun.',
+        sources: ['koyre-galilee', 'dijksterhuis'],
+      },
+    ],
+    context: [
+      {
+        kind: 'fait',
+        text: 'Les commentaires d’Aristote (Physique, Du ciel) sont le terrain commun : Questions de Buridan et d’Oresme, sophismata d’Oxford, cours de Salamanque — tout s’écrit à l’intérieur de l’école, même les thèses qui la ruineront.',
+        sources: ['clagett-mechanics', 'grant-sourcebook'],
+      },
+      {
+        kind: 'fait',
+        text: 'La querelle des poids traverse les siècles : les traités de ponderibus attribués à Jordanus sont commentés au XVIᵉ siècle, imprimés par Tartaglia (1565), refondus par Guidobaldo del Monte (1577) et repris par Stevin (1586).',
+        sources: ['moody-clagett-ponderibus', 'clagett-mechanics'],
+      },
+      {
+        kind: 'fait',
+        text: 'L’imprimerie des sciences : les œuvres d’Archimède paraissent en latin chez Tartaglia (1543) puis Commandino (1558) ; le Liber mechanicorum de Guidobaldo (1577) et les Beghinselen de Stevin (1586) recréent la statique sur le modèle grec.',
+        sources: ['dijksterhuis', 'clagett-mechanics'],
+      },
+      {
+        kind: 'fait',
+        text: 'Sous la pression des articles condamnés à Paris en 1277, les commentateurs discutent le vide, le mouvement du monde et les poids comme autant d’« impossibles » que Dieu pourrait pourtant réaliser — un espace conceptuel où s’insinuent impetus et vitesse instantanée.',
+        sources: ['duhem-systeme', 'grant-sourcebook'],
+      },
+    ],
+    debates: [
+      {
+        kind: 'fait',
+        text: 'La continuité médiévale-galiléenne est le grand procès de l’historiographie : Duhem voyait en Galilée l’héritier de Buridan ; Clagett et Koyré ont montré les dettes réelles — règle de la vitesse moyenne, langage des latitudes — tout en maintenant la rupture : les scolastiques calculaient des intensités, Galilée écrit une loi de la nature mesurable.',
+        sources: ['clagett-mechanics', 'koyre-galilee'],
+      },
+      {
+        kind: 'fait',
+        text: 'La « tour de Pise » vient de la biographie de Vincenzo Viviani (1654) : les manuscrits de Galilée attestent bien des expériences de chute à Padoue, mais la démonstration publique du haut du campanile n’a pas de source contemporaine.',
+        sources: ['drake-galileo', 'dijksterhuis'],
+      },
+      {
+        kind: 'fait',
+        text: 'Domingo de Soto applique à la chute libre le vocabulaire des Calculatores dans l’édition de 1555-1556 de ses Questions — « uniformiter difformis », le même théorème — sans que la filiation exacte jusqu’à Galilée soit établie.',
+        sources: ['wallace-domingo', 'clagett-mechanics'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Le vide lui-même change de statut : impossible pour Aristote, pensable pour les scolastiques, il devient chez Torricelli un fait de laboratoire dont on calcule la pression — l’« océan d’air » qu’il décrit en 1644.',
+        sources: ['grant-much-ado', 'dijksterhuis'],
+      },
+    ],
+    keyDates: [
+      { year: 1328, text: 'Tractatus de proportionibus de Thomas Bradwardine : la vitesse suit la « proportion des proportions ».' },
+      { year: 1340, text: 'Le Liber calculationum de Richard Swineshead démontre la règle de la vitesse moyenne (vers).' },
+      { year: 1350, text: 'Nicole Oresme compose le De configurationibus qualitatum et motuum : les vitesses en aires (vers).' },
+      { year: 1494, text: 'Naissance de Domingo de Soto ; les commentateurs de Salamanque prolongent la cinématique scolastique.' },
+      { year: 1555, text: 'Les Questions de de Soto appliquent l’« uniformiter difformis » à la chute libre (édition de 1555-1556).' },
+      { year: 1577, text: 'Liber mechanicorum de Guidobaldo del Monte : la statique archimédienne reconstituée.' },
+      { year: 1586, text: 'Beghinselen der Weeghconst et des Waterwichts de Simon Stevin : le plan incliné par le clootcrans, l’hydrostatique.' },
+      { year: 1604, text: 'Galilée annonce à Paolo Sarpi la loi des carrés des temps pour la chute (lettre d’octobre).' },
+      { year: 1618, text: 'Isaac Beeckman et René Descartes se rencontrent à Breda : le Journaal de Beeckman porte déjà inertie et corpuscules.' },
+      { year: 1631, text: 'Pierre Gassendi observe à Marseille le premier transit de Mercure, prédit par les Tables rudolphines.' },
+      { year: 1638, text: 'Discours et démonstrations mathématiques de Galilée imprimés à Leyde : la chute et le projectile en parabole.' },
+      { year: 1644, text: 'Lettres de Torricelli à Michelangelo Ricci : le baromètre à mercure et « l’océan d’air ».' },
+    ],
+    theories: [
+      {
+        id: 'mg-calcul-des-proportions',
+        name: 'Les calculatores : rapports, latitudes, configurations',
+        period: { start: 1320, end: 1400, approx: true },
+        summary: 'De Bradwardine aux Calculationes d’Oxford et aux traités parisiens d’Oresme : le mouvement devient une grandeur comme les autres — latitude des vitesses, longitude du temps — que l’on additionne, divise et figure en diagrammes.',
+        traits: ['Fonction de Bradwardine', 'Sophismata et règles de Merton', 'Latitude et longitude des qualités', 'Diagrammes d’Oresme'],
+      },
+      {
+        id: 'mg-impetus-et-mouvement',
+        name: 'L’impetus et le mouvement des graves',
+        period: { start: 1340, end: 1600, approx: true },
+        summary: 'La force incorporée de Buridan explique le projectile, l’accélération des graves et la persistance des orbes ; Albert de Saxe, Marsile d’Inghen et les commentateurs de Salamanque prolongent la tradition jusqu’au seuil galiléen.',
+        traits: ['Force incorporée du projectile', 'Chute accélérée', 'Orbes sans anges', 'Commentaires de Salamanque'],
+      },
+      {
+        id: 'mg-statique-et-hydrostatique',
+        name: 'Statique et hydrostatique des poids',
+        period: { start: 1240, end: 1600, approx: true },
+        summary: 'De la scientia de ponderibus de Jordanus aux Beghinselen de Stevin, en passant par les éditions d’Archimède et le Liber mechanicorum : les conditions d’équilibre — plan incliné, poulie, clootcrans — se démontrent sans mouvement perpétuel.',
+        traits: ['Scientia de ponderibus', 'Éditions d’Archimède', 'Plan incliné et clootcrans', 'Poids de l’eau'],
+      },
+      {
+        id: 'mg-mouvement-et-vide',
+        name: 'La nouvelle mécanique : mesure, projectile, vide',
+        period: { start: 1590, end: 1650, approx: true },
+        summary: 'Galilée, Beeckman, Gassendi, Riccioli, Torricelli : la loi de la chute vérifiée au pendule, le projectile en parabole, les corpuscules et l’inertie, le vide en éprouvette — la mécanique troque les qualités pour les grandeurs mesurées.',
+        traits: ['Loi de la chute', 'Projectile en parabole', 'Corpuscules et inertie', 'Baromètre et pression'],
+      },
+    ],
+    mathematicians: [
+      {
+        id: 'richard-swineshead',
+        name: 'Richard Swineshead',
+        years: [1320, 1360],
+        yearsApprox: true,
+        origin: 'Oxford (Merton College)',
+        bio: 'Membre de Merton College vers 1340-1355, Richard Swineshead — le « Calculator » — compose le Liber calculationum, somme des méthodes mertoniennes : mesure des intensités, règles des mouvements uniformes et difformes, démonstration de la vitesse moyenne. Ses dates de vie sont inconnues ; son livre, imprimé dès 1477, fait école jusqu’à la Renaissance.',
+        theoryId: 'mg-calcul-des-proportions',
+        sources: ['clagett-mechanics', 'grant-sourcebook'],
+      },
+      {
+        id: 'domingo-de-soto',
+        name: 'Domingo de Soto',
+        years: [1494, 1560],
+        origin: 'Ségovie et Salamanque',
+        bio: 'Dominicain formé à Alcalá et à Paris, professeur à Salamanque puis confesseur de Charles Quint et délégué au concile de Trente, Domingo de Soto applique dans ses Questions sur la Physique (édition de 1555-1556) à la chute des corps le langage des Calculatores : la chute libre y est décrite comme un mouvement « uniformiter difformis » — uniformément accéléré.',
+        theoryId: 'mg-impetus-et-mouvement',
+        sources: ['wallace-domingo', 'clagett-mechanics'],
+      },
+      {
+        id: 'beeckman',
+        name: 'Isaac Beeckman',
+        years: [1588, 1637],
+        origin: 'Middelbourg, Breda et Dordrecht',
+        bio: 'Chandelier de formation, recteur à Dordrecht, Isaac Beeckman tient un Journaal où il ébauche une mécanique corpusculaire : la matière est faite de particules, le mouvement acquis se conserve tant que rien ne le corrompt. À sa rencontre de Breda (novembre 1618), il passe à Descartes l’idée d’une physique des particules en mouvement — et le principe d’inertie.',
+        theoryId: 'mg-mouvement-et-vide',
+        sources: ['sep', 'dijksterhuis'],
+      },
+      {
+        id: 'riccioli',
+        name: 'Giovanni Battista Riccioli',
+        years: [1598, 1671],
+        origin: 'Ferrare, Parme et Bologne',
+        bio: 'Jésuite de Bologne, Riccioli mène avec Grimaldi et ses confrères les plus systématiques des expériences de chute de l’époque — boules lâchées de la tour des Asinelli, comptées au pendule — et publie l’Almagestum novum (1651), somme astronomique où la lune reçoit ses noms modernes et où le système de Tycho tient lieu de compromis.',
+        theoryId: 'mg-mouvement-et-vide',
+        mactutor: 'Riccioli',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'gassendi',
+        name: 'Pierre Gassendi',
+        years: [1592, 1655],
+        origin: 'Champtercier, Aix et Paris',
+        bio: 'Prêtre provençal, professeur au Collège royal, Gassendi observe à Marseille le premier transit de Mercure (7 novembre 1631) prédit par les Tables rudolphines, écrit une Institutio astronomica (1647) et restaure Épicure : les atomes et le vide qu’il décrit font le pendant mécanique du système copernicien. Correspondant de Galilée, il objecte aux Méditations de Descartes dans les Cinquièmes objections (1641).',
+        theoryId: 'mg-mouvement-et-vide',
+        mactutor: 'Gassendi',
+        sources: ['mactutor', 'sep'],
+      },
+    ],
+    relatedMathematicianIds: ['archimede', 'jordanus-de-nemore', 'bradwardine', 'jean-buridan', 'oresme', 'stevin', 'descartes', 'mersenne', 'cavalieri', 'huygens'],
+    results: [
+      {
+        id: 'fonction-de-bradwardine',
+        title: 'La fonction de Bradwardine : vitesse et rapports composés',
+        year: 1328,
+        authorName: 'Thomas Bradwardine',
+        mathematicianId: 'bradwardine',
+        theoryId: 'mg-calcul-des-proportions',
+        kind: 'concept',
+        statement: 'La vitesse d’un mouvement croît lorsque croît le rapport de la force motrice à la résistance, et cette croissance suit la « proportion des proportions » : doubler géométriquement F/R double arithmétiquement la vitesse — que l’on traduira v ∝ log(F/R).',
+        comment: 'Le Tractatus de proportionibus (1328) fonde la dynamique scolastique : là où Aristote suggérait v ∝ F/R — d’où v > 0 dès que F et R sont comparables — Bradwardine exige que seul l’excès géométrique du rapport produise le mouvement, le repos étant garanti à l’équilibre.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La règle suggérée par la Physique d’Aristote donnait une vitesse dès que la force dépassait la résistance, mais laissait un cas embarrassant à l’égalité : les commentateurs cherchaient une loi où le repos à l’équilibre soit garanti.',
+            sources: ['clagett-mechanics', 'grant-sourcebook'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La « fonction » de Bradwardine s’impose dans les universités anglaise puis française ; Oresme la discute encore un siècle plus tard, et c’est sur cette tradition que s’écrira la première critique quantitative de la résistance du milieu.',
+            sources: ['clagett-mechanics', 'clagett-oresme'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Ramsée du problème : la règle v ∝ F/R donne une vitesse même quand la force égale la résistance ; il faut une loi où le rapport des rapports — non la simple différence — pilote la vitesse.',
+            sources: ['clagett-mechanics'],
+          },
+        ],
+      },
+      {
+        id: 'impetus-de-buridan',
+        title: 'L’impetus : la cause du mouvement est dans le mobile',
+        year: 1340,
+        yearApprox: true,
+        authorName: 'Jean Buridan',
+        mathematicianId: 'jean-buridan',
+        theoryId: 'mg-impetus-et-mouvement',
+        kind: 'concept',
+        statement: 'Le projectile continue parce que le moteur imprime en lui un impetus — une force incorporée proportionnelle à la vitesse et à la quantité de matière — que la résistance de l’air et la gravité corrompent : ni l’air qui pousse par-derrière, ni des anges pour les cieux ne sont requis.',
+        comment: 'Dans les Questions sur la Physique, Buridan renverse l’explication aristotélicienne : ce n’est pas le milieu qui pousse le projectile, c’est le mobile qui porte en lui la cause de son mouvement — l’impetus explique l’accélération des graves autant que la persistance des orbes.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Aristote faisait de l’air le moteur du projectile, qui viendrait le pousser par-derrière une fois la main levée — explication que Jean Philopon avait déjà critiquée à Alexandrie et que les commentateurs arabes avaient prolongée.',
+            sources: ['clagett-mechanics', 'grant-sourcebook'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’impetus se diffuse dans les universités — Albert de Saxe, Marsile d’Inghen — et prépare le terrain où Galilée parlera de mouvement horizontal indifférent, puis Descartes de conservation du mouvement.',
+            sources: ['clagett-mechanics', 'dijksterhuis'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Duhem, l’impetus était déjà l’inertie ; Koyré et Clagett montrent qu’il reste une force interne qui se corrompt — ancêtre de la quantité de mouvement plus que l’inertie newtonienne.',
+            sources: ['koyre-galilee', 'clagett-mechanics'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fois la pierre lancée, la main ne la touche plus : si elle vole encore, la cause du mouvement est en elle — c’est ce quelque chose d’« imprimé » que Buridan nomme impetus.',
+            sources: ['clagett-mechanics'],
+          },
+        ],
+      },
+      {
+        id: 'theoreme-de-la-vitesse-moyenne',
+        title: 'Le théorème de la vitesse moyenne',
+        year: 1340,
+        yearApprox: true,
+        authorName: 'Richard Swineshead',
+        mathematicianId: 'richard-swineshead',
+        theoryId: 'mg-calcul-des-proportions',
+        kind: 'theoreme',
+        statement: 'Un mobile uniformément accéléré parcourt, en un temps donné, la même distance qu’un mobile uniforme à la vitesse instantanée qu’il atteint au milieu du temps — la distance croît donc comme le carré du temps.',
+        comment: 'Énoncé par William Heytesbury dans les Règles pour résoudre les sophismes, démontré dans le Liber calculationum de Swineshead et les sommes de John Dumbleton, le théorème reçoit chez Oresme sa forme géométrique : le triangle de l’accélération égale le rectangle de la vitesse moyenne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La question venait des sophismata — « quam cito », « uniformiter difformis » — où les regentes d’Oxford et de Paris mesuraient l’intensité d’une qualité, sa latitude, par son étendue, sa longitude.',
+            sources: ['clagett-mechanics', 'grant-sourcebook'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Galilée donne au même théorème sa forme mécanique — loi des temps et des espaces dans la chute, troisième journée du Discours — et Riccioli le vérifie boule à la main depuis la tour des Asinelli.',
+            sources: ['clagett-mechanics', 'drake-galileo'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Clagett, c’est le premier lien entre les mathématiques de l’intensité et la cinématique ; pour Koyré, la continuité s’arrête au seuil de la mesure : les scolastiques ne pensaient pas qu’une vraie pierre suivît ces règles.',
+            sources: ['clagett-mechanics', 'koyre-galilee'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans le diagramme d’Oresme, le temps porte horizontalement, la vitesse verticalement : l’accélération uniforme dessine un triangle rectangle dont l’aire — la distance — égale celle du rectangle à hauteur moyenne.',
+            sources: ['clagett-oresme', 'clagett-mechanics'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit un mobile dont la vitesse croît uniformément de zéro à une vitesse donnée en un temps T : son diagramme vitesse-temps est un triangle rectangle.',
+            sources: ['clagett-mechanics', 'clagett-oresme'],
+          },
+          {
+            kind: 'fait',
+            text: 'À chaque instant, l’excès de vitesse au-dessus de la moyenne compense exactement le défaut symétrique de l’autre moitié du temps : la partie du triangle située au-dessus de la moyenne égalise celle située en dessous.',
+            sources: ['clagett-mechanics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le triangle a donc même aire que le rectangle de même base et de hauteur égale à la vitesse du milieu du temps.',
+            sources: ['clagett-mechanics', 'clagett-oresme'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’aire du diagramme représente la distance parcourue : le mouvement uniformément accéléré parcourt donc autant qu’un mouvement uniforme à la vitesse moyenne.',
+            sources: ['clagett-oresme', 'clagett-mechanics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Comme la vitesse du milieu croît proportionnellement au temps total, la distance croît comme son carré : c’est la loi des carrés des temps.',
+            sources: ['clagett-mechanics', 'drake-galileo'],
+          },
+        ],
+      },
+      {
+        id: 'uniformiter-difformis-de-soto',
+        title: 'La chute libre est « uniformiter difformis »',
+        year: 1555,
+        yearApprox: true,
+        authorName: 'Domingo de Soto',
+        mathematicianId: 'domingo-de-soto',
+        theoryId: 'mg-impetus-et-mouvement',
+        kind: 'concept',
+        statement: 'Dans l’édition de 1555-1556 de ses Questions sur la Physique, Domingo de Soto applique aux corps qui tombent le vocabulaire des Calculatores : la chute libre est un mouvement uniformément accéléré, dont la vitesse croît proportionnellement au temps.',
+        comment: 'Le dominicain de Salamanque n’invente pas le théorème — il lui donne un corps physique : ce que Merton et Oresme calculaient comme intensités devient la description de la chute réelle, un demi-siècle avant les manuscrits de Galilée.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Wallace a montré (1968) que le passage explicite figure dans l’édition de 1555-1556 des Quaestiones : la chute des graves y est dite « uniformiter difformis », terme technique de la cinématique d’Oxford et de Paris.',
+            sources: ['wallace-domingo'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'interpretation',
+            text: 'Le passage établit la continuité continentale de la cinématique médiévale jusqu’au seuil de Galilée : pour Wallace, de Soto en est un maillon direct ; pour les tenants de la rupture, il répète un sophisma sans instrument de mesure.',
+            sources: ['wallace-domingo', 'koyre-galilee'],
+          },
+        ],
+      },
+      {
+        id: 'clootcrans-de-stevin',
+        title: 'Le clootcrans : le plan incliné par la chaîne de boules',
+        year: 1586,
+        authorName: 'Simon Stevin',
+        mathematicianId: 'stevin',
+        theoryId: 'mg-statique-et-hydrostatique',
+        kind: 'concept',
+        statement: 'Une chaîne fermée de boules posée sur deux plans inclinés ne bouge pas : si le côté le plus long l’emportait, la chaîne tournerait sans fin — donc les poids qui s’équilibrent sont en raison inverse des longueurs des pentes.',
+        comment: 'Le raisonnement du clootcrans (« couronne de boules »), exposé dans les Beghinselen der Weeghconst (1586), fait de l’impossibilité du mouvement perpétuel le fondement de la statique ; Stevin en déduit le parallélogramme des forces et traite l’hydrostatique dans les Beghinselen des Waterwichts.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’édition latine d’Archimède par Tartaglia (1543) puis Commandino (1558) et le Liber mechanicorum de Guidobaldo del Monte (1577) avaient recréé la statique grecque ; Stevin y joint la pratique ingénieure des Pays-Bas — digues, pompes, fortifications.',
+            sources: ['dijksterhuis', 'clagett-mechanics'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le clootcrans devient l’icône de la statique : gravé sur l’ex-libris de Stevin, il illustre l’idée que l’équilibre se déduit de l’impossibilité du mouvement perpétuel — principe que Lagrange formalisera en travaux virtuels.',
+            sources: ['dijksterhuis'],
+          },
+        ],
+      },
+      {
+        id: 'loi-de-la-chute-galilee',
+        title: 'La loi de la chute : distances en nombres impairs',
+        altTitle: 'Discorsi e dimostrazioni matematiche, troisième journée',
+        year: 1638,
+        authorName: 'Galileo Galilei',
+        theoryId: 'mg-mouvement-et-vide',
+        kind: 'texte',
+        major: true,
+        comment: 'Publiés à Leyde en 1638, les Discours et démonstrations mathématiques consacrent leurs troisième et quatrième journées au mouvement : chute uniformément accélérée — espaces en nombres impairs successifs et carrés des temps — puis trajectoire du projectile, composée d’un mouvement uniforme et d’une chute, en parabole.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Dès octobre 1604, Galilée annonce à Paolo Sarpi la loi des carrés des temps pour la chute ; les manuscrits de Padoue montrent plans inclinés, pendules et horloges à eau — et d’abord son erreur de dérivation, reconstituée par Drake.',
+            sources: ['drake-galileo', 'dijksterhuis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les jésuites mesurent la chute : Riccioli, depuis la tour des Asinelli à Bologne, vérifie par dénombrement au pendule les proportions du Discours dans l’Almagestum novum (1651).',
+            sources: ['drake-galileo', 'dijksterhuis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La loi de la chute devient le modèle de la physique mathématique : Torricelli l’étend aux fluides, Huygens au pendule, Newton à la Lune — la « mesure » du Discours est le pont entre le ciel de Kepler et la mécanique des Principia.',
+            sources: ['dijksterhuis', 'koyre-galilee'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Koyré, le Discours ne « lit » pas la nature mais la construit : Galilée énonce les conditions idéales — vide, absence de résistance — que l’expérience réelle ne fait qu’approcher ; la loi mathématique est première.',
+            sources: ['koyre-galilee'],
+          },
+        ],
+      },
+      {
+        id: 'mecanique-corpusculaire-beeckman',
+        title: 'Corpuscules et conservation du mouvement',
+        year: 1618,
+        yearApprox: true,
+        authorName: 'Isaac Beeckman',
+        mathematicianId: 'beeckman',
+        theoryId: 'mg-mouvement-et-vide',
+        kind: 'concept',
+        statement: 'Tout corps en mouvement persévère dans son mouvement tant que rien ne le corrompt ; la matière est faite de particules dont la physique — chocs, cohésion, pression — se réduit à la mécanique.',
+        comment: 'Le Journaal de Beeckman ébauche dès 1613-1618 une mécanique corpusculaire complète : inertie avant Descartes, atomes avant Gassendi — mais restée manuscrite, elle n’agit sur l’histoire que par la rencontre de Breda (1618) et les lectures de Mersenne.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Recteur à Dordrecht, Beeckman tient un cahier de recherche — le Journaal — où figurent dès 1613 la conservation du mouvement et les corpuscules ; à Breda, en novembre 1618, il initie le jeune Descartes à cette « physico-mathématique ».',
+            sources: ['sep', 'dijksterhuis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Par Descartes (Principes, 1644) puis Mersenne, les idées du Journaal entrent dans la mécanique du XVIIᵉ siècle : la conservation du mouvement et la physique des corpuscules deviennent le programme commun.',
+            sources: ['sep', 'dijksterhuis'],
+          },
+        ],
+      },
+      {
+        id: 'barometre-et-vide-torricelli',
+        title: 'Le baromètre : « nous vivons au fond d’un océan d’air »',
+        year: 1644,
+        authorName: 'Evangelista Torricelli',
+        theoryId: 'mg-mouvement-et-vide',
+        kind: 'concept',
+        major: true,
+        statement: 'Un tube d’un mètre, rempli de mercure et renversé sur une cuvette, garde une colonne d’environ 76 cm au-dessus d’un espace vide : c’est le poids de l’air qui soutient le mercure, et non l’horreur du vide.',
+        comment: 'En juin 1644, Torricelli décrit à Michelangelo Ricci l’expérience menée avec Vincenzo Viviani : l’espace au sommet du tube est bien vide, la colonne s’équilibre avec la pression de l’air — le vide « impensable » d’Aristote devient un fait mesurable et un instrument nouveau.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les fontainiers savaient que l’eau ne montait pas au-delà d’environ dix mètres dans les pompes aspirantes ; Galilée attribuait la limite à une « résistance du vide » mesurée comme une force — Torricelli réinterprète le phénomène par le poids de l’air.',
+            sources: ['grant-much-ado', 'dijksterhuis'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’expérience se répète et se précise : la colonne varie avec le temps et l’altitude (expérience du Puy-de-Dôme, 1648), le « vide de Torricelli » devient un espace de laboratoire, et la notion de pression entre dans la physique.',
+            sources: ['grant-much-ado', 'dijksterhuis'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour l’historiographie du vide, c’est le point où la question quitte la métaphysique : l’horreur scolastique du vide est remplacée par une grandeur — le poids de l’atmosphère — mesurable et variable.',
+            sources: ['grant-much-ado'],
+          },
+        ],
+      },
+    ],
+    sources: ['clagett-mechanics', 'moody-clagett-ponderibus', 'wallace-domingo', 'koyre-galilee', 'drake-galileo', 'dijksterhuis', 'grant-much-ado', 'clagett-oresme', 'grant-sourcebook', 'sep'],
+  },
 ];
 
 /** Liens entre domaines, déclarés dans le fichier de leur domaine d'arrivée. */
@@ -895,6 +1358,44 @@ export const LINKS_PHYSIQUE_A: Link[] = [
     note: 'Peurbach et Regiomontanus restaurent le texte et les méthodes de l’Almageste ; c’est dans leur Epitome que Copernic apprend l’astronomie mathématique qu’il reforme.',
     sources: ['westman-copernican', 'kuhn-copernican'],
   },
+  // — Cible : mecanique-impetus-et-galilee —
+  {
+    source: 'occident-latin-medieval',
+    target: 'mecanique-impetus-et-galilee',
+    kind: 'filiation',
+    epistemic: 'fait',
+    label: 'L’école de Paris et les calculatores',
+    note: 'De Jordanus aux Calculatores d’Oxford puis à Buridan et Oresme, les concepts de la science latine médiévale — proportions, impetus, configurations — nourrissent directement la nouvelle mécanique.',
+    sources: ['clagett-mechanics'],
+    principal: true,
+  },
+  {
+    source: 'logique-scolastique',
+    target: 'mecanique-impetus-et-galilee',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'Sophismata et mesures',
+    note: 'L’analyse logique des termes — « uniformiter difformis », « quam cito » — et les sophismata d’Oxford et de Paris fournissent les instruments de la cinématique médiévale.',
+    sources: ['clagett-mechanics', 'kretzmann-cambridge-history'],
+  },
+  {
+    source: 'mathematiques-hellenistiques',
+    target: 'mecanique-impetus-et-galilee',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'Archimède réédité',
+    note: 'Les traités de statique et d’hydrostatique d’Archimède, édités par Tartaglia (1543) et Commandino (1558), donnent à Stevin et à Galilée le modèle d’une physique démonstrée.',
+    sources: ['dijksterhuis', 'clagett-mechanics'],
+  },
+  {
+    source: 'astronomie-mathematique',
+    target: 'mecanique-impetus-et-galilee',
+    kind: 'influence',
+    epistemic: 'interpretation',
+    label: 'Du ciel à la chute',
+    note: 'Les lois de Kepler posent le problème dynamique — pourquoi l’ellipse, pourquoi les aires — que la mécanique de Galilée puis celle de Newton devront expliquer.',
+    sources: ['koyre-galilee', 'dijksterhuis'],
+  },
 ];
 
 /** Liens entre figures (filiation, influence, collaboration, affinité, rupture). */
@@ -907,4 +1408,9 @@ export const MATHEMATICIAN_LINKS_PHYSIQUE_A: MathematicianLink[] = [
   { source: 'nasir-al-din-al-tusi', target: 'al-shatir', kind: 'influence', note: 'Ibn al-Shātir emploie le « couple » de Ṭūsī et prolonge la révision des modèles planétaires ouverte à Maragha.', epistemic: 'fait' },
   { source: 'ptolemee', target: 'al-shatir', kind: 'influence', note: 'Le Zīj al-jadīd reconstruit les modèles de l’Almageste en en supprimant excentriques et équants.', epistemic: 'fait' },
   { source: 'brahe', target: 'kepler', kind: 'filiation', note: 'À Prague, Kepler hérite des données d’observation de Tycho — surtout celles de Mars — dont il tire l’ellipse et la loi des aires.', epistemic: 'fait' },
+  // — Cibles dans mecanique-impetus-et-galilee —
+  { source: 'bradwardine', target: 'richard-swineshead', kind: 'filiation', note: 'Swineshead poursuit à Merton le programme de calcul des rapports et des intensités inauguré par Bradwardine.', epistemic: 'fait' },
+  { source: 'jean-buridan', target: 'domingo-de-soto', kind: 'influence', note: 'La question du mouvement uniformément accéléré passe de l’école de Paris à Salamanque par les commentateurs d’Aristote ; de Soto en fait l’état de la chute libre.', epistemic: 'interpretation' },
+  { source: 'stevin', target: 'beeckman', kind: 'influence', note: 'Beeckman lit Stevin — statique pratique, ingénierie des eaux — et partage son mécanisme particulaire.', epistemic: 'interpretation' },
+  { source: 'mersenne', target: 'gassendi', kind: 'collaboration', note: 'Amis et membres du cercle des Minimes, Mersenne et Gassendi correspondent constamment ; Mersenne fait paraître les objections de Gassendi à Descartes.', epistemic: 'fait' },
 ];

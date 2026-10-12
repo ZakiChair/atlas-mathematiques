@@ -89,4 +89,26 @@ export const FIGURES_PHYSIQUE_A: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
   ],
+  'mecanique-impetus-et-galilee': [
+    {
+      id: 'castelli',
+      name: 'Benedetto Castelli',
+      years: [1578, 1643],
+      origin: 'Brescia, Padoue et Rome',
+      bio: 'Élève de Galilée à Padoue, moine bénédictin, Castelli reçoit la lettre de 1613 sur la Bible et la science ; son Della misura dell’acque correnti (1628) fonde l’hydraulique, et il devient à Rome le maître de Torricelli.',
+      theoryId: 'mg-mouvement-et-vide',
+      mactutor: 'Castelli',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'grimaldi',
+      name: 'Francesco Maria Grimaldi',
+      years: [1618, 1663],
+      origin: 'Bologne',
+      bio: 'Jésuite de Bologne, Grimaldi assiste Riccioli dans les expériences de chute et dessine la carte lunaire de l’Almagestum novum ; son De lumine (posthume, 1665) décrit la diffraction de la lumière.',
+      theoryId: 'mg-mouvement-et-vide',
+      mactutor: 'Grimaldi',
+      sources: ['mactutor'],
+    },
+  ],
 };
