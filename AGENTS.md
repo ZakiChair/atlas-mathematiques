@@ -6,6 +6,9 @@ Atlas interactif de l’histoire des mathématiques (React 19 + Vite + TypeScrip
 D3, Tailwind v4, Vitest, Playwright). Moteur dérivé d’`atlas-cinema` ; données
 dans `src/data/`. Langue du code, des commentaires et du corpus : français.
 
+Plan en cours : `docs/superpowers/plans/2026-10-12-refonte-galerie.md`
+(refonte « Galerie » ; tâches cochées dans l’ordre).
+
 ## Commandes
 
 - `npm run dev` — serveur de développement.
@@ -15,6 +18,8 @@ dans `src/data/`. Langue du code, des commentaires et du corpus : français.
 - `npm run build` — production dans `dist/`.
 - `npm run test:e2e` — Playwright desktop + mobile (`e2e/atlas.spec.ts`, captures dans `e2e/artifacts/`).
 - `npx tsx scripts/check-era.ts <fichier>` — erreurs de validation limitées à un fichier d’ère.
+- `npx tsx scripts/corpus-stats.ts` — statistiques du corpus pour le README.
+- `npx tsx scripts/palettes.ts` — régénération des palettes « Galerie » (données et brief).
 
 ## Corpus : règles non négociables
 
@@ -29,6 +34,14 @@ dans `src/data/`. Langue du code, des commentaires et du corpus : français.
   `relatedMathematicianIds`. Les identifiants sont globalement uniques par type.
 - Années : entiers, négatives avant notre ère, jamais 0.
 - Typographie : apostrophe ’, guillemets « », espace avant « : » et « ; ».
+- Grandes figures : 2 au plus par domaine ; liste validée au § 9 du brief.
+  Signature ≤ 90 caractères ; apports : 0 ou 2 à 4 ; résultats phares : 1 à 3,
+  existants et attribués à la figure ; `mactutor` au format `^[A-Za-z0-9_'()-]+$` ;
+  `sources` d’une figure dans le registre.
+- Intuition : 1 à 2 énoncés, jamais sur un `texte` ; démonstration : 3 à 6
+  étapes, réservée à `theoreme`, `conjecture`, `probleme`.
+- Au plus un lien `principal` par domaine d’arrivée, sur une filiation ou une
+  influence.
 
 ## Fichiers générés ou à ne pas éditer à la main
 
@@ -40,3 +53,5 @@ dans `src/data/`. Langue du code, des commentaires et du corpus : français.
 `npm test` puis `npm run typecheck`. Un changement d’identifiant doit être
 répercuté dans les liens (`LINKS_X`, `MATHEMATICIAN_LINKS_X`), dans
 `relatedMathematicianIds` des autres domaines et dans le brief.
+Les seuils de `src/data/completeness.ts` ne se relèvent qu’au verrou de chaque
+vague (dossier de passation).

@@ -2,11 +2,13 @@
 
 Ce document fixe la charte du corpus : schéma, règles de validation, table des
 domaines (identifiants, positions, palettes), mathématicien·nes canoniques,
-bibliographie socle et contrat de sortie des fichiers de données.
+grandes figures (§ 9), intuitions et démonstrations (§ 10), fiches courtes
+(§ 11), bibliographie socle et contrat de sortie des fichiers de données.
 **Toute donnée écrite dans `src/data/domains/*.ts` doit s'y conformer.**
 
 Schéma de référence : `src/data/types.ts`. Validation : `src/data/validate.ts`
-(exécutée par `npm test`). Lire les deux avant d'écrire.
+(exécutée par `npm test`). Les seuils de complétude sont portés par
+`src/data/completeness.ts`. Lire les trois avant d'écrire.
 
 ---
 
@@ -55,6 +57,22 @@ Par domaine :
 - Liens : `source`/`target` sont des ids de domaines ; une `affinite` est
   toujours `epistemic: 'interpretation'` ; pas de doublon (source|target|kind).
 - Liens entre mathématicien·nes : ids de figures existant globalement.
+
+Grandes figures (`featured`, charte au § 9) :
+- `signature` : 90 caractères au plus, typée et sourcée.
+- `contributions` : 0 (tant que la vague 2 n'est pas passée) ou 2 à 4 apports.
+- `headlineResultIds` : 1 à 3 résultats existants et attribués à la figure
+  (`mathematicianId`), éventuellement dans un autre domaine.
+- `sources` d'une figure : identifiants du registre ; `mactutor` au format
+  `^[A-Za-z0-9_'()-]+$`.
+
+Intuitions et démonstrations (charte au § 10) :
+- `intuition` : 1 à 2 énoncés ; jamais sur un résultat de nature `texte`.
+- `proof` : 3 à 6 étapes ; réservé aux natures `theoreme`, `conjecture`,
+  `probleme`.
+
+Liens `principal` : au plus un ascendant principal par domaine d'arrivée, et
+seulement sur une filiation ou une influence.
 
 ## 3. Contrat de sortie d'un fichier d'ère
 
@@ -116,14 +134,14 @@ préfixe théories · figures canoniques (id : nom, [naissance, décès], lieu)
 domaines à mobiliser via `relatedMathematicianIds` · liens suggérés
 (domaine source → nature). Les suggestions ne sont pas limitatives.
 
-Palettes (DA « fleuves et confluences », papier clair) : `fill` lavis pâle
-(aplat du lac), `stroke` encre teintée (contour, libellés), `accent` pigment
-saturé (halo, marqueurs). Chaque continent a la teinte de son fleuve :
-nombres = ocre, formes = céruléen, analyse = violet, hasard = terre cuite,
-fondements = vert sauge. Les palettes sont générées par `scripts/palettes.ts`
-(jitter déterministe par id) : ne pas les éditer à la main.
+Palettes (DA « Galerie », planche claire) : `fill` disque pâle du domaine,
+`stroke` encre du nom du domaine et de ses théories, `accent` médaille des
+grandes figures et anneau de sélection. Chaque champ a sa teinte de base
+(`FIELD_HUE` dans `src/map/fieldColors.ts`), déclinée à ±5° de teinte et ±1
+point de luminosité par domaine (hachage de l'id). Les palettes sont générées
+par `scripts/palettes.ts` (données ET ce brief) : ne pas les éditer à la main.
 
-Nom de carte : le lac affiche la partie du `name` avant « : ». Quand le nom est
+Nom de carte : le disque affiche la partie du `name` avant « : ». Quand le nom est
 une énumération longue sans « : » (« Combinatoire, graphes et méthode
 probabiliste »), renseigner `mapName`, nom court fidèle au domaine (« Combinatoire
 et graphes ») : 40 caractères au plus, et au plus 3 lignes de 15 capitales une
@@ -664,3 +682,208 @@ impact: [
   },
 ],
 ```
+
+---
+
+## 9. Grandes figures
+
+Une grande figure est signalée par le champ `featured` sur son objet, dans son
+fichier d’ère (schéma : `Featured` dans `src/data/types.ts`). **Deux grandes
+figures au plus par domaine.** Charte de rédaction :
+
+- **Signature** : son apport en une ligne, au plus 90 caractères, verbe au présent (« Fonde… », « Démontre… »).
+  - Typée `fait` si elle décrit ce qui a été fait (« Publie la résolution générale… (1545) ») ;
+  - `interpretation` si elle juge (« refonde », « unifie », « achève »).
+- **Apports** : 2 à 4 énoncés, chacun une ou deux phrases. Ils disent ce que la figure a **changé** : concepts, méthodes, notations, manières de démontrer, institutions, élèves, écoles.
+  - Ils **complètent** la bio sans la répéter.
+  - Les jugements de portée sont typés `interpretation` et attribués quand c’est possible (« pour Weil, … »).
+  - Sources : celles du domaine d’attache, celles des récits de ses résultats, `mactutor` et les histoires générales du socle.
+  - Modèle : les apports d’Euler (ci-dessous).
+- **Résultats phares** : 1 à 3 de ses résultats, le plus emblématique d’abord (il s’affiche sur la carte). Ils peuvent appartenir à n’importe quel domaine.
+
+Liste validée (43 figures, 36 domaines) :
+
+| Ère | Figure (`id`) | Signature | Sources de la signature | Résultats phares (le premier sur la carte) |
+|---|---|---|---|---|
+| Antiquité | Euclide (`euclide`) | Organise la géométrie et l’arithmétique grecques en un édifice déductif : les Éléments. (f) | vitrac-euclide, heath-greek | elements-euclide, infinite-des-nombres-premiers, cinquieme-postulat |
+| Antiquité | Archimède (`archimede`) | Mesure le cercle, la sphère et la parabole par exhaustion, et fonde la statique. (f) | heath-archimedes, heath-greek | mesure-du-cercle, de-la-sphere-et-du-cylindre, la-methode-archimede |
+| Antiquité | Aristote (`aristote`) | Crée la logique formelle, la syllogistique, et la théorie de la science démonstrative. (f) | kneale-logic, sep | syllogistique, seconds-analytiques |
+| Antiquité | Diophante (`diophante`) | Résout en nombres rationnels des centaines de problèmes indéterminés : les Arithmétiques. (f) | sesiano-diophante, heath-greek | arithmetica-diophante |
+| Antiquité | Liu Hui (`liu-hui`) | Justifie les procédures des Neuf Chapitres et calcule π par polygones successifs. (f) | chemla-neuf-chapitres, martzloff-chine | algorithme-du-cercle-de-liu-hui, commentaire-de-liu-hui |
+| Médiéval | Brahmagupta (`brahmagupta`) | Donne les règles du calcul avec le zéro et les nombres négatifs (628). (f) | plofker-india, katz-sourcebook | brahmasphutasiddhanta, formule-de-brahmagupta |
+| Médiéval | al-Khwārizmī (`al-khwarizmi`) | Fait de la résolution des équations une discipline, l’al-jabr, d’où vient « algèbre ». (i) | rashed-al-khwarizmi, rashed-sciences-arabes | kitab-al-jabr, livre-du-calcul-indien |
+| Médiéval | Ibn al-Haytham (`ibn-al-haytham`) | Refonde l’optique par la géométrie et l’expérience ; mesure le paraboloïde. (f) | sabra-optics, rashed-infinitesimales | kitab-al-manazir, probleme-d-alhazen, volume-du-paraboloide-ibn-al-haytham |
+| Médiéval | Qin Jiushao (`qin-jiushao`) | Résout les systèmes de restes (méthode dayan) et les équations jusqu’au degré dix. (f) | libbrecht-qin, martzloff-chine | methode-dayan, extraction-de-racines-qin-jiushao, shushu-jiuzhang |
+| Médiéval | Fibonacci (`fibonacci`) | Enseigne à l’Occident latin le calcul en chiffres indo-arabes (Liber abaci, 1202). (f) | sigler-liber-abaci, burnett-numerals | liber-abaci, suite-de-fibonacci, liber-quadratorum |
+| Renaissance | Cardan (`cardan`) | Publie la résolution générale des équations du 3ᵉ et du 4ᵉ degré (Ars magna, 1545). (f) | cardano-ars-magna, stedall-from-cardano | formule-de-cardan, ars-magna, liber-de-ludo-aleae |
+| Renaissance | Viète (`viete`) | Introduit le calcul littéral : des lettres pour les inconnues et pour les données. (f) | stedall-from-cardano, katz-history | in-artem-analyticem-isagoge, de-aequationum-recognitione-et-emendatione |
+| Renaissance | Fermat (`fermat`) | Refonde l’arithmétique des entiers : petit théorème, descente infinie, dernier théorème. (i) | weil-number-theory, mahoney-fermat | petit-theoreme-de-fermat, dernier-theoreme-de-fermat, descente-infinie |
+| Renaissance | Descartes (`descartes`) | Fait de l’algèbre l’instrument de la géométrie : La Géométrie (1637). (f) | bos-redefining, katz-history | la-geometrie-descartes, regle-des-signes-de-descartes |
+| Renaissance | Pascal (`pascal`) | Fonde avec Fermat le calcul des chances (1654) ; construit la Pascaline. (f) | hacking-emergence, hald-history-1750 | correspondance-pascal-fermat, traite-du-triangle-arithmetique, pascaline |
+| Renaissance | Newton (`newton`) | Invente le calcul des fluxions et des séries, et l’applique à la gravitation (1687). (f) | whiteside-newton, guicciardini-newton | serie-du-binome, principia-mathematica-newton, de-analysi |
+| Renaissance | Leibniz (`leibniz`) | Publie le premier le calcul différentiel (1684) et lui donne ses notations d et ∫. (f) | hofmann-leibniz, edwards-calculus | nova-methodus, characteristica-universalis, machine-arithmetique-de-leibniz |
+| Lumières | Euler (`euler`) | Fait des fonctions l’objet de l’analyse et lui donne ses notations : f(x), e, i, π, Σ. (f) | bottazzini-higher-calculus, hairer-wanner-analysis | probleme-de-bale, introductio-in-analysin-infinitorum, sept-ponts-de-konigsberg |
+| Lumières | d’Alembert (`d-alembert`) | Écrit la première équation aux dérivées partielles de la physique : les cordes vibrantes. (f) | bottazzini-higher-calculus, dieudonne-abrege | equation-des-cordes-vibrantes, article-limite-encyclopedie, traite-de-dynamique |
+| Lumières | Lagrange (`lagrange`) | Réécrit la mécanique en pur calcul, sans aucune figure (Méchanique analitique, 1788). (f) | dieudonne-abrege, stedall-sourcebook | mecanique-analytique-lagrange, theoreme-des-quatre-carres, stabilite-du-systeme-solaire |
+| Lumières | Laplace (`laplace`) | Achève la mécanique céleste newtonienne et donne aux probabilités leur forme analytique. (i) | gillispie-laplace, stigler-statistics | traite-de-mecanique-celeste, theorie-analytique-des-probabilites, theoreme-central-limite-laplace |
+| Lumières | Legendre (`legendre`) | Énonce la loi de réciprocité quadratique et publie les moindres carrés (1805). (f) | weil-number-theory, stigler-statistics | loi-de-reciprocite-quadratique-enonce, methode-des-moindres-carres, essai-sur-la-theorie-des-nombres |
+| XIXᵉ | Gauss (`gauss`) | Unifie la théorie des nombres (1801) et fonde la géométrie intrinsèque des surfaces. (i) | goldstein-schappacher-schwermer, gray-worlds | disquisitiones-arithmeticae, theorema-egregium, demonstration-de-la-reciprocite-quadratique |
+| XIXᵉ | Cauchy (`cauchy`) | Refonde l’analyse sur les limites (Cours d’analyse, 1821) et crée le calcul des résidus. (f) | grabiner-cauchy, bottazzini-higher-calculus | cours-d-analyse, theoreme-des-residus |
+| XIXᵉ | Galois (`galois`) | Lie la résolubilité d’une équation par radicaux à la structure d’un groupe. (f) | kleiner-abstract-algebra, neumann-galois | theorie-de-galois, memoire-de-galois |
+| XIXᵉ | Riemann (`riemann`) | Fonde la géométrie des variétés (1854) et relie les nombres premiers à la fonction zêta. (f) | laugwitz-riemann, gray-worlds | hypothese-de-riemann, habilitationsvortrag-riemann, surfaces-de-riemann |
+| XIXᵉ | Cantor (`cantor`) | Crée la théorie des ensembles et montre qu’il existe des infinis de tailles différentes. (f) | dauben-cantor, ferreiros-labyrinth | non-denombrabilite-des-reels, argument-diagonal, hypothese-du-continu |
+| XIXᵉ | Boole (`boole`) | Traduit la logique en algèbre : les lois de la pensée comme calcul sur 0 et 1 (1854). (f) | machale-boole, grattan-guinness-search | the-laws-of-thought, the-mathematical-analysis-of-logic |
+| XIXᵉ | Kovalevskaïa (`kovalevskaia`) | Démontre l’existence de solutions analytiques pour une large classe d’EDP. (f) | kline-thought, bottazzini-higher-calculus | theoreme-de-cauchy-kovalevskaia |
+| Structures | Hilbert (`hilbert`) | Axiomatise la géométrie, pose 23 problèmes au siècle (1900) et fonde la métamathématique. (f) | reid-hilbert, gray-hilbert-challenge | problemes-de-hilbert, grundlagen-der-geometrie, theoreme-de-la-base-de-hilbert |
+| Structures | Poincaré (`poincare`) | Fonde la topologie algébrique et l’étude qualitative des équations différentielles. (f) | dieudonne-topology, gowers-companion | analysis-situs, conjecture-de-poincare, sur-le-probleme-des-trois-corps |
+| Structures | Noether (`noether`) | Relie symétries et lois de conservation (1918), puis refonde l’algèbre sur les structures. (i) | dick-noether, corry-structures | theoreme-de-noether, idealtheorie-in-ringbereichen, theoreme-de-brauer-hasse-noether |
+| Structures | Ramanujan (`ramanujan`) | Autodidacte aux carnets de formules ; avec Hardy, compte asymptotiquement les partitions. (f) | kanigel-ramanujan, gowers-companion | formule-asymptotique-des-partitions, conjecture-de-ramanujan, lettre-de-ramanujan-a-hardy |
+| Structures | Kolmogorov (`kolmogorov`) | Fixe les axiomes du calcul des probabilités (Grundbegriffe, 1933). (f) | von-plato-creating, shafer-vovk-grundbegriffe | grundbegriffe-der-wahrscheinlichkeitsrechnung, theoreme-d-extension-de-kolmogorov, methodes-analytiques-de-kolmogorov |
+| Structures | Gödel (`godel`) | Montre qu’une théorie cohérente assez riche contient des énoncés indécidables (1931). (f) | dawson-godel, van-heijenoort | theoremes-d-incompletude, theoreme-de-completude, fonctions-recursives-generales |
+| Structures | Turing (`turing`) | Définit la machine qui porte son nom et prouve l’indécidabilité de l’arrêt (1936). (f) | hodges-turing, davis-universal | on-computable-numbers, probleme-de-l-arret, machine-de-turing-universelle |
+| Contemporain | Grothendieck (`grothendieck`) | Refonde la géométrie algébrique sur les schémas, les topos et de nouvelles cohomologies. (i) | jackson-grothendieck, dieudonne-geometrie-algebrique | schemas, elements-de-geometrie-algebrique, theoreme-de-riemann-roch-grothendieck |
+| Contemporain | Erdős (`erdos`) | Fonde la méthode probabiliste (1947) et, avec Rényi, la théorie des graphes aléatoires. (f) | alon-spencer-probabilistic, hoffman-erdos | methode-probabiliste, graphes-aleatoires-d-erdos-renyi |
+| Contemporain | Mandelbrot (`mandelbrot`) | Forge la notion de fractale et fait de l’ordinateur un instrument d’exploration. (i) | mandelbrot-fractal-geometry, gleick-chaos | ensemble-de-mandelbrot, les-objets-fractals |
+| Contemporain | Wiles (`wiles`) | Démontre le dernier théorème de Fermat par la modularité des courbes elliptiques (1995). (f) | singh-fermat, wiles-modular | demonstration-du-dernier-theoreme-de-fermat |
+| Contemporain | Perelman (`perelman`) | Démontre les conjectures de Poincaré et de géométrisation (2002-2003). (f) | szpiro-poincare, mactutor | demonstration-de-la-conjecture-de-poincare |
+| Contemporain | Mirzakhani (`mirzakhani`) | Relie le comptage des géodésiques aux volumes des espaces de modules ; Fields 2014. (f) | mactutor | volumes-de-weil-petersson |
+| Contemporain | Cohen (`cohen`) | Invente le forcing (1963) et prouve l’indépendance de l’hypothèse du continu. (f) | cohen-set-theory-ch, moore-origins-forcing | independance-de-l-hypothese-du-continu, forcing |
+
+Exemple complet (`src/data/domains/lumieres.ts`) :
+
+```ts
+        featured: {
+          signature: { kind: 'fait', text: 'Fait des fonctions l’objet de l’analyse et lui donne ses notations : f(x), e, i, π, Σ.', sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'] },
+          contributions: [
+            { kind: 'fait', text: 'L’Introductio in analysin infinitorum (1748) définit la fonction comme une expression analytique et fait des séries entières sa forme normale : l’analyse cesse d’être une science des courbes.', sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'] },
+            { kind: 'fait', text: 'Parmi ses résultats : la somme des inverses des carrés (1735), la formule e^(iθ) = cos θ + i sin θ (1748), la relation S − A + F = 2 des polyèdres (1750) et les équations des fluides parfaits (1757).', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+            { kind: 'interpretation', text: 'En ramenant le problème des ponts de Königsberg (1736) à une question de connexions, sans mesure ni calcul, il est tenu pour le précurseur de la théorie des graphes et de la topologie.', sources: ['mactutor', 'katz-history'] },
+          ],
+          headlineResultIds: ['probleme-de-bale', 'introductio-in-analysin-infinitorum', 'sept-ponts-de-konigsberg'],
+        },
+```
+
+## 10. Intuitions et démonstrations
+
+Les champs `intuition` (« D’où vient l’idée ») puis `proof` (« Idée de la
+démonstration ») se placent à la fin de l’objet résultat, après `impact` s’il
+existe. Charte de rédaction :
+
+- **« D’où vient l’idée »** (1 à 2 énoncés) : ce qui rend le résultat plausible ou visible. Un exemple, une figure, une analogie, un calcul numérique, une intuition physique, ou la manière dont l’auteur l’a deviné.
+  - **Ne pas répéter** le récit « Ce qui y a conduit » (`context`), qui raconte le problème posé et la situation historique.
+  - L’heuristique d’un auteur documentée par une source est un `fait` ; une reconstruction d’historien, une `interpretation`.
+- **« Idée de la démonstration »** (3 à 6 étapes) : les étapes logiques en **langage courant**, une ou deux phrases chacune, avec au plus quelques symboles Unicode (x², √2, π, ∑, ≤, ∈). Pas de LaTeX.
+  - Une étape de preuve est un `fait`.
+  - Pour une preuve très technique (Wiles, Perelman, classification des groupes simples) : donner l’**architecture** de la preuve (grandes étapes, outils), sans prétendre la refaire.
+- **Selon la nature du résultat :**
+  - théorème : intuition et démonstration ;
+  - conjecture : intuition (pourquoi on y croit : vérifications numériques, heuristiques, cas particuliers) ; une démonstration seulement si elle a été démontrée **et** qu’aucun autre résultat de l’atlas ne porte déjà cette preuve (sinon, la citer dans l’intuition) ;
+  - problème : intuition (pourquoi il est difficile, comment on l’aborde), et une démonstration s’il a été résolu.
+- **Sources** : celles déjà citées par le résultat (récits) ou par son domaine, puis les ouvrages du socle (`stillwell-history`, `katz-history`, `hairer-wanner-analysis`, `weil-number-theory`, `gowers-companion`…).
+- **Relecture obligatoire** avant chaque commit :
+  - le contenu mathématique est-il exact ?
+  - chaque énoncé est-il couvert par **sa** source ?
+  - n’y a-t-il ni date ni attribution sans source ?
+  - le texte est-il distinct de `statement`, `comment` et `context` ?
+
+Contrôle d’un fichier pendant la rédaction :
+`npx tsx scripts/check-era.ts <fichier>`.
+
+Les trois modèles :
+
+`infinite-des-nombres-premiers` (`src/data/domains/antiquite.ts`) :
+
+```ts
+        intuition: [
+          { kind: 'fait', text: 'Multiplier des nombres premiers puis ajouter 1 fabrique un nombre qu’aucun d’eux ne divise : la division par chacun laisse le reste 1. Un nombre premier nouveau se cache donc dans ce produit augmenté de un.', sources: ['vitrac-euclide', 'heath-greek'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Soit une liste finie quelconque de nombres premiers ; Euclide (Éléments, IX, 20) raisonne sur trois d’entre eux, A, B et C, et l’argument vaut pour toute liste.', sources: ['vitrac-euclide', 'heath-greek'] },
+          { kind: 'fait', text: 'On forme le nombre N = A × B × C + 1.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'N est soit premier, soit mesuré par un nombre premier (VII, 32) : dans les deux cas, un nombre premier P divise N.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'P n’est ni A, ni B, ni C : s’il l’était, il diviserait à la fois N et A × B × C, donc leur différence, qui vaut 1 — c’est impossible.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'La liste proposée ne contenait donc pas tous les nombres premiers : il y en a toujours plus que toute quantité donnée.', sources: ['vitrac-euclide'] },
+        ],
+      },
+```
+
+`probleme-de-bale` (`src/data/domains/lumieres.ts`) :
+
+```ts
+        intuition: [
+          { kind: 'fait', text: 'Un polynôme qui vaut 1 en 0 et s’annule en a₁, a₂, …, aₙ s’écrit (1 − x/a₁)(1 − x/a₂)…(1 − x/aₙ), et le coefficient de x y vaut −(1/a₁ + … + 1/aₙ). Euler applique cette règle à sin x / x, dont les racines sont ±π, ±2π, ±3π…, comme à un polynôme de degré infini.', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le développement en série donne sin x / x = 1 − x²/6 + x⁴/120 − …', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Cette fonction s’annule exactement en x = ±π, ±2π, ±3π, …', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Euler l’écrit comme un produit infini : sin x / x = (1 − x²/π²)(1 − x²/4π²)(1 − x²/9π²)…', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+          { kind: 'fait', text: 'En développant le produit, le coefficient de x² vaut −(1/π²)(1 + 1/4 + 1/9 + …) ; l’égaler à −1/6 donne 1 + 1/4 + 1/9 + … = π²/6.', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Le seul point délicat est l’écriture de sin x en produit infini, admise par analogie en 1735 et démontrable rigoureusement.', sources: ['bottazzini-higher-calculus'] },
+        ],
+      },
+```
+
+`petit-theoreme-de-fermat` (`src/data/domains/renaissance.ts`) :
+
+```ts
+        intuition: [
+          { kind: 'fait', text: 'Fermat énonce un fait plus précis : la première puissance de a qui laisse le reste 1 dans la division par p a un exposant qui divise p − 1, et les restes des puissances successives reviennent ensuite périodiquement à 1.', sources: ['weil-number-theory', 'mahoney-fermat'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'On montre d’abord que p divise aᵖ − a pour tout entier a ≥ 1, par récurrence sur a : c’est la voie suivie par Euler (1736).', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Pour a = 1, aᵖ − a = 0 est divisible par p.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Par la formule du binôme, (a + 1)ᵖ = aᵖ + 1 + des termes intermédiaires dont chaque coefficient C(p, k), pour 0 < k < p, est divisible par p, puisque p est premier.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Donc (a + 1)ᵖ − (a + 1) et aᵖ − a diffèrent d’un multiple de p : la propriété passe de a à a + 1.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Enfin, si p ne divise pas a, alors p, qui divise a × (aᵖ⁻¹ − 1), divise aᵖ⁻¹ − 1 (Éléments, VII, 30).', sources: ['weil-number-theory', 'katz-history'] },
+        ],
+      },
+```
+
+## 11. Fiches courtes et MacTutor
+
+À venir (vague 4) : une fiche courte par figure ordinaire documentée.
+
+- **Qui** : une figure qui a une biographie MacTutor **et** une contribution mathématique réelle dans le champ et la période d’un domaine de l’atlas.
+  - On écarte les mécènes, les éditeurs sans œuvre propre et les doublons.
+  - On veille à la diversité (femmes, mondes non européens), sans forcer.
+  - Domaine d’attache : celui de la contribution principale ; ailleurs, `relatedMathematicianIds` si utile.
+- **Champs** : `id` (slug du nom usuel français), `name` (forme française usuelle pour l’Antiquité et le Moyen Âge, graphie d’origine avec diacritiques pour les modernes), `years`, `yearsApprox` si MacTutor dit « about » ou si la date est débattue, `origin` (ville, culture ou pays d’activité), `bio`, `mactutor`, `sources: [’mactutor’]` (et d’autres sources du registre si utilisées), `theoryId` si évident.
+- **Bio** : 1 à 2 phrases, 280 caractères au plus, **rédigées par nous** (jamais copiées ni traduites mot à mot de MacTutor), avec uniquement des faits présents dans la biographie MacTutor ou dans une source du registre.
+- **Années** : celles de MacTutor (av. J.-C. en négatif). La commande de contrôle `npx tsx scripts/mactutor.ts --domain <id> --strict` (script à venir avec la vague 4, tâche 4.1) doit passer pour chaque domaine touché.
+- **Modèle** : `src/data/figures/antiquite.ts`, ci-dessous, vérifié sur MacTutor (« Born about 380 BC, Died about 320 BC », « pupil of Eudoxus », coniques découvertes en cherchant à dupliquer le cube) :
+
+```ts
+'geometrie-grecque': [
+  {
+    id: 'menechme',
+    name: 'Ménechme',
+    years: [-380, -320],
+    yearsApprox: true,
+    origin: 'Athènes',
+    bio: 'Élève d’Eudoxe, Ménechme passe pour avoir découvert les sections coniques en cherchant à dupliquer le cube.',
+    mactutor: 'Menaechmus',
+    sources: ['mactutor'],
+  },
+],
+```
+
+**Rangement** : les fiches courtes vont dans `src/data/figures/<ère>.ts`
+(objet `{ [domainId]: Mathematician[] }`), fusionnées au chargement — à venir,
+tâche 4.2.
+
+Cibles par domaine (figures actuelles → cible), soit 1 224 figures au total.
+Une cible est un plafond indicatif, pas un quota.
+
+| Tâche | Fichier | Domaines |
+|---|---|---|
+| 4.3 | `antiquite` (+59) | calcul-des-scribes 3→14, geometrie-grecque 6→18, arithmetique-grecque 5→14, logique-antique 5→10, mathematiques-hellenistiques 6→18, mathematiques-chinoises-anciennes 4→14 |
+| 4.4 | `medieval` (+53) | mathematiques-indiennes 7→18, algebre-arabe 6→18, geometrie-arabe 6→14, algebre-chinoise-song-yuan 5→14, occident-latin-medieval 6→14, logique-scolastique 5→10 |
+| 4.5 | `renaissance` (+131) | perspective-et-cartographie 6→20, algebre-renaissance 7→28, methode-et-caracteristique 4→12, logarithmes-et-calcul-numerique 7→20, theorie-des-nombres-fermat 4→20, naissance-du-calcul 7→28, geometrie-analytique 5→28, naissance-des-probabilites 5→20 |
+| 4.6 | `lumieres` (+91) | querelle-des-infiniment-petits 5→12, analyse-eulerienne 6→28, probabilites-classiques 5→20, theorie-des-nombres-lumieres 4→20, geometrie-des-lumieres 5→20, mecanique-analytique 4→20 |
+| 4.7 | `dixneuvieme-a` (+92) | arithmetique-gaussienne 8→28, algebre-des-groupes 10→28, analyse-rigoureuse 9→28, geometrie-projective-et-algebrique 7→20, geometries-non-euclidiennes 6→28 |
+| 4.8 | `dixneuvieme-b` (+63) | physique-mathematique-xixe 6→20, statistique-xixe 6→20, logique-mathematique-xixe 9→20, theorie-des-ensembles 4→28 |
+| 4.9 | `structures-a` (+96) | algebre-moderne 6→28, geometrie-algebrique-classique 6→20, topologie 10→28, theorie-des-nombres-xxe 10→20, analyse-fonctionnelle 8→28, edp-et-physique-mathematique 8→20 |
+| 4.10 | `structures-b` (+70) | fondements-hilbert-brouwer 11→20, probabilites-modernes 10→28, statistique-mathematique 11→20, calculabilite 7→28, bourbaki 7→20 |
+| 4.11 | `contemporain-a` (+80) | systemes-dynamiques-et-chaos 10→20, theorie-des-nombres-contemporaine 12→28, algebre-contemporaine 11→20, geometrie-algebrique-moderne 8→28, topologie-et-geometrie-contemporaines 13→28, analyse-contemporaine 10→20 |
+| 4.12 | `contemporain-b` (+61) | calcul-scientifique-et-preuves-assistees 11→20, combinatoire 11→20, cryptographie-et-codes 11→20, probabilites-et-statistique-contemporaines 11→20, complexite-et-informatique-theorique 12→28, logique-et-ensembles-contemporains 11→20 |
+
