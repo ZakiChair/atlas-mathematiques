@@ -135,6 +135,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Auxerre, Grenoble et Paris',
         bio: 'Fils d’un tailleur d’Auxerre, élève puis professeur à l’École polytechnique, savant de l’expédition d’Égypte et préfet de l’Isère, Fourier fonde en 1807 la théorie analytique de la chaleur et affirme que toute fonction se développe en série trigonométrique. Secrétaire perpétuel de l’Académie des sciences à partir de 1822, il protège Dirichlet, Sturm et Navier.',
         theoryId: 'pm-chaleur-et-series-trigonometriques',
+        mactutor: 'Fourier',
+        sources: ['mactutor'],
       },
       {
         id: 'poisson',
@@ -143,6 +145,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Paris',
         bio: 'Élève de Laplace et de Lagrange à l’École polytechnique, dont il devient professeur à vingt et un ans, Poisson applique l’analyse à l’électrostatique, au magnétisme, à l’élasticité et à la chaleur, et corrige l’équation de Laplace à l’intérieur des masses attirantes (1813). Ses Recherches sur la probabilité des jugements (1837) contiennent la loi et la « loi des grands nombres » qui portent son nom.',
         theoryId: 'pm-potentiel-et-electromagnetisme',
+        mactutor: 'Poisson',
+        sources: ['mactutor'],
       },
       {
         id: 'green',
@@ -151,6 +155,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Nottingham et Cambridge',
         bio: 'Meunier autodidacte de Nottingham, Green publie en 1828 un Essay qui introduit la fonction potentielle, le théorème intégral et les fonctions qui portent son nom. Entré à Cambridge à quarante ans, il meurt avant que William Thomson ne redécouvre son mémoire (1845) et n’en fasse l’un des fondements de la physique mathématique britannique.',
         theoryId: 'pm-potentiel-et-electromagnetisme',
+        mactutor: 'Green',
+        sources: ['mactutor'],
       },
       {
         id: 'stokes',
@@ -159,6 +165,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Cambridge',
         bio: 'Irlandais formé à Cambridge, professeur lucasien de 1849 à sa mort et secrétaire de la Royal Society, Stokes établit en 1845 les équations des fluides visqueux, étudie la fluorescence et la diffraction, et fait connaître le théorème intégral que Thomson lui avait communiqué. Il est l’interlocuteur scientifique de toute la physique britannique, de Thomson à Maxwell.',
         theoryId: 'pm-dynamique-et-probleme-de-cauchy',
+        mactutor: 'Stokes',
+        sources: ['mactutor'],
       },
       {
         id: 'maxwell',
@@ -167,6 +175,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Édimbourg, Aberdeen et Cambridge',
         bio: 'Écossais formé à Édimbourg et à Cambridge, professeur à Aberdeen, à Londres puis premier titulaire de la chaire Cavendish, Maxwell traduit en équations les lignes de force de Faraday et prédit en 1865 que la lumière est une onde électromagnétique. Il introduit en 1860 la première loi de distribution statistique de la physique, celle des vitesses des molécules d’un gaz.',
         theoryId: 'pm-potentiel-et-electromagnetisme',
+        mactutor: 'Maxwell',
+        sources: ['mactutor'],
       },
       {
         id: 'kovalevskaia',
@@ -817,6 +827,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Gand et Bruxelles',
         bio: 'Astronome, fondateur de l’Observatoire de Bruxelles (1828) et secrétaire perpétuel de l’Académie royale de Belgique, Quetelet se forme au calcul des probabilités à Paris en 1823 auprès de Laplace, Fourier et Poisson. Dans Sur l’homme (1835), il applique la loi des erreurs aux tailles et aux « penchants » des populations et forge l’homme moyen ; il organise en 1853 le premier Congrès international de statistique.',
         theoryId: 'sx-statistique-sociale',
+        mactutor: 'Quetelet',
+        sources: ['mactutor'],
       },
       {
         id: 'bienayme',
@@ -825,6 +837,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Paris',
         bio: 'Inspecteur général des finances et membre de l’Académie des sciences (1852), Bienaymé défend la théorie de Laplace contre Poisson et Cauchy. Il énonce en 1853 l’inégalité qui porte son nom avec celui de Tchebychev et étudie dès 1845 l’extinction des familles, anticipant le processus de Galton–Watson. Ami et correspondant de Tchebychev, il fait le lien entre Paris et Saint-Pétersbourg.',
         theoryId: 'sx-theorie-des-erreurs',
+        mactutor: 'Bienayme',
+        sources: ['mactutor'],
       },
       {
         id: 'galton',
@@ -833,6 +847,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Londres',
         bio: 'Cousin de Darwin, explorateur et météorologue, Galton applique la loi normale à l’hérédité des aptitudes humaines dans Hereditary Genius (1869). Il invente la planche à clous, la régression et la corrélation, ouvre en 1884 un laboratoire anthropométrique et forge en 1883 le mot « eugénique » ; Natural Inheritance (1889) rassemble ses résultats et convertit Pearson et Weldon à la statistique.',
         theoryId: 'sx-biometrie',
+        mactutor: 'Galton',
+        sources: ['mactutor'],
       },
       {
         id: 'lexis',
@@ -841,6 +857,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Strasbourg et Göttingen',
         bio: 'Économiste et statisticien, professeur à Strasbourg (1872), Dorpat, Fribourg, Breslau puis Göttingen (1887), Lexis conçoit en 1879 un test de la stabilité des séries statistiques, le rapport de dispersion, qui montre que la plupart des séries sociales fluctuent plus que ne le voudrait un hasard homogène. Il fonde la tradition allemande de statistique mathématique que poursuivent Bortkiewicz et Tchouprov.',
         theoryId: 'sx-statistique-sociale',
+        mactutor: 'Lexis',
+        sources: ['mactutor'],
       },
       {
         id: 'edgeworth',
@@ -849,6 +867,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Oxford',
         bio: 'Économiste et statisticien irlandais, professeur à Oxford à partir de 1891 et premier directeur de l’Economic Journal, Edgeworth transpose la théorie des erreurs aux données sociales : Methods of Statistics (1885) introduit des tests de signification des différences de moyennes, et ses travaux de 1892 sur la loi normale à plusieurs variables emploient l’expression « coefficient de corrélation ». Les séries d’Edgeworth (1905) raffinent le théorème central limite.',
         theoryId: 'sx-biometrie',
+        mactutor: 'Edgeworth',
+        sources: ['mactutor'],
       },
       {
         id: 'pearson-karl',
@@ -857,6 +877,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Londres',
         bio: 'Mathématicien appliqué de University College London, auteur de The Grammar of Science (1892), Pearson se tourne vers la statistique sous l’influence de Weldon et de Galton. Il introduit la méthode des moments (1894), l’écart-type, les courbes de fréquence qui portent son nom (1895), la formule du coefficient de corrélation (1896) et le test du χ² (1900), fonde Biometrika (1901) et occupe la première chaire Galton d’eugénique (1911).',
         theoryId: 'sx-biometrie',
+        mactutor: 'Pearson',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['gauss', 'poisson', 'chebyshev', 'laplace'],
@@ -1304,6 +1326,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Londres',
         bio: 'Mathématicien de Cambridge, titulaire de la chaire lucasienne (1828-1839) sans y enseigner, Babbage cofonde l’Analytical Society (1812) et la Royal Astronomical Society. Il consacre sa fortune et quarante ans à ses machines : la machine à différences, restée inachevée, et la machine analytique, première conception d’un calculateur universel programmable.',
         theoryId: 'lm-machines-a-calculer',
+        mactutor: 'Babbage',
+        sources: ['mactutor'],
       },
       {
         id: 'lovelace',
@@ -1312,6 +1336,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Londres',
         bio: 'Fille de lord Byron, formée aux mathématiques par Mary Somerville et De Morgan, Augusta Ada King, comtesse de Lovelace, traduit en 1843 le mémoire de Menabrea sur la machine analytique et y ajoute sept notes, deux fois plus longues que le texte, qui décrivent le calcul des nombres de Bernoulli et la possibilité d’un calcul sur des symboles non numériques.',
         theoryId: 'lm-machines-a-calculer',
+        mactutor: 'Lovelace',
+        sources: ['mactutor'],
       },
       {
         id: 'de-morgan',
@@ -1320,6 +1346,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Londres',
         bio: 'Premier professeur de mathématiques de University College London (1828), cofondateur de la London Mathematical Society (1865) dont il est le premier président, De Morgan publie en 1847 sa Formal Logic : il y énonce les lois de dualité qui portent son nom et y fonde la logique des relations, que Peirce développera. Pédagogue et polémiste, il est l’enseignant de Lovelace.',
         theoryId: 'lm-algebre-de-la-logique',
+        mactutor: 'De_Morgan',
+        sources: ['mactutor'],
       },
       {
         id: 'boole',
@@ -1363,6 +1391,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Manchester et Londres',
         bio: 'Économiste et logicien, professeur à Owens College (Manchester) puis à University College London, Jevons simplifie le calcul de Boole (substitution des similitudes, 1869), construit en 1869 son « piano logique », première machine à résoudre des problèmes de logique, et applique les méthodes de la logique inductive à l’économie et à la statistique (l’indice des prix).',
         theoryId: 'lm-algebre-de-la-logique',
+        mactutor: 'Jevons',
+        sources: ['mactutor'],
       },
       {
         id: 'peirce',
@@ -1371,6 +1401,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Cambridge (Mass.) et Milford',
         bio: 'Fils du mathématicien Benjamin Peirce, logicien, philosophe et géodésien employé du U.S. Coast Survey, Peirce enseigne la logique à Johns Hopkins (1879-1884). Il réforme l’algèbre de Boole (1870-1885), introduit indépendamment de Frege les quantificateurs et leurs notations (1885), et fonde avec la logique des relations la syntaxe moderne du calcul des prédicats.',
         theoryId: 'lm-algebre-de-la-logique',
+        mactutor: 'Peirce_Charles',
+        sources: ['mactutor'],
       },
       {
         id: 'schroder',
@@ -1379,6 +1411,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Karlsruhe',
         bio: 'Professeur au Technikum de Darmstadt puis à Karlsruhe, Schröder consacre la fin de sa vie à l’algèbre de la logique : ses Vorlesungen über die Algebra der Logik (1890-1905) systématisent Boole et Peirce, ordonnent la théorie des relations et contiennent, dans la ligne de Dedekind et Cantor, une formulation du théorème d’équivalence.',
         theoryId: 'lm-algebre-de-la-logique',
+        mactutor: 'Schroder',
+        sources: ['mactutor'],
       },
       {
         id: 'frege',
@@ -1387,6 +1421,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Iéna',
         bio: 'Docteur de Göttingen (1873), professeur à l’université d’Iéna toute sa carrière, Frege publie en 1879 la Begriffsschrift, première axiomatisation complète du calcul des prédicats. Les Grundlagen der Arithmetik (1884) définissent le nombre par les concepts, et les Grundgesetze (1893, 1903) tentent d’en déduire l’arithmétique, jusqu’à la lettre de Russell (1902). Presque ignoré de son vivant, il est reconnu après 1950 comme le fondateur de la logique moderne.',
         theoryId: 'lm-logistique',
+        mactutor: 'Frege',
+        sources: ['mactutor'],
       },
       {
         id: 'peano',
@@ -1395,6 +1431,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Turin',
         bio: 'Professeur à l’université de Turin, Peano fonde l’école italienne de logique : ses Arithmetices principia (1889) axiomatisent l’arithmétique dans un symbolisme qui est l’ancêtre du nôtre (∈, ⊂, quantificateurs), et le Formulaire de mathématiques (1895-1908) ambitionne de formaliser toutes les mathématiques. Il découvre aussi la courbe qui remplit un carré (1890) et promeut une langue auxiliaire, l’interlingua.',
         theoryId: 'lm-logistique',
+        mactutor: 'Peano',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['dedekind', 'leibniz'],
@@ -1798,6 +1836,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Turin',
         bio: 'Ancien élève de Peano, professeur à l’Académie militaire de Turin, Burali-Forti travaille à la logique du Formulaire et à l’analyse vectorielle. En 1897, il publie la première contradiction de la théorie naïve des ensembles, tirée de l’ensemble de tous les nombres ordinaux — texte que Russell lit attentivement avant de former son propre paradoxe.',
         theoryId: 'tde-axiomatique',
+        mactutor: 'Burali-Forti',
+        sources: ['mactutor'],
       },
       {
         id: 'bernstein',
@@ -1806,6 +1846,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Halle et Göttingen',
         bio: 'Élève de Cantor à Halle, Bernstein démontre à dix-neuf ans, dans sa thèse, le théorème d’équivalence : deux ensembles dont chacun se plonge dans l’autre sont équipotents. Appelé à Göttingen par Hilbert, il y fonde l’enseignement de la statistique mathématique ; destitué en 1933 par les lois nazies, il émigre aux États-Unis et ne retrouve Göttingen qu’en 1948.',
         theoryId: 'tde-nombres-transfinis',
+        mactutor: 'Bernstein_Felix',
+        sources: ['mactutor'],
       },
       {
         id: 'zermelo',
@@ -1814,6 +1856,8 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Göttingen, Zurich et Fribourg',
         bio: 'Docteur de Berlin (1894), assistant de Planck puis de Hilbert à Göttingen, Zermelo démontre en 1904 le théorème du bon ordre au moyen de l’axiome du choix et donne en 1908 la première axiomatisation de la théorie des ensembles. Professeur à Zurich puis à Fribourg, il démissionne en 1935 après avoir refusé le salut hitlérien et est réintégré après la guerre.',
         theoryId: 'tde-axiomatique',
+        mactutor: 'Zermelo',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['dedekind', 'russell', 'hausdorff', 'kronecker', 'weierstrass'],
