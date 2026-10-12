@@ -124,7 +124,28 @@ export const DIXNEUVIEME_A: Domain[] = [
         theoryId: 'arg-congruences-et-formes',
         featured: {
           signature: { kind: 'interpretation', text: 'Unifie la théorie des nombres (1801) et fonde la géométrie intrinsèque des surfaces.', sources: ['goldstein-schappacher-schwermer', 'gray-worlds'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Les Disquisitiones arithmeticae (1801) donnent à l’arithmétique une notation, la congruence a ≡ b (mod m), et une exigence : tout y est démontré, de la loi de réciprocité quadratique à la constructibilité du polygone régulier à dix-sept côtés. La composition des classes de formes quadratiques y fait fonctionner, sans le nommer, un premier groupe abélien fini.',
+              sources: ['goldstein-schappacher-schwermer', 'wussing-group-concept'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'La même exigence de preuve s’exerce hors de l’arithmétique : sa thèse (1799) critique les démonstrations antérieures du théorème fondamental de l’algèbre avant d’en proposer une nouvelle, et son mémoire sur la série hypergéométrique (1812) passe, pour les historiens de l’analyse, pour le premier examen rigoureux de la convergence d’une série.',
+              sources: ['stillwell-history', 'bottazzini-higher-calculus', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'L’astronome et le géodésien nourrissent le mathématicien : le calcul de l’orbite de Cérès (1801) et la Theoria motus (1809) font des moindres carrés et de la loi normale des erreurs la méthode ordinaire de l’astronomie ; la triangulation du Hanovre, entreprise en 1818, conduit aux Disquisitiones generales circa superficies curvas (1827), où la courbure d’une surface se lit dans ses seules mesures internes.',
+              sources: ['stigler-statistics', 'gray-worlds', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses inédits pèsent autant que ses livres : lettres et papiers posthumes montrent qu’il avait entrevu la géométrie non euclidienne, les fonctions elliptiques et bien d’autres résultats du siècle, d’où la légende d’un Gauss ayant « tout déjà trouvé ». Jeremy Gray invite à la prudence : ses notes sur les parallèles restent des aperçus, non une théorie construite comme celles de Bolyai et de Lobatchevski.',
+              sources: ['gray-worlds', 'dunnington-gauss', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['disquisitiones-arithmeticae', 'theorema-egregium', 'demonstration-de-la-reciprocite-quadratique'],
         },
       },
@@ -523,7 +544,28 @@ export const DIXNEUVIEME_A: Domain[] = [
         theoryId: 'adg-equations-et-radicaux',
         featured: {
           signature: { kind: 'fait', text: 'Lie la résolubilité d’une équation par radicaux à la structure d’un groupe.', sources: ['kleiner-abstract-algebra', 'neumann-galois'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il est le premier à employer le mot « groupe » pour un ensemble de substitutions stable par composition, et il distingue, dans la lettre à Chevalier (1832), les « décompositions propres » d’un groupe — celles qui définissent un sous-groupe que l’on dira normal — des autres : c’est sur cette distinction que repose son critère de résolubilité.',
+              sources: ['neumann-galois', 'wussing-group-concept', 'kleiner-abstract-algebra'],
+            },
+            {
+              kind: 'fait',
+              text: 'Sa méthode renverse celle de Lagrange : au lieu de calculer des résolvantes, il observe quelles substitutions des racines survivent à l’adjonction d’une quantité auxiliaire ; chaque adjonction réduit le groupe, et la suite des réductions décide de tout. Il en tire qu’une équation irréductible de degré premier est résoluble par radicaux si et seulement si toutes ses racines s’expriment rationnellement à partir de deux quelconques d’entre elles.',
+              sources: ['neumann-galois', 'kleiner-abstract-algebra'],
+            },
+            {
+              kind: 'fait',
+              text: 'Son mémoire « Sur la théorie des nombres » (1830) construit les corps finis à pⁿ éléments en adjoignant aux restes modulo p une racine « imaginaire » d’une congruence irréductible, et montre qu’un élément bien choisi engendre par ses puissances tous les éléments non nuls : les « imaginaires de Galois » précèdent de plusieurs décennies la théorie générale des corps.',
+              sources: ['neumann-galois', 'kleiner-abstract-algebra'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Caroline Ehrhardt, la « théorie de Galois » est une construction collective : Liouville (1846), Betti, Serret (1866), Jordan (1870), puis Dedekind et Weber réécrivent chacun les mémoires dans un langage nouveau, jusqu’à la version par automorphismes de corps d’Artin (1942) qui est enseignée aujourd’hui ; l’œuvre, une soixantaine de pages, vaut autant par ses lecteurs que par ses manuscrits.',
+              sources: ['ehrhardt-galois', 'kleiner-abstract-algebra'],
+            },
+          ],
           headlineResultIds: ['theorie-de-galois', 'memoire-de-galois'],
         },
       },
@@ -1609,7 +1651,28 @@ export const DIXNEUVIEME_A: Domain[] = [
         theoryId: 'anr-variable-complexe',
         featured: {
           signature: { kind: 'fait', text: 'Refonde l’analyse sur les limites (Cours d’analyse, 1821) et crée le calcul des résidus.', sources: ['grabiner-cauchy', 'bottazzini-higher-calculus'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Avec le Cours d’analyse (1821) et le Résumé des leçons sur le calcul infinitésimal (1823), la limite devient le concept premier : l’infiniment petit n’est plus qu’une variable qui tend vers zéro, une série n’a de somme que si elle converge — d’où le critère de Cauchy —, et l’intégrale définie, construite comme limite de sommes, reçoit sa première démonstration d’existence pour les fonctions continues.',
+              sources: ['grabiner-cauchy', 'bottazzini-higher-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'Du mémoire sur les intégrales définies (1814) aux leçons de Turin, il construit la théorie des fonctions d’une variable complexe : intégrale le long d’un chemin, théorème intégral (1825), résidus (1826), formule intégrale et développements en série ; en 1829, il définit pour la première fois une fonction complexe d’une variable complexe.',
+              sources: ['bottazzini-higher-calculus', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses mémoires sur les substitutions (1815, puis 1844-1846) font des permutations un calcul autonome — notation, décomposition en cycles, ordre d’une substitution — et établissent qu’un groupe dont l’ordre est divisible par un nombre premier p contient une substitution d’ordre p : Galois lit le premier, Jordan et Sylow prolongent les seconds.',
+              sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses 789 mémoires couvrent aussi l’élasticité, l’optique ondulatoire et la mécanique céleste ; pour Bruno Belhoste, cette œuvre tentaculaire possède une unité secrète : les techniques forgées pour la physique — transformations de Fourier, diagonalisation, résidus — reviennent fonder l’analyse pure.',
+              sources: ['belhoste-cauchy', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['cours-d-analyse', 'theoreme-des-residus'],
         },
       },
@@ -1646,7 +1709,28 @@ export const DIXNEUVIEME_A: Domain[] = [
         theoryId: 'anr-variable-complexe',
         featured: {
           signature: { kind: 'fait', text: 'Fonde la géométrie des variétés (1854) et relie les nombres premiers à la fonction zêta.', sources: ['laugwitz-riemann', 'gray-worlds'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Sa thèse (1851) caractérise une fonction analytique par les équations de Cauchy–Riemann et par ses singularités, non par une formule : la fonction devient un objet géométrique, étalé sur une surface à plusieurs feuillets dont la connexité commande le comportement, et son existence se démontre par un principe de minimum, le « principe de Dirichlet ».',
+              sources: ['laugwitz-riemann', 'bottazzini-higher-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'L’habilitation de 1854 touche deux disciplines : le mémoire sur les séries trigonométriques définit l’intégrale par les sommes de subdivisions et retourne la question de Fourier — que peut-on dire d’une fonction représentable par une série trigonométrique ? —, point de départ des ensembles de Cantor ; la leçon sur les hypothèses de la géométrie étend la courbure de Gauss aux variétés à n dimensions.',
+              sources: ['laugwitz-riemann', 'gray-worlds', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le mémoire de 1859 traite ζ(s) comme une fonction d’une variable complexe : prolongement à tout le plan, équation fonctionnelle, formule reliant le compte des nombres premiers aux zéros, et l’hypothèse sur leur partie réelle. Plusieurs de ces énoncés restent sans démonstration complète : le programme occupe Hadamard, von Mangoldt et de La Vallée Poussin jusqu’en 1896.',
+              sources: ['laugwitz-riemann', 'dieudonne-abrege', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Detlef Laugwitz, sa manière de faire — raisonner sur des concepts plutôt que sur des formules, à l’école de Dirichlet — est le tournant qui mène aux mathématiques conceptuelles de Dedekind, Hilbert et Noether. La réception fut pourtant partagée : après la critique du principe de Dirichlet par Weierstrass (1870), « tous utilisent le matériau de Riemann, mais sa méthode est négligée » (Freudenthal), jusqu’à ce que Hilbert réhabilite le principe en 1900-1904.',
+              sources: ['laugwitz-riemann', 'mactutor', 'bottazzini-higher-calculus'],
+            },
+          ],
           headlineResultIds: ['hypothese-de-riemann', 'habilitationsvortrag-riemann', 'surfaces-de-riemann'],
         },
       },
