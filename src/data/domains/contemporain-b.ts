@@ -202,6 +202,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Bletchley Park, Toronto et Waterloo',
         bio: 'Chimiste de formation, Tutte reconstitue à Bletchley Park en 1941-1942 la structure de la machine de chiffrement Lorenz sans l’avoir jamais vue, exploit tenu secret jusqu’aux années 1990. Il fonde ensuite la théorie des graphes moderne : théorème des couplages (1947), polynôme de Tutte, matroïdes, et crée en 1962 le département de combinatoire de l’Université de Waterloo.',
         theoryId: 'comb-theorie-des-graphes',
+        mactutor: 'Tutte',
+        sources: ['mactutor'],
       },
       {
         id: 'renyi',
@@ -210,6 +212,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Budapest',
         bio: 'Probabiliste, Rényi fonde en 1950 l’Institut de mathématiques de l’Académie hongroise, qui porte aujourd’hui son nom. Avec Erdős il introduit les graphes aléatoires (1959-1960) et décrit la « transition de phase » qui voit apparaître une composante géante ; il laisse aussi les entropies de Rényi et la boutade selon laquelle un mathématicien est une machine à transformer le café en théorèmes.',
         theoryId: 'comb-methode-probabiliste-et-graphes-aleatoires',
+        mactutor: 'Renyi',
+        sources: ['mactutor'],
       },
       {
         id: 'rota',
@@ -218,6 +222,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'MIT',
         bio: 'Né à Vigevano, formé à Princeton et à Yale, Rota enseigne au MIT les mathématiques et la philosophie. Sa série « On the Foundations of Combinatorial Theory » (à partir de 1964) donne à la combinatoire énumérative un cadre algébrique : ensembles ordonnés, fonctions de Möbius, calcul ombral. Il fonde les revues Journal of Combinatorial Theory (1966) et Advances in Mathematics.',
         theoryId: 'comb-combinatoire-enumerative-et-additive',
+        mactutor: 'Rota',
+        sources: ['mactutor'],
       },
       {
         id: 'haken',
@@ -234,6 +240,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Urbana',
         bio: 'Logicien et théoricien des groupes formé à Michigan, Appel apporte à Haken sa maîtrise de la programmation : c’est lui qui organise les calculs sur l’IBM 370 de l’université de l’Illinois. Après 1976 il défend la légitimité des preuves assistées par ordinateur, puis dirige le département de mathématiques de l’Université du New Hampshire.',
         theoryId: 'comb-theorie-des-graphes',
+        mactutor: 'Appel',
+        sources: ['mactutor'],
       },
       {
         id: 'szemeredi',
@@ -242,6 +250,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Budapest et Piscataway',
         bio: 'Élève d’Erdős et de Gelfand, Szemerédi démontre en 1975 que tout ensemble d’entiers de densité positive contient des progressions arithmétiques arbitrairement longues, et dégage pour cela le lemme de régularité, devenu un outil universel. Partagé entre l’Institut Rényi et l’Université Rutgers, il reçoit le prix Abel en 2012.',
         theoryId: 'comb-combinatoire-enumerative-et-additive',
+        mactutor: 'Szemeredi',
+        sources: ['mactutor'],
       },
       {
         id: 'stanley',
@@ -250,6 +260,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'MIT',
         bio: 'Professeur au MIT, Stanley démontre en 1975 la conjecture de la borne supérieure pour les sphères simpliciales à l’aide de l’algèbre commutative (anneaux de Cohen–Macaulay), inaugurant l’usage de l’algèbre dans la combinatoire énumérative. Ses deux volumes d’Enumerative Combinatorics (1986, 1999) sont le traité de référence de la discipline.',
         theoryId: 'comb-combinatoire-enumerative-et-additive',
+        mactutor: 'Stanley',
+        sources: ['mactutor'],
       },
       {
         id: 'lovasz',
@@ -258,6 +270,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Budapest',
         bio: 'Repéré adolescent par Erdős, Lovász démontre le théorème faible des graphes parfaits (1972), introduit le lemme local (1975) et le nombre thêta (1979), et met au point avec les frères Lenstra l’algorithme LLL (1982). Professeur à Budapest, à Yale puis chez Microsoft, président de l’Union mathématique internationale (2007-2010), il reçoit le prix Abel en 2021 avec Avi Wigderson.',
         theoryId: 'comb-theorie-des-graphes',
+        mactutor: 'Lovasz',
+        sources: ['mactutor'],
       },
       {
         id: 'seymour',
@@ -266,6 +280,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Princeton',
         bio: 'Formé à Oxford, Seymour mène avec Neil Robertson, de 1983 à 2004, la série de vingt articles « Graph Minors » qui démontre la conjecture de Wagner. Il participe à la seconde démonstration du théorème des quatre couleurs (1997) et à celle du théorème fort des graphes parfaits (avec Chudnovsky, Robertson et Thomas, 2006). Professeur à Princeton.',
         theoryId: 'comb-theorie-des-graphes',
+        mactutor: 'Seymour',
+        sources: ['mactutor'],
       },
       {
         id: 'gowers',
@@ -274,6 +290,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Cambridge',
         bio: 'Analyste formé à Cambridge auprès de Béla Bollobás, Gowers résout plusieurs problèmes de Banach sur les espaces normés, puis donne en 2001 une nouvelle démonstration du théorème de Szemerédi dont les « normes de Gowers » sont devenues l’outil central de la combinatoire additive. Médaille Fields 1998, il dirige The Princeton Companion to Mathematics (2008) et lance en 2009 les projets collaboratifs Polymath.',
         theoryId: 'comb-combinatoire-enumerative-et-additive',
+        mactutor: 'Gowers',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['tao', 'selberg', 'euler'],
@@ -846,6 +864,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Budapest et Princeton',
         bio: 'Physicien théoricien formé à Berlin, émigré à Princeton en 1930, prix Nobel de physique 1963 pour l’usage des groupes de symétrie en mécanique quantique. Pour décrire les niveaux d’énergie des noyaux lourds, il introduit en 1955 les matrices aléatoires et démontre la loi du demi-cercle. Son essai « The Unreasonable Effectiveness of Mathematics in the Natural Sciences » (1960) est un classique de la philosophie des sciences.',
         theoryId: 'psc-matrices-aleatoires',
+        mactutor: 'Wigner',
+        sources: ['mactutor'],
       },
       {
         id: 'tukey',
@@ -854,6 +874,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Princeton et Murray Hill',
         bio: 'Statisticien partagé entre Princeton et les Bell Labs, Tukey redécouvre avec James Cooley la transformée de Fourier rapide (1965) et fonde l’analyse exploratoire des données (Exploratory Data Analysis, 1977), qui fait du graphique un outil d’investigation. On lui doit les mots « bit » et « software ».',
         theoryId: 'psc-statistique-computationnelle',
+        mactutor: 'Tukey',
+        sources: ['mactutor'],
       },
       {
         id: 'kesten',
@@ -878,6 +900,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Paris',
         bio: 'Chercheur au CNRS à Paris, Talagrand construit une théorie générale de la concentration de la mesure dans les espaces produits (1995), puis résout les problèmes fondamentaux des verres de spins posés par le modèle de Sherrington–Kirkpatrick, dont il démontre la formule de Parisi (2006). Prix Shaw 2019, prix Abel 2024.',
         theoryId: 'psc-matrices-aleatoires',
+        mactutor: 'Talagrand',
+        sources: ['mactutor'],
       },
       {
         id: 'tibshirani',
@@ -894,6 +918,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Stanford',
         bio: 'Professeur à Stanford, Donoho fonde avec Iain Johnstone l’étude de l’estimation optimale par ondelettes (seuillage, années 1990), puis établit en 2006 les fondements mathématiques de l’acquisition comprimée : reconstruire un signal parcimonieux à partir de très peu de mesures aléatoires. Prix Shaw 2013.',
         theoryId: 'psc-statistique-computationnelle',
+        mactutor: 'Donoho',
+        sources: ['mactutor'],
       },
       {
         id: 'schramm',
@@ -902,6 +928,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Rehovot et Redmond',
         bio: 'Formé à Princeton, chercheur à l’Institut Weizmann puis chez Microsoft Research à Redmond, Schramm invente en 2000 l’évolution qui porte son nom (SLE) et démontre avec Lawler et Werner des conjectures majeures sur le mouvement brownien plan et les marches aléatoires à boucles effacées. Il meurt dans un accident de randonnée en 2008.',
         theoryId: 'psc-modeles-critiques',
+        mactutor: 'Schramm',
+        sources: ['mactutor'],
       },
       {
         id: 'werner',
@@ -910,6 +938,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Orsay, Paris et Zurich',
         bio: 'Né en Allemagne, naturalisé français, formé à l’École normale supérieure, Werner démontre avec Lawler et Schramm les conjectures de Mandelbrot sur la frontière brownienne et les exposants d’intersection. Médaille Fields 2006, il est professeur à l’ETH Zurich.',
         theoryId: 'psc-modeles-critiques',
+        mactutor: 'Werner_Wendelin',
+        sources: ['mactutor'],
       },
       {
         id: 'smirnov',
@@ -1465,6 +1495,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Murray Hill et Monterey',
         bio: 'Formé à Urbana, Hamming participe au projet Manhattan à Los Alamos avant de rejoindre les Bell Labs en 1946. Ses codes correcteurs (1950) naissent des pannes du calculateur à relais ; on lui doit aussi la distance de Hamming, la fenêtre de Hamming et la devise « The purpose of computing is insight, not numbers ». Prix Turing 1968.',
         theoryId: 'cc-codes-correcteurs',
+        mactutor: 'Hamming',
+        sources: ['mactutor'],
       },
       {
         id: 'reed',
@@ -1505,6 +1537,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'MIT et Los Angeles',
         bio: 'Docteur de Berkeley, Adleman est le « A » de RSA : c’est lui qui teste et invalide les premières propositions de Rivest et Shamir avant que le système fondé sur la factorisation ne tienne (1977). Il invente en 1994 le calcul par ADN, première démonstration expérimentale de calcul moléculaire, et co-signe le test de primalité APR. Prix Turing 2002.',
         theoryId: 'cc-cle-publique',
+        mactutor: 'Adleman',
+        sources: ['mactutor'],
       },
       {
         id: 'rivest',
@@ -1924,6 +1958,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Amsterdam, Eindhoven et Austin',
         bio: 'Premier programmeur professionnel des Pays-Bas (1952), Dijkstra publie en 1959 l’algorithme du plus court chemin, propose vers 1965 le problème du dîner des philosophes ; il impose la programmation structurée (« Go To Statement Considered Harmful », 1968) et l’idée de programme comme objet de preuve. Prix Turing 1972.',
         theoryId: 'cit-algorithmique',
+        mactutor: 'Dijkstra',
+        sources: ['mactutor'],
       },
       {
         id: 'hartmanis',
@@ -1940,6 +1976,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Stanford',
         bio: 'Professeur à Stanford, Knuth rédige depuis 1962 The Art of Computer Programming, traité qui fonde l’analyse d’algorithmes comme discipline mathématique (notations asymptotiques, analyse en moyenne). Mécontent de la composition de ses livres, il crée le système TeX (1978). Prix Turing 1974, médaille John-von-Neumann 1995.',
         theoryId: 'cit-algorithmique',
+        mactutor: 'Knuth',
+        sources: ['mactutor'],
       },
       {
         id: 'strassen',
@@ -1948,6 +1986,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Zurich et Constance',
         bio: 'Algébriste formé à Göttingen, professeur à Zurich puis à Constance, Strassen montre en 1969 qu’on peut multiplier deux matrices n × n en moins de n³ opérations (environ n^2,81), contre toute attente, et en déduit l’inversion rapide. Il est aussi cofondateur avec Solovay du test de primalité probabiliste de 1977. Prix Knuth 2008.',
         theoryId: 'cit-algorithmique',
+        mactutor: 'Strassen',
+        sources: ['mactutor'],
       },
       {
         id: 'karp',
@@ -1980,6 +2020,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Édimbourg et Harvard',
         bio: 'Formé à Cambridge et à Warwick, professeur à Harvard, Valiant définit en 1979 la classe #P et montre que le calcul du permanent d’une matrice 0-1 — pourtant jumeau du déterminant — y est complet ; en 1984 il fonde la théorie de l’apprentissage « probablement approximativement correct » (PAC). Prix Turing 2010.',
         theoryId: 'cit-classes-de-complexite',
+        mactutor: 'Valiant',
+        sources: ['mactutor'],
       },
       {
         id: 'wigderson',
@@ -1988,6 +2030,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Jérusalem et Princeton',
         bio: 'Docteur de Princeton (1983), professeur à l’Université hébraïque puis à l’Institute for Advanced Study, Wigderson a travaillé sur presque tous les fronts de la complexité : preuves à divulgation nulle (tout problème de NP en admet une, avec Goldreich et Micali, 1986), dérandomisation (avec Impagliazzo, 1997), algorithmes de graphes. Prix Abel 2021 (avec Lovász), prix Turing 2023.',
         theoryId: 'cit-bornes-inferieures-et-preuves',
+        mactutor: 'Wigderson',
+        sources: ['mactutor'],
       },
       {
         id: 'shor',
@@ -1996,6 +2040,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Murray Hill et MIT',
         bio: 'Docteur du MIT, chercheur aux Bell Labs, Shor démontre en 1994 qu’un ordinateur quantique factoriserait les grands entiers et calculerait les logarithmes discrets en temps polynomial, ruinant RSA et Diffie–Hellman. Il contribue ensuite à la correction d’erreurs quantiques. Prix Gödel 1999, prix Breakthrough 2023.',
         theoryId: 'cit-bornes-inferieures-et-preuves',
+        mactutor: 'Shor',
+        sources: ['mactutor'],
       },
       {
         id: 'razborov',
@@ -2570,6 +2616,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Jérusalem, Los Angeles et New Haven',
         bio: 'Né en Prusse, réfugié en Palestine en 1933, formé à l’Université hébraïque et à Londres, Robinson applique la théorie des modèles à l’analyse : son analyse non standard (1961) construit des hyperréels où les infiniment petits de Leibniz redeviennent rigoureux. Professeur à UCLA puis à Yale, il laisse aussi le principe de transfert et des travaux fondateurs sur les corps algébriquement clos.',
         theoryId: 'lec-theorie-des-modeles',
+        mactutor: 'Robinson',
+        sources: ['mactutor'],
       },
       {
         id: 'morley',
@@ -2646,6 +2694,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Jérusalem et New Brunswick',
         bio: 'Professeur à l’Université hébraïque et à Rutgers, Shelah est le mathématicien le plus prolifique de la logique contemporaine (plus de mille articles). Il achève le programme de Morley en théorie de la classification (1978), crée la théorie pcf qui borne 2^ℵ_ω (1994) et multiplie les théorèmes d’indépendance par forcing itéré. Prix Erdős 1977, prix Wolf 2001, prix Steele 2013.',
         theoryId: 'lec-theorie-des-modeles',
+        mactutor: 'Shelah',
+        sources: ['mactutor'],
       },
       {
         id: 'matiyasevich',
@@ -2654,6 +2704,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Leningrad',
         bio: 'À 22 ans, Matiiassevitch achève la solution négative du dixième problème de Hilbert (1970) en exhibant une relation diophantienne à croissance exponentielle — la pièce manquante au programme de Davis, Putnam et Robinson. Chercheur à l’Institut Steklov de Saint-Pétersbourg, il travaille depuis sur les zéros des fonctions L et l’informatique théorique.',
         theoryId: 'lec-theorie-des-modeles',
+        mactutor: 'Matiyasevich',
+        sources: ['mactutor'],
       },
       {
         id: 'girard',
@@ -2678,6 +2730,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Jérusalem et Oxford',
         bio: 'Docteur de Berkeley, professeur au MIT, à Jérusalem puis à Oxford, Hrushovski est le maître d’œuvre de la « géométrie du modèle théorique » : ses preuves de la conjecture de Mordell–Lang pour les corps de fonctions (1996) et de la conjecture d’André–Oort en collaboration montrent la puissance de la théorie des modèles en géométrie arithmétique. Prix Erdős 1994, prix Shaw 2022.',
         theoryId: 'lec-theorie-des-modeles',
+        mactutor: 'Hrushovski',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['godel', 'tarski', 'kleene', 'turing', 'voevodsky', 'leibniz'],
@@ -3273,6 +3327,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Lwów, Los Alamos et Boulder',
         bio: 'Membre du cercle de Lwów (café Szkocka, « Livre écossais »), Ulam émigre aux États-Unis en 1935 et rejoint le projet Manhattan : il est co-inventeur de la configuration Teller–Ulam de la bombe H et de la méthode de Monte-Carlo. Il termine sa carrière à Boulder, laissant le « scénario de Fermi–Pasta–Ulam » (1955), première expérience numérique de systèmes dynamiques.',
         theoryId: 'csp-analyse-numerique',
+        mactutor: 'Ulam',
+        sources: ['mactutor'],
       },
       {
         id: 'wilkinson',
@@ -3281,6 +3337,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Teddington',
         bio: 'Assistant de Turing au National Physical Laboratory sur le calculateur ACE, Wilkinson fonde l’analyse d’erreur inverse (Rounding Errors in Algebraic Processes, 1963 ; The Algebraic Eigenvalue Problem, 1965) : ses bornes montrent quels algorithmes d’algèbre linéaire sont stables en arithmétique flottante. Prix Turing 1970.',
         theoryId: 'csp-analyse-numerique',
+        mactutor: 'Wilkinson',
+        sources: ['mactutor'],
       },
       {
         id: 'lax',
@@ -3289,6 +3347,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'New York',
         bio: 'Né à Budapest, émigré en 1941, Lax participe à Los Alamos puis fait sa carrière au Courant Institute de New York. Le théorème d’équivalence de Lax–Richtmyer (1956) fonde l’analyse numérique des EDP ; on lui doit aussi la théorie des ondes de choc, les paires de Lax des systèmes intégrables (1968) et le prix Abel 2005.',
         theoryId: 'csp-analyse-numerique',
+        mactutor: 'Lax_Peter',
+        sources: ['mactutor'],
       },
       {
         id: 'cooley',
@@ -3305,6 +3365,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Amsterdam et Eindhoven',
         bio: 'Analyste et combinatoricien (Asymptotic Methods in Analysis, 1958), professeur à Eindhoven, de Bruijn conçoit dès 1967 Automath, premier système où des mathématiques complètes sont écrites dans un langage vérifiable par machine — Landau y est formalisé dès 1976 (les « Jutting files »). Il est l’ancêtre direct de Coq et Lean.',
         theoryId: 'csp-preuves-assistees',
+        mactutor: 'De_Bruijn',
+        sources: ['mactutor'],
       },
       {
         id: 'golub',
@@ -3313,6 +3375,8 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Stanford',
         bio: 'Formé à l’Université de l’Illinois, professeur à Stanford et animateur du département d’informatique scientifique, Golub est le maître de l’algèbre linéaire numérique : algorithme de la décomposition en valeurs singulières (Golub–Kahan–Reinsch, 1970) et le traité Matrix Computations (avec Van Loan, 1983).',
         theoryId: 'csp-analyse-numerique',
+        mactutor: 'Golub',
+        sources: ['mactutor'],
       },
       {
         id: 'buchberger',
