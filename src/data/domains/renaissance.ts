@@ -272,6 +272,40 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'L’équation « cube plus choses égal nombre » (x³ + px = q, avec p et q positifs) se résout par radicaux : la solution est la différence de deux racines cubiques dont la somme des cubes vaut q et le produit (p/3)³.',
         comment: 'Première résolution d’une équation du troisième degré en Europe, gardée secrète et connue seulement par le témoignage de Cardan et par un cahier d’élève. Elle brise la limite fixée par Pacioli et montre qu’un problème que les Anciens n’avaient pas résolu peut l’être : les historiens y voient l’un des premiers résultats de la mathématique moderne à se savoir nouveau.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Tout tient à une identité : le cube d’une différence vaut (u − v)³ = u³ − v³ − 3uv(u − v). Si l’on écrit l’inconnue x comme une différence u − v en imposant 3uv = p, alors x³ + px se réduit à u³ − v³ : il ne reste qu’à trouver deux cubes dont on connaît la différence q et le produit (p/3)³ — un problème du second degré, que les abacistes savaient résoudre.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On pose x = u − v. L’identité (u − v)³ = u³ − v³ − 3uv(u − v) donne x³ + 3uv·x = u³ − v³.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'On choisit u et v tels que 3uv = p et u³ − v³ = q : l’équation x³ + px = q est alors satisfaite par x = u − v.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les deux nombres u³ et −v³ ont pour somme q et pour produit −(p/3)³ : ce sont les racines de l’équation du second degré t² − qt − (p/3)³ = 0, d’où u³ = q/2 + √(q²/4 + p³/27) et v³ = −q/2 + √(q²/4 + p³/27).',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En extrayant les racines cubiques : x = ∛(√(q²/4 + p³/27) + q/2) − ∛(√(q²/4 + p³/27) − q/2). Pour p et q positifs, la quantité sous la racine carrée est positive et la solution trouvée est la seule racine positive, puisque x³ + px croît avec x.',
+            sources: ['katz-history', 'cardano-ars-magna'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cardan justifie la règle par une figure (Ars magna, chapitre XI) : un cube d’arête u se découpe en un cube d’arête x = u − v, un cube d’arête v et des parallélépipèdes dont les volumes reconstituent les termes de l’identité.',
+            sources: ['cardano-ars-magna', 'stedall-from-cardano'],
+          },
+        ],
       },
       {
         id: 'methode-de-ferrari',
@@ -324,6 +358,45 @@ export const RENAISSANCE: Domain[] = [
             kind: 'interpretation',
             text: 'La formule fixe pour plus de deux siècles le programme de la résolution par radicaux. C’est en cherchant pourquoi les méthodes de del Ferro, Cardan et Ferrari réussissent que Lagrange, dans ses Réflexions sur la résolution algébrique des équations (1770-1771), prépare la question du cinquième degré.',
             sources: ['stedall-from-cardano', 'kline-thought'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Comme on « complète le carré » pour le second degré, on peut « compléter le cube » : dans x³ + bx² + …, le changement d’inconnue x = y − b/3 fait disparaître le terme en y², car (y − b/3)³ produit −by² qui annule exactement le b·y² venu de bx². Toute cubique se ramène ainsi à l’une des formes sans carré que del Ferro et Tartaglia savaient résoudre.',
+            sources: ['cardano-ars-magna', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cardan traite séparément les formes « cube égal choses plus nombre » et « cube plus nombre égal choses », car il n’admet pas de coefficient négatif : la même substitution x = u + v, avec 3uv = p, y conduit à une somme de cubes au lieu d’une différence, et la racine carrée de la formule change de signe sous le radical.',
+            sources: ['cardano-ars-magna', 'stedall-from-cardano'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit x³ + bx² + cx + d = 0 une cubique quelconque. En posant x = y − b/3, les termes en y² s’annulent et l’on obtient une équation réduite y³ + py = q, où p et q peuvent être de l’un ou l’autre signe.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si p > 0, on applique la règle de del Ferro : y = u − v avec 3uv = p, d’où u³ − v³ = q, et u³, v³ se lisent sur une équation du second degré. On obtient y = ∛(q/2 + √(q²/4 + p³/27)) − ∛(−q/2 + √(q²/4 + p³/27)).',
+            sources: ['katz-history', 'cardano-ars-magna'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si p < 0, c’est-à-dire pour la forme y³ = |p|·y + q, on pose y = u + v avec 3uv = |p| : alors u³ + v³ = q et u³v³ = |p|³/27, d’où y = ∛(q/2 + √(q²/4 − |p|³/27)) + ∛(q/2 − √(q²/4 − |p|³/27)). Les deux cas s’écrivent d’une seule formule en laissant p garder son signe.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lorsque q²/4 + p³/27 est négatif, ce qui n’arrive que si l’équation a trois racines réelles, la formule exige d’extraire la racine cubique d’un nombre de la forme a + √(−b) : c’est le cas irréductible, où Bombelli montre que ∛(2 + √−121) + ∛(2 − √−121) vaut bien 4 pour x³ = 15x + 4.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une racine x₁ étant connue, la division par (x − x₁) laisse une équation du second degré qui fournit les deux autres ; en combinant les trois valeurs de chaque racine cubique dont le produit vaut −p/3, la formule donne les trois racines à la fois.',
+            sources: ['stillwell-history', 'stedall-from-cardano'],
           },
         ],
       },
@@ -407,6 +480,40 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une équation du second degré a pour racines a et b, la somme a + b et le produit ab se lisent sur ses coefficients ; Viète énonce des relations analogues pour les premiers degrés supérieurs, à racines positives.',
         comment: 'Traités posthumes publiés à Paris par Anderson. En reliant explicitement racines et coefficients, Viète inaugure l’étude de la structure des équations, que Girard (1629) et Descartes (1637) poursuivront en comptant toutes les racines, et que Lagrange et Galois transformeront en théorie.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Il suffit de développer : (x − a)(x − b) = x² − (a + b)x + ab. Le coefficient de x est, au signe près, la somme des racines et le terme constant leur produit ; avec trois racines, (x − a)(x − b)(x − c) fait apparaître a + b + c, ab + bc + ca et abc. Chez Viète, qui ne dispose pas de la factorisation, la relation se découvre en comparant deux équations « de même constitution » dont les racines diffèrent.',
+            sources: ['katz-history', 'stedall-from-cardano'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Second degré, à la manière de Viète : si a et b sont deux racines de x² − sx + p = 0, on a a² − sa + p = 0 et b² − sb + p = 0. Par soustraction, a² − b² = s(a − b), donc s = a + b dès que a ≠ b ; en reportant, p = ab.',
+            sources: ['katz-history', 'stedall-from-cardano'],
+          },
+          {
+            kind: 'fait',
+            text: 'Troisième degré : le même procédé d’élimination entre trois équations de racines a, b, c donne les coefficients de x³ − (a + b + c)x² + (ab + bc + ca)x − abc = 0. Viète énonce ces relations pour des racines positives, ce qui l’oblige à distinguer les types d’équations selon les signes.',
+            sources: ['katz-history', 'stedall-from-cardano'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cas général, tel qu’on le démontre aujourd’hui : si a est racine d’un polynôme P, alors P se divise par (x − a) ; en répétant, un polynôme unitaire de degré n dont on connaît n racines a₁, …, aₙ (comptées avec leur multiplicité) s’écrit (x − a₁)(x − a₂)…(x − aₙ).',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En développant ce produit, le coefficient de xⁿ⁻ᵏ vaut (−1)ᵏ fois la somme de tous les produits de k racines distinctes : somme des racines, somme des produits deux à deux, …, produit de toutes les racines.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Que toute équation de degré n ait exactement n racines, réelles ou imaginaires, est affirmé par Girard (1629) et Descartes (1637) ; la justification complète attend le théorème fondamental de l’algèbre, démontré par Gauss en 1799.',
+            sources: ['katz-history', 'stedall-from-cardano'],
+          },
+        ],
       },
     ],
     sources: ['stedall-from-cardano', 'cardano-ars-magna', 'ore-cardano', 'katz-history', 'boyer-merzbach', 'stedall-sourcebook'],
@@ -616,6 +723,18 @@ export const RENAISSANCE: Domain[] = [
             sources: ['singh-fermat', 'gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Fermat sait démontrer un cas : par descente infinie, il établit qu’aucun triangle rectangle en nombres entiers n’a pour aire un carré, ce qui entraîne l’impossibilité de x⁴ − y⁴ = z² et donc de x⁴ + y⁴ = z⁴. Comme xⁿ = (x^(n/p))^p pour tout diviseur p de n, il suffit alors de traiter les exposants premiers impairs ; dans sa correspondance, Fermat ne revendique d’ailleurs jamais que les cas n = 3 et n = 4.',
+            sources: ['weil-number-theory', 'goldstein-fermat'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La conviction s’est nourrie des cas successifs — n = 3 (Euler), n = 5 (Dirichlet et Legendre, 1825), n = 7 (Lamé, 1839), les exposants premiers « réguliers » (Kummer, 1847) — puis du théorème de Faltings (1983), qui ne laisse pour chaque exposant qu’un nombre fini de solutions primitives. La démonstration générale est celle de Wiles (1995), par la modularité des courbes elliptiques : voir le résultat « Démonstration du dernier théorème de Fermat ».',
+            sources: ['gowers-companion', 'singh-fermat'],
+          },
+        ],
       },
       {
         id: 'petit-theoreme-de-fermat',
@@ -668,6 +787,45 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout nombre premier de la forme 4k + 1 est, d’une seule manière, la somme de deux carrés ; aucun nombre premier de la forme 4k + 3 ne l’est.',
         comment: 'Annoncé à Mersenne le 25 décembre 1640, avec l’indication d’une preuve par descente. La première démonstration publiée est celle d’Euler (1749). Le théorème ouvre l’étude des formes quadratiques, que Lagrange, Legendre et Gauss systématiseront.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une table suffit à voir la règle : 5 = 4 + 1, 13 = 9 + 4, 17 = 16 + 1, 29 = 25 + 4, 37 = 36 + 1, 41 = 25 + 16, tandis que 3, 7, 11, 19, 23 résistent. La moitié négative s’explique aussitôt : un carré laisse le reste 0 ou 1 dans la division par 4, donc une somme de deux carrés laisse 0, 1 ou 2, jamais 3.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’identité de Diophante, (a² + b²)(c² + d²) = (ac + bd)² + (ad − bc)², montre que les sommes de deux carrés se multiplient entre elles : tout se joue donc sur les nombres premiers, et c’est sur eux que Fermat fait porter sa descente.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Un nombre premier de la forme 4k + 3 n’est pas somme de deux carrés, puisque les carrés sont congrus à 0 ou 1 modulo 4. Reste à traiter p = 4k + 1 ; la démonstration qui suit est, dans ses grandes lignes, celle d’Euler (1747-1749), conforme à la descente annoncée par Fermat.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme de descente : si un nombre premier p divise une somme a² + b² de deux carrés premiers entre eux, alors p est lui-même somme de deux carrés. Sinon, en divisant a et b par p avec des restes au plus p/2, on fabrique un multiple de p plus petit, somme de deux carrés premiers entre eux, qui possède un diviseur premier plus petit que p et non somme de deux carrés — et ainsi de suite, ce qui est impossible.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour p = 4k + 1, on montre qu’il existe un entier a tel que p divise a² + 1 : par le petit théorème de Fermat, tout x non divisible par p vérifie x⁴ᵏ ≡ 1, donc x²ᵏ ≡ ±1 modulo p, et la congruence x²ᵏ ≡ 1 ne peut avoir plus de 2k solutions parmi les 4k valeurs possibles ; pour l’un des x restants, a = xᵏ convient.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Comme a et 1 sont premiers entre eux, le lemme s’applique à a² + 1² : p est somme de deux carrés.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Unicité : si p = a² + b² = c² + d², le produit (ac + bd)(ac − bd) vaut p(c² − b²), donc p divise l’un des deux facteurs ; or l’identité de Diophante donne p² = (ac + bd)² + (ad − bc)² = (ac − bd)² + (ad + bc)², ce qui force ad = bc ou ac = bd, c’est-à-dire la même décomposition à l’ordre près. Euler démontre aussi cette partie.',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'nombres-de-fermat',
@@ -679,6 +837,18 @@ export const RENAISSANCE: Domain[] = [
         kind: 'conjecture',
         statement: 'Les nombres de la forme 2^(2ⁿ) + 1 (3, 5, 17, 257, 65537, …) seraient tous premiers.',
         comment: 'Fermat répète cette conviction à Frénicle, à Pascal et à Carcavi, tout en avouant ne pas savoir la démontrer. Euler la réfute en 1732 : 2^32 + 1 est divisible par 641. Aucun autre nombre de Fermat premier n’a été trouvé depuis.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pourquoi des exposants qui sont des puissances de 2 ? Si m a un diviseur impair d, alors 2^(m/d) + 1 divise 2^m + 1, de même que a + 1 divise aᵈ + 1 pour d impair : 2^m + 1 ne peut être premier que si m est une puissance de 2. Les cinq premiers nombres ainsi obtenus, 3, 5, 17, 257 et 65 537, sont effectivement premiers ; le suivant, 4 294 967 297, est hors de portée d’une vérification par divisions successives.',
+            sources: ['weil-number-theory', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'La croyance ne résiste pas à une arithmétique plus fine : Euler montre que tout diviseur premier de 2^(2ⁿ) + 1 est de la forme k·2ⁿ⁺¹ + 1 — pour n = 5, de la forme 64k + 1 — et n’a qu’à essayer 193, 257, 449, 577, 641 pour trouver que 641 = 10 × 64 + 1 divise 2^32 + 1.',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'nombres-de-mersenne',
@@ -724,6 +894,40 @@ export const RENAISSANCE: Domain[] = [
             kind: 'interpretation',
             text: 'Reliée aux fractions continues par Euler et Lagrange, puis aux formes quadratiques par Gauss et aux unités des corps de nombres par Dirichlet, l’équation proposée en défi devient l’un des problèmes fondateurs de la théorie algébrique des nombres.',
             sources: ['weil-number-theory', 'goldstein-schappacher-schwermer'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une solution de x² − Ny² = 1 donne x/y très proche de √N, puisque x − y√N = 1/(x + y√N) : résoudre l’équation, c’est trouver les meilleures approximations rationnelles de √N. Ce qui la rend redoutable, c’est la taille imprévisible de la plus petite solution : pour N = 61, l’un des cas choisis par Fermat, il faut x = 1 766 319 049 et y = 226 153 980, valeurs déjà obtenues par Bhāskara II au XIIᵉ siècle.',
+            sources: ['weil-number-theory', 'plofker-india'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Weil, le choix même des valeurs N = 61, 109 et 149 dans le défi de 1657, celles dont les solutions sont démesurées, montre que Fermat possédait une méthode générale — vraisemblablement une descente analogue au cakravāla indien — et qu’il savait ce qu’il demandait.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Toute solution (x, y) vérifie |x/y − √N| < 1/(2y²) ; or une fraction qui approche un irrationnel d’aussi près est nécessairement l’une des « réduites » de son développement en fraction continue. Les solutions sont donc à chercher parmi les réduites de √N.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lagrange démontre (1768-1770) que le développement de √N en fraction continue est périodique et que les réduites p/q calculées à la fin de chaque période vérifient p² − Nq² = ±1 : il existe donc toujours une solution non triviale, obtenue au bout d’une ou deux périodes.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’identité de Brahmagupta, (x₁² − Ny₁²)(x₂² − Ny₂²) = (x₁x₂ + Ny₁y₂)² − N(x₁y₂ + x₂y₁)², compose deux solutions en une troisième : les puissances (x₁ + y₁√N)ᵏ de la plus petite solution en fournissent une infinité, et l’on montre qu’il n’y en a pas d’autres.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'La méthode de Brouncker (1657), rapportée par Wallis, revient à cet algorithme des fractions continues, et le cakravāla de Bhāskara en est proche ; ni l’une ni l’autre ne prouve que la procédure aboutit toujours, et c’est cette preuve d’existence que Lagrange apporte.',
+            sources: ['weil-number-theory', 'plofker-india'],
           },
         ],
       },
@@ -1290,6 +1494,40 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Le nombre de racines positives d’une équation est au plus égal au nombre de changements de signe entre ses coefficients consécutifs ; celui des racines négatives s’obtient en changeant x en −x.',
         comment: 'Énoncée sans démonstration complète dans La Géométrie (les démonstrations rigoureuses viendront avec Segner et De Gua au XVIIIᵉ siècle). La règle, jointe au compte des racines réelles et « imaginaires », inaugure l’étude globale des équations.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Descartes part d’un exemple construit : (x − 2)(x − 3)(x − 4)(x + 5) = x⁴ − 4x³ − 19x² + 106x − 120. Les signes des coefficients sont + − − + −, soit trois changements pour trois racines « vraies » (positives) et une permanence pour la racine « fausse » (−5). Chaque fois qu’on multiplie par (x − a) avec a positif, un changement de signe apparaît.',
+            sources: ['stedall-sourcebook', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Notons V(P) le nombre de changements de signe dans la suite des coefficients non nuls d’un polynôme P à coefficients réels. On veut montrer que le nombre de racines strictement positives de P, comptées avec leur multiplicité, est au plus V(P), et de même parité.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme : si a > 0, alors V((x − a)Q) dépasse V(Q) d’un nombre impair, donc d’au moins un. En effet, le premier coefficient de (x − a)Q a le signe de celui de Q, le dernier a le signe opposé à celui du dernier de Q, et chaque changement de signe de Q se retrouve dans le produit.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soient a₁, …, aᵣ les racines positives de P. On écrit P = (x − a₁)…(x − aᵣ)·Q, où Q n’a aucune racine positive ; en appliquant r fois le lemme, V(P) ≥ r + V(Q) ≥ r.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Parité : quitte à diviser P par une puissance de x, Q(0) n’est pas nul et Q ne s’annule pas sur les réels positifs, donc son terme constant et son coefficient dominant (qui donne le signe de Q(x) pour x très grand) ont le même signe ; or deux coefficients ont le même signe exactement lorsque le nombre de changements de signe entre eux est pair : V(Q) est pair, et V(P) − r aussi.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les racines négatives de P sont les racines positives de P(−x) : la seconde partie de la règle suit de la première. Descartes ne donne aucun de ces arguments ; La Géométrie se contente de l’exemple et de l’énoncé.',
+            sources: ['stedall-sourcebook', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'brouillon-project-desargues',
@@ -1337,6 +1575,40 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si deux triangles sont tels que les droites joignant leurs sommets correspondants sont concourantes, alors les intersections de leurs côtés correspondants sont alignées — et réciproquement.',
         comment: 'Publié en 1648 par Abraham Bosse dans la Manière universelle de Desargues, sans que le Brouillon project le contienne sous cette forme. Le théorème est devenu une pierre de touche : au XIXᵉ siècle, il caractérise les géométries où l’on peut coordonner par un corps.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans l’espace, l’énoncé saute aux yeux : deux triangles vus en perspective depuis un point O sont posés sur deux plans, et deux côtés correspondants, qui se trouvent dans un même plan passant par O, se coupent nécessairement sur la droite où les deux plans se rencontrent. La figure plane n’est que l’ombre portée de cette figure spatiale — Desargues raisonne en praticien de la perspective.',
+            sources: ['field-gray-desargues', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Cas de l’espace : soient ABC et A′B′C′ deux triangles situés dans des plans distincts, tels que les droites AA′, BB′ et CC′ passent par un même point O. Les droites AB et A′B′ sont dans le plan OAB ; elles se coupent donc en un point (éventuellement à l’infini, au sens de Desargues), qui appartient aux deux plans des triangles.',
+            sources: ['field-gray-desargues', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il en va de même pour BC et B′C′, puis pour CA et C′A′ : les trois points d’intersection appartiennent tous deux plans, donc à leur droite d’intersection. Ils sont alignés.',
+            sources: ['field-gray-desargues', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cas du plan : on relève la figure dans l’espace. On prend un point P hors du plan et un point Q sur la droite OP ; les droites QA et PA′ sont dans un même plan et se coupent en un point A″, et de même pour B″ et C″. Le triangle A″B″C″, hors du plan, est en perspective avec ABC depuis Q et avec A′B′C′ depuis P : le cas de l’espace, appliqué deux fois, place les rencontres des côtés sur la droite commune au plan de départ et au plan de A″B″C″ — et le point où A″B″ perce le plan de départ est justement le point commun à AB et A′B′.',
+            sources: ['stillwell-history', 'field-gray-desargues'],
+          },
+          {
+            kind: 'fait',
+            text: 'La réciproque — côtés correspondants concourant sur une droite, donc sommets correspondants alignés avec un même point — s’obtient en appliquant le théorème direct à deux triangles bien choisis, ou, dans la géométrie projective du XIXᵉ siècle, par le principe de dualité qui échange points et droites.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hilbert montre en 1899 que l’énoncé plan ne se déduit pas des seuls axiomes d’incidence du plan : il faut soit la troisième dimension, soit des axiomes de congruence — c’est ce qui fait du théorème une pierre de touche des géométries.',
+            sources: ['gray-worlds', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'hexagramme-mystique',
@@ -1348,6 +1620,45 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Si six points d’une conique sont les sommets d’un hexagone, alors les trois intersections des paires de côtés opposés sont alignées ; pour un cercle, la propriété se transporte par projection à toutes les coniques.',
         comment: 'Placard imprimé par un Pascal de seize ans, disciple de Desargues. Le grand traité annoncé, où Pascal disait ramener quatre cents corollaires à ce « mysticum hexagramma », est perdu ; Leibniz en lut une copie en 1676. La géométrie projective du XIXᵉ siècle en fera un théorème fondateur.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La leçon de Desargues suffit à ramener toute conique au cercle : une conique est l’ombre d’un cercle dans une projection centrale, et une projection conserve les alignements et les intersections. Si l’énoncé est vrai pour un cercle, il l’est pour l’ellipse, la parabole et l’hyperbole — c’est la démarche même de l’Essai, qui part du cercle et « transporte » la propriété.',
+            sources: ['field-gray-desargues', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour le cercle, un dessin convainc : les six points peuvent être pris dans n’importe quel ordre, et l’hexagone peut être croisé ; les trois points de rencontre des côtés opposés semblent toujours s’aligner, parfois très loin de la figure — la droite ainsi obtenue est appelée aujourd’hui « droite de Pascal ».',
+            sources: ['kline-thought', 'gray-worlds'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On se ramène au cercle par projection, comme ci-dessus ; soit donc un hexagone ABCDEF inscrit dans un cercle, et P = AB ∩ DE, Q = BC ∩ EF, R = CD ∩ FA les trois points à aligner.',
+            sources: ['kline-thought', 'gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les droites AB, CD et EF forment un triangle XYZ (X = AB ∩ CD, Y = CD ∩ EF, Z = EF ∩ AB). Les trois autres côtés de l’hexagone, BC, DE et FA, sont trois transversales de ce triangle : chacune coupe ses trois côtés, et l’on écrit pour chacune la relation de Ménélaüs, produit de trois rapports de segments égal à 1.',
+            sources: ['kline-thought', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'En multipliant les trois relations, on fait apparaître des produits comme XA·XB et XC·XD : la puissance du point X par rapport au cercle les rend égaux, et de même pour Y et Z. Après simplification, il reste exactement la relation de Ménélaüs pour les points P, Q, R sur les côtés du triangle XYZ.',
+            sources: ['kline-thought', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'La réciproque du théorème de Ménélaüs donne alors l’alignement de P, Q et R. Les cas où certains côtés sont parallèles se traitent en envoyant les points de rencontre à l’infini, à la manière de Desargues.',
+            sources: ['kline-thought', 'field-gray-desargues'],
+          },
+          {
+            kind: 'fait',
+            text: 'Au XIXᵉ siècle, la géométrie projective donne une preuve sans mesure : par les points A et D, les faisceaux de droites vers B, C, E, F ont même birapport (propriété caractéristique des coniques), et le report de ces birapports sur les droites DE et AB force l’alignement — c’est aussi par là que le théorème de Pascal devient, par dualité, celui de Brianchon (1806).',
+            sources: ['gray-worlds', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'geometria-a-renato-des-cartes',
@@ -1638,6 +1949,45 @@ export const RENAISSANCE: Domain[] = [
             sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Newton range en tableau les coefficients de (1 − x²)⁰, (1 − x²)¹, (1 − x²)², … : ce sont les lignes du triangle arithmétique de Pascal, 1 ; 1, −1 ; 1, −2, 1 ; … Chaque colonne suit, au signe près, une loi simple en l’exposant m — la première vaut m, la deuxième m(m − 1)/2 — et rien n’empêche d’y faire m = 1/2 : la colonne intercalée donne 1/2, −1/8, 1/16, …, d’où √(1 − x²) = 1 − x²/2 − x⁴/8 − x⁶/16 − …',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La vérification tient lieu de preuve : Newton multiplie la série obtenue par elle-même et retrouve 1 − x², puis extrait la racine carrée de 1 − x² par l’algorithme arithmétique habituel, chiffre après chiffre, et obtient les mêmes termes — « à la manière des décimales ».',
+            sources: ['edwards-calculus', 'whiteside-newton'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour un exposant m entier positif, la formule est le théorème du binôme : les coefficients C(m, k) = m(m − 1)…(m − k + 1)/k! sont ceux du triangle de Pascal, et la série s’arrête au terme xᵐ. Newton remarque que cette expression des coefficients garde un sens pour m fractionnaire ou négatif, la série devenant alors infinie.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour en faire un théorème, on considère la fonction f(x) = (1 + x)ᵐ : ses dérivées successives en 0 valent m, m(m − 1), m(m − 1)(m − 2), …, de sorte que la série de Newton est exactement la série de Taylor de f.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour |x| < 1, le rapport de deux termes consécutifs de la série, (m − k)x/(k + 1), tend vers −x en valeur absolue inférieure à 1 : la série converge (critère de d’Alembert). Pour |x| > 1, elle diverge dès que m n’est pas un entier positif.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il reste à voir que la somme est bien (1 + x)ᵐ : le reste de la formule de Taylor, écrit sous la forme de Cauchy, tend vers 0 pour |x| < 1 ; ou bien l’on vérifie que la somme S(x) satisfait l’équation (1 + x)S′ = mS avec S(0) = 1, comme f, et qu’une telle équation n’a qu’une solution.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le cas des bornes |x| = 1 et des exposants complexes est réglé par Abel en 1826, dans le mémoire qui fixe les règles de convergence des séries entières.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'de-analysi',
@@ -1661,6 +2011,45 @@ export const RENAISSANCE: Domain[] = [
         kind: 'theoreme',
         statement: 'Dériver et intégrer sont des opérations inverses : l’aire sous une courbe croît à une vitesse égale à l’ordonnée, et réciproquement la tangente de la courbe des aires redonne la courbe primitive.',
         comment: 'Présent géométriquement chez Barrow et Gregory, le lien devient un outil de calcul chez Newton (fluxions et fluentes, 1666) et Leibniz (∫ inverse de d, 1675). C’est le principe qui fait des centaines de quadratures particulières un seul algorithme.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si l’on fait avancer d’un petit pas o la borne de l’aire sous une courbe, l’aire s’accroît d’une bande presque rectangulaire de largeur o et de hauteur y : le gain d’aire, rapporté au pas, est l’ordonnée. C’est l’argument du De analysi de Newton, qui en déduit que l’aire sous y = a·x^(m/n) est (n/(m + n))·a·x^((m + n)/n) et, réciproquement, que la courbe se retrouve en « dérivant » l’aire.',
+            sources: ['edwards-calculus', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chez Leibniz, l’idée est arithmétique : la somme des différences d’une suite se télescope en la différence des termes extrêmes, (a₂ − a₁) + (a₃ − a₂) + … + (aₙ − aₙ₋₁) = aₙ − a₁ ; passer aux courbes, c’est remplacer la suite par les ordonnées, la différence par d et la somme par ∫.',
+            sources: ['hofmann-leibniz', 'edwards-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit z(x) l’aire comprise entre la courbe y = f(t), l’axe et les verticales en 0 et en x. Quand x augmente de o, l’aire augmente d’une bande comprise, si f est croissante sur ce petit intervalle, entre le rectangle de hauteur f(x) et celui de hauteur f(x + o) : f(x)·o ≤ z(x + o) − z(x) ≤ f(x + o)·o.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'En divisant par o, le taux d’accroissement de z est encadré par f(x) et f(x + o) ; si f est continue, les deux bornes se rejoignent quand o tend vers 0 : z′(x) = f(x). L’aire est une primitive de l’ordonnée — première moitié du théorème.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si F est une autre fonction de dérivée f, alors F − z a une dérivée nulle, donc est constante ; comme z(0) = 0, on obtient z(b) = F(b) − F(0) : l’aire se calcule par une primitive, sans aucune sommation — seconde moitié du théorème, et le secret de toutes les quadratures de Newton et Leibniz.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Barrow donne l’énoncé sous forme géométrique (Lectiones geometricae, X, 11) : si la courbe des aires est tracée, sa tangente coupe l’axe à une distance du pied de l’ordonnée égale au quotient de l’aire par l’ordonnée — ce qui revient à dire que la pente de la courbe des aires est l’ordonnée de la courbe de départ.',
+            sources: ['edwards-calculus', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'La version rigoureuse attend Cauchy (1823), qui définit l’intégrale d’une fonction continue comme limite de sommes et démontre, par l’encadrement ci-dessus, que x ↦ ∫₀ˣ f est dérivable de dérivée f ; Riemann étend ensuite la définition aux fonctions discontinues.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'horologium-oscillatorium',
@@ -1746,6 +2135,40 @@ export const RENAISSANCE: Domain[] = [
             kind: 'interpretation',
             text: 'La méthode de Jacques, puis la querelle qu’il engage avec son frère sur les problèmes isopérimétriques, mènent à la Methodus inveniendi d’Euler (1744) et à la méthode des variations que Lagrange expose à Euler à partir de 1755.',
             sources: ['kline-thought'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le problème est d’une espèce nouvelle : l’inconnue n’est pas un nombre mais une courbe entière, et la droite, chemin le plus court, n’est pas le plus rapide — un départ plus raide donne de la vitesse plus tôt. Jean Bernoulli le résout par une analogie optique : la lumière, qui suit le chemin de moindre temps (principe de Fermat), traverse un milieu dont l’indice varie avec la hauteur en se réfractant selon la loi des sinus ; la courbe cherchée est le rayon lumineux dans un milieu où la vitesse croît comme celle d’un corps qui tombe.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Galilée a établi qu’un corps tombé sans vitesse initiale d’une hauteur y atteint la vitesse v = √(2gy), quel que soit le chemin suivi : la vitesse ne dépend que de la hauteur de chute.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'On découpe l’espace en couches horizontales minces où la vitesse est constante. Dans un milieu stratifié, le chemin de moindre temps obéit à la loi de la réfraction de Snell–Descartes : sin θ / v est le même dans toutes les couches, θ désignant l’angle de la trajectoire avec la verticale.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En passant à la limite des couches infiniment minces, la courbe cherchée vérifie sin θ / √y = constante. Comme sin θ = dx/ds, où ds est l’élément d’arc, on obtient l’équation différentielle dx = dy·√(y/(C − y)), où C est une constante.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bernoulli reconnaît l’équation de la cycloïde : la courbe x = (C/2)(φ − sin φ), y = (C/2)(1 − cos φ), décrite par un point d’un cercle de diamètre C qui roule sous une droite, la satisfait identiquement. Le point de départ est le point de rebroussement, et la constante C se règle pour que la cycloïde passe par le second point.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La méthode de Jacques Bernoulli procède autrement : il fait varier la courbe sur un seul petit arc et exige que le temps soit stationnaire, ce qui redonne la même condition ; c’est ce raisonnement local, généralisé par Euler puis Lagrange, qui deviendra le calcul des variations.',
+            sources: ['kline-thought', 'hairer-wanner-analysis'],
           },
         ],
       },
@@ -2395,6 +2818,45 @@ export const RENAISSANCE: Domain[] = [
             kind: 'interpretation',
             text: 'Pour Stephen Stigler, le théorème répond au problème direct — de la probabilité connue à la fréquence attendue — et non au problème inverse que Bernoulli voulait résoudre ; celui-ci attendra Bayes (1763) et Laplace (1774).',
             sources: ['stigler-statistics'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Bernoulli part d’une urne contenant 3 000 jetons blancs et 2 000 noirs, et demande combien de tirages (avec remise) garantissent, à mille contre un, que la proportion de blancs observée tombe entre 29/50 et 31/50. Les probabilités des différents nombres de blancs sont les termes du développement de (3/5 + 2/5)ⁿ : le terme central, en n·3/5, est le plus grand, et les termes décroissent de part et d’autre d’autant plus vite que n est grand.',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tout le travail consiste donc à comparer la masse des termes « du milieu » à celle des termes des deux queues : si l’on sait que les termes décroissent au moins aussi vite qu’une progression géométrique, la queue se majore par une somme géométrique, qui devient négligeable devant le terme central.',
+            sources: ['hald-history-1750'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit p = r/(r + s) la probabilité d’un succès et n = (r + s)·t le nombre d’épreuves, choisi multiple de r + s pour que le nombre attendu de succès, rt, soit entier. Bernoulli veut montrer que, pour t assez grand, la probabilité que le nombre de succès X s’écarte de rt de plus de t est inférieure à 1/(c + 1), quel que soit c donné.',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les probabilités P(X = k) sont les termes du développement du binôme (p + q)ⁿ. Bernoulli calcule le rapport de deux termes consécutifs et montre que, de part et d’autre du terme central k = rt, les termes décroissent, et que le rapport du terme central au terme situé à la distance t croît sans limite avec t.',
+            sources: ['hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il majore ensuite chaque queue : au-delà de la distance t, les termes décroissent plus vite qu’une progression géométrique, de sorte que la somme de la queue est inférieure à un multiple fixe du terme situé en rt + t (ou rt − t). La masse centrale dépasse donc c fois la masse des deux queues dès que t est assez grand.',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bernoulli rend le résultat effectif : pour r = 30, s = 20 et c = 1 000, il trouve qu’il suffit de n = 25 550 épreuves — une borne très pessimiste, car sa majoration de la queue est grossière : l’approximation de la binomiale par la courbe en cloche, due à de Moivre (1733), montre qu’environ 6 500 épreuves suffisent.',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'La démonstration moderne tient en deux lignes grâce à l’inégalité de Tchebychev : la fréquence X/n a pour moyenne p et pour variance pq/n, donc P(|X/n − p| ≥ ε) ≤ pq/(nε²), quantité qui tend vers 0 quand n croît.',
+            sources: ['gowers-companion'],
           },
         ],
       },
