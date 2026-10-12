@@ -709,5 +709,15 @@ export const FIGURES_STRUCTURES_B: Record<string, Mathematician[]> = {
       mactutor: 'Cartier',
       sources: ['mactutor'],
     },
+    {
+      id: 'hilton',
+      name: 'Peter Hilton',
+      years: [1923, 2010],
+      origin: 'Oxford, Cornell et Binghamton',
+      bio: 'Décrypteur à Bletchley Park auprès de Whitehead et Newman, Hilton devient le premier élève de recherche d’après-guerre de Whitehead à Oxford : ses articles avec Eckmann fondent la dualité qui porte leurs noms, et il écrit avec Wylie le manuel Homology Theory (1960).',
+      theoryId: 'bb-categories-et-algebre-homologique',
+      mactutor: 'Hilton',
+      sources: ['mactutor'],
+    },
   ],
 };
