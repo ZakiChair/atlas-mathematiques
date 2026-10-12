@@ -34,16 +34,6 @@ export const FIGURES_PHYSIQUE_B: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
     {
-      id: 'bouguer',
-      name: 'Pierre Bouguer',
-      years: [1698, 1758],
-      origin: 'Le Croisic et Paris',
-      bio: 'Enfant prodige de l’hydrographie, professeur à quinze ans, Bouguer dirige la partie géodésique de l’expédition du Pérou (1735-1744) qui mesure l’arc de Quito et établit l’aplatissement de la Terre ; il fonde aussi la photométrie.',
-      theoryId: 'mc-geodesie-et-figure',
-      mactutor: 'Bouguer',
-      sources: ['mactutor'],
-    },
-    {
       id: 'airy',
       name: 'George Biddell Airy',
       years: [1801, 1892],
@@ -97,16 +87,6 @@ export const FIGURES_PHYSIQUE_B: Record<string, Mathematician[]> = {
     },
   ],
   'electricite-et-electromagnetisme': [
-    {
-      id: 'franklin-benjamin',
-      name: 'Benjamin Franklin',
-      years: [1706, 1790],
-      origin: 'Boston et Philadelphie',
-      bio: 'Imprimeur, savant et homme d’État, Franklin donne à l’électricité son vocabulaire (+ et −, charge, batterie), démontre l’identité du feu électrique et de la foudre (1752) et énonce la conservation de la charge électrique.',
-      theoryId: 'ee-electrostatique',
-      mactutor: 'Franklin_Benjamin',
-      sources: ['mactutor'],
-    },
     {
       id: 'fitzgerald',
       name: 'George Francis FitzGerald',

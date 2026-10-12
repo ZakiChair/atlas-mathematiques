@@ -809,7 +809,7 @@ export const PHYSIQUE_B: Domain[] = [
   {
     id: 'electricite-et-electromagnetisme',
     name: 'Électricité et électromagnétisme',
-    mapName: 'Électromagnétisme',
+    mapName: 'Électricité et magnétisme',
     altNames: ['Électrodynamique', 'Théorie du champ électromagnétique'],
     era: 'dixneuvieme',
     period: { start: 1785, end: 1888 },
@@ -1940,6 +1940,13 @@ export const PHYSIQUE_B: Domain[] = [
             sources: ['howson-appraisal', 'buchwald-wave-theory'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le raisonnement de Poisson est géométrique : tous les points du bord du disque sont à égale distance du centre de l’ombre ; les ondelettes qu’ils émettent y arrivent donc en phase — et s’ajoutent. Sur l’axe, la lumière ne s’éteint pas : elle renaît.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
       },
       {
         id: 'vibrations-transversales-fresnel',
@@ -1986,6 +1993,13 @@ export const PHYSIQUE_B: Domain[] = [
           {
             kind: 'fait',
             text: 'La réfraction conique consacre l’optique ondulatoire comme théorie prédictive au même titre que la mécanique céleste : « la découverte d’une planète à la pointe du crayon » avait trouvé son équivalent optique — et la méthode de Hamilton prépare sa mécanique.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La surface d’onde de Fresnel possède, dans un cristal biaxe, quatre points où ses deux nappes se rejoignent : la normale y est indéterminée, et tout un plan de directions s’y rencontre — le rayon unique n’a plus de réponse unique, il explose en cône.',
             sources: ['darrigol-optics', 'whittaker-aether'],
           },
         ],
