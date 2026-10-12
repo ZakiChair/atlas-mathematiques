@@ -9,16 +9,6 @@ import type { Mathematician } from '../types';
 export const FIGURES_PHYSIQUE_D: Record<string, Mathematician[]> = {
   'physique-statistique-et-matiere-condensee': [
     {
-      id: 'peierls',
-      name: 'Rudolf Peierls',
-      years: [1907, 1995],
-      origin: 'Berlin, puis Birmingham',
-      bio: 'Physicien théoricien émigré d’Allemagne (1933), Peierls introduit les processus Umklapp (1929), montre que le modèle d’Ising s’ordonne en dimension 2 (1936) et fonde la physique théorique britannique des métaux, des neutrons et des noyaux.',
-      mactutor: 'Peierls',
-      sources: ['mactutor'],
-      theoryId: 'ps-transitions-de-phase-et-phenomenes-critiques',
-    },
-    {
       id: 'bogolioubov',
       name: 'Nikolaï Bogolioubov',
       years: [1909, 1992],
@@ -37,26 +27,6 @@ export const FIGURES_PHYSIQUE_D: Record<string, Mathematician[]> = {
       mactutor: 'Lifshitz',
       sources: ['mactutor'],
       theoryId: 'ps-etats-quantiques-de-la-matiere',
-    },
-    {
-      id: 'uhlenbeck-george',
-      name: 'George Uhlenbeck',
-      years: [1900, 1988],
-      origin: 'Batavia, Leyde puis Ann Arbor',
-      bio: 'Élève d’Ehrenfest à Leyde, émigré aux États-Unis, Uhlenbeck découvre le spin de l’électron avec Goudsmit (1925) et formalise les processus stochastiques de la physique statistique (processus d’Uhlenbeck–Ornstein, 1930).',
-      mactutor: 'Uhlenbeck',
-      sources: ['mactutor'],
-      theoryId: 'ps-etats-quantiques-de-la-matiere',
-    },
-    {
-      id: 'kramers',
-      name: 'Hendrik Kramers',
-      years: [1894, 1952],
-      origin: 'Leyde et Copenhague',
-      bio: 'Successeur d’Ehrenfest à Leyde et longtemps collaborateur de Bohr, Kramers établit avec Wannier la dualité du modèle d’Ising bidimensionnel (1941) — qui localise le point critique avant la solution d’Onsager — et les relations de dispersion qui portent son nom.',
-      mactutor: 'Kramers',
-      sources: ['mactutor'],
-      theoryId: 'ps-transitions-de-phase-et-phenomenes-critiques',
     },
     {
       id: 'montroll',

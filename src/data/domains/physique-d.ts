@@ -18,7 +18,6 @@ export const SOURCES_PHYSIQUE_D: Source[] = [
   { id: 'kragh-cosmology', type: 'livre', author: 'Helge Kragh', title: 'Cosmology and Controversy: The Historical Development of Two Theories of the Universe', year: 1996, publisher: 'Princeton University Press' },
   { id: 'longair-cosmic-century', type: 'livre', author: 'Malcolm S. Longair', title: 'The Cosmic Century: A History of Astrophysics and Cosmology', year: 2006, publisher: 'Cambridge University Press' },
   { id: 'smith-expanding-universe', type: 'livre', author: 'Robert W. Smith', title: 'The Expanding Universe: Astronomy’s « Great Debate », 1900-1931', year: 1982, publisher: 'Cambridge University Press' },
-  { id: 'north-measure-universe', type: 'livre', author: 'John D. North', title: 'The Measure of the Universe: A History of Modern Cosmology', year: 1965, publisher: 'Clarendon Press' },
   { id: 'hawking-ellis', type: 'livre', author: 'Stephen W. Hawking, George F. R. Ellis', title: 'The Large Scale Structure of Space-Time', year: 1973, publisher: 'Cambridge University Press' },
   { id: 'thorne-black-holes', type: 'livre', author: 'Kip S. Thorne', title: 'Black Holes and Time Warps: Einstein’s Outrageous Legacy', year: 1994, publisher: 'W. W. Norton' },
   { id: 'guth-inflation', type: 'livre', author: 'Alan H. Guth', title: 'The Inflationary Universe: The Quest for a New Theory of Cosmic Origins', year: 1997, publisher: 'Addison-Wesley' },

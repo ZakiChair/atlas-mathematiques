@@ -17,7 +17,6 @@ export const SOURCES_PHYSIQUE_C: Source[] = [
   { id: 'stanley-eddington', type: 'livre', author: 'Matthew Stanley', title: 'Practical Mystic : Religion, Science, and A. S. Eddington', year: 2007, publisher: 'University of Chicago Press' },
   { id: 'kosmann-schwarzbach-noether', type: 'livre', author: 'Yvette Kosmann-Schwarzbach', title: 'The Noether Theorems : Invariance and Conservation Laws in the Twentieth Century', year: 2011, publisher: 'Springer' },
   { id: 'whitaker-aether', type: 'livre', author: 'Edmund T. Whittaker', title: 'A History of the Theories of Aether and Electricity', year: 1951, publisher: 'Thomas Nelson', note: 'Deux volumes ; première édition 1910.' },
-  { id: 'darrigol-electrodynamics', type: 'livre', author: 'Olivier Darrigol', title: 'Electrodynamics from Ampère to Einstein', year: 2000, publisher: 'Oxford University Press' },
   // — mécanique quantique —
   { id: 'pais-niels-bohr', type: 'livre', author: 'Abraham Pais', title: 'Niels Bohr’s Times : In Physics, Philosophy, and Polity', year: 1991, publisher: 'Oxford University Press' },
   { id: 'pais-inward-bound', type: 'livre', author: 'Abraham Pais', title: 'Inward Bound : Of Matter and Forces in the Physical World', year: 1986, publisher: 'Oxford University Press' },
@@ -224,16 +223,6 @@ export const PHYSIQUE_C: Domain[] = [
         mactutor: 'Schwarzschild',
       },
       {
-        id: 'friedmann',
-        name: 'Alexandre Friedmann',
-        years: [1888, 1925],
-        origin: 'Petrograd',
-        bio: 'Météorologue et mathématicien de Petrograd, Friedmann publie en 1922 les solutions non statiques des équations de champ : des univers en expansion dont Einstein conteste d’abord le calcul avant de le reconnaître. Ses équations, reprises par Lemaître en 1927, sont la base de la cosmologie moderne ; il meurt du typhus à trente-sept ans.',
-        theoryId: 'rg-solutions-et-cosmologie',
-        sources: ['tropp-friedmann', 'mactutor'],
-        mactutor: 'Friedmann',
-      },
-      {
         id: 'eddington',
         name: 'Arthur Stanley Eddington',
         years: [1882, 1944],
@@ -254,7 +243,7 @@ export const PHYSIQUE_C: Domain[] = [
         mactutor: 'Sitter',
       },
     ],
-    relatedMathematicianIds: ['minkowski', 'hilbert', 'poincare', 'noether', 'weyl', 'ricci-curbastro', 'levi-civita'],
+    relatedMathematicianIds: ['minkowski', 'hilbert', 'poincare', 'noether', 'weyl', 'ricci-curbastro', 'levi-civita', 'friedmann'],
     results: [
       {
         id: 'sur-l-electrodynamique-des-corps-en-mouvement',
