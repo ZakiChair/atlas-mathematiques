@@ -130,6 +130,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Paris et Besançon',
         bio: 'Élève de Poincaré, Bachelier soutient en 1900 une thèse qui modélise les cours de la Bourse par un processus que l’on appellera mouvement brownien, cinq ans avant Einstein. Longtemps sans poste stable, il n’obtient une chaire à Besançon qu’en 1927 ; son œuvre est redécouverte par les probabilistes et les économistes dans les années 1950 et 1960.',
         theoryId: 'pmo-processus-stochastiques',
+        mactutor: 'Bachelier',
+        sources: ['mactutor'],
       },
       {
         id: 'borel',
@@ -138,6 +140,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Paris',
         bio: 'Inventeur de la mesure des ensembles qui portent son nom (1898), Borel applique à partir de 1905 les méthodes de la théorie des fonctions au calcul des probabilités et démontre en 1909 la première loi forte des grands nombres. Fondateur de l’Institut Henri Poincaré (1928), député puis ministre, il dirige la publication d’un vaste Traité du calcul des probabilités et de ses applications (1924-1939).',
         theoryId: 'pmo-axiomatisation-et-mesure',
+        mactutor: 'Borel',
+        sources: ['mactutor'],
       },
       {
         id: 'markov',
@@ -146,6 +150,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Saint-Pétersbourg',
         bio: 'Élève de Tchebychev, Markov donne en 1887-1898 une démonstration rigoureuse du théorème central limite par la méthode des moments, puis étend à partir de 1906 la loi des grands nombres à des suites de variables dépendantes, les « chaînes » qui portent son nom. Il les illustre en 1913 par le décompte des voyelles et des consonnes dans Eugène Onéguine.',
         theoryId: 'pmo-processus-stochastiques',
+        mactutor: 'Markov',
+        sources: ['mactutor'],
       },
       {
         id: 'levy',
@@ -154,6 +160,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur à l’École polytechnique, Lévy vient aux probabilités en 1919 et y introduit la fonction caractéristique comme outil systématique, les lois stables et la caractérisation des lois infiniment divisibles (formule de Lévy–Khintchine). Ses livres de 1925, 1937 et 1948 fondent l’étude fine des trajectoires du mouvement brownien ; travaillant par intuition géométrique, il reste longtemps à l’écart du cadre de la mesure.',
         theoryId: 'pmo-theoremes-limites',
+        mactutor: 'Levy_Paul',
+        sources: ['mactutor'],
       },
       {
         id: 'wiener',
@@ -162,6 +170,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Cambridge (Mass.)',
         bio: 'Enfant prodige formé à Harvard, à Cambridge auprès de Russell et à Göttingen, Wiener construit en 1923 au MIT la mesure sur l’espace des fonctions continues qui donne au mouvement brownien son existence mathématique. Ses travaux sur l’analyse harmonique généralisée, la prédiction des séries temporelles et la cybernétique (1948) relient les probabilités à l’ingénierie.',
         theoryId: 'pmo-processus-stochastiques',
+        mactutor: 'Wiener_Norbert',
+        sources: ['mactutor'],
       },
       {
         id: 'khintchine',
@@ -170,6 +180,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Moscou',
         bio: 'Formé dans l’école de Luzin, Khintchine démontre en 1924 la loi du logarithme itéré, premier résultat fin sur les fluctuations des sommes de variables aléatoires, puis développe avec Kolmogorov la théorie des sommes de variables indépendantes. Il fonde la théorie des processus stationnaires (1934) et applique les probabilités à la mécanique statistique et à la théorie des files d’attente.',
         theoryId: 'pmo-theoremes-limites',
+        mactutor: 'Khinchin',
+        sources: ['mactutor'],
       },
       {
         id: 'kolmogorov',
@@ -213,6 +225,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Zagreb, Stockholm et Princeton',
         bio: 'Né à Zagreb, formé à Göttingen, chassé d’Allemagne en 1933, Feller passe par Stockholm avant de s’installer aux États-Unis (Brown, Cornell, Princeton). Il établit la nécessité de la condition de Lindeberg (1935), développe la théorie analytique des processus de diffusion et écrit le traité qui a formé des générations de probabilistes, An Introduction to Probability Theory and Its Applications (1950, 1966).',
         theoryId: 'pmo-theoremes-limites',
+        mactutor: 'Feller',
+        sources: ['mactutor'],
       },
       {
         id: 'doob',
@@ -221,6 +235,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Urbana',
         bio: 'Professeur à l’université de l’Illinois à Urbana pendant toute sa carrière, Doob est le premier à exploiter pleinement le cadre de Kolmogorov pour les processus à temps continu. Il construit à partir de 1940 la théorie des martingales (théorèmes de convergence, d’arrêt optionnel) et la systématise dans Stochastic Processes (1953), qui relie aussi probabilités et théorie du potentiel.',
         theoryId: 'pmo-processus-stochastiques',
+        mactutor: 'Doob',
+        sources: ['mactutor'],
       },
       {
         id: 'ito',
@@ -229,6 +245,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Tokyo et Kyoto',
         bio: 'Lecteur solitaire de Lévy et de Kolmogorov au Bureau de la statistique de Tokyo pendant la guerre, Itô définit en 1944 l’intégrale stochastique par rapport au mouvement brownien, puis les équations différentielles stochastiques et la formule de changement de variable qui portent son nom (1951). Professeur à Kyoto, il voit son calcul devenir le langage de la finance mathématique et de la physique des systèmes bruités.',
         theoryId: 'pmo-processus-stochastiques',
+        mactutor: 'Ito',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['lebesgue', 'frechet', 'chebyshev'],
@@ -806,6 +824,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Dublin',
         bio: 'Chimiste de la brasserie Guinness, Gosset doit juger de la qualité de l’orge et du houblon sur de très petits échantillons, pour lesquels l’approximation normale est fausse. Après un séjour auprès de Karl Pearson (1906-1907), il publie en 1908, sous le pseudonyme imposé par son employeur, la loi de la moyenne d’un petit échantillon. Il reste toute sa vie un praticien et un correspondant de Fisher.',
         theoryId: 'sm-inference-statistique',
+        mactutor: 'Gosset',
+        sources: ['mactutor'],
       },
       {
         id: 'fisher',
@@ -814,6 +834,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Rothamsted, Londres et Cambridge',
         bio: 'Statisticien et généticien, Fisher invente à Rothamsted (1919-1933) l’analyse de la variance, la randomisation et les plans d’expérience, et fonde en 1922 la théorie de l’estimation (vraisemblance, efficacité, exhaustivité). Professeur à University College puis à Cambridge, il réconcilie génétique mendélienne et sélection darwinienne (1930). Polémiste redouté, il s’oppose successivement à Karl Pearson et à Neyman.',
         theoryId: 'sm-plans-d-experience',
+        mactutor: 'Fisher',
+        sources: ['mactutor'],
       },
       {
         id: 'neyman',
@@ -822,6 +844,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Varsovie, Londres et Berkeley',
         bio: 'Né en Bessarabie, formé à Kharkov puis à Varsovie, Neyman élabore avec Egon Pearson la théorie des tests d’hypothèses (1928-1933) et invente les intervalles de confiance (1934-1937). Installé à Berkeley en 1938, il y crée le Statistical Laboratory et les Berkeley Symposia, qui font de la Californie un centre mondial de la statistique mathématique.',
         theoryId: 'sm-inference-statistique',
+        mactutor: 'Neyman',
+        sources: ['mactutor'],
       },
       {
         id: 'pearson-egon',
@@ -830,6 +854,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Londres',
         bio: 'Fils de Karl Pearson, Egon Pearson cherche dès 1926 une justification logique des tests employés par la biométrie et trouve en Neyman, rencontré à Londres en 1925, le mathématicien qui la formule avec lui. À la tête du département de statistique de University College (1933) et de la revue Biometrika (1936-1966), il est l’organisateur discret de l’école anglaise.',
         theoryId: 'sm-inference-statistique',
+        mactutor: 'Pearson_Egon',
+        sources: ['mactutor'],
       },
       {
         id: 'wald',
@@ -838,6 +864,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Vienne et New York',
         bio: 'Né à Kolozsvár (Cluj), Wald se forme à Vienne auprès de Karl Menger, travaille sur l’équilibre économique général, puis émigre en 1938 à Columbia. Il y invente l’analyse séquentielle (1943) et fonde la théorie de la décision statistique, qui unifie estimation et tests comme un jeu contre la nature. Il meurt en 1950 dans un accident d’avion en Inde.',
         theoryId: 'sm-decision-jeux-et-optimisation',
+        mactutor: 'Wald',
+        sources: ['mactutor'],
       },
       {
         id: 'cramer',
@@ -846,6 +874,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Stockholm',
         bio: 'Actuaire et analyste, Cramér introduit les méthodes de la théorie analytique des nombres dans les théorèmes limites (développements d’Edgeworth, grandes déviations, 1938) et écrit Mathematical Methods of Statistics (1945), premier traité qui expose l’inférence dans le cadre de Kolmogorov. Il énonce indépendamment de Rao la borne inférieure de la variance des estimateurs sans biais.',
         theoryId: 'sm-inference-statistique',
+        mactutor: 'Cramer_Harald',
+        sources: ['mactutor'],
       },
       {
         id: 'rao',
@@ -854,6 +884,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Calcutta et State College',
         bio: 'Formé à l’Indian Statistical Institute de Calcutta sous Mahalanobis, Rao démontre à vingt-cinq ans la borne qui porte son nom avec celui de Cramér et le théorème de Rao–Blackwell (1945), avant une thèse à Cambridge dirigée par Fisher. Il dirige l’Institut de Calcutta puis enseigne aux États-Unis ; son œuvre couvre l’inférence, l’analyse multivariée et la géométrie de l’information.',
         theoryId: 'sm-inference-statistique',
+        mactutor: 'Rao',
+        sources: ['mactutor'],
       },
       {
         id: 'morgenstern',
@@ -862,6 +894,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Vienne et Princeton',
         bio: 'Économiste viennois, directeur de l’Institut de recherche sur la conjoncture, Morgenstern s’interroge dès 1928 sur la prévision en présence d’agents qui s’anticipent mutuellement (le problème de Sherlock Holmes et Moriarty). Émigré à Princeton en 1938, il y convainc von Neumann d’écrire avec lui Theory of Games and Economic Behavior (1944).',
         theoryId: 'sm-decision-jeux-et-optimisation',
+        mactutor: 'Morgenstern',
+        sources: ['mactutor'],
       },
       {
         id: 'dantzig',
@@ -870,6 +904,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Washington, Berkeley et Stanford',
         bio: 'Étudiant de Neyman à Berkeley, où il résout par erreur deux problèmes ouverts pris pour des exercices, Dantzig travaille pendant la guerre à la planification de l’armée de l’air américaine. Il y formule en 1947 la programmation linéaire et l’algorithme du simplexe, puis développe à la RAND et à Stanford l’optimisation à grande échelle.',
         theoryId: 'sm-decision-jeux-et-optimisation',
+        mactutor: 'Dantzig_George',
+        sources: ['mactutor'],
       },
       {
         id: 'kantorovich',
@@ -878,6 +914,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Leningrad',
         bio: 'Prodige de l’analyse fonctionnelle (espaces vectoriels ordonnés), Kantorovitch formule en 1939, pour un problème de découpe industrielle, la programmation linéaire et la notion de multiplicateurs résolvants, qui anticipent la dualité. Son œuvre économique, longtemps suspecte en URSS, lui vaut le prix Nobel d’économie en 1975, partagé avec Koopmans. Il est aussi l’inventeur du problème de transport optimal (1942).',
         theoryId: 'sm-decision-jeux-et-optimisation',
+        mactutor: 'Kantorovich',
+        sources: ['mactutor'],
       },
       {
         id: 'nash',
@@ -886,6 +924,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Princeton',
         bio: 'Dans une thèse de vingt-sept pages soutenue à Princeton en 1950, Nash définit l’équilibre des jeux non coopératifs à n joueurs et en prouve l’existence par un théorème de point fixe. Il se tourne ensuite vers la géométrie (plongements isométriques, 1956) et les équations aux dérivées partielles, avant une longue maladie ; le prix Nobel d’économie lui est décerné en 1994.',
         theoryId: 'sm-decision-jeux-et-optimisation',
+        mactutor: 'Nash',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['von-neumann', 'pearson-karl', 'borel'],
@@ -1353,6 +1393,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'New York',
         bio: 'Formé à Columbia, professeur au City College de New York, Post démontre dès 1921 la complétude du calcul propositionnel et entrevoit l’incomplétude des systèmes formels, sans publier. En 1936 il propose, indépendamment de Turing, un modèle de calcul par instructions sur une bande ; en 1944 il fonde la théorie des ensembles récursivement énumérables et pose le problème des degrés qui porte son nom. Il souffre toute sa vie de troubles maniaco-dépressifs.',
         theoryId: 'cal-modeles-de-calcul',
+        mactutor: 'Post',
+        sources: ['mactutor'],
       },
       {
         id: 'herbrand',
@@ -1361,6 +1403,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Paris',
         bio: 'Reçu premier à l’École normale supérieure à dix-sept ans, Herbrand soutient en 1930 une thèse de théorie de la démonstration dont le théorème central ramène la logique des prédicats au calcul propositionnel. Il séjourne à Berlin, Hambourg et Göttingen, correspond avec Gödel sur les fonctions récursives, et meurt en montagne dans le massif des Écrins en juillet 1931.',
         theoryId: 'cal-completude-et-incompletude',
+        mactutor: 'Herbrand',
+        sources: ['mactutor'],
       },
       {
         id: 'godel',
@@ -1404,6 +1448,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Princeton',
         bio: 'Professeur à Princeton de 1929 à 1967, Church invente le lambda-calcul (1932), formule en 1936 la thèse qui identifie calculabilité effective et définissabilité, et démontre l’indécidabilité de l’Entscheidungsproblem. Fondateur du Journal of Symbolic Logic, directeur des thèses de Kleene, Rosser, Turing, Kemeny et Scott, il forme l’école américaine de logique.',
         theoryId: 'cal-modeles-de-calcul',
+        mactutor: 'Church',
+        sources: ['mactutor'],
       },
       {
         id: 'kleene',
@@ -1412,6 +1458,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Princeton et Madison',
         bio: 'Élève de Church, Kleene démontre l’équivalence du lambda-calcul et des fonctions récursives, le théorème de forme normale et le théorème de récursion (1936-1938), puis construit la hiérarchie arithmétique (1943) et la théorie des degrés avec Post (1954). Professeur à Madison, il écrit Introduction to Metamathematics (1952), le manuel de la discipline, et invente les expressions régulières (1951-1956).',
         theoryId: 'cal-modeles-de-calcul',
+        mactutor: 'Kleene',
+        sources: ['mactutor'],
       },
       {
         id: 'turing',
@@ -1455,6 +1503,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Ann Arbor, MIT et Murray Hill',
         bio: 'Dans son mémoire de maîtrise au MIT (1937), Shannon montre que l’algèbre de Boole décrit les circuits à relais, fondant la conception logique des circuits. Aux Bell Laboratories, il publie en 1948 la théorie mathématique de la communication, qui définit l’information comme une grandeur mesurable, l’entropie d’une source et la capacité d’un canal. Il revient au MIT en 1956 et s’intéresse au jeu d’échecs, aux machines apprenantes et à la jonglerie.',
         theoryId: 'cal-information-et-machines',
+        mactutor: 'Shannon',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['hilbert', 'von-neumann', 'ackermann'],
@@ -2056,6 +2106,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Cambridge, Londres et Harvard',
         bio: 'Auteur d’un Treatise on Universal Algebra (1898), Whitehead envisage un second volume sur la géométrie ; le projet s’unit à celui de son ancien élève Russell pour devenir les Principia Mathematica, dont il rédige la plus grande partie mathématique. Professeur à l’Imperial College puis philosophe à Harvard, il développe une « philosophie de l’organisme » (Process and Reality, 1929).',
         theoryId: 'fhb-logicisme',
+        mactutor: 'Whitehead',
+        sources: ['mactutor'],
       },
       {
         id: 'russell',
@@ -2064,6 +2116,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Cambridge',
         bio: 'Découvreur du paradoxe qui porte son nom (1901) et auteur de la lettre à Frege de 1902, Russell défend dans The Principles of Mathematics (1903) la thèse logiciste et l’exécute avec Whitehead dans les Principia. Il invente la théorie des descriptions (1905) et la théorie des types. Révoqué de Trinity pour pacifisme et emprisonné en 1918, il devient l’un des intellectuels publics majeurs du siècle ; prix Nobel de littérature en 1950.',
         theoryId: 'fhb-logicisme',
+        mactutor: 'Russell',
+        sources: ['mactutor'],
       },
       {
         id: 'brouwer',
@@ -2072,6 +2126,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Amsterdam et Blaricum',
         bio: 'D’abord topologue de génie — théorème du point fixe, invariance de la dimension (1911) —, Brouwer consacre sa carrière à partir de 1918 à la reconstruction intuitionniste des mathématiques, rejetant le tiers exclu pour les ensembles infinis. Évincé des Mathematische Annalen en 1928 après sa querelle avec Hilbert, isolé après 1945, il fonde néanmoins une tradition constructive dont héritent la logique et l’informatique théoriques.',
         theoryId: 'fhb-intuitionnisme',
+        mactutor: 'Brouwer',
+        sources: ['mactutor'],
       },
       {
         id: 'lowenheim',
@@ -2080,6 +2136,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Berlin',
         bio: 'Professeur de lycée à Berlin, sans poste universitaire, Löwenheim travaille dans la tradition de l’algèbre de la logique de Schröder. Son article de 1915, « Über Möglichkeiten im Relativkalkül », contient le premier théorème de la théorie des modèles : toute formule satisfiable l’est dans un domaine dénombrable. Chassé de l’enseignement par les lois nazies, il survit à Berlin pendant la guerre.',
         theoryId: 'fhb-ensembles-et-modeles',
+        mactutor: 'Lowenheim',
+        sources: ['mactutor'],
       },
       {
         id: 'skolem',
@@ -2088,6 +2146,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Oslo',
         bio: 'Norvégien formé à Oslo, Skolem généralise en 1920 le théorème de Löwenheim (toute théorie dénombrable du premier ordre qui a un modèle a un modèle dénombrable) et en tire le « paradoxe » de la relativité de la dénombrabilité (1922). Pionnier de l’arithmétique récursive (1923), il construit en 1934 des modèles non standards de l’arithmétique. Il enseigne à Bergen puis à Oslo.',
         theoryId: 'fhb-ensembles-et-modeles',
+        mactutor: 'Skolem',
+        sources: ['mactutor'],
       },
       {
         id: 'fraenkel',
@@ -2096,6 +2156,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Marbourg, Kiel et Jérusalem',
         bio: 'Auteur à vingt-huit ans d’une Einleitung in die Mengenlehre (1919) qui diffuse l’axiomatique de Zermelo, Fraenkel lui ajoute en 1922 l’axiome de remplacement, formant le système désormais noté ZF. Professeur à Marbourg et Kiel, il émigre en 1929 à l’Université hébraïque de Jérusalem, dont il organise l’enseignement mathématique, et écrit des études sur la religion et la science.',
         theoryId: 'fhb-ensembles-et-modeles',
+        mactutor: 'Fraenkel',
+        sources: ['mactutor'],
       },
       {
         id: 'bernays',
@@ -2104,6 +2166,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Göttingen et Zurich',
         bio: 'Assistant de Hilbert à partir de 1917, Bernays est l’artisan du programme de Göttingen : son habilitation (1918) prouve la complétude du calcul propositionnel, il rédige l’essentiel des Grundlagen der Mathematik (1934, 1939) et élabore la théorie des ensembles qui deviendra NBG. Révoqué en 1933 en raison de ses origines juives, il se réfugie à Zurich, où il accueille Gentzen et suit les travaux de Gödel.',
         theoryId: 'fhb-axiomatique-et-metamathematique',
+        mactutor: 'Bernays',
+        sources: ['mactutor'],
       },
       {
         id: 'ackermann',
@@ -2112,6 +2176,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Göttingen et Lüdenscheid',
         bio: 'Élève et assistant de Hilbert, Ackermann défend en 1924 une thèse sur la cohérence de l’analyse par la méthode de substitution, dont la portée se révélera limitée par le second théorème de Gödel. Il co-signe avec Hilbert les Grundzüge der theoretischen Logik (1928), qui fixent la logique du premier ordre, et exhibe la fonction à croissance rapide qui porte son nom, exemple de calculabilité non primitivement récursive.',
         theoryId: 'fhb-axiomatique-et-metamathematique',
+        mactutor: 'Ackermann',
+        sources: ['mactutor'],
       },
       {
         id: 'tarski',
@@ -2120,6 +2186,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Varsovie et Berkeley',
         bio: 'Chef de file de l’école de logique de Varsovie (avec Łukasiewicz, Leśniewski et Lindenbaum), Tarski co-signe avec Banach le théorème de décomposition paradoxale (1924), définit la vérité pour les langages formalisés (1933) et la notion de conséquence logique (1936). Aux États-Unis à partir de 1939, il fonde à Berkeley la théorie des modèles et prouve, avec ses élèves, l’indécidabilité de nombreuses théories.',
         theoryId: 'fhb-ensembles-et-modeles',
+        mactutor: 'Tarski',
+        sources: ['mactutor'],
       },
       {
         id: 'gentzen',
@@ -2128,6 +2196,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Göttingen et Prague',
         bio: 'Élève de Weyl puis assistant de Hilbert, Gentzen crée en 1934-1935 la déduction naturelle et le calcul des séquents, dont il tire le théorème d’élimination des coupures (Hauptsatz). Il démontre en 1936 la cohérence de l’arithmétique par induction transfinie jusqu’à l’ordinal ε₀, bornant exactement la force finitiste requise. Assistant de Bernays pendant la guerre, il meurt en mai 1945 dans une prison de Prague.',
         theoryId: 'fhb-axiomatique-et-metamathematique',
+        mactutor: 'Gentzen',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['weyl', 'banach', 'zermelo', 'poincare', 'kronecker', 'godel'],
@@ -2620,6 +2690,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Nancy',
         bio: 'Professeur à Nancy dès 1929, Delsarte est le lien entre le groupe naissant et la génération précédente : ami de Weil, il accueille les congrès bourbachiques et publie sous pseudonyme collectif. Analyste (fonctions périodiques moyennes, 1934), il transforme la faculté des sciences de Nancy en pépinière de la reconstruction française d’après-guerre.',
         theoryId: 'bb-collectif-et-seminaires',
+        mactutor: 'Delsarte',
+        sources: ['mactutor'],
       },
       {
         id: 'cartan-henri',
@@ -2628,6 +2700,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Strasbourg et Paris',
         bio: 'Fils d’Élie Cartan, fondateur de Bourbaki en 1934, Henri Cartan publie d’abord des travaux de fonctions de plusieurs variables complexes, puis anime le séminaire de l’École normale (1948-1964) où se forgent la théorie des faisceaux, les théorèmes A et B et la cohomologie des groupes. Coauteur de Homological Algebra (1956), il est aussi un artisan de la réconciliation franco-allemande et de l’aide aux mathématiciens persécutés.',
         theoryId: 'bb-categories-et-algebre-homologique',
+        mactutor: 'Cartan_Henri',
+        sources: ['mactutor'],
       },
       {
         id: 'dieudonne',
@@ -2636,6 +2710,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Nancy, Chicago et Nice',
         bio: 'Rédacteur en chef de fait des Éléments pendant trente ans — il en écrit la plupart des « états » —, Dieudonné est le bras armé du structuralisme : algèbre, topologie générale, analyse fonctionnelle, géométrie algébrique (les EGA avec Grothendieck), puis histoire des mathématiques (l’Abrégé de 1978). Sa devise « À bas Euclide ! » (1959) en fait le visage controversé de la réforme de l’enseignement.',
         theoryId: 'bb-structures-et-axiomatique',
+        mactutor: 'Dieudonne',
+        sources: ['mactutor'],
       },
       {
         id: 'chevalley',
@@ -2644,6 +2720,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Princeton, Columbia et Paris',
         bio: 'Membre fondateur, Chevalley donne à la théorie du corps de classes sa forme idélique (thèse de 1933, livre de 1940) et achève la classification des algèbres de Lie semi-simples (1946-1955) avant de construire les groupes simples de type de Lie sur tout corps (1955). Installé aux États-Unis pendant vingt ans, il revient à Paris en 1957 et se tourne tardivement vers l’épistémologie.',
         theoryId: 'bb-structures-et-axiomatique',
+        mactutor: 'Chevalley',
+        sources: ['mactutor'],
       },
       {
         id: 'ehresmann',
@@ -2652,6 +2730,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Strasbourg et Paris',
         bio: 'Ancien élève d’Élie Cartan, Ehresmann participe aux congrès fondateurs de Bourbaki avant de s’en écarter pour suivre sa propre voie : espaces fibrés, connexions infinitésimales, jets, et une vaste refonte catégorique des mathématiques (catégories internes, esquisses). En marge du groupe, il incarne la branche géométrique et catégorique du structuralisme français.',
         theoryId: 'bb-categories-et-algebre-homologique',
+        mactutor: 'Ehresmann',
+        sources: ['mactutor'],
       },
       {
         id: 'eilenberg',
@@ -2660,6 +2740,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Varsovie et Columbia',
         bio: 'Topologue de l’école de Varsovie émigré aux États-Unis en 1939, Eilenberg axiomatise avec Steenrod les théories de l’homologie (1945), crée avec Mac Lane la théorie des catégories (1945) et co-signe avec Cartan Homological Algebra (1956). Proche des Bourbaki — il participe aux congrès et y défend la cause des catégories —, il enseigne à Columbia et rassemble une collection d’art asiatique léguée au Metropolitan Museum.',
         theoryId: 'bb-categories-et-algebre-homologique',
+        mactutor: 'Eilenberg',
+        sources: ['mactutor'],
       },
       {
         id: 'mac-lane',
@@ -2668,6 +2750,8 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Harvard et Chicago',
         bio: 'Formé à Göttingen au crépuscule de l’école de Hilbert, Mac Lane invente avec Eilenberg les catégories et les transformations naturelles (1945), puis la cohomologie des groupes. Professeur à Chicago, président de l’American Mathematical Society, il donne au structuralisme son manifeste philosophique (Mathematics: Form and Function, 1986) et son manuel canonique (Categories for the Working Mathematician, 1971).',
         theoryId: 'bb-categories-et-algebre-homologique',
+        mactutor: 'MacLane',
+        sources: ['mactutor'],
       },
     ],
     relatedMathematicianIds: ['weil', 'schwartz', 'leray', 'serre', 'grothendieck'],
