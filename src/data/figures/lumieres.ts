@@ -198,6 +198,26 @@ export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
       mactutor: 'Arbogast',
       sources: ['mactutor'],
     },
+    {
+      id: 'reyneau',
+      name: 'Charles René Reyneau',
+      years: [1656, 1728],
+      origin: 'Angers et Paris',
+      bio: 'Oratorien, professeur de mathématiques à Angers, Reyneau rédige à la demande de Malebranche l’Analyse démontrée (1708), manuel qui rassemble l’algèbre et le calcul différentiel et intégral nouveaux et qui sert de référence en France ; élu à l’Académie des sciences en 1716.',
+      theoryId: 'ae-calcul-leibnizien-et-series',
+      mactutor: 'Reyneau',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'william-jones',
+      name: 'William Jones',
+      years: [1675, 1749],
+      origin: 'Anglesey et Londres',
+      bio: 'Maître de mathématiques dans les cafés londoniens, Jones publie le Synopsis palmariorum matheseos (1706), compendium de calcul différentiel et de séries où le symbole π prend son sens moderne, puis édite en 1711 les opuscules analytiques de Newton.',
+      theoryId: 'ae-calcul-leibnizien-et-series',
+      mactutor: 'Jones',
+      sources: ['mactutor'],
+    },
   ],
   'probabilites-classiques': [
     {
