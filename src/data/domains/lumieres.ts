@@ -120,6 +120,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Bâle et Groningue',
         bio: 'Frère cadet de Jacques, professeur à Groningue (1695-1705) puis à Bâle, Jean Bernoulli est le propagateur du calcul leibnizien en Europe : il forme L’Hôpital par correspondance, pose le problème de la brachistochrone (1696) et enseigne à Euler. Querelleur, il dispute la priorité à son frère, à son élève et à son fils Daniel.',
         theoryId: 'ae-calcul-leibnizien-et-series',
+        mactutor: 'Bernoulli_Johann',
       },
       {
         id: 'taylor',
@@ -128,6 +129,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Londres',
         bio: 'Secrétaire de la Royal Society de 1714 à 1718, Taylor publie en 1715 la Methodus incrementorum, qui contient le développement d’une fonction en série de puissances de l’accroissement, et un traité de perspective linéaire. Le rôle central de sa formule n’apparaît qu’avec Euler et Lagrange.',
         theoryId: 'ae-calcul-leibnizien-et-series',
+        mactutor: 'Taylor',
       },
       {
         id: 'daniel-bernoulli',
@@ -136,6 +138,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Bâle et Saint-Pétersbourg',
         bio: 'Fils de Jean, membre de l’Académie de Saint-Pétersbourg de 1725 à 1733, puis professeur à Bâle, Daniel Bernoulli fonde l’hydrodynamique (1738), introduit la superposition des modes dans le problème des cordes vibrantes (1753) et remporte dix fois le prix de l’Académie de Paris. Il est aussi l’auteur de l’espérance morale en probabilités.',
         theoryId: 'ae-variations-et-milieux-continus',
+        mactutor: 'Bernoulli_Daniel',
       },
       {
         id: 'euler',
@@ -144,6 +147,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Bâle, Saint-Pétersbourg et Berlin',
         bio: 'Élève de Jean Bernoulli à Bâle, Euler passe sa vie entre les académies de Saint-Pétersbourg et de Berlin. Il donne à l’analyse ses notations, ses manuels et une quantité de résultats sans équivalent, et touche à toutes les parties des mathématiques : théorie des nombres, mécanique, géométrie, topologie naissante, astronomie, optique. Son œuvre dépasse 850 titres.',
         theoryId: 'ae-analyse-des-fonctions',
+        mactutor: 'Euler',
         featured: {
           signature: { kind: 'fait', text: 'Fait des fonctions l’objet de l’analyse et lui donne ses notations : f(x), e, i, π, Σ.', sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'] },
           contributions: [
@@ -161,6 +165,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Admis à l’Académie royale des sciences à dix-huit ans pour ses Recherches sur les courbes à double courbure, Clairaut participe à l’expédition de Laponie (1736-1737), publie la Théorie de la figure de la Terre (1743) et résout le problème de l’apogée de la Lune (1749). Il prédit avec Lalande et Nicole-Reine Lepaute le retour de la comète de Halley pour 1759.',
         theoryId: 'ae-variations-et-milieux-continus',
+        mactutor: 'Clairaut',
       },
       {
         id: 'd-alembert',
@@ -169,6 +174,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Enfant trouvé, membre de l’Académie des sciences dès 1741, d’Alembert énonce le principe qui porte son nom (1743), écrit la première équation aux dérivées partielles de la physique (cordes vibrantes, 1747) et défend une fondation du calcul par la notion de limite. Codirecteur de l’Encyclopédie avec Diderot, il en rédige le Discours préliminaire et les articles de mathématiques.',
         theoryId: 'ae-variations-et-milieux-continus',
+        mactutor: 'DAlembert',
         featured: {
           signature: { kind: 'fait', text: 'Écrit la première équation aux dérivées partielles de la physique : les cordes vibrantes.', sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'] },
           contributions: [
@@ -596,6 +602,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Saint-Malo, Paris et Berlin',
         bio: 'Mathématicien, géodésien et philosophe, Maupertuis dirige l’expédition de Laponie (1736-1737) qui mesure un degré de méridien et confirme l’aplatissement de la Terre. Président de l’Académie de Berlin à partir de 1746, il énonce le principe de moindre action (1744), dont la paternité est contestée dans l’affaire Koenig.',
         theoryId: 'ma-principes-et-mecanique-analytique',
+        mactutor: 'Maupertuis',
       },
       {
         id: 'lagrange',
@@ -604,6 +611,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Turin, Berlin et Paris',
         bio: 'Professeur à l’artillerie de Turin à dix-neuf ans, Lagrange invente en 1755 le calcul de la variation δ dans une lettre à Euler. Directeur de la classe de mathématiques à Berlin (1766-1787) puis pensionnaire de l’Académie de Paris, il écrit la Méchanique analitique (1788) et fonde son analyse sur les séries de Taylor dans la Théorie des fonctions analytiques (1797).',
         theoryId: 'ma-principes-et-mecanique-analytique',
+        mactutor: 'Lagrange',
         featured: {
           signature: { kind: 'fait', text: 'Réécrit la mécanique en pur calcul, sans aucune figure (Méchanique analitique, 1788).', sources: ['dieudonne-abrege', 'stedall-sourcebook'] },
           contributions: [
@@ -638,6 +646,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Arrivé à Paris avec une recommandation pour d’Alembert, Laplace est élu à l’Académie en 1773. Il achève la réduction de l’astronomie à la mécanique newtonienne (Traité de mécanique céleste, 1799-1825), introduit le potentiel et sa fameuse équation, et donne au calcul des probabilités sa forme analytique (1812).',
         theoryId: 'ma-mecanique-celeste',
+        mactutor: 'Laplace',
         featured: {
           signature: { kind: 'interpretation', text: 'Achève la mécanique céleste newtonienne et donne aux probabilités leur forme analytique.', sources: ['gillispie-laplace', 'stigler-statistics'] },
           contributions: [
@@ -672,6 +681,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Mézières et Paris',
         bio: 'Professeur à l’École royale du génie de Mézières aux côtés de Monge, Bossut collabore aux articles de mathématiques de l’Encyclopédie méthodique et travaille l’hydrodynamique avec d’Alembert et Condorcet (prix de l’Académie, 1775). Son Essai sur l’histoire générale des mathématiques (1802) est l’une des premières histoires de la discipline en français.',
         theoryId: 'ma-principes-et-mecanique-analytique',
+        mactutor: 'Bossut',
       },
     ],
     relatedMathematicianIds: ['d-alembert', 'clairaut', 'euler', 'legendre'],
@@ -1068,6 +1078,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Königsberg et Saint-Pétersbourg',
         bio: 'Juriste de formation, précepteur du tsar Pierre II puis secrétaire de l’Académie de Saint-Pétersbourg, Goldbach est le correspondant arithmétique d’Euler pendant plus de trente ans. Sa lettre du 7 juin 1742 contient la conjecture qui porte son nom.',
         theoryId: 'tnl-analyse-arithmetique',
+        mactutor: 'Goldbach',
       },
       {
         id: 'waring',
@@ -1076,6 +1087,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Cambridge',
         bio: 'Professeur lucasien à vingt-trois ans, Waring publie les Meditationes algebraicae (1770), recueil de résultats d’algèbre et d’arithmétique : théorème de Wilson, problème des sommes de puissances, propriétés des équations. Son style difficile a longtemps masqué la richesse du contenu.',
         theoryId: 'tnl-formes-et-sommes-de-puissances',
+        mactutor: 'Waring',
       },
       {
         id: 'wilson',
@@ -1084,6 +1096,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Cambridge',
         bio: 'Élève de Waring à Cambridge, puis avocat et juge, Wilson est l’auteur d’une seule découverte connue : la caractérisation des nombres premiers par (p − 1)! ≡ −1 (mod p), communiquée à son maître et publiée en 1770. Leibniz en connaissait déjà l’énoncé, sans le publier.',
         theoryId: 'tnl-congruences-et-premiers',
+        mactutor: 'Wilson_John',
       },
       {
         id: 'legendre',
@@ -1092,6 +1105,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur à l’École militaire puis aux écoles normales, Legendre énonce la loi de réciprocité quadratique (1785), fonde la théorie des intégrales elliptiques et publie l’Essai sur la théorie des nombres (1798). Ses Éléments de géométrie (1794) et sa méthode des moindres carrés (1805) le placent au carrefour des disciplines.',
         theoryId: 'tnl-formes-et-sommes-de-puissances',
+        mactutor: 'Legendre',
         featured: {
           signature: { kind: 'fait', text: 'Énonce la loi de réciprocité quadratique et publie les moindres carrés (1805).', sources: ['weil-number-theory', 'stigler-statistics'] },
           contributions: [
@@ -1693,6 +1707,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Pavie et Milan',
         bio: 'Jésuite, professeur de mathématiques à l’université de Pavie, Saccheri consacre ses derniers mois à une défense d’Euclide par l’absurde : étudier ce qui arriverait si le postulat des parallèles était faux. Il y démontre, sans le reconnaître, les premiers théorèmes de la géométrie hyperbolique.',
         theoryId: 'gl-paralleles-et-fondements',
+        mactutor: 'Saccheri',
       },
       {
         id: 'lambert',
@@ -1701,6 +1716,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Mulhouse et Berlin',
         bio: 'Autodidacte alsacien devenu pensionnaire de l’Académie de Berlin, Lambert travaille l’optique, la photométrie, la logique et la philosophie autant que les mathématiques. Il démontre l’irrationalité de π (1761) et rédige une théorie des parallèles (1766) qu’il juge trop inachevée pour être publiée.',
         theoryId: 'gl-paralleles-et-fondements',
+        mactutor: 'Lambert',
       },
       {
         id: 'monge',
@@ -1709,6 +1725,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Mézières et Paris',
         bio: 'Fils de marchand de Beaune, formé à l’École du génie de Mézières où il enseigne dès 1768, Monge invente la géométrie descriptive et développe l’analyse appliquée à l’espace (surfaces réglées, lignes de courbure). Organisateur de l’École polytechnique (1794), il y forme Poncelet et toute une génération de géomètres.',
         theoryId: 'gl-geometrie-de-position',
+        mactutor: 'Monge',
       },
       {
         id: 'meusnier',
@@ -1725,6 +1742,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Officier du génie, membre de la Convention et « organisateur de la victoire », Carnot est aussi un géomètre : la Géométrie de position (1803) et l’essai De la corrélation des figures de géométrie (1801) étudient comment les propriétés d’une figure se transmettent aux figures voisines, préparant le principe de continuité de Poncelet.',
         theoryId: 'gl-geometrie-de-position',
+        mactutor: 'Carnot',
       },
     ],
     relatedMathematicianIds: ['clairaut', 'euler'],
@@ -2131,6 +2149,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Vitry-le-François et Londres',
         bio: 'Huguenot exilé à Londres après la révocation de l’Édit de Nantes, de Moivre vit de leçons et de consultations sur les jeux et les rentes. Son Doctrine of Chances (1718, augmenté en 1738 et 1756) domine le siècle : la formule (cos θ + i sin θ)ⁿ et l’approximation normale y figurent.',
         theoryId: 'pcl-lois-limites-et-erreurs',
+        mactutor: 'De_Moivre',
       },
       {
         id: 'bayes',
@@ -2140,6 +2159,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Tunbridge Wells',
         bio: 'Pasteur presbytérien de Tunbridge Wells, Bayes ne publie presque rien de mathématique de son vivant. Son essai posthume sur la probabilité des causes, édité par Richard Price en 1763, pose le problème de l’inférence inductive en termes de calcul.',
         theoryId: 'pcl-probabilite-inverse',
+        mactutor: 'Bayes',
       },
       {
         id: 'buffon',
@@ -2148,6 +2168,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Montbard et Paris',
         bio: 'Intendant du Jardin du Roi et auteur de l’Histoire naturelle, Buffon introduit en 1777 les probabilités géométriques avec le problème de l’aiguille et propose un seuil d’« impossibilité morale » (1/10000). Il est aussi le premier traducteur de la méthode des fluxions en français (1740).',
         theoryId: 'pcl-jeux-et-decisions',
+        mactutor: 'Buffon',
       },
       {
         id: 'price',
@@ -2156,6 +2177,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Londres',
         bio: 'Pasteur dissident, philosophe moral et spécialiste des assurances, Price édite l’essai posthume de son ami Bayes (1763) et y voit un argument sur l’ordre du monde. Ses travaux sur les tables de mortalité et les rentes réforment les pratiques des compagnies d’assurance.',
         theoryId: 'pcl-probabilite-inverse',
+        mactutor: 'Price',
       },
       {
         id: 'condorcet',
@@ -2164,6 +2186,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Mathématicien, secrétaire perpétuel de l’Académie des sciences et homme politique, Condorcet applique le calcul des probabilités aux votes, aux jurys et aux témoignages (Essai de 1785). Mort en prison sous la Terreur, il laisse l’Esquisse d’un tableau historique des progrès de l’esprit humain.',
         theoryId: 'pcl-jeux-et-decisions',
+        mactutor: 'Condorcet',
       },
     ],
     relatedMathematicianIds: ['daniel-bernoulli', 'legendre', 'laplace'],
@@ -2683,6 +2706,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Marquis de Sainte-Mesme, officier devenu géomètre, L’Hôpital publie en 1696 le premier manuel de calcul différentiel, rédigé d’après les leçons de Jean Bernoulli qu’il pensionne. Son Traité analytique des sections coniques paraît, posthume, en 1707.',
         theoryId: 'qip-le-calcul-en-france',
+        mactutor: 'De_LHopital',
       },
       {
         id: 'rolle',
@@ -2691,6 +2715,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Calculateur autodidacte entré à l’Académie en 1685, Rolle est connu par le théorème d’algèbre qui porte son nom (1691). Farouche adversaire du calcul différentiel, il soutient de 1700 à 1706 que la nouvelle méthode conduit à des erreurs — avant de reconnaître la justesse de ses résultats.',
         theoryId: 'qip-le-calcul-en-france',
+        mactutor: 'Rolle',
       },
       {
         id: 'varignon',
@@ -2699,6 +2724,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur au Collège Mazarin et membre de l’Académie, Varignon applique le calcul leibnizien à la mécanique (mouvements central et en milieu résistant) et en assume la défense publique contre Rolle. Sa Nouvelle mécanique paraît à titre posthume en 1725.',
         theoryId: 'qip-le-calcul-en-france',
+        mactutor: 'Varignon',
       },
       {
         id: 'berkeley',
@@ -2707,6 +2733,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Dublin et Cloyne',
         bio: 'Philosophe immatérialiste, doyen de Derry puis évêque de Cloyne, Berkeley attaque en 1734 la logique du calcul dans The Analyst. Sa critique des « quantités évanouissantes », mathématiquement fondée, force les britanniques à expliciter la méthode des fluxions.',
         theoryId: 'qip-la-critique-des-fondements',
+        mactutor: 'Berkeley',
       },
       {
         id: 'maclaurin',
@@ -2715,6 +2742,7 @@ export const LUMIERES: Domain[] = [
         origin: 'Édimbourg',
         bio: 'Élève prodige, professeur à Aberdeen à dix-neuf ans puis à Édimbourg, Maclaurin est le continuateur écossais de Newton : son Treatise of Fluxions (1742) reconstruit le calcul sur les limites et les séries, en réponse à Berkeley. La formule d’Euler–Maclaurin porte leurs deux noms.',
         theoryId: 'qip-la-critique-des-fondements',
+        mactutor: 'Maclaurin',
       },
     ],
     relatedMathematicianIds: ['d-alembert', 'lagrange', 'jean-bernoulli', 'newton', 'leibniz'],
