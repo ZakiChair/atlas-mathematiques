@@ -405,7 +405,7 @@ export const FIGURES_DIXNEUVIEME_A: Record<string, Mathematician[]> = {
       name: 'Charles Briot',
       years: [1817, 1882],
       origin: 'Paris',
-      bio: 'Normalien, professeur à la Sorbonne et à l’École normale à partir de 1864, il publie avec son ami d’enfance Jean-Claude Bouquet un traité des fonctions doublement périodiques (1859) puis un traité des fonctions elliptiques (1875), qui diffusent en France la théorie de Cauchy.',
+      bio: 'Normalien, professeur à la Sorbonne et à l’École normale dès 1864, il publie avec son ami d’enfance Jean-Claude Bouquet un traité des fonctions doublement périodiques (1859) puis un traité des fonctions elliptiques (1875) ; ses essais sur la lumière nourrissent son analyse.',
       theoryId: 'anr-variable-complexe',
       mactutor: 'Briot',
       sources: ['mactutor'],
