@@ -1652,6 +1652,397 @@ export const PHYSIQUE_B: Domain[] = [
     ],
     sources: ['cardwell-watt-clausius', 'kuhn-energy-conservation', 'brush-heat', 'smith-wise-kelvin', 'cercignani-boltzmann', 'wheeler-gibbs'],
   },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // Optique ondulatoire
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    id: 'optique-ondulatoire',
+    name: 'Optique ondulatoire et mesure de la lumière',
+    mapName: 'Optique ondulatoire',
+    altNames: ['Théorie ondulatoire de la lumière', 'Optique physique'],
+    era: 'dixneuvieme',
+    period: { start: 1801, end: 1862 },
+    continents: ['physique'],
+    places: ['Londres', 'Paris', 'Ville-d’Avray', 'Sèvres', 'Montmartre', 'Dublin'],
+    map: { x: 3650, y: 4550, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    tagline: 'Deux fentes, un point noir au milieu d’une ombre, et la lumière cesse d’être un jet de corpuscules : le siècle des franges et de l’éther.',
+    summary:
+      'En 1801, Thomas Young exhibe les franges d’interférence ; vingt ans plus tard, Fresnel construit l’optique ondulatoire complète — principe de Huygens-Fresnel, diffraction, vibrations transversales expliquant la polarisation — que valide la tache d’Arago, prédite par Poisson pour réfuter la théorie. La défaite de l’école corpusculaire de Laplace et Biot est consommée en 1850 quand Foucault montre que la lumière va plus lentement dans l’eau que dans l’air, l’inverse des prédictions émissionnistes. Reste l’éther : Fresnel invente son coefficient d’entraînement, Fizeau le mesure, et la vitesse de la lumière devient une constante expérimentale — celle que Maxwell identifiera à la vitesse électromagnétique.',
+    methods: [
+      {
+        kind: 'fait',
+        text: 'L’interférométrie est née : les franges de Young (deux fentes), le biprisme et les miroirs de Fresnel comparent les retards de phase de deux chemins ; la longueur d’onde devient une grandeur mesurable au dixième de micron, et l’interférence le critère décisif entre onde et corpuscule.',
+        sources: ['buchwald-wave-theory', 'darrigol-optics'],
+      },
+      {
+        kind: 'fait',
+        text: 'La construction de Fresnel mathématise Huygens : chaque point d’un front émet une ondelette, et l’enveloppe des ondelettes — corrigée par un facteur d’inclinaison — donne le front suivant ; les intégrales de diffraction se calculent alors comme sommes de vibrations déphasées.',
+        sources: ['darrigol-optics', 'buchwald-wave-theory'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Pour Buchwald comme pour Darrigol, la victoire de Fresnel n’est pas celle d’un « bon » contre un « mauvais » modèle : l’optique corpusculaire de Laplace et Biot était une théorie mathématique sophistiquée (lois d’attraction différentielle), et la théorie ondulatoire gagne sur le compte de ses prédictions nouvelles — tache de Poisson, réfraction conique — non sur sa seule élégance.',
+        sources: ['buchwald-wave-theory', 'darrigol-optics'],
+      },
+    ],
+    context: [
+      {
+        kind: 'fait',
+        text: 'L’optique française de 1800 est laplacienne : l’émission de corpuscules, l’attraction à courte portée et la réfraction comme force transversale dominent l’Institut — Biot en est le maître d’œuvre. Fresnel, ingénieur des ponts et chaussées sans poste académique, construit la théorie concurrente entre deux chantiers.',
+        sources: ['buchwald-wave-theory', 'darrigol-optics'],
+      },
+      {
+        kind: 'fait',
+        text: 'Young paie cher sa précocité : ses lectures de 1801-1803 à la Royal Institution sont raillées par Brougham dans l’Edinburgh Review comme « indignes de la science » ; déçu, il revient à la médecine, et la théorie ondulatoire renaît sans lui chez Fresnel dix ans plus tard.',
+        sources: ['buchwald-wave-theory', 'howson-appraisal'],
+      },
+      {
+        kind: 'fait',
+        text: 'Les mesures de vitesse s’organisent en méthodes rivales : la roue dentée de Fizeau (1849) donne c par aller-retour sur 8,6 km à Suresnes ; le miroir tournant de Foucault (1850, 1862) ramène le trajet dans le laboratoire et permet les comparaisons air-eau — l’astronomie de Rømer et Bradley cède la place au laboratoire.',
+        sources: ['darrigol-optics', 'whittaker-aether'],
+      },
+    ],
+    debates: [
+      {
+        kind: 'fait',
+        text: 'Poisson, examinant le mémoire de Fresnel pour le prix de 1818, en tire la conséquence absurde : un disque opaque doit produire un point lumineux au centre de son ombre. Arago vérifie — le point est là ; la « tache de Poisson » devient l’exemple fameux d’une réfutation qui devient confirmation.',
+        sources: ['buchwald-wave-theory', 'howson-appraisal'],
+      },
+      {
+        kind: 'fait',
+        text: 'La vibration transversale choque même les partisans de l’onde : comment un éther partout présent peut-il transmettre des vibrations perpendiculaires, comme le ferait un solide élastique ? Fresnel répond par l’expérience — les rayons polarisés n’interfèrent que si leurs vibrations sont parallèles — puis Arago et lui écrivent la loi en 1819.',
+        sources: ['darrigol-optics', 'buchwald-wave-theory'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Pour Worrall et les historiens de la réception, la crise de l’éther commence avec le triomphe : plus la théorie gagne, plus l’éther doit être à la fois fluide (pour laisser passer les planètes), solide (pour la transversalité) et partiellement entraîné (pour l’aberration) — la « substance impossible » dont Michelson puis Einstein feront justice.',
+        sources: ['howson-appraisal', 'darrigol-optics'],
+      },
+    ],
+    keyDates: [
+      { year: 1801, text: 'Young présente à la Royal Institution ses expériences d’interférence : la lumière se comporte comme des ondes qui s’ajoutent et se retranchent.' },
+      { year: 1808, text: 'Malus découvre la polarisation par réflexion en regardant le soleil couchant à travers un spath d’Islande.' },
+      { year: 1816, text: 'Fresnel publie sa première théorie de la diffraction ; le miroir de Fresnel produit les franges sans obstacle.' },
+      { year: 1819, text: 'Le mémoire de Fresnel remporte le prix de l’Académie ; la tache de Poisson, vérifiée par Arago, consacre la théorie ondulatoire.' },
+      { year: 1821, text: 'Fresnel affirme que les vibrations lumineuses sont transversales : la polarisation s’explique et la théorie s’achève.' },
+      { year: 1832, text: 'Hamilton prédit la réfraction conique dans les cristaux biaxes ; Lloyd l’observe en 1833.' },
+      { year: 1849, text: 'Fizeau mesure la vitesse de la lumière par la roue dentée : 315 000 km/s.' },
+      { year: 1850, text: 'Foucault prouve que la lumière va plus lentement dans l’eau que dans l’air — l’argument décisif contre l’émission.' },
+      { year: 1862, text: 'Foucault achève sa mesure par miroir tournant : 298 000 km/s, valeur de référence jusqu’à Michelson.' },
+    ],
+    theories: [
+      {
+        id: 'oo-interferences-et-diffraction',
+        name: 'Interférences et diffraction',
+        period: { start: 1801, end: 1825 },
+        summary: 'Le principe de superposition appliqué à la lumière : franges de Young, intégrales de diffraction de Fresnel, tache de Poisson. La somme des vibrations explique l’ombre, la lumière au bord des obstacles, et la taille des franges.',
+        traits: ['Franges de Young', 'Biprisme de Fresnel', 'Principe de Huygens-Fresnel', 'Intégrales de diffraction', 'Tache de Poisson-Arago'],
+      },
+      {
+        id: 'oo-polarisation-et-transversalite',
+        name: 'Polarisation et vibrations transversales',
+        period: { start: 1808, end: 1830 },
+        summary: 'La polarisation de Malus, inexplicable en corpuscules, devient la preuve que la lumière vibre transversalement : lois d’Arago et Fresnel, biréfringence, puis la réfraction conique prédite par Hamilton — le triomphe mécanique de la théorie.',
+        traits: ['Polarisation par réflexion', 'Vibrations transversales', 'Biréfringence', 'Réfraction conique', 'Lois d’Arago-Fresnel'],
+      },
+      {
+        id: 'oo-ether-et-vitesse-de-la-lumiere',
+        name: 'Éther et vitesse de la lumière',
+        period: { start: 1818, end: 1862 },
+        summary: 'L’onde exige un milieu : l’éther, sa traîne partielle (Fresnel), l’expérience de Fizeau, et les mesures terrestres de la vitesse de la lumière qui ouvrent la voie à l’électromagnétisme de Maxwell.',
+        traits: ['Éther luminifère', 'Coefficient d’entraînement de Fresnel', 'Roue dentée de Fizeau', 'Miroir tournant de Foucault', 'Vitesse finie de la lumière'],
+      },
+    ],
+    mathematicians: [
+      {
+        id: 'young-thomas',
+        name: 'Thomas Young',
+        years: [1773, 1829],
+        origin: 'Milverton et Londres',
+        bio: 'Médecin et savant universel, Young pose le principe d’interférence en 1801 — les ondes s’ajoutent et se retranchent —, mesure les longueurs d’onde des couleurs, donne à l’élasticité son « module », et travaille au déchiffrement des hiéroglyphes sur la pierre de Rosette.',
+        theoryId: 'oo-interferences-et-diffraction',
+        mactutor: 'Young_Thomas',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'malus',
+        name: 'Étienne-Louis Malus',
+        years: [1775, 1812],
+        origin: 'Paris',
+        bio: 'Officier du génie polytechnicien, Malus découvre la polarisation par réflexion en 1808 en examinant le double rayon d’une lame de spath : le phénomène que ni les corpuscules ni l’onde longitudinale n’expliquent, et qui fera la fortune de la vibration transversale. Il meurt à trente-sept ans.',
+        theoryId: 'oo-polarisation-et-transversalite',
+        mactutor: 'Malus',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'fresnel',
+        name: 'Augustin-Jean Fresnel',
+        years: [1788, 1827],
+        origin: 'Broglie et Ville-d’Avray',
+        bio: 'Ingénieur des ponts et chaussées, Fresnel refonde l’optique entre ses chantiers : théorie de la diffraction couronnée en 1819, biprisme et miroirs à franges, vibrations transversales expliquant la polarisation (1821), coefficient d’entraînement de l’éther. Élu à l’Académie en 1823, il meurt de la tuberculose à trente-neuf ans.',
+        theoryId: 'oo-interferences-et-diffraction',
+        mactutor: 'Fresnel',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'arago',
+        name: 'François Arago',
+        years: [1786, 1853],
+        origin: 'Estagel et Paris',
+        bio: 'Géodésien du méridien retenu en Espagne pendant la guerre, académicien à vingt-trois ans puis secrétaire perpétuel et directeur de l’Observatoire, Arago convertit la France à la théorie ondulatoire : il vérifie la tache de Poisson (1818), écrit avec Fresnel les lois des vibrations polarisées, et soutient le calcul de Le Verrier pour Neptune.',
+        theoryId: 'oo-polarisation-et-transversalite',
+        mactutor: 'Arago',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'fizeau',
+        name: 'Hippolyte Fizeau',
+        years: [1819, 1896],
+        origin: 'Paris',
+        bio: 'Physicien indépendant formé sous Arago, Fizeau mesure le premier la vitesse de la lumière par une méthode terrestre — la roue dentée de Suresnes (1849) —, étend le principe de Doppler aux raies spectrales (1848) et mesure l’entraînement de l’éther dans l’eau courante (1851), expérience qu’Einstein saluera.',
+        theoryId: 'oo-ether-et-vitesse-de-la-lumiere',
+        mactutor: 'Fizeau',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'foucault-leon',
+        name: 'Léon Foucault',
+        years: [1819, 1868],
+        origin: 'Paris',
+        bio: 'Physicien de l’Observatoire, Foucault rend la rotation de la Terre visible par le pendule (1851), prouve que la lumière va plus lentement dans l’eau que dans l’air — coup de grâce à l’émission (1850) —, invente le gyroscope et mesure c par miroir tournant : 298 000 km/s en 1862.',
+        theoryId: 'oo-ether-et-vitesse-de-la-lumiere',
+        mactutor: 'Foucault',
+        sources: ['mactutor'],
+      },
+    ],
+    relatedMathematicianIds: ['poisson', 'biot', 'laplace', 'cauchy', 'hamilton-wr', 'fourier', 'stokes'],
+    results: [
+      {
+        id: 'interferences-de-young',
+        title: 'Interférences lumineuses de Young',
+        year: 1801,
+        authorName: 'Thomas Young',
+        mathematicianId: 'young-thomas',
+        theoryId: 'oo-interferences-et-diffraction',
+        kind: 'concept',
+        statement: 'Deux faisceaux de lumière cohérents superposés produisent des franges : aux points où les ondes arrivent en phase, la lumière s’additionne ; où elles arrivent en opposition, elle s’annule — impossible à expliquer par des corpuscules indépendants.',
+        comment: 'Lu devant la Royal Institution (novembre 1801) : le principe d’interférence — calqué sur les ondes sonores de la corde vibrante — est le premier énoncé de superposition appliqué à la lumière. Young mesure les longueurs d’onde : rouge ≈ 0,7 µm, violet ≈ 0,4 µm — le premier chiffre de l’optique ondulatoire.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Newton avait étudié les anneaux de couleurs (Opticks, 1704) mais les attribuait à des « accès » périodiques des corpuscules ; Young montre que la périodicité est celle de l’onde : les accès deviennent la longueur d’onde.',
+            sources: ['buchwald-wave-theory', 'howson-appraisal'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’interférence devient le critère de l’onde : Fresnel la reprend pour la diffraction, Fizeau pour l’éther, Michelson pour la mesure — et le dispositif des deux fentes deviendra, un siècle plus tard, le paradigme de la mécanique quantique.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+      },
+      {
+        id: 'polarisation-par-reflexion-malus',
+        title: 'Polarisation par réflexion de Malus',
+        year: 1808,
+        authorName: 'Étienne-Louis Malus',
+        mathematicianId: 'malus',
+        theoryId: 'oo-polarisation-et-transversalite',
+        kind: 'concept',
+        statement: 'La lumière réfléchie par une vitre sous un angle voisin de 35° acquiert une propriété directive : elle traverse ou non un cristal biréfringent selon son orientation — la lumière est « polarisée », propriété que la réflexion partage avec la double réfraction.',
+        comment: 'En observant le soleil couchant dans une fenêtre du Luxembourg à travers un spath d’Islande, Malus remarque que l’image réfléchie perd une de ses deux vues : la polarisation est découverte, nommée par lui, et constitue l’énigme centrale que seule la vibration transversale résoudra.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le phénomène complétait la double réfraction connue depuis Bartholin (1669) : les rayons ordinaire et extraordinaire différaient déjà par une « disposition » interne ; Malus montre que la simple réflexion la produit — et obtient le prix de l’Académie pour la biréfringence la même année.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La polarisation fournit le critère décisif de la vibration transversale : Fresnel et Arago montrent en 1819 que deux faisceaux polarisés perpendiculairement n’interfèrent pas — l’ultime argument pour l’onde transverse, et la fin des « accès » de Newton.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+      },
+      {
+        id: 'principe-huygens-fresnel',
+        title: 'Principe de Huygens-Fresnel',
+        year: 1818,
+        authorName: 'Augustin-Jean Fresnel',
+        mathematicianId: 'fresnel',
+        theoryId: 'oo-interferences-et-diffraction',
+        kind: 'methode',
+        statement: 'Chaque point d’un front d’onde devient la source d’une ondelette secondaire ; le front suivant est l’enveloppe de ces ondelettes, pondérées par un facteur d’inclinaison qui éteint l’onde rétrograde — la propagation se calcule comme une somme d’interférences.',
+        comment: 'Le mémoire couronné par l’Académie en 1819 : Fresnel soude le principe des ondelettes de Huygens (1678) au principe d’interférence de Young — la diffraction, la propagation rectiligne, les ombres et les franges sortent d’une même intégrale. C’est la première théorie de champ de la physique mathématique.',
+        major: true,
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’Académie avait mis au concours la diffraction (1817), sûre que la théorie émissionniste — la gravitation appliquée aux corpuscules lumineux, savamment calculée par Biot — l’emporterait ; le jury comptait Laplace et Biot, mais Poisson, en cherchant la faille, produisit sa propre tache.',
+            sources: ['buchwald-wave-theory', 'howson-appraisal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Huygens ne savait pas pourquoi les ondelettes ne produisaient pas d’onde rétrograde : Fresnel l’obtient par le facteur d’inclinaison — les interférences détruisent l’onde en arrière —, puis Kirchhoff (1883) donnera au principe sa base exacte dans l’équation des ondes.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La construction de Fresnel est devenue le principe de calcul universel de la propagation : optique physique, acoustique, radio, diffraction des rayons X — et sa forme intégrale, reprise par Kirchhoff puis Sommerfeld, est le calcul standard de la diffraction.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Buchwald, le mémoire de 1818 ne gagne pas par une expérience cruciale mais par un changement de problème : la diffraction cesse d’être un écart à la propagation rectiligne et devient un cas de propagation — l’exception absorbée dans la règle.',
+            sources: ['buchwald-wave-theory'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une ouverture dans un écran, c’est une source secondaire : les points du front dans l’ouverture émettent chacun une ondelette ; là où les ondelettes arrivent en phase, la lumière persiste — là où elles sont déphasées, l’ombre commence. La frange est l’écriture du déphasage.',
+            sources: ['darrigol-optics'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La sommation des ondelettes est un théorème de composition des vibrations : Fresnel transforme la géométrie de Huygens en calcul intégral — c’est pourquoi sa théorie, contrairement à celle de Huygens, fait des prédictions numériques.',
+            sources: ['buchwald-wave-theory'],
+          },
+        ],
+      },
+      {
+        id: 'tache-d-arago',
+        title: 'Tache d’Arago (tache de Poisson)',
+        year: 1818,
+        authorName: 'Siméon Denis Poisson ; François Arago',
+        mathematicianId: 'arago',
+        theoryId: 'oo-interferences-et-diffraction',
+        kind: 'probleme',
+        statement: 'L’ombre d’un petit disque opaque, éclairé par une source ponctuelle, doit présenter un point lumineux exactement en son centre : Poisson l’avance comme réductio ad absurdum de la théorie de Fresnel — Arago l’observe.',
+        comment: 'Le cas le plus célèbre de prédiction-contre-intention : membre du jury du prix de 1818, Poisson calcule dans la théorie de Fresnel la tache centrale derrière un écran circulaire pour en montrer l’absurdité ; Arago la vérifie aussitôt, et la théorie ressort du test renforcée — la « tache de Poisson » devient l’étendard de l’optique ondulatoire.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La prédiction était déjà observable : Maraldi l’avait signalée en 1723, oubliée depuis ; la théorie de Fresnel la rendait nécessaire — le cercle des points équidistants du bord du disque réunit les ondelettes en phase, et le centre s’allume.',
+            sources: ['buchwald-wave-theory', 'howson-appraisal'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’épisode a refondé l’épistémologie de l’expérience cruciale : Worrall et Lakatos y ont vu le modèle de la « prédiction nouvelle » — la confirmation ne vaut que si le fait était inattendu avant la théorie, ce que la tache illustre parfaitement.',
+            sources: ['howson-appraisal', 'buchwald-wave-theory'],
+          },
+        ],
+      },
+      {
+        id: 'vibrations-transversales-fresnel',
+        title: 'Vibrations transversales de la lumière',
+        year: 1821,
+        authorName: 'Augustin-Jean Fresnel ; François Arago',
+        mathematicianId: 'fresnel',
+        theoryId: 'oo-polarisation-et-transversalite',
+        kind: 'concept',
+        statement: 'La lumière vibre perpendiculairement à sa direction de propagation : les faisceaux polarisés rectangulairement ne produisent pas de franges — loi établie par Arago et Fresnel (1819) que seule la vibration transverse explique.',
+        comment: 'En 1821, Fresnel achève la déduction : la polarisation est l’orientation d’une vibration transversale dans l’éther. La lumière devient une onde de cisaillement — le paradoxe d’un éther « solide » commence, mais la théorie est complète : diffraction, réfraction, biréfringence, polarisation sortent du même principe.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’objection était mécanique : seul un solide transmet les ondes transversales — un fluide n’en porte pas. L’éther devait donc être élastique comme un gel, hypothèse que Stokes formalisera (1845) et qui poursuivra l’optique jusqu’à Maxwell.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La transversalité explique tout : la biréfringence devient une loi de vitesses selon l’orientation, la polarisation circulaire (Fresnel, 1822) et la rotation du plan de polarisation (Faraday, 1845) s’y rattachent — et c’est elle que Maxwell identifiera aux composantes transversales du champ électromagnétique.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+      },
+      {
+        id: 'refraction-conique-hamilton-lloyd',
+        title: 'Réfraction conique prédite par Hamilton',
+        year: 1832,
+        authorName: 'William Rowan Hamilton ; Humphrey Lloyd',
+        theoryId: 'oo-polarisation-et-transversalite',
+        kind: 'probleme',
+        statement: 'Dans un cristal biaxe, un rayon incident doit se décomposer en un cône de rayons réfractés — la réfraction conique interne et externe —, prédiction pure de la théorie des surfaces d’onde de Fresnel, vérifiée par Lloyd à Dublin en 1833.',
+        comment: 'Hamilton, en traitant l’optique comme géométrie des normales à la surface des vitesses, remarque des points singuliers où la surface a un cône : il en déduit le cône de réfraction et prie Lloyd de le chercher. La découverte — prédite avant d’être vue — est le second grand succès prédictif de l’optique ondulatoire.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La surface des vitesses de Fresnel (1821) donnait aux cristaux biaxes deux nappes ; Hamilton montre qu’elles se rejoignent en quatre points singuliers : la réfraction y dégénère en cône — un résultat qu’aucun modèle corpusculaire ne suggérait.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La réfraction conique consacre l’optique ondulatoire comme théorie prédictive au même titre que la mécanique céleste : « la découverte d’une planète à la pointe du crayon » avait trouvé son équivalent optique — et la méthode de Hamilton prépare sa mécanique.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+      },
+      {
+        id: 'entrainement-partiel-fresnel',
+        title: 'Coefficient d’entraînement de l’éther de Fresnel',
+        year: 1818,
+        authorName: 'Augustin-Jean Fresnel',
+        mathematicianId: 'fresnel',
+        theoryId: 'oo-ether-et-vitesse-de-la-lumiere',
+        kind: 'concept',
+        statement: 'Un corps transparent en mouvement n’entraîne l’éther que partiellement, avec un coefficient 1 − 1/n² (n l’indice de réfraction) : l’aberration de Bradley reste expliquée dans la théorie ondulatoire, et l’éther n’est ni fixe ni emporté — il est partiellement traîné.',
+        comment: 'La lettre à Arago (1818) : pour sauver l’aberration — la Terre filant dans l’éther sans le perturber —, Fresnel fait de l’éther intra-matériel un courant ralenti, proportionnel à l’excès de densité éthérique du milieu. Fizeau vérifiera le coefficient dans l’eau courante (1851) ; la relativité restreinte le transformera en composition des vitesses.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’aberration de Bradley (1729) était la pierre d’achoppement de l’onde : si l’éther accompagnait la Terre, l’aberration disparaîtrait ; s’il était fixe, la matière devait lui être transparente au mouvement. Le coefficient de Fresnel tranche entre les deux.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’expérience de Fizeau (1851) mesure l’entraînement partiel dans un courant d’eau : confirmé. Reprise par Lorentz, la formule devient pour Einstein le premier indice que la vitesse de la lumière ne s’additionne pas — le coefficient de Fresnel est la loi de composition relativiste déguisée.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+      },
+      {
+        id: 'vitesse-de-la-lumiere-fizeau-foucault',
+        title: 'Mesures terrestres de la vitesse de la lumière',
+        year: 1849,
+        authorName: 'Hippolyte Fizeau ; Léon Foucault',
+        mathematicianId: 'fizeau',
+        theoryId: 'oo-ether-et-vitesse-de-la-lumiere',
+        kind: 'methode',
+        statement: 'La roue dentée de Fizeau (1849) hache le faisceau aller-retour sur 8,6 km : la première occultation donne c ≈ 315 000 km/s ; le miroir tournant de Foucault (1850, 1862) ramène l’expérience au laboratoire — et mesure le ralentissement de la lumière dans l’eau.',
+        comment: 'La vitesse de la lumière quitte l’astronomie pour le laboratoire : Rømer l’avait tirée des satellites de Jupiter (1676), Bradley de l’aberration (1729). Fizeau et Foucault la mesurent dans la banlieue parisienne — et le résultat de 1862, 298 000 km/s, servira de référence à Maxwell pour l’identification électromagnétique.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'L’expérience de Foucault dans l’eau (1850) tranchait le duel des théories : l’émission exigeait que la lumière aille plus vite dans le milieu réfringent, l’onde plus lentement — la mesure du miroir tournant, défavorable au corpuscle, est l’expérience « cruciale » de l’optique.',
+            sources: ['darrigol-optics', 'buchwald-wave-theory'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La valeur de Foucault devient le chiffre du siècle : Maxwell le rapproche du rapport des unités électriques pour identifier la lumière à l’onde électromagnétique ; Michelson perfectionne la méthode du miroir tournant (1879, 1926) jusqu’à la précision de quelques km/s.',
+            sources: ['darrigol-optics', 'whittaker-aether'],
+          },
+        ],
+      },
+    ],
+    sources: ['buchwald-wave-theory', 'darrigol-optics', 'whittaker-aether', 'howson-appraisal', 'mactutor'],
+  },
 ];
 
 /** Liens entre domaines, déclarés dans le fichier de leur domaine d'arrivée. */
