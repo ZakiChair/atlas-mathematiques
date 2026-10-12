@@ -43,7 +43,7 @@ const fr = {
   'legend.levels': 'Niveaux de zoom',
   'legend.results': 'Natures des résultats',
   'legend.statements': 'Énoncés',
-  'legend.note': 'L’axe horizontal suit le temps ère par ère (chaque ère a sa largeur, qui n’est pas sa durée) ; l’axe vertical range les cinq champs. Ce sont des conventions de représentation, pas des mesures.',
+  'legend.note': 'L’axe horizontal suit le temps ère par ère (chaque ère a sa largeur, qui n’est pas sa durée) ; l’axe vertical range les six champs. Ce sont des conventions de représentation, pas des mesures.',
   'legend.chain': 'Amont et aval',
   'legend.chain.body':
     'Choisir un domaine allume tout ce qui y a conduit par filiation ou influence documentée, en bleu de Prusse, et tout ce qu’il a nourri, de proche en proche, en sépia — d’autant plus pâle que la génération est lointaine. Les courants animés coulent dans le sens de la transmission.',
@@ -114,7 +114,7 @@ const fr = {
   'panel.downstream.gen1': 'Nourris directement',
   'panel.downstream.none': 'Aucun domaine de l’atlas ne s’en nourrit par filiation ou influence documentée : c’est un terminus (ou un domaine toujours actif).',
 
-  'frieze.aria': 'Frise d’activité des cinq champs : cliquer ou glisser pour parcourir le temps',
+  'frieze.aria': 'Frise d’activité des six champs : cliquer ou glisser pour parcourir le temps',
 
   'result.theoreme': 'Théorème',
   'result.conjecture': 'Conjecture',
@@ -166,7 +166,7 @@ const fr = {
   'intro.body':
     'Les mathématiques comme une galerie. Chaque domaine est posé sur le temps, de Babylone à aujourd’hui, dans la bande de son champ, relié à celui dont il descend. Les médailles sont les grandes figures : choisissez-en une pour lire ce qu’elle a apporté et ses résultats phares. Zoomez pour découvrir les théories, toutes les mathématiciennes et tous les mathématiciens, puis les résultats, avec l’idée de leur démonstration. Chaque énoncé distingue les faits établis des interprétations.',
   'method.body':
-    'Cet atlas distingue systématiquement deux régimes d’énoncés. Les faits (dates de publication ou de démonstration, personnes, institutions, contenu vérifiable d’un théorème, étapes d’une démonstration) sont datés et documentés dans les sources citées. Les interprétations (attributions d’influence, jugements sur la portée d’un résultat ou d’une œuvre, récits de « révolution » ou de « crise ») sont signées par une tradition historiographique et restent discutables ; elles portent un badge ambre. Les apports des grandes figures, les intuitions et les idées de démonstration suivent la même règle : chaque énoncé est typé et sourcé. Les démonstrations sont des esquisses en langage courant, pas des preuves complètes. Les liens entre domaines aussi : une filiation documentée (traduction, école, correspondance) n’a pas le même statut qu’une affinité reconnue après coup ; la carte ne trace par défaut que l’ascendant principal de chaque domaine (filiation avant influence, fait avant interprétation, même champ, puis la source la plus récente) et les ruptures. La carte est une convention de représentation : l’axe horizontal suit le temps ère par ère (chaque ère reçoit une largeur proportionnée au corpus, non à sa durée), l’axe vertical range les cinq champs ; la position d’un domaine dans sa bande est indicative ; l’épaisseur de la frise compte les résultats recensés dans l’atlas, pas la production mathématique réelle. Les années de vie des figures sont recoupées avec l’archive MacTutor ; les bornes chronologiques sont indicatives (« ca. » lorsqu’elles sont débattues) et les années négatives désignent les dates avant notre ère.',
+    'Cet atlas distingue systématiquement deux régimes d’énoncés. Les faits (dates de publication ou de démonstration, personnes, institutions, contenu vérifiable d’un théorème, étapes d’une démonstration) sont datés et documentés dans les sources citées. Les interprétations (attributions d’influence, jugements sur la portée d’un résultat ou d’une œuvre, récits de « révolution » ou de « crise ») sont signées par une tradition historiographique et restent discutables ; elles portent un badge ambre. Les apports des grandes figures, les intuitions et les idées de démonstration suivent la même règle : chaque énoncé est typé et sourcé. Les démonstrations sont des esquisses en langage courant, pas des preuves complètes. Les liens entre domaines aussi : une filiation documentée (traduction, école, correspondance) n’a pas le même statut qu’une affinité reconnue après coup ; la carte ne trace par défaut que l’ascendant principal de chaque domaine (filiation avant influence, fait avant interprétation, même champ, puis la source la plus récente) et les ruptures. La carte est une convention de représentation : l’axe horizontal suit le temps ère par ère (chaque ère reçoit une largeur proportionnée au corpus, non à sa durée), l’axe vertical range les six champs ; la position d’un domaine dans sa bande est indicative ; l’épaisseur de la frise compte les résultats recensés dans l’atlas, pas la production mathématique réelle. Les années de vie des figures sont recoupées avec l’archive MacTutor ; les bornes chronologiques sont indicatives (« ca. » lorsqu’elles sont débattues) et les années négatives désignent les dates avant notre ère.',
 
   'panel.featured': 'Grandes figures',
   'panel.contributions': 'Apports',
@@ -227,7 +227,7 @@ const en: Record<UiKey, string> = {
   'legend.levels': 'Zoom levels',
   'legend.results': 'Kinds of results',
   'legend.statements': 'Statements',
-  'legend.note': 'The horizontal axis follows time era by era (each era gets a width, not its duration); the vertical axis sorts the five branches. These are representational conventions, not measurements.',
+  'legend.note': 'The horizontal axis follows time era by era (each era gets a width, not its duration); the vertical axis sorts the six branches. These are representational conventions, not measurements.',
   'legend.chain': 'Upstream and downstream',
   'legend.chain.body':
     'Selecting a field lights up everything that led to it through documented lineage or influence, in Prussian blue, and everything it fed, step by step, in sepia — paler for more distant generations. The animated currents flow in the direction of transmission.',
@@ -298,7 +298,7 @@ const en: Record<UiKey, string> = {
   'panel.downstream.gen1': 'Directly fed',
   'panel.downstream.none': 'No field in the atlas draws on it through documented lineage or influence: it is a terminus (or a field still active).',
 
-  'frieze.aria': 'Activity frieze of the five branches: click or drag to travel through time',
+  'frieze.aria': 'Activity frieze of the six branches: click or drag to travel through time',
 
   'result.theoreme': 'Theorem',
   'result.conjecture': 'Conjecture',
@@ -350,7 +350,7 @@ const en: Record<UiKey, string> = {
   'intro.body':
     'Mathematics as a gallery. Each field is set on the time axis, from Babylon to today, in the lane of its branch, linked to the field it descends from. The medals are the major figures: pick one to read what it contributed and its landmark results. Zoom in to discover the theories, every mathematician, then the results, with the idea of their proof. Every statement distinguishes established facts from interpretations.',
   'method.body':
-    'This atlas systematically distinguishes two regimes of statements. Facts (dates of publication or proof, people, institutions, the verifiable content of a theorem, the steps of a proof) are dated and documented in the cited sources. Interpretations (attributions of influence, judgements on the reach of a result or a body of work, narratives of “revolution” or “crisis”) are signed by a historiographical tradition and remain debatable; they carry an amber badge. The contributions of major figures, the intuitions and the proof ideas follow the same rule: every statement is typed and sourced. Proofs are plain-language sketches, not complete proofs. So do links between fields: a documented lineage (translation, school, correspondence) does not have the same status as an affinity recognised after the fact; by default the map draws only each field’s main ancestor (lineage before influence, fact before interpretation, same branch, then the most recent source) and the ruptures. The map is a representational convention: the horizontal axis follows time era by era (each era gets a width proportional to the corpus, not to its duration), the vertical axis sorts the five branches; a field’s position within its lane is indicative; the frieze’s thickness counts the results recorded in the atlas, not actual mathematical output. Life dates are cross-checked against the MacTutor archive; date bounds are indicative (“ca.” where debated) and negative years denote dates before the common era.',
+    'This atlas systematically distinguishes two regimes of statements. Facts (dates of publication or proof, people, institutions, the verifiable content of a theorem, the steps of a proof) are dated and documented in the cited sources. Interpretations (attributions of influence, judgements on the reach of a result or a body of work, narratives of “revolution” or “crisis”) are signed by a historiographical tradition and remain debatable; they carry an amber badge. The contributions of major figures, the intuitions and the proof ideas follow the same rule: every statement is typed and sourced. Proofs are plain-language sketches, not complete proofs. So do links between fields: a documented lineage (translation, school, correspondence) does not have the same status as an affinity recognised after the fact; by default the map draws only each field’s main ancestor (lineage before influence, fact before interpretation, same branch, then the most recent source) and the ruptures. The map is a representational convention: the horizontal axis follows time era by era (each era gets a width proportional to the corpus, not to its duration), the vertical axis sorts the six branches; a field’s position within its lane is indicative; the frieze’s thickness counts the results recorded in the atlas, not actual mathematical output. Life dates are cross-checked against the MacTutor archive; date bounds are indicative (“ca.” where debated) and negative years denote dates before the common era.',
 
   'panel.featured': 'Major figures',
   'panel.contributions': 'Contributions',
