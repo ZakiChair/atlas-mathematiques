@@ -296,6 +296,45 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Si un quadrilatère de côtés a, b, c, d est inscrit dans un cercle et si s est son demi-périmètre, son aire est √((s − a)(s − b)(s − c)(s − d)).',
         comment: 'Brahmagupta énonce la règle sans préciser qu’elle ne vaut que pour les quadrilatères inscrits, ce que les commentateurs rétabliront. Elle généralise la formule de Héron pour le triangle (d = 0) et s’accompagne de règles sur les diagonales et sur les quadrilatères à côtés rationnels. Elle restera sans équivalent en Europe avant la Renaissance.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Brahmagupta donne côte à côte une aire « grossière », produit des demi-sommes des côtés opposés, et l’aire « exacte » : la première n’est juste que pour le rectangle, la seconde la corrige. Pour un rectangle de côtés a et b, on a s − a = b et s − b = a : le produit des quatre facteurs vaut a²b², et la racine redonne bien ab.',
+            sources: ['colebrooke-algebra', 'plofker-india'],
+          },
+          {
+            kind: 'fait',
+            text: 'La règle ressemble à celle de Héron, √(s(s − a)(s − b)(s − c)), où le facteur s joue le rôle de s − d pour un quatrième côté nul : le quadrilatère inscrit dont un côté s’évanouit est un triangle, et tout triangle est inscriptible.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Brahmagupta ne démontre pas sa règle ; l’argument classique découpe le quadrilatère ABCD, de côtés a = AB, b = BC, c = CD, d = DA, par la diagonale AC en deux triangles, d’aires ½ab·sin B et ½cd·sin D.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans un quadrilatère inscrit, les angles opposés B et D sont supplémentaires (Éléments, III, 22) : sin D = sin B et cos D = −cos B, de sorte que l’aire K vaut ½(ab + cd)·sin B.',
+            sources: ['vitrac-euclide', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'La diagonale AC se calcule de deux façons par la règle du cosinus : a² + b² − 2ab·cos B = c² + d² + 2cd·cos B, d’où cos B = (a² + b² − c² − d²) / 2(ab + cd).',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Alors 16K² = 4(ab + cd)²·(1 − cos²B) = 4(ab + cd)² − (a² + b² − c² − d²)², différence de deux carrés, qui se factorise en [(c + d)² − (a − b)²]·[(a + b)² − (c − d)²].',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque crochet se factorise à son tour : (c + d − a + b)(c + d + a − b)(a + b − c + d)(a + b + c − d) = (2s − 2a)(2s − 2b)(2s − 2c)(2s − 2d) ; en divisant par 16, K² = (s − a)(s − b)(s − c)(s − d). Avec d = 0, on retrouve Héron.',
+            sources: ['katz-history', 'plofker-india'],
+          },
+        ],
       },
       {
         id: 'lilavati',
@@ -376,6 +415,50 @@ export const MEDIEVAL: Domain[] = [
             sources: ['plofker-india', 'joseph-crest'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le Yuktibhāṣā part d’une figure : un huitième de cercle de rayon 1 enfermé dans son carré circonscrit. Les droites menées du centre aux points d’une subdivision régulière du demi-côté découpent l’arc en morceaux dont chacun vaut à peu près le pas de la subdivision divisé par 1 + t², où t est la distance du point de contact au point de division ; l’arc π/4 est la somme de ces morceaux, et la série naît du développement de 1/(1 + t²) en 1 − t² + t⁴ − …',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Avec cinq termes, 1 − 1/3 + 1/5 − 1/7 + 1/9 vaut 0,8349…, soit π ≈ 3,34 : la série converge trop lentement pour servir telle quelle, et c’est l’erreur commise en s’arrêtant au n-ième terme, voisine de 1/4n, que Mādhava apprend à estimer.',
+            sources: ['katz-history', 'plofker-india'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dans un cercle de rayon 1, on considère l’arc d’un huitième de tour compris entre le point de contact E d’un côté du carré circonscrit et la diagonale ; on partage le demi-côté EB, de longueur 1, en n parties égales et l’on joint le centre O aux points de division.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par deux emplois des triangles semblables, le petit arc compris entre deux droites consécutives vaut, aux quantités négligeables près, (1/n)·1/(1 + t²), où t = i/n repère le point de division : l’arc entier, π/4, est la somme de ces n quantités.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'On remplace 1/(1 + t²) par 1 − t² + t⁴ − t⁶ + …, ce que le texte obtient par une division répétée.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il reste à sommer, pour chaque puissance k, les termes (1/n)·(i/n)ᵏ : lorsque n est très grand, la somme des puissances k-ièmes des n premiers entiers vaut à peu près nᵏ⁺¹/(k + 1) (saṅkalita), de sorte que chaque somme tend vers 1/(k + 1).',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’où π/4 = 1 − 1/3 + 1/5 − 1/7 + … ; le même calcul mené pour un arc quelconque donne la série de l’arc tangente, θ = t − t³/3 + t⁵/5 − …, valable pour t = tan θ ≤ 1, dont la série de π est le cas t = 1.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Comme les termes alternent et décroissent, Mādhava arrête la somme au n-ième terme et ajoute une correction, par exemple n/(4n² + 1), avec le signe du terme suivant : c’est ainsi qu’il atteint onze décimales exactes de π.',
+            sources: ['katz-history', 'joseph-crest'],
+          },
+        ],
       },
       {
         id: 'series-de-madhava-sinus-cosinus',
@@ -389,6 +472,40 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Le sinus d’un arc θ s’obtient comme θ − θ³/6 + θ⁵/120 − …, et le cosinus comme 1 − θ²/2 + θ⁴/24 − …, les corrections étant tirées de sommes répétées d’arcs de plus en plus petits.',
         comment: 'Énoncées en vers par Mādhava et justifiées dans le Yuktibhāṣā, ces séries permettent de calculer des tables de sinus d’une précision inégalée. Elles coïncident avec les développements que Newton établira vers 1665 ; l’école du Kerala est ainsi la première à manier les séries entières, sans pour autant disposer d’un calcul différentiel général.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour un petit arc, la demi-corde se confond presque avec l’arc : sin θ ≈ θ est la première approximation, et le premier terme de la série. Les tables indiennes savent depuis Āryabhaṭa que les différences secondes des sinus sont proportionnelles aux sinus eux-mêmes ; l’idée du Kerala est de remonter cette relation par des sommations répétées, en partant de l’approximation grossière pour la corriger terme après terme.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On partage l’arc θ en n arcs égaux et l’on compare, par triangles semblables, les sinus et les cosinus des points de division : la différence de deux sinus consécutifs est proportionnelle au cosinus de l’arc intermédiaire, et la différence de deux cosinus à son sinus, le facteur étant la petite corde, voisine de θ/n.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En prenant la différence des différences, on trouve que la différence seconde des sinus vaut, au facteur −(θ/n)² près, le sinus lui-même : c’est la règle qu’Āryabhaṭa employait déjà pour construire sa table.',
+            sources: ['plofker-india', 'shukla-sarma-aryabhatiya'],
+          },
+          {
+            kind: 'fait',
+            text: 'En sommant ces relations de proche en proche : cos θ = 1 − (θ/n) × (somme des sinus intermédiaires) et sin θ = θ − (θ/n)² × (somme des sommes des sinus intermédiaires). Sinus et cosinus se déduisent donc de sommations répétées du sinus.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En première approximation, les sinus intermédiaires valent leurs arcs kθ/n ; les sommes de puissances d’entiers (Σk ≈ n²/2, et n³/6 pour la somme des sommes) donnent cos θ ≈ 1 − θ²/2 et sin θ ≈ θ − θ³/6.',
+            sources: ['plofker-india', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En réinjectant ces approximations dans les sommations, on gagne un terme à chaque tour : θ⁵/120, puis θ⁷/5040, et de même pour le cosinus ; les dénominateurs 2·3·4·5… viennent des sommes répétées de puissances d’entiers, dont les valeurs approchées font apparaître les factorielles. Le Yuktibhāṣā présente le résultat comme une suite de corrections de l’arc, que Mādhava avait mises en vers pour le rayon 3438.',
+            sources: ['plofker-india', 'katz-history', 'katz-sourcebook'],
+          },
+        ],
       },
       {
         id: 'tantrasangraha',
@@ -716,6 +833,35 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Les coefficients de (a + b)ⁿ se disposent en un tableau triangulaire où chaque nombre est la somme des deux nombres placés au-dessus de lui ; al-Karajī en donne la règle de formation et l’applique au calcul des puissances d’un binôme.',
         comment: 'Le texte d’al-Karajī est perdu ; al-Samaw’al le reproduit dans l’al-Bāhir avec le tableau jusqu’à la puissance 12 et une justification qui procède de proche en proche. Contemporain du triangle de Jia Xian en Chine et antérieur de six siècles à Pascal, il montre que la règle de formation des coefficients binomiaux a été découverte indépendamment dans plusieurs traditions.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Qui calcule (a + b)³ = a³ + 3a²b + 3ab² + b³ puis multiplie encore par (a + b) voit chaque nouveau coefficient se former de deux voisins de la ligne précédente : 1, 4, 6, 4, 1. La règle d’addition n’est que la trace de cette multiplication, et c’est en poursuivant le calcul des puissances successives qu’al-Karajī dresse le tableau.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Les premiers cas sont établis directement : (a + b)² = a² + 2ab + b², identité du livre II des Éléments, puis (a + b)³ = a³ + 3a²b + 3ab² + b³ et (a + b)⁴ ; al-Karajī part de là.',
+            sources: ['rashed-sciences-arabes', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour passer de la puissance n − 1 à la puissance n, on écrit (a + b)ⁿ = a·(a + b)ⁿ⁻¹ + b·(a + b)ⁿ⁻¹ : multiplier par a décale chaque terme d’un rang vers les puissances de a, multiplier par b d’un rang vers celles de b.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le coefficient de aⁿ⁻ᵏbᵏ dans (a + b)ⁿ reçoit donc deux contributions : celle du terme aⁿ⁻ᵏ⁻¹bᵏ de la puissance précédente, multiplié par a, et celle du terme aⁿ⁻ᵏbᵏ⁻¹, multiplié par b. C’est exactement la règle « chaque nombre est la somme des deux nombres placés au-dessus de lui ».',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Al-Samaw’al conduit ce raisonnement de proche en proche pour les premières puissances et indique qu’il se poursuit sans fin ; le tableau jusqu’à la puissance 12 s’en déduit, et avec lui le développement de tout binôme.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'classification-des-cubiques-khayyam',
@@ -751,6 +897,45 @@ export const MEDIEVAL: Domain[] = [
             kind: 'interpretation',
             text: 'Ni Cardan ni Descartes ne connaissent Khayyām : la construction des racines par intersection de coniques, reprise dans La Géométrie (1637), est une redécouverte et non un héritage.',
             sources: ['katz-history', 'rashed-khayyam'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Soit à résoudre « un cube et des racines égaux à un nombre », x³ + cx = d. Si l’on pose x² = √c·y, l’équation devient y² = x(d/c − x) : la première relation est une parabole, la seconde un cercle de diamètre d/c, et la racine cherchée est l’abscisse de leur point d’intersection autre que l’origine. Chaque type de cubique appelle ainsi son couple de coniques.',
+            sources: ['katz-history', 'berggren-islam'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’idée prolonge celle des deux moyennes proportionnelles de Ménechme : doubler le cube, c’est résoudre x³ = 2a³ par l’intersection de deux paraboles, et les géomètres de langue arabe, d’al-Khāzin à Khayyām, lisent dans ce procédé antique une méthode générale pour le troisième degré.',
+            sources: ['katz-history', 'rashed-khayyam'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Khayyām énumère les équations possibles entre quatre espèces de termes, nombre, racine, carré et cube, à coefficients positifs : six binômes, douze trinômes, sept quadrinômes, soit vingt-cinq types. Onze se ramènent au premier ou au second degré ; restent quatorze types où le cube ne s’élimine pas (un binôme, six trinômes, sept quadrinômes).',
+            sources: ['rashed-khayyam', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour chacun de ces quatorze types, il choisit deux coniques (cercle, parabole, hyperbole) dont les équations, en termes modernes, redonnent la cubique quand on élimine la seconde coordonnée : Khayyām raisonne, lui, par proportions entre segments, avec les propriétés des Coniques d’Apollonius.',
+            sources: ['rashed-khayyam', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ainsi, pour x³ + cx = d, la parabole x² = √c·y et le demi-cercle y² = x(d/c − x) se coupent en un point dont l’abscisse vérifie x⁴/c = x(d/c − x), c’est-à-dire x³ = d − cx.',
+            sources: ['katz-history', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il discute ensuite, type par type, si les deux coniques se rencontrent, et en combien de points, selon la taille des coefficients : certains types ont toujours une racine positive, d’autres n’en ont que sous condition, ou deux.',
+            sources: ['rashed-khayyam', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'La construction livre la racine comme un segment, non comme un nombre exprimé par radicaux : Khayyām le souligne lui-même, et laisse ce calcul à ses successeurs.',
+            sources: ['rashed-khayyam', 'berggren-islam'],
           },
         ],
       },
@@ -984,6 +1169,40 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Si, pour un entier n > 1, les trois nombres p = 3·2ⁿ⁻¹ − 1, q = 3·2ⁿ − 1 et r = 9·2²ⁿ⁻¹ − 1 sont premiers, alors 2ⁿ·p·q et 2ⁿ·r sont amiables : chacun est la somme des diviseurs propres de l’autre.',
         comment: 'Première règle générale pour engendrer des nombres amiables, démontrée dans le style d’Euclide IX.36 sur les nombres parfaits. Elle redonne le couple (220, 284) connu des pythagoriciens et fournit (17 296, 18 416) pour n = 4, retrouvé par al-Fārisī puis par Fermat (1636) ; Descartes et Euler la généraliseront.',
+        intuition: [
+          {
+            kind: 'interpretation',
+            text: 'Dans le couple antique, 220 = 2²·5·11 et 284 = 2²·71, avec 5 + 1 = 6, 11 + 1 = 12 et 71 + 1 = 72 = 6 × 12 : une même puissance de 2, deux nombres premiers, et un troisième dont le successeur est le produit des successeurs des deux autres. Thābit, qui se réclame d’Euclide, cherche la règle qui engendre cette configuration, comme IX.36 engendre les nombres parfaits à partir des nombres premiers de la forme 2ⁿ − 1.',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Notons σ(N) la somme de tous les diviseurs de N, N compris : A et B sont amiables lorsque σ(A) = σ(B) = A + B. Pour N = 2ⁿ·m avec m impair, les diviseurs sont les produits d’une puissance de 2 par un diviseur de m, donc σ(2ⁿm) = (1 + 2 + … + 2ⁿ)·σ(m) = (2ⁿ⁺¹ − 1)·σ(m) ; Thābit raisonne de même en énumérant les diviseurs, avec la somme de la progression géométrique (Éléments, IX, 35).',
+            sources: ['rashed-sciences-arabes', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Posons A = 2ⁿpq et B = 2ⁿr. Comme p et q sont premiers et distincts, σ(pq) = (p + 1)(q + 1) = 3·2ⁿ⁻¹ × 3·2ⁿ = 9·2²ⁿ⁻¹ = r + 1 = σ(r), puisque r est premier : donc σ(A) = σ(B) = (2ⁿ⁺¹ − 1)(r + 1).',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Reste à voir que cette valeur commune est A + B = 2ⁿ(pq + r). Or pq = 9·2²ⁿ⁻¹ − 9·2ⁿ⁻¹ + 1 et r = 9·2²ⁿ⁻¹ − 1, d’où pq + r = 9·2ⁿ⁻¹·(2ⁿ⁺¹ − 1).',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Donc A + B = 9·2²ⁿ⁻¹·(2ⁿ⁺¹ − 1) = (r + 1)(2ⁿ⁺¹ − 1) = σ(A) = σ(B) : chacun des deux nombres est la somme des diviseurs propres de l’autre.',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour n = 2, p = 5, q = 11, r = 71 donnent 220 et 284 ; pour n = 4, p = 23, q = 47, r = 1151 donnent 17 296 et 18 416 ; pour n = 3, 5 ou 6, l’un des trois nombres n’est pas premier et la règle ne s’applique pas.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'loi-des-sinus-spherique',
@@ -996,6 +1215,35 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un triangle sphérique, les sinus des côtés sont proportionnels aux sinus des angles opposés.',
         comment: 'La règle remplace le théorème de Ménélaos, qui exigeait de construire une figure à six grandeurs, par une relation directe entre côtés et angles ; elle fait de la trigonométrie sphérique un calcul plutôt qu’une géométrie. Revendiquée à la fin du Xᵉ siècle par trois astronomes rivaux, elle est reprise par al-Bīrūnī et systématisée par Ṭūsī.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans le plan, la loi des sinus exprime qu’une même hauteur se calcule de deux façons : h = b·sin A = a·sin B. Sur la sphère, la « hauteur » est la perpendiculaire abaissée d’un sommet sur le plan qui passe par le centre et le côté opposé ; comme la perpendiculaire abaissée d’un point de la sphère sur un rayon est le sinus de l’arc, ce sont les sinus des côtés qui remplacent les côtés. Pour un petit triangle, les sinus des arcs se confondent avec les arcs et l’on retrouve la loi plane.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Sur une sphère de centre O et de rayon 1, le sinus d’un arc est la perpendiculaire abaissée de l’une de ses extrémités sur le rayon qui passe par l’autre ; l’angle sphérique en A est l’angle dièdre des plans OAB et OAC.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit H le pied de la perpendiculaire abaissée de C sur le plan OAB, et D celui de la perpendiculaire abaissée de C sur la droite OA : CD = sin b. Comme CH est perpendiculaire au plan et CD à OA, DH l’est aussi à OA, de sorte que l’angle CDH est l’angle dièdre en A : CH = CD·sin A = sin b·sin A.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le même raisonnement, avec la perpendiculaire abaissée de C sur la droite OB, donne CH = sin a·sin B.',
+            sources: ['berggren-islam', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Donc sin a/sin A = sin b/sin B ; en recommençant depuis un autre sommet, les trois rapports sont égaux. Les démonstrations du Xᵉ siècle procèdent par des figures de ce type, en comparant des demi-cordes dans des triangles rectangles plans.',
+            sources: ['berggren-islam', 'rashed-sciences-arabes'],
+          },
+        ],
       },
       {
         id: 'volume-du-paraboloide-ibn-al-haytham',
@@ -1009,6 +1257,40 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Le solide engendré par la rotation d’un segment de parabole autour de sa base (perpendiculairement à l’axe) a pour volume les 8/15 du cylindre circonscrit ; celui engendré par la rotation autour de l’axe, déjà traité par Archimède et Thābit, en vaut la moitié.',
         comment: 'Pour le cas nouveau, Ibn al-Haytham établit la formule donnant la somme des quatrièmes puissances des n premiers entiers et encadre le solide par des empilements de cylindres dont la différence devient aussi petite que l’on veut. La méthode anticipe les sommations que Cavalieri, Fermat et Wallis emploieront au XVIIᵉ siècle pour les aires sous les courbes xⁿ.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Quand le segment de parabole tourne autour de son axe, les sections sont des disques dont le carré du rayon croît proportionnellement à la distance au sommet : il suffit de sommer des entiers, et l’on trouve la moitié du cylindre. Quand il tourne autour de sa base, le rayon d’une section varie comme 1 − t² et son carré comme (1 − t²)² = 1 − 2t² + t⁴ : il faut sommer des carrés et des quatrièmes puissances, et le rapport attendu est 1 − 2/3 + 1/5 = 8/15.',
+            sources: ['katz-history', 'rashed-infinitesimales'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit un segment de parabole de hauteur h le long de l’axe et de demi-base R, que l’on fait tourner autour de sa base. Une section perpendiculaire à cet axe de rotation, à la distance y du milieu de la base, est un disque de rayon h(1 − y²/R²), d’après l’équation de la parabole.',
+            sources: ['katz-history', 'rashed-infinitesimales'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ibn al-Haytham partage la demi-base en n parties égales et remplace le solide par deux empilements de cylindres d’épaisseur R/n, l’un inscrit, l’autre circonscrit, de rayons h(1 − i²/n²) ; leur différence se réduit à un seul cylindre, de volume aussi petit que l’on veut quand n croît.',
+            sources: ['katz-history', 'rashed-infinitesimales'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le volume d’un empilement fait intervenir la somme des (n² − i²)² = n⁴ − 2n²i² + i⁴ : il faut donc la somme des carrés et celle des quatrièmes puissances des premiers entiers. Ibn al-Haytham établit pour cela une formule qui donne la somme des puissances k + 1 à partir de celle des puissances k, et l’applique jusqu’aux quatrièmes puissances.',
+            sources: ['katz-history', 'rashed-infinitesimales', 'berggren-islam'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces sommes valent n³/3 et n⁵/5 à des termes près qu’il contrôle explicitement : l’empilement inscrit est inférieur, et l’empilement circonscrit supérieur, aux 8/15 du cylindre circonscrit, soit (1 − 2/3 + 1/5) fois son volume.',
+            sources: ['katz-history', 'rashed-infinitesimales'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un double raisonnement par l’absurde, à la manière d’Archimède, exclut que le solide soit plus grand ou plus petit que les 8/15 du cylindre. Pour la rotation autour de l’axe, la même méthode ne demande que la somme des entiers et redonne le rapport 1/2 d’Archimède et de Thābit.',
+            sources: ['rashed-infinitesimales', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'kitab-al-manazir',
@@ -1057,6 +1339,45 @@ export const MEDIEVAL: Domain[] = [
             sources: ['katz-history'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour un miroir plan, le point de réflexion s’obtient d’un trait : on prend le symétrique de la source par rapport au miroir, et la droite qui le joint à l’œil coupe le miroir au point cherché. Sur un miroir sphérique, la normale tourne avec le point : il faut que le rayon OP partage en deux l’angle APB formé par la source A et l’œil B, condition qui change avec P et qui mène à une équation du quatrième degré, non du premier.',
+            sources: ['katz-history', 'rashed-sciences-arabes'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le quatrième degré est le seuil que l’on sait franchir avec deux coniques : comme Khayyām pour les cubiques, Ibn al-Haytham cherche une seconde courbe, passant par les points qui satisfont la condition de bissectrice, dont l’intersection avec le cercle du miroir livre P.',
+            sources: ['rashed-sciences-arabes', 'berggren-islam'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'L’égalité des angles d’incidence et de réflexion équivaut à ceci : la normale au miroir en P, c’est-à-dire le rayon OP du cercle, est bissectrice de l’angle APB (bissectrice extérieure pour la face convexe).',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par six lemmes de géométrie, appuyés sur les Coniques d’Apollonius, Ibn al-Haytham ramène la recherche de P à l’intersection du cercle du miroir avec une hyperbole construite à partir de O, A et B, et traite séparément les positions de la source et de l’œil ainsi que les miroirs concaves et convexes.',
+            sources: ['rashed-sciences-arabes', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'En termes modernes, avec O pour origine, la condition de bissectrice se traduit par une équation du second degré en les coordonnées de P, sans terme constant et dont les coefficients de x² et de y² sont opposés : le lieu des points P qui conviennent est une hyperbole équilatère passant par le centre O.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Jointe à l’équation du cercle, x² + y² = r², elle donne au plus quatre points d’intersection, d’où au plus quatre points de réflexion, faces concave et convexe confondues ; éliminer une coordonnée conduit à l’équation du quatrième degré.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Huygens reformule le problème au XVIIᵉ siècle et le résout à son tour par une hyperbole, solution que Vincenzo Riccati puis Saladini simplifient ; la question de savoir si la règle et le compas suffisent reste ouverte jusqu’au XXᵉ siècle.',
+            sources: ['mactutor', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'tahdid-al-biruni',
@@ -1103,6 +1424,45 @@ export const MEDIEVAL: Domain[] = [
           {
             kind: 'interpretation',
             text: 'Le programme est fermé au XIXᵉ siècle : Lobatchevski (1829) et Bolyai (1832) développent la géométrie de l’hypothèse de l’angle aigu au lieu de la réfuter, et Beltrami (1868) en donne un modèle ; le quadrilatère de Khayyām et de Ṭūsī devient rétrospectivement l’une des premières figures où se lit l’alternative.',
+            sources: ['gray-worlds'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans le plan ordinaire, la figure est un rectangle. Mais pour le prouver il faut savoir que deux perpendiculaires à une même droite restent à distance constante l’une de l’autre, et c’est exactement ce que garantit le postulat : la figure concentre la question des parallèles en un seul angle, qu’il suffirait de montrer droit.',
+            sources: ['katz-history', 'gray-worlds'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La difficulté est que chaque évidence appelée en renfort, l’équidistance des parallèles (Thābit), le mouvement d’une perpendiculaire (Ibn al-Haytham), le rapprochement des droites convergentes (Khayyām, Ṭūsī), équivaut au postulat lui-même ; on le comprendra au XIXᵉ siècle, lorsque la géométrie de l’angle aigu, celle de Lobatchevski, se révélera aussi cohérente que celle d’Euclide.',
+            sources: ['rashed-sciences-arabes', 'gray-worlds'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Sans le cinquième postulat, on démontre déjà que les angles au sommet C et D sont égaux : les triangles DAB et CBA sont égaux (deux côtés et l’angle droit compris), d’où BD = AC ; puis les triangles ADC et BCD sont égaux (trois côtés), d’où l’égalité des angles en C et D. Il n’y a donc que trois hypothèses : angle droit, obtus ou aigu.',
+            sources: ['katz-history', 'gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’hypothèse de l’angle obtus se réfute avec les seuls autres postulats, pourvu que les droites soient illimitées : elle contredit le théorème de l’angle extérieur (Éléments, I, 16). C’est le chemin que suivra Saccheri (1733).',
+            sources: ['gray-worlds', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour écarter l’angle aigu, Ṭūsī s’appuie sur un principe hérité de Khayyām sur le rapprochement et l’écartement des droites, admis sans démonstration : ce principe équivaut au postulat, et la preuve est circulaire.',
+            sources: ['rashed-sciences-arabes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Saccheri, parti de la même figure, tire de l’hypothèse de l’angle aigu une suite de théorèmes corrects (somme des angles d’un triangle inférieure à deux droits, droites asymptotes) avant de la déclarer contraire à la nature de la ligne droite, sans contradiction réelle ; Lambert (1766) reprend le quadrilatère à trois angles droits et pousse l’analyse plus loin.',
+            sources: ['gray-worlds', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le problème est tranché négativement en 1868 : Beltrami montre que l’hypothèse de l’angle aigu est réalisée sur la pseudosphère et dans un modèle plan ; si la géométrie euclidienne est sans contradiction, celle de l’angle aigu l’est aussi, et les angles du quadrilatère ne peuvent pas être démontrés droits à partir des autres postulats.',
             sources: ['gray-worlds'],
           },
         ],
@@ -1500,6 +1860,35 @@ export const MEDIEVAL: Domain[] = [
         kind: 'theoreme',
         statement: 'Les nombres d’objets des empilements triangulaires, carrés ou polygonaux successifs se somment par des formules closes fondées sur les différences finies : la somme des n premiers entiers, de leurs carrés, des nombres triangulaires, etc., s’exprime comme un polynôme en n dont le tableau des différences donne les coefficients.',
         comment: 'Héritées de Shen Gua (XIᵉ siècle) et liées à l’interpolation du calendrier Shoushi (1281), ces formules constituent la plus ancienne utilisation systématique des différences finies pour les sommes de séries. Elles jouent, dans la tradition chinoise, le rôle que tiendra le calcul des différences de Stirling et de Newton en Europe.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les piles s’emboîtent : les couches d’une pile « tétraédrique » sont des piles triangulaires, de sorte que son nombre d’objets, 1, 4, 10, 20, …, est la somme des nombres triangulaires 1, 3, 6, 10, … ; chaque sorte de pile se somme donc à partir de la précédente. Et le tableau des différences successives le signale : 1, 3, 6, 10 a pour différences 2, 3, 4, puis 1, 1, 1 ; une suite dont les différences k-ièmes sont constantes se laisse décrire par un polynôme de degré k.',
+            sources: ['katz-history', 'martzloff-chine'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La pile triangulaire de côté n compte 1 + 2 + … + n = n(n + 1)/2 objets ; la pile dont les couches sont les piles triangulaires en compte n(n + 1)(n + 2)/6 ; la suivante n(n + 1)(n + 2)(n + 3)/24, et ainsi de suite, chaque formule étant la somme des n premières valeurs de la précédente : ce sont les formules que donne le Siyuan yujian.',
+            sources: ['katz-history', 'hoe-siyuan-yujian'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour le vérifier, on constate que la différence de deux valeurs consécutives d’une formule redonne la couche ajoutée : par exemple n(n + 1)(n + 2)/6 − (n − 1)n(n + 1)/6 = n(n + 1)/2 ; la somme des couches se « télescope » donc en la formule.',
+            sources: ['katz-history', 'martzloff-chine'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les autres piles s’expriment à partir des triangulaires : n² = n(n + 1)/2 + (n − 1)n/2, donc 1² + 2² + … + n² = n(n + 1)(n + 2)/6 + (n − 1)n(n + 1)/6 = n(n + 1)(2n + 1)/6 ; de même pour les piles polygonales.',
+            sources: ['katz-history', 'martzloff-chine'],
+          },
+          {
+            kind: 'fait',
+            text: 'En général, si les différences k-ièmes d’une suite sont constantes, la suite est un polynôme de degré k en n, que l’on reconstitue à partir des premières différences Δ₁, Δ₂, … : f(n) = f(1) + Δ₁(n − 1) + Δ₂(n − 1)(n − 2)/2 + Δ₃(n − 1)(n − 2)(n − 3)/6 + … C’est le procédé des différences (zhaocha) que Zhu Shijie applique aux séries, et qui coïncide avec la formule d’interpolation de Newton.',
+            sources: ['katz-history', 'martzloff-chine'],
+          },
+        ],
       },
     ],
     sources: ['martzloff-chine', 'chemla-neuf-chapitres', 'libbrecht-qin', 'lam-yang-hui', 'hoe-siyuan-yujian', 'katz-sourcebook'],
@@ -1750,6 +2139,30 @@ export const MEDIEVAL: Domain[] = [
         kind: 'probleme',
         statement: 'Un couple de lapereaux mis en un clos engendre chaque mois un nouveau couple, fécond dès le second mois : combien de couples au bout d’un an ? Le décompte mois par mois donne 1, 2, 3, 5, 8, 13, …, chaque nombre étant la somme des deux précédents, pour aboutir à 377.',
         comment: 'Exercice marginal du chapitre XII du Liber abaci, la suite n’est pas étudiée pour elle-même. Kepler note en 1611 que le rapport de deux termes consécutifs approche le nombre d’or ; Édouard Lucas la baptise « suite de Fibonacci » en 1876 et fonde avec elle l’arithmétique des récurrences. Elle est devenue l’emblème de la croissance autoréférente.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Au mois n, les couples présents sont tous ceux du mois précédent, puisqu’aucun ne meurt, plus les nouveau-nés, engendrés par les couples âgés d’au moins deux mois, c’est-à-dire par ceux qui étaient déjà là deux mois plus tôt : d’où F(n) = F(n − 1) + F(n − 2). Fibonacci ne formule pas la règle ainsi, mais il la met en œuvre dans la marge, en ajoutant le premier nombre au deuxième, le deuxième au troisième, et ainsi de suite.',
+            sources: ['sigler-liber-abaci', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’un couple ; au premier mois il engendre, et l’on a 2 couples ; au deuxième, seul le premier est fécond : 3 ; au troisième, deux couples engendrent : 5 ; au quatrième, trois : 8.',
+            sources: ['sigler-liber-abaci'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque mois, le nombre de couples féconds est le nombre total de couples du mois d’avant le précédent ; le total d’un mois s’obtient donc en ajoutant les totaux des deux mois qui le précèdent.',
+            sources: ['sigler-liber-abaci', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En poursuivant : 13, 21, 34, 55, 89, 144, 233, 377 ; au bout de douze mois, 377 couples. Fibonacci ajoute que l’on peut continuer ainsi pour un nombre de mois sans fin : la règle d’addition suffit à définir la suite.',
+            sources: ['sigler-liber-abaci', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'liber-quadratorum',
@@ -1847,6 +2260,35 @@ export const MEDIEVAL: Domain[] = [
           {
             kind: 'interpretation',
             text: 'L’argument de groupement contient en germe le critère de condensation de Cauchy (1821) et reste l’exemple type d’une série dont le terme général tend vers zéro sans que la somme soit finie.',
+            sources: ['hairer-wanner-analysis'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Entre deux puissances de 2 consécutives, 2ᵏ < n ≤ 2ᵏ⁺¹, il y a 2ᵏ entiers, et chacun des termes 1/n correspondants vaut au moins 1/2ᵏ⁺¹ : le paquet pèse donc au moins 2ᵏ × 1/2ᵏ⁺¹ = 1/2. La décroissance des termes est exactement compensée par la multiplication de leur nombre, ce qui n’arrive pas pour les inverses des carrés, où le même paquet pèse au plus 1/2ᵏ et où les paquets forment une série géométrique de somme finie.',
+            sources: ['hairer-wanner-analysis'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Oresme écrit la somme en groupant les termes : 1 + 1/2 + (1/3 + 1/4) + (1/5 + 1/6 + 1/7 + 1/8) + (1/9 + … + 1/16) + …, chaque groupe comptant deux fois plus de termes que le précédent.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans chaque groupe, on remplace tous les termes par le plus petit, le dernier : 1/3 + 1/4 > 1/4 + 1/4 = 1/2 ; 1/5 + 1/6 + 1/7 + 1/8 > 4 × 1/8 = 1/2 ; le k-ième groupe, formé de 2ᵏ⁻¹ termes qui valent chacun au moins 1/2ᵏ, vaut au moins 1/2.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La somme des 2ᵏ premiers termes dépasse donc 1 + k/2 : elle croît au-delà de toute quantité donnée, bien que les termes tendent vers zéro ; c’est ce qu’Oresme exprime en disant que le tout « devient infini ».',
+            sources: ['hairer-wanner-analysis', 'clagett-oresme'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le même groupement, en remplaçant cette fois chaque terme par le plus grand de son groupe, majore la somme des 2ᵏ premiers termes par 1 + k : la croissance est très lente, de l’ordre du logarithme du nombre de termes.',
             sources: ['hairer-wanner-analysis'],
           },
         ],
@@ -2113,6 +2555,18 @@ export const MEDIEVAL: Domain[] = [
             sources: ['sep', 'van-heijenoort'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté tient à l’autoréférence : la proposition parle de sa propre valeur de vérité, de sorte que les deux règles ordinaires, vraie si les choses sont comme elle le signifie, fausse sinon, se renvoient l’une à l’autre sans fin. Les scolastiques l’abordent comme un cas limite de la théorie de la supposition : le terme « cette proposition » peut-il supposer pour la proposition même où il figure, et que signifie au juste une proposition qui se nie ?',
+            sources: ['sep', 'spade-mediaeval-liar', 'kretzmann-cambridge-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Relu à la lumière des analyses modernes, le paradoxe exige trois ingrédients : une proposition qui se désigne elle-même, le passage sans réserve de « les choses sont comme elle le dit » à « elle est vraie » et inversement, et le partage exhaustif entre vrai et faux. Chaque famille de solutions médiévales en sacrifie un : la restrictio interdit l’autoréférence, la cassatio dénie à l’énoncé toute signification, Bradwardine et Buridan renforcent les conditions de vérité pour que « les choses sont comme il le dit » ne suffise plus à rendre le menteur vrai.',
+            sources: ['sep', 'kneale-logic'],
+          },
+        ],
       },
       {
         id: 'questions-sur-la-physique-infini',
@@ -2137,6 +2591,18 @@ export const MEDIEVAL: Domain[] = [
           {
             kind: 'interpretation',
             text: 'Les arguments géométriques échangés dans ces disputes, comme les cercles concentriques dont on met les points en correspondance, reviennent chez Galilée, dont le paradoxe des carrés (Discorsi, 1638) pose la même question des infinis comparables, avant que Bolzano (1851) puis Cantor n’en fassent une théorie.',
+            sources: ['sep', 'ferreiros-labyrinth'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La question se traite avec les outils de la logique des termes : « infini » pris au sens syncatégorématique (« quelque grandeur que l’on donne, il y en a une plus grande ») ne désigne qu’un infini potentiel ; pris au sens catégorématique (« il existe une grandeur plus grande que toute grandeur finie »), un infini actuel. Les arguments d’Aristote ne frappent que le second, et Grégoire de Rimini soutient qu’il n’a rien de contradictoire : un tout infini peut contenir une partie qui n’a pas moins de parties que lui, tout en la dépassant, puisqu’il contient tout ce qu’elle contient et davantage.',
+            sources: ['kretzmann-cambridge-history', 'sep'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Si le problème résiste, c’est qu’il mêle une question mathématique, la composition du continu et la comparaison des multitudes infinies, à une question théologique, la puissance de Dieu de créer un infini en acte, sans disposer ni d’une théorie de la mesure ni d’une théorie des ensembles : les correspondances terme à terme qui semblaient réfuter l’infini actuel en deviendront la définition chez Dedekind et Cantor.',
             sources: ['sep', 'ferreiros-labyrinth'],
           },
         ],
