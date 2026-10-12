@@ -174,6 +174,17 @@ export const FIGURES_ANTIQUITE: Record<string, Mathematician[]> = {
       mactutor: 'Domninus',
       sources: ['mactutor'],
     },
+    {
+      id: 'boece',
+      name: 'Boèce',
+      years: [480, 524],
+      yearsApprox: true,
+      origin: 'Rome et Pavie',
+      bio: 'Consul en 510, Boèce adapte en latin l’Arithmétique de Nicomaque : son manuel, pilier du quadrivium, transmet des siècles durant la théorie pythagoricienne des nombres. Emprisonné par Théodoric, il y écrit la Consolation de philosophie avant d’être exécuté.',
+      theoryId: 'ag-arithmetique-pythagoricienne',
+      mactutor: 'Boethius',
+      sources: ['mactutor'],
+    },
   ],
   'logique-antique': [
     {
