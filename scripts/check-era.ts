@@ -55,6 +55,15 @@ const unreadable: string[] = [];
 for (const [name, f] of Object.entries(FILES)) {
   try {
     const m = (await import(f.mod)) as Record<string, unknown>;
+    // fiches courtes (EXTRA_FIGURES) : fusionnées dans les domaines comme dans
+    // src/data/index.ts, sinon les liens vers ces figures sont des faux positifs
+    let extras: Record<string, Domain['mathematicians']> = {};
+    try {
+      const fm = (await import(`../src/data/figures/${name}`)) as Record<string, unknown>;
+      extras = (fm[`FIGURES_${name.toUpperCase().replace(/-/g, '_')}`] ?? {}) as Record<string, Domain['mathematicians']>;
+    } catch {
+      // pas de fichier de fiches (ou en cours d'écriture) : on valide sans
+    }
     const raw = (m[f.domains] ?? []) as Domain[];
     // défense contre un fichier en cours d'écriture : objets incomplets écartés
     const sane = raw.filter(
@@ -69,7 +78,7 @@ for (const [name, f] of Object.entries(FILES)) {
         Array.isArray(d.debates),
     );
     loaded.set(name, {
-      domains: sane,
+      domains: sane.map((d) => (extras[d.id] ? { ...d, mathematicians: [...d.mathematicians, ...extras[d.id]] } : d)),
       sources: ((m[f.sources] ?? []) as Source[]).filter((s) => s && s.id),
       links: ((m[f.links] ?? []) as Link[]).filter((l) => l && l.source && l.target),
       mlinks: ((m[f.mlinks] ?? []) as MathematicianLink[]).filter((l) => l && l.source && l.target),
