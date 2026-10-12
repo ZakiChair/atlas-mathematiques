@@ -143,7 +143,28 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'am-ideaux-et-invariants',
         featured: {
           signature: { kind: 'interpretation', text: 'Relie symétries et lois de conservation (1918), puis refonde l’algèbre sur les structures.', sources: ['dick-noether', 'corry-structures'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Sa méthode « conceptuelle » remplace les calculs par des hypothèses de structure : la condition de chaîne ascendante (1921) suffit à la décomposition primaire, cinq axiomes (1927) caractérisent les anneaux où tout idéal se factorise de façon unique en idéaux premiers, et les théorèmes d’homomorphisme et d’isomorphisme qu’elle formule à cette occasion, avec les modules et les groupes à opérateurs, deviennent le vocabulaire commun de l’algèbre. Van der Waerden dira que, pour elle, les relations entre nombres, fonctions et opérations ne devenaient claires et généralisables qu’une fois détachées de tout objet particulier.',
+              sources: ['corry-structures', 'kleiner-abstract-algebra', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'À partir de 1927, elle porte la même méthode dans l’algèbre non commutative : Hyperkomplexe Größen und Darstellungstheorie (1929) refonde la théorie des représentations sur les modules, et sa collaboration avec Hasse et Brauer relie les algèbres simples centrales à la théorie du corps de classes (1932). Sa conférence plénière au congrès international de Zurich (1932), sur les systèmes hypercomplexes dans leurs relations avec l’algèbre commutative et la théorie des nombres, et le prix Ackermann-Teubner partagé la même année avec Artin consacrent cette synthèse.',
+              sources: ['mactutor', 'kleiner-abstract-algebra', 'dick-noether'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Son influence déborde l’algèbre : c’est en l’écoutant à Göttingen, vers 1925-1926, qu’Alexandrov et Hopf comprennent que les nombres de Betti et les coefficients de torsion de Poincaré sont les invariants de groupes abéliens d’homologie, lecture qui rend la topologie « algébrique » et prépare l’algèbre homologique. Alexandrov, dans son éloge de 1935, fait remonter à elle cette orientation de la topologie moderne.',
+              sources: ['dieudonne-topology', 'james-history-topology', 'dick-noether'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Elle enseigne comme elle cherche : ses cours exposent des recherches en train de se faire, et nombre de ses résultats paraissent sous le nom d’élèves ou de collègues — le second volume de Moderne Algebra de van der Waerden (1931) est pour une large part sa théorie mise en ordre. Weyl, dans son éloge funèbre, juge que son importance pour l’algèbre ne se lit pas entièrement dans ses propres articles : beaucoup de ses suggestions n’ont pris forme que dans les travaux de ses élèves et de ses collaborateurs.',
+              sources: ['mactutor', 'dick-noether', 'corry-structures'],
+            },
+          ],
           headlineResultIds: ['theoreme-de-noether', 'idealtheorie-in-ringbereichen', 'theoreme-de-brauer-hasse-noether'],
         },
       },
@@ -525,7 +546,28 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'tnx-methodes-analytiques',
         featured: {
           signature: { kind: 'fait', text: 'Autodidacte aux carnets de formules ; avec Hardy, compte asymptotiquement les partitions.', sources: ['kanigel-ramanujan', 'gowers-companion'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Des tables de MacMahon, il tire plus qu’une formule asymptotique : les congruences p(5n + 4) ≡ 0 (mod 5), p(7n + 5) ≡ 0 (mod 7) et p(11n + 6) ≡ 0 (mod 11), dont il démontre les deux premières à l’aide des fonctions elliptiques et des équations modulaires (1919). Il retrouve aussi, sans pouvoir d’abord les prouver, les identités que Rogers avait publiées en 1894 dans l’indifférence générale ; leur preuve commune paraît en 1919.',
+              sources: ['kanigel-ramanujan', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Avec Hardy, il montre en 1917 que presque tout entier n possède environ log log n facteurs premiers distincts : ce théorème sur l’« ordre normal » d’une fonction arithmétique est l’acte de naissance de la théorie probabiliste des nombres, qu’Erdős et Kac prolongent en 1940 en montrant que ce nombre de facteurs suit une loi de Gauss.',
+              sources: ['gowers-companion', 'kanigel-ramanujan'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses séries pour 1/π (1914), tirées des équations modulaires et d’une convergence foudroyante, serviront aux calculs de π sur ordinateur ; ses résultats sur les séries hypergéométriques, où il retrouve seul des théorèmes de Gauss et de Kummer, sur les fractions continues et sur les fonctions modulaires remplissent trois carnets que G. N. Watson, puis Bruce Berndt à partir de 1985, mettent plusieurs décennies à démontrer et à éditer.',
+              sources: ['kanigel-ramanujan', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Hardy, qui tenait leur rencontre pour l’épisode le plus romanesque de sa vie, juge que son défaut de formation fut à la fois sa limite — des énoncés faux sur les nombres premiers, l’ignorance de la variable complexe — et la source de son originalité : formé seul, il devine par le calcul et l’analogie ce que personne ne cherchait. Kanigel voit dans ce destin la figure même du génie reconnu trop tard, devenue un symbole national en Inde.',
+              sources: ['hardy-apology', 'kanigel-ramanujan', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['formule-asymptotique-des-partitions', 'conjecture-de-ramanujan', 'lettre-de-ramanujan-a-hardy'],
         },
       },
@@ -898,7 +940,28 @@ export const STRUCTURES_A: Domain[] = [
         theoryId: 'top-analysis-situs',
         featured: {
           signature: { kind: 'fait', text: 'Fonde la topologie algébrique et l’étude qualitative des équations différentielles.', sources: ['dieudonne-topology', 'gowers-companion'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'L’Analysis situs fixe une méthode plus qu’un catalogue de résultats : découper une variété en cellules, lire dans les tableaux d’incidence les nombres de Betti et la torsion, et ramener ainsi une question de forme à un calcul. Pendant une quarantaine d’années, l’essentiel des idées et des techniques de la topologie algébrique dérive de ces mémoires ; leurs démonstrations, souvent incomplètes, sont reprises et rendues rigoureuses par Brouwer, Veblen et Alexander.',
+              sources: ['dieudonne-topology', 'james-history-topology', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans Sur les courbes définies par une équation différentielle (1881-1886), il renonce à intégrer pour décrire l’allure globale des trajectoires : classification des points singuliers (cols, nœuds, foyers, centres), cycles limites, indice. Le mémoire sur les trois corps (1890) et les Méthodes nouvelles de la mécanique céleste (1892-1899) y ajoutent le théorème de récurrence, les intégrales invariantes, l’application de premier retour et les points homoclines : l’outillage de la théorie des systèmes dynamiques.',
+              sources: ['dieudonne-abrege', 'aubin-dahan-chaos', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Les fonctions fuchsiennes (1881-1884), nées d’un problème d’équations différentielles, lui révèlent que leurs transformations sont celles de la géométrie de Lobatchevski : le disque qui porte son nom en découle, et avec lui le lien durable entre analyse complexe, géométrie hyperbolique et groupes discrets, jusqu’au théorème d’uniformisation (1907, en même temps que Koebe) qui répond au vingt-deuxième problème de Hilbert.',
+              sources: ['gray-worlds', 'gray-hilbert-challenge', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Dernier « universaliste », il est aussi un philosophe des sciences lu bien au-delà des mathématiques : ses essais (La Science et l’Hypothèse, La Valeur de la Science, Science et Méthode) défendent le conventionnalisme géométrique, et ses articles de 1905-1906 contre le logicisme et les définitions imprédicatives pèsent sur Russell et sur les débats de fondements. Il n’a pourtant pas fait école : sans élèves directs, il fut, selon ses biographes, plus utilisé pour ses résultats qu’imité dans ses méthodes.',
+              sources: ['gray-platos-ghost', 'grattan-guinness-search', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['analysis-situs', 'conjecture-de-poincare', 'sur-le-probleme-des-trois-corps'],
         },
       },
