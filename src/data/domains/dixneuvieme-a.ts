@@ -218,6 +218,40 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Étant donnés deux nombres premiers impairs distincts p et q, les questions « p est-il un carré modulo q ? » et « q est-il un carré modulo p ? » ont la même réponse, sauf si p et q sont tous deux de la forme 4k + 3, auquel cas elles sont opposées.',
         comment: 'Devinée par Euler, énoncée par Legendre en 1785 avec une preuve incomplète, la loi est démontrée par Gauss à dix-neuf ans et publiée dans les Disquisitiones. Il la nomme theorema aureum et en donnera huit démonstrations ; elle devient le modèle de toutes les lois de réciprocité supérieures, jusqu’à la théorie du corps de classes.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La loi se devine sur des tables : pour savoir si 5 est un carré modulo un nombre premier p, il suffit de regarder le reste de p modulo 5 — oui si p ≡ ±1, non si p ≡ ±2 ; ainsi 4² ≡ 5 (mod 11), tandis que 5 n’est aucun des carrés 1, 2, 4 modulo 7. Euler avait dégagé de telles régularités de ses tables de diviseurs des nombres x² + Ny², et Gauss redécouvre la loi seul, en 1795, par l’examen des cas, avant d’en chercher la démonstration.',
+            sources: ['weil-number-theory', 'dunnington-gauss'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Critère d’Euler : pour p premier impair et a non divisible par p, a^((p−1)/2) ≡ +1 (mod p) si a est un carré modulo p, et ≡ −1 sinon. C’est le point de départ de toutes les démonstrations.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme de Gauss (troisième démonstration, 1808) : on multiplie a par 1, 2, …, (p − 1)/2 et l’on réduit chaque produit modulo p dans l’intervalle de −p/2 à p/2 ; si n de ces restes sont négatifs, a est un carré modulo p exactement lorsque n est pair.',
+            sources: ['goldstein-schappacher-schwermer', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour a = q premier impair, n a la parité de la somme des parties entières de kq/p pour k = 1, …, (p − 1)/2, somme qui compte les points à coordonnées entières situés sous la diagonale d’un rectangle de côtés p/2 et q/2.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'En échangeant les rôles de p et q, on compte les points situés au-dessus de la diagonale ; aucun point entier n’étant sur la diagonale, les deux comptes valent ensemble (p − 1)/2 × (q − 1)/2, le nombre total de points du rectangle.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le produit des deux symboles vaut donc (−1) élevé à la puissance (p − 1)/2 × (q − 1)/2, qui ne vaut −1 que si p et q sont tous deux de la forme 4k + 3 : c’est la loi. Cette présentation géométrique est celle d’Eisenstein (1844) ; la première preuve de Gauss (1796) procédait par une récurrence sur les nombres premiers, bien plus laborieuse.',
+            sources: ['goldstein-schappacher-schwermer', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'disquisitiones-arithmeticae',
@@ -276,6 +310,40 @@ export const DIXNEUVIEME_A: Domain[] = [
             sources: ['dieudonne-abrege', 'goldstein-schappacher-schwermer'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les nombres premiers semblent se répartir équitablement entre les classes possibles : parmi les premiers impairs, il y a « autant » de 4k + 1 que de 4k + 3. Dirichlet démontre bien plus que l’infinité : chacune des φ(m) progressions admissibles reçoit la même part des nombres premiers, au sens où la somme des 1/pˢ étendue à ses premiers croît, quand s tend vers 1, comme 1/φ(m) fois la somme étendue à tous les premiers.',
+            sources: ['dieudonne-abrege', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Les caractères modulo m sont les fonctions χ des entiers, périodiques de période m, nulles sur les entiers non premiers à m, multiplicatives (χ(ab) = χ(a)χ(b)) et à valeurs racines de l’unité ; il y en a φ(m), et leur orthogonalité isole une classe : la somme des χ(a)⁻¹χ(n) sur tous les χ vaut φ(m) si n ≡ a (mod m), et 0 sinon.',
+            sources: ['dieudonne-abrege', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'À chaque caractère on associe la série L(s, χ) = Σ χ(n)/nˢ, qui se factorise comme ζ en un produit sur les nombres premiers ; en prenant le logarithme, log L(s, χ) vaut Σ χ(p)/pˢ à un terme borné près.',
+            sources: ['dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’orthogonalité donne alors Σ 1/pˢ, somme sur les premiers p ≡ a (mod m), égale à (1/φ(m)) Σ_χ χ(a)⁻¹ log L(s, χ), à un terme borné près. Pour le caractère principal χ₀, L(s, χ₀) se comporte comme ζ(s) et tend vers l’infini quand s tend vers 1.',
+            sources: ['dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point crucial : pour χ ≠ χ₀, L(1, χ) ≠ 0, de sorte que log L(s, χ) reste borné. Le cas difficile est celui des caractères réels ; Dirichlet le règle en reconnaissant dans L(1, χ) une quantité liée au nombre de classes de formes quadratiques, nécessairement strictement positive.',
+            sources: ['dieudonne-abrege', 'goldstein-schappacher-schwermer'],
+          },
+          {
+            kind: 'fait',
+            text: 'La somme des 1/pˢ sur les premiers de la progression tend donc vers l’infini quand s tend vers 1 : ces premiers sont en nombre infini, et leur « densité » vaut 1/φ(m).',
+            sources: ['dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'nombres-ideaux',
@@ -322,6 +390,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout entier n > 1, il existe au moins un nombre premier strictement compris entre n et 2n.',
         comment: 'Bertrand l’avait vérifié jusqu’à trois millions sans savoir le démontrer (1845). Tchebychev l’établit dans le même mémoire qui donne les premiers encadrements de π(x) du bon ordre x/ln x. Ramanujan (1919) puis Erdős (1932) en donneront des démonstrations élémentaires courtes.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Bertrand avait besoin de l’énoncé pour un théorème sur les permutations : son mémoire de 1845 sur le nombre de valeurs que peut prendre une fonction de n lettres s’appuie sur l’existence d’un nombre premier entre n/2 et n − 2. Si la densité des premiers au voisinage de x est de l’ordre de 1/ln x, l’intervalle de n à 2n en contient environ n/ln n, bien plus qu’un seul : la difficulté n’est pas la plausibilité, mais d’exclure tout « trou » accidentel.',
+            sources: ['wussing-group-concept', 'mactutor', 'dieudonne-abrege'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Tchebychev part de l’identité log(n!) = Σ ψ(n/k), somme sur k ≥ 1, où ψ(x) désigne la somme des log p étendue aux puissances de nombres premiers pʲ ≤ x : chaque facteur premier de n! y est compté avec sa multiplicité, et la formule de Stirling donne log(n!) avec précision.',
+            sources: ['dieudonne-abrege', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'En combinant cette identité en x, x/2, x/3, x/5 et x/30 — la somme alternée T(x) − T(x/2) − T(x/3) − T(x/5) + T(x/30), avec T(x) = log(⌊x⌋!) —, il isole une expression comprise entre ψ(x) − ψ(x/6) et ψ(x), ce qui donne, pour x assez grand, A·x < ψ(x) < (6A/5)·x avec A ≈ 0,921.',
+            sources: ['dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces bornes se traduisent en un encadrement de π(x) par 0,92 x/ln x et 1,11 x/ln x environ ; pour x assez grand, la borne inférieure de π(2x) dépasse la borne supérieure de π(x), donc au moins un nombre premier s’intercale entre x et 2x. Les petites valeurs se vérifient directement sur la table des nombres premiers.',
+            sources: ['dieudonne-abrege', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les démonstrations élémentaires ultérieures remplacent ψ par le coefficient binomial C(2n, n) : tout nombre premier compris entre n et 2n le divise, et l’on montre que, sans ces facteurs, les autres puissances de premiers qui le divisent sont trop petites pour atteindre sa taille, au moins 4ⁿ/(2n + 1).',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'critere-d-eisenstein',
@@ -333,6 +430,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si tous les coefficients d’un polynôme à coefficients entiers, sauf le dominant, sont divisibles par un premier p, et si le coefficient constant ne l’est pas par p², alors le polynôme est irréductible sur les rationnels.',
         comment: 'Publié en 1850 dans le Journal de Crelle, dans un mémoire sur la division de la lemniscate qui prolonge Abel et Gauss, le critère est devenu l’outil canonique pour prouver l’irréductibilité, notamment celle des polynômes cyclotomiques.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’exemple type est le polynôme x^(p−1) + x^(p−2) + … + x + 1 des racines p-ièmes de l’unité (p premier), dont Gauss avait démontré l’irréductibilité par un argument ad hoc : en remplaçant x par x + 1, il devient x^(p−1) + p x^(p−2) + … + p, où tous les coefficients, sauf le premier, sont les binomiaux C(p, k), divisibles par p, et le dernier vaut p, non divisible par p². Le critère transforme cette coïncidence en règle : regarder le polynôme modulo p, où il se réduit à une seule puissance de x.',
+            sources: ['goldstein-schappacher-schwermer', 'bourbaki-elements-histoire'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit f = aₙxⁿ + … + a₀, où p divise a₀, …, aₙ₋₁ mais ne divise pas aₙ, et où p² ne divise pas a₀. Supposons f = gh, produit de deux polynômes à coefficients entiers de degrés r et s strictement positifs (si f se factorise sur les rationnels, il se factorise déjà sur les entiers, par le lemme de Gauss).',
+            sources: ['bourbaki-elements-histoire', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Modulo p, f se réduit à aₙxⁿ ; comme les polynômes modulo p se factorisent de manière unique, g et h se réduisent à des monômes bxʳ et cxˢ : tous leurs coefficients, sauf les dominants, sont divisibles par p.',
+            sources: ['bourbaki-elements-histoire'],
+          },
+          {
+            kind: 'fait',
+            text: 'En particulier, les coefficients constants de g et de h sont tous deux divisibles par p, donc a₀, leur produit, l’est par p² — contradiction. Le critère vaut pour tout anneau factoriel, et Schönemann l’avait publié dès 1846 sous une forme équivalente, en travaillant modulo p².',
+            sources: ['bourbaki-elements-histoire', 'goldstein-schappacher-schwermer'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-kronecker-weber',
@@ -344,6 +465,40 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute extension finie des rationnels dont le groupe de Galois est commutatif est contenue dans un corps engendré par des racines de l’unité.',
         comment: 'Énoncé par Kronecker en 1853, démontré par Weber en 1886 avec une lacune que comble Hilbert en 1896-1897. C’est la première forme de la théorie du corps de classes, que Takagi achèvera en 1920 ; le « rêve de jeunesse » de Kronecker en est l’analogue pour les extensions non commutatives.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le cas quadratique est visible dès Gauss : la somme de Gauss Σ (k/p) ζᵏ, où ζ = e^(2iπ/p) et où (k/p) vaut +1 ou −1 selon que k est ou non un carré modulo p, a pour carré +p ou −p. Ainsi √p ou √−p appartient au corps des racines p-ièmes de l’unité, et tout corps quadratique est contenu dans un corps cyclotomique : l’énoncé général affirme qu’il en va de même de toute extension à groupe de Galois commutatif.',
+            sources: ['goldstein-schappacher-schwermer', 'gowers-companion', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’énoncé ouvre l’analogie que Kronecker poursuivra toute sa vie, son « rêve de jeunesse » : les extensions commutatives de ℚ s’obtiennent par les valeurs de la fonction exponentielle aux points rationnels, comme celles des corps quadratiques imaginaires devraient s’obtenir par les valeurs des fonctions elliptiques à multiplication complexe — une arithmétique engendrée par des fonctions transcendantes.',
+            sources: ['dieudonne-abrege', 'goldstein-schappacher-schwermer'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Un groupe commutatif fini est produit de groupes cycliques d’ordre puissance de nombre premier, et le composé de deux corps cyclotomiques est cyclotomique : il suffit donc de traiter une extension cyclique de degré pᵏ.',
+            sources: ['dieudonne-abrege', 'cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hilbert (1896) suit la ramification des nombres premiers : au moyen de ses groupes d’inertie et de ramification, il montre qu’en composant l’extension avec des corps cyclotomiques convenables, on se ramène à une extension cyclique de degré pᵏ dans laquelle seul le nombre premier p se ramifie.',
+            sources: ['cassels-frohlich', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point décisif est l’absence d’extension de ℚ non ramifiée en tout nombre premier (théorème de Minkowski, 1891 : tout corps de nombres autre que ℚ a un discriminant de valeur absolue supérieure à 1) : en comparant l’extension au sous-corps de même degré du corps des racines p^(k+1)-ièmes de l’unité (pour p impair ; le cas p = 2 demande les racines 2^(k+2)-ièmes), on obtiendrait sinon une telle extension ; l’extension est donc contenue dans ce corps cyclotomique.',
+            sources: ['cassels-frohlich', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les démonstrations ultérieures gardent cette architecture — établir l’énoncé « localement », nombre premier par nombre premier, puis recoller grâce à Minkowski — et le théorème devient le cas le plus simple de la théorie du corps de classes de Takagi (1920) et d’Artin (1927), qui décrit toutes les extensions commutatives d’un corps de nombres quelconque.',
+            sources: ['cassels-frohlich', 'gowers-companion', 'dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'hypothese-de-riemann',
@@ -356,6 +511,18 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Prolongée à tout le plan complexe, la fonction zêta a des zéros « non triviaux » dont la partie réelle serait toujours égale à 1/2.',
         comment: 'En huit pages, son unique mémoire d’arithmétique, Riemann relie la répartition des nombres premiers aux zéros de la fonction zêta et esquisse un programme dont Hadamard et de La Vallée Poussin tireront le théorème des nombres premiers en 1896. L’hypothèse elle-même reste ouverte ; elle est l’un des problèmes du millénaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’équation fonctionnelle de ζ échange s et 1 − s : la droite Re(s) = 1/2 est l’axe de symétrie de la bande critique, et les zéros s’y répartissent symétriquement — qu’ils soient tous sur l’axe est la situation la plus simple. Von Koch montrera en 1901 que l’hypothèse équivaut à une précision maximale du théorème des nombres premiers : π(x) = Li(x) à une erreur de l’ordre de √x ln x près.',
+            sources: ['gowers-companion', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Riemann ne devinait pas à l’aveugle : ses brouillons, déchiffrés par Siegel en 1932, montrent qu’il avait calculé les premiers zéros au moyen d’une formule asymptotique restée inédite, dite depuis de Riemann–Siegel. Hardy prouve en 1914 qu’une infinité de zéros sont sur la droite critique, et les calculs par ordinateur en ont depuis vérifié des milliards, tous sur Re(s) = 1/2, sans qu’aucune preuve générale n’apparaisse.',
+            sources: ['laugwitz-riemann', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'vorlesungen-ueber-zahlentheorie',
@@ -412,6 +579,40 @@ export const DIXNEUVIEME_A: Domain[] = [
             kind: 'interpretation',
             text: 'Le théorème valide a posteriori la méthode de Riemann : l’analyse complexe devient l’outil ordinaire du comptage des premiers, et la question se déplace de l’équivalent asymptotique vers la taille de l’erreur, que l’hypothèse de Riemann gouvernerait.',
             sources: ['gowers-companion'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Gauss raconte dans une lettre à Encke (1849) qu’adolescent, en comptant les nombres premiers par tranches de mille dans les tables, il avait vu leur densité au voisinage de x décroître comme 1/ln x ; en sommant, il obtient le logarithme intégral Li(x) = ∫₂ˣ dt/ln t, équivalent à x/ln x mais bien plus précis : pour x = 3 000 000, l’écart entre Li(x) et le compte réel des quelque 216 000 premiers n’est que de quelques centaines.',
+            sources: ['dunnington-gauss', 'dieudonne-abrege'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour Re(s) > 1, le produit d’Euler ζ(s) = Π (1 − p⁻ˢ)⁻¹ relie ζ aux nombres premiers ; sa dérivée logarithmique −ζ′(s)/ζ(s) = Σ Λ(n)/nˢ, où Λ(n) vaut ln p si n est une puissance du premier p et 0 sinon, code la fonction ψ(x) = Σ Λ(n) pour n ≤ x, et le théorème équivaut à ψ(x) ~ x.',
+            sources: ['dieudonne-abrege', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'ζ se prolonge au-delà de la droite Re(s) = 1 avec un seul pôle, simple, en s = 1, de résidu 1 (Riemann).',
+            sources: ['dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le cœur de la preuve : ζ(1 + it) ≠ 0 pour tout réel t ≠ 0. Une forme devenue classique de l’argument utilise l’inégalité 3 + 4 cos θ + cos 2θ = 2(1 + cos θ)² ≥ 0, appliquée aux parties réelles de ln ζ en σ, σ + it et σ + 2it : un zéro en 1 + it forcerait un pôle en 1 + 2it, ce qui est impossible.',
+            sources: ['gowers-companion', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une formule d’inversion exprime ψ(x) par une intégrale de −ζ′/ζ · xˢ/s le long d’une droite verticale située dans Re(s) > 1 ; on déplace le contour vers la gauche, et le pôle en s = 1 fournit le terme principal x.',
+            sources: ['dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’absence de zéros sur Re(s) = 1, étendue à une petite région à gauche de cette droite (de La Vallée Poussin, 1899), montre que le reste est négligeable devant x : ψ(x) ~ x, donc π(x) ~ x/ln x. En 1949, Selberg et Erdős parviendront à la même conclusion sans analyse complexe.',
+            sources: ['dieudonne-abrege', 'gowers-companion'],
           },
         ],
       },
@@ -675,6 +876,35 @@ export const DIXNEUVIEME_A: Domain[] = [
             sources: ['kline-thought', 'dieudonne-abrege'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les formules des degrés 3 et 4 reposent sur des fonctions des racines qui ne prennent que peu de valeurs quand on permute celles-ci : (x₁ + ωx₂ + ω²x₃)³ n’en prend que deux pour le degré 3, x₁x₂ + x₃x₄ trois pour le degré 4, d’où des équations auxiliaires de degré moindre. Pour cinq racines, Ruffini puis Cauchy montrent qu’aucune fonction rationnelle ne prend exactement 3 ou 4 valeurs : le mécanisme s’enraye, et c’est ce blocage que le théorème transforme en impossibilité.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Si une équation est résoluble par radicaux, on atteint ses racines par une tour d’extensions du corps des coefficients, chacune obtenue en adjoignant une racine n-ième d’un élément de la précédente (et les racines de l’unité nécessaires) ; à chaque étage correspond, dans le langage de Galois, un quotient commutatif du groupe de l’équation : ce groupe doit être « résoluble ».',
+            sources: ['kleiner-abstract-algebra', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le groupe de l’équation générale de degré 5, à coefficients indéterminés, est le groupe symétrique S₅ tout entier : les seules relations rationnelles entre les racines sont les fonctions symétriques, que toute permutation respecte.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'S₅ n’est pas résoluble : son seul sous-groupe normal propre non trivial est le groupe alterné A₅, à 60 éléments, et A₅ est simple — ses classes de conjugaison comptent 1, 12, 12, 15 et 20 éléments, et aucune réunion de classes contenant l’identité n’a pour cardinal un diviseur de 60 autre que 1 et 60.',
+            sources: ['stillwell-history', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Abel, en 1824, ne dispose pas de ce langage : il montre d’abord que tout radical d’une formule supposée serait une fonction rationnelle des racines (le point que Ruffini avait admis), puis compte, grâce au théorème de Cauchy (1815) sur le nombre de valeurs d’une fonction de cinq variables, les valeurs que prendraient ces radicaux sous permutation, et aboutit à une contradiction.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'memoire-de-galois',
@@ -719,6 +949,40 @@ export const DIXNEUVIEME_A: Domain[] = [
             kind: 'interpretation',
             text: 'En passant du groupe de permutations des racines au groupe des automorphismes d’une extension de corps — chez Dedekind, puis dans la refonte d’Emil Artin (1942) —, la correspondance devient indépendante des équations et sert de modèle à toutes les théories de « Galois » ultérieures.',
             sources: ['kleiner-abstract-algebra'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le modèle visible est la cyclotomie de Gauss : pour x¹⁷ = 1, les seize racines non triviales se permutent cycliquement par r ↦ r³, et comme 16 = 2 × 2 × 2 × 2, elles se regroupent en « périodes » de 8, 4 puis 2 racines, chacune racine d’une équation du second degré sur la précédente — d’où le polygone à dix-sept côtés construit à la règle et au compas. Galois y lit la règle générale : ce sont les sous-groupes successifs du groupe des permutations « légitimes » des racines qui organisent toute résolution.',
+            sources: ['kleiner-abstract-algebra', 'neumann-galois'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit E le corps engendré sur le corps K des coefficients par les racines d’une équation sans racine multiple. Le groupe G de l’équation est l’ensemble des permutations des racines qui conservent toute relation rationnelle, à coefficients dans K, entre elles — aujourd’hui, les automorphismes de E qui fixent K.',
+            sources: ['neumann-galois', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Galois montre d’abord qu’une combinaison V = a₁x₁ + … + aₙxₙ des racines, à coefficients entiers bien choisis, les engendre toutes : chaque racine est fonction rationnelle de V. Le groupe se lit alors sur les racines de l’équation irréductible dont V est solution, et son ordre est le degré de cette équation.',
+            sources: ['neumann-galois'],
+          },
+          {
+            kind: 'fait',
+            text: 'Adjoindre à K une quantité auxiliaire remplace G par le sous-groupe H des permutations qui la fixent ; inversement, les quantités fixées par un sous-groupe H forment un corps intermédiaire. Les deux opérations sont inverses l’une de l’autre : sous-groupes et corps intermédiaires se correspondent, en renversant les inclusions.',
+            sources: ['neumann-galois', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si l’on adjoint toutes les racines d’une équation auxiliaire, le sous-groupe H obtenu est « propre » — ses translatés à gauche et à droite coïncident : c’est un sous-groupe normal — et le quotient G/H est lui-même le groupe, sur K, du corps intermédiaire ainsi obtenu. Cette distinction entre décompositions propres et impropres est le cœur de la lettre à Chevalier.',
+            sources: ['neumann-galois'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lorsque K contient les racines p-ièmes de l’unité, adjoindre la racine p-ième d’un élément de K laisse G inchangé ou l’abaisse à un sous-groupe normal d’indice p. Une résolution par radicaux correspond donc à une chaîne de sous-groupes normaux emboîtés, à quotients d’ordre premier, descendant de G jusqu’à l’identité : c’est le critère de résolubilité — et ce que S₅ ne possède pas.',
+            sources: ['neumann-galois', 'kleiner-abstract-algebra'],
           },
         ],
       },
@@ -774,6 +1038,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout groupe fini est isomorphe à un groupe de permutations : le groupe agit sur lui-même par multiplication, et cette action le représente fidèlement.',
         comment: 'Dans le même mémoire de 1854, Cayley définit le groupe par sa table de multiplication, indépendamment de toute équation. Le pas est décisif mais prématuré : il faudra Jordan, Dyck et Weber pour que la définition abstraite s’impose, vers 1880.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans le mémoire de 1854, Cayley écrit le « tableau » de multiplication du groupe : chaque ligne contient tous les éléments, une fois chacun, dans un ordre différent — une ligne est donc une permutation des éléments. C’est ce tableau qui suggère que tout groupe, si abstrait qu’il soit, est un groupe de permutations déguisé.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'À chaque élément g du groupe G, d’ordre n, on associe l’application Lg : x ↦ gx de G dans lui-même. Lg est une bijection de G, d’inverse L(g⁻¹) : c’est la ligne de g dans le tableau.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’application g ↦ Lg respecte le produit : L(gh) = Lg ∘ Lh, puisque (gh)x = g(hx) par associativité.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Elle est injective : si Lg = Lh, alors g = Lg(e) = Lh(e) = h, où e désigne l’élément neutre.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'G est donc isomorphe au sous-groupe formé des Lg dans le groupe des n! permutations de ses propres éléments : c’est la « représentation régulière ». Cayley énonce le résultat en une phrase, comme une évidence ; Jordan puis Dyck lui donneront sa portée.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+        ],
       },
       {
         id: 'matrices-cayley',
@@ -808,6 +1101,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si l’ordre d’un groupe fini est divisible par une puissance d’un nombre premier p^k, il contient des sous-groupes d’ordre p^k ; les sous-groupes d’ordre la puissance maximale sont tous conjugués, et leur nombre est congru à 1 modulo p.',
         comment: 'Ces théorèmes, qui prolongent un résultat de Cauchy de 1845, sont le premier outil général de la théorie des groupes finis : toute classification, jusqu’à celle des groupes simples du XXᵉ siècle, commence par eux.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le théorème de Lagrange dit que l’ordre d’un sous-groupe divise celui du groupe, mais la réciproque est fausse : le groupe alterné A₄, d’ordre 12, n’a pas de sous-groupe d’ordre 6. Elle devient vraie pour les puissances de nombres premiers : Cauchy l’avait montré pour un nombre premier p lui-même, Sylow l’étend à pᵏ. Dans le groupe S₄, d’ordre 24 = 8 × 3, on compte trois sous-groupes d’ordre 8 et quatre d’ordre 3 : 3 ≡ 1 (mod 2) et 4 ≡ 1 (mod 3), comme l’annonce le troisième théorème.',
+            sources: ['kleiner-abstract-algebra', 'wussing-group-concept'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Sylow travaille, comme Cauchy, dans le langage des substitutions : le groupe est un groupe de permutations, et l’argument le fait agir par conjugaison sur ses propres sous-groupes et par translation sur les classes modulo un sous-groupe. Le point de départ est le théorème de Cauchy (1845) : si p divise l’ordre du groupe, il existe un sous-groupe d’ordre p.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Existence : un p-sous-groupe P d’ordre pʲ < pᵏ n’est jamais maximal. En faisant agir P par translation sur les classes gP, on voit que le nombre de classes fixées — elles forment le quotient N(P)/P du normalisateur de P — est congru au nombre total [G : P] modulo p, donc divisible par p ; par Cauchy, N(P)/P contient un élément d’ordre p, d’où un p-sous-groupe p fois plus grand qui contient P. De proche en proche, on atteint pᵏ.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Conjugaison : si P est d’ordre pᵏ et Q un p-sous-groupe quelconque, on fait agir Q sur les [G : P] classes gP ; ce nombre étant premier à p et les orbites de Q ayant pour tailles des puissances de p, une classe gP est fixée par Q, ce qui signifie Q ⊂ gPg⁻¹. Tout p-sous-groupe est donc contenu dans un conjugué de P, et deux sous-groupes d’ordre pᵏ sont conjugués.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Nombre : P agit par conjugaison sur l’ensemble de ses conjugués ; il n’en fixe qu’un, lui-même, et les autres orbites ont pour tailles des puissances de p non triviales, d’où un nombre de conjugués congru à 1 modulo p. Frobenius (1887) réécrira ces démonstrations pour un groupe abstrait, sans substitutions.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+        ],
       },
       {
         id: 'groupes-de-transformations-lie',
@@ -831,6 +1153,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toutes les séries de composition d’un groupe fini ont même longueur et, à l’ordre près, les mêmes quotients simples.',
         comment: 'Jordan montre l’invariance des ordres des quotients dans son Traité (1870) ; Hölder, en 1889, prouve l’isomorphisme des quotients eux-mêmes. Le théorème fait des groupes simples les « atomes » des groupes finis et lance leur classification.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le modèle est la décomposition d’un entier en facteurs premiers : 12 = 2 × 2 × 3, quel que soit l’ordre des divisions. Pour le groupe cyclique d’ordre 12, les chaînes de sous-groupes d’ordres 12 ⊃ 6 ⊃ 3 ⊃ 1 et 12 ⊃ 4 ⊃ 2 ⊃ 1 ont pour quotients successifs, dans un ordre différent, les mêmes groupes d’ordres 2, 2 et 3 : les séries de composition généralisent la factorisation, les groupes simples y tenant le rôle des nombres premiers.',
+            sources: ['kleiner-abstract-algebra', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Une série de composition d’un groupe fini G est une chaîne G = G₀ ⊃ G₁ ⊃ … ⊃ Gᵣ = {e} où chaque Gᵢ₊₁ est normal dans Gᵢ et où les quotients Gᵢ/Gᵢ₊₁ sont simples ; on l’obtient en choisissant à chaque étape un sous-groupe normal propre maximal.',
+            sources: ['kleiner-abstract-algebra', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'On raisonne par récurrence sur l’ordre de G. Si deux séries de composition commencent par le même sous-groupe G₁, l’hypothèse de récurrence appliquée à G₁ montre qu’elles ont même longueur et mêmes quotients.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si elles commencent par deux sous-groupes normaux maximaux distincts H et K, alors HK = G, et le deuxième théorème d’isomorphisme donne G/H ≅ K/(H ∩ K) et G/K ≅ H/(H ∩ K). Une série de composition de H ∩ K, prolongée par H ou par K, fournit deux séries de G équivalentes entre elles ; chacune se compare à la série de départ correspondante par la récurrence, puisque les deux passent par H (ou par K).',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Jordan (1870) raisonnait sur les ordres des quotients, dans le langage des substitutions ; Hölder (1889), en définissant le groupe quotient de manière abstraite, peut énoncer et prouver l’isomorphisme des quotients eux-mêmes.',
+            sources: ['wussing-group-concept', 'kleiner-abstract-algebra'],
+          },
+        ],
       },
     ],
     sources: ['kleiner-abstract-algebra', 'wussing-group-concept', 'neumann-galois', 'ehrhardt-galois', 'hawkins-lie-groups', 'stedall-sourcebook'],
@@ -1009,6 +1360,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'La courbure de Gauss d’une surface en un point est inchangée par toute déformation qui préserve les longueurs : elle ne dépend que de la métrique intrinsèque, non du plongement dans l’espace.',
         comment: '« Théorème remarquable » des Disquisitiones de 1827 : il explique pourquoi une carte plane exacte du globe est impossible et donne un sens précis à l’idée d’espace courbe « vu de l’intérieur » — celui des habitants bidimensionnels que Helmholtz puis Poincaré imagineront.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une feuille de papier s’enroule en cylindre ou en cône sans se déchirer ni s’étirer, mais aucun morceau de sphère ne s’aplatit : les longueurs mesurées sur la surface interdisent certaines déformations. Gauss définit la courbure par l’image sphérique — l’aire balayée par la normale unitaire, rapportée à l’aire de la portion de surface — et constate, au terme d’un calcul qu’il qualifie lui-même de remarquable, qu’elle s’exprime par les seuls coefficients E, F, G de l’élément de longueur ds² = E du² + 2F du dv + G dv² et leurs dérivées.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La courbure est d’abord définie de l’extérieur : K est la limite du rapport entre l’aire de l’image, sur la sphère unité, de la normale à la surface et l’aire de la portion de surface correspondante ; elle vaut le produit des deux courbures principales introduites par Euler.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Gauss paramètre la surface par deux variables (u, v) et introduit les coefficients E, F, G de l’élément de longueur, puis ceux, D, D′, D″, qui mesurent l’écart de la surface à son plan tangent ; la définition donne K = (DD″ − D′²)/(EG − F²).',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le calcul central : en dérivant les relations entre les vecteurs dérivés de la paramétrisation, il élimine D, D′ et D″ et obtient pour K une formule qui ne fait intervenir que E, F, G et leurs dérivées première et seconde.',
+            sources: ['gray-worlds', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une déformation qui conserve les longueurs conserve ds², donc E, F, G, donc K : c’est le theorema egregium. Gauss en tire aussitôt que la somme des angles d’un triangle formé de géodésiques diffère de deux droits de l’intégrale de K sur le triangle — la formule qui porte aujourd’hui les noms de Gauss et de Bonnet.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+        ],
       },
       {
         id: 'sur-les-principes-de-la-geometrie',
@@ -1103,6 +1483,35 @@ export const DIXNEUVIEME_A: Domain[] = [
             kind: 'interpretation',
             text: 'L’argument de consistance relative par un modèle devient une méthode générale : Klein (1871) et Poincaré (1882) en donnent d’autres versions, et les Grundlagen der Geometrie de Hilbert (1899) l’emploient systématiquement pour prouver l’indépendance des axiomes.',
             sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Lambert avait remarqué (1766) que les formules de la géométrie où la somme des angles d’un triangle est inférieure à deux droits sont celles de la trigonométrie sphérique pour une sphère de rayon imaginaire ; Taurinus (1826) puis Lobatchevski lui-même refont l’observation. Une sphère de rayon iR ayant pour courbure −1/R², il est naturel de chercher la géométrie hyperbolique sur une surface de courbure constante négative — ce qu’offre la pseudosphère, engendrée par la rotation de la tractrice.',
+            sources: ['bonola-non-euclidean', 'gray-worlds'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Sur une surface de courbure constante K = −1/R², Beltrami choisit des coordonnées dans lesquelles l’élément de longueur s’écrit, sur le disque u² + v² < a², ds² = R² [(a² − v²) du² + 2uv du dv + (a² − u²) dv²] / (a² − u² − v²)² ; les géodésiques sont alors exactement les cordes du disque, segments de droites ordinaires.',
+            sources: ['gray-worlds', 'bonola-non-euclidean'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette carte satisfait les axiomes de Lobatchevski : par un point extérieur à une corde passent deux cordes « parallèles », qui la rejoignent sur le bord du disque, et une infinité de cordes qui ne la rencontrent pas ; les points du bord sont à distance infinie, de sorte que le disque représente le plan hyperbolique tout entier.',
+            sources: ['gray-worlds', 'bonola-non-euclidean'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les formules trigonométriques calculées dans cette métrique sont celles de Lobatchevski, R tenant lieu de la constante qui y figure : la géométrie plane hyperbolique est la géométrie intrinsèque des surfaces de courbure −1/R².',
+            sources: ['bonola-non-euclidean', 'gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'La pseudosphère réalise localement une telle surface dans l’espace ordinaire (Hilbert montrera en 1901 qu’aucune surface régulière ne la réalise en entier) ; le disque, lui, en est un modèle complet : une contradiction déduite des axiomes hyperboliques se traduirait en contradiction dans la géométrie euclidienne du disque.',
+            sources: ['gray-worlds', 'bonola-non-euclidean'],
           },
         ],
       },
@@ -1467,6 +1876,35 @@ export const DIXNEUVIEME_A: Domain[] = [
             sources: ['dieudonne-geometrie-algebrique', 'gray-hilbert-challenge'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un décompte de dimensions rend le résultat plausible : les droites de l’espace projectif forment une famille à quatre paramètres, et imposer à une droite d’être contenue dans une surface cubique revient à annuler les quatre coefficients du polynôme de degré 3 obtenu en restreignant l’équation à la droite — quatre conditions pour quatre paramètres, on attend un nombre fini de droites, le même pour toutes les surfaces lisses. Sur la surface x³ + y³ + z³ + w³ = 0, on les voit toutes : les droites x = −ω^a y, z = −ω^b w (ω racine cubique de l’unité, a et b entre 0 et 2) et celles des deux autres appariements des variables font 3 × 9 = 27 droites.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-worlds'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On montre d’abord qu’une surface cubique lisse contient au moins une droite, et un nombre fini : les surfaces cubiques contenant une infinité de droites sont des surfaces réglées, toujours singulières, et le décompte de dimensions assure qu’aucune surface n’échappe à l’existence d’une droite.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-worlds'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par une droite ℓ de la surface passent les plans d’un faisceau ; chaque plan coupe la surface selon ℓ et une conique résiduelle, qui se brise en deux droites pour exactement cinq plans du faisceau — le discriminant de la conique est un polynôme de degré 5 sur le faisceau, à racines simples lorsque la surface est lisse. Ainsi ℓ rencontre dix autres droites, groupées en cinq paires.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les droites qui ne rencontrent pas ℓ se comptent à partir de l’une de ces paires (ℓ′, ℓ″) : toute autre droite de la surface rencontre exactement l’une des trois droites ℓ, ℓ′, ℓ″ du plan qu’elles forment ; on trouve seize droites qui évitent ℓ, d’où 1 + 10 + 16 = 27.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le réseau d’incidence ne dépend pas de la surface : chaque droite en rencontre dix, deux droites disjointes en rencontrent cinq en commun. Schläfli (1858) l’organise en « double-six » et classe les surfaces cubiques réelles selon leur nombre de droites réelles : 27, 15, 7 ou 3.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-worlds'],
+          },
+        ],
       },
       {
         id: 'surfaces-de-riemann',
@@ -1527,6 +1965,35 @@ export const DIXNEUVIEME_A: Domain[] = [
           {
             kind: 'interpretation',
             text: 'Chaque refondation de la géométrie algébrique — géométrique, arithmétique, puis italienne — se mesure dès lors à sa capacité à redémontrer Riemann–Roch : le théorème sert de pierre de touche autant que d’outil.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur la sphère de Riemann (genre 0), les fonctions ayant au plus un pôle simple en un point donné sont les a + b/z : un espace de dimension 2, soit le degré 1 du diviseur plus un. Sur un tore (genre 1), aucune fonction non constante n’a un seul pôle simple — la somme des résidus d’une différentielle sur une surface fermée est nulle — et il faut un pôle double pour obtenir la fonction ℘ de Weierstrass : chaque « trou » coûte une dimension, c’est le terme −g de la formule.',
+            sources: ['gowers-companion', 'dieudonne-geometrie-algebrique', 'bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Riemann construit les fonctions sur la surface par leurs singularités : le principe de Dirichlet lui fournit, pour des pôles prescrits, une fonction harmonique de partie singulière donnée, donc une fonction méromorphe — à condition que ses « périodes », les variations le long des 2g lacets fondamentaux de la surface, soient nulles.',
+            sources: ['laugwitz-riemann', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une fonction à pôles au plus en d points donnés est combinaison d’une constante, de d intégrales élémentaires de seconde espèce (un pôle chacune) et de g intégrales de première espèce ; la nullité des 2g périodes impose 2g conditions linéaires sur ces d + g + 1 coefficients, d’où ℓ(D) ≥ d − g + 1 : l’inégalité de Riemann (1857).',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Roch (1865) mesure le défaut : le rang des 2g conditions n’est pas toujours maximal, et la dimension de l’espace des relations entre elles est le nombre de différentielles de première espèce qui s’annulent aux points du diviseur, noté ℓ(K − D) ; d’où l’égalité ℓ(D) − ℓ(K − D) = d − g + 1.',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les démonstrations suivantes changent d’outils sans changer d’architecture : séries linéaires sur les courbes planes chez Brill et Noether, idéaux du corps des fonctions chez Dedekind et Weber, puis, au XXᵉ siècle, cohomologie des faisceaux, où ℓ(K − D) devient la dimension d’un groupe H¹ et le théorème un énoncé de dualité.',
             sources: ['dieudonne-geometrie-algebrique'],
           },
         ],
@@ -1813,6 +2280,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'L’intégrale d’une fonction complexe le long d’un contour fermé ne dépend que de ses singularités à l’intérieur : elle vaut 2πi fois la somme des résidus, coefficients du terme en 1/(z − a).',
         comment: 'Forgé entre 1825 et 1831, pendant l’exil turinois de Cauchy, le calcul des résidus évalue d’un coup des intégrales réelles réputées intraitables et fonde la théorie des fonctions d’une variable complexe, que Riemann puis Weierstrass reconstruiront chacun à sa manière.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur le cercle unité, z = e^(iθ) et dz = i e^(iθ) dθ : l’intégrale de dz/z vaut ∫₀²π i dθ = 2πi, tandis que celle de zⁿ dz est nulle pour tout entier n ≠ −1, puisque e^(i(n+1)θ) revient à sa valeur de départ. Une fonction développée en puissances positives et négatives de z − a ne laisse donc, après intégration autour de a, que 2πi fois le coefficient de 1/(z − a) : son « résidu ».',
+            sources: ['bottazzini-higher-calculus', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Théorème intégral (1825) : si f est dérivable au sens complexe à l’intérieur d’un contour fermé et sur celui-ci, son intégrale le long du contour est nulle. Cauchy le montre en déformant continûment le chemin : la variation de l’intégrale est nulle en vertu des relations entre les dérivées partielles de f = u + iv (∂u/∂x = ∂v/∂y, ∂u/∂y = −∂v/∂x), relations qui remontent à d’Alembert et Euler.',
+            sources: ['bottazzini-higher-calculus', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si f possède des singularités isolées a₁, …, aₖ à l’intérieur du contour, on les entoure de petits cercles : le contour extérieur se déforme, sans traverser de singularité, en la réunion de ces petits cercles, et l’intégrale vaut la somme des intégrales sur chacun d’eux.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Autour d’un pôle a, f s’écrit g(z)/(z − a)ᵐ avec g dérivable, ou, de façon équivalente, se développe en puissances positives et négatives de z − a (série de Laurent, 1843) ; l’intégrale sur le petit cercle vaut 2πi fois le coefficient de 1/(z − a), que Cauchy nomme résidu et calcule, pour un pôle simple, comme la limite de (z − a) f(z).',
+            sources: ['bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Application : pour ∫ dx/(1 + x²) de −∞ à +∞, on ferme le contour par un grand demi-cercle, sur lequel l’intégrande devient négligeable ; seul le pôle i est enfermé, de résidu 1/(2i), d’où la valeur 2πi × 1/(2i) = π. Dès son mémoire de 1814, Cauchy retrouvait par ce passage au complexe des intégrales définies d’Euler et de Laplace.',
+            sources: ['bottazzini-higher-calculus', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'fundamenta-nova',
@@ -1836,6 +2332,40 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Un nombre irrationnel qui se laisse approcher par des rationnels « trop bien » — avec des fractions d’erreur inférieure à toute puissance du dénominateur — ne peut être racine d’aucune équation à coefficients entiers : il est transcendant.',
         comment: 'Les « nombres de Liouville » (comme 0,110001000…, avec des 1 aux positions factorielles) sont les premiers nombres démontrés transcendants, alors qu’on ne savait même pas si de tels nombres existaient. La méthode d’approximation diophantienne mènera aux théorèmes de Thue, Siegel et Roth.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un rationnel p/q n’approche un irrationnel algébrique que de façon limitée : si α est racine d’un polynôme P de degré n à coefficients entiers, P(p/q) est une fraction non nulle de dénominateur qⁿ, donc d’au moins 1/qⁿ en valeur absolue ; comme P(p/q) est à peu près P′(α)(p/q − α), l’écart |α − p/q| ne peut descendre sous une constante fois 1/qⁿ. Le nombre dont les décimales valent 1 aux rangs 1, 2, 6, 24, 120, … et 0 ailleurs est au contraire approché par ses troncatures p/q, avec q = 10^(k!), à moins de 2/q^(k+1) : il bat toute puissance fixée de q, il n’est donc algébrique d’aucun degré.',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit α un irrationnel racine d’un polynôme P de degré n à coefficients entiers, choisi de degré minimal ; P n’a alors aucune racine rationnelle, donc P(p/q) ≠ 0 pour tout rationnel p/q.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le nombre qⁿ P(p/q) est un entier non nul : |P(p/q)| ≥ 1/qⁿ.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par le théorème des accroissements finis, |P(p/q)| = |P(p/q) − P(α)| ≤ M |p/q − α| dès que p/q est dans un voisinage fixé de α, où M majore |P′| sur ce voisinage.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’où |α − p/q| ≥ 1/(M qⁿ) pour tout p/q assez proche de α et, quitte à diminuer la constante, pour tout rationnel p/q : c’est l’inégalité de Liouville (notes de 1844, mémoire détaillé de 1851).',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un nombre qui admet, pour tout exposant N, des approximations p/q avec |α − p/q| < 1/qᴺ viole cette inégalité pour N > n, quel que soit n : il n’est algébrique d’aucun degré, il est transcendant. C’est le cas de la somme des 10^(−k!), et Liouville en construit ainsi toute une classe.',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-l-application-conforme',
@@ -1847,6 +2377,30 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout domaine simplement connexe du plan, qui n’est ni le plan tout entier ni le plan privé d’un point, peut être appliqué biunivoquement sur le disque unité par une fonction analytique, qui conserve les angles.',
         comment: 'Énoncé dans la thèse de 1851, avec une démonstration fondée sur le « principe de Dirichlet » que Weierstrass ruinera en 1870 ; Hilbert le réparera en 1900. Le théorème fait des fonctions analytiques des objets géométriques et reste central en physique (aérodynamique, électrostatique).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Riemann pense en physicien : une fonction analytique est un couple de fonctions harmoniques conjuguées, comme le potentiel et la fonction de courant d’un écoulement plan. Appliquer un domaine sur le disque revient à y trouver un « potentiel » harmonique, nul au bord, avec une singularité logarithmique en un point intérieur — ce qu’une membrane tendue ou une plaque chauffée semblent toujours réaliser. Riemann note aussi que la représentation est unique dès qu’on fixe l’image d’un point intérieur et celle d’un point du bord.',
+            sources: ['laugwitz-riemann', 'bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Tout repose sur la fonction de Green du domaine Ω en un point a : G = −ln|z − a| + h, où h est harmonique dans Ω et vaut ln|z − a| sur le bord, de sorte que G s’annule au bord et est positive à l’intérieur. Si h̃ désigne l’harmonique conjuguée de h (elle existe parce que Ω est simplement connexe), la fonction f(z) = (z − a) e^(−h − i h̃), de module e^(−G), envoie le bord sur le cercle unité et l’intérieur dans le disque, avec f(a) = 0 ; un comptage des zéros montre qu’elle est bijective.',
+            sources: ['laugwitz-riemann', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour obtenir h, Riemann invoque le principe de Dirichlet : parmi les fonctions qui prennent au bord les valeurs ln|z − a|, celle qui rend minimale l’intégrale de |grad u|² est harmonique ; l’existence du minimum lui paraît évidente, l’intégrale étant positive.',
+            sources: ['laugwitz-riemann', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Weierstrass montre en 1870, par un exemple, qu’une borne inférieure n’est pas toujours atteinte : la preuve de Riemann est incomplète. Schwarz et Carl Neumann établissent l’existence par d’autres voies (procédé alterné, 1870) pour des domaines à bord régulier ; Hilbert justifie le principe de Dirichlet lui-même en 1900-1904.',
+            sources: ['bottazzini-higher-calculus', 'mactutor', 'laugwitz-riemann'],
+          },
+        ],
       },
       {
         id: 'integrale-de-riemann',
@@ -1900,6 +2454,35 @@ export const DIXNEUVIEME_A: Domain[] = [
             sources: ['kline-thought', 'gray-platos-ghost'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La fonction f(x) = Σ bⁿ cos(aⁿπx), avec 0 < b < 1 et a entier impair, superpose des cosinus de plus en plus serrés et de plus en plus faibles : la série des amplitudes bⁿ converge, d’où la continuité, mais celle des pentes (ab)ⁿ diverge dès que ab > 1. Chaque terme ajoute des oscillations plus fines que les précédentes : à toute échelle, la courbe est un zigzag, et une tangente n’a nulle part le temps de se stabiliser.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Continuité : |bⁿ cos(aⁿπx)| ≤ bⁿ et Σ bⁿ converge ; la série converge donc uniformément (critère de Weierstrass), et une limite uniforme de fonctions continues est continue.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la non-dérivabilité en un point x₀ quelconque, Weierstrass suppose ab > 1 + 3π/2 et encadre x₀ par deux suites de points y_m < x₀ < z_m, de la forme (α_m ∓ 1)/aᵐ où α_m est l’entier le plus proche de aᵐx₀ : leur écart à x₀ est de l’ordre de a^(−m).',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le taux d’accroissement entre x₀ et ces points se coupe en deux : les m premiers termes de la série y contribuent au plus, en valeur absolue, π(ab)ᵐ/(ab − 1), par le théorème des accroissements finis ; les termes d’indice au moins m, grâce au choix des points, sont tous de même signe et leur somme dépasse (2/3)(ab)ᵐ en valeur absolue.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Comme ab > 1 + 3π/2, on a 2/3 > π/(ab − 1) : le second morceau l’emporte, le taux d’accroissement dépasse en valeur absolue (ab)ᵐ (2/3 − π/(ab − 1)), qui tend vers l’infini avec m, et son signe est opposé des deux côtés de x₀. Aucune dérivée, même infinie, n’existe en x₀.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'coupures-de-dedekind',
@@ -1923,6 +2506,40 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le nombre e, base des logarithmes naturels, n’est racine d’aucune équation polynomiale à coefficients entiers.',
         comment: 'Premier nombre « naturel » démontré transcendant, après les exemples fabriqués de Liouville. La méthode d’Hermite — approximations simultanées par des intégrales — sera adaptée par Lindemann à π en 1882, puis généralisée par les théorèmes de Lindemann–Weierstrass et de Gelfond–Schneider.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'e = 1 + 1/1! + 1/2! + 1/3! + … est approché par ses sommes partielles, rationnels de dénominateur n!, avec une erreur inférieure à 2/(n + 1)! ; c’est ce qui donne l’irrationalité : si e valait p/q, multiplier par q! laisserait un entier strictement compris entre 0 et 1. Pour la transcendance, il faut contrôler à la fois e, e², …, eⁿ : Hermite fabrique, par des intégrales de polynômes contre e^(−t), des fractions de même dénominateur qui les approchent toutes « trop bien » pour qu’une relation a₀ + a₁e + … + aₙeⁿ = 0 à coefficients entiers soit possible.',
+            sources: ['hairer-wanner-analysis', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Supposons a₀ + a₁e + … + aₙeⁿ = 0 avec des entiers aᵢ et a₀ ≠ 0. Pour un nombre premier p grand, on introduit le polynôme f(x) = x^(p−1) (x − 1)^p (x − 2)^p … (x − n)^p / (p − 1)! et les intégrales I(k) = ∫₀ᵏ e^(k−t) f(t) dt pour k = 0, 1, …, n.',
+            sources: ['kline-thought', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par intégrations par parties répétées, I(k) = eᵏ F(0) − F(k), où F = f + f′ + f″ + … est la somme des dérivées de f ; donc Σ aₖ I(k) = F(0) Σ aₖ eᵏ − Σ aₖ F(k) = −Σ aₖ F(k).',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Côté arithmétique : les dérivées de f aux points 0, 1, …, n sont des entiers, tous divisibles par p sauf f^(p−1)(0) = (−1)^(np) (n!)^p, qui ne l’est pas dès que p > n ; ainsi Σ aₖ F(k) est un entier congru à a₀ f^(p−1)(0) modulo p, donc non nul si de plus p > |a₀|.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Côté analytique : sur [0, n], |f(t)| est majoré par C^p/(p − 1)! pour une constante C indépendante de p, de sorte que |Σ aₖ I(k)| tend vers 0 quand p tend vers l’infini.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un entier non nul de valeur absolue inférieure à 1 : contradiction. Hermite travaillait en 1873 avec des approximations rationnelles simultanées de e, e², …, eⁿ construites par de telles intégrales ; cette forme condensée de l’argument est celle de Hilbert (1893).',
+            sources: ['kline-thought', 'stillwell-history'],
+          },
+        ],
       },
       {
         id: 'transcendance-de-pi',
@@ -1958,6 +2575,35 @@ export const DIXNEUVIEME_A: Domain[] = [
             sources: ['gray-hilbert-challenge'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le lien avec la quadrature tient en une remarque : un point constructible à la règle et au compas a des coordonnées obtenues par une suite d’équations du second degré, donc algébriques — de degré une puissance de 2, comme Wantzel l’avait précisé en 1837 pour régler la duplication du cube et la trisection. Quarrer le cercle de rayon 1 reviendrait à construire √π, donc π devrait être algébrique : prouver qu’il ne l’est pas ferme la question d’un coup, sans examiner les constructions une à une.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Si π était algébrique, iπ le serait aussi ; notons α₁ = iπ, α₂, …, αₙ ses conjugués, racines du même polynôme minimal. Comme e^(α₁) + 1 = 0, le produit (1 + e^(α₁))(1 + e^(α₂))…(1 + e^(αₙ)) est nul.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En développant ce produit, on obtient une somme d’exponentielles e^β, où β parcourt les sommes de sous-ensembles des αⱼ ; ces β sont permutés entre eux par les conjugaisons, et un certain nombre c ≥ 1 d’entre eux sont nuls : on a c + Σ e^(βₖ) = 0, les βₖ non nuls formant un ensemble stable par conjugaison.',
+            sources: ['stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'On reprend alors la machine d’Hermite avec un polynôme bâti sur les βₖ, du type x^(p−1) Π (x − βₖ)^p/(p − 1)! multiplié par une puissance convenable d’un dénominateur commun ; la symétrie garantit que les quantités en jeu sont des entiers (fonctions symétriques des βₖ). L’argument arithmétique produit un entier non divisible par p, l’estimation analytique le force à être plus petit que 1 : contradiction.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un nombre constructible étant algébrique, √π ne l’est pas : la quadrature du cercle à la règle et au compas est impossible. La même méthode donne la transcendance de e^α pour tout algébrique α non nul, donc celle du logarithme d’un nombre algébrique autre que 0 et 1, et celle du sinus et du cosinus d’un nombre algébrique non nul.',
+            sources: ['stillwell-history', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'theoreme-d-approximation-de-weierstrass',
@@ -1969,6 +2615,35 @@ export const DIXNEUVIEME_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute fonction continue sur un segment est limite uniforme d’une suite de polynômes.',
         comment: 'Démontré en 1885 par convolution avec le noyau de la chaleur, le théorème clôt le siècle de la rigueur sur une réconciliation : les objets les plus irréguliers de l’analyse s’approchent par ses objets les plus simples. Stone en tirera en 1937 un principe général d’algèbre fonctionnelle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Laisser diffuser la chaleur lisse les irrégularités : si l’on prend f pour température initiale d’une barre, la température à l’instant t, u(x, t) = ∫ f(y) e^(−(x−y)²/4t) dy / √(4πt), est une fonction analytique de x qui revient uniformément vers f quand t tend vers 0 ; il ne reste plus qu’à tronquer sa série entière. L’idée générale — remplacer f par sa moyenne contre un noyau de plus en plus concentré — est celle de la plupart des démonstrations ultérieures.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On prolonge f, continue sur [a, b], en une fonction continue et bornée sur toute la droite, nulle hors d’un intervalle un peu plus grand.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour k > 0, on pose f_k(x) = (1/(k√π)) ∫ f(y) e^(−(x−y)²/k²) dy. Le noyau est d’intégrale 1 et se concentre autour de y = x quand k tend vers 0 ; la continuité uniforme de f donne alors |f_k(x) − f(x)| ≤ ε pour k assez petit, uniformément en x.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'f_k est une fonction entière de x : l’exponentielle se développe en série entière partout convergente, que l’on intègre terme à terme (f étant nulle hors d’un intervalle borné) ; les sommes partielles de cette série sont des polynômes qui convergent vers f_k uniformément sur [a, b].',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'En combinant les deux approximations, on obtient pour tout ε un polynôme P tel que |f − P| ≤ 2ε sur [a, b]. Weierstrass en déduit dans le même mémoire la version trigonométrique : toute fonction continue périodique est limite uniforme de polynômes trigonométriques.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
       },
     ],
     sources: ['bottazzini-higher-calculus', 'grabiner-cauchy', 'belhoste-cauchy', 'hairer-wanner-analysis', 'laugwitz-riemann', 'gray-platos-ghost'],
