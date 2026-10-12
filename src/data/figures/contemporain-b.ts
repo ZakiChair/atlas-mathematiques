@@ -163,6 +163,26 @@ export const FIGURES_CONTEMPORAIN_B: Record<string, Mathematician[]> = {
       mactutor: 'Le_Gall',
       sources: ['mactutor'],
     },
+    {
+      id: 'hammersley',
+      name: 'John Hammersley',
+      years: [1920, 2004],
+      origin: 'Cambridge et Oxford',
+      bio: 'Formé à Cambridge avant de servir sur les radars anti-aériens, Hammersley fait carrière à Oxford : il lance l’étude mathématique de la percolation (1956) et cosigne avec Handscomb le manuel Monte Carlo Methods (1965), premier traité du calcul statistique par simulation.',
+      theoryId: 'psc-statistique-computationnelle',
+      mactutor: 'Hammersley',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'pastur',
+      name: 'Leonid Pastur',
+      years: [1937, null],
+      origin: 'Kharkov et Paris',
+      bio: 'Chercheur à l’Institut de physique des basses températures de Kharkov puis professeur à Paris-Diderot (1995-2004), Pastur fonde avec Lifshitz la théorie mathématique des systèmes désordonnés et traite les valeurs propres des grandes matrices aléatoires.',
+      theoryId: 'psc-matrices-aleatoires',
+      mactutor: 'Pastur',
+      sources: ['mactutor'],
+    },
   ],
   'cryptographie-et-codes': [
     {
