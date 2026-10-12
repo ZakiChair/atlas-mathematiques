@@ -172,6 +172,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Pavie et Milan',
         bio: 'Médecin, astrologue, joueur et polygraphe, Cardan enseigne les mathématiques à Milan puis la médecine à Pavie et à Bologne. L’Ars magna (1545) expose la résolution générale des équations du troisième et du quatrième degré ; son Liber de ludo aleae, écrit vers 1564 et publié en 1663, est le premier traité de calcul des chances.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        featured: {
+          signature: { kind: 'fait', text: 'Publie la résolution générale des équations du 3ᵉ et du 4ᵉ degré (Ars magna, 1545).', sources: ['cardano-ars-magna', 'stedall-from-cardano'] },
+          contributions: [],
+          headlineResultIds: ['formule-de-cardan', 'ars-magna', 'liber-de-ludo-aleae'],
+        },
       },
       {
         id: 'ferrari',
@@ -196,6 +201,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Fontenay-le-Comte et Paris',
         bio: 'Avocat, conseiller au parlement de Bretagne puis maître des requêtes et déchiffreur des rois Henri III et Henri IV, Viète consacre ses loisirs à une « analyse » qu’il veut restituer aux Anciens. L’Isagoge (1591) introduit le calcul littéral ; ses traités sur les équations, publiés pour partie après sa mort, relient racines et coefficients et préparent Fermat et Descartes.',
         theoryId: 'ar-analyse-litterale',
+        featured: {
+          signature: { kind: 'fait', text: 'Introduit le calcul littéral : des lettres pour les inconnues et pour les données.', sources: ['stedall-from-cardano', 'katz-history'] },
+          contributions: [],
+          headlineResultIds: ['in-artem-analyticem-isagoge', 'de-aequationum-recognitione-et-emendatione'],
+        },
       },
     ],
     results: [
@@ -483,6 +493,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Toulouse',
         bio: 'Conseiller au parlement de Toulouse, Fermat refonde l’arithmétique des entiers à partir de Diophante et de Viète. Il énonce par lettres le petit théorème, le théorème des deux carrés et la conjecture qui deviendra son « dernier théorème », et met au point la descente infinie. La date de naissance traditionnelle (1601) est discutée ; certains historiens proposent 1607.',
         theoryId: 'tnf-descente-infinie',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Refonde l’arithmétique des entiers : petit théorème, descente infinie, dernier théorème.', sources: ['weil-number-theory', 'mahoney-fermat'] },
+          contributions: [],
+          headlineResultIds: ['petit-theoreme-de-fermat', 'dernier-theoreme-de-fermat', 'descente-infinie'],
+        },
       },
       {
         id: 'frenicle',
@@ -567,6 +582,16 @@ export const RENAISSANCE: Domain[] = [
             text: 'Pierre angulaire de la théorie des congruences, le théorème fonde trois siècles plus tard les tests de primalité et le chiffrement RSA (1977) : un usage que rien, dans les questions de Fermat, ne laissait prévoir.',
             sources: ['gowers-companion'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'Fermat énonce un fait plus précis : la première puissance de a qui laisse le reste 1 dans la division par p a un exposant qui divise p − 1, et les restes des puissances successives reviennent ensuite périodiquement à 1.', sources: ['weil-number-theory', 'mahoney-fermat'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'On montre d’abord que p divise aᵖ − a pour tout entier a ≥ 1, par récurrence sur a : c’est la voie suivie par Euler (1736).', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Pour a = 1, aᵖ − a = 0 est divisible par p.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Par la formule du binôme, (a + 1)ᵖ = aᵖ + 1 + des termes intermédiaires dont chaque coefficient C(p, k), pour 0 < k < p, est divisible par p, puisque p est premier.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Donc (a + 1)ᵖ − (a + 1) et aᵖ − a diffèrent d’un multiple de p : la propriété passe de a à a + 1.', sources: ['weil-number-theory'] },
+          { kind: 'fait', text: 'Enfin, si p ne divise pas a, alors p, qui divise a × (aᵖ⁻¹ − 1), divise aᵖ⁻¹ − 1 (Éléments, VII, 30).', sources: ['weil-number-theory', 'katz-history'] },
         ],
       },
       {
@@ -1052,6 +1077,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'La Haye en Touraine, Provinces-Unies',
         bio: 'Philosophe et géomètre, Descartes vit aux Provinces-Unies de 1628 à 1649. La Géométrie (1637), appendice du Discours de la méthode, fait de l’algèbre l’instrument universel de la construction des courbes et propose une classification qui dépasse les Anciens. Il meurt à Stockholm, au service de la reine Christine.',
         theoryId: 'gan-courbes-et-equations',
+        featured: {
+          signature: { kind: 'fait', text: 'Fait de l’algèbre l’instrument de la géométrie : La Géométrie (1637).', sources: ['bos-redefining', 'katz-history'] },
+          contributions: [],
+          headlineResultIds: ['la-geometrie-descartes', 'regle-des-signes-de-descartes'],
+        },
       },
       {
         id: 'desargues',
@@ -1407,6 +1437,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Cambridge et Londres',
         bio: 'Chaire lucasienne de 1669, Newton conçoit en 1665-1666 la méthode des fluxions et des séries, la rédige sans la publier (De analysi, 1669 ; De methodis, 1671) et la met en œuvre dans les Principia (1687), où la gravitation est démontrée par la géométrie des limites. Président de la Royal Society à partir de 1703, il pilote le Commercium epistolicum contre Leibniz.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        featured: {
+          signature: { kind: 'fait', text: 'Invente le calcul des fluxions et des séries, et l’applique à la gravitation (1687).', sources: ['whiteside-newton', 'guicciardini-newton'] },
+          contributions: [],
+          headlineResultIds: ['serie-du-binome', 'principia-mathematica-newton', 'de-analysi'],
+        },
       },
       {
         id: 'leibniz',
@@ -1415,6 +1450,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Leipzig, Paris et Hanovre',
         bio: 'Philosophe, juriste et diplomate, Leibniz se forme aux mathématiques à Paris (1672-1676) auprès de Huygens et y invente son calcul des différences et des sommes. Il publie le premier (1684, 1686), diffuse la méthode avec les frères Bernoulli, et ses notations d et ∫, pensées comme un langage, structurent encore l’analyse.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        featured: {
+          signature: { kind: 'fait', text: 'Publie le premier le calcul différentiel (1684) et lui donne ses notations d et ∫.', sources: ['hofmann-leibniz', 'edwards-calculus'] },
+          contributions: [],
+          headlineResultIds: ['nova-methodus', 'characteristica-universalis', 'machine-arithmetique-de-leibniz'],
+        },
       },
     ],
     relatedMathematicianIds: ['jean-bernoulli', 'jacques-bernoulli'],
@@ -2019,6 +2059,11 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Clermont et Paris',
         bio: 'Enfant prodige formé par son père dans le cercle de Mersenne, Pascal publie à seize ans l’Essai pour les coniques, construit la Pascaline, mène les expériences du vide et fonde avec Fermat le calcul des chances (1654). Après sa « nuit de feu », il se détourne des mathématiques, dont il fait un dernier usage éclatant dans le défi de la roulette (cycloïde, 1658).',
         theoryId: 'np-geometrie-du-hasard',
+        featured: {
+          signature: { kind: 'fait', text: 'Fonde avec Fermat le calcul des chances (1654) ; construit la Pascaline.', sources: ['hacking-emergence', 'hald-history-1750'] },
+          contributions: [],
+          headlineResultIds: ['correspondance-pascal-fermat', 'traite-du-triangle-arithmetique', 'pascaline'],
+        },
       },
       {
         id: 'graunt',

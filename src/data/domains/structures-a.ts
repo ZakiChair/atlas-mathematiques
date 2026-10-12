@@ -141,6 +141,11 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Erlangen, Göttingen et Bryn Mawr',
         bio: 'Fille du géomètre Max Noether, docteure à Erlangen en 1907 sous la direction de Gordan, Emmy Noether rejoint Göttingen en 1915. Son théorème de 1918 relie symétries et lois de conservation ; à partir de 1921, elle refonde la théorie des idéaux, puis l’algèbre non commutative, en raisonnant uniquement sur les structures. Chassée d’Allemagne en 1933, elle meurt à Bryn Mawr en 1935.',
         theoryId: 'am-ideaux-et-invariants',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Relie symétries et lois de conservation (1918), puis refonde l’algèbre sur les structures.', sources: ['dick-noether', 'corry-structures'] },
+          contributions: [],
+          headlineResultIds: ['theoreme-de-noether', 'idealtheorie-in-ringbereichen', 'theoreme-de-brauer-hasse-noether'],
+        },
       },
       {
         id: 'artin',
@@ -518,6 +523,11 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Kumbakonam, Madras et Cambridge',
         bio: 'Autodidacte formé sur le Synopsis de Carr, Ramanujan remplit à Kumbakonam et à Madras des cahiers de formules sur les séries, les fractions continues et les fonctions modulaires. À Cambridge (1914-1919), il obtient avec Hardy la formule asymptotique des partitions et formule les conjectures sur la fonction τ. Rentré malade en Inde, il découvre dans sa dernière année les fonctions thêta simulées ; son « cahier perdu » est retrouvé en 1976.',
         theoryId: 'tnx-methodes-analytiques',
+        featured: {
+          signature: { kind: 'fait', text: 'Autodidacte aux carnets de formules ; avec Hardy, compte asymptotiquement les partitions.', sources: ['kanigel-ramanujan', 'gowers-companion'] },
+          contributions: [],
+          headlineResultIds: ['formule-asymptotique-des-partitions', 'conjecture-de-ramanujan', 'lettre-de-ramanujan-a-hardy'],
+        },
       },
       {
         id: 'hecke',
@@ -886,6 +896,11 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Nancy et Paris',
         bio: 'Mathématicien universel formé à l’École polytechnique, Poincaré fonde la topologie algébrique avec l’Analysis situs (1895) et ses cinq compléments (1899-1904), après ses travaux sur les équations différentielles qualitatives et les fonctions automorphes. Il y introduit le groupe fondamental, les nombres de Betti et la dualité, et laisse la conjecture qui portera son nom. Professeur à la Sorbonne à partir de 1886, il meurt à Paris en 1912.',
         theoryId: 'top-analysis-situs',
+        featured: {
+          signature: { kind: 'fait', text: 'Fonde la topologie algébrique et l’étude qualitative des équations différentielles.', sources: ['dieudonne-topology', 'gowers-companion'] },
+          contributions: [],
+          headlineResultIds: ['analysis-situs', 'conjecture-de-poincare', 'sur-le-probleme-des-trois-corps'],
+        },
       },
       {
         id: 'hausdorff',

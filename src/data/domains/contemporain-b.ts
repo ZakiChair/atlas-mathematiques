@@ -166,6 +166,11 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Budapest et itinérant',
         bio: 'Enfant prodige de Budapest, Erdős quitte la Hongrie en 1934 et passe sa vie à voyager d’une université à l’autre, une valise à la main. Il fonde la méthode probabiliste (1947), la théorie des graphes aléatoires avec Rényi et une bonne part de la théorie de Ramsey et de la théorie des nombres combinatoire, en posant des centaines de problèmes dotés de récompenses en dollars. Prix Wolf 1983/1984.',
         theoryId: 'comb-methode-probabiliste-et-graphes-aleatoires',
+        featured: {
+          signature: { kind: 'fait', text: 'Fonde la méthode probabiliste (1947) et, avec Rényi, la théorie des graphes aléatoires.', sources: ['alon-spencer-probabilistic', 'hoffman-erdos'] },
+          contributions: [],
+          headlineResultIds: ['methode-probabiliste', 'graphes-aleatoires-d-erdos-renyi'],
+        },
       },
       {
         id: 'tutte',
@@ -1843,6 +1848,11 @@ export const CONTEMPORAIN_B: Domain[] = [
         origin: 'Stanford',
         bio: 'Analyste formé à Chicago (prix Bôcher 1964 pour la résolution d’un problème sur les ensembles d’unicité), Cohen se tourne vers la logique et invente le forcing (1963), qui établit l’indépendance de l’hypothèse du continu et de l’axiome du choix. Médaille Fields 1966 — la seule attribuée à un logicien —, il passe le reste de sa carrière à Stanford.',
         theoryId: 'lec-forcing-et-independance',
+        featured: {
+          signature: { kind: 'fait', text: 'Invente le forcing (1963) et prouve l’indépendance de l’hypothèse du continu.', sources: ['cohen-set-theory-ch', 'moore-origins-forcing'] },
+          contributions: [],
+          headlineResultIds: ['independance-de-l-hypothese-du-continu', 'forcing'],
+        },
       },
       {
         id: 'solovay',

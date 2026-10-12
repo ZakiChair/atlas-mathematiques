@@ -164,6 +164,11 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bhinmal et Ujjain',
         bio: 'Astronome de Bhinmal, puis d’Ujjain, Brahmagupta achève en 628, à trente ans, le Brāhmasphuṭasiddhānta, dont les chapitres XII et XVIII contiennent l’arithmétique et l’algèbre : règles du zéro et des négatifs, résolution générale de l’équation du second degré, identité de composition pour Nx² + 1 = y², aire et diagonales du quadrilatère inscrit. Critique sévère d’Āryabhaṭa, il est pourtant l’auteur dont l’œuvre, adaptée en arabe vers 770, transmet au monde islamique l’astronomie et le calcul indiens.',
         theoryId: 'mi-arithmetique-et-algebre',
+        featured: {
+          signature: { kind: 'fait', text: 'Donne les règles du calcul avec le zéro et les nombres négatifs (628).', sources: ['plofker-india', 'katz-sourcebook'] },
+          contributions: [],
+          headlineResultIds: ['brahmasphutasiddhanta', 'formule-de-brahmagupta'],
+        },
       },
       {
         id: 'mahavira',
@@ -504,6 +509,11 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bagdad',
         bio: 'Savant de la Maison de la sagesse sous al-Ma’mūn, al-Khwārizmī compose vers 820 le Kitāb al-jabr wa-l-muqābala, qui donne son nom à l’algèbre, un livre sur le calcul indien dont le latin tirera le mot « algorithme », des tables astronomiques (Zīj al-Sindhind) et une géographie. Il ne cherche pas la généralité du théoricien mais l’efficacité du praticien, tout en justifiant chaque règle par une figure.',
         theoryId: 'aa-al-jabr-wa-l-muqabala',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Fait de la résolution des équations une discipline, l’al-jabr, d’où vient « algèbre ».', sources: ['rashed-al-khwarizmi', 'rashed-sciences-arabes'] },
+          contributions: [],
+          headlineResultIds: ['kitab-al-jabr', 'livre-du-calcul-indien'],
+        },
       },
       {
         id: 'abu-kamil',
@@ -856,6 +866,11 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bassora et Le Caire',
         bio: 'Né à Bassora, Ibn al-Haytham (Alhazen pour les Latins) passe la seconde moitié de sa vie au Caire sous les Fatimides. Son Kitāb al-Manāẓir refonde l’optique en combinant géométrie des rayons, anatomie de l’œil et expérimentation ; ses traités mathématiques mesurent les paraboloïdes et la sphère par sommations, reconstituent le livre perdu des Coniques, discutent les postulats d’Euclide et énoncent le théorème que l’on attribuera à Wilson. Il est l’une des figures majeures de la science médiévale.',
         theoryId: 'ga-optique-et-methodes-infinitesimales',
+        featured: {
+          signature: { kind: 'fait', text: 'Refonde l’optique par la géométrie et l’expérience ; mesure le paraboloïde.', sources: ['sabra-optics', 'rashed-infinitesimales'] },
+          contributions: [],
+          headlineResultIds: ['kitab-al-manazir', 'probleme-d-alhazen', 'volume-du-paraboloide-ibn-al-haytham'],
+        },
       },
       {
         id: 'al-biruni',
@@ -1217,6 +1232,11 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Sichuan',
         bio: 'Fils d’un fonctionnaire, Qin Jiushao fait carrière dans l’administration des Song du Sud et sert au Sichuan pendant les invasions mongoles. En 1247, pendant le deuil de sa mère, il achève le Shushu jiuzhang : quatre-vingt-un problèmes, de la levée d’impôts à la fortification, où il déploie la méthode dayan des restes et la résolution numérique des équations jusqu’au degré dix. Les chroniques décrivent un personnage brutal et vénal, que son génie mathématique n’a pas racheté.',
         theoryId: 'acs-dayan-et-sommations',
+        featured: {
+          signature: { kind: 'fait', text: 'Résout les systèmes de restes (méthode dayan) et les équations jusqu’au degré dix.', sources: ['libbrecht-qin', 'martzloff-chine'] },
+          contributions: [],
+          headlineResultIds: ['methode-dayan', 'extraction-de-racines-qin-jiushao', 'shushu-jiuzhang'],
+        },
       },
       {
         id: 'yang-hui',
@@ -1528,6 +1548,11 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Pise',
         bio: 'Fils d’un administrateur du comptoir pisain de Bougie, Léonard apprend les chiffres indiens en Algérie et se perfectionne en Méditerranée orientale. Le Liber abaci (1202, remanié en 1228) enseigne à l’Occident le calcul en chiffres indo-arabes, la fausse position et l’algèbre ; la Practica geometriae (1220) et le Liber quadratorum (1225), dédié à Frédéric II, montrent un maître de l’analyse indéterminée sans pair en Europe avant Viète. Le surnom « Fibonacci » est moderne.',
         theoryId: 'olm-elements-et-algebre-latine',
+        featured: {
+          signature: { kind: 'fait', text: 'Enseigne à l’Occident latin le calcul en chiffres indo-arabes (Liber abaci, 1202).', sources: ['sigler-liber-abaci', 'burnett-numerals'] },
+          contributions: [],
+          headlineResultIds: ['liber-abaci', 'suite-de-fibonacci', 'liber-quadratorum'],
+        },
       },
       {
         id: 'jordanus-de-nemore',

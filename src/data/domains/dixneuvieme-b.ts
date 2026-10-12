@@ -175,6 +175,11 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Moscou, Berlin et Stockholm',
         bio: 'Née à Moscou, Kovalevskaïa contracte un mariage blanc pour étudier à l’étranger, suit à Berlin les leçons privées de Weierstrass et obtient en 1874 un doctorat de Göttingen pour trois mémoires, dont le théorème d’existence des solutions analytiques des équations aux dérivées partielles. Professeure à Stockholm à partir de 1884, elle reçoit le prix Bordin en 1888 pour la toupie qui porte son nom.',
         theoryId: 'pm-dynamique-et-probleme-de-cauchy',
+        featured: {
+          signature: { kind: 'fait', text: 'Démontre l’existence de solutions analytiques pour une large classe d’EDP.', sources: ['kline-thought', 'bottazzini-higher-calculus'] },
+          contributions: [],
+          headlineResultIds: ['theoreme-de-cauchy-kovalevskaia'],
+        },
       },
     ],
     relatedMathematicianIds: ['hamilton-wr', 'riemann', 'poincare', 'cauchy', 'dirichlet'],
@@ -917,6 +922,11 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Lincoln et Cork',
         bio: 'Instituteur autodidacte à Lincoln, remarqué par De Morgan et Gregory, Boole devient en 1849 professeur de mathématiques au Queen’s College de Cork sans titre universitaire. The Mathematical Analysis of Logic (1847) et surtout The Laws of Thought (1854) fondent l’algèbre de la logique ; il reçoit la médaille royale de la Royal Society en 1844 pour son mémoire « On a General Method in Analysis », consacré au calcul des opérations.',
         theoryId: 'lm-algebre-de-la-logique',
+        featured: {
+          signature: { kind: 'fait', text: 'Traduit la logique en algèbre : les lois de la pensée comme calcul sur 0 et 1 (1854).', sources: ['machale-boole', 'grattan-guinness-search'] },
+          contributions: [],
+          headlineResultIds: ['the-laws-of-thought', 'the-mathematical-analysis-of-logic'],
+        },
       },
       {
         id: 'jevons',
@@ -1296,6 +1306,11 @@ export const DIXNEUVIEME_B: Domain[] = [
         origin: 'Halle',
         bio: 'Né à Saint-Pétersbourg, formé à Berlin auprès de Weierstrass, Kummer et Kronecker, Cantor enseigne à Halle toute sa carrière. Parti de l’unicité des séries trigonométriques, il crée la théorie des ensembles : non-dénombrabilité du continu (1874), ordinaux et cardinaux transfinis, argument diagonal (1891). Sa fin de vie est marquée par des crises dépressives récurrentes et par la lutte pour la reconnaissance de l’infini actuel.',
         theoryId: 'tde-nombres-transfinis',
+        featured: {
+          signature: { kind: 'fait', text: 'Crée la théorie des ensembles et montre qu’il existe des infinis de tailles différentes.', sources: ['dauben-cantor', 'ferreiros-labyrinth'] },
+          contributions: [],
+          headlineResultIds: ['non-denombrabilite-des-reels', 'argument-diagonal', 'hypothese-du-continu'],
+        },
       },
       {
         id: 'burali-forti',

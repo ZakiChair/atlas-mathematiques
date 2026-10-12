@@ -122,6 +122,11 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Brunswick et Göttingen',
         bio: 'Prodige de Brunswick soutenu par son duc, Gauss publie à vingt-quatre ans les Disquisitiones arithmeticae, qui font de la théorie des nombres une discipline unifiée. Astronome, géodésien et physicien autant que mathématicien, il dirige l’observatoire de Göttingen. Son goût du secret — « peu de choses, mais mûres » — laisse un journal et des papiers publiés seulement après sa mort.',
         theoryId: 'arg-congruences-et-formes',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Unifie la théorie des nombres (1801) et fonde la géométrie intrinsèque des surfaces.', sources: ['goldstein-schappacher-schwermer', 'gray-worlds'] },
+          contributions: [],
+          headlineResultIds: ['disquisitiones-arithmeticae', 'theorema-egregium', 'demonstration-de-la-reciprocite-quadratique'],
+        },
       },
       {
         id: 'dirichlet',
@@ -516,6 +521,11 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Élève rebelle, républicain emprisonné après les Trois Glorieuses, Galois écrit à vingt ans les mémoires qui fondent la théorie des groupes et celle des corps finis. Tué en duel à vingt ans et demi, il n’est publié qu’en 1846 par Liouville ; sa correspondance fournit le critère complet de résolubilité des équations par radicaux.',
         theoryId: 'adg-equations-et-radicaux',
+        featured: {
+          signature: { kind: 'fait', text: 'Lie la résolubilité d’une équation par radicaux à la structure d’un groupe.', sources: ['kleiner-abstract-algebra', 'neumann-galois'] },
+          contributions: [],
+          headlineResultIds: ['theorie-de-galois', 'memoire-de-galois'],
+        },
       },
       {
         id: 'hamilton-wr',
@@ -1597,6 +1607,11 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Ingénieur des ponts et chaussées devenu professeur à Polytechnique, Cauchy est le mathématicien le plus prolifique du siècle après Euler : il refonde l’analyse sur les limites (1821), crée le calcul des résidus et la théorie des équations différentielles à données initiales. Légitimiste, il s’exile après 1830 à Turin et Prague plutôt que de prêter serment.',
         theoryId: 'anr-variable-complexe',
+        featured: {
+          signature: { kind: 'fait', text: 'Refonde l’analyse sur les limites (Cours d’analyse, 1821) et crée le calcul des résidus.', sources: ['grabiner-cauchy', 'bottazzini-higher-calculus'] },
+          contributions: [],
+          headlineResultIds: ['cours-d-analyse', 'theoreme-des-residus'],
+        },
       },
       {
         id: 'jacobi',
@@ -1629,6 +1644,11 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Göttingen',
         bio: 'Élève de Gauss et de Dirichlet, Riemann publie peu et transforme tout : théorie des fonctions complexes (thèse, 1851), intégrale (habilitation, 1854), fonctions abéliennes (1857), fonction zêta (1859). Il meurt de la tuberculose à trente-neuf ans ; ses idées nourriront l’analyse, la géométrie et la théorie des nombres d’un siècle.',
         theoryId: 'anr-variable-complexe',
+        featured: {
+          signature: { kind: 'fait', text: 'Fonde la géométrie des variétés (1854) et relie les nombres premiers à la fonction zêta.', sources: ['laugwitz-riemann', 'gray-worlds'] },
+          contributions: [],
+          headlineResultIds: ['hypothese-de-riemann', 'habilitationsvortrag-riemann', 'surfaces-de-riemann'],
+        },
       },
       {
         id: 'heine',

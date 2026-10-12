@@ -8,7 +8,7 @@ import type { Domain, Result } from './types';
  */
 export const COMPLETENESS = {
   /** nombre minimal de grandes figures (sous-projet 1 : liste éditoriale) */
-  featuredMin: 0,
+  featuredMin: 40,
   /** toute grande figure a 2 à 4 apports (vague 2) */
   contributionsRequired: false,
   /** part des théorèmes dotés d'une intuition et d'une démonstration, et des conjectures et problèmes dotés d'une intuition (vague 3) */

@@ -212,6 +212,11 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton et Oxford',
         bio: 'Formé à Oxford puis à Cambridge sous la direction de John Coates, Wiles travaille d’abord sur la théorie d’Iwasawa et la conjecture de Birch et Swinnerton-Dyer. Professeur à Princeton, il annonce en juin 1993 une démonstration de la conjecture de modularité pour les courbes semi-stables, donc du dernier théorème de Fermat ; la preuve, corrigée avec Richard Taylor, paraît en 1995. Il revient à Oxford en 2011 et reçoit le prix Abel en 2016.',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
+        featured: {
+          signature: { kind: 'fait', text: 'Démontre le dernier théorème de Fermat par la modularité des courbes elliptiques (1995).', sources: ['singh-fermat', 'wiles-modular'] },
+          contributions: [],
+          headlineResultIds: ['demonstration-du-dernier-theoreme-de-fermat'],
+        },
       },
       {
         id: 'taylor-richard',
@@ -999,6 +1004,11 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Paris, Bures-sur-Yvette et Montpellier',
         bio: 'Né à Berlin, apatride, formé à Montpellier puis à Nancy chez Schwartz et Dieudonné en analyse fonctionnelle, Grothendieck refonde entre 1957 et 1970 la géométrie algébrique sur les schémas, les topos et les cohomologies nouvelles, avec les EGA et le séminaire SGA à l’IHÉS. Médaille Fields en 1966, il quitte la recherche institutionnelle en 1970, enseigne à Montpellier, et vit retiré dans l’Ariège de 1991 à sa mort.',
         theoryId: 'gam-cohomologie-et-motifs',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Refonde la géométrie algébrique sur les schémas, les topos et de nouvelles cohomologies.', sources: ['jackson-grothendieck', 'dieudonne-geometrie-algebrique'] },
+          contributions: [],
+          headlineResultIds: ['schemas', 'elements-de-geometrie-algebrique', 'theoreme-de-riemann-roch-grothendieck'],
+        },
       },
       {
         id: 'hironaka',
@@ -1478,6 +1488,11 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Saint-Pétersbourg',
         bio: 'Formé à Leningrad et chercheur à l’institut Steklov, Perelman travaille en géométrie d’Aleksandrov (preuve de la « conjecture de l’âme », 1994) avant de disparaître de la scène publique, puis de déposer en 2002-2003 trois prépublications qui démontrent les conjectures de Poincaré et de géométrisation. Il refuse la médaille Fields (2006), le prix du millénaire (2010) et tout poste, et rompt avec la communauté mathématique.',
         theoryId: 'tgc-dimensions-3-et-4',
+        featured: {
+          signature: { kind: 'fait', text: 'Démontre les conjectures de Poincaré et de géométrisation (2002-2003).', sources: ['szpiro-poincare', 'mactutor'] },
+          contributions: [],
+          headlineResultIds: ['demonstration-de-la-conjecture-de-poincare'],
+        },
       },
       {
         id: 'mirzakhani',
@@ -1486,6 +1501,11 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Téhéran, Harvard et Stanford',
         bio: 'Formée à Téhéran puis à Harvard (thèse avec Curtis McMullen, 2004), Mirzakhani relie la croissance des géodésiques simples d’une surface hyperbolique aux volumes de Weil–Petersson des espaces de modules, redémontrant au passage la conjecture de Witten. Professeure à Stanford, elle reçoit en 2014 la médaille Fields, première attribuée à une femme ; elle meurt en 2017.',
         theoryId: 'tgc-dimensions-3-et-4',
+        featured: {
+          signature: { kind: 'fait', text: 'Relie le comptage des géodésiques aux volumes des espaces de modules ; Fields 2014.', sources: ['mactutor'] },
+          contributions: [],
+          headlineResultIds: ['volumes-de-weil-petersson'],
+        },
       },
     ],
     relatedMathematicianIds: ['poincare', 'whitney', 'hopf', 'grothendieck', 'kontsevich'],
@@ -1863,6 +1883,11 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Paris, Yorktown Heights et New Haven',
         bio: 'Formé à Polytechnique et au Caltech, Mandelbrot mène une carrière atypique au centre de recherche IBM de Yorktown Heights (1958-1993), où il forge la notion de fractale à partir des travaux de Fatou et Julia relus à l’ordinateur. Professeur Sterling à Yale (1999), il publie The Fractal Geometry of Nature (1982) ; l’ensemble qui porte son nom devient l’objet le plus calculé de la mathématique.',
         theoryId: 'sdc-dynamique-holomorphe-et-fractales',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Forge la notion de fractale et fait de l’ordinateur un instrument d’exploration.', sources: ['mandelbrot-fractal-geometry', 'gleick-chaos'] },
+          contributions: [],
+          headlineResultIds: ['ensemble-de-mandelbrot', 'les-objets-fractals'],
+        },
       },
       {
         id: 'feigenbaum',

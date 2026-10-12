@@ -442,6 +442,11 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Auteur des Arithmétiques, en treize livres dont six sont conservés en grec et quatre en arabe, et d’un traité Sur les nombres polygones. Diophante résout des centaines de problèmes indéterminés en nombres rationnels avec une inconnue notée par abréviation. Sa vie est inconnue ; une épigramme de l’Anthologie palatine lui prête quatre-vingt-quatre ans, et sa datation au IIIᵉ siècle est conventionnelle.',
         theoryId: 'ag-analyse-diophantienne',
+        featured: {
+          signature: { kind: 'fait', text: 'Résout en nombres rationnels des centaines de problèmes indéterminés : les Arithmétiques.', sources: ['sesiano-diophante', 'heath-greek'] },
+          contributions: [],
+          headlineResultIds: ['arithmetica-diophante'],
+        },
       },
       {
         id: 'hypatie',
@@ -509,6 +514,16 @@ export const ANTIQUITE: Domain[] = [
             text: 'La question passe ensuite de l’existence à la répartition : Dirichlet établit en 1837 l’infinité des premiers dans toute progression arithmétique a + nb où a et b sont premiers entre eux, et la loi de raréfaction conjecturée par Legendre et Gauss à la fin du XVIIIᵉ siècle est démontrée en 1896 par Hadamard et de la Vallée Poussin (théorème des nombres premiers).',
             sources: ['gowers-companion', 'weil-number-theory'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'Multiplier des nombres premiers puis ajouter 1 fabrique un nombre qu’aucun d’eux ne divise : la division par chacun laisse le reste 1. Un nombre premier nouveau se cache donc dans ce produit augmenté de un.', sources: ['vitrac-euclide', 'heath-greek'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Soit une liste finie quelconque de nombres premiers ; Euclide (Éléments, IX, 20) raisonne sur trois d’entre eux, A, B et C, et l’argument vaut pour toute liste.', sources: ['vitrac-euclide', 'heath-greek'] },
+          { kind: 'fait', text: 'On forme le nombre N = A × B × C + 1.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'N est soit premier, soit mesuré par un nombre premier (VII, 32) : dans les deux cas, un nombre premier P divise N.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'P n’est ni A, ni B, ni C : s’il l’était, il diviserait à la fois N et A × B × C, donc leur différence, qui vaut 1 — c’est impossible.', sources: ['vitrac-euclide'] },
+          { kind: 'fait', text: 'La liste proposée ne contenait donc pas tous les nombres premiers : il y en a toujours plus que toute quantité donnée.', sources: ['vitrac-euclide'] },
         ],
       },
       {
@@ -789,6 +804,11 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Actif à Alexandrie sous Ptolémée Iᵉʳ, Euclide compose les Éléments, qui organisent en treize livres la géométrie plane, l’arithmétique, les irrationnelles et la géométrie des solides, ainsi que les Données, l’Optique, les Phénomènes et la Section du canon. On ne sait presque rien de sa vie ; ses dates sont déduites du témoignage de Proclus.',
         theoryId: 'gg-elements-et-axiomatique',
+        featured: {
+          signature: { kind: 'fait', text: 'Organise la géométrie et l’arithmétique grecques en un édifice déductif : les Éléments.', sources: ['vitrac-euclide', 'heath-greek'] },
+          contributions: [],
+          headlineResultIds: ['elements-euclide', 'infinite-des-nombres-premiers', 'cinquieme-postulat'],
+        },
       },
     ],
     results: [
@@ -1093,6 +1113,11 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Syracuse',
         bio: 'Le plus grand mathématicien de l’Antiquité, Archimède mesure le cercle, la parabole, la sphère et les spirales, fonde la statique (levier, centres de gravité) et l’hydrostatique, et conçoit des machines de guerre lors du siège de Syracuse, où il est tué en 212. Sa date de naissance est déduite de l’affirmation de Tzetzès qu’il mourut à soixante-quinze ans.',
         theoryId: 'mh-mesure-des-figures-curvilignes',
+        featured: {
+          signature: { kind: 'fait', text: 'Mesure le cercle, la sphère et la parabole par exhaustion, et fonde la statique.', sources: ['heath-archimedes', 'heath-greek'] },
+          contributions: [],
+          headlineResultIds: ['mesure-du-cercle', 'de-la-sphere-et-du-cylindre', 'la-methode-archimede'],
+        },
       },
       {
         id: 'apollonius',
@@ -1436,6 +1461,11 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Royaume de Wei',
         bio: 'On ne sait rien de la vie de Liu Hui, sinon qu’il achève en 263, sous les Wei, un Commentaire des Neuf Chapitres qui justifie les procédures du classique par découpages de figures et raisonnements algorithmiques, et calcule π par polygones itérés. Il ajoute un traité d’arpentage, le Haidao suanjing (Classique mathématique de l’île maritime).',
         theoryId: 'mca-neuf-chapitres-et-procedures',
+        featured: {
+          signature: { kind: 'fait', text: 'Justifie les procédures des Neuf Chapitres et calcule π par polygones successifs.', sources: ['chemla-neuf-chapitres', 'martzloff-chine'] },
+          contributions: [],
+          headlineResultIds: ['algorithme-du-cercle-de-liu-hui', 'commentaire-de-liu-hui'],
+        },
       },
       {
         id: 'sunzi',
@@ -1725,6 +1755,11 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Stagire et Athènes',
         bio: 'Élève de Platon pendant vingt ans, précepteur d’Alexandre, fondateur du Lycée, Aristote crée la logique formelle (Organon), la théorie de la science démonstrative et la distinction entre infini en puissance et en acte. Sa critique des paradoxes de Zénon dans la Physique est la plus ancienne analyse conservée du continu.',
         theoryId: 'la-science-demonstrative',
+        featured: {
+          signature: { kind: 'fait', text: 'Crée la logique formelle, la syllogistique, et la théorie de la science démonstrative.', sources: ['kneale-logic', 'sep'] },
+          contributions: [],
+          headlineResultIds: ['syllogistique', 'seconds-analytiques'],
+        },
       },
       {
         id: 'chrysippe',

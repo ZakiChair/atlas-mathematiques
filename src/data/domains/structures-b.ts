@@ -178,6 +178,11 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Moscou',
         bio: 'Élève de Luzin, Kolmogorov publie en 1933 les Grundbegriffe der Wahrscheinlichkeitsrechnung, qui fixent l’axiomatique de la discipline, après avoir démontré la loi forte des grands nombres générale (1930) et posé les équations des processus de diffusion (1931). Son œuvre embrasse la théorie ergodique, la turbulence, la logique intuitionniste, la théorie de l’information et la complexité algorithmique.',
         theoryId: 'pmo-axiomatisation-et-mesure',
+        featured: {
+          signature: { kind: 'fait', text: 'Fixe les axiomes du calcul des probabilités (Grundbegriffe, 1933).', sources: ['von-plato-creating', 'shafer-vovk-grundbegriffe'] },
+          contributions: [],
+          headlineResultIds: ['grundbegriffe-der-wahrscheinlichkeitsrechnung', 'theoreme-d-extension-de-kolmogorov', 'methodes-analytiques-de-kolmogorov'],
+        },
       },
       {
         id: 'feller',
@@ -958,6 +963,11 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Vienne et Princeton',
         bio: 'Formé à Vienne au contact du Cercle de Vienne et de Hans Hahn, Gödel démontre à vingt-trois ans la complétude de la logique du premier ordre, puis en 1931 les deux théorèmes d’incomplétude qui bornent la méthode axiomatique. Il définit les fonctions récursives générales (1934), prouve la cohérence relative de l’axiome du choix et de l’hypothèse du continu (1938-1940), et s’installe définitivement à Princeton en 1940, où il se lie avec Einstein et se tourne vers la philosophie.',
         theoryId: 'cal-completude-et-incompletude',
+        featured: {
+          signature: { kind: 'fait', text: 'Montre qu’une théorie cohérente assez riche contient des énoncés indécidables (1931).', sources: ['dawson-godel', 'van-heijenoort'] },
+          contributions: [],
+          headlineResultIds: ['theoremes-d-incompletude', 'theoreme-de-completude', 'fonctions-recursives-generales'],
+        },
       },
       {
         id: 'church',
@@ -982,6 +992,11 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Cambridge, Princeton, Bletchley Park et Manchester',
         bio: 'Fellow de King’s College à vingt-deux ans, Turing définit en 1936 la machine abstraite qui porte son nom, démontre l’existence d’une machine universelle et l’insolubilité du problème de l’arrêt. Cryptanalyste à Bletchley Park pendant la guerre, concepteur de l’ACE au National Physical Laboratory, il travaille à Manchester sur la programmation, l’intelligence des machines (1950) et la morphogenèse (1952). Condamné en 1952 pour homosexualité, il meurt empoisonné au cyanure en 1954.',
         theoryId: 'cal-modeles-de-calcul',
+        featured: {
+          signature: { kind: 'fait', text: 'Définit la machine qui porte son nom et prouve l’indécidabilité de l’arrêt (1936).', sources: ['hodges-turing', 'davis-universal'] },
+          contributions: [],
+          headlineResultIds: ['on-computable-numbers', 'probleme-de-l-arret', 'machine-de-turing-universelle'],
+        },
       },
       {
         id: 'shannon',
@@ -1354,6 +1369,11 @@ export const STRUCTURES_B: Domain[] = [
         origin: 'Königsberg et Göttingen',
         bio: 'Professeur à Göttingen de 1895 à sa retraite, Hilbert domine la mathématique de son temps par vagues successives : invariants, Zahlbericht, fondements de la géométrie, équations intégrales, physique, puis, dans les années 1920, la métamathématique. Son programme — fonder l’infini sur des démonstrations finitistes de cohérence — est élaboré avec Bernays et borné par les théorèmes de Gödel. En 1933, il assiste à la destruction de son école par le régime nazi.',
         theoryId: 'fhb-axiomatique-et-metamathematique',
+        featured: {
+          signature: { kind: 'fait', text: 'Axiomatise la géométrie, pose 23 problèmes au siècle (1900) et fonde la métamathématique.', sources: ['reid-hilbert', 'gray-hilbert-challenge'] },
+          contributions: [],
+          headlineResultIds: ['problemes-de-hilbert', 'grundlagen-der-geometrie', 'theoreme-de-la-base-de-hilbert'],
+        },
       },
       {
         id: 'whitehead',

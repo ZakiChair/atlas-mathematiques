@@ -144,6 +144,15 @@ export const LUMIERES: Domain[] = [
         origin: 'Bâle, Saint-Pétersbourg et Berlin',
         bio: 'Élève de Jean Bernoulli à Bâle, Euler passe sa vie entre les académies de Saint-Pétersbourg et de Berlin. Il donne à l’analyse ses notations, ses manuels et une quantité de résultats sans équivalent, et touche à toutes les parties des mathématiques : théorie des nombres, mécanique, géométrie, topologie naissante, astronomie, optique. Son œuvre dépasse 850 titres.',
         theoryId: 'ae-analyse-des-fonctions',
+        featured: {
+          signature: { kind: 'fait', text: 'Fait des fonctions l’objet de l’analyse et lui donne ses notations : f(x), e, i, π, Σ.', sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'] },
+          contributions: [
+            { kind: 'fait', text: 'L’Introductio in analysin infinitorum (1748) définit la fonction comme une expression analytique et fait des séries entières sa forme normale : l’analyse cesse d’être une science des courbes.', sources: ['bottazzini-higher-calculus', 'hairer-wanner-analysis'] },
+            { kind: 'fait', text: 'Parmi ses résultats : la somme des inverses des carrés (1735), la formule e^(iθ) = cos θ + i sin θ (1748), la relation S − A + F = 2 des polyèdres (1750) et les équations des fluides parfaits (1757).', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+            { kind: 'interpretation', text: 'En ramenant le problème des ponts de Königsberg (1736) à une question de connexions, sans mesure ni calcul, il est tenu pour le précurseur de la théorie des graphes et de la topologie.', sources: ['mactutor', 'katz-history'] },
+          ],
+          headlineResultIds: ['probleme-de-bale', 'introductio-in-analysin-infinitorum', 'sept-ponts-de-konigsberg'],
+        },
       },
       {
         id: 'clairaut',
@@ -160,6 +169,11 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Enfant trouvé, membre de l’Académie des sciences dès 1741, d’Alembert énonce le principe qui porte son nom (1743), écrit la première équation aux dérivées partielles de la physique (cordes vibrantes, 1747) et défend une fondation du calcul par la notion de limite. Codirecteur de l’Encyclopédie avec Diderot, il en rédige le Discours préliminaire et les articles de mathématiques.',
         theoryId: 'ae-variations-et-milieux-continus',
+        featured: {
+          signature: { kind: 'fait', text: 'Écrit la première équation aux dérivées partielles de la physique : les cordes vibrantes.', sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'] },
+          contributions: [],
+          headlineResultIds: ['equation-des-cordes-vibrantes', 'article-limite-encyclopedie', 'traite-de-dynamique'],
+        },
       },
     ],
     results: [
@@ -204,6 +218,16 @@ export const LUMIERES: Domain[] = [
             text: 'La factorisation de sin x en produit infini, dont certains correspondants d’Euler contestent la légitimité, pose une question que le XVIIIᵉ siècle ne sait pas trancher ; le théorème de factorisation des fonctions entières de Weierstrass (1876) lui donnera rétrospectivement un cadre.',
             sources: ['bottazzini-higher-calculus'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'Un polynôme qui vaut 1 en 0 et s’annule en a₁, a₂, …, aₙ s’écrit (1 − x/a₁)(1 − x/a₂)…(1 − x/aₙ), et le coefficient de x y vaut −(1/a₁ + … + 1/aₙ). Euler applique cette règle à sin x / x, dont les racines sont ±π, ±2π, ±3π…, comme à un polynôme de degré infini.', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le développement en série donne sin x / x = 1 − x²/6 + x⁴/120 − …', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Cette fonction s’annule exactement en x = ±π, ±2π, ±3π, …', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Euler l’écrit comme un produit infini : sin x / x = (1 − x²/π²)(1 − x²/4π²)(1 − x²/9π²)…', sources: ['hairer-wanner-analysis', 'bradley-sandifer-euler'] },
+          { kind: 'fait', text: 'En développant le produit, le coefficient de x² vaut −(1/π²)(1 + 1/4 + 1/9 + …) ; l’égaler à −1/6 donne 1 + 1/4 + 1/9 + … = π²/6.', sources: ['hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Le seul point délicat est l’écriture de sin x en produit infini, admise par analogie en 1735 et démontrable rigoureusement.', sources: ['bottazzini-higher-calculus'] },
         ],
       },
       {
@@ -442,6 +466,11 @@ export const LUMIERES: Domain[] = [
         origin: 'Turin, Berlin et Paris',
         bio: 'Professeur à l’artillerie de Turin à dix-neuf ans, Lagrange invente en 1755 le calcul de la variation δ dans une lettre à Euler. Directeur de la classe de mathématiques à Berlin (1766-1787) puis pensionnaire de l’Académie de Paris, il écrit la Méchanique analitique (1788) et fonde son analyse sur les séries de Taylor dans la Théorie des fonctions analytiques (1797).',
         theoryId: 'ma-principes-et-mecanique-analytique',
+        featured: {
+          signature: { kind: 'fait', text: 'Réécrit la mécanique en pur calcul, sans aucune figure (Méchanique analitique, 1788).', sources: ['dieudonne-abrege', 'stedall-sourcebook'] },
+          contributions: [],
+          headlineResultIds: ['mecanique-analytique-lagrange', 'theoreme-des-quatre-carres', 'stabilite-du-systeme-solaire'],
+        },
       },
       {
         id: 'laplace',
@@ -450,6 +479,11 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Arrivé à Paris avec une recommandation pour d’Alembert, Laplace est élu à l’Académie en 1773. Il achève la réduction de l’astronomie à la mécanique newtonienne (Traité de mécanique céleste, 1799-1825), introduit le potentiel et sa fameuse équation, et donne au calcul des probabilités sa forme analytique (1812).',
         theoryId: 'ma-mecanique-celeste',
+        featured: {
+          signature: { kind: 'interpretation', text: 'Achève la mécanique céleste newtonienne et donne aux probabilités leur forme analytique.', sources: ['gillispie-laplace', 'stigler-statistics'] },
+          contributions: [],
+          headlineResultIds: ['traite-de-mecanique-celeste', 'theorie-analytique-des-probabilites', 'theoreme-central-limite-laplace'],
+        },
       },
       {
         id: 'bossut',
@@ -771,6 +805,11 @@ export const LUMIERES: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur à l’École militaire puis aux écoles normales, Legendre énonce la loi de réciprocité quadratique (1785), fonde la théorie des intégrales elliptiques et publie l’Essai sur la théorie des nombres (1798). Ses Éléments de géométrie (1794) et sa méthode des moindres carrés (1805) le placent au carrefour des disciplines.',
         theoryId: 'tnl-formes-et-sommes-de-puissances',
+        featured: {
+          signature: { kind: 'fait', text: 'Énonce la loi de réciprocité quadratique et publie les moindres carrés (1805).', sources: ['weil-number-theory', 'stigler-statistics'] },
+          contributions: [],
+          headlineResultIds: ['loi-de-reciprocite-quadratique-enonce', 'methode-des-moindres-carres', 'essai-sur-la-theorie-des-nombres'],
+        },
       },
     ],
     relatedMathematicianIds: ['euler', 'lagrange', 'lambert'],
