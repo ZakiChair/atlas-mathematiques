@@ -616,6 +616,26 @@ export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
       mactutor: 'Bernoulli_Jacob(II)',
       sources: ['mactutor'],
     },
+    {
+      id: 'la-condamine',
+      name: 'Charles-Marie de La Condamine',
+      years: [1701, 1774],
+      origin: 'Paris',
+      bio: 'Formé aux coniques et à la mécanique, La Condamine exploite avec Voltaire une loterie mal conçue (1728-1730), puis dirige l’expédition géodésique du Pérou (1735-1744), dont la mesure de l’arc de méridien tranche la question de la figure de la Terre.',
+      theoryId: 'ma-potentiel-et-attractions',
+      mactutor: 'La_Condamine',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'jacquier',
+      name: 'François Jacquier',
+      years: [1711, 1788],
+      origin: 'Vitry-le-François et Rome',
+      bio: 'Minime du collège de la Trinité-des-Monts à Rome, Jacquier publie avec son confrère Thomas Le Seur l’édition dite « de Genève » des Principia de Newton (1739-1742), premier commentaire complet, ligne à ligne, de l’œuvre, longtemps inégalé.',
+      theoryId: 'ma-principes-et-mecanique-analytique',
+      mactutor: 'Jacquier',
+      sources: ['mactutor'],
+    },
   ],
   'querelle-des-infiniment-petits': [
     {
