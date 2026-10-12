@@ -77,6 +77,10 @@ const ERA_FILES = [
   'structures-b',
   'contemporain-a',
   'contemporain-b',
+  'physique-a',
+  'physique-b',
+  'physique-c',
+  'physique-d',
 ];
 const PALETTE_RE = /palette: \{ fill: '#[0-9a-f]{6}', stroke: '#[0-9a-f]{6}', accent: '#[0-9a-f]{6}' \}/;
 

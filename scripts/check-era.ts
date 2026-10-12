@@ -29,6 +29,10 @@ const FILES: Record<string, { mod: string; domains: string; sources: string; lin
   'structures-b': { mod: '../src/data/domains/structures-b', domains: 'STRUCTURES_B', sources: 'SOURCES_STRUCTURES_B', links: 'LINKS_STRUCTURES_B', mlinks: 'MATHEMATICIAN_LINKS_STRUCTURES_B' },
   'contemporain-a': { mod: '../src/data/domains/contemporain-a', domains: 'CONTEMPORAIN_A', sources: 'SOURCES_CONTEMPORAIN_A', links: 'LINKS_CONTEMPORAIN_A', mlinks: 'MATHEMATICIAN_LINKS_CONTEMPORAIN_A' },
   'contemporain-b': { mod: '../src/data/domains/contemporain-b', domains: 'CONTEMPORAIN_B', sources: 'SOURCES_CONTEMPORAIN_B', links: 'LINKS_CONTEMPORAIN_B', mlinks: 'MATHEMATICIAN_LINKS_CONTEMPORAIN_B' },
+  'physique-a': { mod: '../src/data/domains/physique-a', domains: 'PHYSIQUE_A', sources: 'SOURCES_PHYSIQUE_A', links: 'LINKS_PHYSIQUE_A', mlinks: 'MATHEMATICIAN_LINKS_PHYSIQUE_A' },
+  'physique-b': { mod: '../src/data/domains/physique-b', domains: 'PHYSIQUE_B', sources: 'SOURCES_PHYSIQUE_B', links: 'LINKS_PHYSIQUE_B', mlinks: 'MATHEMATICIAN_LINKS_PHYSIQUE_B' },
+  'physique-c': { mod: '../src/data/domains/physique-c', domains: 'PHYSIQUE_C', sources: 'SOURCES_PHYSIQUE_C', links: 'LINKS_PHYSIQUE_C', mlinks: 'MATHEMATICIAN_LINKS_PHYSIQUE_C' },
+  'physique-d': { mod: '../src/data/domains/physique-d', domains: 'PHYSIQUE_D', sources: 'SOURCES_PHYSIQUE_D', links: 'LINKS_PHYSIQUE_D', mlinks: 'MATHEMATICIAN_LINKS_PHYSIQUE_D' },
 };
 
 const file = process.argv[2];
