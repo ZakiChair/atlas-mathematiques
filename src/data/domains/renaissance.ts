@@ -174,7 +174,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'ar-equations-cubiques-et-quartiques',
         featured: {
           signature: { kind: 'fait', text: 'Publie la résolution générale des équations du 3ᵉ et du 4ᵉ degré (Ars magna, 1545).', sources: ['cardano-ars-magna', 'stedall-from-cardano'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'L’Ars magna ne se borne pas à la règle reçue de Tartaglia : Cardan la démontre par un découpage du cube à la manière d’Euclide, l’étend aux treize types de cubiques à coefficients positifs en apprenant à chasser le terme en x², et publie au chapitre XXXIX la résolution du quatrième degré trouvée par son élève Ferrari.',
+              sources: ['cardano-ars-magna', 'stedall-from-cardano'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dès le 4 août 1539, il écrit à Tartaglia que la règle échoue lorsque le cube du tiers du coefficient dépasse le carré de la moitié du nombre : c’est le cas irréductible. Dans l’Ars magna, il pousse le calcul jusqu’à 5 + √−15 et 5 − √−15, première opération écrite sur des racines de nombres négatifs, qu’il juge « aussi subtile qu’inutile ».',
+              sources: ['mactutor', 'cardano-ars-magna'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans le Liber de ludo aleae, il mesure la chance d’un coup par le rapport des cas favorables au nombre total des cas également possibles, dresse le compte des totaux pour deux et trois dés et, après un premier raisonnement erroné qu’il corrige, dégage la règle des puissances pour un événement répété.',
+              sources: ['ore-cardano', 'hald-history-1750'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'L’Ars magna passe pour le premier traité latin consacré à la seule algèbre ; pour Jacqueline Stedall, il ouvre les deux siècles — jusqu’aux Réflexions de Lagrange (1770-1771) — où l’algèbre est la théorie des équations, et ses tâtonnements sur les racines négatives et « sophistiques » posent les questions que Bombelli, Girard et Descartes reprendront.',
+              sources: ['mactutor', 'stedall-from-cardano'],
+            },
+          ],
           headlineResultIds: ['formule-de-cardan', 'ars-magna', 'liber-de-ludo-aleae'],
         },
       },
@@ -203,7 +224,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'ar-analyse-litterale',
         featured: {
           signature: { kind: 'fait', text: 'Introduit le calcul littéral : des lettres pour les inconnues et pour les données.', sources: ['stedall-from-cardano', 'katz-history'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il forge le vocabulaire de l’algèbre nouvelle — le mot « coefficient » lui est dû — et traite les équations comme des proportions entre grandeurs homogènes : résoudre une équation, c’est pour lui résoudre un problème de proportionnelles, et chaque terme doit avoir la même dimension.',
+              sources: ['mactutor', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Il relie trigonométrie et algèbre : en 1593, il résout l’équation de degré 45 proposée par Adriaan van Roomen en y reconnaissant la formule de l’arc multiple, et il ramène le cas irréductible de la cubique, où la formule de Cardan fait surgir des racines de nombres négatifs, à la trisection d’un angle.',
+              sources: ['mactutor', 'boyer-merzbach', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Calculateur, il publie dans le Canon mathematicus des tables trigonométriques où il emploie les fractions décimales, détermine en 1593 les dix premiers chiffres de π par un polygone de 6 × 2¹⁶ côtés et écrit π sous la forme d’un produit infini de racines carrées emboîtées, la première expression infinie connue de ce nombre.',
+              sources: ['mactutor', 'katz-history'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Les historiens lisent la devise qui clôt l’Isagoge — « ne laisser aucun problème sans solution » (nullum non problema solvere) — comme le manifeste d’une algèbre devenue méthode générale d’invention, et non plus recueil de règles ; Harriot, Fermat et Descartes partent de là.',
+              sources: ['katz-history', 'stedall-from-cardano'],
+            },
+          ],
           headlineResultIds: ['in-artem-analyticem-isagoge', 'de-aequationum-recognitione-et-emendatione'],
         },
       },
@@ -495,7 +537,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'tnf-descente-infinie',
         featured: {
           signature: { kind: 'interpretation', text: 'Refonde l’arithmétique des entiers : petit théorème, descente infinie, dernier théorème.', sources: ['weil-number-theory', 'mahoney-fermat'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Avant l’arithmétique, il fonde avec l’Ad locos planos (vers 1636) la géométrie des équations, en « restituant » les lieux d’Apollonius par l’algèbre de Viète ; sa méthode des maxima et des tangentes, qui fait disparaître un accroissement E après division, lui vaut d’être tenu par Lagrange et Laplace pour l’inventeur du calcul différentiel.',
+              sources: ['mahoney-fermat', 'boyer-merzbach'],
+            },
+            {
+              kind: 'fait',
+              text: 'Il calcule l’aire sous les courbes y = xⁿ pour tout exposant rationnel autre que −1, hyperboles comprises, en découpant l’axe selon une progression géométrique dont la raison tend vers 1 : la règle de l’aire sous xⁿ est acquise avant le calcul intégral, dont elle sera la première formule.',
+              sources: ['edwards-calculus', 'mahoney-fermat'],
+            },
+            {
+              kind: 'fait',
+              text: 'Au-delà des deux carrés, il énonce que tout nombre premier de la forme 8k + 1 ou 8k + 3 s’écrit x² + 2y², et tout nombre premier de la forme 3k + 1 s’écrit x² + 3y² : premières lois de représentation des nombres premiers par des formes quadratiques, qu’Euler démontrera et dont Lagrange puis Gauss feront une théorie.',
+              sources: ['weil-number-theory'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Deux de ses réponses à autrui ont fondé des disciplines : en 1654, il résout pour Pascal le problème des partis en dénombrant les issues également possibles, et vers 1662 il retrouve la loi de la réfraction à partir du principe du temps minimal, premier des principes variationnels de la physique.',
+              sources: ['hald-history-1750', 'mahoney-fermat'],
+            },
+          ],
           headlineResultIds: ['petit-theoreme-de-fermat', 'dernier-theoreme-de-fermat', 'descente-infinie'],
         },
       },
@@ -1079,7 +1142,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'gan-courbes-et-equations',
         featured: {
           signature: { kind: 'fait', text: 'Fait de l’algèbre l’instrument de la géométrie : La Géométrie (1637).', sources: ['bos-redefining', 'katz-history'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il libère l’algèbre de la dimension : en fixant un segment unité, il définit le produit, le quotient et la racine carrée de deux segments comme des segments, si bien que x² et x³ cessent d’être une aire et un volume et qu’une équation peut mêler tous les degrés — ce que la loi d’homogénéité de Viète interdisait.',
+              sources: ['bos-redefining', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Pour les tangentes, il invente la méthode des normales : un cercle centré sur l’axe touche la courbe lorsque l’équation de leur rencontre a une racine double, critère purement algébrique, sans infiniment petits, que Hudde transformera en règle mécanique dans l’édition de van Schooten (1659).',
+              sources: ['bos-redefining', 'edwards-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le livre III traite l’équation pour elle-même : autant de racines que de dimensions, en comptant les « fausses » (négatives) et les « imaginaires » — mot qu’il crée —, une racine a correspondant au facteur (x − a), et des transformations (chasser le second terme, changer les signes des racines) qui font de la théorie des équations une algèbre des polynômes.',
+              sources: ['katz-history', 'stedall-sourcebook'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Sa portée tient à son école : l’édition latine commentée de van Schooten (1649, puis 1659-1661) fait de La Géométrie le manuel où Huygens, Hudde, de Witt puis Newton apprennent à calculer sur les courbes, et l’historiographie classique voit dans cette algébrisation de la géométrie la condition du calcul infinitésimal.',
+              sources: ['bos-redefining', 'kline-thought', 'katz-history'],
+            },
+          ],
           headlineResultIds: ['la-geometrie-descartes', 'regle-des-signes-de-descartes'],
         },
       },
@@ -1439,7 +1523,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'nc-fluxions-et-calcul-differentiel',
         featured: {
           signature: { kind: 'fait', text: 'Invente le calcul des fluxions et des séries, et l’applique à la gravitation (1687).', sources: ['whiteside-newton', 'guicciardini-newton'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il fait des séries infinies l’instrument universel de l’analyse : la série du binôme, la division et l’extraction de racines « à la manière des décimales », puis l’inversion des séries donnent pour toute courbe une expression en puissances de x, dont aires et tangentes se calculent terme à terme ; il en tire les séries du logarithme, de l’arc sinus et du sinus.',
+              sources: ['whiteside-newton', 'edwards-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le De methodis (1671) ramène le calcul à deux problèmes inverses — de la relation entre des fluentes, trouver celle de leurs fluxions, et réciproquement — et résout en séries les premières équations « fluxionnelles », nos équations différentielles ; le De analysi contient déjà la méthode d’approximation des racines qui porte son nom.',
+              sources: ['whiteside-newton', 'edwards-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans les Principia, il remplace les infiniment petits par la méthode des « premières et dernières raisons » — onze lemmes sur les limites de rapports de quantités évanouissantes — et démontre par cette géométrie que l’attraction en raison inverse du carré de la distance rend compte des lois de Kepler, puis du mouvement de la Lune, des comètes, des marées et de la précession.',
+              sources: ['guicciardini-newton', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Niccolò Guicciardini, Newton se détourne ensuite de l’analyse symbolique au profit de la géométrie des Anciens, qu’il juge seule certaine : ce choix, joint à son refus de publier, explique que le calcul se soit répandu sous la forme leibnizienne et que l’école anglaise, fidèle aux fluxions, se soit tenue à l’écart du continent pendant un siècle.',
+              sources: ['guicciardini-newton', 'hall-philosophers-at-war'],
+            },
+          ],
           headlineResultIds: ['serie-du-binome', 'principia-mathematica-newton', 'de-analysi'],
         },
       },
@@ -1452,7 +1557,28 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'nc-fluxions-et-calcul-differentiel',
         featured: {
           signature: { kind: 'fait', text: 'Publie le premier le calcul différentiel (1684) et lui donne ses notations d et ∫.', sources: ['hofmann-leibniz', 'edwards-calculus'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Son calcul naît de l’arithmétique des différences : en sommant pour Huygens les inverses des nombres triangulaires (1672) et en construisant son « triangle harmonique », il voit que sommer une suite revient à inverser la prise des différences ; transposée aux courbes par le triangle caractéristique de Pascal, l’idée donne ∫ et d comme opérations inverses (manuscrits d’octobre-novembre 1675).',
+              sources: ['hofmann-leibniz', 'edwards-calculus'],
+            },
+            {
+              kind: 'fait',
+              text: 'Sa quadrature arithmétique du cercle (1673-1674), π/4 = 1 − 1/3 + 1/5 − 1/7 + …, obtenue par son théorème de transmutation et saluée par Huygens, est son premier résultat célèbre ; il dote ensuite le calcul de ses règles pour les produits, les quotients, les puissances et les fonctions composées, et c’est lui qui introduit les mots « fonction », « coordonnées » et « transcendante ».',
+              sources: ['hofmann-leibniz', 'edwards-calculus', 'boyer-merzbach', 'bos-redefining'],
+            },
+            {
+              kind: 'fait',
+              text: 'Il conçoit le calcul comme un langage dont les signes doivent soulager l’imagination et raisonner à la place de l’esprit : de là le soin mis à d et ∫, mais aussi les déterminants, qu’il manie dès 1684 pour résoudre les systèmes linéaires, et l’arithmétique binaire, mise au point en 1679 et communiquée à l’Académie de Paris en 1701 — autant d’essais du même projet de caractéristique.',
+              sources: ['mactutor', 'davis-universal'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Newton lui reprochait de n’avoir résolu par sa méthode aucun problème resté sans solution ; les historiens retiennent plutôt qu’il a rendu le calcul transmissible : enseigné par les Bernoulli, fixé dans le manuel de L’Hôpital (1696), il devient en une génération la langue commune de l’analyse continentale, et Leibniz lui donne des institutions en obtenant en 1700 la fondation de la Société des sciences de Brandebourg, future Académie de Berlin, qu’il préside.',
+              sources: ['mactutor', 'edwards-calculus', 'hall-philosophers-at-war'],
+            },
+          ],
           headlineResultIds: ['nova-methodus', 'characteristica-universalis', 'machine-arithmetique-de-leibniz'],
         },
       },
@@ -2061,7 +2187,23 @@ export const RENAISSANCE: Domain[] = [
         theoryId: 'np-geometrie-du-hasard',
         featured: {
           signature: { kind: 'fait', text: 'Fonde avec Fermat le calcul des chances (1654) ; construit la Pascaline.', sources: ['hacking-emergence', 'hald-history-1750'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Dans le Traité du triangle arithmétique, il démontre les propriétés du triangle en passant explicitement d’une ligne à la suivante — première formulation nette du raisonnement par récurrence — et en tire, pour le problème des partis, une règle générale : l’enjeu se partage selon des sommes de coefficients du binôme, là où Fermat énumérait les cas.',
+              sources: ['hald-history-1750', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Les Lettres de A. Dettonville (1658-1659), issues du défi de la roulette, somment par indivisibles aires, centres de gravité et volumes des segments de cycloïde ; leur « triangle caractéristique », formé par un élément de tangente et ses deux projections et semblable au triangle du rayon, de l’ordonnée et de l’abscisse, est la figure dans laquelle Leibniz dit avoir vu, en 1673, la lumière dont il tire son calcul.',
+              sources: ['hofmann-leibniz', 'edwards-calculus', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Dans l’argument du pari des Pensées, il applique à la croyance le raisonnement sur l’espérance qu’il avait forgé pour les jeux : pour Ian Hacking, c’est le premier exemple d’une décision raisonnée sous incertitude, l’acte de naissance de la théorie de la décision.',
+              sources: ['hacking-emergence'],
+            },
+          ],
           headlineResultIds: ['correspondance-pascal-fermat', 'traite-du-triangle-arithmetique', 'pascaline'],
         },
       },
