@@ -222,6 +222,7 @@ export const CONTEMPORAIN_A: Domain[] = [
           ],
           headlineResultIds: ['demonstration-du-dernier-theoreme-de-fermat'],
         },
+        mactutor: 'Wiles',
       },
       {
         id: 'taylor-richard',
@@ -1182,6 +1183,7 @@ export const CONTEMPORAIN_A: Domain[] = [
           ],
           headlineResultIds: ['schemas', 'elements-de-geometrie-algebrique', 'theoreme-de-riemann-roch-grothendieck'],
         },
+        mactutor: 'Grothendieck',
       },
       {
         id: 'hironaka',
@@ -1730,6 +1732,7 @@ export const CONTEMPORAIN_A: Domain[] = [
           ],
           headlineResultIds: ['demonstration-de-la-conjecture-de-poincare'],
         },
+        mactutor: 'Perelman',
       },
       {
         id: 'mirzakhani',
@@ -1748,6 +1751,7 @@ export const CONTEMPORAIN_A: Domain[] = [
           ],
           headlineResultIds: ['volumes-de-weil-petersson'],
         },
+        mactutor: 'Mirzakhani',
       },
     ],
     relatedMathematicianIds: ['poincare', 'whitney', 'hopf', 'grothendieck', 'kontsevich'],
@@ -2212,6 +2216,7 @@ export const CONTEMPORAIN_A: Domain[] = [
           ],
           headlineResultIds: ['ensemble-de-mandelbrot', 'les-objets-fractals'],
         },
+        mactutor: 'Mandelbrot',
       },
       {
         id: 'feigenbaum',
