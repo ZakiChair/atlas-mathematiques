@@ -611,5 +611,15 @@ export const FIGURES_DIXNEUVIEME_B: Record<string, Mathematician[]> = {
       mactutor: 'Suslin',
       sources: ['mactutor'],
     },
+    {
+      id: 'koch',
+      name: 'Helge von Koch',
+      years: [1870, 1924],
+      origin: 'Stockholm',
+      bio: 'Élève de Mittag-Leffler à Stockholm (doctorat 1892), il applique les déterminants infinis aux équations différentielles puis publie en 1904 « Sur une courbe continue sans tangente » : sa « courbe », continue et nulle part dérivable, devient le « flocon de Koch ».',
+      theoryId: 'tde-ensembles-de-points',
+      mactutor: 'Koch',
+      sources: ['mactutor'],
+    },
   ],
 };

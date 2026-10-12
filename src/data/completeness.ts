@@ -14,9 +14,9 @@ export const COMPLETENESS = {
   /** part des théorèmes dotés d'une intuition et d'une démonstration, et des conjectures et problèmes dotés d'une intuition (vague 3) */
   proofsCoverage: 1,
   /** nombre minimal de figures (vague 4) */
-  mathematiciansMin: 428,
+  mathematiciansMin: 1150,
   /** part des figures dotées d'un slug MacTutor (vague 4) */
-  mactutorCoverage: 0,
+  mactutorCoverage: 0.85,
 };
 
 /** Un résultat est « complet » pour la vague 3 : théorème → intuition + démonstration ; conjecture, problème → intuition. */

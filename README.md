@@ -72,15 +72,14 @@ Fraunces, texte et étiquettes en DM Sans.
 ## Corpus
 
 58 domaines (antiquité 6, monde médiéval 6, renaissance et révolution scientifique 8, siècle des
-lumières 6, xixᵉ siècle 9, âge des structures 11, contemporain 12), 176 théories, 428 figures,
+lumières 6, xixᵉ siècle 9, âge des structures 11, contemporain 12), 176 théories, 1 175 figures,
 647 résultats commentés (224 texte, 223 théorème, 105 concept, 55 méthode, 24 problème,
 16 conjecture), 486 repères chronologiques, 182 liens entre domaines, 148 liens entre figures,
 223 sources (livres, articles, textes primaires, archives web). 174 résultats portent un récit
 « contexte / portée » (593 énoncés : 400 faits, 193 interprétations). 43 grandes figures portent
-une signature typée et sourcée et 1 à 3 résultats phares (apports rédigés pour Euler, les autres
-à la vague 2) ; 3 résultats sont dotés de « D’où vient l’idée » et « Idée de la démonstration »
-(vague 3 à venir, cible : tous les théorèmes, conjectures et problèmes) ; la vague 4 vise
-environ 1 200 figures en fiches courtes vérifiées sur MacTutor.
+une signature typée et sourcée, 2 à 4 apports et 1 à 3 résultats phares ; les théorèmes sont
+tous dotés de « D’où vient l’idée » et « Idée de la démonstration », et les conjectures et
+problèmes de « D’où vient l’idée » ; 1 127 figures renvoient à leur biographie MacTutor.
 
 Les données vivent dans `src/data/` :
 
