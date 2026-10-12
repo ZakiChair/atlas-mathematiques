@@ -171,7 +171,28 @@ export const LUMIERES: Domain[] = [
         theoryId: 'ae-variations-et-milieux-continus',
         featured: {
           signature: { kind: 'fait', text: 'Écrit la première équation aux dérivées partielles de la physique : les cordes vibrantes.', sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Sa solution des cordes vibrantes (1747), somme de deux fonctions arbitraires y = f(x + ct) + g(x − ct), inaugure la méthode des équations aux dérivées partielles ; en exigeant que ces fonctions soient données par une seule équation, il ouvre avec Euler la controverse sur ce qu’est une fonction, que le XIXᵉ siècle héritera.',
+              sources: ['bottazzini-higher-calculus', 'kline-thought'],
+            },
+            {
+              kind: 'fait',
+              text: 'Pour intégrer les fractions rationnelles, il tente en 1746 la première démonstration du théorème fondamental de l’algèbre — toute équation polynomiale a une racine de la forme a + b√−1 ; l’argument est incomplet, mais la question est posée dans les termes que reprendra Gauss (1799).',
+              sources: ['kline-thought', 'stillwell-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans les articles « Différentiel » (1754) et « Limite » (1765) de l’Encyclopédie, il définit la dérivée comme limite d’un quotient de différences et fait de la limite la « vraie métaphysique » du calcul ; de la même exigence procède son critère de convergence des séries par le rapport de deux termes consécutifs (Opuscules, 1768).',
+              sources: ['grabiner-origins', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Protecteur autant que savant : il fait appeler Lagrange à Berlin pour succéder à Euler (1766), place le jeune Laplace à l’École militaire et soutient son élection à l’Académie (1773). La génération qui achèvera la mécanique analytique et la mécanique céleste est, pour une part, la sienne.',
+              sources: ['mactutor', 'gillispie-laplace'],
+            },
+          ],
           headlineResultIds: ['equation-des-cordes-vibrantes', 'article-limite-encyclopedie', 'traite-de-dynamique'],
         },
       },
@@ -468,7 +489,28 @@ export const LUMIERES: Domain[] = [
         theoryId: 'ma-principes-et-mecanique-analytique',
         featured: {
           signature: { kind: 'fait', text: 'Réécrit la mécanique en pur calcul, sans aucune figure (Méchanique analitique, 1788).', sources: ['dieudonne-abrege', 'stedall-sourcebook'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Son calcul de la variation δ remplace les polygones d’Euler par des opérations sur des expressions et vaut à la discipline le nom de « calcul des variations » qu’Euler lui donne ; Lagrange en tire au début des années 1760, dans les Mélanges de Turin, les équations du mouvement à partir du principe de moindre action, et sa méthode des multiplicateurs permet d’y inclure les liaisons.',
+              sources: ['kline-thought', 'dieudonne-abrege', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Les Réflexions sur la résolution algébrique des équations (1770-1771) expliquent les formules des degrés 3 et 4 par les permutations des racines et montrent que la même méthode échoue au degré 5 : les historiens y voient le point de départ de Ruffini, d’Abel et de Galois, et la première étape vers la notion de groupe.',
+              sources: ['kleiner-abstract-algebra', 'wussing-group-concept', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'En théorie des nombres, il démontre que l’équation de Pell x² − Ny² = 1 a toujours des solutions, le théorème des quatre carrés (1770) et le théorème de Wilson (1771), puis fonde dans les Recherches d’arithmétique (1773-1775) la théorie des formes quadratiques binaires — réduction, équivalence — que Legendre et Gauss développeront.',
+              sources: ['weil-number-theory'],
+            },
+            {
+              kind: 'fait',
+              text: 'Premier professeur d’analyse de l’École polytechnique (1794), il publie ses leçons : la Théorie des fonctions analytiques (1797) fixe le mot et la notation de « fonction dérivée » f′(x) et donne la première estimation du reste de la série de Taylor, inégalité dont Cauchy fera un instrument de rigueur.',
+              sources: ['grabiner-origins', 'bottazzini-higher-calculus', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['mecanique-analytique-lagrange', 'theoreme-des-quatre-carres', 'stabilite-du-systeme-solaire'],
         },
       },
@@ -481,7 +523,28 @@ export const LUMIERES: Domain[] = [
         theoryId: 'ma-mecanique-celeste',
         featured: {
           signature: { kind: 'interpretation', text: 'Achève la mécanique céleste newtonienne et donne aux probabilités leur forme analytique.', sources: ['gillispie-laplace', 'stigler-statistics'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il résout une à une les anomalies qui semblaient démentir Newton : invariabilité des moyens mouvements au premier ordre des masses (1773), « grande inégalité » de Jupiter et de Saturne expliquée par la quasi-commensurabilité de leurs périodes (1785), accélération séculaire de la Lune rapportée à la lente variation de l’excentricité de l’orbite terrestre (1787).',
+              sources: ['gillispie-laplace', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'En probabilités, il énonce dès 1774, sans référence à l’essai de Bayes, le principe de la probabilité des causes par les événements, forge le calcul des fonctions génératrices (1782) et démontre en 1810 que la somme de nombreuses petites erreurs indépendantes suit la loi normale : la théorie des erreurs et l’inférence y trouvent leur appareil analytique.',
+              sources: ['stigler-statistics', 'gillispie-laplace'],
+            },
+            {
+              kind: 'fait',
+              text: 'Pour l’attraction des sphéroïdes, il développe le potentiel en fonctions sphériques — longtemps appelées « coefficients de Laplace » — qui généralisent les polynômes de Legendre, et étend ces méthodes aux marées, aux anneaux de Saturne et à la figure des planètes.',
+              sources: ['kline-thought', 'gillispie-laplace', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Autour de la Société d’Arcueil, fondée vers 1805 avec le chimiste Berthollet, il impose un programme de physique mathématique où tout phénomène se ramène à des forces moléculaires à courte portée : Biot et Poisson le suivent, et cette « physique laplacienne » domine la science française jusqu’à ce que Fresnel et Fourier s’en écartent.',
+              sources: ['gillispie-laplace', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['traite-de-mecanique-celeste', 'theorie-analytique-des-probabilites', 'theoreme-central-limite-laplace'],
         },
       },
@@ -807,7 +870,28 @@ export const LUMIERES: Domain[] = [
         theoryId: 'tnl-formes-et-sommes-de-puissances',
         featured: {
           signature: { kind: 'fait', text: 'Énonce la loi de réciprocité quadratique et publie les moindres carrés (1805).', sources: ['weil-number-theory', 'stigler-statistics'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Deux familles de fonctions portent sa marque : les polynômes nés de ses recherches sur l’attraction des sphéroïdes (1782-1785), que Laplace généralise aussitôt, et les intégrales elliptiques, qu’il ramène à trois formes canoniques et tabule pendant quarante ans (Exercices de calcul intégral, 1811-1819 ; Traité des fonctions elliptiques, 1825-1830) — jusqu’à ce qu’Abel et Jacobi, en les inversant, rendent son traité caduc.',
+              sources: ['mactutor', 'kline-thought', 'dieudonne-abrege'],
+            },
+            {
+              kind: 'fait',
+              text: 'L’Essai sur la théorie des nombres (1798) introduit le symbole (a/p) qui code les résidus quadratiques et organise en traité les résultats épars d’Euler et de Lagrange ; sa seconde édition (1808) donne pour le nombre des premiers inférieurs à x la formule approchée x/(ln x − 1,08366) : Legendre est le premier à porter cette question devant le public, même si Gauss affirmera l’avoir devinée avant lui.',
+              sources: ['weil-number-theory', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses Éléments de géométrie (1794), réorganisation d’Euclide à l’usage des élèves, remplacent les Éléments comme manuel en Europe puis en Amérique pendant un siècle ; on y trouve la première démonstration solide de la relation d’Euler sur les polyèdres, l’irrationalité de π et de π², et les tentatives, trente ans durant, de démontrer le postulat des parallèles.',
+              sources: ['mactutor', 'gray-worlds', 'dieudonne-abrege'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Géodésien autant qu’arithméticien — triangulation Paris–Greenwich (1787), commission des poids et mesures (1791) —, il publie les moindres carrés en 1805 comme un principe général, en quelques pages, avec les équations normales qui le rendent calculable ; la méthode est adoptée en moins de vingt ans par les astronomes et géodésiens d’Europe, diffusion que Stephen Stigler juge d’une rapidité sans précédent.',
+              sources: ['stigler-statistics', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['loi-de-reciprocite-quadratique-enonce', 'methode-des-moindres-carres', 'essai-sur-la-theorie-des-nombres'],
         },
       },
