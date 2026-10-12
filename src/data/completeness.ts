@@ -10,7 +10,7 @@ export const COMPLETENESS = {
   /** nombre minimal de grandes figures (sous-projet 1 : liste éditoriale) */
   featuredMin: 40,
   /** toute grande figure a 2 à 4 apports (vague 2) */
-  contributionsRequired: false,
+  contributionsRequired: true,
   /** part des théorèmes dotés d'une intuition et d'une démonstration, et des conjectures et problèmes dotés d'une intuition (vague 3) */
   proofsCoverage: 0,
   /** nombre minimal de figures (vague 4) */
