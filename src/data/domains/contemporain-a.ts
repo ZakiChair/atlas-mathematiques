@@ -148,6 +148,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Tokyo',
         bio: 'Formé à l’Université de Tokyo, Taniyama étudie avec Shimura les fonctions zêta des variétés abéliennes à multiplication complexe. Au symposium de Tokyo–Nikko (1955), il pose les problèmes qui, précisés par Shimura, deviendront la conjecture de modularité. Il se donne la mort en novembre 1958, à trente et un ans.',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
+        sources: ['mactutor'],
+        mactutor: 'Taniyama',
       },
       {
         id: 'shimura',
@@ -156,6 +158,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Tokyo et Princeton',
         bio: 'Formé à Tokyo, Shimura s’installe à Princeton en 1964. Il développe la théorie arithmétique des courbes modulaires, les variétés qui portent son nom et la correspondance entre formes modulaires de poids demi-entier et de poids entier. Dans ses mémoires (The Map of My Life, 2008), il revendique la formulation précise de la conjecture de modularité.',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
+        sources: ['mactutor'],
+        mactutor: 'Shimura',
       },
       {
         id: 'tate',
@@ -164,6 +168,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Harvard et Austin',
         bio: 'Élève d’Emil Artin à Princeton, Tate introduit dans sa thèse (1950) l’analyse de Fourier sur les adèles pour étudier les fonctions L. Cohomologie de Tate, modules de Tate, groupe de Tate–Chafarevitch, conjecture de Tate et géométrie analytique rigide : une grande partie du vocabulaire de la géométrie arithmétique porte son nom. Professeur à Harvard puis à Austin, il reçoit le prix Abel en 2010.',
         theoryId: 'tnc-programme-de-langlands',
+        sources: ['mactutor'],
+        mactutor: 'Tate',
       },
       {
         id: 'iwasawa',
@@ -172,6 +178,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Tokyo, MIT et Princeton',
         bio: 'Formé à Tokyo, Iwasawa enseigne au MIT (1952-1967) puis à Princeton (1967-1986). Son étude des tours d’extensions cyclotomiques et de la croissance des groupes de classes le long de ces tours fonde la théorie qui porte son nom ; sa « conjecture principale » est démontrée par Mazur et Wiles en 1984.',
         theoryId: 'tnc-programme-de-langlands',
+        sources: ['mactutor'],
+        mactutor: 'Iwasawa',
       },
       {
         id: 'baker',
@@ -180,6 +188,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Cambridge',
         bio: 'Élève de Harold Davenport, Baker établit en 1966 des minorations effectives des formes linéaires en logarithmes de nombres algébriques. Il en déduit, indépendamment de Stark, la solution du problème du nombre de classes un de Gauss, et rend effectives de nombreuses équations diophantiennes. Médaille Fields en 1970.',
         theoryId: 'tnc-geometrie-diophantienne-et-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Baker_Alan',
       },
       {
         id: 'langlands',
@@ -188,6 +198,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Né en Colombie-Britannique et formé à Yale, Langlands enseigne à Princeton puis à Yale avant de rejoindre l’Institute for Advanced Study en 1972. Sa lettre à Weil de janvier 1967 formule les conjectures de fonctorialité et de réciprocité qui structurent depuis le « programme de Langlands ». Prix Abel en 2018.',
         theoryId: 'tnc-programme-de-langlands',
+        sources: ['mactutor'],
+        mactutor: 'Langlands',
       },
       {
         id: 'mazur',
@@ -196,6 +208,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Harvard',
         bio: 'Topologue de formation (théorème de Schoenflies généralisé, 1959), Mazur se tourne vers l’arithmétique à Harvard. Son théorème sur la torsion des courbes elliptiques (1977), ses travaux avec Wiles sur la conjecture principale d’Iwasawa (1984) et sa théorie des déformations des représentations galoisiennes (1989) préparent directement la démonstration de Wiles.',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
+        sources: ['mactutor'],
+        mactutor: 'Mazur_Barry',
       },
       {
         id: 'faltings',
@@ -204,6 +218,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Wuppertal, Princeton et Bonn',
         bio: 'Formé à Münster, Faltings démontre en 1983, à vingt-neuf ans, les conjectures de Mordell, de Tate et de Chafarevitch pour les variétés abéliennes sur les corps de nombres. Médaille Fields en 1986, il enseigne à Princeton puis dirige l’Institut Max-Planck de mathématiques de Bonn à partir de 1994.',
         theoryId: 'tnc-geometrie-diophantienne-et-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Faltings',
       },
       {
         id: 'wiles',
@@ -231,6 +247,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Oxford, Harvard et Stanford',
         bio: 'Élève de Wiles à Princeton, Taylor contribue en 1994 à combler la lacune de la démonstration du dernier théorème de Fermat par la méthode dite des « systèmes de Taylor–Wiles ». Il démontre ensuite avec Breuil, Conrad et Diamond la conjecture de modularité complète (2001), la conjecture de Langlands locale pour GLₙ (avec Harris, 2001) et de larges cas de la conjecture de Sato–Tate (2008).',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
+        sources: ['mactutor'],
+        mactutor: 'Taylor_Richard',
       },
       {
         id: 'zhang-yitang',
@@ -680,6 +698,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Yale',
         bio: 'Né à Vienne, réfugié en Angleterre en 1939 puis formé à Chicago et au Michigan, Feit est spécialiste de la théorie des caractères des groupes finis. Avec John Thompson, il démontre en 1963 que tout groupe d’ordre impair est résoluble, article de 255 pages qui occupe un numéro entier du Pacific Journal of Mathematics. Il enseigne à Yale de 1964 à sa retraite.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Feit',
       },
       {
         id: 'thompson-john',
@@ -688,6 +708,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Chicago, Cambridge et Gainesville',
         bio: 'Dans sa thèse (Chicago, 1959), Thompson démontre la conjecture de Frobenius sur les noyaux de Frobenius. Le théorème de l’ordre impair (avec Feit, 1963) puis la classification des N-groupes (1968-1974) fournissent les méthodes de toute la classification. Médaille Fields en 1970, il enseigne à Cambridge (1970-1993) puis en Floride ; prix Abel en 2008, partagé avec Tits.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Thompson_John',
       },
       {
         id: 'gorenstein',
@@ -696,6 +718,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'New Brunswick',
         bio: 'Formé à Harvard chez Zariski en géométrie algébrique (les anneaux de Gorenstein portent son nom), Gorenstein se tourne vers les groupes finis dans les années 1950. Professeur à Rutgers, il conçoit en 1972 le programme de classification des groupes finis simples, en dirige l’exécution et en annonce l’achèvement en 1983 ; il lance au début des années 1980 avec Lyons et Solomon la rédaction d’une preuve révisée, dont le premier volume paraît en 1994.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Gorenstein',
       },
       {
         id: 'tits',
@@ -704,6 +728,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Bruxelles, Bonn et Paris',
         bio: 'Docteur à vingt ans à Bruxelles, Tits enseigne à Bonn puis au Collège de France (1973-2000). Il invente les immeubles et les systèmes de Tits (BN-paires), géométries qui rendent compte uniformément des groupes algébriques, des groupes de Lie et des groupes finis de type de Lie, et classe les immeubles sphériques (1974). Prix Abel en 2008 avec John Thompson.',
         theoryId: 'alc-groupes-algebriques-et-representations',
+        sources: ['mactutor'],
+        mactutor: 'Tits',
       },
       {
         id: 'conway',
@@ -712,6 +738,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Cambridge et Princeton',
         bio: 'Formé à Cambridge, où il enseigne jusqu’en 1986 avant de rejoindre Princeton, Conway découvre en 1968 trois groupes sporadiques en étudiant les symétries du réseau de Leech, dirige l’ATLAS of Finite Groups (1985) et formule avec Norton les conjectures du « Monstrous Moonshine » (1979). Inventeur du jeu de la vie et des nombres surréels, il meurt de la Covid-19 en avril 2020.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Conway',
       },
       {
         id: 'aschbacher',
@@ -720,6 +748,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Pasadena',
         bio: 'Professeur au California Institute of Technology depuis 1970, Aschbacher est l’un des principaux artisans de la classification : théorème des composantes classiques, groupes de rang 3, et surtout, avec Stephen Smith, la classification des groupes quasi-minces (2004) qui comble la lacune de l’annonce de 1983. Prix Cole en 1980, prix Wolf en 2012.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Aschbacher',
       },
       {
         id: 'kac',
@@ -736,6 +766,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'MIT',
         bio: 'Né à Timișoara, formé à Bucarest puis à Princeton, Lusztig enseigne au MIT depuis 1978. Il construit avec Deligne les représentations des groupes finis de type de Lie (1976), introduit avec Kazhdan les polynômes et les conjectures de Kazhdan–Lusztig (1979), puis les bases canoniques des groupes quantiques (1990). Prix Shaw en 2014, prix Wolf en 2022.',
         theoryId: 'alc-groupes-algebriques-et-representations',
+        sources: ['mactutor'],
+        mactutor: 'Lusztig',
       },
       {
         id: 'drinfeld',
@@ -744,6 +776,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Kharkiv et Chicago',
         bio: 'Formé à Moscou auprès de Manin, Drinfeld travaille à Kharkiv jusqu’en 1998 avant de rejoindre Chicago. Il démontre la correspondance de Langlands pour GL₂ sur les corps de fonctions à l’aide des modules qui portent son nom (chtoucas), introduit les groupes quantiques (1985) et, avec Beilinson, la géométrie algébrique « chirale ». Médaille Fields en 1990.',
         theoryId: 'alc-moonshine-et-groupes-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Drinfeld',
       },
       {
         id: 'borcherds',
@@ -752,6 +786,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Cambridge et Berkeley',
         bio: 'Élève de Conway à Cambridge, Borcherds introduit en 1986 les algèbres de vertex, construit les algèbres de Kac–Moody généralisées et démontre en 1992 les conjectures du Monstrous Moonshine. Professeur à Berkeley, il reçoit la médaille Fields en 1998.',
         theoryId: 'alc-moonshine-et-groupes-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Borcherds',
       },
       {
         id: 'zelmanov',
@@ -760,6 +796,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Novossibirsk et San Diego',
         bio: 'Formé à Novossibirsk, où il travaille sur les algèbres de Jordan et de Lie non associatives, Zelmanov résout en 1989-1991 le problème restreint de Burnside, posé en 1902 et laissé ouvert malgré les travaux de Kostrikin. Émigré aux États-Unis, professeur à San Diego, il reçoit la médaille Fields en 1994.',
         theoryId: 'alc-groupes-finis-simples',
+        sources: ['mactutor'],
+        mactutor: 'Zelmanov',
       },
     ],
     relatedMathematicianIds: ['chevalley', 'serre', 'langlands', 'witten'],
@@ -1165,6 +1203,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Paris',
         bio: 'Élève d’Henri Cartan, membre de Bourbaki, Serre reçoit la médaille Fields en 1954 pour ses travaux de topologie (groupes d’homotopie des sphères), puis se tourne vers la géométrie algébrique (FAC, GAGA) et la théorie des nombres (cohomologie galoisienne, représentations ℓ-adiques, conjecture de modularité). Professeur au Collège de France de 1956 à 1994, il est le premier lauréat du prix Abel (2003).',
         theoryId: 'gam-faisceaux-et-schemas',
+        sources: ['mactutor'],
+        mactutor: 'Serre',
       },
       {
         id: 'grothendieck',
@@ -1192,6 +1232,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Kyoto et Harvard',
         bio: 'Formé à Kyoto puis à Harvard sous la direction de Zariski, Hironaka démontre en 1964 que toute variété algébrique sur un corps de caractéristique zéro admet une résolution de ses singularités, en 216 pages. Professeur à Harvard (1968-1992) puis à Kyoto, médaille Fields en 1970, il fonde au Japon des institutions pour la formation des jeunes mathématiciens.',
         theoryId: 'gam-faisceaux-et-schemas',
+        sources: ['mactutor'],
+        mactutor: 'Hironaka',
       },
       {
         id: 'mumford',
@@ -1200,6 +1242,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Harvard et Brown',
         bio: 'Élève de Zariski à Harvard, Mumford construit les espaces de modules par la théorie géométrique des invariants (GIT, 1965), étudie les surfaces abéliennes, les fonctions thêta et la compactification de l’espace des modules des courbes (avec Deligne, 1969). Médaille Fields en 1974, il se tourne dans les années 1980 vers la vision par ordinateur et la théorie des formes, à Harvard puis à Brown.',
         theoryId: 'gam-classification-et-physique-mathematique',
+        sources: ['mactutor'],
+        mactutor: 'Mumford',
       },
       {
         id: 'deligne',
@@ -1208,6 +1252,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Bures-sur-Yvette et Princeton',
         bio: 'Formé à Bruxelles puis à Paris auprès de Grothendieck, dont il suit le séminaire dès 1965, Deligne démontre en 1974 la dernière des conjectures de Weil (l’« hypothèse de Riemann » sur les corps finis), introduit la théorie de Hodge mixte et, avec Lusztig, les représentations des groupes finis de type de Lie. Professeur à l’IHÉS (1970-1984) puis à l’Institute for Advanced Study, médaille Fields en 1978, prix Abel en 2013.',
         theoryId: 'gam-cohomologie-et-motifs',
+        sources: ['mactutor'],
+        mactutor: 'Deligne',
       },
       {
         id: 'mori',
@@ -1216,6 +1262,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Kyoto',
         bio: 'Formé à Kyoto, Mori démontre en 1979 la conjecture de Hartshorne (caractérisation de l’espace projectif par l’amplitude de son fibré tangent) par la technique des « courbes rationnelles en caractéristique p », puis fonde le programme du modèle minimal en dimension 3, achevé par son théorème d’existence des flips (1988). Médaille Fields en 1990, il préside l’Union mathématique internationale de 2015 à 2018.',
         theoryId: 'gam-classification-et-physique-mathematique',
+        sources: ['mactutor'],
+        mactutor: 'Mori',
       },
       {
         id: 'kontsevich',
@@ -1224,6 +1272,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Bures-sur-Yvette',
         bio: 'Formé à Moscou, docteur à Bonn (1992) avec une démonstration de la conjecture de Witten sur les intersections dans l’espace des modules des courbes, Kontsevich est professeur permanent à l’IHÉS depuis 1995. Il énonce la symétrie miroir homologique (1994), démontre la quantification par déformation des variétés de Poisson (1997) et introduit des invariants de nœuds et des structures de stabilité. Médaille Fields en 1998.',
         theoryId: 'gam-classification-et-physique-mathematique',
+        sources: ['mactutor'],
+        mactutor: 'Kontsevich',
       },
       {
         id: 'voevodsky',
@@ -1232,6 +1282,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Formé à Moscou puis à Harvard, Voevodsky construit une théorie de l’homotopie des schémas (avec Morel) et une cohomologie motivique, qui lui permettent de démontrer la conjecture de Milnor sur la K-théorie (1996) puis, avec Rost, la conjecture de Bloch–Kato (2011). Médaille Fields en 2002, professeur à l’Institute for Advanced Study, il consacre sa dernière décennie aux fondements univalents et à la démonstration assistée par ordinateur.',
         theoryId: 'gam-cohomologie-et-motifs',
+        sources: ['mactutor'],
+        mactutor: 'Voevodsky',
       },
     ],
     relatedMathematicianIds: ['weil', 'zariski', 'cartan-henri', 'dieudonne', 'hodge'],
@@ -1634,6 +1686,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Strasbourg et Bures-sur-Yvette',
         bio: 'Élève de Cartan à Strasbourg, Thom calcule les groupes de cobordisme (1954) et reçoit la médaille Fields en 1958. Professeur à l’IHÉS dès sa fondation, il se tourne vers la stabilité structurelle et la « théorie des catastrophes », qu’il applique à la biologie et à la linguistique dans Stabilité structurelle et morphogenèse (1972).',
         theoryId: 'tgc-varietes-et-cobordisme',
+        sources: ['mactutor'],
+        mactutor: 'Thom',
       },
       {
         id: 'milnor',
@@ -1642,6 +1696,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton et Stony Brook',
         bio: 'Étudiant à Princeton (prix Putnam, thèse avec Tucker), Milnor y découvre en 1956 des variétés homéomorphes à la sphère S⁷ mais non difféomorphes à elle : les sphères exotiques. Avec Kervaire, il dénombre les structures différentiables des sphères. Médaille Fields en 1962, prix Abel en 2011 ; il fonde et dirige l’Institute for Mathematical Sciences de Stony Brook et travaille aussi en dynamique holomorphe.',
         theoryId: 'tgc-varietes-et-cobordisme',
+        sources: ['mactutor'],
+        mactutor: 'Milnor',
       },
       {
         id: 'smale',
@@ -1650,6 +1706,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Berkeley',
         bio: 'Formé au Michigan, Smale démontre à Berkeley l’éversion de la sphère (1958) puis le théorème du h-cobordisme (1961), qui implique la conjecture de Poincaré en dimension au moins 5. Médaille Fields en 1966, il refonde avec son fer à cheval l’étude des systèmes dynamiques différentiables, avant de se tourner vers l’économie mathématique, puis vers la théorie du calcul (machines de Blum–Shub–Smale).',
         theoryId: 'tgc-varietes-et-cobordisme',
+        sources: ['mactutor'],
+        mactutor: 'Smale',
       },
       {
         id: 'atiyah',
@@ -1658,6 +1716,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Oxford, Princeton et Édimbourg',
         bio: 'Élève de Hodge à Cambridge, Atiyah construit avec Hirzebruch la K-théorie topologique et démontre avec Singer le théorème de l’indice (1963), puis la conjecture d’Atiyah–Singer pour les familles. Médaille Fields 1966, professeur à l’IAS puis à Oxford, président de la Royal Society (1990-1995), premier directeur de l’Institut Isaac-Newton ; prix Abel 2004 avec Singer.',
         theoryId: 'tgc-indice-et-theories-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Atiyah',
       },
       {
         id: 'singer',
@@ -1666,6 +1726,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'MIT',
         bio: 'Formé en physique puis en mathématiques à Chicago, Singer enseigne au MIT dès 1950. Son amitié avec Atiyah, née à Princeton en 1954, débouche sur le théorème de l’indice, qui relie le nombre de solutions d’un opérateur différentiel à la topologie de la variété sous-jacente. Prix Abel 2004, partagé avec Atiyah.',
         theoryId: 'tgc-indice-et-theories-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Singer',
       },
       {
         id: 'thurston',
@@ -1674,6 +1736,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton, Berkeley et Cornell',
         bio: 'Docteur de Berkeley (1972), Thurston démontre le théorème de geometrisation pour les variétés de Haken (1978-1979) et énonce en 1982 la conjecture de géométrisation, qui classe les variétés de dimension 3 selon huit géométries modèles. Médaille Fields 1982, il enseigne à Princeton, Berkeley et Cornell, et milite pour une mathématique de la compréhension (« On proof and progress », 1994).',
         theoryId: 'tgc-dimensions-3-et-4',
+        sources: ['mactutor'],
+        mactutor: 'Thurston',
       },
       {
         id: 'freedman',
@@ -1682,6 +1746,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'San Diego et Santa Barbara',
         bio: 'Formé à Princeton, Freedman démontre en 1982 la conjecture de Poincaré topologique en dimension 4 et classifie les variétés simplement connexes de cette dimension, par la technique des « disques en cascade ». Médaille Fields 1986, il dirige à Microsoft le groupe Station Q de Santa Barbara, dédié au calcul quantique topologique.',
         theoryId: 'tgc-dimensions-3-et-4',
+        sources: ['mactutor'],
+        mactutor: 'Freedman',
       },
       {
         id: 'jones',
@@ -1690,6 +1756,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Berkeley et Nashville',
         bio: 'Néo-Zélandais formé à Auckland et Genève, Jones découvre en 1984, en étudiant les facteurs de von Neumann, un invariant polynomial des nœuds que ni Alexander (1928) ni les topologues ultérieurs n’avaient aperçu. Médaille Fields 1990, professeur à Berkeley puis à Vanderbilt, il obtient avec la théorie des sous-facteurs des outils pour les théories conformes des champs.',
         theoryId: 'tgc-indice-et-theories-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Jones_Vaughan',
       },
       {
         id: 'donaldson',
@@ -1698,6 +1766,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Oxford et Londres',
         bio: 'Élève d’Atiyah et de Nigel Hitchin à Oxford, Donaldson montre en 1983, à l’aide des instantons de Yang–Mills, que certaines formes d’intersection ne sont réalisées par aucune variété lisse, et en déduit l’existence de R⁴ exotiques. Médaille Fields 1986, professeur à Oxford, à l’Imperial College puis à Stony Brook, il construit avec les invariants de Donaldson une topologie différentielle de la dimension 4.',
         theoryId: 'tgc-dimensions-3-et-4',
+        sources: ['mactutor'],
+        mactutor: 'Donaldson',
       },
       {
         id: 'witten',
@@ -1706,6 +1776,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Physicien théoricien, professeur à Princeton puis à l’Institute for Advanced Study, Witten réinterprète le polynôme de Jones par la théorie de Chern–Simons (1989), conjecture les intersections de l’espace des modules des courbes (démontrées par Kontsevich) et formule avec Seiberg les équations qui portent leurs noms (1994). Il reçoit la médaille Fields en 1990, première pour un physicien.',
         theoryId: 'tgc-indice-et-theories-quantiques',
+        sources: ['mactutor'],
+        mactutor: 'Witten',
       },
       {
         id: 'hamilton-richard',
@@ -1714,6 +1786,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Cornell et Columbia',
         bio: 'Élève de Robert Gunning à Princeton, Hamilton introduit en 1982 le flot de Ricci et montre qu’il arrondit les variétés de dimension 3 à courbure de Ricci positive. Professeur à San Diego puis à Columbia, il élabore pendant vingt ans le programme destiné à en déduire la géométrisation ; Perelman l’achève en 2003 en traitant les singularités. Prix Shaw 2011, partagé avec Christodoulou.',
         theoryId: 'tgc-dimensions-3-et-4',
+        sources: ['mactutor'],
+        mactutor: 'Hamilton_Richard',
       },
       {
         id: 'perelman',
@@ -2166,6 +2240,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'MIT',
         bio: 'Météorologue formé aux mathématiques à Harvard et au MIT, Lorenz découvre en 1963 la sensibilité aux conditions initiales en simplifiant à trois équations un modèle de convection atmosphérique. Son attracteur, baptisé « papillon », devient l’icône du chaos déterministe ; il reçoit le prix Kyoto en 1991.',
         theoryId: 'sdc-chaos-et-theorie-ergodique',
+        sources: ['mactutor'],
+        mactutor: 'Lorenz_Edward',
       },
       {
         id: 'moser',
@@ -2174,6 +2250,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'New York et Zurich',
         bio: 'Formé à Göttingen avec Franz Rellich, Moser émigre aux États-Unis (Courant Institute) puis revient à l’ETH Zurich en 1980. Sa démonstration du théorème des tores invariants pour les applications de l’anneau (1962) est la partie la plus citée du théorème KAM ; il travaille aussi sur les EDP elliptiques (itération de Nash–Moser) et la géométrie des formes de volume.',
         theoryId: 'sdc-stabilite-et-theorie-kam',
+        sources: ['mactutor'],
+        mactutor: 'Moser_Jurgen',
       },
       {
         id: 'arnold',
@@ -2182,6 +2260,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Moscou et Paris',
         bio: 'Élève de Kolmogorov, Arnold résout à dix-neuf ans le treizième problème de Hilbert (avec la théorie des superpositions) puis démontre le cas hamiltonien du théorème KAM dans sa thèse (1963). Fondateur de la géométrie symplectique (conjectures d’Arnold), pédagogue polémique et prolifique, il partage ses dernières années entre Moscou et Paris-Dauphine ; prix Shaw 2008.',
         theoryId: 'sdc-stabilite-et-theorie-kam',
+        sources: ['mactutor'],
+        mactutor: 'Arnold',
       },
       {
         id: 'sinai',
@@ -2190,6 +2270,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Moscou et Princeton',
         bio: 'Élève de Kolmogorov, Sinaï définit en 1959 l’entropie d’un système dynamique, premier invariant métrique du chaos, puis démontre l’ergodicité du billard de Sinaï (1970). Professeur à Moscou puis à Princeton (depuis 1993), il reçoit le prix Abel en 2014 pour ses contributions à la théorie ergodique et à la mécanique statistique.',
         theoryId: 'sdc-chaos-et-theorie-ergodique',
+        sources: ['mactutor'],
+        mactutor: 'Sinai',
       },
       {
         id: 'ruelle',
@@ -2225,6 +2307,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Los Alamos et New York',
         bio: 'Physicien théoricien à Los Alamos, Feigenbaum découvre en 1975-1978, à la calculette, que la cascade de doublements de période de la suite logistique converge à un rythme universel (δ ≈ 4,669), indépendant de la fonction itérée. Sa théorie de la renormalisation, publiée en 1978, est démontrée rigoureusement par Lanford (1982) ; il rejoint Rockefeller University en 1986.',
         theoryId: 'sdc-chaos-et-theorie-ergodique',
+        sources: ['mactutor'],
+        mactutor: 'Feigenbaum',
       },
       {
         id: 'douady',
@@ -2249,6 +2333,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Orsay et Paris',
         bio: 'Élève de l’ENS et du séminaire de Douady, Yoccoz démontre l’optimalité de la condition de Bruno pour la linéarisation des germes holomorphes, puis la finitude des « puzzles » de la dynamique quadratique, qui entraîne que l’ensemble de Mandelbrot est localement connexe aux points finiment renormalisables (conjecture MLC partielle). Médaille Fields 1994, professeur au Collège de France dès 1997.',
         theoryId: 'sdc-dynamique-holomorphe-et-fractales',
+        sources: ['mactutor'],
+        mactutor: 'Yoccoz',
       },
     ],
     relatedMathematicianIds: ['smale', 'kolmogorov', 'poincare', 'thom'],
@@ -2613,6 +2699,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Buenos Aires et Chicago',
         bio: 'Ingénieur reconverti, élève de Zygmund à Chicago (thèse en 1950), Calderón construit avec lui la théorie moderne des intégrales singulières (1952), démontre le théorème d’unicité dans le problème de Cauchy pour les EDP et calcule le noyau de l’« intégrale de Cauchy » sur une courbe lipschitzienne (1977). Professeur au MIT puis à Chicago, il reçoit la médaille nationale des Sciences (1991) et le prix Wolf (1989).',
         theoryId: 'anc-analyse-harmonique',
+        sources: ['mactutor'],
+        mactutor: 'Calderon',
       },
       {
         id: 'nirenberg',
@@ -2621,6 +2709,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'New York',
         bio: 'Canadien formé à New York chez Courant et Stoker, Nirenberg dirige le Courant Institute dans les années 1970 et y forme plusieurs générations d’analystes. Inégalités de Gagliardo–Nirenberg, lemme de John–Nirenberg, théorèmes de régularité et problème de Minkowski : son œuvre structure toute l’analyse non linéaire. Prix Abel 2015, partagé avec John Nash.',
         theoryId: 'anc-edp-et-analyse-microlocale',
+        sources: ['mactutor'],
+        mactutor: 'Nirenberg',
       },
       {
         id: 'de-giorgi',
@@ -2629,6 +2719,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Pise',
         bio: 'Professeur à la Scuola Normale Superiore de Pise dès 1959, De Giorgi démontre en 1957 la régularité höldérienne des solutions d’équations elliptiques à coefficients mesurables, ce qui clôt le dix-neuvième problème de Hilbert. Il crée ensuite la théorie des ensembles de périmètre fini et fonde le calcul des variations par Γ-convergence, dans un style oral et philosophique unique.',
         theoryId: 'anc-edp-et-analyse-microlocale',
+        sources: ['mactutor'],
+        mactutor: 'De_Giorgi',
       },
       {
         id: 'hormander',
@@ -2637,6 +2729,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Lund et Princeton',
         bio: 'Élève de Gårding et de Marcel Riesz à Lund, Hörmander y fonde la théorie générale des opérateurs aux dérivées partielles à coefficients constants, puis crée l’analyse microlocale (front d’onde, opérateurs intégraux de Fourier). Médaille Fields 1962, il enseigne à l’IAS (1964-1968) avant de revenir à Lund ; son traité en quatre volumes (1983-1985) est la référence du domaine.',
         theoryId: 'anc-edp-et-analyse-microlocale',
+        sources: ['mactutor'],
+        mactutor: 'Hormander',
       },
       {
         id: 'stein',
@@ -2645,6 +2739,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Élève de Zygmund à Chicago, Stein fait de Princeton le centre de l’analyse harmonique : théorèmes de limitation, intégrales singulières sur les variétés, espaces de Hardy réels (avec Fefferman), analyse sur les groupes de Lie et l’Heisenberg. Prix Wolf 1999 ; ses cours de Princeton et ses élèves ont diffusé le style « analyse dure » dans le monde entier.',
         theoryId: 'anc-analyse-harmonique',
+        sources: ['mactutor'],
+        mactutor: 'Stein',
       },
       {
         id: 'fefferman',
@@ -2653,6 +2749,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Enfant prodige, professeur titulaire à Chicago à vingt-deux ans puis à Princeton, Fefferman démontre avec Stein la dualité H¹–BMO (1971) et donne une nouvelle démonstration du théorème de Carleson sur la convergence presque partout des séries de Fourier. Médaille Fields 1978, il travaille ensuite sur les équations de la mécanique quantique et la stabilité de la matière (avec Lieb), et rédige la description officielle du problème Navier–Stokes pour l’Institut Clay.',
         theoryId: 'anc-analyse-harmonique',
+        sources: ['mactutor'],
+        mactutor: 'Fefferman',
       },
       {
         id: 'bourgain',
@@ -2661,6 +2759,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Bruxelles, Bures-sur-Yvette et Princeton',
         bio: 'Formé à la Vrije Universiteit Brussel, professeur à l’IHÉS (1985-1994) puis à l’Institute for Advanced Study, Bourgain transporte l’analyse harmonique dans les espaces de Banach (problème de Dvoretzky), la théorie ergodique et les équations de Schrödinger non linéaires, où il invente les espaces de restriction qui portent son nom. Médaille Fields 1994, prix Breakthrough 2017.',
         theoryId: 'anc-analyse-harmonique',
+        sources: ['mactutor'],
+        mactutor: 'Bourgain',
       },
       {
         id: 'lions-pierre-louis',
@@ -2669,6 +2769,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Paris',
         bio: 'Élève de Brézis et collaborateur de son père Jacques-Louis Lions, Pierre-Louis Lions introduit avec Crandall les solutions de viscosité (1983), invente le principe de concentration-compacité et fonde avec Papanicolaou et Varadhan l’homogénéisation stochastique des équations de Hamilton–Jacobi. Médaille Fields 1994, professeur à Paris-Dauphine puis au Collège de France, il est aussi un industriel de la mathématique appliquée.',
         theoryId: 'anc-edp-et-analyse-microlocale',
+        sources: ['mactutor'],
+        mactutor: 'Lions',
       },
       {
         id: 'villani',
@@ -2685,6 +2787,8 @@ export const CONTEMPORAIN_A: Domain[] = [
         origin: 'Los Angeles',
         bio: 'Né à Adélaïde, docteur à Princeton à vingt et un ans chez Elias Stein, Tao est professeur à l’UCLA. Théorème de Green–Tao (2004), théorie des ensembles de restriction, solveurs d’équations dispersives, résolution du problème de la discrépance d’Erdős (2015) et blog de recherche devenu institution : sa production couvre une dizaine de domaines. Médaille Fields 2006, prix Breakthrough 2014.',
         theoryId: 'anc-analyse-harmonique',
+        sources: ['mactutor'],
+        mactutor: 'Tao',
       },
     ],
     relatedMathematicianIds: ['nash', 'leray', 'sobolev', 'schwartz', 'courant'],
