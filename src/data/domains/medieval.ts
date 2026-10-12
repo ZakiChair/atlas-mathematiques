@@ -146,6 +146,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Kusumapura',
         bio: 'Astronome actif à Kusumapura (Pāṭaliputra), Āryabhaṭa compose en 499 l’Āryabhaṭīya, 121 versets qui condensent l’arithmétique, l’algèbre, la trigonométrie et l’astronomie de son temps. Il y donne la première table de sinus connue, la valeur 3,1416 pour π, la méthode du kuṭṭaka et l’hypothèse de la rotation diurne de la Terre. Son école (Bhāskara I, puis l’école du Kerala) se réclame de lui pendant mille ans.',
         theoryId: 'mi-siddhanta-et-trigonometrie',
+        mactutor: 'Aryabhata_I',
       },
       {
         id: 'bhaskara-i',
@@ -155,6 +156,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Vallabhī et Aśmaka',
         bio: 'Premier commentateur connu de l’Āryabhaṭīya (629), Bhāskara I en explicite les règles avec des exemples travaillés et défend l’école d’Āryabhaṭa. Son Mahābhāskarīya contient une formule rationnelle d’approximation du sinus d’une précision remarquable. Il est, avec Brahmagupta, le témoin le plus ancien d’un usage courant du zéro et de la numération de position.',
         theoryId: 'mi-siddhanta-et-trigonometrie',
+        mactutor: 'Bhaskara_I',
       },
       {
         id: 'brahmagupta',
@@ -164,6 +166,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bhinmal et Ujjain',
         bio: 'Astronome de Bhinmal, puis d’Ujjain, Brahmagupta achève en 628, à trente ans, le Brāhmasphuṭasiddhānta, dont les chapitres XII et XVIII contiennent l’arithmétique et l’algèbre : règles du zéro et des négatifs, résolution générale de l’équation du second degré, identité de composition pour Nx² + 1 = y², aire et diagonales du quadrilatère inscrit. Critique sévère d’Āryabhaṭa, il est pourtant l’auteur dont l’œuvre, adaptée en arabe vers 770, transmet au monde islamique l’astronomie et le calcul indiens.',
         theoryId: 'mi-arithmetique-et-algebre',
+        mactutor: 'Brahmagupta',
         featured: {
           signature: { kind: 'fait', text: 'Donne les règles du calcul avec le zéro et les nombres négatifs (628).', sources: ['plofker-india', 'katz-sourcebook'] },
           contributions: [
@@ -199,6 +202,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Mānyakheṭa (Karnataka)',
         bio: 'Mathématicien jaïn à la cour du roi rāṣṭrakūṭa Amoghavarṣa, Mahāvīra compose vers 850 le Gaṇitasārasaṅgraha, premier traité indien conservé consacré aux seules mathématiques, sans astronomie. Il y systématise les opérations sur les fractions, les progressions, les permutations et combinaisons, et les problèmes de mesure, dans une organisation pédagogique qui annonce la Līlāvatī.',
         theoryId: 'mi-arithmetique-et-algebre',
+        mactutor: 'Mahavira',
       },
       {
         id: 'bhaskara-ii',
@@ -207,6 +211,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bijapur et Ujjain',
         bio: 'Né à Vijjaḍaviḍa (Bijapur), chef de l’observatoire d’Ujjain, Bhāskara II achève en 1150 le Siddhāntaśiromaṇi, dont la Līlāvatī (arithmétique) et le Bījagaṇita (algèbre) resteront les manuels de référence de l’Inde jusqu’au XIXᵉ siècle. Il expose la méthode chakravāla, résout 61x² + 1 = y², manie les quantités infinies issues de la division par zéro et donne des règles qui touchent à la dérivée du sinus. Son œuvre marque l’apogée de la tradition classique.',
         theoryId: 'mi-arithmetique-et-algebre',
+        mactutor: 'Bhaskara_II',
       },
       {
         id: 'madhava',
@@ -216,6 +221,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Kerala',
         bio: 'Fondateur de l’école du Kerala, Mādhava n’est connu que par les citations de ses successeurs : presque tous ses traités sont perdus. Nīlakaṇṭha et Jyeṣṭhadeva lui attribuent les séries de l’arc tangente, du sinus et du cosinus, une valeur de π à onze décimales et des termes correctifs qui accélèrent la convergence. Il est le premier à manier systématiquement des séries infinies.',
         theoryId: 'mi-ecole-du-kerala',
+        mactutor: 'Madhava',
       },
       {
         id: 'nilakantha',
@@ -225,6 +231,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Kerala',
         bio: 'Élève de Dāmodara, lui-même fils de Parameśvara, disciple de Mādhava, Nīlakaṇṭha achève en 1500 le Tantrasaṅgraha, qui expose les séries de l’école et un modèle planétaire où les cinq planètes tournent autour du Soleil. Son grand commentaire de l’Āryabhaṭīya discute la nature irrationnelle de π et la méthode de démonstration. Il est la principale source écrite sur l’œuvre de Mādhava.',
         theoryId: 'mi-ecole-du-kerala',
+        mactutor: 'Nilakantha',
       },
     ],
     results: [
@@ -647,6 +654,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bagdad',
         bio: 'Savant de la Maison de la sagesse sous al-Ma’mūn, al-Khwārizmī compose vers 820 le Kitāb al-jabr wa-l-muqābala, qui donne son nom à l’algèbre, un livre sur le calcul indien dont le latin tirera le mot « algorithme », des tables astronomiques (Zīj al-Sindhind) et une géographie. Il ne cherche pas la généralité du théoricien mais l’efficacité du praticien, tout en justifiant chaque règle par une figure.',
         theoryId: 'aa-al-jabr-wa-l-muqabala',
+        mactutor: 'Al-Khwarizmi',
         featured: {
           signature: { kind: 'interpretation', text: 'Fait de la résolution des équations une discipline, l’al-jabr, d’où vient « algèbre ».', sources: ['rashed-al-khwarizmi', 'rashed-sciences-arabes'] },
           contributions: [
@@ -682,6 +690,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Égypte',
         bio: 'Surnommé « le calculateur égyptien », Abū Kāmil Shujāʿ ibn Aslam se présente comme le continuateur d’al-Khwārizmī. Son Kitāb fī al-jabr admet les coefficients et les solutions irrationnels, démontre systématiquement par les Éléments, applique l’algèbre au pentagone et au décagone réguliers et traite des problèmes indéterminés. Fibonacci lui emprunte de nombreux problèmes dans le Liber abaci.',
         theoryId: 'aa-al-jabr-wa-l-muqabala',
+        mactutor: 'Abu_Kamil',
       },
       {
         id: 'al-karaji',
@@ -691,6 +700,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bagdad',
         bio: 'Actif à Bagdad vers l’an mil, al-Karajī (longtemps appelé al-Karkhī) écrit l’al-Fakhrī, l’al-Badīʿ et l’al-Kāfī. Il libère l’algèbre de la représentation géométrique en calculant directement sur les puissances de l’inconnue, et al-Samaw’al lui attribue la table des coefficients binomiaux ainsi qu’un raisonnement par récurrence pour la somme des cubes. Il est aussi l’auteur d’un traité sur les eaux souterraines.',
         theoryId: 'aa-arithmetisation-de-l-algebre',
+        mactutor: 'Al-Karaji',
       },
       {
         id: 'omar-khayyam',
@@ -699,6 +709,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Nichapour et Ispahan',
         bio: 'Mathématicien, astronome et philosophe de Nichapour, Khayyām dirige à Ispahan l’observatoire du sultan seldjoukide Malik Shāh et participe à la réforme du calendrier (1079). Son traité d’algèbre (vers 1070) classe les équations jusqu’au troisième degré et résout chaque type de cubique par l’intersection de deux coniques ; son commentaire sur les postulats d’Euclide (1077) discute le parallélisme et la théorie des proportions. Les quatrains qui lui sont attribués ont fait sa gloire littéraire.',
         theoryId: 'aa-equations-cubiques',
+        mactutor: 'Khayyam',
       },
       {
         id: 'al-samawal',
@@ -708,6 +719,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bagdad et Maragha',
         bio: 'Fils d’un lettré juif de Bagdad, al-Samaw’al ben Yaḥyā al-Maghribī compose vers dix-neuf ans l’al-Bāhir fī l-jabr, où il achève l’arithmétisation de l’algèbre d’al-Karajī : division des polynômes, exposants négatifs, règle des signes, développement du binôme. Converti à l’islam en 1163, médecin itinérant, il meurt à Maragha. Il manie aussi des approximations décimales de racines et une forme d’argument par récurrence.',
         theoryId: 'aa-arithmetisation-de-l-algebre',
+        mactutor: 'Al-Samawal',
       },
       {
         id: 'sharaf-al-din-al-tusi',
@@ -717,6 +729,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Tūs',
         bio: 'Originaire de Tūs au Khorasan, Sharaf al-Dīn enseigne à Damas, Alep et Mossoul. Son traité des équations (vers 1200) reprend les vingt-cinq types de Khayyām mais s’attache aux cubiques qui peuvent n’avoir aucune racine positive : il détermine la valeur maximale de l’expression et en déduit des conditions d’existence, puis approche les racines par un algorithme numérique. Il a aussi inventé un astrolabe linéaire, le « bâton de Ṭūsī ».',
         theoryId: 'aa-equations-cubiques',
+        mactutor: 'Al-Tusi_Sharaf',
       },
     ],
     relatedMathematicianIds: ['thabit-ibn-qurra'],
@@ -1076,6 +1089,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Harran et Bagdad',
         bio: 'Sabéen de Harran, changeur de monnaie remarqué par Muḥammad ibn Mūsā qui l’amène à Bagdad, Thābit devient le plus grand traducteur et géomètre de son siècle : il révise la traduction des Éléments, traduit ou corrige Archimède, Apollonius, Nicomaque et Ptolémée. Il établit une règle pour les nombres amiables, calcule par sommation le volume du paraboloïde, généralise le théorème de Pythagore, tente une preuve du cinquième postulat et justifie géométriquement les algorithmes d’al-Khwārizmī.',
         theoryId: 'ga-traductions-et-heritage-grec',
+        mactutor: 'Thabit',
       },
       {
         id: 'abu-l-wafa',
@@ -1084,6 +1098,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bagdad',
         bio: 'Né à Būzjān au Khorasan, actif à Bagdad à la cour bouyide, Abū l-Wafā’ al-Būzjānī compose un Almageste où il introduit la tangente et la sécante, démontre la formule d’addition des sinus et calcule le sinus de 30′ avec une précision inédite. Son livre des constructions géométriques « nécessaires aux artisans » traite les constructions au compas d’ouverture fixe, et son arithmétique pour les scribes admet les nombres négatifs comme des dettes.',
         theoryId: 'ga-trigonometrie-et-astronomie',
+        mactutor: 'Abul-Wafa',
       },
       {
         id: 'ibn-al-haytham',
@@ -1093,6 +1108,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bassora et Le Caire',
         bio: 'Né à Bassora, Ibn al-Haytham (Alhazen pour les Latins) passe la seconde moitié de sa vie au Caire sous les Fatimides. Son Kitāb al-Manāẓir refonde l’optique en combinant géométrie des rayons, anatomie de l’œil et expérimentation ; ses traités mathématiques mesurent les paraboloïdes et la sphère par sommations, reconstituent le livre perdu des Coniques, discutent les postulats d’Euclide et énoncent le théorème que l’on attribuera à Wilson. Il est l’une des figures majeures de la science médiévale.',
         theoryId: 'ga-optique-et-methodes-infinitesimales',
+        mactutor: 'Al-Haytham',
         featured: {
           signature: { kind: 'fait', text: 'Refonde l’optique par la géométrie et l’expérience ; mesure le paraboloïde.', sources: ['sabra-optics', 'rashed-infinitesimales'] },
           contributions: [
@@ -1127,6 +1143,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Khwarezm et Ghazni',
         bio: 'Né à Kath au Khwarezm, emmené à Ghazni par Maḥmūd après 1017, al-Bīrūnī accompagne les campagnes du sultan en Inde, dont il décrit les sciences dans le Kitāb al-Hind (1030). Mathématicien et astronome, il écrit sur la détermination des coordonnées des lieux, mesure le rayon terrestre par l’abaissement de l’horizon, rédige un traité des ombres qui fonde l’usage des tangentes, et ramène la trisection de l’angle et la corde de 1° à des équations cubiques.',
         theoryId: 'ga-trigonometrie-et-astronomie',
+        mactutor: 'Al-Biruni',
       },
       {
         id: 'nasir-al-din-al-tusi',
@@ -1135,6 +1152,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Tūs et Maragha',
         bio: 'Né à Tūs, longtemps retenu dans les forteresses ismaéliennes d’Alamūt, Ṭūsī passe en 1256 au service du conquérant mongol Hülegü, qui lui fait construire l’observatoire de Maragha (1259). Il publie des recensions de toute la « collection intermédiaire » grecque et des Éléments, un traité du quadrilatère complet qui constitue la trigonométrie en science autonome, une tentative sur les parallèles et, dans la Tadhkira, un nouveau modèle planétaire fondé sur le couple qui porte son nom.',
         theoryId: 'ga-trigonometrie-et-astronomie',
+        mactutor: 'Al-Tusi_Nasir',
       },
       {
         id: 'al-kashi',
@@ -1144,6 +1162,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Samarcande',
         bio: 'Né à Kāshān en Perse, Ghiyāth al-Dīn Jamshīd al-Kāshī rejoint vers 1420 la cour d’Ulugh Beg à Samarcande, où il participe aux travaux de l’observatoire et aux tables du Zīj-i Sulṭānī. Calculateur d’une virtuosité inégalée, il obtient π à seize décimales (1424), le sinus de 1° par une méthode itérative appliquée à une équation cubique, et compose en 1427 la Clé du calcul, somme de l’arithmétique décimale et sexagésimale. Il meurt à Samarcande en 1429.',
         theoryId: 'ga-trigonometrie-et-astronomie',
+        mactutor: 'Al-Kashi',
       },
     ],
     results: [
@@ -1638,6 +1657,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Chine des Song',
         bio: 'Fonctionnaire de la cour des Song du Nord, élève du mathématicien Chu Yan, Jia Xian compose vers 1050 des cahiers de calcul aujourd’hui perdus. Yang Hui, deux siècles plus tard, lui attribue le triangle des coefficients binomiaux et des méthodes générales d’extraction de racines, fondement de toute l’algèbre Song–Yuan. Sa vie est presque inconnue.',
         theoryId: 'acs-equations-numeriques',
+        mactutor: 'Jia_Xian',
       },
       {
         id: 'li-ye',
@@ -1646,6 +1666,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Hebei',
         bio: 'Reçu jinshi sous la dynastie Jin en 1230, Li Ye (aussi appelé Li Zhi) refuse de servir les Mongols et se retire au mont Fenglong, près de Yuanshi dans le Hebei, où il enseigne. Son Ceyuan haijing (1248) expose l’art de l’inconnue céleste à travers 170 problèmes sur un triangle rectangle inscrit dans une ville circulaire ; l’Yigu yanduan (1259) en donne une version élémentaire. Kubilai le nomme à l’académie Hanlin en 1265, poste qu’il quitte l’année suivante.',
         theoryId: 'acs-tian-yuan',
+        mactutor: 'Li_Zhi',
       },
       {
         id: 'qin-jiushao',
@@ -1655,6 +1676,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Sichuan',
         bio: 'Fils d’un fonctionnaire, Qin Jiushao fait carrière dans l’administration des Song du Sud et sert au Sichuan pendant les invasions mongoles. En 1247, pendant le deuil de sa mère, il achève le Shushu jiuzhang : quatre-vingt-un problèmes, de la levée d’impôts à la fortification, où il déploie la méthode dayan des restes et la résolution numérique des équations jusqu’au degré dix. Les chroniques décrivent un personnage brutal et vénal, que son génie mathématique n’a pas racheté.',
         theoryId: 'acs-dayan-et-sommations',
+        mactutor: 'Qin_Jiushao',
         featured: {
           signature: { kind: 'fait', text: 'Résout les systèmes de restes (méthode dayan) et les équations jusqu’au degré dix.', sources: ['libbrecht-qin', 'martzloff-chine'] },
           contributions: [
@@ -1690,6 +1712,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Hangzhou',
         bio: 'Fonctionnaire du district de Qiantang (Hangzhou) à la fin des Song du Sud, Yang Hui est le pédagogue du groupe : son Xiangjie jiuzhang suanfa (1261) commente les Neuf Chapitres et préserve le triangle et les méthodes de Jia Xian ; ses recueils (Yang Hui suanfa, 1274-1275) proposent des méthodes rapides de multiplication et de division, des règles de fausse position et des carrés magiques jusqu’à l’ordre dix.',
         theoryId: 'acs-equations-numeriques',
+        mactutor: 'Yang_Hui',
       },
       {
         id: 'zhu-shijie',
@@ -1699,6 +1722,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Pékin et Yangzhou',
         bio: 'Originaire de Yanjing (Pékin), Zhu Shijie parcourt la Chine comme maître itinérant et s’installe une vingtaine d’années à Yangzhou, où affluent ses élèves. Le Siyuan yujian (1303) étend l’inconnue céleste à quatre variables, élimine entre équations polynomiales de haut degré et somme les séries par différences finies. Le livre devient illisible sous les Ming et n’est réintégré en Chine qu’au début du XIXᵉ siècle ; c’est son manuel d’initiation, le Suanxue qimeng (1299), qui survit grâce à des copies coréennes et japonaises.',
         theoryId: 'acs-tian-yuan',
+        mactutor: 'Zhu_Shijie',
       },
     ],
     results: [
@@ -2003,6 +2027,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Reims et Rome',
         bio: 'Formé à l’abbaye d’Aurillac puis en Catalogne, au contact des sciences arabes, Gerbert enseigne le quadrivium à Reims et rédige les règles de l’abaque à jetons marqués des apices, ancêtres occidentaux des chiffres arabes. Abbé de Bobbio, archevêque de Reims puis de Ravenne, il devient pape sous le nom de Sylvestre II (999-1003). La légende lui prête un pacte avec le diable et des connaissances magiques venues d’Espagne.',
         theoryId: 'olm-abaque-et-algorisme',
+        mactutor: 'Gerbert',
       },
       {
         id: 'adelard-de-bath',
@@ -2012,6 +2037,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Bath',
         bio: 'Après des voyages en Italie du Sud, en Sicile et dans le monde arabe, Adélard donne vers 1120 la première traduction latine complète des Éléments d’Euclide, à partir de l’arabe ; il traduit aussi les tables astronomiques d’al-Khwārizmī et le traité sur l’astrolabe de Mâshâ’allâh. Ses Questions naturelles défendent le recours à la raison contre la seule autorité.',
         theoryId: 'olm-elements-et-algebre-latine',
+        mactutor: 'Adelard',
       },
       {
         id: 'fibonacci',
@@ -2021,6 +2047,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Pise',
         bio: 'Fils d’un administrateur du comptoir pisain de Bougie, Léonard apprend les chiffres indiens en Algérie et se perfectionne en Méditerranée orientale. Le Liber abaci (1202, remanié en 1228) enseigne à l’Occident le calcul en chiffres indo-arabes, la fausse position et l’algèbre ; la Practica geometriae (1220) et le Liber quadratorum (1225), dédié à Frédéric II, montrent un maître de l’analyse indéterminée sans pair en Europe avant Viète. Le surnom « Fibonacci » est moderne.',
         theoryId: 'olm-elements-et-algebre-latine',
+        mactutor: 'Fibonacci',
         featured: {
           signature: { kind: 'fait', text: 'Enseigne à l’Occident latin le calcul en chiffres indo-arabes (Liber abaci, 1202).', sources: ['sigler-liber-abaci', 'burnett-numerals'] },
           contributions: [
@@ -2056,6 +2083,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Paris ?',
         bio: 'Auteur actif à Paris dans la première moitié du XIIIᵉ siècle, dont on ignore jusqu’à l’identité, Jordanus écrit une arithmétique démonstrative (De elementis arithmetice artis), la première algèbre latine à inconnues littérales (De numeris datis), un traité des triangles et les Elementa de ponderibus, où le principe des déplacements virtuels est esquissé pour la statique. Il est, après Fibonacci, le plus original des mathématiciens latins du XIIIᵉ siècle.',
         theoryId: 'olm-elements-et-algebre-latine',
+        mactutor: 'Jordanus',
       },
       {
         id: 'bradwardine',
@@ -2065,6 +2093,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Oxford',
         bio: 'Maître de Merton College à Oxford, chef des calculatores, Bradwardine donne dans le Tractatus de proportionibus (1328) une théorie mathématique du rapport entre forces, résistances et vitesses, fondée sur une composition multiplicative des rapports qui corrige la « loi d’Aristote ». Son De continuo attaque l’atomisme. Élu archevêque de Cantorbéry, il meurt de la peste noire en 1349.',
         theoryId: 'olm-calculatores-et-latitude',
+        mactutor: 'Bradwardine',
       },
       {
         id: 'oresme',
@@ -2074,6 +2103,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Paris et Lisieux',
         bio: 'Normand formé à Paris, maître puis grand maître du Collège de Navarre, Oresme écrit dans les années 1350 ses traités de la configuration des qualités et des mouvements : il y représente les intensités par des aires, somme des séries infinies et démontre la divergence de la série harmonique. Dans le Tractatus de commensurabilitate, il soutient que les rapports des mouvements célestes sont vraisemblablement incommensurables. Conseiller de Charles V, traducteur d’Aristote en français, il meurt évêque de Lisieux.',
         theoryId: 'olm-calculatores-et-latitude',
+        mactutor: 'Oresme',
       },
     ],
     results: [
@@ -2422,6 +2452,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Oxford et Munich',
         bio: 'Franciscain formé à Oxford, Ockham y rédige la Summa logicae (vers 1323), où la logique repose sur une sémantique de la supposition appliquée à un « langage mental » débarrassé des entités réelles universelles. Convoqué à Avignon pour ses thèses, il s’enfuit en 1328 auprès de l’empereur Louis de Bavière et poursuit à Munich son œuvre de logicien et de polémiste. Il meurt en 1347, vraisemblablement de la peste noire.',
         theoryId: 'ls-syllogistique-et-consequences',
+        mactutor: 'Ockham',
       },
       {
         id: 'jean-buridan',
@@ -2440,6 +2471,7 @@ export const MEDIEVAL: Domain[] = [
         origin: 'Paris et Vienne',
         bio: 'Né à Rickmersdorf en Basse-Saxe, élève de Buridan à Paris où il est recteur en 1357, Albert de Saxe participe à la fondation de l’université de Vienne (1365) et en devient le premier recteur. Ses Questions sur la Physique et ses traités de proportions et de la quadrature du cercle diffusent en Europe centrale les méthodes des calculatores ; sa Logique est un manuel de référence jusqu’au XVIᵉ siècle. Il meurt évêque d’Halberstadt.',
         theoryId: 'ls-insolubles-et-infini',
+        mactutor: 'Albert',
       },
     ],
     results: [
