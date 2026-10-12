@@ -474,6 +474,15 @@ export const FIGURES_RENAISSANCE: Record<string, Mathematician[]> = {
       mactutor: 'Tschirnhaus',
       sources: ['mactutor'],
     },
+    {
+      id: 'barozzi',
+      name: 'Francesco Barozzi',
+      years: [1537, 1604],
+      origin: 'Candie (Crète) et Venise',
+      bio: 'Patricien crétois établi à Venise, Barozzi traduit Proclus, Héron, Pappus et Archimède ; dans l’Opusculum (1560) il soutient contre Piccolomini que la certitude mathématique tient à la rigueur des démonstrations, et décrit des lignes qui s’approchent sans se rencontrer.',
+      mactutor: 'Barocius',
+      sources: ['mactutor'],
+    },
   ],
   'logarithmes-et-calcul-numerique': [
     {
