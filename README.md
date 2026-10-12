@@ -73,7 +73,7 @@ Fraunces, texte et étiquettes en DM Sans.
 
 58 domaines (antiquité 6, monde médiéval 6, renaissance et révolution scientifique 8, siècle des
 lumières 6, xixᵉ siècle 9, âge des structures 11, contemporain 12), 176 théories, 428 figures,
-647 résultats commentés (224 texte, 223 theoreme, 105 concept, 55 methode, 24 probleme,
+647 résultats commentés (224 texte, 223 théorème, 105 concept, 55 méthode, 24 problème,
 16 conjecture), 486 repères chronologiques, 182 liens entre domaines, 148 liens entre figures,
 223 sources (livres, articles, textes primaires, archives web). 174 résultats portent un récit
 « contexte / portée » (593 énoncés : 400 faits, 193 interprétations). 43 grandes figures portent

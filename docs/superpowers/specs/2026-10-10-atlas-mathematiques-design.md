@@ -113,6 +113,10 @@ Direction artistique « Galerie » (v0.4) :
   priorité (élément choisi, grandes figures, figures à résultats, résultats,
   fiches courtes), sans jamais se chevaucher ni recouvrir un marqueur ou un
   obstacle.
+- **Frise d’activité** (`activity.ts`, `ActivityFrieze.tsx`) : silhouette empilée
+  des cinq champs aux couleurs Galerie (résultats par tranche d’abscisse, lissés),
+  ères nommées, fenêtre synchronisée avec la vue, période du domaine choisi ;
+  clic, glisser ou flèches pour se déplacer dans le temps.
 - **Fiches** : grande figure (médaille, signature, « Apports », « Résultats
   phares », biographie, lien MacTutor, réseau) ; résultat (« D’où vient l’idée »,
   « Idée de la démonstration », récits « Ce qui y a conduit » / « Ce que ça a

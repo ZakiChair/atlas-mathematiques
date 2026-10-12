@@ -847,7 +847,7 @@ Les trois modèles :
   - On écarte les mécènes, les éditeurs sans œuvre propre et les doublons.
   - On veille à la diversité (femmes, mondes non européens), sans forcer.
   - Domaine d’attache : celui de la contribution principale ; ailleurs, `relatedMathematicianIds` si utile.
-- **Champs** : `id` (slug du nom usuel français), `name` (forme française usuelle pour l’Antiquité et le Moyen Âge, graphie d’origine avec diacritiques pour les modernes), `years`, `yearsApprox` si MacTutor dit « about » ou si la date est débattue, `origin` (ville, culture ou pays d’activité), `bio`, `mactutor`, `sources: [’mactutor’]` (et d’autres sources du registre si utilisées), `theoryId` si évident.
+- **Champs** : `id` (slug du nom usuel français), `name` (forme française usuelle pour l’Antiquité et le Moyen Âge, graphie d’origine avec diacritiques pour les modernes), `years`, `yearsApprox` si MacTutor dit « about » ou si la date est débattue, `origin` (ville, culture ou pays d’activité), `bio`, `mactutor`, `sources: ['mactutor']` (et d’autres sources du registre si utilisées), `theoryId` si évident.
 - **Bio** : 1 à 2 phrases, 280 caractères au plus, **rédigées par nous** (jamais copiées ni traduites mot à mot de MacTutor), avec uniquement des faits présents dans la biographie MacTutor ou dans une source du registre.
 - **Années** : celles de MacTutor (av. J.-C. en négatif). La commande de contrôle `npx tsx scripts/mactutor.ts --domain <id> --strict` (script à venir avec la vague 4, tâche 4.1) doit passer pour chaque domaine touché.
 - **Modèle** : `src/data/figures/antiquite.ts`, ci-dessous, vérifié sur MacTutor (« Born about 380 BC, Died about 320 BC », « pupil of Eudoxus », coniques découvertes en cherchant à dupliquer le cube) :

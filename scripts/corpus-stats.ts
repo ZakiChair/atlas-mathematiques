@@ -16,11 +16,21 @@ const perEra = ERAS.map((e) => {
   return `${e.name.toLowerCase()} ${n}`;
 }).join(', ');
 
+/** libellés français des natures de résultats (les identifiants du schéma sont sans accent) */
+const KIND_FR: Record<string, string> = {
+  theoreme: 'théorème',
+  conjecture: 'conjecture',
+  concept: 'concept',
+  methode: 'méthode',
+  texte: 'texte',
+  probleme: 'problème',
+};
+
 const kinds = new Map<string, number>();
 for (const d of DOMAINS) for (const r of d.results) kinds.set(r.kind, (kinds.get(r.kind) ?? 0) + 1);
 const kindsText = [...kinds.entries()]
   .sort((a, b) => b[1] - a[1])
-  .map(([k, n]) => `${n} ${k}`)
+  .map(([k, n]) => `${n} ${KIND_FR[k] ?? k}`)
   .join(', ');
 
 console.log(
