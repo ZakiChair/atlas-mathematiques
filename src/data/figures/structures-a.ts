@@ -641,16 +641,6 @@ export const FIGURES_STRUCTURES_A: Record<string, Mathematician[]> = {
   ],
   'analyse-fonctionnelle': [
     {
-      id: 'arzela',
-      name: 'Cesare Arzelà',
-      years: [1847, 1912],
-      origin: 'Bologne',
-      bio: 'Élève de Betti à Pise, Arzelà est professeur à Bologne dès 1880 : théorème de convergence bornée (1885), puis généralisation du résultat d’Ascoli sur les familles équicontinues — le « théorème d’Arzelà–Ascoli ». Il y forme notamment Vitali et Tonelli.',
-      theoryId: 'af-espaces-abstraits',
-      mactutor: 'Arzela',
-      sources: ['mactutor'],
-    },
-    {
       id: 'volterra',
       name: 'Vito Volterra',
       years: [1860, 1940],
@@ -678,16 +668,6 @@ export const FIGURES_STRUCTURES_A: Record<string, Mathematician[]> = {
       bio: 'Docteur de Vienne (1899), Fischer démontre en 1907 que l’espace des fonctions de carré sommable est complet : le « théorème de Riesz–Fischer ». Professeur à Brünn, à Erlangen — où il influence Emmy Noether — puis à Cologne.',
       theoryId: 'af-mesure-et-integration',
       mactutor: 'Fischer',
-      sources: ['mactutor'],
-    },
-    {
-      id: 'vitali',
-      name: 'Giuseppe Vitali',
-      years: [1875, 1932],
-      origin: 'Pise, Modène, Padoue et Bologne',
-      bio: 'Formé par Arzelà à Bologne puis à la Scuola Normale de Pise, Vitali enseigne longtemps au lycée avant les chaires de Modène, Padoue et Bologne : premier exemple d’ensemble non mesurable et caractérisation des fonctions absolument continues (1905), théorème de recouvrement (1908).',
-      theoryId: 'af-mesure-et-integration',
-      mactutor: 'Vitali',
       sources: ['mactutor'],
     },
     {
@@ -852,16 +832,6 @@ export const FIGURES_STRUCTURES_A: Record<string, Mathematician[]> = {
     },
   ],
   'edp-et-physique-mathematique': [
-    {
-      id: 'ricci',
-      name: 'Gregorio Ricci-Curbastro',
-      years: [1853, 1925],
-      origin: 'Pise et Padoue',
-      bio: 'Formé à la Scuola Normale de Pise, il élabore le « calcul différentiel absolu » (1884-1894), exposé avec son élève Levi-Civita en 1900 : devenu l’analyse tensorielle, il fournira à Einstein le langage de la relativité générale. Professeur à Padoue de 1880 à sa mort.',
-      theoryId: 'edp-calcul-tensoriel-relativite',
-      mactutor: 'Ricci-Curbastro',
-      sources: ['mactutor'],
-    },
     {
       id: 'zaremba',
       name: 'Stanisław Zaremba',
