@@ -45,6 +45,7 @@ export function ResultView({ f, r, nav }: { f: Result; r: Resolved; nav: Nav }) 
       <div className="min-w-0">
         <div className="flex items-center gap-2 flex-wrap mb-1.5">
           <KindBadge kind={f.kind} />
+          {f.major && <span className="badge-major">{t('result.major')}</span>}
           <span className="text-sm text-muted">{formatYear(f.year, lang, f.yearApprox)}</span>
         </div>
         <h2 className="font-serif text-2xl leading-tight">{f.title}</h2>

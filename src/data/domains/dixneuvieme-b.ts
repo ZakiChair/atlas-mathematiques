@@ -303,7 +303,7 @@ export const DIXNEUVIEME_B: Domain[] = [
         authorName: 'Joseph Fourier',
         mathematicianId: 'fourier',
         theoryId: 'pm-chaleur-et-series-trigonometriques',
-        kind: 'texte',
+        kind: 'texte', major: true,
         comment: 'Publié chez Firmin Didot, le traité reprend le mémoire de 1807 et le mémoire couronné de 1811 : équation de la chaleur, séries et intégrale de Fourier, premiers raisonnements d’analyse dimensionnelle. Kelvin y voyait « un grand poème mathématique » ; c’est le livre où Dirichlet, Riemann et toute l’analyse du siècle trouvent leurs problèmes.',
       },
       {
@@ -1882,7 +1882,7 @@ export const DIXNEUVIEME_B: Domain[] = [
         authorName: 'Georg Cantor',
         mathematicianId: 'cantor',
         theoryId: 'tde-nombres-transfinis',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Les nombres algébriques (racines d’équations à coefficients entiers) peuvent être énumérés un à un ; les nombres réels, non : toute liste de réels laisse échapper, dans tout intervalle, une infinité de nombres.',
         comment: 'Premier article de théorie des ensembles, paru dans le Journal de Crelle : il montre qu’il existe au moins deux infinis, et que « presque tous » les réels sont transcendants — nouvelle preuve de l’existence des transcendants après Liouville (1844). Le titre ne mentionne que les algébriques, peut-être pour ménager Kronecker ; le résultat essentiel est la non-dénombrabilité du continu.',
         context: [

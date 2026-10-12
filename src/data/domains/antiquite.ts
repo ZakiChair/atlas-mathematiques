@@ -554,7 +554,7 @@ export const ANTIQUITE: Domain[] = [
         authorName: 'Euclide',
         mathematicianId: 'euclide',
         theoryId: 'ag-theorie-euclidienne-des-nombres',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Les nombres premiers sont plus nombreux que toute multitude proposée de nombres premiers : étant donné une liste finie de premiers, leur produit augmenté de un possède un diviseur premier qui n’est pas dans la liste.',
         comment: 'Modèle de démonstration constructive, souvent cité comme la plus belle preuve des Éléments. Euclide ne parle pas d’infini mais de dépassement de toute quantité finie, conformément à la conception aristotélicienne de l’infini potentiel. Euler (1737) en donnera une preuve analytique, point de départ de la théorie analytique des nombres.',
         context: [
@@ -989,7 +989,7 @@ export const ANTIQUITE: Domain[] = [
         authorName: 'École pythagoricienne',
         mathematicianId: 'pythagore',
         theoryId: 'gg-geometrie-ionienne-et-pythagoricienne',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Dans un triangle rectangle, le carré construit sur l’hypoténuse est égal à la somme des carrés construits sur les deux autres côtés.',
         comment: 'La règle était connue des scribes babyloniens et apparaît dans le Zhoubi chinois ; la démonstration conservée la plus ancienne est celle d’Euclide (I, 47), et sa réciproque suit (I, 48). L’attribution à Pythagore, tardive, est inséparable de la légende d’un sacrifice de bœufs. Le théorème est le pivot de la géométrie métrique, de la trigonométrie et de la notion de distance.',
         intuition: [
@@ -1135,7 +1135,7 @@ export const ANTIQUITE: Domain[] = [
         yearApprox: true,
         authorName: 'École pythagoricienne (tradition : Hippase de Métaponte)',
         theoryId: 'gg-incommensurables-et-proportions',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'La diagonale d’un carré et son côté n’ont aucune commune mesure : si elles étaient comme deux nombres entiers, le même nombre serait à la fois pair et impair.',
         comment: 'Aristote mentionne cette preuve par pair et impair dans les Premiers Analytiques ; elle figure en appendice du livre X des Éléments. Elle oblige à distinguer nombre et grandeur et motive la théorie des proportions d’Eudoxe. La légende qui veut qu’Hippase ait été noyé pour l’avoir divulguée est tardive ; la « crise » qu’on y a vue est contestée.',
         context: [
@@ -1288,7 +1288,7 @@ export const ANTIQUITE: Domain[] = [
         authorName: 'Euclide',
         mathematicianId: 'euclide',
         theoryId: 'gg-elements-et-axiomatique',
-        kind: 'texte',
+        kind: 'texte', major: true,
         comment: 'Treize livres : géométrie plane (I–IV), proportions (V–VI), arithmétique (VII–IX), irrationnelles (X), géométrie des solides (XI–XIII). Compilation ordonnée du savoir antérieur, les Éléments fixent la forme de la démonstration à partir de principes et servent de manuel pendant plus de deux mille ans, du monde arabe (traductions dès le IXᵉ siècle) à l’Europe (Adélard de Bath, Campanus, première impression 1482, Heiberg 1883–1888).',
         context: [
           {
@@ -1586,7 +1586,7 @@ export const ANTIQUITE: Domain[] = [
         authorName: 'Archimède',
         mathematicianId: 'archimede',
         theoryId: 'mh-mesure-des-figures-curvilignes',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'L’aire d’un segment de parabole vaut les quatre tiers de l’aire du triangle de même base et de même hauteur inscrit dans le segment.',
         comment: 'Adressée à Dosithée après la mort de Conon, c’est la première quadrature exacte d’une figure limitée par une courbe autre que le cercle. Archimède en donne deux preuves, l’une mécanique par le levier, l’autre géométrique, en sommant une série de triangles dont les aires décroissent de quart en quart. Elle sert de modèle à Cavalieri, à Fermat et à Wallis.',
         intuition: [
@@ -2179,7 +2179,7 @@ export const ANTIQUITE: Domain[] = [
         authorName: 'Sunzi',
         mathematicianId: 'sunzi',
         theoryId: 'mca-problemes-de-restes',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Trouver un nombre qui, divisé par 3, donne pour reste 2, divisé par 5, reste 3, et divisé par 7, reste 2. La procédure combine des multiples des diviseurs pour obtenir 23, et la famille des solutions s’en déduit par ajouts de 105.',
         comment: 'Première occurrence connue du « théorème des restes chinois ». Le problème, lié aux cycles calendériques, est systématisé par Qin Jiushao en 1247 (méthode dayan) ; il réapparaît chez Fibonacci (1202), chez les arithméticiens islamiques, puis dans l’algèbre moderne comme théorème sur les anneaux quotients.',
         context: [

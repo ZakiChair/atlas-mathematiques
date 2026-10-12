@@ -437,7 +437,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         authorName: 'Andrew Wiles, avec Richard Taylor',
         mathematicianId: 'wiles',
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Toute courbe elliptique semi-stable sur les rationnels est modulaire. Combiné au théorème de Ribet, cela interdit l’existence d’une courbe de Frey associée à une solution de xⁿ + yⁿ = zⁿ avec n > 2 : le dernier théorème de Fermat est vrai.',
         comment: 'Cent neuf pages dans les Annals of Mathematics, suivies de l’article de Taylor et Wiles qui répare la lacune de 1993. La méthode (déformations galoisiennes de Mazur, systèmes d’Euler de Kolyvagin et Flach, puis « systèmes de Taylor–Wiles ») devient la technique standard pour relever la modularité ; elle clôt la question posée par Fermat vers 1637 et ouvre deux décennies de théorèmes de modularité.',
         context: [
@@ -984,7 +984,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         authorName: 'Daniel Gorenstein',
         mathematicianId: 'gorenstein',
         theoryId: 'alc-groupes-finis-simples',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Tout groupe fini simple est isomorphe à un groupe cyclique d’ordre premier, à un groupe alterné de degré au moins 5, à un groupe de type de Lie (seize familles), ou à l’un des vingt-six groupes sporadiques.',
         comment: 'Gorenstein annonce l’achèvement en 1983 ; la preuve, répartie sur quelque cinq cents articles, comporte en réalité une lacune (groupes quasi-minces) comblée en 2004. L’énoncé est l’un des résultats les plus utilisés de l’algèbre contemporaine (groupes de permutation, théorie de Galois inverse, combinatoire), et l’un des plus difficiles à vérifier.',
         context: [
@@ -1478,7 +1478,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         authorName: 'Pierre Deligne',
         mathematicianId: 'deligne',
         theoryId: 'gam-cohomologie-et-motifs',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Pour une variété projective lisse sur un corps fini à q éléments, les valeurs propres du Frobenius sur le i-ième groupe de cohomologie ℓ-adique sont des entiers algébriques de valeur absolue q^(i/2) : c’est l’analogue de l’hypothèse de Riemann pour les fonctions zêta de ces variétés.',
         comment: 'Deligne combine la cohomologie étale, la théorie de Lefschetz des pinceaux, la monodromie et une idée venue de Rankin sur les formes modulaires. Le résultat achève le programme de Weil (1949), entraîne la conjecture de Ramanujan–Petersson sur les coefficients de la fonction τ et fonde la théorie des poids ; « Weil II » (1980) l’étend aux faisceaux et aux variétés non propres.',
         context: [
@@ -2346,7 +2346,7 @@ export const CONTEMPORAIN_A: Domain[] = [
         authorName: 'Andreï Kolmogorov, Vladimir Arnold et Jürgen Moser',
         mathematicianId: 'arnold',
         theoryId: 'sdc-stabilite-et-theorie-kam',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Les tores lagrangiens d’un système hamiltonien intégrable dont les fréquences vérifient une condition diophantienne persistent, légèrement déformés, sous toute perturbation suffisamment petite ; ils remplissent la majeure partie de l’espace des phases.',
         comment: 'Annoncé par Kolmogorov au congrès d’Amsterdam (1954), démontré par Arnold pour les hamiltoniens analytiques (1963) et par Moser pour les applications de l’anneau de classe finie (1962), le théorème mesure à quel point la mécanique céleste échappe à l’ergodicité : la stabilité du système solaire n’est ni prouvée ni exclue, mais elle est « probable ».',
         context: [

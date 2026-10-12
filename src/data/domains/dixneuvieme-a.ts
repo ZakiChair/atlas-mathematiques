@@ -269,7 +269,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         authorName: 'Carl Friedrich Gauss',
         mathematicianId: 'gauss',
         theoryId: 'arg-congruences-et-formes',
-        kind: 'texte',
+        kind: 'texte', major: true,
         statement: 'Sept sections : congruences et équations du premier degré, résidus de puissances et réciprocité quadratique, formes quadratiques et leur composition, et pour finir la théorie des divisions du cercle, avec la constructibilité du polygone régulier à dix-sept côtés.',
         comment: 'Le livre unifie et dépasse immédiatement l’héritage de Fermat, Euler, Lagrange et Legendre. Sa densité en rend la lecture difficile : la traduction française paraît dès 1807, mais c’est Dirichlet qui en fera l’instrument de travail de tout le siècle.',
       },
@@ -516,7 +516,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         authorName: 'Bernhard Riemann',
         mathematicianId: 'riemann',
         theoryId: 'arg-theorie-analytique',
-        kind: 'conjecture',
+        kind: 'conjecture', major: true,
         statement: 'Prolongée à tout le plan complexe, la fonction zêta a des zéros « non triviaux » dont la partie réelle serait toujours égale à 1/2.',
         comment: 'En huit pages, son unique mémoire d’arithmétique, Riemann relie la répartition des nombres premiers aux zéros de la fonction zêta et esquisse un programme dont Hadamard et de La Vallée Poussin tireront le théorème des nombres premiers en 1896. L’hypothèse elle-même reste ouverte ; elle est l’un des problèmes du millénaire.',
         intuition: [
@@ -942,7 +942,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         authorName: 'Évariste Galois',
         mathematicianId: 'galois',
         theoryId: 'adg-equations-et-radicaux',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Aux sous-groupes du groupe d’une équation correspondent les corps intermédiaires entre le corps des coefficients et celui des racines, et réciproquement ; la décomposition du groupe reflète les adjonctions de radicaux.',
         comment: 'Le « lemme » central du mémoire de 1831, complété par la lettre testamentaire à Chevalier de mai 1832. Cette correspondance entre symétries et extensions de corps est devenue le schéma directeur de toute l’algèbre, jusqu’à la théorie de Galois différentielle et aux motifs.',
         context: [
@@ -1381,7 +1381,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         authorName: 'Carl Friedrich Gauss',
         mathematicianId: 'gauss',
         theoryId: 'gne-geometrie-differentielle',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'La courbure de Gauss d’une surface en un point est inchangée par toute déformation qui préserve les longueurs : elle ne dépend que de la métrique intrinsèque, non du plongement dans l’espace.',
         comment: '« Théorème remarquable » des Disquisitiones de 1827 : il explique pourquoi une carte plane exacte du globe est impossible et donne un sens précis à l’idée d’espace courbe « vu de l’intérieur » — celui des habitants bidimensionnels que Helmholtz puis Poincaré imagineront.',
         intuition: [
@@ -2588,7 +2588,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         authorName: 'Ferdinand von Lindemann',
         mathematicianId: 'lindemann',
         theoryId: 'anr-elliptiques-et-transcendance',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'π n’est racine d’aucune équation polynomiale à coefficients entiers ; en particulier, il est impossible de construire à la règle et au compas un carré d’aire égale à celle d’un cercle donné.',
         comment: 'La preuve de Lindemann clôt le problème de la quadrature du cercle posé depuis l’Antiquité, dont Wantzel avait réglé en 1837 le volet constructible pour la duplication et la trisection. Elle inaugure la théorie moderne des nombres transcendants.',
         context: [

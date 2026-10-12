@@ -345,7 +345,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'Jérôme Cardan, d’après del Ferro et Tartaglia',
         mathematicianId: 'cardan',
         theoryId: 'ar-equations-cubiques-et-quartiques',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Une solution de x³ + px = q s’écrit comme différence de deux racines cubiques : ∛(√(q²/4 + p³/27) + q/2) − ∛(√(q²/4 + p³/27) − q/2). Les autres types de cubiques s’y ramènent en supprimant le terme en x².',
         comment: 'La formule couvre toutes les cubiques, mais, lorsque l’équation a trois racines réelles, elle fait apparaître des racines carrées de nombres négatifs : c’est le « cas irréductible », que Bombelli affrontera. Elle montre aussi qu’une équation peut avoir plusieurs solutions, ce qui prépare l’idée de compter les racines avec Viète, Girard et Descartes.',
         context: [
@@ -712,7 +712,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'Pierre de Fermat',
         mathematicianId: 'fermat',
         theoryId: 'tnf-descente-infinie',
-        kind: 'conjecture',
+        kind: 'conjecture', major: true,
         statement: 'Il n’existe pas d’entiers strictement positifs x, y, z tels que xⁿ + yⁿ = zⁿ dès que n est supérieur à 2.',
         comment: 'Note marginale sans démonstration, datée conventionnellement vers 1637. Fermat ne prouve que le cas n = 4 ; Euler traite n = 3, puis Kummer les exposants premiers réguliers (1847). La démonstration générale est donnée par Andrew Wiles en 1995. Le problème a structuré la théorie des nombres pendant trois siècles.',
         context: [
@@ -1484,7 +1484,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'René Descartes',
         mathematicianId: 'descartes',
         theoryId: 'gan-courbes-et-equations',
-        kind: 'texte',
+        kind: 'texte', major: true,
         comment: 'Troisième essai du Discours de la méthode. Descartes y résout le problème de Pappus, que les Anciens n’avaient traité que pour trois ou quatre droites, définit les courbes « géométriques » par leurs équations et introduit les notations modernes (x, y, z ; a, b, c ; les exposants). C’est le livre qui apprend à l’Europe à calculer sur les figures.',
         context: [
           {
@@ -2037,7 +2037,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'Isaac Barrow, James Gregory, Isaac Newton, Gottfried Wilhelm Leibniz',
         mathematicianId: 'barrow',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Dériver et intégrer sont des opérations inverses : l’aire sous une courbe croît à une vitesse égale à l’ordonnée, et réciproquement la tangente de la courbe des aires redonne la courbe primitive.',
         comment: 'Présent géométriquement chez Barrow et Gregory, le lien devient un outil de calcul chez Newton (fluxions et fluentes, 1666) et Leibniz (∫ inverse de d, 1675). C’est le principe qui fait des centaines de quadratures particulières un seul algorithme.',
         intuition: [
@@ -2128,7 +2128,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'Isaac Newton',
         mathematicianId: 'newton',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
-        kind: 'texte',
+        kind: 'texte', major: true,
         statement: 'Les mêmes lois du mouvement et la même attraction en raison inverse du carré de la distance expliquent les lois de Kepler, les marées, la précession et la chute des corps ; les démonstrations s’appuient sur une théorie des « premières et dernières raisons », c’est-à-dire des limites.',
         comment: 'Publié aux frais de Halley. Newton y dissimule ses fluxions sous une géométrie des limites, inaugurant la mécanique rationnelle : Lagrange, Laplace et toute la physique mathématique en descendent. La première section contient, sous forme géométrique, le calcul des limites.',
       },
@@ -2838,7 +2838,7 @@ export const RENAISSANCE: Domain[] = [
         authorName: 'Jacques Bernoulli',
         mathematicianId: 'jacques-bernoulli',
         theoryId: 'np-art-de-conjecturer',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Si une épreuve réussit avec une probabilité fixe p, alors, en répétant indéfiniment l’épreuve, la fréquence observée des succès s’approche de p, et l’on peut rendre aussi probable qu’on veut qu’elle s’en écarte de moins d’une marge donnée.',
         comment: 'Premier théorème limite de l’histoire des probabilités : il justifie mathématiquement l’inférence de la fréquence à la probabilité. Poisson lui donnera le nom de « loi des grands nombres » ; Tchebychev puis les modernes en feront un pilier de la discipline.',
         context: [

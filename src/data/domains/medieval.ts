@@ -395,7 +395,7 @@ export const MEDIEVAL: Domain[] = [
         authorName: 'Mādhava de Sangamagrāma',
         mathematicianId: 'madhava',
         theoryId: 'mi-ecole-du-kerala',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'La circonférence d’un cercle de diamètre d vaut 4d(1 − 1/3 + 1/5 − 1/7 + …), autrement dit π/4 = 1 − 1/3 + 1/5 − … ; Mādhava ajoute des termes correctifs qui rendent la série utilisable et obtient π à onze décimales.',
         comment: 'Connue par les citations de Nīlakaṇṭha et par la justification du Yuktibhāṣā (vers 1530), qui la déduit d’une sommation de puissances sur des subdivisions de plus en plus fines. C’est le premier développement en série infinie d’une constante mathématique ; Gregory (1671) et Leibniz (1674) la retrouveront indépendamment.',
         context: [
@@ -743,7 +743,7 @@ export const MEDIEVAL: Domain[] = [
         authorName: 'Al-Khwārizmī',
         mathematicianId: 'al-khwarizmi',
         theoryId: 'aa-al-jabr-wa-l-muqabala',
-        kind: 'texte',
+        kind: 'texte', major: true,
         comment: '« Abrégé du calcul par la restauration et la comparaison » : six équations canoniques, algorithmes et démonstrations par figures, puis chapitres sur les transactions, la mesure des surfaces et les héritages. Premier traité où l’équation est l’objet même de l’étude. Traduit en latin par Robert de Chester (1145) et Gérard de Crémone, il fixe pour l’Europe le vocabulaire et la méthode de l’algèbre jusqu’à Cardan.',
         context: [
           {
@@ -2266,7 +2266,7 @@ export const MEDIEVAL: Domain[] = [
         authorName: 'Nicole Oresme',
         mathematicianId: 'oresme',
         theoryId: 'olm-calculatores-et-latitude',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'La somme 1 + 1/2 + 1/3 + 1/4 + … dépasse toute grandeur donnée : en groupant les termes par paquets dont la longueur double (de 1/3 + 1/4 à 1/2, puis quatre termes ≥ 1/2, puis huit, …), on fait apparaître une infinité de paquets chacun supérieur à un demi.',
         comment: 'Dans les Questions super geometriam Euclidis, Oresme distingue les séries dont la somme est finie de celles qui « deviennent infinies » : c’est la première preuve connue de la divergence d’une série. Le résultat est oublié, puis redémontré par Mengoli (1647) et les Bernoulli ; l’argument par groupement reste celui des manuels.',
         context: [

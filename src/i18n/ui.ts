@@ -122,6 +122,7 @@ const fr = {
   'result.methode': 'Méthode',
   'result.texte': 'Texte',
   'result.probleme': 'Problème',
+  'result.major': 'Résultat majeur',
 
   'statement.fact': 'Fait',
   'statement.interp': 'Interprétation',
@@ -305,6 +306,7 @@ const en: Record<UiKey, string> = {
   'result.methode': 'Method',
   'result.texte': 'Text',
   'result.probleme': 'Problem',
+  'result.major': 'Major result',
 
   'statement.fact': 'Fact',
   'statement.interp': 'Interpretation',

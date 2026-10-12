@@ -218,6 +218,10 @@ svg.atlas-map[data-level='1'] .territory:hover .disc {
 .point-label.result {
   fill: #4a463f;
 }
+.point-label.result.major {
+  font-weight: 600;
+  fill: #1d1b18;
+}
 .point-label.selected {
   font-weight: 700;
   fill: #1d5f96;
@@ -548,6 +552,21 @@ svg.atlas-map[data-level='1'] .territory:hover .disc {
 }
 .badge-kind-probleme {
   color: #b23a22;
+}
+
+/* résultat majeur : sceau plein, encre chaude */
+.badge-major {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.06rem 0.42rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #fbfaf7;
+  background: #6e4f16;
 }
 
 .panel-scroll {

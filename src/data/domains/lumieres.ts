@@ -224,7 +224,7 @@ export const LUMIERES: Domain[] = [
         authorName: 'Leonhard Euler',
         mathematicianId: 'euler',
         theoryId: 'ae-analyse-des-fonctions',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'La somme des inverses des carrés des entiers, 1 + 1/4 + 1/9 + 1/16 + …, vaut π²/6.',
         comment: 'Posé par Pietro Mengoli en 1650 et rendu célèbre par Jacques Bernoulli, le problème résistait depuis près d’un siècle. Euler le résout en 1735 en traitant sin x / x comme un polynôme infini dont il connaît les racines, méthode qu’il justifiera mieux par la suite. Le résultat ouvre l’étude des valeurs de la fonction ζ et, par le produit eulérien, la théorie analytique des nombres.',
         context: [
@@ -1797,7 +1797,7 @@ export const LUMIERES: Domain[] = [
         authorName: 'Leonhard Euler',
         mathematicianId: 'euler',
         theoryId: 'gl-geometrie-de-position',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'On ne peut pas traverser Königsberg en empruntant chacun de ses sept ponts exactement une fois : il faudrait pour cela que chaque quartier — sauf deux — touche un nombre pair de ponts.',
         comment: 'Euler note que la question « se rapporte à la géométrie de situation », où seules comptent les connexions, non les grandeurs. Le mémoire (présenté en 1735, publié pour 1736) fonde la théorie des graphes et, avec les polyèdres, la future topologie.',
         context: [

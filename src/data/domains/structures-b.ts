@@ -568,7 +568,7 @@ export const STRUCTURES_B: Domain[] = [
         authorName: 'Andreï Kolmogorov',
         mathematicianId: 'kolmogorov',
         theoryId: 'pmo-axiomatisation-et-mesure',
-        kind: 'texte',
+        kind: 'texte', major: true,
         comment: 'Fascicule de 62 pages paru dans les Ergebnisse der Mathematik de Springer. Six axiomes définissent un espace de probabilité comme un espace mesuré de masse 1 ; l’espérance conditionnelle, les espaces de dimension infinie et la loi du zéro-un y sont traités. Le texte répond au sixième problème de Hilbert et devient en une génération le cadre commun de la discipline, malgré la concurrence de la théorie fréquentiste de von Mises.',
         context: [
           {
@@ -1233,7 +1233,7 @@ export const STRUCTURES_B: Domain[] = [
         authorName: 'John Nash',
         mathematicianId: 'nash',
         theoryId: 'sm-decision-jeux-et-optimisation',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Dans tout jeu fini à n joueurs, il existe un profil de stratégies mixtes tel qu’aucun joueur ne puisse améliorer son gain en changeant seul de stratégie.',
         comment: 'Note d’une page aux Proceedings of the National Academy of Sciences, démontrée par le théorème de point fixe de Kakutani, puis par celui de Brouwer dans la thèse (1950) et l’article des Annals (1951). L’équilibre de Nash généralise le minimax aux jeux non coopératifs à somme quelconque et devient le concept central de la théorie des jeux appliquée à l’économie ; il vaut à Nash le prix Nobel de 1994.',
         intuition: [
@@ -1643,7 +1643,7 @@ export const STRUCTURES_B: Domain[] = [
         authorName: 'Kurt Gödel',
         mathematicianId: 'godel',
         theoryId: 'cal-completude-et-incompletude',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Tout système formel cohérent, assez riche pour exprimer l’arithmétique et dont les axiomes sont reconnaissables mécaniquement, contient des énoncés vrais qu’il ne peut ni démontrer ni réfuter (premier théorème) ; en particulier, il ne peut démontrer l’énoncé qui exprime sa propre cohérence (second théorème).',
         comment: 'Publié dans les Monatshefte für Mathematik und Physik, l’article de 25 pages répond négativement aux deux premières questions du programme de Hilbert tel qu’énoncé à Bologne (complétude et cohérence de l’arithmétique). Von Neumann, qui avait entrevu le second théorème, en tire aussitôt la conclusion que le programme est irréalisable ; Gödel reste plus prudent. Les méthodes (arithmétisation, diagonale, fonctions récursives primitives) fondent la théorie de la calculabilité.',
         context: [
@@ -1837,7 +1837,7 @@ export const STRUCTURES_B: Domain[] = [
         authorName: 'Alan Turing',
         mathematicianId: 'turing',
         theoryId: 'cal-modeles-de-calcul',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Il n’existe aucune machine de Turing qui, recevant la description d’une machine et une donnée, détermine toujours en un temps fini si cette machine finira par s’arrêter sur cette donnée.',
         comment: 'Turing démontre en fait l’indécidabilité de la question « cette machine imprime-t-elle une infinité de chiffres ? » par un argument diagonal inspiré de Cantor ; la formulation par l’arrêt est due à Kleene et Davis. Le théorème est le prototype de tous les résultats d’indécidabilité (problème du mot, dixième problème de Hilbert, théorème de Rice) et borne ce que peut vérifier un programme sur un autre programme.',
         intuition: [

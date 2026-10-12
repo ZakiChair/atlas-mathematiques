@@ -23,6 +23,8 @@ interface Entry {
   c: ChildPos;
   domainId: string;
   kind: 'featured' | 'figure' | 'result';
+  /** résultat majeur ou phare d'une grande figure : visible dès le niveau 2 */
+  major?: boolean;
   label: string;
   /** grandes figures : résultat phare et année (niveaux ≥ 1) */
   sub?: string;
@@ -76,7 +78,9 @@ export const LabelLayer = memo(function LabelLayer({ layout, selection, dimmedId
           } else out.push({ c, domainId: t.id, kind: 'figure', label: m.name, title: `${m.name} (${life})` });
         } else if (c.kind === 'result') {
           const r = resultById.get(c.id);
-          if (r) out.push({ c, domainId: t.id, kind: 'result', label: `${r.title} (${formatYear(r.year, lang, r.yearApprox)})`, title: r.title });
+          if (!r) continue;
+          const headline = d.mathematicians.some((m) => m.featured?.headlineResultIds.includes(r.id));
+          out.push({ c, domainId: t.id, kind: 'result', major: r.major || headline, label: `${r.title} (${formatYear(r.year, lang, r.yearApprox)})`, title: r.title });
         }
       }
     }
@@ -96,7 +100,7 @@ export const LabelLayer = memo(function LabelLayer({ layout, selection, dimmedId
     if (dimmedIds.has(e.domainId) || !inView(e.c.x, e.c.y)) return false;
     if (e.kind === 'featured') return true;
     if (e.kind === 'figure') return lvl >= (e.c.nameLevel ?? 2);
-    return lvl >= 3;
+    return lvl >= (e.major ? 2 : 3);
   });
 
   // obstacles : noms des domaines (niveaux 0-1), noms des théories (niveau 1)
@@ -132,7 +136,7 @@ export const LabelLayer = memo(function LabelLayer({ layout, selection, dimmedId
       return { id: e.c.id, x, y, w, h: withSub ? 31 : 17, priority: first ?? 0, r: medR + 2 };
     }
     if (e.kind === 'figure') return { id: e.c.id, x, y, w: textWidth(e.label, PX.figure), h: 16, priority: first ?? (e.c.nameLevel === 3 ? 3 : 1), r: 4 };
-    return { id: e.c.id, x, y, w: textWidth(e.label, PX.result), h: 15, priority: first ?? 2, r: 6 };
+    return { id: e.c.id, x, y, w: textWidth(e.label, PX.result), h: 15, priority: first ?? (e.major ? 1 : 2), r: e.major ? 9 : 6 };
   });
   const placed = declutter(items, obstacles);
   const byId = new Map(shown.map((e) => [e.c.id, e]));
@@ -183,7 +187,7 @@ export const LabelLayer = memo(function LabelLayer({ layout, selection, dimmedId
         return (
           <text
             key={p.id}
-            className={`point-label ${e.kind}${p.id === selId ? ' selected' : ''}${muted(e) ? ' muted' : ''}`}
+            className={`point-label ${e.kind}${e.major ? ' major' : ''}${p.id === selId ? ' selected' : ''}${muted(e) ? ' muted' : ''}`}
             data-testid={e.kind === 'featured' ? 'featured-label' : undefined}
             x={mx}
             y={my + (size * 0.95) / v.k}

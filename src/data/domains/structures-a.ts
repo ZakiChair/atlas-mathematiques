@@ -1545,7 +1545,7 @@ export const STRUCTURES_A: Domain[] = [
         authorName: 'Henri Poincaré',
         mathematicianId: 'poincare',
         theoryId: 'top-analysis-situs',
-        kind: 'conjecture',
+        kind: 'conjecture', major: true,
         statement: 'Toute variété compacte sans bord de dimension 3, dont le groupe fondamental est trivial, est une sphère.',
         comment: 'Posée au terme du cinquième complément, après que Poincaré eut construit un contre-exemple à la version homologique, la question commande un siècle de topologie : démontrée en dimension au moins 5 par Smale (1961), en dimension 4 par Freedman (1982), en dimension 3 par Perelman (2003). Elle est le seul problème du millénaire résolu à ce jour.',
         context: [
@@ -3206,7 +3206,7 @@ export const STRUCTURES_A: Domain[] = [
         authorName: 'Emmy Noether',
         mathematicianId: 'noether',
         theoryId: 'edp-calcul-tensoriel-relativite',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'À toute symétrie continue d’un principe variationnel correspond une quantité conservée : l’invariance par translation dans le temps donne la conservation de l’énergie, celle par translation dans l’espace la quantité de mouvement, celle par rotation le moment cinétique.',
         comment: 'Publié dans les Nachrichten de Göttingen (1918) à la demande de Klein et de Hilbert, qui débattaient de la conservation de l’énergie en relativité générale, le mémoire contient en fait deux théorèmes traitant aussi les symétries locales. C’est aujourd’hui le principe organisateur de la physique théorique, des particules élémentaires aux théories de jauge.',
         context: [

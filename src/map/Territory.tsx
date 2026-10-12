@@ -65,6 +65,11 @@ export const Territory = memo(function Territory({
   const theoryById = useMemo(() => new Map(domain.theories.map((s) => [s.id, s])), [domain]);
   const mathById = useMemo(() => new Map(domain.mathematicians.map((f) => [f.id, f])), [domain]);
   const resultById = useMemo(() => new Map(domain.results.map((f) => [f.id, f])), [domain]);
+  /** résultats phares des grandes figures : même traitement que `major` (losange agrandi dès le niveau 2). */
+  const headlineIds = useMemo(
+    () => new Set(domain.mathematicians.flatMap((f) => f.featured?.headlineResultIds ?? [])),
+    [domain],
+  );
 
   const name = domainNameMetrics(domain, r, v.k);
   const nc = domainNameCenter(layout, lvl);
@@ -197,15 +202,17 @@ export const Territory = memo(function Territory({
             );
           })}
 
-      {/* résultats — niveau 3 : losange à l'encre de leur nature ; le titre est posé par LabelLayer */}
-      {lvl >= 3 &&
+      {/* résultats — niveau 3 (2 pour les majeurs et les phares) : losange à l'encre de leur nature ; le titre est posé par LabelLayer */}
+      {lvl >= 2 &&
         layout.children
           .filter((c) => c.kind === 'result' && inView(c.x, c.y))
           .map((c) => {
             const f = resultById.get(c.id);
             if (!f) return null;
+            const isMajor = (f.major ?? false) || headlineIds.has(f.id);
+            if (lvl < (isMajor ? 2 : 3)) return null;
             const isSel = selectedChildId === f.id;
-            const s = px(isSel ? 7 : 5.5);
+            const s = px(isMajor ? (isSel ? 10 : 8) : isSel ? 7 : 5.5);
             const d = `M ${c.x} ${c.y - s} L ${c.x + s} ${c.y} L ${c.x} ${c.y + s} L ${c.x - s} ${c.y} Z`;
             return (
               <g key={c.id} className={isSel ? 'child-selected' : undefined}>

@@ -575,7 +575,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         authorName: 'Kenneth Appel et Wolfgang Haken',
         mathematicianId: 'appel',
         theoryId: 'comb-theorie-des-graphes',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'Toute carte plane peut être coloriée avec quatre couleurs de sorte que deux régions ayant une frontière commune reçoivent des couleurs différentes.',
         comment: 'Conjecturé par Francis Guthrie en 1852, « démontré » à tort par Kempe en 1879, le théorème est établi en juin 1976 à Urbana à l’aide d’un ensemble inévitable de configurations réductibles vérifié par ordinateur, avec l’aide de John Koch. La preuve, publiée en 1977, déclenche une controverse sur la nature de la démonstration mathématique ; elle est simplifiée par Robertson, Sanders, Seymour et Thomas (1997) et formalisée intégralement en Coq par Gonthier (2005).',
         context: [
@@ -2786,7 +2786,7 @@ export const CONTEMPORAIN_B: Domain[] = [
         authorName: 'Paul Cohen',
         mathematicianId: 'cohen',
         theoryId: 'lec-forcing-et-independance',
-        kind: 'theoreme',
+        kind: 'theoreme', major: true,
         statement: 'L’hypothèse du continu (il n’existe aucun cardinal entre celui des entiers et celui des réels) ne peut être ni démontrée ni réfutée à partir des axiomes de Zermelo–Fraenkel avec choix, si ceux-ci sont cohérents : il existe des modèles de ZFC où elle est vraie et d’autres où elle est fausse.',
         comment: 'Réponse au premier problème de la liste de Hilbert (1900) : complétant le modèle constructible de Gödel (1938, cohérence de HC), Cohen montre en 1963 l’indépendance pleine, et celle de l’axiome du choix. La médaille Fields de 1966 couronne le résultat ; le statut de l’hypothèse — indécidée ou indécidable — reste débattu.',
         context: [
