@@ -214,7 +214,12 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'tnc-courbes-elliptiques-et-modularite',
         featured: {
           signature: { kind: 'fait', text: 'Démontre le dernier théorème de Fermat par la modularité des courbes elliptiques (1995).', sources: ['singh-fermat', 'wiles-modular'] },
-          contributions: [],
+          contributions: [
+            { kind: 'fait', text: 'Avec John Coates, il obtient en 1977 le premier résultat général en direction de la conjecture de Birch et Swinnerton-Dyer : pour une courbe elliptique à multiplication complexe dont la fonction L ne s’annule pas en s = 1, le groupe des points rationnels est fini.', sources: ['gowers-companion', 'mactutor'] },
+            { kind: 'fait', text: 'Avec Barry Mazur, il démontre en 1984 la « conjecture principale » de la théorie d’Iwasawa pour les extensions abéliennes de Q, qui identifie un module de Galois et une fonction L p-adique : un entraînement aux méthodes galoisiennes qu’il mobilisera contre Fermat.', sources: ['mactutor'] },
+            { kind: 'fait', text: 'Le cœur technique de sa preuve identifie un anneau de déformations de représentations galoisiennes à une algèbre de Hecke (« R = T ») ; les « systèmes de Taylor–Wiles », trouvés en 1994 pour combler la lacune, donnent à cette méthode sa forme, reprise depuis dans les théorèmes de relèvement modulaire (modularité complète, 2001 ; Sato–Tate, 2008).', sources: ['wiles-modular', 'gowers-companion'] },
+            { kind: 'interpretation', text: 'Sept ans de travail solitaire sur un problème unique, puis une année de réparation publique : le récit de Simon Singh et les interviews de Wiles ont fait de cette trajectoire l’image contemporaine de ce qu’est une percée mathématique.', sources: ['singh-fermat', 'mactutor'] },
+          ],
           headlineResultIds: ['demonstration-du-dernier-theoreme-de-fermat'],
         },
       },
@@ -1006,7 +1011,12 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'gam-cohomologie-et-motifs',
         featured: {
           signature: { kind: 'interpretation', text: 'Refonde la géométrie algébrique sur les schémas, les topos et de nouvelles cohomologies.', sources: ['jackson-grothendieck', 'dieudonne-geometrie-algebrique'] },
-          contributions: [],
+          contributions: [
+            { kind: 'fait', text: 'Sa thèse (1953) et les travaux d’analyse fonctionnelle qui l’entourent — produits tensoriels topologiques, espaces nucléaires — résolvent en quelques années les problèmes que Laurent Schwartz et Jean Dieudonné lui avaient posés à Nancy ; cette première œuvre, étrangère à la géométrie, aurait suffi à une carrière.', sources: ['mactutor', 'jackson-grothendieck'] },
+            { kind: 'fait', text: 'L’article du « Tôhoku » (1957) fonde l’algèbre homologique sur les catégories abéliennes et les foncteurs dérivés ; la même année, son théorème de Riemann–Roch, énoncé pour un morphisme et non pour une variété, installe le « point de vue relatif » et le groupe K(X), ancêtre de la K-théorie.', sources: ['dieudonne-geometrie-algebrique', 'jackson-grothendieck'] },
+            { kind: 'fait', text: 'Il réunit à l’IHÉS une équipe — Dieudonné pour la rédaction des EGA, Artin, Verdier puis Deligne au séminaire SGA — qui produit de 1960 à 1969 les milliers de pages où s’écrivent désormais la géométrie algébrique et la géométrie arithmétique, de Deligne à Faltings et Wiles.', sources: ['jackson-grothendieck', 'schneps-grothendieck-portrait'] },
+            { kind: 'interpretation', text: 'Ses manuscrits postérieurs à 1970, diffusés en photocopies pendant des décennies (Récoltes et semailles, Esquisse d’un programme, La longue marche à travers la théorie de Galois, Les dérivateurs), ouvrent un second chantier — géométrie anabélienne, dessins d’enfants, catégories supérieures — que poursuit une génération qui ne l’a pas connu.', sources: ['jackson-grothendieck', 'grothendieck-recoltes'] },
+          ],
           headlineResultIds: ['schemas', 'elements-de-geometrie-algebrique', 'theoreme-de-riemann-roch-grothendieck'],
         },
       },
@@ -1490,7 +1500,12 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'tgc-dimensions-3-et-4',
         featured: {
           signature: { kind: 'fait', text: 'Démontre les conjectures de Poincaré et de géométrisation (2002-2003).', sources: ['szpiro-poincare', 'mactutor'] },
-          contributions: [],
+          contributions: [
+            { kind: 'fait', text: 'Avant le flot de Ricci : avec Burago et Gromov, il établit les fondements des espaces d’Aleksandrov à courbure minorée (1992), puis démontre la « conjecture de l’âme » de Cheeger et Gromoll (1994), ouverte depuis vingt ans.', sources: ['mactutor', 'szpiro-poincare'] },
+            { kind: 'fait', text: 'Dans ses trois notes de 2002-2003, il donne au flot de Ricci de Hamilton les outils qui lui manquaient : une entropie qui le fait croître de manière contrôlée, une « longueur réduite », des κ-solutions qui classent les singularités, puis une chirurgie qui les excise en temps fini sans détruire la topologie.', sources: ['szpiro-poincare', 'gowers-companion'] },
+            { kind: 'fait', text: 'Refusant le prix du millénaire en 2010, il justifie publiquement son geste : la part de Richard Hamilton dans la solution n’est, selon lui, pas moindre que la sienne — attribution rare dans l’histoire des récompenses mathématiques.', sources: ['mactutor'] },
+            { kind: 'interpretation', text: 'Pour Mikhael Gromov, ses refus (postes, médaille, prix) relèvent d’une exigence morale cohérente plutôt que d’une excentricité : il « agit honnêtement, d’une manière non conformiste ».', sources: ['mactutor'] },
+          ],
           headlineResultIds: ['demonstration-de-la-conjecture-de-poincare'],
         },
       },
@@ -1503,7 +1518,12 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'tgc-dimensions-3-et-4',
         featured: {
           signature: { kind: 'fait', text: 'Relie le comptage des géodésiques aux volumes des espaces de modules ; Fields 2014.', sources: ['mactutor'] },
-          contributions: [],
+          contributions: [
+            { kind: 'fait', text: 'Sa thèse de Harvard (2004) réunit trois résultats : une formule récursive pour les volumes de Weil–Petersson des espaces de modules de surfaces à bord, le comptage asymptotique des géodésiques simples fermées et une nouvelle preuve de la conjecture de Witten sur les nombres d’intersection.', sources: ['mactutor'] },
+            { kind: 'fait', text: 'Elle montre que les géodésiques simples croissent polynomialement (en L^(6g−6)) là où le comptage de toutes les géodésiques croît exponentiellement : un changement de régime obtenu en transportant le comptage sur l’espace des laminations mesurées.', sources: ['mactutor'] },
+            { kind: 'fait', text: 'Avec Alex Eskin et Amir Mohammadi, elle démontre (2015) que les adhérences des orbites du flot des surfaces plates sont des sous-variétés algébriques, analogue du théorème de Ratner ; ce résultat explique les propriétés de diffusion des billards polygonaux.', sources: ['mactutor'] },
+            { kind: 'interpretation', text: 'Première femme médaillée Fields, elle est devenue une référence pour les mathématiciennes ; le président de Stanford voit en elle le modèle de « milliers de femmes qu’elle a inspirées ».', sources: ['mactutor'] },
+          ],
           headlineResultIds: ['volumes-de-weil-petersson'],
         },
       },
@@ -1885,7 +1905,12 @@ export const CONTEMPORAIN_A: Domain[] = [
         theoryId: 'sdc-dynamique-holomorphe-et-fractales',
         featured: {
           signature: { kind: 'interpretation', text: 'Forge la notion de fractale et fait de l’ordinateur un instrument d’exploration.', sources: ['mandelbrot-fractal-geometry', 'gleick-chaos'] },
-          contributions: [],
+          contributions: [
+            { kind: 'fait', text: 'Avant les fractales, ses travaux d’IBM portent sur les cours de bourse — où il oppose les processus stables de Lévy au modèle brownien de Bachelier —, sur le bruit dans les lignes de transmission et sur les crues du Nil, phénomènes qu’il décrit par une autosimilarité statistique à longue mémoire.', sources: ['gleick-chaos', 'mandelbrot-fractal-geometry'] },
+            { kind: 'fait', text: 'À IBM, il fait des premiers programmes de tracé un instrument de recherche : les images des ensembles de Julia puis de l’ensemble des paramètres de z ↦ z² + c (1980) révèlent des structures insoupçonnées et relancent la dynamique holomorphe, dont Douady et Hubbard rendent compte mathématiquement deux ans plus tard.', sources: ['mactutor', 'gleick-chaos'] },
+            { kind: 'fait', text: 'Dans Les Objets fractals (1975) puis The Fractal Geometry of Nature (1982), il réunit des objets réputés pathologiques — ensemble de Cantor, courbe de Koch, ensembles de Julia — sous la dimension de Hausdorff–Besicovitch, rebaptisée « dimension fractale » et déclarée mesurer côtes, nuages ou turbulence.', sources: ['mandelbrot-fractal-geometry', 'mactutor'] },
+            { kind: 'interpretation', text: 'Il revendique une filiation — Cantor, Peano, Koch, Hausdorff, Julia — qui transforme d’un coup les « monstres » du siècle précédent en signes d’une géométrie du réel ; c’est cette lecture unificatrice, plus que tel objet, qu’il présente comme son œuvre.', sources: ['mandelbrot-fractal-geometry', 'gleick-chaos'] },
+          ],
           headlineResultIds: ['ensemble-de-mandelbrot', 'les-objets-fractals'],
         },
       },
