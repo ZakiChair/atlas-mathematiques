@@ -786,6 +786,26 @@ export const FIGURES_RENAISSANCE: Record<string, Mathematician[]> = {
       mactutor: 'Gregory_David',
       sources: ['mactutor'],
     },
+    {
+      id: 'borelli',
+      name: 'Giovanni Alfonso Borelli',
+      years: [1608, 1679],
+      origin: 'Naples, Messine et Pise',
+      bio: 'Élève de Castelli à Rome, Borelli occupe les chaires de Messine (1639) puis de Pise (1656) : il restitue les Coniques de Maurolico (1654), publie l’Euclides restitutus (1658) et l’édition latine des livres V-VII d’Apollonius (1661), puis applique la mécanique au mouvement animal.',
+      mactutor: 'Borelli',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'raphson',
+      name: 'Joseph Raphson',
+      years: [1668, 1712],
+      yearsApprox: true,
+      origin: 'Londres',
+      bio: 'Élu à la Royal Society en 1689, Raphson publie l’Analysis aequationum universalis (1690) : sa méthode d’approximation des racines, dite depuis « de Newton-Raphson », paraît près de cinquante ans avant le texte de Newton ; son Historia fluxionum est posthume (1715).',
+      theoryId: 'nc-fluxions-et-calcul-differentiel',
+      mactutor: 'Raphson',
+      sources: ['mactutor'],
+    },
   ],
   'geometrie-analytique': [
     {
