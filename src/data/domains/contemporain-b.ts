@@ -168,7 +168,28 @@ export const CONTEMPORAIN_B: Domain[] = [
         theoryId: 'comb-methode-probabiliste-et-graphes-aleatoires',
         featured: {
           signature: { kind: 'fait', text: 'Fonde la méthode probabiliste (1947) et, avec Rényi, la théorie des graphes aléatoires.', sources: ['alon-spencer-probabilistic', 'hoffman-erdos'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Théoricien des nombres d’abord : étudiant de dix-huit ans, il donne une preuve élémentaire du postulat de Bertrand (il y a toujours un nombre premier entre n et 2n), puis, en 1949, à partir d’une formule asymptotique de Selberg, une preuve élémentaire du théorème des nombres premiers, sans analyse complexe, que le prix Cole (1951) récompense malgré la querelle de priorité avec Selberg.',
+              sources: ['mactutor', 'hoffman-erdos'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Résolveur de problèmes plutôt que bâtisseur de théories, selon ses biographes, il exige des démonstrations élémentaires qui fassent voir pourquoi un énoncé est vrai et parle des preuves parfaites comme des pages d’un « Livre » tenu par Dieu ; cet idéal, il le transmet aux prodiges hongrois qu’il repère dès l’adolescence et fait publier, Pósa, Lovász ou Bollobás.',
+              sources: ['mactutor', 'hoffman-erdos'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses conjectures gouvernent la recherche de ses successeurs : la question posée avec Turán (1936) sur les progressions arithmétiques devient le théorème de Szemerédi (1975), la majoration obtenue avec Szekeres (1935) et sa minoration de 1947 fixent l’encadrement classique des nombres de Ramsey, et ses listes de problèmes ouverts, publiées tout au long de sa vie, sont encore travaillées.',
+              sources: ['graham-rothschild-spencer-ramsey', 'alon-spencer-probabilistic'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour ses nécrologues, il a fondé les mathématiques discrètes comme discipline, « fondement de l’informatique » ; les prix Abel de Szemerédi (2012) et de Lovász (2021), formés dans son orbite à Budapest, et la place prise par la méthode probabiliste en algorithmique consacrent après coup ce jugement.',
+              sources: ['mactutor', 'alon-spencer-probabilistic'],
+            },
+          ],
           headlineResultIds: ['methode-probabiliste', 'graphes-aleatoires-d-erdos-renyi'],
         },
       },
@@ -1846,11 +1867,32 @@ export const CONTEMPORAIN_B: Domain[] = [
         name: 'Paul Cohen',
         years: [1934, 2007],
         origin: 'Stanford',
-        bio: 'Analyste formé à Chicago (prix Bôcher 1964 pour la résolution d’un problème sur les ensembles d’unicité), Cohen se tourne vers la logique et invente le forcing (1963), qui établit l’indépendance de l’hypothèse du continu et de l’axiome du choix. Médaille Fields 1966 — la seule attribuée à un logicien —, il passe le reste de sa carrière à Stanford.',
+        bio: 'Analyste formé à Chicago sous Zygmund (prix Bôcher 1964 pour la démonstration de la conjecture de Littlewood), Cohen se tourne vers la logique et invente le forcing (1963), qui établit l’indépendance de l’hypothèse du continu et de l’axiome du choix. Médaille Fields 1966 — la seule attribuée à un logicien —, il passe le reste de sa carrière à Stanford.',
         theoryId: 'lec-forcing-et-independance',
         featured: {
           signature: { kind: 'fait', text: 'Invente le forcing (1963) et prouve l’indépendance de l’hypothèse du continu.', sources: ['cohen-set-theory-ch', 'moore-origins-forcing'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Sa formation d’analyste, à Chicago (thèse, 1958, sur l’unicité des développements en séries trigonométriques), précède le forcing : en 1959 il factorise les fonctions intégrables des algèbres de groupe, question posée par Walter Rudin, puis démontre en 1960 la conjecture de Littlewood sur les mesures idempotentes — Davenport lui écrivant qu’il avait surpassé une génération d’analystes britanniques.',
+              sources: ['mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Logicien autodidacte : il n’a jamais suivi de cours de logique et l’absorbe auprès de condisciples de Chicago, Morley, Nerode, Smullyan ou Tennenbaum, avec l’habitude de demander à chacun quel est le problème le plus important de son domaine ; c’est en lisant la monographie de Gödel sur la cohérence de l’hypothèse du continu qu’il s’attaque à la question, à la fin de 1962.',
+              sources: ['mactutor', 'moore-origins-forcing'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Angus MacIntyre, son style reste celui d’un outsider : combinatoire, aussi libre de théorie générale que possible, constructif jusque dans la théorie des ensembles ; Cohen lui-même décrivait l’indépendance non comme un problème techniquement difficile mais comme « une idée philosophique », le point délicat tenant au choix des conditions.',
+              sources: ['mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Sa monographie Set Theory and the Continuum Hypothesis (1966) enseigne le forcing à la génération qui en fait l’outil standard des théorèmes d’indépendance (Solovay, Easton, forcing itéré) ; il publie encore en 1969 une décomposition cellulaire p-adique, version constructive des résultats d’Ax–Kochen–Ershov devenue fondamentale pour l’intégration motivique, puis consacre ses dernières années à l’hypothèse de Riemann.',
+              sources: ['mactutor', 'kunen-set-theory'],
+            },
+          ],
           headlineResultIds: ['independance-de-l-hypothese-du-continu', 'forcing'],
         },
       },
