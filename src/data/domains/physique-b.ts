@@ -784,6 +784,7 @@ export const PHYSIQUE_B: Domain[] = [
         kind: 'concept',
         statement: 'Quand la source d’une onde et l’observateur se rapprochent, la fréquence perçue augmente ; quand ils s’éloignent, elle diminue. La couleur des étoiles doubles, pensait Doppler, en serait la preuve — l’effet s’applique à toute onde, sonore comme lumineuse.',
         comment: 'Lu devant l’Académie de Bohême en mai 1842, le mémoire extrapole hardiment aux étoiles (dont les couleurs relèvent surtout d’autres causes). Buys Ballot le vérifie dans le son (1845), Fizeau l’étend à la lumière (1848) : le décalage spectral devient l’instrument de la vitesse radiale des astres.',
+        major: true,
         context: [
           {
             kind: 'fait',
