@@ -971,4 +971,16 @@ export const FIGURES_RENAISSANCE: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
   ],
+  'naissance-des-probabilites': [
+    {
+      id: 'craig',
+      name: 'John Craig',
+      years: [1663, 1731],
+      origin: 'Édimbourg et Londres',
+      bio: 'Élève de David Gregory à Édimbourg, Craig publie la Methodus figurarum (1685), premier texte britannique à employer le dy/dx de Leibniz, et le Tractatus (1693), premier en Angleterre à contenir le signe ∫ ; en 1699 il applique les probabilités au témoignage.',
+      theoryId: 'np-art-de-conjecturer',
+      mactutor: 'Craig',
+      sources: ['mactutor'],
+    },
+  ],
 };
