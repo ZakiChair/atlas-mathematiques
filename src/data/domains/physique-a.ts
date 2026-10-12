@@ -13,7 +13,6 @@ export const SOURCES_PHYSIQUE_A: Source[] = [
   { id: 'evans-astronomy', type: 'livre', author: 'James Evans', title: 'The History and Practice of Ancient Astronomy', year: 1998, publisher: 'Oxford University Press' },
   { id: 'dreyer-astronomy', type: 'livre', author: 'J. L. E. Dreyer', title: 'A History of Astronomy from Thales to Kepler', year: 1906, publisher: 'Cambridge University Press' },
   { id: 'pedersen-early-physics', type: 'livre', author: 'Olaf Pedersen', title: 'Early Physics and Astronomy: A Historical Introduction', year: 1993, publisher: 'Cambridge University Press', note: 'Édition révisée (1ʳᵉ éd. 1974).' },
-  { id: 'toomer-almagest', type: 'primaire', author: 'Claude Ptolémée', title: 'Ptolemy’s Almagest', year: 1984, publisher: 'Duckworth', note: 'Traduction anglaise et notes de G. J. Toomer ; rééd. Springer, 1998.' },
   { id: 'kennedy-planetary', type: 'article', author: 'Edward S. Kennedy', title: 'Late Medieval Planetary Theory', year: 1966, publisher: 'Isis, vol. 57, n° 3' },
   { id: 'kuhn-copernican', type: 'livre', author: 'Thomas S. Kuhn', title: 'The Copernican Revolution: Planetary Astronomy in the Development of Western Thought', year: 1957, publisher: 'Harvard University Press' },
   { id: 'westman-copernican', type: 'livre', author: 'Robert S. Westman', title: 'The Copernican Question: Prognostication, Skepticism, and Celestial Order', year: 2011, publisher: 'University of California Press' },

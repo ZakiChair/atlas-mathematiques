@@ -27,17 +27,6 @@ export const FIGURES_PHYSIQUE_A: Record<string, Mathematician[]> = {
   ],
   'astronomie-mathematique': [
     {
-      id: 'aristarchus',
-      name: 'Aristarque de Samos',
-      years: [-310, -230],
-      yearsApprox: true,
-      origin: 'Samos',
-      bio: 'Archimède rapporte qu’Aristarque faisait tourner la Terre autour du Soleil ; son seul traité conservé calcule par la géométrie les distances et tailles relatives du Soleil et de la Lune.',
-      theoryId: 'am-astronomie-ptolemeenne',
-      mactutor: 'Aristarchus',
-      sources: ['mactutor'],
-    },
-    {
       id: 'jabir-ibn-aflah',
       name: 'Jābir ibn Aflaḥ',
       years: [1100, 1160],
