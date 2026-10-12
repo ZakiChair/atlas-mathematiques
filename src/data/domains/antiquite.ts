@@ -444,7 +444,28 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'ag-analyse-diophantienne',
         featured: {
           signature: { kind: 'fait', text: 'Résout en nombres rationnels des centaines de problèmes indéterminés : les Arithmétiques.', sources: ['sesiano-diophante', 'heath-greek'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il change l’objet de l’arithmétique : non plus les propriétés des entiers, mais des problèmes à plusieurs inconnues, ramenés à une seule par un choix habile de valeurs auxiliaires, que l’on révise si le calcul mène à une racine irrationnelle ; les solutions négatives ou irrationnelles sont déclarées « absurdes », et seuls comptent les rationnels positifs.',
+              sources: ['heath-greek', 'sesiano-diophante', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Son introduction pose les règles de calcul sur les expressions : un signe pour l’inconnue et pour ses puissances jusqu’à la sixième, un signe pour le manque et sa règle des signes (un manque multiplié par un manque donne une présence), un signe pour l’égalité, et la consigne d’ajouter les termes manquants des deux côtés puis de retrancher les semblables jusqu’à n’avoir qu’un terme de chaque côté, ce que l’algèbre arabe nommera al-jabr et al-muqābala.',
+              sources: ['heath-greek', 'sesiano-diophante', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Les conditions qu’il attache à certains problèmes trahissent un savoir sur les sommes de carrés : un nombre de la forme 4n + 3 n’est pas somme de deux carrés, un nombre de la forme 8n + 7 n’est pas somme de trois carrés, et il semble admettre que tout nombre est somme de quatre carrés ; il cite aussi des lemmes de ses Porismes perdus, comme la décomposition d’une différence de deux cubes en somme de deux cubes.',
+              sources: ['heath-greek', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Longtemps appelé « père de l’algèbre », il n’est plus tenu pour tel : pour Kurt Vogel, la résolution des équations du premier et du second degré remonte à Babylone ; mais sa collection de problèmes indéterminés reste un accomplissement singulier, que Bombelli, Viète et surtout Fermat, annotant l’édition de Bachet, sauront reprendre et prolonger.',
+              sources: ['mactutor', 'weil-number-theory'],
+            },
+          ],
           headlineResultIds: ['arithmetica-diophante'],
         },
       },
@@ -806,7 +827,28 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'gg-elements-et-axiomatique',
         featured: {
           signature: { kind: 'fait', text: 'Organise la géométrie et l’arithmétique grecques en un édifice déductif : les Éléments.', sources: ['vitrac-euclide', 'heath-greek'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Chaque proposition des Éléments ne s’appuie que sur les principes posés en tête et sur les propositions déjà établies ; les constructions à la règle et au compas (la première proposition construit un triangle équilatéral) assurent l’existence des figures avant qu’on en raisonne. Euclide isole ainsi ce qu’il faut admettre, dont la demande des parallèles, qu’il se garde d’employer avant la proposition I, 29.',
+              sources: ['vitrac-euclide', 'heath-greek'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans les livres VII à IX, l’arithmétique devient une théorie démonstrative : les nombres sont figurés par des segments, l’algorithme des soustractions réciproques ouvre le livre VII, un nombre premier qui divise un produit divise l’un des facteurs (VII, 30), les nombres premiers dépassent toute multitude (IX, 20) et les nombres parfaits pairs sont construits (IX, 36).',
+              sources: ['vitrac-euclide', 'heath-greek'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le livre XII met en œuvre l’exhaustion d’Eudoxe : les cercles sont entre eux comme les carrés de leurs diamètres (XII, 2), la pyramide vaut le tiers du prisme, le cône le tiers du cylindre, les sphères sont entre elles comme les cubes de leurs diamètres (XII, 18) ; le livre XIII construit les cinq polyèdres réguliers et montre qu’il n’en existe pas d’autre.',
+              sources: ['vitrac-euclide', 'heath-greek', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Aucun théorème des Éléments n’est sans doute démontré pour la première fois par Euclide ; l’organisation et l’exposition sont son œuvre propre, et Proclus voyait dans la construction des « figures platoniciennes » le but de tout l’ouvrage. Pour Heath, c’est le plus grand manuel de mathématiques de tous les temps, et Euclide a dû former à Alexandrie l’école où Apollonius viendra s’instruire.',
+              sources: ['mactutor', 'morrow-proclus', 'heath-greek'],
+            },
+          ],
           headlineResultIds: ['elements-euclide', 'infinite-des-nombres-premiers', 'cinquieme-postulat'],
         },
       },
@@ -1115,7 +1157,28 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'mh-mesure-des-figures-curvilignes',
         featured: {
           signature: { kind: 'fait', text: 'Mesure le cercle, la sphère et la parabole par exhaustion, et fonde la statique.', sources: ['heath-archimedes', 'heath-greek'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il porte l’exhaustion d’Eudoxe sur des figures que personne n’avait mesurées : outre le segment de parabole et la sphère, l’aire balayée par sa spirale (le tiers du cercle qui l’enferme, dans Des spirales) et les volumes des segments de paraboloïde, d’hyperboloïde et de sphéroïde (Des conoïdes et des sphéroïdes), chaque fois par encadrement entre figures inscrites et circonscrites.',
+              sources: ['heath-archimedes', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Il fait de la mécanique une science démontrée à la manière de la géométrie : De l’équilibre des plans déduit la loi du levier de postulats et détermine les centres de gravité du parallélogramme, du triangle, du trapèze et du segment de parabole ; Des corps flottants établit le principe qui porte son nom et étudie la stabilité des segments de paraboloïde flottants.',
+              sources: ['heath-archimedes', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Calculateur autant que géomètre, il encadre √3 entre 265/153 et 1351/780 au cours de la mesure du cercle et, dans L’Arénaire, bâtit une numération par octades capable de nommer des nombres immenses, pour montrer que les grains de sable qui rempliraient l’univers d’Aristarque sont moins de 10⁶³.',
+              sources: ['heath-archimedes', 'heath-greek', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Chasles, ses quadratures ont donné naissance au calcul de l’infini que Kepler, Cavalieri, Fermat, Leibniz et Newton ont conçu et perfectionné. Mais ses traités, peu lus dans l’Antiquité hors d’Alexandrie, où Héron, Pappus et Théon le citent, ne se diffusent vraiment qu’avec les éditions commentées d’Eutocius au VIᵉ siècle, puis par les traductions arabes et latines.',
+              sources: ['mactutor', 'heath-archimedes', 'rashed-sciences-arabes'],
+            },
+          ],
           headlineResultIds: ['mesure-du-cercle', 'de-la-sphere-et-du-cylindre', 'la-methode-archimede'],
         },
       },
@@ -1463,7 +1526,28 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'mca-neuf-chapitres-et-procedures',
         featured: {
           signature: { kind: 'fait', text: 'Justifie les procédures des Neuf Chapitres et calcule π par polygones successifs.', sources: ['chemla-neuf-chapitres', 'martzloff-chine'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il fonde la correction des procédures sur le principe chu ru xiang bu, la compensation de ce qui sort par ce qui entre : les pièces d’une figure, déplacées sans perte, prouvent la règle du triangle rectangle (gougu) comme les aires des champs. Il lit de même l’algorithme d’extraction des racines carrées et cubiques comme le découpage d’un carré ou d’un cube en gnomons et, quand la racine ne s’épuise pas, prescrit de poursuivre l’extraction au-delà de l’unité, par parties décimales, aussi loin qu’on veut.',
+              sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+            },
+            {
+              kind: 'fait',
+              text: 'Pour les volumes, il décompose les solides en trois pièces, le demi-parallélépipède coupé en biais (qiandu), la pyramide rectangulaire dont le sommet surplombe un coin de la base (yangma) et un tétraèdre à faces en triangles rectangles (bienao), et prouve que la yangma vaut le tiers du parallélépipède par une subdivision répétée dont le reste devient plus petit que toute quantité ; il montre aussi que la procédure du classique pour la sphère est fausse et que le vrai rapport se lit sur le « double parasol » formé par deux cylindres croisés, dont Zu Geng, fils de Zu Chongzhi, trouvera le volume.',
+              sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+            },
+            {
+              kind: 'fait',
+              text: 'Son Classique mathématique de l’île maritime (Haidao suanjing) prolonge le dernier chapitre du classique par neuf problèmes d’arpentage à distance : hauteur d’une île, profondeur d’un ravin ou largeur d’une rivière obtenues par des visées sur deux, trois ou quatre gnomons (méthode des « doubles différences »).',
+              sources: ['martzloff-chine', 'katz-sourcebook'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Karine Chemla, le Commentaire révèle une pratique de la preuve propre à la Chine ancienne : Liu Hui dégage le « sens » des opérations, ramène des procédures disparates à des principes communs, telle la mise en relation des nombres par les lü, et établit la généralité d’un algorithme plutôt que d’en vérifier un cas ; cette tradition démonstrative, sans axiomes ni théorèmes, n’a été reconnue comme telle que par l’historiographie récente.',
+              sources: ['chemla-neuf-chapitres'],
+            },
+          ],
           headlineResultIds: ['algorithme-du-cercle-de-liu-hui', 'commentaire-de-liu-hui'],
         },
       },
@@ -1757,7 +1841,28 @@ export const ANTIQUITE: Domain[] = [
         theoryId: 'la-science-demonstrative',
         featured: {
           signature: { kind: 'fait', text: 'Crée la logique formelle, la syllogistique, et la théorie de la science démonstrative.', sources: ['kneale-logic', 'sep'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il traite sa syllogistique comme un système dont il étudie les propriétés : les modes des deuxième et troisième figures sont ramenés à ceux de la première par conversion des prémisses ou par l’absurde, et les couples de prémisses qui ne concluent pas sont écartés par des contre-exemples en termes concrets. Il nommait cette discipline « analytique » ; le mot « logique » vient de Xénocrate.',
+              sources: ['kneale-logic', 'sep', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Là où Platon rêvait d’un unique système de principes pour tout le savoir, Aristote assigne à chaque science ses propres principes : axiomes communs à toutes, définitions et hypothèses propres à son genre. La démonstration part de prémisses vraies, premières et immédiates, s’arrête à des indémontrables, et ne passe pas d’un genre à l’autre, l’arithmétique ne prouvant rien en géométrie.',
+              sources: ['sep', 'kneale-logic', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Il tranche le statut de l’infini : il n’existe qu’en puissance, et le continu n’est pas composé d’indivisibles ; les géomètres, remarque-t-il dans la Physique, n’ont pas besoin d’une droite infinie, seulement d’une droite finie aussi longue qu’ils veulent. Les objets mathématiques sont pour lui tirés des choses sensibles par abstraction, non des formes séparées comme chez Platon.',
+              sources: ['sep', 'mactutor', 'heath-greek'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses traités, dont la plupart des exemples de méthode scientifique sont tirés des mathématiques, selon Heath, sont une source majeure sur la géométrie d’avant Euclide : preuve par pair et impair de l’incommensurabilité, quadratures d’Antiphon, de Bryson et d’Hippocrate, proportions d’Eudoxe. Son école produit, avec Eudème de Rhodes, la première Histoire de la géométrie, dont le résumé conservé par Proclus reste notre principal témoin.',
+              sources: ['mactutor', 'heath-greek', 'morrow-proclus'],
+            },
+          ],
           headlineResultIds: ['syllogistique', 'seconds-analytiques'],
         },
       },
