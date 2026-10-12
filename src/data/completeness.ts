@@ -12,7 +12,7 @@ export const COMPLETENESS = {
   /** toute grande figure a 2 à 4 apports (vague 2) */
   contributionsRequired: true,
   /** part des théorèmes dotés d'une intuition et d'une démonstration, et des conjectures et problèmes dotés d'une intuition (vague 3) */
-  proofsCoverage: 0,
+  proofsCoverage: 1,
   /** nombre minimal de figures (vague 4) */
   mathematiciansMin: 428,
   /** part des figures dotées d'un slug MacTutor (vague 4) */
