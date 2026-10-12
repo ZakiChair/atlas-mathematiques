@@ -20,6 +20,7 @@ Plan en cours : `docs/superpowers/plans/2026-10-12-refonte-galerie.md`
 - `npx tsx scripts/check-era.ts <fichier>` — erreurs de validation limitées à un fichier d’ère.
 - `npx tsx scripts/corpus-stats.ts` — statistiques du corpus pour le README.
 - `npx tsx scripts/palettes.ts` — régénération des palettes « Galerie » (données et brief).
+- `npx tsx scripts/coverage.ts [--todo <fichier>] [--featured]` — avancement du corpus (apports, intuitions et démonstrations, slugs MacTutor).
 
 ## Corpus : règles non négociables
 
