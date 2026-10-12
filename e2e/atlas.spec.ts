@@ -1,5 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
-import { DOMAINS } from '../src/data';
+import { DOMAINS, DOMAIN_BY_ID, LINKS } from '../src/data';
+import { principalLinks } from '../src/map/lineage';
+
+const FEATURED = DOMAINS.flatMap((d) => d.mathematicians).filter((m) => m.featured).length;
+const DEFAULT_LINKS = principalLinks(LINKS, DOMAIN_BY_ID).size + LINKS.filter((l) => l.kind === 'reaction').length;
+const ALL_LINKS = LINKS.filter((l) => l.kind !== 'affinite').length;
 
 async function dismissIntro(page: Page) {
   const explorer = page.getByRole('button', { name: 'Explorer' });
@@ -140,8 +145,7 @@ test('domaine contemporain : complexité et informatique théorique', async ({ p
   }
 });
 
-test('fleuves et frise : un fleuve par champ, la frise déplace la carte dans le temps', async ({ page }) => {
-  await expect(page.locator('.rivers .river')).toHaveCount(5);
+test('frise : elle déplace la carte dans le temps', async ({ page }) => {
   const slider = page.getByRole('slider');
   await expect(slider).toBeVisible();
   const box = (await slider.boundingBox())!;
@@ -151,6 +155,51 @@ test('fleuves et frise : un fleuve par champ, la frise déplace la carte dans le
   const early = await yearAt();
   await page.mouse.click(box.x + box.width * 0.85, box.y + box.height / 2);
   await expect.poll(yearAt, { timeout: 3000 }).toBeGreaterThan(early);
+});
+
+test('vue d’ensemble : une médaille par grande figure, lignées principales et ruptures', async ({ page }) => {
+  expect(FEATURED).toBeGreaterThanOrEqual(40);
+  await expect(page.locator('[data-testid="medallion"]')).toHaveCount(FEATURED);
+  await expect(page.locator('.link-group')).toHaveCount(DEFAULT_LINKS);
+});
+
+test('filtres : « Tous les liens » trace toutes les transmissions', async ({ page }) => {
+  await page.getByRole('button', { name: 'Filtres' }).click();
+  await page.getByRole('radio', { name: 'Tous les liens' }).click();
+  await expect(page.locator('.link-group')).toHaveCount(ALL_LINKS);
+  await page.getByRole('radio', { name: 'Lignées principales' }).click();
+  await expect(page.locator('.link-group')).toHaveCount(DEFAULT_LINKS);
+});
+
+test('grande figure : la médaille ouvre la fiche (signature, résultats phares)', async ({ page }, testInfo) => {
+  if (testInfo.project.name === 'mobile') {
+    // en vue d'ensemble mobile, les médailles font 3,5 px : navigation directe
+    await page.goto('/#/mathematicien/euler');
+    await dismissIntro(page);
+  } else {
+    await page.locator('[data-testid="medallion"][data-id="euler"]').click();
+  }
+  const panel = page.locator('[data-testid="panel"], [data-testid="panel-sheet"]');
+  await expect(panel).toContainText('Leonhard Euler');
+  await expect(panel.locator('[data-testid="signature"] .badge-fait, [data-testid="signature"] .badge-interp')).toHaveCount(1);
+  await expect(panel.locator('[data-testid="headlines"] li')).not.toHaveCount(0);
+  await expect(page).toHaveURL(/#\/mathematicien\/euler/);
+  if (testInfo.project.name === 'desktop') {
+    await page.waitForTimeout(1100);
+    await page.screenshot({ path: 'e2e/artifacts/desktop-grande-figure-euler.png' });
+  }
+});
+
+test('résultat : « D’où vient l’idée » et « Idée de la démonstration »', async ({ page }, testInfo) => {
+  await page.goto('/#/resultat/infinite-des-nombres-premiers');
+  await dismissIntro(page);
+  await expect(page.locator('[data-testid="result-intuition"] .badge-fait').first()).toBeVisible();
+  const steps = page.locator('[data-testid="result-proof"] li');
+  expect(await steps.count()).toBeGreaterThanOrEqual(3);
+  if (testInfo.project.name === 'desktop') {
+    await page.waitForTimeout(1100);
+    await page.screenshot({ path: 'e2e/artifacts/desktop-demonstration.png' });
+  }
 });
 
 test('bassin amont : la fiche liste les affluents, la carte les allume', async ({ page }, testInfo) => {
@@ -199,4 +248,50 @@ test('langue : ?lang=en bascule l’UI, le sélecteur revient en FR', async ({ p
   await page.getByRole('group', { name: 'Langue / Language' }).first().getByRole('button', { name: 'fr', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Filtres' }).first()).toBeVisible();
   await expect(page).toHaveURL(/lang=fr/);
+});
+
+// ——— points de vigilance de la refonte « Galerie » ———
+
+test('vue d’ensemble : les noms des grandes figures ne se chevauchent pas', async ({ page }) => {
+  await page.waitForTimeout(1400);
+  const boxes = await page
+    .locator('[data-testid="featured-label"]')
+    .evaluateAll((els) => els.map((e) => e.getBoundingClientRect()).map((r) => ({ x: r.x, y: r.y, w: r.width, h: r.height })));
+  expect(boxes.length).toBeGreaterThan(0);
+  for (let i = 0; i < boxes.length; i++) {
+    for (let j = i + 1; j < boxes.length; j++) {
+      const a = boxes[i];
+      const b = boxes[j];
+      const overlap = a.x < b.x + b.w - 1 && b.x < a.x + a.w - 1 && a.y < b.y + b.h - 1 && b.y < a.y + a.h - 1;
+      expect(overlap, `noms ${i} et ${j}`).toBe(false);
+    }
+  }
+});
+
+test('grande figure : un résultat phare situé dans un autre domaine ouvre sa fiche', async ({ page }) => {
+  await page.goto('/#/mathematicien/euler');
+  await dismissIntro(page);
+  const panel = page.locator('[data-testid="panel"], [data-testid="panel-sheet"]');
+  await panel.locator('[data-testid="headlines"]').getByRole('button', { name: /Königsberg/ }).click();
+  await expect(page).toHaveURL(/#\/resultat\/sept-ponts-de-konigsberg/);
+  await expect(panel).toContainText(DOMAIN_BY_ID['geometrie-des-lumieres'].name);
+});
+
+test('anglais : la fiche d’une grande figure garde son contenu (corpus en français)', async ({ page }) => {
+  await page.goto('/?lang=en#/mathematicien/euler');
+  await dismissIntro(page);
+  const panel = page.locator('[data-testid="panel"], [data-testid="panel-sheet"]');
+  await expect(panel).toContainText('Contributions');
+  await expect(panel).toContainText('Landmark results');
+  await expect(panel).toContainText('Fait des fonctions');
+});
+
+test('« N’afficher que les faits » masque une signature interprétative', async ({ page }) => {
+  await page.goto('/#/mathematicien/fermat');
+  await dismissIntro(page);
+  const panel = page.locator('[data-testid="panel"], [data-testid="panel-sheet"]');
+  await expect(panel.locator('[data-testid="signature"] li')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Filtres' }).click();
+  await page.getByTestId('facts-only').check();
+  await expect(panel.locator('[data-testid="signature"] li')).toHaveCount(0);
 });
