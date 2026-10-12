@@ -1,4 +1,77 @@
 import type { Mathematician } from '../types';
 
 /** Fiches courtes du siècle des Lumières, par domaine d’attache (vague 4 ; docs/corpus/BRIEF.md, § 11). */
-export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {};
+export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
+  'querelle-des-infiniment-petits': [
+    {
+      id: 'carre',
+      name: 'Louis Carré',
+      years: [1663, 1711],
+      origin: 'Paris',
+      bio: 'Secrétaire de Malebranche à l’Oratoire, admis en 1699 à l’Académie des sciences comme élève de Varignon, Carré publie en 1700 le premier livre français consacré au calcul intégral : aires, volumes, centres de gravité et d’oscillation.',
+      theoryId: 'qip-le-calcul-en-france',
+      mactutor: 'Carre',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'emerson',
+      name: 'William Emerson',
+      years: [1701, 1782],
+      origin: 'Hurworth, Angleterre',
+      bio: 'Maître d’école devenu rentier, Emerson publie dès 1743 une longue série de manuels newtoniens : The Doctrine of Fluxions, dont la préface défend la méthode contre ses détracteurs, puis une Defence of Sir Isaac Newton (1770) répondant aux objections des Bernoulli et d’Euler.',
+      theoryId: 'qip-la-critique-des-fondements',
+      mactutor: 'Emerson',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'robins',
+      name: 'Benjamin Robins',
+      years: [1706, 1751],
+      origin: 'Londres',
+      bio: 'Ingénieur formé par Pemberton, Robins défend en 1735 la méthode des fluxions contre Berkeley et Jurin en définissant la limite sans infiniment petits. Ses New Principles of Gunnery (1742), traduits par Euler, et son pendule balistique fondent la théorie moderne du tir.',
+      theoryId: 'qip-la-critique-des-fondements',
+      mactutor: 'Robins',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'landen',
+      name: 'John Landen',
+      years: [1719, 1790],
+      origin: 'Peterborough, Angleterre',
+      bio: 'Arpenteur puis régisseur, mathématicien amateur élu à la Royal Society en 1766, Landen tente dans la Residual Analysis (1758, 1764) de fonder le calcul sur la seule algèbre, ce dont Lagrange se souviendra ; il étudie aussi le dilogarithme et la rectification des coniques.',
+      theoryId: 'qip-les-fondements-reconstruits',
+      mactutor: 'Landen',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'da-cunha',
+      name: 'José Anastácio da Cunha',
+      years: [1744, 1787],
+      origin: 'Lisbonne et Coimbra',
+      bio: 'Officier d’artillerie autodidacte, professeur de géométrie à Coimbra en 1773 puis condamné par l’Inquisition, da Cunha laisse les Principios Mathemáticos (1790) : un exposé rigoureux du calcul, avec un critère de convergence des séries équivalent à celui de Cauchy.',
+      theoryId: 'qip-les-fondements-reconstruits',
+      mactutor: 'Cunha',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'glenie',
+      name: 'James Glenie',
+      years: [1750, 1817],
+      origin: 'Écosse, Woolwich et Nouveau-Brunswick',
+      bio: 'Officier du génie formé à St Andrews et à Woolwich, Glenie conçoit dès 1774 un « calcul antécédental » qui fonde les fluxions de Newton sur le théorème du binôme plutôt que sur le mouvement ; publié par la Royal Society en 1778, il est repris en volume en 1793-1794.',
+      theoryId: 'qip-les-fondements-reconstruits',
+      mactutor: 'Glenie',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'lhuilier',
+      name: 'Simon Lhuilier',
+      years: [1750, 1840],
+      origin: 'Genève et Puławy',
+      bio: 'Genevois, précepteur en Pologne, Lhuilier remporte le concours de l’Académie de Berlin sur l’infini mathématique avec une Exposition élémentaire des principes des calculs supérieurs (1786) fondée sur les limites ; il étudie aussi les exceptions à la formule d’Euler des polyèdres.',
+      theoryId: 'qip-les-fondements-reconstruits',
+      mactutor: 'Lhuilier',
+      sources: ['mactutor'],
+    },
+  ],
+};
