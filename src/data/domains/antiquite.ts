@@ -504,6 +504,40 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Aucun nombre ne peut être moyenne géométrique entre deux nombres dont le rapport est de la forme (n + 1) : n ; en particulier, l’octave (2 : 1), la quinte (3 : 2) et le ton (9 : 8) ne se divisent pas en deux intervalles égaux.',
         comment: 'Transmis par Boèce (De institutione musica III, 11) et repris dans la Section du canon euclidienne, c’est la plus ancienne démonstration arithmétique grecque conservée. Elle répond à une question de théorie musicale et suppose déjà la théorie des rapports en nombres du livre VII des Éléments.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Réduit à ses plus petits termes, un rapport épimore est celui de deux nombres consécutifs, n + 1 et n ; une moyenne géométrique entre eux serait un nombre dont le carré vaut n(n + 1), nombre compris strictement entre n² et (n + 1)², donc entre deux carrés consécutifs : aucun carré ne s’y loge. Le ton 9 : 8 ne se partage donc pas en deux demi-tons égaux exprimables en nombres.',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit un rapport épimore A : B. Archytas prend les plus petits nombres C et D qui sont dans le même rapport (Éléments, VII, 33) ; comme le rapport est épimore, C dépasse D d’une partie aliquote de D, c’est-à-dire d’un nombre E qui mesure D.',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+          {
+            kind: 'fait',
+            text: 'E est l’unité : s’il ne l’était pas, E mesurerait à la fois D et C (puisque C = D + E), et C et D auraient une commune mesure autre que l’unité, ce qui contredit le fait que les plus petits nombres d’un rapport sont premiers entre eux (VII, 22).',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+          {
+            kind: 'fait',
+            text: 'C et D sont donc deux nombres consécutifs, et aucun nombre ne tombe entre eux : il n’existe pas de moyenne proportionnelle entière entre C et D.',
+            sources: ['heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or s’il tombait des moyennes proportionnelles entre A et B, il en tomberait autant entre les plus petits nombres du même rapport, C et D (c’est le contenu de VIII, 8) ; il n’y a donc pas non plus de moyenne proportionnelle entre A et B.',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliqué aux rapports des intervalles fondamentaux, qui sont tous de cette forme (2 : 1 avec n = 1, puis 3 : 2, 4 : 3 et 9 : 8), le théorème interdit de diviser l’octave, la quinte, la quarte ou le ton en deux intervalles égaux : c’est l’argument que la Section du canon reprend contre la division du ton en demi-tons égaux.',
+            sources: ['heath-greek'],
+          },
+        ],
       },
       {
         id: 'infinite-des-nombres-premiers',
@@ -594,6 +628,40 @@ export const ANTIQUITE: Domain[] = [
             kind: 'interpretation',
             text: 'La proposition IX, 36 a ainsi attaché pour deux millénaires un objet de spéculation pythagoricienne à l’étude des nombres premiers : chaque nouveau premier de Mersenne trouvé aujourd’hui par ordinateur fournit un nouveau nombre parfait par la règle d’Euclide.',
             sources: ['gowers-companion', 'weil-number-theory'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les premiers nombres parfaits se décomposent de la même façon : 6 = 2 × 3, 28 = 4 × 7, 496 = 16 × 31, 8128 = 64 × 127 ; chaque fois une puissance de deux multipliée par un nombre premier qui vaut une unité de moins que la puissance de deux suivante (3 = 4 − 1, 7 = 8 − 1, 31 = 32 − 1, 127 = 128 − 1). Les diviseurs d’un tel nombre se laissent énumérer en deux colonnes, les puissances de deux et leurs produits par le premier, dont les sommes se calculent.',
+            sources: ['heath-greek', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit p = 1 + 2 + 4 + … + 2ⁿ, supposé premier, et N = 2ⁿ × p. La proposition précédente (IX, 35), qui somme une progression géométrique, donne p = 2ⁿ⁺¹ − 1.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les nombres 1, 2, 4, …, 2ⁿ divisent N, et leur somme est p par définition.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les nombres p, 2p, 4p, …, 2ⁿ⁻¹p divisent aussi N, et leur somme vaut p × (1 + 2 + … + 2ⁿ⁻¹) = p × (2ⁿ − 1).',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ensemble, ces diviseurs font p + p × (2ⁿ − 1) = p × 2ⁿ = N : la somme des diviseurs énumérés, N excepté, redonne N.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Reste à voir qu’il n’y a pas d’autre diviseur : Euclide montre que tout nombre qui mesure N est soit une puissance de deux, soit le produit de p par une puissance de deux, en s’appuyant sur la primalité de p et sur les propriétés des progressions à partir de l’unité (IX, 11–13). N est donc égal à la somme de ses parties : il est parfait.',
+            sources: ['vitrac-euclide', 'heath-greek'],
           },
         ],
       },
@@ -865,6 +933,40 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Le diamètre partage le cercle en deux parties égales ; les angles à la base d’un triangle isocèle sont égaux ; deux droites qui se coupent forment des angles opposés égaux ; un triangle est déterminé par un côté et ses deux angles adjacents ; l’angle inscrit dans un demi-cercle est droit.',
         comment: 'Ces attributions viennent d’Eudème via Proclus et de Diogène Laërce. Leur intérêt est moins le contenu, élémentaire, que le geste : énoncer une propriété pour toutes les figures d’une espèce, et en donner une raison. La tradition en fait l’acte de naissance de la géométrie démonstrative, ce que les historiens modernes nuancent faute de sources directes.',
+        intuition: [
+          {
+            kind: 'interpretation',
+            text: 'Heath suppose que Thalès a vu l’angle droit dans le demi-cercle en regardant un rectangle inscrit dans un cercle : ses deux diagonales sont des diamètres, qui se coupent au centre en leur milieu, et chaque sommet du rectangle voit un diamètre sous un angle droit.',
+            sources: ['heath-greek'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour les angles à la base du triangle isocèle, Proclus rapporte que Thalès disait les angles « semblables » plutôt qu’égaux, signe d’une intuition de symétrie, la figure se repliant sur elle-même. La preuve euclidienne de l’angle inscrit suppose en revanche la somme des angles du triangle, qu’Eudème attribue aux pythagoriciens : Thalès a pu constater la propriété sur la figure sans la déduire ainsi.',
+            sources: ['morrow-proclus', 'heath-greek'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La démonstration conservée de l’angle inscrit dans un demi-cercle est celle d’Euclide (Éléments, III, 31). Soit AC un diamètre, O le centre et B un point du cercle ; on joint OB.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'OA, OB et OC sont des rayons, donc les triangles OAB et OBC sont isocèles : l’angle OBA égale l’angle OAB, et l’angle OBC égale l’angle OCB (I, 5, la proposition même que la tradition attribue à Thalès).',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’angle ABC du triangle, somme des angles OBA et OBC, égale donc la somme des deux autres angles BAC et BCA.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or les trois angles d’un triangle valent ensemble deux droits (I, 32) : l’angle ABC, égal à la somme des deux autres, vaut la moitié de deux droits, c’est-à-dire un droit.',
+            sources: ['vitrac-euclide'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-pythagore',
@@ -878,6 +980,45 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un triangle rectangle, le carré construit sur l’hypoténuse est égal à la somme des carrés construits sur les deux autres côtés.',
         comment: 'La règle était connue des scribes babyloniens et apparaît dans le Zhoubi chinois ; la démonstration conservée la plus ancienne est celle d’Euclide (I, 47), et sa réciproque suit (I, 48). L’attribution à Pythagore, tardive, est inséparable de la légende d’un sacrifice de bœufs. Le théorème est le pivot de la géométrie métrique, de la trigonométrie et de la notion de distance.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le cas du triangle rectangle isocèle se voit sur une figure : le carré construit sur la diagonale d’un carré se découpe en quatre demi-carrés, soit le double du carré de départ — c’est la figure du Ménon de Platon. Les triplets entiers comme 3, 4, 5 (9 + 16 = 25) montrent que la relation vaut aussi pour des triangles non isocèles.',
+            sources: ['heath-greek', 'stillwell-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Proclus loue la démonstration de I, 47 comme l’œuvre propre d’Euclide, tout en rapportant la tradition qui attribue le théorème à Pythagore ; Heath suppose que la preuve pythagoricienne, si elle a existé, passait par les triangles semblables que la hauteur issue de l’angle droit découpe dans le triangle, comme la preuve d’Euclide au livre VI (VI, 31), et qu’Euclide a dû la refaire sans proportions parce que celles-ci ne valaient encore que pour les grandeurs commensurables.',
+            sources: ['morrow-proclus', 'heath-greek'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit ABC rectangle en A. Euclide construit les carrés sur les trois côtés, puis mène par A la parallèle AL au côté BD du carré de l’hypoténuse, qui partage ce carré en deux rectangles, et joint AD et FC (F étant le sommet du carré sur AB opposé à A).',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les triangles ABD et FBC sont égaux (I, 4) : BD = BC et FB = AB comme côtés de carrés, et les angles ABD et FBC sont égaux, chacun valant un droit augmenté de l’angle ABC.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le rectangle BDLM, de base BD, est le double du triangle ABD, qui a la même base et se tient entre les mêmes parallèles BD et AL (I, 41) ; de même, le carré sur AB est le double du triangle FBC, de même base FB et entre les parallèles FB et GC, puisque GA et AC sont alignés (I, 14).',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les deux triangles étant égaux, le rectangle BDLM égale le carré sur AB.',
+            sources: ['vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le même raisonnement, mené de l’autre côté avec les triangles ACE et BCK, montre que le second rectangle égale le carré sur AC ; les deux rectangles composant le carré sur BC, celui-ci égale la somme des carrés sur AB et AC.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+        ],
       },
       {
         id: 'trois-problemes-classiques',
@@ -889,6 +1030,45 @@ export const ANTIQUITE: Domain[] = [
         kind: 'probleme',
         statement: 'Construire, à la règle et au compas, le côté d’un cube de volume double d’un cube donné ; partager un angle quelconque en trois angles égaux ; construire un carré d’aire égale à celle d’un cercle donné.',
         comment: 'Posés au Vᵉ siècle (Anaxagore aurait travaillé à la quadrature en prison), ces problèmes ont suscité la quadratrice d’Hippias, les coniques de Ménechme, la solution d’Archytas et la spirale d’Archimède. Leur impossibilité à la règle et au compas n’est établie qu’au XIXᵉ siècle : Wantzel (1837) pour les deux premiers, Lindemann (1882) pour le cercle, par la transcendance de π.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté tient aux instruments, non aux figures : Hippocrate ramène la duplication du cube à l’insertion de deux moyennes proportionnelles entre a et 2a (a : x = x : y = y : 2a, d’où x³ = 2a³), que Ménechme obtient en coupant deux coniques ; la quadratrice d’Hippias partage un angle en un rapport quelconque ; Archimède trisecte l’angle avec une règle marquée et quarre le cercle à l’aide de sa spirale. Tout cela dépasse la règle non graduée et le compas.',
+            sources: ['heath-greek'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La clé viendra de l’algèbre : Descartes observe en 1637 que la règle et le compas ne font que résoudre des équations du second degré, donc n’engendrent que des racines carrées, alors que le cube et la trisection mènent à des équations du troisième degré ; pour le cercle, la question se déplace vers la nature du nombre π. Il faudra deux siècles pour transformer ces remarques en preuves.',
+            sources: ['katz-history', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On traduit la construction en algèbre : à partir de deux points de coordonnées 0 et 1, chaque étape à la règle et au compas coupe des droites et des cercles, dont les équations sont de degré au plus 2 ; les coordonnées du point nouveau s’obtiennent donc à partir des précédentes par les quatre opérations et une racine carrée.',
+            sources: ['stillwell-history', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un nombre constructible appartient ainsi à une tour d’extensions quadratiques du corps des rationnels ; son degré sur ℚ, c’est-à-dire le degré de l’équation irréductible à coefficients rationnels dont il est racine, est une puissance de 2.',
+            sources: ['stillwell-history', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dupliquer le cube revient à construire ∛2, racine de x³ − 2 = 0, équation irréductible sur ℚ : le degré 3 n’est pas une puissance de 2, et la construction est impossible (Wantzel, 1837).',
+            sources: ['katz-history', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Triséquer l’angle de 60° revient à construire cos 20°, racine de 8x³ − 6x − 1 = 0 d’après la formule cos 3θ = 4 cos³ θ − 3 cos θ ; cette équation est elle aussi irréductible sur ℚ, de degré 3 : la trisection générale est impossible (Wantzel, 1837).',
+            sources: ['stillwell-history', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Quarrer le cercle de rayon 1 revient à construire √π, donc π, qui serait alors algébrique ; or Lindemann montre en 1882, en étendant la méthode par laquelle Hermite avait prouvé en 1873 la transcendance de e, que π n’est racine d’aucune équation à coefficients rationnels : la quadrature est impossible.',
+            sources: ['katz-history', 'boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'lunules-d-hippocrate',
@@ -901,6 +1081,40 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Certaines figures limitées par deux arcs de cercle (lunules) ont une aire exactement égale à celle d’un triangle ou d’un carré constructibles ; la preuve utilise que les segments de cercle semblables sont entre eux comme les carrés de leurs bases.',
         comment: 'Première démonstration mathématique grecque transmise textuellement (par Simplicius, d’après Eudème). Hippocrate quarre trois lunules et espère par là approcher la quadrature du cercle ; au XXᵉ siècle, Tchebotariov et Dorodnov montrent qu’il n’existe que cinq lunules quarrables. Le texte montre déjà une géométrie des aires et des proportions très élaborée.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Deux figures courbes peuvent différer d’une figure droite : si l’on retire un même segment de cercle à un demi-cercle et à un quart de disque de même aire, il reste d’un côté une lunule, de l’autre un triangle. Tout repose sur le théorème de Pythagore : les demi-cercles décrits sur les deux côtés d’un triangle rectangle valent ensemble le demi-cercle décrit sur l’hypoténuse, puisque les cercles sont entre eux comme les carrés de leurs diamètres.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Lemme : des segments de cercle semblables (ceux dont les angles inscrits sont égaux) sont entre eux comme les carrés de leurs bases. Eudème dit qu’Hippocrate l’établit en montrant d’abord que les cercles sont entre eux comme les carrés de leurs diamètres.',
+            sources: ['heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la première lunule, soit un demi-cercle de diamètre AC et de centre O, et B le milieu de l’arc, de sorte que le triangle ABC est rectangle et isocèle ; on décrit vers l’extérieur le demi-cercle de diamètre AB.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par Pythagore, le carré sur AB est la moitié du carré sur AC ; le demi-cercle sur AB vaut donc la moitié du demi-cercle sur AC, c’est-à-dire le quart de disque OAB.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le demi-cercle sur AB et le quart de disque OAB contiennent tous deux le segment du grand cercle découpé par la corde AB ; en le retirant de l’un et de l’autre, il reste d’une part la lunule comprise entre les deux arcs, d’autre part le triangle OAB.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'La lunule égale donc le triangle OAB, figure rectiligne que l’on sait transformer en carré : elle est quarrée. Hippocrate traite de même une lunule dont l’arc extérieur est plus grand qu’un demi-cercle et une autre dont il est plus petit, par des constructions plus élaborées.',
+            sources: ['heath-greek'],
+          },
+        ],
       },
       {
         id: 'incommensurabilite-de-la-diagonale',
@@ -936,6 +1150,45 @@ export const ANTIQUITE: Domain[] = [
             sources: ['ferreiros-labyrinth', 'knorr-evolution'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le carré sur la diagonale est le double du carré sur le côté ; si les deux longueurs étaient comme deux nombres entiers, un carré de nombre serait le double d’un autre. Or la liste des carrés (1, 4, 9, 16, 25, 36, 49, 64…) n’en offre aucun exemple : chercher un nombre dont le carré soit double d’un carré, c’est chercher ce qui n’existe pas.',
+            sources: ['heath-greek', 'stillwell-history'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Une autre voie, que David Fowler place au cœur des mathématiques de l’Académie et dont Knorr doute pour la découverte initiale, est la soustraction réciproque : retrancher le côté de la diagonale fait apparaître un carré plus petit, dont la diagonale et le côté se trouvent dans la même situation ; le procédé se répète indéfiniment, alors qu’il s’arrête pour deux grandeurs commensurables.',
+            sources: ['knorr-evolution', 'fowler-plato'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Supposons que la diagonale et le côté du carré soient entre eux comme deux nombres m et n, pris les plus petits possible, donc non tous deux pairs.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par le théorème de Pythagore, le carré sur la diagonale est le double du carré sur le côté : m² = 2n².',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'm² est pair, donc m est pair, car le carré d’un impair est impair ; posons m = 2k. Alors 4k² = 2n², soit n² = 2k², et n est pair pour la même raison.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'm et n seraient donc tous deux pairs, contrairement à l’hypothèse : le même nombre serait pair et impair. Aucune commune mesure n’existe donc entre la diagonale et le côté.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette preuve, qu’Aristote cite comme exemple de raisonnement par l’absurde, figure dans les manuscrits en appendice du livre X (proposition 117 des éditions anciennes), où Heiberg la tient pour une interpolation tardive.',
+            sources: ['heath-greek', 'vitrac-euclide'],
+          },
+        ],
       },
       {
         id: 'classification-des-irrationnelles',
@@ -949,6 +1202,45 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Les droites incommensurables avec une droite donnée se classent en espèces (médiale, binomiale, apotome et leurs subdivisions) selon qu’elles proviennent de moyennes géométriques, de sommes ou de différences de droites commensurables en puissance.',
         comment: 'Un scholie et le commentaire de Pappus au livre X attribuent la théorie à Théétète ; Euclide en fait le plus long et le plus difficile des treize livres (115 propositions). Il sert au livre XIII à exprimer les arêtes des polyèdres réguliers. Stevin et Descartes y verront plus tard une complication inutile que l’algèbre rend superflue.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le point de départ est celui du Théétète de Platon : les côtés des carrés d’aire 3, 5, 6… ne sont pas commensurables avec l’unité en longueur, mais le sont « en puissance », leurs carrés étant des multiples entiers du carré unité. Théétète les appelle « puissances » et les distingue des « longueurs » : une première espèce d’irrationnelles est ainsi isolée, et la question devient de savoir ce que donnent leurs sommes, différences et moyennes.',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'En écriture moderne, les treize espèces du livre X sont des expressions comme √a ± √b ou √(√a ± √b), où a et b sont des rationnels : Heath en dresse le tableau ; Knorr rappelle que cette traduction masque la pensée géométrique d’Euclide, pour qui ces droites se définissent par les aires qu’elles engendrent.',
+            sources: ['heath-greek', 'knorr-evolution'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Définitions : deux grandeurs sont commensurables si elles ont une commune mesure ; deux droites sont commensurables « en puissance seulement » si leurs carrés le sont sans qu’elles le soient en longueur. Une droite de référence étant fixée, les droites qui lui sont commensurables en longueur ou en puissance sont dites rationnelles, toutes les autres irrationnelles.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Deux critères ouvrent le livre : deux grandeurs sont incommensurables si et seulement si leur soustraction réciproque ne s’arrête jamais (X, 2–3), et deux droites sont commensurables en longueur si et seulement si leurs carrés sont entre eux comme un nombre carré est à un nombre carré (X, 9), ce qui relie la théorie à l’arithmétique des livres VII à IX.',
+            sources: ['vitrac-euclide', 'heath-greek', 'knorr-evolution'],
+          },
+          {
+            kind: 'fait',
+            text: 'Première irrationnelle nouvelle : la médiale (X, 21), côté du rectangle formé par deux droites rationnelles commensurables en puissance seulement, en termes modernes la racine quatrième d’un rationnel non carré ; Euclide montre qu’elle n’est ni rationnelle ni commensurable avec les précédentes.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Viennent ensuite six espèces de droites obtenues par addition (binomiale, première et seconde bimédiales, majeure et deux autres, X, 36–41) et six par soustraction (apotome et ses cinq parentes, X, 73–78), selon la nature, rationnelle ou médiale, des deux termes et de leur produit ; pour chacune, Euclide prouve que la décomposition en deux termes est unique (X, 42–47 et 79–84).',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il établit enfin que chacune de ces droites est le côté d’une aire comprise entre la droite rationnelle de référence et l’une des six binomiales ou des six apotomes numérotées de la première à la sixième (X, 54–59 et 91–96), et que les treize espèces sont distinctes, une apotome n’étant jamais une binomiale (X, 111) ; le livre XIII en tire que l’arête de l’icosaèdre est une « mineure » et celle du dodécaèdre une apotome.',
+            sources: ['vitrac-euclide', 'heath-greek'],
+          },
+        ],
       },
       {
         id: 'methode-d-exhaustion',
@@ -1040,6 +1332,45 @@ export const ANTIQUITE: Domain[] = [
             kind: 'interpretation',
             text: 'L’issue de la quête change le statut des axiomes : ils cessent d’être des vérités évidentes pour devenir des hypothèses dont on étudie l’indépendance et la cohérence, démarche que Hilbert systématise dans ses Fondements de la géométrie (1899).',
             sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le postulat est la réciproque d’un théorème : Euclide démontre (I, 17) que si deux droites se rencontrent, les angles intérieurs qu’elles font avec une sécante sont ensemble moindres que deux droits ; l’inverse paraît tout aussi vrai, mais rien n’empêche a priori deux droites de se rapprocher sans jamais se couper. Proclus rappelle, d’après Géminus, que l’hyperbole et son asymptote s’approchent indéfiniment sans se rencontrer, et qu’une évidence de ce genre ne vaut donc pas preuve.',
+            sources: ['morrow-proclus', 'heath-greek'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Toutes les démonstrations proposées, de Ptolémée et Proclus à Saccheri et Legendre, se révèlent circulaires : elles admettent un énoncé équivalent au postulat, qu’il s’agisse de l’unicité de la parallèle, de la somme des angles d’un triangle égale à deux droits, de l’existence de triangles semblables non égaux ou de celle d’un rectangle. C’est l’accumulation de ces équivalents qui a peu à peu fait soupçonner que le postulat ne se démontre pas.',
+            sources: ['heath-greek', 'gray-worlds', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La question est retournée : au lieu de prouver le postulat, on suppose sa négation, soit par un point extérieur à une droite passent plusieurs parallèles, et l’on en tire les conséquences. Saccheri et Lambert explorent cette « hypothèse de l’angle aigu » sans la contredire ; Lobatchevski et Bolyai en déduisent une géométrie complète, avec sa trigonométrie, où la somme des angles d’un triangle est inférieure à deux droits et décroît avec l’aire.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour écarter toute contradiction cachée, on construit un modèle : Beltrami interprète cette géométrie à l’intérieur d’un disque euclidien, les « droites » étant les cordes, avec une mesure des longueurs héritée de la pseudosphère que Klein réécrira comme logarithme d’un birapport ; tous les axiomes d’Euclide autres que le cinquième y sont vérifiés, et par un point passent une infinité de cordes qui ne coupent pas une corde donnée.',
+            sources: ['gray-worlds', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si une contradiction découlait des axiomes de la géométrie de Lobatchevski, elle se traduirait, par le dictionnaire du modèle, en une contradiction dans la géométrie euclidienne elle-même. La géométrie non euclidienne est donc cohérente dès que la géométrie euclidienne l’est.',
+            sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par conséquent, le cinquième postulat ne peut être une conséquence des autres principes : s’il l’était, il serait vrai dans le modèle, où il est faux. La quête de deux millénaires se clôt sur une preuve d’indépendance, et non sur la démonstration cherchée.',
+            sources: ['gray-worlds', 'gray-platos-ghost'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les modèles de Klein et de Poincaré rendent la même conclusion plus maniable, le second représentant les droites par des arcs de cercle orthogonaux au bord du disque et conservant les angles ; Hilbert généralise la méthode en montrant par des modèles l’indépendance de chacun de ses axiomes.',
+            sources: ['gray-worlds', 'stillwell-history'],
           },
         ],
       },
@@ -1240,6 +1571,45 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'L’aire d’un segment de parabole vaut les quatre tiers de l’aire du triangle de même base et de même hauteur inscrit dans le segment.',
         comment: 'Adressée à Dosithée après la mort de Conon, c’est la première quadrature exacte d’une figure limitée par une courbe autre que le cercle. Archimède en donne deux preuves, l’une mécanique par le levier, l’autre géométrique, en sommant une série de triangles dont les aires décroissent de quart en quart. Elle sert de modèle à Cavalieri, à Fermat et à Wallis.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Archimède dit dans sa préface avoir d’abord trouvé le résultat par la mécanique : il découpe le segment en bandes parallèles et équilibre chacune, sur un levier, contre la bande correspondante d’un triangle connu, à l’aide de la loi du levier et des centres de gravité ; le segment pèse alors le tiers d’un triangle quatre fois plus grand que le triangle inscrit, soit les quatre tiers de celui-ci.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'La preuve géométrique repose sur une figure qui se reproduit en plus petit : dans chacun des deux segments laissés libres par le triangle inscrit, le triangle inscrit de la même manière a une aire huit fois moindre, de sorte que chaque génération de triangles vaut le quart de la précédente.',
+            sources: ['heath-archimedes', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dans le segment de parabole, on inscrit le triangle T de même base, dont le sommet est le point de la courbe où la tangente est parallèle à la base. Il reste deux segments plus petits, dans lesquels on inscrit de même deux triangles.',
+            sources: ['heath-archimedes', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par les propriétés de la parabole (le diamètre coupe en leur milieu les cordes parallèles à la tangente, et les abscisses sont comme les carrés des ordonnées), Archimède montre que chacun de ces deux triangles vaut T/8 : ensemble, ils font T/4.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'En répétant l’opération, le polygone inscrit après n étapes a pour aire T(1 + 1/4 + 1/16 + … + 1/4ⁿ), et il laisse de côté des segments dont l’aire totale diminue de plus de moitié à chaque étape : elle finit par descendre sous toute grandeur donnée (Éléments, X, 1).',
+            sources: ['heath-archimedes', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme : 1 + 1/4 + 1/16 + … + 1/4ⁿ + (1/3)(1/4ⁿ) = 4/3, quel que soit n ; la somme des aires inscrites reste donc toujours inférieure à 4T/3, et s’en approche d’aussi près qu’on veut.',
+            sources: ['heath-archimedes', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Double réduction à l’absurde : si le segment dépassait 4T/3, un polygone inscrit assez fin dépasserait aussi 4T/3, contre le lemme ; s’il était inférieur à 4T/3, un polygone inscrit, plus petit que le segment, serait pourtant plus grand que lui dès que l’écart à 4T/3 serait épuisé. Le segment vaut donc exactement 4T/3.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+        ],
       },
       {
         id: 'mesure-du-cercle',
@@ -1269,6 +1639,45 @@ export const ANTIQUITE: Domain[] = [
             kind: 'interpretation',
             text: 'L’encadrement laisse ouverte la question de la nature du rapport : elle n’est tranchée qu’au XVIIIᵉ et au XIXᵉ siècle, quand Lambert démontre l’irrationalité de π dans les années 1760, puis Lindemann sa transcendance en 1882, ce qui ferme du même coup le problème de la quadrature.',
             sources: ['boyer-merzbach'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un polygone régulier se découpe en triangles ayant pour sommet le centre : son aire est la moitié du produit de son périmètre par l’apothème. Quand le nombre de côtés croît, le périmètre tend vers la circonférence et l’apothème vers le rayon, d’où l’idée que le cercle vaut un triangle de base la circonférence et de hauteur le rayon.',
+            sources: ['heath-archimedes', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour le nombre lui-même, l’hexagone inscrit donne 3 et l’hexagone circonscrit 2√3 ≈ 3,46 : l’encadrement est grossier, mais chaque doublement du nombre de côtés le resserre, et le passage d’un polygone au suivant ne demande qu’une racine carrée. Quatre doublements mènent au polygone à 96 côtés.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Proposition 1 : soit K le triangle rectangle de côtés le rayon et la circonférence. Si le cercle était plus grand que K, on inscrirait un polygone dont l’aire dépasse K (en doublant les côtés, on épuise plus de la moitié de l’excès à chaque fois) ; or ce polygone vaut la moitié de son périmètre par son apothème, l’un plus court que la circonférence, l’autre plus court que le rayon, donc il est plus petit que K : contradiction.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si le cercle était plus petit que K, un polygone circonscrit assez fin serait plus petit que K ; or son aire est la moitié de son périmètre, plus long que la circonférence, par le rayon, donc il est plus grand que K : seconde contradiction. Le cercle est égal à K.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Proposition 3, polygones circonscrits : partant d’un angle de 30° dont la tangente fait intervenir √3, qu’Archimède minore par 265/153, il bissecte l’angle quatre fois ; à chaque étape, le théorème de la bissectrice (Éléments, VI, 3) et le théorème de Pythagore donnent les nouveaux rapports, et il arrondit toujours dans le sens qui garde la majoration. Le périmètre du 96-gone circonscrit vaut moins de 3 + 1/7 fois le diamètre.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Polygones inscrits : il part de même de l’angle inscrit de 30°, majore √3 par 1351/780 et bissecte quatre fois, en arrondissant dans le sens qui garde la minoration ; le périmètre du 96-gone inscrit vaut plus de 3 + 10/71 fois le diamètre.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'La circonférence étant comprise entre les deux périmètres, le rapport de la circonférence au diamètre est compris entre 3 + 10/71 et 3 + 1/7 ; les racines carrées des grands nombres qui apparaissent en chemin sont approchées sans que le texte explique comment, ce qui a fait l’objet de nombreuses reconstructions depuis Eutocius.',
+            sources: ['heath-archimedes', 'heath-greek'],
           },
         ],
       },
@@ -1319,6 +1728,40 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'La surface d’une sphère vaut quatre fois celle de son grand cercle ; son volume vaut les deux tiers de celui du cylindre circonscrit, et il en va de même des surfaces totales.',
         comment: 'Archimède tenait ce résultat pour son chef-d’œuvre et demanda que la sphère inscrite dans le cylindre fût gravée sur sa tombe, que Cicéron retrouva à Syracuse en 75. Les deux livres traitent aussi des segments sphériques et posent un problème cubique résolu par les coniques. Le traité est le premier à expliciter l’axiome sur la plus courte distance (« postulat d’Archimède »).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans La Méthode, Archimède raconte comment il a trouvé le volume : en équilibrant sur un levier les tranches d’une sphère et d’un cône contre celles d’un cylindre, il obtient que la sphère vaut quatre fois le cône de base un grand cercle et de hauteur le rayon. De là, dit-il, l’idée de la surface : puisque le cercle vaut un triangle de base la circonférence et de hauteur le rayon, la sphère doit valoir un cône de base sa surface et de hauteur son rayon, ce qui donne une surface égale à quatre grands cercles.',
+            sources: ['heath-archimedes'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le traité pose d’abord des postulats sur les lignes et surfaces courbes : de deux lignes concaves du même côté qui joignent les mêmes extrémités, celle qui est enveloppée est la plus courte ; de même pour les surfaces. C’est ce qui permet de comparer la sphère aux solides qui l’enserrent ou qu’elle enserre.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Archimède mesure ensuite les surfaces latérales du cylindre, du cône et du tronc de cône (propositions 13 à 16) : la surface d’un cône est un cercle dont le rayon est moyen proportionnel entre l’apothème et le rayon de la base.',
+            sources: ['heath-archimedes'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il inscrit dans un grand cercle un polygone régulier d’un nombre de côtés multiple de quatre et le fait tourner autour d’un diamètre : le solide engendré, fait de cônes et de troncs de cône, a une surface inférieure à quatre grands cercles (propositions 21 à 25) ; le solide circonscrit analogue a une surface supérieure (propositions 28 à 30).',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les surfaces des solides inscrit et circonscrit sont entre elles comme les carrés de leurs côtés, rapport que l’on peut rendre aussi proche de l’égalité qu’on veut (proposition 32) ; la surface de la sphère ne peut donc être ni supérieure ni inférieure à quatre grands cercles (proposition 33).',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le volume suit le même chemin (proposition 34) : chaque solide de révolution inscrit égale un cône de base sa surface et de hauteur la distance du centre à un côté, et l’encadrement donne pour la sphère quatre fois le cône de base un grand cercle et de hauteur le rayon ; le corollaire compare au cylindre circonscrit, dont la sphère est les deux tiers, en volume comme en surface totale.',
+            sources: ['heath-archimedes', 'heath-greek'],
+          },
+        ],
       },
       {
         id: 'coniques-apollonius',
@@ -1380,6 +1823,45 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'L’aire d’un triangle de côtés a, b, c et de demi-périmètre s est la racine carrée du produit s(s − a)(s − b)(s − c).',
         comment: 'Démontrée géométriquement dans les Métriques et appliquée à un triangle de côtés 7, 8, 9, la formule donne l’aire sans hauteur, ce qui convient à l’arpenteur. Al-Bīrūnī l’attribue à Archimède, ce qui est possible. Elle est le résultat le plus durable de la tradition métrique, et Héron l’accompagne d’une méthode itérative pour extraire la racine carrée.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La formule traite les trois côtés de la même façon et s’annule quand le triangle s’aplatit (si a = b + c, alors s − a = 0) ; sur le triangle 3, 4, 5, elle donne √(6 × 3 × 2 × 1) = 6, l’aire attendue. Dans l’exemple de Héron, 7, 8, 9, le demi-périmètre est 12 et le produit 12 × 5 × 4 × 3 = 720, dont il approche la racine par 26 + 5/6.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée géométrique est de passer par le cercle inscrit : son rayon r et les trois distances des sommets aux points de contact, qui valent s − a, s − b et s − c, suffisent à décrire le triangle, et l’aire vaut r × s ; la formule revient alors à montrer que r² × s = (s − a)(s − b)(s − c).',
+            sources: ['heath-greek', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit le cercle inscrit, de centre O et de rayon r, touchant les côtés en D (sur BC), E (sur CA) et F (sur AB). Le triangle ABC est la réunion des triangles OBC, OCA et OAB, de hauteur r : son aire est r × s, où s est le demi-périmètre.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les deux tangentes issues d’un même sommet sont égales ; en prolongeant CB au-delà de B d’une longueur BH égale à la tangente AE issue de A, on obtient CH = s, et les segments HB, BD, DC valent s − a, s − b, s − c.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Héron mène la perpendiculaire à OC en O et la perpendiculaire à BC en B, qui se coupent en L : les angles droits en O et en B font de C, O, B, L les sommets d’un quadrilatère inscriptible, d’où il tire que l’angle en L égale l’angle AOF, et que les triangles rectangles CLB et AOF sont semblables.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une chaîne de proportions entre triangles semblables, jointe à la relation r² = CD × DK dans le triangle rectangle COK (K étant le pied de OL sur BC), conduit à CH² : (CH × HB) = (BD × DC) : r², soit r² × CH² = CH × HB × BD × DC.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le membre de gauche est le carré de l’aire, r × s ; le membre de droite est s(s − a)(s − b)(s − c). L’aire est donc la racine carrée de ce produit de quatre longueurs, sans équivalent dans les figures de la géométrie grecque, que Héron calcule numériquement sur son exemple.',
+            sources: ['heath-greek', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'almageste',
@@ -1698,6 +2180,35 @@ export const ANTIQUITE: Domain[] = [
             sources: ['martzloff-chine'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Tout repose sur trois nombres « sélecteurs » : 70 est multiple de 5 et de 7 mais laisse le reste 1 quand on le divise par 3 ; 21 est multiple de 3 et de 7 et laisse 1 par 5 ; 15 est multiple de 3 et de 5 et laisse 1 par 7. Multiplier chacun par le reste voulu et additionner ne mélange pas les conditions : chaque terme n’agit que sur un diviseur et reste invisible pour les deux autres.',
+            sources: ['martzloff-chine', 'katz-sourcebook'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La procédure du Sunzi suanjing prescrit : pour le reste 2 par 3, poser 140 (deux fois 70) ; pour le reste 3 par 5, poser 63 (trois fois 21) ; pour le reste 2 par 7, poser 30 (deux fois 15) ; la somme fait 233.',
+            sources: ['martzloff-chine', 'katz-sourcebook'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ce nombre convient : divisé par 3, seul le terme 140 laisse un reste, à savoir 2 ; divisé par 5, seul 63 en laisse un, à savoir 3 ; divisé par 7, seul 30 en laisse un, à savoir 2.',
+            sources: ['martzloff-chine', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ajouter ou retrancher 105 = 3 × 5 × 7 ne change aucun des trois restes ; le texte retranche 105 autant de fois que possible, ici deux fois, et obtient 23, la plus petite solution. Toutes les autres s’en déduisent par ajout de multiples de 105.',
+            sources: ['martzloff-chine', 'katz-sourcebook'],
+          },
+          {
+            kind: 'fait',
+            text: 'En général, lorsque les diviseurs sont premiers entre eux deux à deux, un tel sélecteur existe pour chacun : c’est un multiple du produit des autres diviseurs qui laisse le reste 1 par celui-là, et l’algorithme d’Euclide (ou la procédure dayan de Qin Jiushao) permet de le trouver ; la solution est alors unique à un multiple près du produit des diviseurs.',
+            sources: ['martzloff-chine', 'stillwell-history'],
+          },
+        ],
       },
       {
         id: 'encadrement-de-pi-zu-chongzhi',
@@ -1710,6 +2221,40 @@ export const ANTIQUITE: Domain[] = [
         kind: 'theoreme',
         statement: 'Le rapport de la circonférence au diamètre est compris entre 3,1415926 et 3,1415927 ; Zu donne en outre la valeur « approchée » 22/7 et la valeur « précise » 355/113.',
         comment: 'Rapporté par l’histoire officielle des Sui, cet encadrement reste le meilleur pendant près de neuf siècles, jusqu’à al-Kāshī (1424). La méthode est perdue avec le Zhui shu, mais rien d’autre que l’algorithme du cercle de Liu Hui, poursuivi très loin, ne paraît pouvoir l’expliquer. La fraction 355/113 est retrouvée en Europe par Anthoniszoon en 1585.',
+        intuition: [
+          {
+            kind: 'interpretation',
+            text: 'Chaque doublement du nombre de côtés d’un polygone inscrit ne coûte que des racines carrées, que les algorithmes sur baguettes extraient à autant de chiffres qu’on veut : rien n’empêche de pousser le procédé de Liu Hui bien au-delà de ses 3072 côtés, sinon la longueur des calculs. Les historiens, depuis Mikami, reconstruisent ainsi le travail de Zu, sans témoignage direct.',
+            sources: ['martzloff-chine', 'chemla-neuf-chapitres'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les deux fractions que Zu propose sont remarquables : 22/7 et 355/113 sont des réduites du développement de π en fraction continue, c’est-à-dire les meilleures approximations possibles pour des dénominateurs de leur taille ; 355/113 = 3,14159292… n’est en défaut qu’à la septième décimale, et aucune fraction de dénominateur inférieur ne fait mieux.',
+            sources: ['martzloff-chine', 'boyer-merzbach'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le cadre est celui de Liu Hui : le périmètre d’un polygone régulier inscrit est inférieur à la circonférence, celui du polygone circonscrit (ou, chez Liu Hui, l’aire du polygone inscrit augmentée de son excès sur le polygone précédent) lui est supérieur, et l’écart entre les deux bornes diminue à chaque doublement.',
+            sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans un cercle de rayon 1, si le côté du polygone inscrit à n côtés vaut s, celui du polygone à 2n côtés vaut √(2 − √(4 − s²)) : le passage d’un polygone au suivant se réduit à deux extractions de racine carrée, opération que les Neuf Chapitres et leur commentaire exécutent chiffre à chiffre sur le tableau à baguettes.',
+            sources: ['chemla-neuf-chapitres', 'martzloff-chine'],
+          },
+          {
+            kind: 'fait',
+            text: 'En partant de l’hexagone, de côté 1, douze doublements mènent au polygone à 24 576 côtés ; son demi-périmètre dépasse 3,1415926 tandis que celui du polygone circonscrit correspondant reste inférieur à 3,1415927, à condition de mener les racines à neuf ou dix chiffres significatifs.',
+            sources: ['martzloff-chine', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette reconstruction redonne exactement l’encadrement transmis par l’Histoire des Sui ; mais le Zhui shu étant perdu, on ignore si Zu a procédé ainsi, et comment il a tiré de son encadrement la fraction 355/113.',
+            sources: ['martzloff-chine'],
+          },
+        ],
       },
     ],
     sources: ['chemla-neuf-chapitres', 'martzloff-chine', 'katz-sourcebook', 'boyer-merzbach'],
@@ -1918,6 +2463,35 @@ export const ANTIQUITE: Domain[] = [
             kind: 'interpretation',
             text: 'Pour beaucoup d’historiens, la réponse mathématique n’arrive qu’au XIXᵉ siècle, avec les limites de Cauchy et le continu de Dedekind et Cantor ; d’autres jugent que ces outils décrivent le continu sans dissiper la difficulté propre au mouvement, et le débat philosophique se poursuit.',
             sources: ['sep', 'ferreiros-labyrinth'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté vient de deux évidences qui se heurtent : un parcours fini se laisse découper en une infinité de tronçons (la moitié, puis la moitié du reste, et ainsi de suite), et une infinité de durées toutes positives semble devoir faire une durée infinie. Le paradoxe tombe si l’on admet qu’une somme d’une infinité de termes peut rester bornée — ce que l’intuition refuse tant qu’on n’a pas défini ce qu’est la somme d’une telle série.',
+            sources: ['sep', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les Grecs savaient pourtant manier des découpages sans fin : le lemme d’Eudoxe (Éléments, X, 1) affirme qu’en retranchant à chaque fois plus de la moitié d’une grandeur on descend sous toute grandeur donnée, et Archimède, dans la Quadrature de la parabole, additionne 1 + 1/4 + 1/16 + … et montre que les sommes partielles approchent 4/3 d’aussi près qu’on veut, sans jamais parler d’une somme infinie.',
+            sources: ['heath-greek', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dichotomie : les tronçons 1/2, 1/4, 1/8, … ont pour sommes partielles 1 − 1/2ⁿ, qui dépassent tout nombre inférieur à 1 sans jamais atteindre 1 ; la série a pour somme 1. À vitesse constante, les durées des tronçons sont proportionnelles à leurs longueurs : elles forment la même série, et le parcours s’achève au bout du temps fini prévu.',
+            sources: ['stillwell-history', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Achille : si Achille court dix fois plus vite que la tortue partie 100 pas devant lui, les retards successifs sont 100, 10, 1, 1/10, … pas ; leur somme est 111 + 1/9 pas, et Achille rejoint la tortue en ce point, au bout d’un temps fini. Les infinies « étapes » de Zénon sont toutes antérieures à cet instant : elles ne le repoussent pas.',
+            sources: ['sep', 'heath-greek'],
+          },
+          {
+            kind: 'fait',
+            text: 'La flèche : dans l’analyse moderne du mouvement, la vitesse à un instant n’est pas un déplacement « pendant » cet instant, mais la limite des vitesses moyennes sur des intervalles de plus en plus courts (la dérivée) ; qu’une flèche occupe à chaque instant un lieu égal à elle-même n’implique donc pas qu’elle soit immobile.',
+            sources: ['sep'],
           },
         ],
       },
