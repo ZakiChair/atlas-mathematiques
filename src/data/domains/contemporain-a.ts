@@ -262,6 +262,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Toute courbe elliptique définie sur les nombres rationnels est « modulaire » : sa fonction L est celle d’une forme modulaire de poids 2, autrement dit la courbe est l’image d’une courbe modulaire.',
         comment: 'Formulée de manière imprécise par Taniyama en 1955, mise en forme par Shimura, rendue plausible par Weil en 1967, elle paraît longtemps inaccessible. Après Frey (1985) et Ribet (1986), elle implique le dernier théorème de Fermat ; Wiles la démontre pour les courbes semi-stables (1995), Breuil, Conrad, Diamond et Taylor en général (2001). Elle est le premier cas non abélien démontré du programme de Langlands.',
+        intuition: [
+          { kind: 'fait', text: 'La fonction L d’une courbe elliptique compte ses points modulo chaque nombre premier ; celle d’une forme modulaire de poids 2 possède automatiquement produit d’Euler, prolongement analytique et équation fonctionnelle. Affirmer que la première vient de la seconde, c’est prédire une harmonie invisible : les courbes elliptiques obéiraient à la symétrie des formes modulaires.', sources: ['lang-shimura-taniyama', 'gelbart-langlands'] },
+          { kind: 'fait', text: 'Weil rend la conjecture plausible en 1967 : il montre que les équations fonctionnelles des torsions de la fonction L d’une courbe elliptique sont exactement celles qui caractérisent les fonctions L venant des formes modulaires.', sources: ['lang-shimura-taniyama', 'shimura-map'] },
+        ],
       },
       {
         id: 'theorie-d-iwasawa',
@@ -284,6 +288,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Le rang du groupe des points rationnels d’une courbe elliptique est égal à l’ordre d’annulation de sa fonction L au point s = 1 ; le premier coefficient non nul du développement s’exprime par les invariants arithmétiques de la courbe.',
         comment: 'Née de calculs menés sur l’ordinateur EDSAC de Cambridge au début des années 1960, la conjecture relie une quantité algébrique (le rang) à une quantité analytique. Coates et Wiles (1977), Gross et Zagier (1986) puis Kolyvagin (1989) l’établissent lorsque l’ordre d’annulation est 0 ou 1 ; le cas général est l’un des sept problèmes du millénaire de l’Institut Clay (2000).',
+        intuition: [
+          { kind: 'fait', text: 'La fonction L d’une courbe elliptique code, premier par premier, le nombre de points de la courbe réduite ; une courbe riche en points rationnels « pousse » cette fonction à s’annuler en s = 1, et l’ordre d’annulation devrait mesurer le degré de richesse — le rang.', sources: ['gowers-companion', 'singh-fermat'] },
+          { kind: 'fait', text: 'La conjecture est née de l’expérimentation : Birch et Swinnerton-Dyer font tourner l’ordinateur EDSAC de Cambridge sur des centaines de courbes et observent que le produit eulérien tronqué détecte systématiquement le rang.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'theoreme-de-baker',
@@ -296,6 +304,17 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si des logarithmes de nombres algébriques sont linéairement indépendants sur les rationnels, ils le sont sur les nombres algébriques ; de plus, toute combinaison linéaire non nulle à coefficients entiers de ces logarithmes est minorée explicitement en fonction de la taille des coefficients.',
         comment: 'Généralisation effective du théorème de Gelfond–Schneider (1934), le résultat de Baker transforme des énoncés de finitude en bornes calculables : équations de Thue, équations de Mordell y² = x³ + k, problème du nombre de classes un. La méthode reste l’outil central de l’approximation diophantienne effective.',
+        intuition: [
+          { kind: 'fait', text: 'Dire qu’une combinaison linéaire de logarithmes de nombres algébriques n’est pas « trop petite » revient, après exponentiation, à dire qu’un produit de puissances de nombres algébriques ne peut pas approcher 1 de trop près : le théorème fournit une borne explicite entre ces deux mondes exponentiels.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Une telle minoration rend effectifs des théorèmes de finitude : l’équation de Thue ou y² = x³ + k n’ont qu’un nombre fini de solutions entières, et l’on peut désormais écrire a priori une borne sur leur taille.', sources: ['gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'On veut minorer |β₁ log α₁ + … + βₙ log αₙ|, supposé non nul, en fonction explicite des degrés et des hauteurs des nombres algébriques αᵢ et des coefficients βᵢ.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Comme dans la preuve de Gelfond–Schneider, on construit une fonction auxiliaire en plusieurs variables possédant de très nombreux zéros : les conditions forment un système linéaire que le principe des tiroirs (lemme de Siegel) rend résoluble.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Un ping-pong entre analyse et algèbre suit : les valeurs de la fonction auxiliaire, algébriques et très petites, doivent être nulles ; de nouvelles estimations prolongent alors les zéros à des points ou des ordres plus élevés (extrapolation).', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La contradiction vient d’un déterminant de valeurs algébriques qui devrait être non nul par l’indépendance des logarithmes, mais que la construction a rendu nul : la minoration est établie.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La borne obtenue est entièrement explicite ; les équations de Thue ou de Mordell deviennent des problèmes de vérification finie, ce qui transforme la géométrie diophantienne en calcul.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'lettre-de-langlands-a-weil',
@@ -319,6 +338,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le sous-groupe des points rationnels d’ordre fini d’une courbe elliptique sur les rationnels est l’un de quinze groupes seulement : cyclique d’ordre 1 à 10 ou 12, ou produit d’un groupe d’ordre 2 par un groupe cyclique d’ordre 2, 4, 6 ou 8.',
         comment: 'Première classification complète d’un invariant arithmétique des courbes elliptiques, obtenue par une étude fine des courbes modulaires et de leurs jacobiennes. Le théorème montre la puissance de la géométrie des courbes modulaires ; Merel l’étend en 1996 à tous les corps de nombres (borne uniforme en fonction du degré).',
+        intuition: [
+          { kind: 'fait', text: 'Un point de torsion rationnel d’ordre N sur une courbe elliptique définit un point rationnel de la courbe modulaire X₁(N), qui paramètre exactement ces situations : classifier les torsions possibles revient à compter les points rationnels de ces courbes auxiliaires.', sources: ['mazur-gadfly', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Pour N premier ≥ 11, il suffit de montrer que la courbe X₀(N), quotient de X₁(N) qui paramètre les sous-groupes cycliques rationnels d’ordre N, n’a pas de point rationnel autre que ses « cusps », qui correspondent à des courbes dégénérées.', sources: ['mazur-gadfly'] },
+          { kind: 'fait', text: 'Mazur étudie la jacobienne J₀(N) de X₀(N) au moyen de l’idéal d’Eisenstein de l’algèbre de Hecke : le « quotient d’Eisenstein » a un groupe de Mordell–Weil rationnel fini, égal au sous-groupe engendré par les cusps — la conjecture d’Ogg, qu’il établit au passage.', sources: ['mazur-gadfly', 'gowers-companion'] },
+          { kind: 'fait', text: 'L’image d’un point rationnel de X₀(N) tombe dans ce quotient ; combinée à l’étude des réductions de la courbe modulo les petits premiers, cette contrainte élimine toute N-torsion non triviale pour N ≥ 11.', sources: ['mazur-gadfly'] },
+          { kind: 'fait', text: 'Les petites valeurs de N se traitent directement : la liste obtenue coïncide exactement avec les quinze familles de courbes à torsion prescrite que Daniel Kubert avait exhibées en 1976.', sources: ['mazur-gadfly', 'gowers-companion'] },
+        ],
       },
       {
         id: 'theoreme-de-faltings',
@@ -355,6 +383,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Une courbe de genre au moins 2 a une géométrie hyperbolique : contrairement aux droites et aux courbes elliptiques, ses points « n’ont pas la place » d’être rationnels en infinité ; le théorème affirme que la topologie dicte l’arithmétique.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Faltings ne compte pas les points de la courbe : il démontre d’abord la finitude des variétés abéliennes à isogénie près (conjecture de Tate) et la conjecture de Chafarevitch, dont la conjecture de Mordell découle par l’argument de Parshin.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La réduction de Parshin (1968) : si les courbes de genre donné et de mauvaise réduction prescrite hors d’un ensemble fini de places sont en nombre fini (conjecture de Chafarevitch), une infinité de points rationnels produirait des courbes isomorphes en infinité — contradiction.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Faltings transporte la théorie des hauteurs des points aux variétés abéliennes elles-mêmes (hauteur de Faltings), ce qui permet de contrôler les variétés à réduction prescrite.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Il démontre ensuite la conjecture de Tate : deux variétés abéliennes dont les modules de Tate (représentations ℓ-adiques) sont isomorphes sont isogènes.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Par des estimations de hauteurs et de représentations galoisiennes, il n’existe qu’un nombre fini de variétés abéliennes à isogénie près, de dimension et de réduction fixées : la conjecture de Chafarevitch s’ensuit, et avec elle Mordell.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'conjecture-de-modularite-de-serre',
@@ -367,6 +405,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Toute représentation continue, irréductible et impaire du groupe de Galois absolu des rationnels dans les matrices 2 × 2 à coefficients dans un corps fini provient d’une forme modulaire, dont Serre prédit le poids et le niveau.',
         comment: 'Serre précise une idée qu’il porte depuis les années 1970 et en tire une liste de conséquences, dont le dernier théorème de Fermat via la courbe de Frey. La « conjecture epsilon » (la partie sur le niveau), démontrée par Ribet en 1986, est le maillon qui relie modularité et Fermat ; la conjecture complète est démontrée par Khare et Wintenberger en 2009.',
+        intuition: [
+          { kind: 'fait', text: 'Une représentation galoisienne de dimension 2 à coefficients dans un corps fini code un fragment de l’arithmétique ; la conjecture affirme qu’elle provient toujours d’une forme modulaire : même dans le monde « modulo p », les objets galoisiens sont automorphes.', sources: ['gelbart-langlands', 'mazur-gadfly'] },
+          { kind: 'fait', text: 'Serre ne prédit pas seulement l’existence de la forme modulaire mais ses paramètres : le poids et le niveau se lisent sur la ramification de la représentation — précision qui permet à Ribet, puis à Wiles, de relier la modularité à Fermat.', sources: ['gelbart-langlands', 'singh-fermat'] },
+        ],
       },
       {
         id: 'demonstration-du-dernier-theoreme-de-fermat',
@@ -403,6 +445,18 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'La courbe de Frey associe à une solution de Fermat une courbe elliptique si exotique que sa représentation de Galois ne peut pas être modulaire : établir la modularité des courbes semi-stables interdit donc l’existence même de la solution.', sources: ['singh-fermat', 'mazur-gadfly'] },
+          { kind: 'fait', text: 'Wiles ne touche pas à l’équation : il compare deux mondes — les déformations galoisiennes de Mazur et les algèbres de Hecke des formes modulaires — dont la coïncidence (« R = T ») exprime précisément la modularité.', sources: ['wiles-modular', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La réduction arithmétique : Frey associe à aⁿ + bⁿ = cⁿ la courbe y² = x(x − aⁿ)(x + bⁿ), semi-stable ; Ribet (1986) démontre que sa représentation modulo n ne peut pas être modulaire. La modularité des courbes semi-stables suffit donc à clore Fermat.', sources: ['singh-fermat', 'mazur-gadfly'] },
+          { kind: 'fait', text: 'Wiles reformule la modularité : un anneau de déformations R classifie les relèvements de la représentation résiduelle, tandis qu’une algèbre de Hecke T recueille les formes modulaires ; « R = T » exprime que toute déformation est modulaire.', sources: ['wiles-modular', 'gowers-companion'] },
+          { kind: 'fait', text: 'Un critère de modularité : quand la représentation résiduelle est déjà modulaire et convenable (irréductible, etc.), Wiles établit R = T à l’aide des systèmes d’Euler de Kolyvagin–Flach, qui contraignent groupes de classes et groupes de Selmer.', sources: ['wiles-modular', 'singh-fermat'] },
+          { kind: 'fait', text: 'Le passage de 3 à 5 : quand la représentation modulo 3 n’est pas utilisable, Wiles exploite le graphe de modularité entre courbes modulo 3 et modulo 5 — le « 3-5 switch » — pour trouver un point de départ modulaire.', sources: ['wiles-modular', 'singh-fermat'] },
+          { kind: 'fait', text: 'La lacune de 1993, sur l’estimation du système d’Euler, est contournée avec Taylor : les « systèmes de Taylor–Wiles » fournissent des familles de déformations qui annulent les obstructions et établissent le critère R = T dans tous les cas requis (article complémentaire, 1995).', sources: ['wiles-modular', 'singh-fermat'] },
+          { kind: 'fait', text: 'La boucle se ferme : la courbe de Frey, semi-stable, est modulaire par le théorème de Wiles–Taylor, et non modulaire par celui de Ribet — la solution hypothétique n’existe pas.', sources: ['singh-fermat', 'wiles-modular'] },
+        ],
       },
       {
         id: 'theoreme-de-modularite',
@@ -415,6 +469,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute courbe elliptique définie sur les nombres rationnels, semi-stable ou non, est modulaire.',
         comment: 'En levant l’hypothèse de semi-stabilité par une analyse des représentations 3-adiques et 5-adiques sauvagement ramifiées, les quatre auteurs achèvent la conjecture de Taniyama–Shimura–Weil. Le résultat donne la continuation analytique de toutes les fonctions L de courbes elliptiques sur Q, condition nécessaire pour énoncer la conjecture de Birch et Swinnerton-Dyer en toute généralité.',
+        intuition: [
+          { kind: 'fait', text: 'Wiles et Taylor n’avaient traité que les courbes semi-stables ; restaient les courbes dont la mauvaise réduction en 2 et 3 est « sauvage », où les déformations galoisiennes deviennent indisciplinées : le théorème de 2001 dompte ces derniers cas.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La méthode R = T de Wiles–Taylor fonctionne à condition de contrôler les déformations locales aux mauvais premiers ; en réduction non semi-stable, les déformations sauvagement ramifiées excèdent le cadre de 1995.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Diamond affine en 1996 le critère de Wiles ; avec Conrad et Taylor, il étend l’arsenal local au point de traiter l’essentiel des cas de mauvaise réduction non semi-stable (1999).', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Le dernier obstacle est la représentation modulo 3, trop ramifiée : Breuil montre comment la relever par une analyse des représentations 3-adiques potentiellement semi-stables — les « wild 3-adic exercises » du titre.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Un dernier recours au « 3-5 switch » là où 3 reste inaccessible achève le compte : toute courbe elliptique sur Q est modulaire.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'theoreme-de-green-tao',
@@ -427,6 +490,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout entier k, il existe k nombres premiers en progression arithmétique ; les nombres premiers contiennent des progressions arithmétiques arbitrairement longues.',
         comment: 'La preuve transfère le théorème de Szemerédi, valable pour les ensembles d’entiers de densité positive, à l’ensemble des nombres premiers, de densité nulle, grâce à un « principe de transfert » et à une majoration pseudo-aléatoire issue du crible de Selberg et de Goldston–Yıldırım. Prépublié en 2004 et paru aux Annals en 2008, le théorème fonde la combinatoire additive des nombres premiers.',
+        intuition: [
+          { kind: 'fait', text: 'Le théorème de Szemerédi garantit des progressions arithmétiques longues dans tout ensemble d’entiers de densité positive ; les premiers ont densité nulle, mais ils se répartissent assez « au hasard » : Green et Tao les plongent dans un ensemble pseudo-aléatoire où ils gardent une densité relative positive.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Plutôt que les premiers eux-mêmes, on considère l’ensemble des entiers « presque premiers », dont la distribution — contrôlée par le crible de Selberg et les estimations de Goldston–Yıldırım — imite le hasard : une mesure pseudo-aléatoire ν majorante.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La fonction de von Mangoldt tronquée des premiers est majorée par ν : dans ce monde pseudo-aléatoire, les premiers gardent une densité relative strictement positive.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Le « théorème de Szemerédi relativisé » : Green et Tao montrent qu’un ensemble de densité relative positive dans un objet pseudo-aléatoire contient les mêmes progressions arithmétiques que Szemerédi garantit en densité absolue, via un lemme de comptage d’hypergraphes.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La densité relative des premiers se transfère alors en existence de progressions arithmétiques de toute longueur — et même en une borne explicite sur leur position.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'lois-de-composition-superieures',
@@ -439,6 +511,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'La composition des formes quadratiques binaires de Gauss se lit sur un cube 2 × 2 × 2 d’entiers ; en remplaçant le cube par d’autres espaces de formes, on obtient de nouvelles lois de composition, en correspondance avec les anneaux et idéaux des corps de nombres de petit degré.',
         comment: 'Issus de la thèse de Bhargava (2001) et publiés en quatre articles aux Annals (2004-2008), ces résultats renouvellent la géométrie des nombres : ils permettent de compter les corps quartiques et quintiques par discriminant (prolongeant Davenport–Heilbronn) et, avec Shankar, de borner le rang moyen des courbes elliptiques.',
+        intuition: [
+          { kind: 'fait', text: 'Gauss composait les classes de formes quadratiques binaires ; Bhargava découvre que cette loi se lit sur les huit sommets d’un cube 2 × 2 × 2 d’entiers, dont les trois coupes par paires de faces opposées fournissent les trois formes composées : la composition devient une symétrie du cube.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'À tout cube entier 2 × 2 × 2 sont associées trois formes quadratiques binaires, obtenues en coupant le cube par ses paires de faces ; l’action simultanée de trois copies de SL₂ préserve les discriminants et fait de la loi de Gauss un corollaire visuel.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'En remplaçant le cube par d’autres espaces de formes (formes cubiques, paires de formes, tenseurs d’ordre supérieur), la même lecture produit de nouvelles lois de composition correspondant aux anneaux d’entiers de degré 3, 4 et 5 et à leurs idéaux.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Chaque correspondance s’établit en comptant les orbites entières du groupe d’automorphismes de l’espace de formes et en identifiant ces orbites aux anneaux et aux idéaux, dans la ligne des paramétrisations de Delone–Faddeev.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Le comptage des orbites passe par la géométrie des nombres de Davenport–Heilbronn : le volume des domaines fondamentaux donne la densité des corps de petit degré par discriminant et, avec Shankar, une borne sur le rang moyen des courbes elliptiques.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'ecarts-bornes-entre-nombres-premiers',
@@ -474,6 +555,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             text: 'Les nombres premiers jumeaux restent hors de portée : les cribles connus butent sur l’« obstacle de parité », et même la conjecture d’Elliott–Halberstam ne donnerait qu’un écart de 6. L’épisode a rouvert un domaine que l’on croyait bloqué plus qu’il ne l’a clos.',
             sources: ['gowers-companion', 'mactutor'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'Le crible de Goldston–Pintz–Yıldırım montre qu’un tuple de décalages « admissible » contient infiniment souvent plusieurs premiers dès que les premiers se répartissent un peu mieux dans les progressions arithmétiques que ne le garantit le théorème de Bombieri–Vinogradov ; Zhang obtient exactement ce « un peu mieux ».', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La machine GPY (2005) : un poids construit sur la fonction de von Mangoldt détecte les concentrations de premiers dans un tuple admissible ; si le « niveau de distribution » θ des premiers dépasse 1/2, des écarts bornés s’ensuivent — mais Bombieri–Vinogradov ne donne que θ = 1/2.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Zhang contourne l’obstacle en restreignant les modules aux entiers sans grand facteur premier : pour ces modules friables, il établit une majoration de type Bombieri–Vinogradov au-delà de θ = 1/2, en traitant les termes bilinéaires par des majorations de sommes exponentielles à la Deligne et Bombieri–Friedlander–Iwaniec.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'Cette valeur θ > 1/2 injectée dans le crible GPY produit : infiniment souvent, un intervalle de longueur 70 millions contient au moins deux nombres premiers.', sources: ['mactutor'] },
+          { kind: 'fait', text: 'Maynard simplifie ensuite l’étape finale : un poids multidimensionnel amélioré obtient des écarts bornés avec les seuls niveaux de distribution connus, ramène la borne à 600 (puis 246 via Polymath8) et produit des intervalles bornés contenant autant de premiers qu’on veut.', sources: ['mactutor', 'gowers-companion'] },
         ],
       },
     ],
@@ -708,6 +798,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['solomon-classification'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Un groupe d’ordre impair n’a pas d’involution ; Feit et Thompson montrent à rebours qu’un groupe simple d’ordre impair aurait des centralisateurs si contraints que ses caractères se contrediraient : l’existence d’involutions devient la porte d’entrée de toute la classification.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Par l’absurde : on considère un contre-exemple minimal, un groupe simple d’ordre impair de moindre cardinal possible ; tous ses sous-groupes propres sont alors résolubles.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'L’analyse locale : les centralisateurs et normalisateurs des sous-groupes d’ordre premier sont très contraints (groupes de Frobenius, sous-groupes « tamely embedded ») ; la structure des sous-groupes maximaux s’en déduit presque entièrement.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'Le passage aux caractères : les relations locales se traduisent en caractères « exceptionnels », dont la cohérence (théorie de Suzuki et Dade) permet de les prolonger des sous-groupes maximaux à tout le groupe.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'La contradiction finale : les relations entre caractères forcent une égalité impossible entre entiers algébriques ; le contre-exemple minimal n’existe pas.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'La preuve, en trois actes — analyse des sous-groupes locaux, transport aux caractères, extraction d’une contradiction — devient le modèle architectural de toute la classification à venir.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+        ],
       },
       {
         id: 'immeubles-de-tits',
@@ -731,6 +831,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le groupe des automorphismes du réseau de Leech, empilement de sphères exceptionnel en dimension 24, a pour quotient par son centre un groupe simple nouveau, Co₁, d’ordre voisin de 4 × 10¹⁸ ; il contient deux autres groupes sporadiques nouveaux, Co₂ et Co₃, et plusieurs groupes déjà connus.',
         comment: 'Conway calcule l’ordre du groupe en une seule séance de travail de douze heures, selon son propre récit. La découverte montre que les groupes sporadiques peuvent surgir de la géométrie des réseaux ; elle prépare la découverte du Monstre, dont les groupes de Conway sont des sections.',
+        intuition: [
+          { kind: 'fait', text: 'Le réseau de Leech empile les sphères en dimension 24 si densément qu’il n’en existe qu’un seul ; un objet aussi singulier ne pouvait avoir qu’un groupe de symétries exceptionnel : la géométrie exceptionnelle engendre la symétrie exceptionnelle.', sources: ['ronan-symmetry-monster'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le réseau de Leech, transmis à Conway par John Leech, est l’unique réseau unimodulaire pair de dimension 24 sans vecteurs de norme 2 ; il se construit à partir du code de Golay binaire.', sources: ['ronan-symmetry-monster'] },
+          { kind: 'fait', text: 'Conway décrit le groupe d’automorphismes : il identifie le sous-groupe lié au groupe de Mathieu M₂₄ (qui conserve le code de Golay) et calcule l’ordre total par l’action du groupe sur les vecteurs minimaux.', sources: ['ronan-symmetry-monster', 'mactutor'] },
+          { kind: 'fait', text: 'Le quotient par le centre (±1) est simple : la simplicité s’obtient en contrôlant les stabilisateurs et la génération du groupe par certaines involutions.', sources: ['ronan-symmetry-monster'] },
+          { kind: 'fait', text: 'Les stabilisateurs livrent le reste : fixer un vecteur de norme 4 donne Co₂, de norme 6 donne Co₃, et les groupes de McLaughlin et Higman–Sims apparaissent comme sous-groupes — le réseau contient une constellation de sporadiques.', sources: ['ronan-symmetry-monster'] },
+        ],
       },
       {
         id: 'algebres-de-kac-moody',
@@ -753,6 +862,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'probleme',
         statement: 'Montrer que tout groupe fini simple est cyclique d’ordre premier, alterné, de type de Lie ou l’un des vingt-six groupes sporadiques, en découpant la preuve en seize étapes selon la structure 2-locale du groupe (rang, type des composantes, caractéristique).',
         comment: 'Exposé à Chicago en 1972, le programme fournit une carte partagée à une communauté dispersée ; il fixe la stratégie et le vocabulaire (groupes de type caractéristique 2, de type composante, quasi-minces) et permet, en onze ans, d’atteindre l’annonce de 1983. Il est l’un des premiers exemples de « big science » en mathématiques pures.',
+        intuition: [
+          { kind: 'fait', text: 'La stratégie de Gorenstein consiste à traiter un groupe simple inconnu comme s’il était dans la liste : si ses 2-sous-groupes locaux ressemblent à ceux d’un groupe de type de Lie, on en reconstruit une présentation ; sinon, les cas résiduels ne peuvent être que sporadiques.', sources: ['gorenstein-finite-simple-groups', 'solomon-classification'] },
+          { kind: 'fait', text: 'Le découpage en seize étapes (type caractéristique 2, type composante, groupes quasi-minces, centralisateurs d’involutions standard…) convertit un océan de cas en un plan de travail répartissable entre des dizaines de spécialistes.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+        ],
       },
       {
         id: 'monstrous-moonshine',
@@ -788,6 +901,10 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['ronan-symmetry-monster'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Les coefficients de la fonction j se décomposent en dimensions de représentations du Monstre : si une telle loi persiste pour tous les coefficients, c’est qu’une représentation graduée cachée du Monstre encode la fonction modulaire — le groupe « lit » j.', sources: ['ronan-symmetry-monster'] },
+          { kind: 'fait', text: 'Conway et Norton renforcent le phénomène : à chaque élément du groupe correspond une série de traces qui devrait être une fonction modulaire de genre zéro — un dictionnaire complet entre les classes de conjugaison du Monstre et les fonctions de genre zéro.', sources: ['ronan-symmetry-monster', 'gowers-companion'] },
+        ],
       },
       {
         id: 'polynomes-de-kazhdan-lusztig',
@@ -811,6 +928,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe un groupe fini simple, d’ordre environ 8 × 10⁵³, agissant comme groupe d’automorphismes d’une algèbre commutative non associative de dimension 196 884 : le Monstre prédit par Fischer et Griess en 1973.',
         comment: 'Griess construit le groupe « à la main », sans ordinateur, dans un article de cent deux pages (annoncé en janvier 1980, publié en 1982) ; Tits simplifie la construction ; l’unicité est établie par Griess, Meierfrankenfeld et Segev (1989). Le plus grand des groupes sporadiques est ainsi établi avant même l’achèvement de la classification ; son algèbre de Griess est le point de départ du moonshine.',
+        intuition: [
+          { kind: 'fait', text: 'Le Monstre était déjà prédit par sa table de caractères ; il fallait un objet porteur. Griess le réalise comme groupe d’automorphismes d’une algèbre de dimension 196 884, la plus petite dimension où puisse vivre sa plus petite représentation non triviale.', sources: ['ronan-symmetry-monster'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le point de départ est l’algèbre de Griess : sur un espace de dimension 196 884, somme de pièces liées au réseau de Leech et à la représentation de dimension 196 883, on définit un produit commutatif non associatif muni d’une forme de Jordan.', sources: ['ronan-symmetry-monster', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'Griess construit les automorphismes de l’algèbre en deux blocs : le centralisateur d’une involution (lié aux groupes de Conway et au « bimonstre » de Fischer) et un automorphisme supplémentaire qui n’y appartient pas.', sources: ['ronan-symmetry-monster'] },
+          { kind: 'fait', text: 'Le groupe engendré est le Monstre : il agit fidèlement sur l’algèbre, possède les deux classes d’involutions prévues, et son ordre, calculé par les indices des stabilisateurs, coïncide avec la valeur prédite en 1973.', sources: ['ronan-symmetry-monster', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'La simplicité suit de l’action sur les involutions ; Tits simplifie ensuite la construction en montrant que l’algèbre est déterminée par ses propriétés formelles, et Griess, Meierfrankenfeld et Segev établissent l’unicité du groupe en 1989.', sources: ['ronan-symmetry-monster', 'solomon-classification'] },
+        ],
       },
       {
         id: 'classification-des-groupes-finis-simples',
@@ -841,6 +967,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['solomon-classification'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'La preuve n’existe pas comme un texte unique : c’est l’architecture de Gorenstein qui la rend possible — un arbre de décision dont chaque branche est un théorème de la littérature et chaque feuille l’un des groupes de la liste.', sources: ['solomon-classification'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le point de départ : Feit–Thompson garantit une involution dans tout groupe simple non abélien ; l’analyse du centralisateur d’une involution, qui détermine presque le groupe (Brauer–Fowler, 1955), fournit le critère d’identification.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'La bifurcation fondamentale (Aschbacher) : un groupe simple est de « type caractéristique 2 » si ses 2-sous-groupes locaux ont des cœurs nilpotents, de « type composante » s’il possède des sous-normaux presque simples ; les deux mondes exigent des méthodes différentes.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'En type composante, la théorie des composantes ramène le groupe aux composantes connues par récurrence ; en type caractéristique 2, l’analyse 2-locale héritée de Thompson (factorisations, ensembles de Thompson) identifie les groupes de type de Lie en caractéristique 2 et les sporadiques restants.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+          { kind: 'fait', text: 'Le cas quasi-mince, laissé ouvert par le manuscrit inachevé de Geoffrey Mason, est traité par Aschbacher et Smith (2004) : la dernière branche de l’arbre rend l’annonce de 1983 effective.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'Chaque feuille de l’arbre est alors reconnue : tout groupe simple inconnu aboutit, en suivant ses sous-groupes locaux, à un groupe cyclique, alterné, de type de Lie ou à l’un des vingt-six sporadiques.', sources: ['solomon-classification', 'gorenstein-finite-simple-groups'] },
+        ],
       },
       {
         id: 'groupes-quantiques',
@@ -863,6 +999,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout nombre de générateurs m et tout exposant n, il n’existe qu’un nombre fini de groupes finis engendrés par m éléments dont tous les éléments vérifient xⁿ = 1.',
         comment: 'Burnside demandait en 1902 si un groupe de type fini d’exposant fini est nécessairement fini ; Golod et Chafarevitch (1964) puis Novikov et Adian (1968) répondent par la négative. La version « restreinte » est ramenée par Hall et Higman (1956) aux exposants premiers, traités par Kostrikin (1959) ; Zelmanov règle les exposants puissances de premier par des méthodes d’algèbres de Lie et de Jordan, ce qui achève la question.',
+        intuition: [
+          { kind: 'fait', text: 'La question de Burnside avait deux sens : un groupe d’exposant fini peut être infini (Golod–Chafarevitch, Novikov–Adian), mais parmi les groupes finis, en existe-t-il un « plus grand » à générateurs et exposant fixés ? La version restreinte demande une borne uniforme — c’est elle que Zelmanov établit.', sources: ['gowers-companion', 'kleiner-abstract-algebra'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Réduction : Hall et Higman (1956) ramènent le problème restreint aux exposants puissances de nombres premiers ; le cas premier lui-même est traité par Kostrikin (1959) via les algèbres de Lie.', sources: ['gowers-companion', 'kleiner-abstract-algebra'] },
+          { kind: 'fait', text: 'On linéarise : au groupe engendré par m éléments vérifiant xⁿ = 1 est associée une algèbre de Lie (série centrale descendante) ; borner le groupe fini équivaut à établir la nilpotence uniforme de cette algèbre.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Zelmanov démontre que toute algèbre de Lie à m générateurs satisfaisant l’identité de Burnside ad_x^(N) = 0 est nilpotente, en combinant les techniques des algèbres de Jordan et la linéarisation infinie de l’identité de Jacobi.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'La nilpotence uniforme des algèbres de Lie fournit la borne sur les groupes finis d’exposant pᵏ ; les réductions antérieures achèvent alors la réponse positive au problème restreint pour tout exposant.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'demonstration-du-moonshine',
@@ -875,6 +1020,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Les séries de McKay–Thompson associées au module du Monstre de Frenkel, Lepowsky et Meurman sont les fonctions modulaires de genre zéro prédites par Conway et Norton.',
         comment: 'Borcherds construit à partir du module du Monstre une algèbre de Lie de dimension infinie (l’algèbre de Lie monstrueuse), à laquelle il applique une formule du dénominateur généralisée et le théorème « no-ghost » de la théorie des cordes. La preuve justifie l’intuition selon laquelle le moonshine est un phénomène de théorie conforme des champs ; elle vaut à Borcherds la médaille Fields (1998).',
+        intuition: [
+          { kind: 'fait', text: 'Le module du Monstre de Frenkel, Lepowsky et Meurman est une algèbre de vertex, structure où chaque élément a une « expansion » en série ; Borcherds y lit une algèbre de Lie de dimension infinie dont la fonction j est le caractère : la coïncidence numérique devient une identité d’algèbre.', sources: ['ronan-symmetry-monster', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Borcherds axiomatise les algèbres de vertex (1986), dont le module du Monstre est l’exemple fondamental : cette structure fournit un crochet qui fait de l’espace un « presque-anneau de Lie ».', sources: ['ronan-symmetry-monster', 'gowers-companion'] },
+          { kind: 'fait', text: 'Il construit l’« algèbre de Lie monstrueuse » : une algèbre de Kac–Moody généralisée associée au module du Monstre, graduée par les entiers, dont le crochet encode les propriétés de la représentation.', sources: ['ronan-symmetry-monster', 'gowers-companion'] },
+          { kind: 'fait', text: 'La formule du dénominateur, généralisée à ces algèbres, donne une identité produit-série qui, restreinte à chaque élément du Monstre, devient l’identité modulaire conjecturée par Conway et Norton.', sources: ['ronan-symmetry-monster', 'gowers-companion'] },
+          { kind: 'fait', text: 'Le théorème « no-ghost », emprunté à la théorie des cordes, garantit que les espaces de poids négatif n’introduisent pas de contributions parasites : les traces calculées sont bien les fonctions de genre zéro prédites.', sources: ['ronan-symmetry-monster'] },
+        ],
       },
       {
         id: 'groupes-quasi-minces',
@@ -887,6 +1041,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout groupe fini simple quasi-mince de type caractéristique 2 (dont les 2-sous-groupes locaux sont « petits » au sens du rang p pour p impair) figure dans la liste connue.',
         comment: 'Deux volumes et 1 221 pages, publiés par l’American Mathematical Society, pour traiter le cas que le manuscrit inachevé de Geoffrey Mason laissait ouvert depuis les années 1980. Avec ce travail, la première démonstration de la classification est considérée comme complète ; la preuve révisée de Gorenstein, Lyons et Solomon, en cours de publication depuis 1994, en reste la version de référence.',
+        intuition: [
+          { kind: 'fait', text: '« Quasi-mince » signifie que les 2-sous-groupes locaux restent petits au sens du rang impair : c’est le cas résiduel où ni l’analyse des composantes ni celle des groupes de type de Lie ne s’appliquent, laissé en suspens depuis les années 1980.', sources: ['solomon-classification'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Aschbacher et Smith reprennent l’architecture de Mason : pousser l’analyse 2-locale jusqu’à identifier le groupe par un sous-groupe parabolique ou par le réseau de ses sous-groupes de rang 2.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'Ils traitent d’abord les cas où les groupes de Lie en caractéristique 2 dominent : la théorie des amalgames, venue de Goldschmidt, identifie les groupes par leurs paires de 2-sous-groupes locaux.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'Les résidus, où rien ne se « connecte » au type de Lie, sont reconnus comme sporadiques : les méthodes de reconnaissance par présentation ou par action de permutation achèvent l’identification.', sources: ['solomon-classification'] },
+          { kind: 'fait', text: 'Publié en deux volumes de 1 221 pages (2004), le travail clôt la dernière branche de l’arbre de Gorenstein : la première démonstration de la classification est alors considérée comme complète.', sources: ['solomon-classification', 'mactutor'] },
+        ],
       },
     ],
     sources: ['solomon-classification', 'ronan-symmetry-monster', 'gorenstein-finite-simple-groups', 'gowers-companion', 'kleiner-abstract-algebra', 'mactutor'],
@@ -1092,6 +1255,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur une variété algébrique projective complexe, les faisceaux analytiques cohérents correspondent exactement aux faisceaux algébriques cohérents, avec les mêmes groupes de cohomologie ; en particulier toute sous-variété analytique fermée de l’espace projectif est algébrique (théorème de Chow).',
         comment: 'Le théorème justifie l’usage des méthodes transcendantes (fonctions holomorphes, topologie) pour démontrer des énoncés algébriques, et inversement. Il est constamment invoqué dans la théorie de Hodge et dans la comparaison entre cohomologie étale et cohomologie singulière (théorème de comparaison d’Artin).',
+        intuition: [
+          { kind: 'fait', text: 'Sur une variété projective complexe, tout ce qui est défini analytiquement — faisceau cohérent, sous-ensemble fermé — l’est déjà algébriquement : les deux mondes ont les mêmes objets et la même cohomologie, de sorte que les outils de chaque rive servent l’autre.', sources: ['dieudonne-geometrie-algebrique'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le foncteur d’« analytisation » associe à toute variété algébrique un espace analytique et à tout faisceau algébrique cohérent un faisceau analytique ; Serre montre qu’il est pleinement fidèle sur les variétés projectives.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'La comparaison des cohomologies : pour un faisceau algébrique cohérent sur une variété projective, les groupes de cohomologie algébrique et analytique coïncident, par récurrence sur la dimension et calcul sur les espaces projectifs.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'L’essentielle surjectivité : tout faisceau analytique cohérent sur un projectif provient d’un faisceau algébrique — conséquence du fait que les cohomologies, qui classent les extensions, sont les mêmes des deux côtés.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'Conséquence immédiate (théorème de Chow) : un sous-ensemble analytique fermé de l’espace projectif, défini par des équations holomorphes, est défini par des équations polynomiales — l’analytique propre s’algébrise.', sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'] },
+        ],
       },
       {
         id: 'tohoku',
@@ -1114,6 +1286,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour un morphisme propre entre variétés lisses, l’image directe en K-théorie et l’image directe en cohomologie (anneau de Chow) sont compatibles, à condition de corriger le caractère de Chern par la classe de Todd. Le théorème de Hirzebruch–Riemann–Roch en est le cas où la cible est un point.',
         comment: 'Démontré à l’automne 1957 et exposé par Borel et Serre (1958), le théorème introduit le groupe K(X), ancêtre de la K-théorie algébrique et topologique (Atiyah–Hirzebruch), et illustre le « point de vue relatif » : énoncer les théorèmes pour des morphismes plutôt que pour des objets. Il est le premier grand résultat de Grothendieck en géométrie.',
+        intuition: [
+          { kind: 'fait', text: 'Le théorème de Riemann–Roch classique compte les fonctions sur une courbe ; Grothendieck le « relativise » : pour tout morphisme propre f : X → Y entre variétés lisses, une formule relie l’image directe en K-théorie à l’image directe en cohomologie, la classe de Todd corrigeant l’écart entre les deux.', sources: ['dieudonne-geometrie-algebrique', 'colmez-serre-correspondance'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le groupe K(X) des classes de fibrés vectoriels, introduit par Grothendieck, possède une image directe f! définie par les images directes supérieures ; le caractère de Chern relie K(X) à l’anneau de Chow.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'La formule est multiplicative en f : il suffit de la vérifier pour une immersion fermée et pour une projection, tout morphisme propre se factorisant en ces deux pas (graphe puis projection).', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'Cas de l’immersion : le calcul se réduit aux classes de Chern du fibré normal, où la classe de Todd compense exactement le défaut de fonctorialité du caractère de Chern.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'Cas de la projection X × Pⁿ → X : la vérification s’effectue sur les fibrés en droites canoniques, par un calcul explicite qui, pour Y réduit à un point, redonne le théorème de Hirzebruch–Riemann–Roch.', sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'] },
+        ],
       },
       {
         id: 'schemas',
@@ -1202,6 +1383,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['gowers-companion', 'mactutor'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Une singularité est un point où la variété se « plie » ; l’éclatement gonfle ce point en un diviseur. Hironaka montre qu’une suite d’éclatements bien choisis fait strictement décroître les invariants de la singularité, jusqu’à déplier toute la géométrie.', sources: ['dieudonne-geometrie-algebrique', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’invariant : à chaque singularité, Hironaka attache un polyèdre de Newton et un invariant mesurant sa complexité ; un éclatement le long d’un centre lisse de « contact maximal » le fait décroître.', sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'] },
+          { kind: 'fait', text: 'La difficulté : en dimension au moins 3, une suite d’éclatements naïfs peut faire remonter l’invariant ; il faut choisir chaque centre pour que l’invariant descende dans l’ordre lexicographique, ce qui exige la théorie des idéaux de coefficients.', sources: ['dieudonne-geometrie-algebrique', 'mactutor'] },
+          { kind: 'fait', text: 'La caractéristique nulle sert à dériver : elle permet de marquer la singularité par ses dérivées successives (hypersurface de contact maximal), méthode indisponible en caractéristique positive.', sources: ['dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'La récurrence sur la dimension se boucle : l’invariant, à valeurs dans un ensemble bien ordonné, décroît strictement ; le processus s’arrête donc — la variété obtenue est lisse.', sources: ['dieudonne-geometrie-algebrique', 'mactutor'] },
+        ],
       },
       {
         id: 'motifs',
@@ -1261,6 +1451,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['jackson-grothendieck', 'grothendieck-recoltes'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Sur un corps fini, le Frobenius joue le rôle que joue l’homologie d’une variété complexe : des valeurs propres de module q^(i/2) sur la i-ième cohomologie sont l’analogue exact des racines de module √q qui feraient de la fonction zêta des courbes une « hypothèse de Riemann » — il s’agit de la même borne, toute géométrique.', sources: ['deligne-weil-i', 'dieudonne-geometrie-algebrique'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La cohomologie étale fournit le support : Weil avait montré que ses conjectures suivraient d’une « bonne » cohomologie ; la cohomologie ℓ-adique de Grothendieck, Artin et Verdier donne déjà rationalité et équation fonctionnelle — il ne reste que la borne sur les valeurs propres.', sources: ['deligne-weil-i', 'dieudonne-geometrie-algebrique'] },
+          { kind: 'fait', text: 'Deligne passe par les pinceaux de Lefschetz : toute variété s’insère dans une famille à un paramètre dont la monodromie, grande par le théorème de Kazhdan–Margulis, encode la géométrie.', sources: ['deligne-weil-i', 'gowers-companion'] },
+          { kind: 'fait', text: 'L’idée de Rankin : pour majorer un coefficient, on considère les puissances de la forme plutôt que la forme ; transposée à la cohomologie, l’astuce compare les puissances du Frobenius via les sommes de traces dans les familles.', sources: ['deligne-weil-i'] },
+          { kind: 'fait', text: 'La majoration vient d’une positivité : dans l’espace des sections d’un faisceau ℓ-adique, la forme d’intersection de Lefschetz contraint les valeurs propres à vérifier |α| ≤ q^(i/2).', sources: ['deligne-weil-i'] },
+          { kind: 'fait', text: 'Conclusion : chaque valeur propre α du Frobenius vérifie |α| = q^(i/2) — l’« hypothèse de Riemann » des corps finis — et le cas particulier des formes modulaires redonne la conjecture de Ramanujan–Petersson.', sources: ['deligne-weil-i', 'gowers-companion'] },
+        ],
       },
       {
         id: 'programme-du-modele-minimal',
@@ -1273,6 +1473,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété projective de dimension 3 est birationnellement équivalente soit à un modèle minimal (dont le fibré canonique est numériquement effectif), soit à une fibration en variétés de Fano ; les opérations nécessaires (contractions et flips) existent et le processus se termine.',
         comment: 'Mori prolonge la classification des surfaces de l’école italienne et de Zariski, en acceptant des singularités terminales. Son théorème d’existence des flips, étape la plus difficile, est généralisé en toute dimension par Birkar, Cascini, Hacon et McKernan (2010) ; le programme structure depuis la géométrie birationnelle.',
+        intuition: [
+          { kind: 'fait', text: 'La classification des surfaces apprenait à élaguer les courbes exceptionnelles (théorème de Castelnuovo) ; Mori montre qu’en dimension 3 la même chasse aux courbes à intersection négative avec le fibré canonique — les rayons extrémaux du cône des courbes — mène à un modèle minimal ou à une fibration de Fano.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le cône des courbes : Mori montre que le cône des classes de courbes effectives se découpe en rayons « extrémaux », dont la contraction correspond aux opérations élémentaires de la géométrie birationnelle.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La contraction d’un rayon extrémal produit soit une variété projective de même dimension (modèle plus simple), soit une fibration de type Fano : c’est la dichotomie du programme.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'En dimension 3, certaines contractions dégénèrent : il faut le « flip », opération qui remplace des courbes par d’autres courbes sur une variété modifiée ; Mori en démontre l’existence en dimension 3 (1988), l’étape la plus difficile.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'La terminaison : un invariant décroît strictement à chaque flip ; le processus s’arrête donc en un modèle minimal ou une fibration — le programme est bouclé en dimension 3.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'symetrie-miroir-homologique',
@@ -1285,6 +1494,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'La symétrie miroir prédite par la théorie des cordes entre deux variétés de Calabi–Yau s’exprime comme une équivalence entre la catégorie dérivée des faisceaux cohérents de l’une et la catégorie de Fukaya (géométrie symplectique) de l’autre.',
         comment: 'Énoncée au congrès international de Zurich (1994), la conjecture reformule en termes de catégories des prédictions numériques de physiciens (Candelas et al., 1991) sur le nombre de courbes rationnelles d’une quintique. Démontrée dans des cas (courbes elliptiques, quartique K3, variétés toriques), elle a fait des catégories dérivées un objet central de la géométrie algébrique.',
+        intuition: [
+          { kind: 'fait', text: 'Les physiciens avaient observé que deux variétés de Calabi–Yau « miroirs » échangent leur géométrie complexe et leur géométrie de Kähler ; Kontsevich propose que cet échange se lise comme une équivalence de catégories : la catégorie dérivée des faisceaux cohérents (côté complexe) répond à la catégorie de Fukaya (côté symplectique).', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Le nombre de courbes rationnelles d’une quintique, prédit par la physique, devient alors un calcul dans une catégorie : la conjecture fait des catégories dérivées la langue commune de la géométrie algébrique et de la géométrie symplectique.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'conjecture-de-milnor-demontree',
@@ -1297,6 +1510,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout corps de caractéristique différente de 2, la K-théorie de Milnor modulo 2 est isomorphe à la cohomologie galoisienne à coefficients dans Z/2 ; la conjecture relie formes quadratiques, algèbres centrales simples et cohomologie de Galois.',
         comment: 'Annoncée en 1996 et publiée en 2003, la preuve utilise la théorie de l’homotopie des schémas de Morel–Voevodsky et des opérations de Steenrod motiviques. Elle vaut à Voevodsky la médaille Fields (2002) ; sa généralisation à tout nombre premier (conjecture de Bloch–Kato, avec Rost, 2011) est la première grande application des motifs mixtes.',
+        intuition: [
+          { kind: 'fait', text: 'La K-théorie de Milnor d’un corps encode les « formes quadratiques » généralisées et les algèbres centrales simples ; la cohomologie galoisienne encode les extensions cycliques : dire que les deux coïncident modulo 2, c’est affirmer que les objets algébriques du corps sont entièrement lus par son groupe de Galois.', sources: ['gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Voevodsky construit la cohomologie motivique des schémas via la topologie de Nisnevich et les suspensions homotopiques : l’analogue, pour les variétés, de la cohomologie singulière des espaces.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Il transporte les opérations de Steenrod en cohomologie motivique modulo 2 : nées de la topologie algébrique, ces opérations classent les classes cohomologiques non algébriques.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Le théorème de norme est la partie difficile : pour tout symbole de la K-théorie de Milnor, il existe une variété « de norme » réalisant la classe cohomologique ; la démonstration procède par descente et résolution de la variété des symboles.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'L’isomorphisme global s’en déduit par dévissage : sur tout corps de caractéristique différente de 2, la K-théorie de Milnor modulo 2 s’identifie à la cohomologie galoisienne — la conjecture de Milnor devient le théorème de Voevodsky.', sources: ['gowers-companion'] },
+        ],
       },
     ],
     sources: ['dieudonne-geometrie-algebrique', 'jackson-grothendieck', 'grothendieck-recoltes', 'schneps-grothendieck-portrait', 'colmez-serre-correspondance', 'deligne-weil-i', 'cartier-mad-day', 'mashaal-bourbaki'],
@@ -1541,6 +1763,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Deux variétés lisses compactes sont cobordantes si leur réunion borde une variété de dimension un de plus ; le groupe de cobordisme non orienté est un anneau de polynômes sur Z/2, calculé à l’aide de l’espace de Thom et de l’homotopie stable.',
         comment: 'Le théorème de Thom transforme une question de classification de variétés en calcul de groupes d’homotopie, inaugurant la topologie différentielle moderne ; la construction de l’espace de Thom est devenue un outil de toute la topologie algébrique. Elle vaut à Thom la médaille Fields (1958) et prépare le h-cobordisme de Smale.',
+        intuition: [
+          { kind: 'fait', text: 'Deux variétés sont « cobordantes » si leur réunion borde une variété de dimension supérieure ; Thom montre que cette relation forme un groupe — et que ce groupe se calcule par l’homotopie d’un espace auxiliaire, l’espace de Thom : la classification devient un calcul.', sources: ['dieudonne-topology', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’espace de Thom : à tout fibré vectoriel est associé l’espace obtenu en compactifiant chaque fibre par un point à l’infini ; pour le fibré universel sur la grassmannienne, il encode les plongements de variétés.', sources: ['dieudonne-topology'] },
+          { kind: 'fait', text: 'La correspondance : une variété se plonge dans un espace euclidien, et son fibré normal se tire du fibré universel par transversalité ; une classe de cobordisme correspond à une classe d’homotopie d’applications dans l’espace de Thom.', sources: ['dieudonne-topology', 'gowers-companion'] },
+          { kind: 'fait', text: 'Le groupe de cobordisme s’identifie ainsi aux groupes d’homotopie stables des espaces de Thom : le problème géométrique devient un calcul d’homotopie algébrique.', sources: ['dieudonne-topology'] },
+          { kind: 'fait', text: 'Thom calcule ces groupes par les méthodes cohomologiques nouvelles (suite spectrale, opérations de Steenrod) : le cobordisme non orienté est un anneau de polynômes sur Z/2 engendré par les espaces projectifs — toute variété est cobordante à un produit de projectifs.', sources: ['dieudonne-topology', 'gowers-companion'] },
+        ],
       },
       {
         id: 'spheres-exotiques',
@@ -1553,6 +1784,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe des variétés lisses homéomorphes à la sphère S⁷ mais pas difféomorphes à elle : au moins sept structures différentiables distinctes (vingt-huit avec l’orientation) cohabitent sur la même sphère topologique.',
         comment: 'Milnor construit ces variétés comme fibrés en sphères S³ sur S⁴ et les distingue par un invariant de signature (l’invariant λ). La découverte, obtenue en étudiant les fibrations de Hopf, montre que les catégories topologique et différentiable divergent ; avec Kervaire (1963), Milnor montre que les sphères exotiques forment des groupes finis.',
+        intuition: [
+          { kind: 'fait', text: 'Une variété peut être homéomorphe à la sphère sans lui être difféomorphe : Milnor fabrique ces « sphères exotiques » en recollant deux moitiés par un difféomorphisme tordu — l’écart entre topologie et différentiabilité devient mesurable par un invariant de signature.', sources: ['dieudonne-topology', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Les candidats sont des fibrés en sphères S³ sur S⁴ : recoller deux exemplaires de S³ × D⁴ le long de S³ × S³ par un difféomorphisme tordu produit une variété qui, par un argument de Morse (deux disques recollés donnent une sphère), est homéomorphe à S⁷.', sources: ['dieudonne-topology', 'mactutor'] },
+          { kind: 'fait', text: 'L’invariant λ : à une 7-variété presque parallélisable, Milnor associe un nombre construit à partir de la signature d’une 8-variété qu’elle borde ; modulo 7, cet invariant ne dépend pas du bord choisi.', sources: ['dieudonne-topology'] },
+          { kind: 'fait', text: 'Les fibrés en S³ ont des λ calculables explicitement : certaines valeurs diffèrent de celle de la sphère standard — ces variétés, sphères topologiques, ne sont pas difféomorphes à S⁷.', sources: ['dieudonne-topology', 'mactutor'] },
+          { kind: 'fait', text: 'Kervaire et Milnor montrent ensuite (1963) que les sphères exotiques de dimension n forment un groupe fini pour la somme connexe — vingt-huit en dimension 7 : la divergence entre les catégories se dénombre.', sources: ['dieudonne-topology', 'gowers-companion'] },
+        ],
       },
       {
         id: 'theoreme-du-h-cobordisme',
@@ -1587,6 +1827,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             text: 'Le résultat installe un paradoxe durable : la grande dimension devient la plus facile, et les dimensions 3 et 4 apparaissent comme des cas exceptionnels qui exigeront des méthodes entièrement nouvelles, venues de l’analyse et de la physique.',
             sources: ['gowers-companion', 'szpiro-poincare'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'En dimension au moins 5, il y a assez de place pour déplacer des sphères plongées les unes par rapport aux autres : le « tour de passe-passe de Whitney » élimine les paires de points critiques que la topologie du cobordisme déclare superflues — le cobordisme devient un produit.', sources: ['szpiro-poincare', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'On munit le cobordisme d’une fonction de Morse : les indices de ses points critiques décrivent la topologie du cobordisme, qui est un produit si et seulement s’il n’y a aucun point critique.', sources: ['szpiro-poincare', 'dieudonne-topology'] },
+          { kind: 'fait', text: 'Les points critiques viennent par paires d’indices consécutifs ; les éliminer exige que les sphères d’attachement se croisent en un seul point — la condition de Whitney sur les intersections algébriques et géométriques.', sources: ['szpiro-poincare', 'gowers-companion'] },
+          { kind: 'fait', text: 'En dimension au moins 5, le tour de passe-passe de Whitney fonctionne : on déplace une sphère plongée le long d’un disque pour supprimer les intersections superflues, la simple connexité garantissant l’existence du disque.', sources: ['szpiro-poincare', 'dieudonne-topology'] },
+          { kind: 'fait', text: 'L’élimination par récurrence vide le cobordisme de ses points critiques : la fonction de Morse devient triviale, le cobordisme est un produit — et appliqué à une sphère d’homotopie, il donne la conjecture de Poincaré en dimension ≥ 5.', sources: ['szpiro-poincare', 'gowers-companion'] },
         ],
       },
       {
@@ -1623,6 +1872,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['atiyah-twentieth-century'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'L’indice d’un opérateur elliptique (noyau moins conoyau) ne change pas par déformation : c’est un invariant robuste. Le théorème affirme qu’il est aussi calculable géométriquement, par évaluation de classes caractéristiques — l’analyse et la topologie mesurent la même chose.', sources: ['atiyah-twentieth-century', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’indice se factorise par la K-théorie : à l’opérateur elliptique est associée, via son symbole, une classe dans K(T*M) ; deux opérateurs de même symbole ont le même indice.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Dans la première démonstration, Atiyah et Singer plongent la variété dans un grand espace euclidien et étendent l’opérateur : l’invariance de l’indice par excision et par produit ramène le calcul à des opérateurs modèles, vérifiés directement.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La formule explicite : l’indice s’exprime par l’évaluation sur le cycle fondamental d’une classe de Todd (ou du genre Â dans le cas spin) appliquée aux classes caractéristiques du symbole ; la signature et Riemann–Roch en sont des cas particuliers.', sources: ['gowers-companion', 'atiyah-twentieth-century'] },
+          { kind: 'fait', text: 'Les preuves ultérieures (point fixe d’Atiyah–Bott, puis l’équation de la chaleur de Patodi et Gilkey) simplifient le calcul : l’indice se lit dans le développement de la trace de la chaleur, identifié à des invariants de courbure.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'stabilite-structurelle-et-morphogenese',
@@ -1645,6 +1903,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Toute variété compacte de dimension 3 se découpe, le long de sphères puis de tores, en morceaux portant chacun l’une des huit géométries modèles (sphérique, euclidienne, hyperbolique, etc.) ; la conjecture de Poincaré en est le cas sphérique.',
         comment: 'Annoncée au Bulletin de l’AMS en 1982, la conjecture est démontrée par Thurston pour les variétés de Haken (qui forment l’essentiel) et par Perelman en général (2003). Elle renverse la perspective de Poincaré : en dimension 3, ce n’est pas la géométrie qui sert la topologie, c’est la topologie qui est géométrie.',
+        intuition: [
+          { kind: 'fait', text: 'Thurston propose que la topologie en dimension 3 soit entièrement géométrique : comme une surface se lit par sa géométrie constante, toute 3-variété se découperait le long de sphères puis de tores en morceaux portant l’une des huit géométries modèles.', sources: ['szpiro-poincare', 'thurston-proof'] },
+          { kind: 'fait', text: 'La conjecture de Poincaré en devient le cas le plus pauvre, le morceau « sphérique » ; l’hyperbolique, infiniment plus commun, en est le cœur — Thurston démontre la géométrisation pour les variétés de Haken, qui forment l’essentiel des cas.', sources: ['szpiro-poincare', 'thurston-proof'] },
+        ],
       },
       {
         id: 'flot-de-ricci',
@@ -1669,6 +1931,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété simplement connexe fermée de dimension 4 dont l’homologie est celle de la sphère est homéomorphe à S⁴ ; plus généralement, les variétés topologiques simplement connexes de dimension 4 sont classifiées par leur forme d’intersection et un invariant de Kirby–Siebenmann.',
         comment: 'Freedman réussit en dimension 4 la chirurgie impossible en lisse, grâce à des « disques topologiques en cascade » infiniment plongés. Combiné aux résultats de Donaldson, son théorème révèle le fossé entre topologie et différentiabilité en dimension 4, dont R⁴ exotique est le symbole.',
+        intuition: [
+          { kind: 'fait', text: 'En dimension 4, la chirurgie lisse échoue faute de place, mais Freedman la réussit topologiquement : il autorise des disques « infiniment plongés » en cascade, dont le fond est topologiquement standard — la classification se ramène alors à l’algèbre des formes d’intersection.', sources: ['szpiro-poincare', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le programme : une 4-variété topologique simplement connexe est déterminée par sa forme d’intersection et un invariant de Kirby–Siebenmann ; Freedman montre que toute forme unimodulaire est réalisée.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La chirurgie topologique : éliminer une sphère d’auto-intersection non nulle exige des disques de Whitney ; en dimension 4 ils existent localement mais se plongent mal — Freedman les plonge en cascade, chaque disque corrigé par le suivant.', sources: ['szpiro-poincare', 'gowers-companion'] },
+          { kind: 'fait', text: 'La cascade converge vers un objet infini (capped grope) qui, topologiquement, se contracte en un disque standard : la chirurgie s’effectue malgré l’absence de disques lisses.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Appliquée à une variété d’homologie sphérique, la chirurgie la fait homéomorphe à S⁴ ; comme Freedman réalise aussi la forme E₈, il existe des variétés topologiques sans structure lisse — ce que Donaldson confirmera indépendamment.', sources: ['szpiro-poincare', 'gowers-companion'] },
+        ],
       },
       {
         id: 'theoreme-de-donaldson',
@@ -1680,6 +1951,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une variété lisse simplement connexe de dimension 4 a une forme d’intersection définie positive, celle-ci est diagonalisable sur les entiers. Comme Freedman réalise toutes les formes par des variétés topologiques, des variétés topologiques n’admettent aucune structure lisse, et R⁴ possède des structures différentiables exotiques.',
         comment: 'La preuve étudie l’espace des solutions des équations de Yang–Mills auto-duales (instantons) sur la variété : pour la première fois, des équations issues de la physique des particules décident une question de topologie. Les invariants de Donaldson, puis ceux de Seiberg–Witten (1994, beaucoup plus simples), fondent la topologie de jauge de la dimension 4.',
+        intuition: [
+          { kind: 'fait', text: 'Les équations de Yang–Mills n’ont de solutions que si la géométrie de la variété est assez riche ; Donaldson montre que l’espace des solutions — l’espace de modules des instantons — borde la variété elle-même, ce qui force sa forme d’intersection à être standard.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’espace de modules : pour le groupe SU(2), les solutions des équations auto-duales de Yang–Mills sur une variété lisse forment une variété de dimension 5, orientée, dont le bord « générique » contient la variété de départ.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Cet espace de modules est un cobordisme entre la variété et des copies de l’espace projectif complexe : la forme d’intersection, invariante de cobordisme, est équivalente à une somme de formes standards.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Le contrôle des singularités du module (points où les connexions dégénèrent en instantons ponctuels) boucle le raisonnement : si la forme est définie positive, elle est diagonalisable sur les entiers.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Conséquence : la forme E₈ ⊕ E₈, réalisée par une variété topologique de Freedman, n’est pas diagonalisable — cette variété n’admet aucune structure lisse ; la même méthode produit les R⁴ exotiques.', sources: ['gowers-companion', 'szpiro-poincare'] },
+        ],
       },
       {
         id: 'polynome-de-jones',
@@ -1738,6 +2018,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['szpiro-poincare', 'nasar-gruber-manifold-destiny'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Le flot de Ricci lisse la métrique mais la fait « pincer » : Perelman montre qu’avant chaque singularité, la géométrie a une forme standard — cylindre ou casquette — qu’on peut exciser chirurgicalement ; la variété se décompose alors selon les découpes de Thurston.', sources: ['szpiro-poincare', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’entropie : Perelman introduit une fonctionnelle monotone le long du flot — le flot de Ricci se comporte comme un flot-gradient ; il en déduit le « non-effondrement local » : le volume ne peut pas s’effondrer sans singularité visible.', sources: ['szpiro-poincare', 'gowers-companion'] },
+          { kind: 'fait', text: 'La classification des singularités : les « κ-solutions », limites d’explosions du flot, sont classées — elles ressemblent à des cylindres ou à des quotients de sphères ; toute singularité naissante a donc une forme standard.', sources: ['szpiro-poincare'] },
+          { kind: 'fait', text: 'La chirurgie : avant chaque temps de singularité, on découpe les collets presque cylindriques et on bouche les extrémités par des casquettes standard ; le flot repart sur la variété diminuée, dont la topologie a changé de façon contrôlée.', sources: ['szpiro-poincare', 'nasar-gruber-manifold-destiny'] },
+          { kind: 'fait', text: 'La terminaison : le volume décroît strictement à chaque chirurgie, donc celles-ci sont en nombre fini ; en temps infini, ce qui reste se décompose en morceaux de géométrie modèle — la géométrisation de Thurston.', sources: ['szpiro-poincare', 'gowers-companion'] },
+          { kind: 'fait', text: 'Le cas sphérique : pour une variété simplement connexe, le flot avec chirurgie s’éteint en temps fini (troisième note de Perelman, 2003) ; la variété de départ est difféomorphe à la sphère — la conjecture de Poincaré est vraie.', sources: ['szpiro-poincare'] },
+        ],
       },
       {
         id: 'volumes-de-weil-petersson',
@@ -1749,6 +2039,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le nombre de géodésiques simples fermées de longueur au plus L sur une surface hyperbolique croît comme une constante fois L^(6g − 6), où la constante s’exprime par les volumes de Weil–Petersson des espaces de modules de surfaces à bord ; ces volumes sont des polynômes dont les coefficients sont les nombres d’intersection de Witten–Kontsevich.',
         comment: 'Formulée dans sa thèse (2004) et achevée en 2008, la preuve relie la dynamique hyperbolique à la géométrie algébrique des espaces de modules et redémontre la conjecture de Witten. Avec Eskin et Mohammadi (2015), Mirzakhani démontre ensuite l’analogue du théorème de Ratner pour les surfaces plates, clef de la « magie des billards ».',
+        intuition: [
+          { kind: 'fait', text: 'Une géodésique simple se déforme en « earthquakes » le long des laminations mesurées : compter les géodésiques devient un calcul de volume sur l’espace des laminations — et ce volume est gouverné par les volumes de Weil–Petersson des espaces de modules.', sources: ['mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’espace des géodésiques simples se paramètre par les laminations mesurées modulo le groupe modulaire ; la « mesure de Thurston » qu’il porte est finie et liée à la métrique de Weil–Petersson.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'Mirzakhani établit une formule intégrale : le nombre de géodésiques simples de longueur au plus L s’écrit comme le quotient de deux intégrales, l’une sur les laminations, l’autre sur l’espace des modules de surfaces à bord.', sources: ['mactutor'] },
+          { kind: 'fait', text: 'Les volumes de Weil–Petersson des espaces de modules à bord sont des polynômes en les longueurs des bords, dont les coefficients sont les nombres d’intersection des classes ψ — la conjecture de Witten–Kontsevich, redémontrée au passage.', sources: ['mactutor'] },
+          { kind: 'fait', text: 'La croissance en L^(6g−6) suit : le comptage polynomial reflète le volume de l’espace des laminations — l’asymptotique est dictée par la géométrie algébrique de l’espace de modules.', sources: ['mactutor'] },
+        ],
       },
     ],
     sources: ['dieudonne-topology', 'thurston-proof', 'szpiro-poincare', 'nasar-gruber-manifold-destiny', 'atiyah-twentieth-century', 'gowers-companion', 'mactutor'],
@@ -1983,6 +2282,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['aubin-dahan-chaos'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'Un tore quasi périodique porte des fréquences ; une perturbation crée des résonances qui menacent de le détruire. KAM montre que les fréquences assez irrationnelles — mal approchables par les rationnels — résistent : le tore survit, déformé, et les tores rescapés remplissent presque tout l’espace des phases.', sources: ['aubin-dahan-chaos', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le problème se ramène à conjuguer le système perturbé au système intégrable : chercher une coordonnée où la dynamique redevient une rotation à fréquences fixées ; chaque pas produit des diviseurs ω·k qui peuvent être arbitrairement petits.', sources: ['aubin-dahan-chaos', 'gowers-companion'] },
+          { kind: 'fait', text: 'La condition diophantienne borne l’approchabilité des fréquences par les rationnels : les « petits diviseurs » restent contrôlés, au prix d’exclure une réunion de bandes de résonance — ensemble de mesure relative petite.', sources: ['gowers-companion', 'aubin-dahan-chaos'] },
+          { kind: 'fait', text: 'L’itération de Newton quadratique compense la petitesse des diviseurs : l’erreur s’élève au carré à chaque étape, si vite qu’elle dompte la croissance des dénominateurs — Arnold mène l’itération analytique (1963), Moser en donne une version de classe finie (1962).', sources: ['aubin-dahan-chaos', 'gowers-companion'] },
+          { kind: 'fait', text: 'Le théorème d’isoénergie de Kolmogorov garantit que les fréquences choisies peuvent être imposées à chaque étape : les tores qui survivent forment un ensemble de mesure positive tendant vers le plein quand la perturbation tend vers zéro.', sources: ['aubin-dahan-chaos'] },
+        ],
       },
       {
         id: 'entropie-de-kolmogorov-sinai',
@@ -2069,6 +2377,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une fonction continue d’un intervalle dans lui-même possède un point périodique de période 3, alors elle possède des points de toute période, et un ensemble non dénombrable de points dont les orbites se rapprochent et s’éloignent sans jamais converger : c’est la définition du chaos de Li–Yorke.',
         comment: 'Cas particulier du théorème de Sarkovskii (1964), alors inconnu en Occident, le résultat surtout baptise le mot « chaos » dans la littérature mathématique et fournit un critère simple exhibé pour la suite logistique. Il marque l’entrée du chaos dans la culture mathématique commune.',
+        intuition: [
+          { kind: 'fait', text: 'Un point de période 3 force la fonction à replier l’intervalle sur lui-même : les trois points de l’orbite contraignent le graphe à couvrir, à recouvrir puis à dépasser ses propres morceaux — assez de recouvrements pour engendrer des points de toute période et un fouillis non dénombrable.', sources: ['gleick-chaos', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Soient a < b < c les trois points de l’orbite : par le théorème des valeurs intermédiaires, l’intervalle [a,b] recouvre [b,c] et l’intervalle [b,c] recouvre [a,b] ∪ [b,c] — un graphe de transitions non trivial.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Tout chemin admissible dans ce graphe de recouvrements fournit un point périodique : pour obtenir la période n, on compose n couvertures compatibles et le point fixe de la composée donne l’orbite cherchée.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'En particulier, une boucle de longueur n dans le graphe [b,c] → [b,c] → … → [a,b] → [b,c] produit un point de période exacte n : toute période est réalisée — la conclusion forte du théorème de Sarkovskii.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Le chaos de Li–Yorke suit : les recouvrements permettent de coder les orbites par des suites de symboles ; il existe un ensemble non dénombrable de points deux à deux « proches et éloignés », définition du chaos au sens de l’article.', sources: ['gowers-companion', 'gleick-chaos'] },
+        ],
       },
       {
         id: 'les-objets-fractals',
@@ -2092,6 +2409,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans la cascade de doublements de période qui mène la suite logistique au chaos, les rapports des intervalles de bifurcation convergent vers une constante δ ≈ 4,669 201 et les échelles spatiales vers α ≈ 2,502 9 ; ces constantes sont les mêmes pour toute famille unimodale avec maximum quadratique.',
         comment: 'Découverte numérique en 1975, expliquée par un point fixe de l’opérateur de renormalisation (dont l’existence est démontrée par Lanford en 1982 à l’aide de l’ordinateur), l’universalité fait du chaos une science quantitative : les mêmes constantes se mesurent dans les expériences de convection (Libchaber, 1979).',
+        intuition: [
+          { kind: 'fait', text: 'Après chaque doublement de période, la dynamique sur un sous-intervalle ressemble à la dynamique initiale, mais renversée et renormalisée : l’opérateur de renormalisation transforme ce « zoom » en point fixe — une fonction universelle dont les valeurs propres donnent δ et α.', sources: ['gleick-chaos', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’opérateur de renormalisation envoie une application unimodale sur sa seconde itérée restreinte et renormalisée : un point fixe de cet opérateur correspond à une fonction identique à sa propre itérée, à une homothétie près.', sources: ['gleick-chaos', 'gowers-companion'] },
+          { kind: 'fait', text: 'Feigenbaum observe à la calculette que les distances entre bifurcations convergent géométriquement vers δ ≈ 4,669 : le rythme est le même quelle que soit la famille unimodale, signe d’un objet universel plutôt que d’une propriété de la logistique.', sources: ['gleick-chaos'] },
+          { kind: 'fait', text: 'Lanford (1982) démontre l’existence du point fixe hyperbolique par calculs contrôlés à l’ordinateur ; sa valeur propre instable est δ, son taux de contraction donne α ≈ 2,503 : les constantes de Feigenbaum deviennent des valeurs propres.', sources: ['gleick-chaos', 'gowers-companion'] },
+          { kind: 'fait', text: 'La variété stable du point fixe a codimension 1 : toute famille unimodale traversant la cascade se comporte, après quelques itérés, comme le point fixe universel — l’universalité explique la mesure des mêmes constantes dans la convection de Libchaber.', sources: ['gowers-companion', 'gleick-chaos'] },
+        ],
       },
       {
         id: 'ensemble-de-mandelbrot',
@@ -2139,6 +2465,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['gleick-chaos', 'mactutor'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'L’extérieur de l’ensemble de Mandelbrot est un domaine où l’itérée de 0 s’échappe : Douady et Hubbard y greffent les « coordonnées de Böttcher » qui étiquettent chaque paramètre par l’angle sous lequel l’orbite s’enfuit, identifiant cet extérieur à l’extérieur du disque — donc connexe.', sources: ['gleick-chaos', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Pour un paramètre hors de l’ensemble, la suite itérée de 0 s’échappe : l’application de Böttcher conjugue, au voisinage de l’infini, le polynôme à z ↦ z² — l’analogue, en dynamique, de la fonction de Green.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Douady et Hubbard montrent que cette conjugaison s’étend jusqu’au premier point critique échappant : l’application qui envoie le paramètre c sur sa valeur de Böttcher définit une uniformisation de l’extérieur de l’ensemble par l’extérieur du disque.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'L’uniformisation est holomorphe et propre : c’est un isomorphisme conforme entre deux domaines simplement connexes — l’extérieur du disque est connexe, donc l’ensemble de Mandelbrot l’est.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Les rayons externes, images des demi-droites d’angle constant, donnent la combinatoire du bord : leur aboutissement décrit les « portraits d’orbites », et c’est en les recollant que naît la chirurgie de Douady–Hubbard.', sources: ['gowers-companion'] },
+        ],
       },
       {
         id: 'condition-de-bruno-yoccoz',
@@ -2151,6 +2486,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Un germe holomorphe de multiplicateur e^(2iπθ) est linéarisable au voisinage de son point fixe si et seulement si θ vérifie la condition arithmétique de Bruno (sommabilité des logarithmes des dénominateurs des réduites) : la condition, suffisante depuis Bruno et Siegel, est nécessaire.',
         comment: 'Travail de thèse (1985) complété à la fin des années 1980 : Yoccoz montre que pour tout θ ne vérifiant pas la condition de Bruno, le polynôme quadratique de rotation θ n’est pas linéarisable. Le résultat, purement diophantien dans sa formulation, clôt une question ouverte depuis Poincaré et montre la précision atteinte par la dynamique holomorphe.',
+        intuition: [
+          { kind: 'fait', text: 'La linéarisation d’un germe équivaut à « redresser » la rotation locale par le multiplicateur e^(2iπθ) ; les dénominateurs des réduites de θ mesurent la qualité de ses approximations rationnelles : la condition de Bruno les somme, et Yoccoz montre que c’est exactement le seuil.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La linéarisation se ramène à résoudre l’équation de Schröder : l’itérée du germe doit se conjuguer à la multiplication par λ = e^(2iπθ) ; les coefficients formels de la conjugaison contiennent les produits (λⁿ−1), dont les dénominateurs peuvent exploser.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Siegel (1942) puis Bruno (1965-1972) montrent que la sommabilité de Bruno — convergence de Σ log qₙ₊₁ / qₙ, où qₙ sont les dénominateurs des réduites — assure la convergence formelle puis analytique : la condition est suffisante.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'Yoccoz démontre la nécessité en un sens précis : si θ ne vérifie pas la condition de Bruno, le polynôme quadratique z ↦ e^(2iπθ) z + z² a un point fixe non linéarisable — ses « petits cycles » s’accumulent en 0 et bloquent toute conjugaison.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'La preuve repose sur l’analyse fine des fleurs de Fatou et des points périodiques proches du point fixe : les mauvaises approximations rationnelles créent des orbites qui s’approchent de 0 — le germe ne peut être une rotation.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
     ],
     sources: ['aubin-dahan-chaos', 'gleick-chaos', 'mandelbrot-fractal-geometry', 'ruelle-hasard-chaos', 'gowers-companion', 'mactutor'],
@@ -2363,6 +2707,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété riemannienne lisse se plonge isométriquement dans un espace euclidien de dimension suffisante ; le cas C¹, plus surprenant, permet des plongements en dimension à peine supérieure (1954), le cas lisse ou analytique exige la méthode d’itération dite de Nash–Moser (1956-1966).',
         comment: 'Pour surmonter la perte de dérivées du problème, Nash invente une méthode de Newton lissée que Moser transformera en outil général (1961-1966), au cœur du théorème KAM et de la théorie des EDP. Gromov en tirera la « convex integration » et le h-principe (1986).',
+        intuition: [
+          { kind: 'fait', text: 'Chercher un plongement isométrique, c’est résoudre une équation différentielle où chaque itération perd une dérivée : l’équation est « ill-posed » au sens de l’inversion. Nash l’emporte en corrigeant à chaque étape à la fois la géométrie et la régularité — le problème devient un point fixe dans un espace de fonctions lissées.', sources: ['mactutor', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'La condition d’isométrie est un système d’EDP surdéterminé du premier ordre : le plongement cherché doit réaliser exactement la métrique donnée ; l’itération de Newton classique perd des dérivées et ne converge pas.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'Nash intercale à chaque étape un lissage de la correction : les estimations sur les dérivées lissées compensent la perte, et l’erreur quadratique de Newton dompte le processus — ancêtre de l’itération de Nash–Moser.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'La dimension cible doit être assez grande pour laisser de la marge de perturbation : l’isométrie locale se prolonge par des corrections « ondulatoires » qui accumulent les degrés de liberté jusqu’au plongement global.', sources: ['mactutor'] },
+          { kind: 'fait', text: 'Le cas C¹, démontré séparément (1954), procède par ondulations courtes superposées : il produit des plongements isométriques de faible régularité en dimension à peine supérieure — contre-exemple à l’intuition de rigidité.', sources: ['mactutor', 'gowers-companion'] },
+        ],
       },
       {
         id: 'regularite-de-de-giorgi-nash',
@@ -2393,6 +2746,15 @@ export const CONTEMPORAIN_A: Domain[] = [
             sources: ['mactutor', 'gowers-companion'],
           },
         ],
+        intuition: [
+          { kind: 'fait', text: 'L’équation elliptique agit comme une moyenne : elle étale les valeurs de la solution. Même avec des coefficients mesurables, cette moyenne suffit à lisser les oscillations — la solution hérite d’une régularité höldérienne qui n’était pas dans les données.', sources: ['gowers-companion', 'gray-hilbert-challenge'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'De Giorgi itère sur les niveaux d’énergie : dans chaque boule, la fraction de volume où la solution dépasse un seuil décroît géométriquement quand le seuil monte — l’oscillation se contracte.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'L’inégalité de Harnack quantifie ce contrôle : les valeurs positives d’une solution sur une boule se comparent uniformément ; sa contraction de l’oscillation, itérée à toutes les échelles, donne la continuité höldérienne.', sources: ['gowers-companion', 'hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Nash, indépendamment, obtient la même conclusion par la version parabolique de l’inégalité de Harnack : le cas stationnaire en est le corollaire — deux routes distinctes convergent vers le même seuil de régularité.', sources: ['mactutor', 'gowers-companion'] },
+          { kind: 'fait', text: 'La régularité höldérienne amorce le bootstrap de Schauder : des solutions faibles deviennent C^α, puis aussi régulières que les coefficients le permettent — analytiques si les données le sont, ce qui clôt le dix-neuvième problème de Hilbert.', sources: ['gray-hilbert-challenge', 'gowers-companion'] },
+        ],
       },
       {
         id: 'inegalites-de-gagliardo-nirenberg',
@@ -2404,6 +2766,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Les normes intermédiaires d’une fonction s’interpolent entre sa norme L^p et ses dérivées d’ordre supérieur, avec des exposants fixés par l’homogénéité : ces inégalités quantifient les injections de Sobolev et leurs limites.',
         comment: 'Publiées la même année par Gagliardo et Nirenberg, ces inégalités sont devenues l’outil quotidien de l’analyse non linéaire (contrôle des termes non linéaires dans les EDP dispersives et paraboliques) et un terrain pour les questions d’optimalité (meilleures constantes, profils d’Aubin–Talenti).',
+        intuition: [
+          { kind: 'fait', text: 'Une dérivée intermédiaire coûte moins qu’une dérivée d’ordre élevé : les inégalités mettent une fraction — fixée par la dimension — entre le contrôle L^p de la fonction et celui de ses dérivées, et la fraction est exactement celle que l’homogénéité impose.', sources: ['gowers-companion', 'jackson-nirenberg-interview'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Par un changement d’échelle, les exposants sont déterminés : toute inégalité valable en dimension n doit respecter l’homogénéité sous dilatation, ce qui fixe les puissances relatives des normes.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La preuve passe par l’interpolation : les dérivées intermédiaires se représentent par convolution ou décomposition de Littlewood–Paley, dont les contributions s’équilibrent entre petites et hautes fréquences.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'L’inégalité de Sobolev est le cas limite : quand l’exposant interpole entre L¹ et les dérivées premières, elle redonne l’injection classique ; le cas général en est la combinaison algébrique.', sources: ['gowers-companion', 'hairer-wanner-analysis'] },
+          { kind: 'fait', text: 'Le lemme de John–Nirenberg (1961), compagnon de ces inégalités, borne la décroissance exponentielle des ensembles où une fonction BMO s’écarte de sa moyenne — même arsenal de découpage en cubes de Calderón–Zygmund.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'operateurs-pseudo-differentiels',
@@ -2438,6 +2809,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le dual de l’espace de Hardy réel H¹ (fonctions dont la fonction maximale est intégrable) est l’espace BMO des fonctions à oscillation moyenne bornée, introduit par John et Nirenberg (1961) ; en particulier les opérateurs de Calderón–Zygmund envoient L^∞ dans BMO.',
         comment: 'Le résultat donne à l’analyse harmonique son couple d’espaces limites, là où L¹ et L^∞ échouent ; il est la clé des estimations de l’intégrale de Cauchy de Calderón. BMO intervient ensuite dans les EDP (problèmes de jauge, Navier–Stokes critique).',
+        intuition: [
+          { kind: 'fait', text: 'Aux bords de l’échelle L^p, les intégrales singulières échouent : une fonction intégrable peut quitter L¹ et une fonction bornée peut quitter L^∞. H¹ et BMO sont les espaces « corrigés » qui restent stables — et le théorème dit qu’ils sont duaux l’un de l’autre.', sources: ['gowers-companion', 'mactutor'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'H¹ réel est défini par la décomposition atomique : toute fonction de H¹ s’écrit comme somme d’« atomes », fonctions localisées à moyenne nulle ; vérifier une estimation sur H¹ se ramène à la vérifier sur un atome.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'Une fonction de BMO produit, par le lemme de John–Nirenberg, une intégrale uniformément bornée contre tout atome : l’oscillation moyenne contrôle l’aire sous la courbe — la moitié « facile » de la dualité.', sources: ['gowers-companion', 'mactutor'] },
+          { kind: 'fait', text: 'La réciproque est difficile : Fefferman montre que toute forme linéaire continue sur H¹ se représente par une fonction de BMO, via la fonction maximale et la décomposition en tentes sur le demi-espace.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'La dualité justifie le couple limite : les opérateurs de Calderón–Zygmund envoient L^∞ dans BMO et H¹ dans L¹ — les estimations fermes à toutes les extrémités de l’échelle, clé de l’intégrale de Cauchy de Calderón.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'the-analysis-of-linear-partial-differential-operators',
@@ -2502,6 +2882,10 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'probleme',
         statement: 'Les équations de Navier–Stokes incompressibles en dimension 3, avec des données initiales régulières, admettent-elles des solutions régulières pour tout temps, ou bien certaines solutions développent-elles une singularité en temps fini ?',
         comment: 'Les solutions faibles turbulentes de Leray (1934) existent mais ne sont pas connues pour être uniques ni régulières ; les travaux de Caffarelli–Kohn–Nirenberg (1982) bornent la dimension des singularités. La description officielle du problème est due à Charles Fefferman ; Tao a montré (2016) que certaines variantes « moyennées » explosent, ce qui circonscrit les stratégies possibles.',
+        intuition: [
+          { kind: 'fait', text: 'L’équation possède une loi de dissipation globale — l’énergie décroît — mais rien n’empêche la vorticité de se concentrer en un point ; la question est de savoir si la dissipation visqueuse arrive à temps pour étaler le tourbillon avant la singularité.', sources: ['gowers-companion'] },
+          { kind: 'fait', text: 'En dimension 2, la vorticité est transportée et reste bornée : l’unicité et la régularité suivent. En dimension 3, le terme d’étirement de la vorticité peut s’amplifier lui-même — c’est ce mécanisme d’auto-amplification qu’il faudrait dompter ou exhiber.', sources: ['gowers-companion', 'mactutor'] },
+        ],
       },
       {
         id: 'transport-optimal-et-courbure-de-ricci',
@@ -2513,6 +2897,15 @@ export const CONTEMPORAIN_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur un espace métrique mesuré, la convexité de certaines fonctionnelles d’entropie le long des géodésiques du transport optimal (distance de Wasserstein) définit une notion de « courbure de Ricci minorée » sans aucune structure différentiable ; les espaces à Ricci minoré satisfont des inégalités fonctionnelles et des théorèmes de comparaison.',
         comment: 'Développée indépendamment par Lott–Villani et Sturm (2006), la notion étend la géométrie riemannienne aux limites singulières (espaces d’Alexandrov, limites de Gromov–Hausdorff) et unifie transport optimal, inégalités isopérimétriques et analyse non lisse ; elle est l’apport central de la médaille Fields de Villani (2010).',
+        intuition: [
+          { kind: 'fait', text: 'Sur une variété riemannienne, la courbure de Ricci mesure comment le transport de masse « concentre » ou « dilue » les densités ; en retournant ce fait en définition — une borne sur la courbure est une convexité de l’entropie le long des géodésiques de Wasserstein — on obtient une notion qui n’exige plus aucune dérivée.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'Le transport optimal quadratique munit l’espace des mesures de probabilité d’une métrique (distance de Wasserstein) et de géodésiques : interpoler entre deux mesures au sens de McCann déplace la masse le long des géodésiques de l’espace de base.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+          { kind: 'fait', text: 'Sur une variété riemannienne, la convexité de l’entropie le long de ces interpolations est équivalente à une borne inférieure sur la courbure de Ricci : la courbure se lit dans la façon dont le transport compresse l’information.', sources: ['villani-theoreme-vivant'] },
+          { kind: 'fait', text: 'Lott–Villani et Sturm adoptent cette équivalence comme définition sur tout espace métrique mesuré : les espaces « CD(K, N) » (courbure-dimension) satisfont les inégalités de Sobolev, isopérimétriques et de comparaison attendues.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+          { kind: 'fait', text: 'La définition est stable par limite de Gromov–Hausdorff mesurée : les limites singulières de variétés à Ricci minoré héritent de la notion — la géométrie se prolonge aux espaces sans structure différentiable.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+        ],
       },
       {
         id: 'amortissement-landau',
@@ -2547,6 +2940,16 @@ export const CONTEMPORAIN_A: Domain[] = [
             text: 'L’article, de plus de cent pages, montre que l’analyse des EDP peut traiter rigoureusement un phénomène de physique des plasmas jusque-là admis sur la foi du calcul linéarisé et de l’expérience.',
             sources: ['villani-theoreme-vivant'],
           },
+        ],
+        intuition: [
+          { kind: 'fait', text: 'Le plasma transporte ses particules en phase : chaque perturbation de la densité crée un champ électrique qui, en retour, accélère les particules — le mélange de phase lisse l’information et fait décroître le champ, sans aucune dissipation réelle.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+          { kind: 'fait', text: 'Le danger non linéaire est l’« écho » : une perturbation peut, en s’atténuant, recréer un champ qui réamorce la suivante ; Mouhot et Villani montrent que ces échos s’additionnent sans jamais rattraper l’amortissement.', sources: ['villani-theoreme-vivant'] },
+        ],
+        proof: [
+          { kind: 'fait', text: 'L’amortissement linéaire (Landau, 1946) vient du mélange : la transformée de Fourier de la perturbation dans la direction des vitesses se propage en phase, et le champ électrique — moyenne sur les vitesses — s’efface par annulation de phase.', sources: ['villani-theoreme-vivant'] },
+          { kind: 'fait', text: 'En non linéaire, le champ modifie le transport : les perturbations couplées par le champ génèrent des « échos », réponses retardées qui relancent la perturbation à des modes différents.', sources: ['villani-theoreme-vivant', 'gowers-companion'] },
+          { kind: 'fait', text: 'La preuve contrôle la cascade des échos par des estimations en régularité analytique et Gevrey : chaque écho est borné par un facteur dépendant de l’écart entre les modes — la somme reste sous l’amortissement exponentiel.', sources: ['villani-theoreme-vivant'] },
+          { kind: 'fait', text: 'Le résultat exige une régularité forte (Gevrey) sur la donnée initiale : sous ce seuil, le mélange domine la réponse non linéaire pour tout temps — l’amortissement de Landau survit au régime non linéaire.', sources: ['villani-theoreme-vivant', 'mactutor'] },
         ],
       },
     ],
