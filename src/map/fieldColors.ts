@@ -1,26 +1,27 @@
 import type { ContinentId, LinkKind } from '../data/types';
 
 /**
- * Teinte de base de chaque champ (degrés HSL) : la même pour son fleuve, ses
- * lacs (palettes des domaines, scripts/palettes.ts) et sa bande dans la frise.
+ * Teinte de base de chaque champ (degrés HSL) : la même pour sa bande, ses
+ * lacs (palettes des domaines, scripts/palettes.ts), ses portées et sa part
+ * de la frise.
  */
 export const FIELD_HUE: Record<ContinentId, number> = {
   nombres: 40, // ocre
-  formes: 205, // céruléen
-  analyse: 262, // violet
+  formes: 207, // cobalt
+  analyse: 265, // violet
   hasard: 14, // terre cuite
-  fondements: 138, // vert sauge
+  fondements: 140, // vert sauge
 };
 
 export interface FieldColors {
-  /** eau du fleuve (lavis moyen) */
-  water: string;
-  /** berges : trait d'encre teintée */
-  bank: string;
-  /** libellés (encre foncée de la teinte) */
+  /** encre du champ : contours, libellés, portées */
   ink: string;
+  /** bande du champ (fond très pâle, posé en transparence) */
+  band: string;
   /** lavis clair (frise, pastilles) */
   wash: string;
+  /** pigment vif (repères, sélection) */
+  accent: string;
 }
 
 const hsl = (h: number, s: number, l: number) => `hsl(${h} ${s}% ${l}%)`;
@@ -28,19 +29,24 @@ const hsl = (h: number, s: number, l: number) => `hsl(${h} ${s}% ${l}%)`;
 export const FIELD_COLORS = Object.fromEntries(
   (Object.entries(FIELD_HUE) as [ContinentId, number][]).map(([id, h]) => [
     id,
-    { water: hsl(h, 50, 73), bank: hsl(h, 40, 44), ink: hsl(h, 55, 27), wash: hsl(h, 52, 85) },
+    { ink: hsl(h, 50, 30), band: hsl(h, 48, 90), wash: hsl(h, 45, 84), accent: hsl(h, 58, 44) },
   ]),
 ) as Record<ContinentId, FieldColors>;
 
-/** Encres des liens entre domaines (courants) : distinctes des eaux des fleuves. */
+/**
+ * Encres des liens entre domaines. La transmission (filiation, influence) est
+ * à l'encre neutre, comme les traits d'un arbre généalogique ; l'affinité est
+ * un gris violacé ; la rupture, la sanguine. Le bleu de Prusse et le sépia
+ * sont réservés au bassin du domaine choisi (amont, aval).
+ */
 export const LINK_INK: Record<LinkKind, string> = {
-  filiation: '#1f3f5b',
-  influence: '#3f6f94',
-  affinite: '#7a6a98',
+  filiation: '#2a2621',
+  influence: '#4d473e',
+  affinite: '#7f758d',
   reaction: '#b5412a',
 };
 
-/** Couleur des chaînes amont (sélection) : bleu de Prusse. */
+/** Bassin amont du domaine choisi : bleu de Prusse. */
 export const UPSTREAM_INK = '#1d5f96';
-/** Couleur de l'aval direct (sélection). */
-export const DOWNSTREAM_INK = '#8a5a1c';
+/** Bassin aval du domaine choisi : sépia. */
+export const DOWNSTREAM_INK = '#9a5b16';

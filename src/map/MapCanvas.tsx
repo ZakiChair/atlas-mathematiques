@@ -5,10 +5,9 @@ import { useLang } from '../i18n/lang';
 import { useData } from '../i18n/localize';
 import type { Link, ResultKind } from '../data/types';
 import type { AtlasLayout, TerritoryLayout } from './layout';
-import { Graticule } from './Graticule';
+import { LaneLayer } from './LaneLayer';
 import { Territory } from './Territory';
 import { LinkLayer } from './LinkLayer';
-import { RiverLayer } from './RiverLayer';
 import { MathematicianLinkLayer } from './MathematicianLinkLayer';
 import type { MapController, Bounds, ViewportInset } from './controller';
 import type { Filters, Selection, VisionId } from '../state/store';
@@ -242,27 +241,8 @@ export function MapCanvas({
 
   return (
     <svg ref={svgRef} className="atlas-map" data-level="0" role="application" aria-label={t('map.aria')}>
-      <defs>
-        {/* bord du lavis : léger déplacement par bruit (desktop seulement) */}
-        <filter id="wash-edge" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="3" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="12" />
-        </filter>
-        <filter id="halo-blur" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="10" />
-        </filter>
-        {/* la « mer » du présent, où se jettent les fleuves */}
-        {/* ellipse inscrite dans le rectangle de la mer (cx ± r ⊂ [0, 1]) : aucun bord visible */}
-        <radialGradient id="sea-wash" cx="0.45" cy="0.5" r="0.45">
-          <stop offset="0" stopColor="#a9c8dc" stopOpacity={0.55} />
-          <stop offset="0.45" stopColor="#a9c8dc" stopOpacity={0.34} />
-          <stop offset="0.8" stopColor="#a9c8dc" stopOpacity={0.1} />
-          <stop offset="1" stopColor="#a9c8dc" stopOpacity={0} />
-        </radialGradient>
-      </defs>
       <g ref={worldRef} className={worldClass}>
-        <Graticule />
-        <RiverLayer layout={layout} vision={vision} hasSelection={selection !== null} />
+        <LaneLayer layout={layout} />
         <LinkLayer
           layout={layout}
           filters={filters}
@@ -291,8 +271,8 @@ export function MapCanvas({
               selectedChildId={selectedChildId}
               dimmed={dimmedIds.has(t.id)}
               related={relatedIds.has(t.id)}
-              chainGen={chain?.upstream.get(t.id) ?? 0}
-              downstream={chain?.downstream.has(t.id) ?? false}
+              upGen={chain?.upstream.get(t.id) ?? 0}
+              downGen={chain?.downstream.get(t.id) ?? 0}
               vision={vision}
               naturesKind={naturesKind}
               onSelect={handleSelect}

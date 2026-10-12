@@ -3,7 +3,7 @@ import type { Link, LinkKind } from '../data/types';
 /**
  * Liens qui « transmettent » : continuité directe ou reprise documentée. Les
  * affinités (parentés reconnues après coup) et les réactions (ruptures) ne
- * font pas partie du cours amont.
+ * font partie ni de l'amont ni de l'aval.
  */
 export const TRANSMISSION: ReadonlySet<LinkKind> = new Set<LinkKind>(['filiation', 'influence']);
 
@@ -15,55 +15,77 @@ export interface Chain {
   upstream: Map<string, number>;
   /** liens de transmission qui composent le bassin amont */
   upstreamLinks: Set<Link>;
-  /** domaines alimentés directement par le domaine choisi */
-  downstream: Set<string>;
+  /** domaine aval → génération (1 = alimenté directement) */
+  downstream: Map<string, number>;
+  /** liens de transmission qui composent le bassin aval */
   downstreamLinks: Set<Link>;
   /** nombre de générations remontées */
   depth: number;
+  /** nombre de générations descendues */
+  downDepth: number;
 }
 
 /**
- * Bassin versant d'un domaine : tout ce qui y conduit par des liens de
- * transmission, en remontant de proche en proche (parcours en largeur, la
- * génération retenue est la plus courte).
+ * Parcours en largeur depuis `id` le long des liens de transmission, dans le
+ * sens donné (`from` : bout du lien par lequel on arrive sur un domaine déjà
+ * atteint, `to` : bout que l'on découvre). La génération retenue est la plus
+ * courte ; le domaine de départ n'est jamais inclus (cycles).
  */
-export function chainOf(links: readonly Link[], id: string): Chain {
-  const into = new Map<string, Link[]>();
+function walk(links: readonly Link[], id: string, from: 'source' | 'target', to: 'source' | 'target') {
+  const adj = new Map<string, Link[]>();
   for (const l of links) {
     if (!TRANSMISSION.has(l.kind)) continue;
-    const g = into.get(l.target) ?? [];
+    const g = adj.get(l[from]) ?? [];
     g.push(l);
-    into.set(l.target, g);
+    adj.set(l[from], g);
   }
-  const upstream = new Map<string, number>();
-  const upstreamLinks = new Set<Link>();
+  const gens = new Map<string, number>();
+  const used = new Set<Link>();
   let frontier = [id];
   let depth = 0;
   while (frontier.length > 0) {
     const next: string[] = [];
     for (const u of frontier) {
-      for (const l of into.get(u) ?? []) {
-        if (l.source === id) continue;
-        upstreamLinks.add(l);
-        if (!upstream.has(l.source)) {
-          upstream.set(l.source, depth + 1);
-          next.push(l.source);
+      for (const l of adj.get(u) ?? []) {
+        const v = l[to];
+        if (v === id) continue;
+        used.add(l);
+        if (!gens.has(v)) {
+          gens.set(v, depth + 1);
+          next.push(v);
         }
       }
     }
     if (next.length > 0) depth++;
     frontier = next;
   }
-  const downstreamLinks = new Set(links.filter((l) => l.source === id && TRANSMISSION.has(l.kind)));
-  const downstream = new Set([...downstreamLinks].map((l) => l.target));
-  return { upstream, upstreamLinks, downstream, downstreamLinks, depth };
+  return { gens, used, depth };
 }
 
-/** Domaines amont groupés par génération (1, 2, …), dans l'ordre donné. */
-export function generations(chain: Chain, order: readonly string[]): string[][] {
-  const out: string[][] = Array.from({ length: chain.depth }, () => []);
+/**
+ * Bassin d'un domaine : en amont, tout ce qui y conduit par transmission, de
+ * proche en proche ; en aval, tout ce qu'il a nourri, de proche en proche.
+ */
+export function chainOf(links: readonly Link[], id: string): Chain {
+  const up = walk(links, id, 'target', 'source');
+  const down = walk(links, id, 'source', 'target');
+  return {
+    upstream: up.gens,
+    upstreamLinks: up.used,
+    downstream: down.gens,
+    downstreamLinks: down.used,
+    depth: up.depth,
+    downDepth: down.depth,
+  };
+}
+
+/** Domaines d'un bassin groupés par génération (1, 2, …), dans l'ordre donné. */
+export function generations(gens: ReadonlyMap<string, number>, order: readonly string[]): string[][] {
+  let depth = 0;
+  for (const g of gens.values()) depth = Math.max(depth, g);
+  const out: string[][] = Array.from({ length: depth }, () => []);
   for (const id of order) {
-    const g = chain.upstream.get(id);
+    const g = gens.get(id);
     if (g) out[g - 1].push(id);
   }
   return out;

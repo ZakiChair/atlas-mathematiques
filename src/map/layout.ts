@@ -1,7 +1,8 @@
 import * as d3 from 'd3';
-import { MAP_SIZE } from '../data/eras';
+import { MAP_SIZE, TIME_BOUNDS } from '../data/eras';
 import type { Domain } from '../data/types';
 import { seededRandom } from '../lib/prng';
+import { yearToX } from './timeScale';
 
 const BASE_R: Record<number, number> = { 3: 230, 2: 180, 1: 135 };
 /** marge de séparation entre deux cercles voisins (chaque côté), unités carte */
@@ -278,13 +279,24 @@ function layoutChildren(m: Domain, cx: number, cy: number, r: number): ChildPos[
   return children;
 }
 
+/** Portée d'un domaine sur l'axe du temps de la carte : [x(début), x(fin)]. */
+export function periodSpan(m: Domain): [number, number] {
+  return [yearToX(m.period.start), yearToX(m.period.end ?? TIME_BOUNDS.end)];
+}
+
 export function computeLayout(domains: Domain[]): AtlasLayout {
-  const circles: Circle[] = domains.map((m) => ({
-    id: m.id,
-    x: m.map.x,
-    y: m.map.y,
-    r: baseRadius(m),
-  }));
+  const circles: Circle[] = domains.map((m) => {
+    const r = baseRadius(m);
+    // un lac est posé sur sa portée : son centre reste à moins d'un demi-rayon
+    // de l'intervalle de sa période (la position du brief n'est qu'indicative)
+    const [x0, x1] = periodSpan(m);
+    return {
+      id: m.id,
+      x: Math.min(x1 + 0.5 * r, Math.max(x0 - 0.5 * r, m.map.x)),
+      y: m.map.y,
+      r,
+    };
+  });
   relaxCircles(circles);
 
   const territories: TerritoryLayout[] = circles.map((c) => ({
