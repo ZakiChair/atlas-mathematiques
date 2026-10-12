@@ -306,6 +306,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['alon-spencer-probabilistic'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Plutôt que d’exhiber un graphe sans grande clique ni grande partie stable — ce qu’aucune construction ne savait faire —, Erdős compte les colorations coupables : si la proportion de colorations contenant un sous-graphe monochrome de taille k est strictement inférieure à 1, une coloration innocente existe forcément.',
+            sources: ['alon-spencer-probabilistic', 'hoffman-erdos'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On colorie chaque arête du graphe complet à n sommets en rouge ou bleu, indépendamment et avec probabilité 1/2.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une partie fixée de k sommets est monochrome avec probabilité 2^(1 − C(k, 2)) ; l’espérance du nombre de parties monochromes vaut donc C(n, k)·2^(1 − C(k, 2)).',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour n égal à 2^(k/2), cette espérance est strictement inférieure à 1 : il existe une coloration sans aucune partie monochrome de taille k, c’est-à-dire que le nombre de Ramsey R(k) excède 2^(k/2).',
+            sources: ['alon-spencer-probabilistic', 'graham-rothschild-spencer-ramsey'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’argument ne produit aucun graphe explicite : il montre seulement que les colorations fautives ne remplissent pas tout l’espace — le schéma fondateur de toute la méthode probabiliste.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-tutte',
@@ -318,6 +347,40 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Un graphe admet un couplage parfait (chaque sommet apparié à un voisin) si et seulement si, quel que soit l’ensemble S de sommets que l’on retire, le nombre de composantes à nombre impair de sommets qui subsistent n’excède pas la taille de S.',
         comment: 'Généralise le théorème des mariages de Hall (1935) aux graphes quelconques. Avec la formule de Tutte–Berge (1958) et l’algorithme des fleurs d’Edmonds (1965), il fonde la théorie des couplages, dont l’optimisation combinatoire et la théorie de la complexité héritent.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La condition de Tutte est l’obstruction évidente : retirer S sommets ne saurait laisser plus de |S| composantes impaires, puisque chacune exige un partenaire distinct dans S. L’originalité du théorème est d’affirmer que cet obstacle apparent est le seul.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La condition est nécessaire : dans tout couplage parfait, chaque composante de G − S à nombre impair de sommets doit envoyer une arête vers un sommet distinct de S.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la suffisance, on raisonne par récurrence sur le nombre de sommets, en choisissant un ensemble S maximal parmi ceux qui laissent exactement |S| composantes impaires dans G − S.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les composantes paires de G − S admettent un couplage parfait par l’hypothèse de récurrence ; chaque composante impaire est couplable à un sommet près, la maximalité de S interdisant qu’un sommet retiré y détruise le couplage.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème des mariages de Hall, appliqué au graphe biparti formé des arêtes entre S et les composantes impaires, apparie chaque sommet de S à une composante distincte — toute obstruction locale fournirait sinon un ensemble violant la condition de Tutte.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les couplages partiels ainsi obtenus se complètent à l’intérieur des composantes, et fournissent un couplage parfait du graphe tout entier.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'graphes-aleatoires-d-erdos-renyi',
@@ -352,6 +415,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Si des « mauvais » événements ont chacun une probabilité faible et ne dépendent chacun que d’un petit nombre d’autres, alors il est possible qu’aucun ne se produise : la probabilité d’éviter tous les événements est strictement positive.',
         comment: 'Introduit dans un article sur les hypergraphes 3-chromatiques, le lemme fait franchir à la méthode probabiliste la barrière de l’indépendance. Sa version algorithmique (Moser et Tardos, 2010) montre qu’un objet dont il garantit l’existence peut aussi être trouvé efficacement, exemple emblématique du dialogue entre combinatoire et informatique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si les « mauvais » événements étaient mutuellement indépendants, la probabilité de tous les éviter vaudrait un produit de facteurs strictement positifs ; le lemme montre que la conclusion survit lorsque chaque événement ne dépend que d’un petit nombre d’autres — un graphe de dépendance de degré borné.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dans la version symétrique, chaque événement A_i a probabilité au plus p et est indépendant de la famille des autres événements hormis au plus d d’entre eux ; l’hypothèse porte sur le produit e·p·(d + 1) ≤ 1.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point technique est une estimation conditionnelle : par récurrence sur la taille de la famille S, on borne la probabilité de A_i sachant qu’aucun événement de S ne se produit par 2p.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'On scinde pour cela S entre les voisins de A_i dans le graphe de dépendance (au plus d) et les non-voisins : l’indépendance partielle borne le numérateur par p, et l’hypothèse de récurrence borne le dénominateur par le produit des probabilités d’éviter les voisins, au moins 1/2.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'La probabilité d’éviter tous les événements se factorise alors en un produit de termes conditionnels tous au moins égaux à 1 − 2p : elle est strictement positive — un objet sans défaut existe.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-szemeredi',
@@ -383,6 +475,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Deux cas seulement : soit l’ensemble dense ressemble à un tirage au hasard, et les progressions s’y comptent directement ; soit il se concentre anormalement sur une longue sous-progression, où sa densité augmente — et l’alternative ne peut durer indéfiniment puisque la densité ne dépasse pas 1.',
+            sources: ['gowers-companion', 'graham-rothschild-spencer-ramsey'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On découpe l’ensemble selon son comportement dans les progressions : la partie « régulière », où les éléments se répartissent comme au hasard, s’y traite par un comptage direct des progressions.',
+            sources: ['gowers-companion', 'graham-rothschild-spencer-ramsey'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le lemme de régularité, forgé pour la démonstration, garantit que la partie restante s’organise en blocs entre lesquels la distribution est quasi-aléatoire, donc traitable comme la partie régulière.',
+            sources: ['graham-rothschild-spencer-ramsey', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si la distribution n’est pas uniforme, il existe une longue progression sur laquelle la densité excède la densité initiale d’un incrément fixe ; on s’y ramène et l’on recommence le raisonnement.',
+            sources: ['graham-rothschild-spencer-ramsey', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le processus d’incrément ne peut se poursuivre indéfiniment ; quand il s’arrête, soit le cas uniforme fournit la progression de longueur k, soit le théorème de van der Waerden la fournit dans une des pièces régulières.',
+            sources: ['graham-rothschild-spencer-ramsey', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'lemme-de-regularite',
@@ -396,6 +517,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour toute précision ε, il existe un entier K tel que les sommets de tout graphe puissent être répartis en au plus K parties de tailles presque égales, de sorte que, entre presque toutes les paires de parties, les arêtes soient réparties aussi uniformément qu’entre deux parties d’un graphe aléatoire.',
         comment: 'Une version bipartie figure dans la preuve de 1975 ; l’énoncé général est présenté au colloque d’Orsay de 1976 et publié en 1978. Le lemme permet de traiter un graphe quelconque comme un graphe aléatoire à petite échelle ; Gowers montre en 1997 que le nombre K de parties doit être une tour d’exponentielles, ce qui limite ses usages algorithmiques.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'On renonce à suivre les arêtes une à une pour ne garder que leurs taux de présence entre blocs de sommets : dans cette lecture statistique, tout graphe se ramène à un nombre borné de paires quasi-aléatoires — le désordre local devient de l’ordre global.',
+            sources: ['alon-spencer-probabilistic', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’une partition quelconque des sommets en classes de tailles presque égales, et l’on en mesure la qualité par une « énergie » : la moyenne, sur les paires de classes, des carrés des densités d’arêtes, toujours majorée par une constante.',
+            sources: ['alon-spencer-probabilistic', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une paire de classes (A, B) non ε-régulière possède deux sous-ensembles grands où la densité locale s’écarte de plus de ε de la densité moyenne ; raffiner la partition selon ces sous-ensembles augmente l’énergie d’un terme de l’ordre de ε⁴·|A|·|B|.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'En raffinant simultanément selon toutes les paires irrégulières — dont le poids excède une proportion ε du total — l’énergie progresse d’un incrément fixe à chaque étape.',
+            sources: ['alon-spencer-probabilistic'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’énergie étant bornée, le procédé s’arrête après un nombre d’itérations contrôlé par ε seul : la partition obtenue est ε-régulière, et son nombre de classes — une tour d’exponentielles en fonction de 1/ε — ne dépend pas du graphe.',
+            sources: ['alon-spencer-probabilistic', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-des-quatre-couleurs',
@@ -429,6 +579,40 @@ export const CONTEMPORAIN_B: Domain[] = [
           {
             kind: 'interpretation',
             text: 'Le théorème inaugure l’ère des démonstrations assistées par ordinateur : il sert de précédent lors de la preuve de la conjecture de Kepler (1998) et de banc d’essai pour la formalisation intégrale, si bien que l’histoire de la preuve mécanisée s’écrit depuis à partir de lui.',
+            sources: ['wilson-four-colors', 'mackenzie-mechanizing'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’idée, héritée de Kempe et systématisée par Heesch : dans toute carte plane, la formule d’Euler force la présence d’au moins une « petite » configuration ; si chacune est « réductible » — incompatible avec un contre-exemple minimal —, alors aucun contre-exemple n’existe.',
+            sources: ['wilson-four-colors'],
+          },
+          {
+            kind: 'fait',
+            text: 'Reste à produire un tel ensemble inévitable de configurations réductibles : c’est cette recherche, combinatoire en apparence infinie, que la puissance des ordinateurs des années 1970 rend exécutable.',
+            sources: ['wilson-four-colors', 'appel-haken-every-planar'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On raisonne sur un contre-exemple minimal : une carte plane non 4-coloriable dont toute carte plus petite est 4-coloriable ; il suffit de montrer qu’une telle carte n’existe pas.',
+            sources: ['wilson-four-colors'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le « déchargement » : la formule d’Euler attribue à chaque sommet une charge initiale selon son degré ; redistribuée selon des règles locales, elle montre qu’au moins une configuration d’une liste finie — l’ensemble inévitable — figure dans toute carte plane.',
+            sources: ['wilson-four-colors', 'appel-haken-every-planar'],
+          },
+          {
+            kind: 'fait',
+            text: 'La « réductibilité » : pour chaque configuration C de l’ensemble, tout 4-coloriage de la carte où C est contractée se prolonge à la carte initiale, par réarrangements de couleurs le long des chaînes de Kempe ; C ne peut donc figurer dans le contre-exemple minimal.',
+            sources: ['wilson-four-colors', 'appel-haken-every-planar'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appel, Haken et Koch construisent un tel ensemble de plus d’un millier de configurations, dont la réductibilité — trop longue à vérifier à la main — est confiée à un programme : c’est la première démonstration dépendant de façon essentielle d’un calcul machine.',
             sources: ['wilson-four-colors', 'mackenzie-mechanizing'],
           },
         ],
@@ -478,6 +662,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Les normes U^k mesurent à quel point une fonction sur les entiers se comporte comme une fonction aléatoire du point de vue des progressions de longueur k + 1 ; un ensemble dont la norme est grande possède une structure cachée (corrélation avec une « phase polynomiale »), ce qui permet d’obtenir le théorème de Szemerédi avec des bornes explicites.',
         comment: 'Première preuve donnant des bornes quantitatives raisonnables pour toutes les longueurs. Les normes de Gowers et la dichotomie structure/aléa qu’elles encodent sont au cœur du théorème de Green–Tao (2004) et de la théorie des « normes d’uniformité supérieures » développée par Green, Tao et Ziegler.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Mesurer l’aléa plutôt que le supposer : les normes U^k quantifient l’écart entre une fonction et le comportement d’une fonction vraiment aléatoire pour les corrélations qui gouvernent les progressions arithmétiques ; là où cet écart est grand, une structure affleure.',
+            sources: ['gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On traduit la question en analyse discrète : pour la fonction caractéristique f d’un ensemble de densité α dans ℤ/N, l’existence d’une progression de longueur k se lit dans une moyenne de produits f(x)·f(x + r)···f(x + (k − 1)r).',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La norme U^{k−1} de la fonction centrée f − α — moyenne des dérivées multiplicatives itérées — contrôle l’écart de cette moyenne au cas aléatoire : si elle est petite, le comptage vaut à peu près α^k et les progressions existent.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si la norme est grande, un théorème d’inversion montre que f − α est corrélée à une « phase polynomiale » — dans le cas de la longueur 4, une fonction quadratique —, ce qui concentre l’ensemble sur une structure.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La corrélation fait apparaître une longue progression où la densité de l’ensemble augmente d’un incrément fixe ; l’itération de la dichotomie s’arrête en un nombre d’étapes borné par la densité initiale, d’où des bornes explicites sur le plus petit N garantissant une progression de longueur k.',
+            sources: ['gowers-companion', 'graham-rothschild-spencer-ramsey'],
+          },
+        ],
       },
       {
         id: 'theoreme-des-mineurs-de-graphes',
@@ -490,6 +703,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans toute suite infinie de graphes finis, l’un est un mineur d’un autre (on l’obtient en supprimant des sommets ou des arêtes et en contractant des arêtes). Par conséquent, toute famille de graphes stable par mineurs est caractérisée par un nombre fini de mineurs interdits.',
         comment: 'Généralise le théorème de Kuratowski–Wagner sur les graphes planaires (deux mineurs interdits) à toutes les familles closes par mineurs. La preuve, répartie sur vingt articles et plus de cinq cents pages, est l’une des plus longues des mathématiques ; elle entraîne l’existence d’algorithmes polynomiaux de reconnaissance dont on ne sait pas, en général, écrire le programme.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Exclure un mineur impose une structure : un graphe sans grande grille mineure se décompose le long d’un arbre, et un graphe sans mineur fixé s’assemble de pièces presque plongeables dans une surface — deux situations où l’ordre des mineurs est maîtrisable.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'L’énoncé revient à dire que la relation « être mineur » est un bon quasi-ordre : aucune suite infinie de graphes finis n’est formée de termes deux à deux incomparables.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les graphes sans grand mineur en grille ont une largeur arborescente bornée ; sur cette classe, le résultat suit du théorème de Kruskal, qui établit le bon quasi-ordre sur les arbres.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème de structure des séries « Graph Minors » montre que tout graphe excluant un mineur fixé se décompose en morceaux presque plongeables dans une surface fixée, reliés par un nombre borné d’attaches et de sommets exceptionnels.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'À partir d’un éventuel contre-exemple infini, on extrait une suite dont les graphes héritent de décompositions de plus en plus contraintes ; le bon quasi-ordre sur les arbres et les surfaces fournit deux termes comparables — la contradiction clôt l’édifice.',
+            sources: ['mactutor', 'gowers-companion'],
+          },
+        ],
       },
     ],
     sources: ['hoffman-erdos', 'alon-spencer-probabilistic', 'graham-rothschild-spencer-ramsey', 'wilson-four-colors', 'appel-haken-every-planar', 'tymoczko-four-color', 'gowers-companion', 'mactutor'],
@@ -716,6 +958,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['mehta-random-matrices', 'gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Plutôt que de calculer le spectre d’une matrice particulière, Wigner en calcule les moments en moyenne : les traces de puissances de la matrice se traduisent en un dénombrement de chemins, dont la combinatoire — les nombres de Catalan — est la même quelles que soient les lois des coefficients.',
+            sources: ['mehta-random-matrices', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le k-ième moment de la répartition des valeurs propres s’écrit comme l’espérance de la trace de M^k, normalisée : une somme sur les chemins fermés de longueur k entre indices de la matrice.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'À grande dimension, seuls contribuent au moment d’ordre 2k les chemins qui empruntent chaque arête un nombre pair de fois ; tous les autres sont trop rares pour survivre à la limite.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces chemins « doublés » sont comptés par les nombres de Catalan C_k : les moments pairs de la loi limite valent σ^{2k}·C_k, et les moments impairs s’annulent.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or les nombres de Catalan sont les moments de la mesure du demi-cercle ρ(x) = (1/2πσ²)·√(4σ² − x²) sur [−2σ, 2σ] ; les moments déterminant une unique loi, la convergence vers le demi-cercle s’ensuit, indépendamment de la loi des coefficients.',
+            sources: ['mehta-random-matrices'],
+          },
+        ],
       },
       {
         id: 'algorithme-de-metropolis-hastings',
@@ -781,6 +1052,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur le réseau carré ℤ² dont chaque arête est ouverte avec probabilité p, il existe un chemin ouvert infini si et seulement si p > 1/2 ; à p = 1/2, toutes les composantes restent finies.',
         comment: 'Conjecturé depuis l’article fondateur de Broadbent et Hammersley (1957) et la valeur 1/2 avancée au début des années 1960, le résultat couronne vingt ans de travaux (Harris, Russo, Seymour–Welsh). La valeur exacte des seuils reste inconnue pour la plupart des autres réseaux, et le comportement au point critique est le terrain de la probabilité conforme.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le réseau carré est son propre dual : les arêtes fermées du modèle forment elles-mêmes une percolation sur le réseau translaté. À p = 1/2, primal et dual jouent des rôles symétriques, ce qui fait de cette valeur le point où les deux régimes peuvent basculer.',
+            sources: ['grimmett-percolation'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dualité : à chaque configuration d’arêtes ouvertes correspond la configuration d’arêtes fermées du réseau dual, et un rectangle est traversé horizontalement par le primal ou verticalement par le dual — jamais les deux.',
+            sources: ['grimmett-percolation'],
+          },
+          {
+            kind: 'fait',
+            text: 'À p = 1/2, cette symétrie fixe à 1/2 la probabilité de traversée horizontale des carrés ; les estimations de Russo, Seymour et Welsh montrent alors que les traversées de rectangles de format fixé gardent une probabilité bornée uniformément loin de 0.',
+            sources: ['grimmett-percolation'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si un amas infini existait à p = 1/2, la dualité en imposerait un dans le modèle fermé ; les arguments de Harris et les estimations de traversées excluent cette coexistence : il n’y a pas d’amas infini au point critique.',
+            sources: ['grimmett-percolation'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour p > 1/2, le modèle dual est sous-critique et ses circuits fermés autour d’un point deviennent exponentiellement rares : le primal contient presque sûrement un amas infini — d’où p_c = 1/2.',
+            sources: ['grimmett-percolation'],
+          },
+        ],
       },
       {
         id: 'distribution-de-tracy-widom',
@@ -792,6 +1092,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La plus grande valeur propre d’une grande matrice aléatoire hermitienne, centrée et réduite, suit une loi universelle dont la densité s’exprime à l’aide d’une solution de l’équation de Painlevé II.',
         comment: 'Contrepoint « fluctuant » de la loi du demi-cercle, la loi de Tracy–Widom réapparaît dans des contextes inattendus : plus longue sous-suite croissante d’une permutation aléatoire (Baik–Deift–Johansson, 1999), croissance aléatoire de surfaces (KPZ), files d’attente. Cette universalité est l’un des phénomènes majeurs des probabilités contemporaines.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Au bord du demi-cercle, les valeurs propres extrêmes se repoussent : leurs fluctuations ne sont ni gaussiennes ni indépendantes, mais gouvernées par un processus limite qui ne voit que la « fin » du spectre — d’où l’universalité observée bien au-delà des matrices.',
+            sources: ['mehta-random-matrices'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour les ensembles de matrices hermitiennes gaussiennes, les corrélations des valeurs propres s’expriment exactement par un déterminant de Fredholm d’un noyau construit sur les polynômes orthogonaux.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'Au bord du spectre, recentré en 2√n et mis à l’échelle n^(1/6), ce noyau converge vers le « noyau d’Airy » construit sur la fonction d’Airy.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'La loi de la plus grande valeur propre est alors le déterminant de Fredholm du noyau d’Airy sur une demi-droite ; Tracy et Widom l’identifient à l’exponentielle d’une intégrale faisant intervenir le carré d’une solution de l’équation de Painlevé II.',
+            sources: ['mehta-random-matrices'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’identification repose sur les équations différentielles que satisfont les déterminants de Fredholm — l’appareil des systèmes intégrables — ; l’universalité, d’abord établie pour les ensembles gaussiens, est ensuite démontrée pour de grandes classes de matrices aléatoires.',
+            sources: ['mehta-random-matrices'],
+          },
+        ],
       },
       {
         id: 'inegalite-de-concentration-de-talagrand',
@@ -804,6 +1133,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un espace produit de probabilités, toute fonction suffisamment régulière de variables indépendantes se concentre exponentiellement autour de sa médiane : la probabilité de s’en écarter décroît comme l’exponentielle de l’écart au carré.',
         comment: 'Article de 170 pages aux Publications de l’IHÉS, qui unifie et généralise les inégalités isopérimétriques antérieures (Lévy, Milman). La concentration de la mesure est devenue un outil standard des probabilités, de la combinatoire probabiliste et de l’apprentissage statistique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fonction de n variables indépendantes qui dépend peu de chaque coordonnée séparément se comporte asymptotiquement comme une constante : c’est la traduction probabiliste du phénomène isopérimétrique — au-delà d’une distance donnée d’un ensemble de mesure 1/2, il ne reste presque rien.',
+            sources: ['talagrand-concentration'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Talagrand mesure l’éloignement d’un point x à un ensemble A d’un espace produit par une distance convexe : le supremum, sur tous les poids, de la distance de Hamming pondérée entre x et l’enveloppe convexe de A.',
+            sources: ['talagrand-concentration'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’inégalité isopérimétrique relie alors la mesure de A à l’espérance de l’exponentielle du carré de cette distance : elle se démontre par récurrence sur le nombre de coordonnées, en conditionnant sur la dernière coordonnée et en optimisant le calcul à une variable.',
+            sources: ['talagrand-concentration'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliquée à une fonction lipschitzienne dont les grandes valeurs s’expliquent par peu de coordonnées — les fonctions « à certificat court » —, l’inégalité borne la probabilité de s’écarter de la médiane par une exponentielle en moins le carré de l’écart.',
+            sources: ['talagrand-concentration'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les applications aux plus longues sous-suites croissantes, au voyageur de commerce, aux couplages et à la chromatique des graphes aléatoires suivent parce que ces quantités admettent toutes de petits certificats de leur valeur.',
+            sources: ['talagrand-concentration'],
+          },
+        ],
       },
       {
         id: 'lasso',
@@ -864,6 +1222,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La probabilité que les trajectoires de n mouvements browniens plans indépendants ne se rencontrent pas décroît comme une puissance du temps, dont les exposants, calculés explicitement, valent des fractions rationnelles prédites par la physique ; en particulier, la frontière d’une trajectoire brownienne est de dimension 4/3.',
         comment: 'Série d’articles aux Acta Mathematica (2001-2002) qui démontre les conjectures de Duplantier et Kwon (1988) et la conjecture de Mandelbrot (1982) sur la dimension de la frontière brownienne, et vaut la médaille Fields à Werner. Preuve emblématique de la fécondité de la SLE.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les probabilités de non-intersection de trajectoires browniennes planes décroissent en loi de puissance, et la physique conforme prédisait leurs exposants ; les traduire en propriétés d’une courbe conformément invariante — la SLE de Schramm — transforme la conjecture en calcul d’équation différentielle.',
+            sources: ['lawler-conformally-invariant', 'schramm-sle'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Les exposants d’intersection de paquets de browniens se réécrivent comme exposants associés à une courbe aléatoire conformément invariante : l’évolution de Schramm–Loewner, dont le paramètre κ code l’objet géométrique.',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'La SLE de paramètre 6 — interface de la percolation critique, d’après le théorème de Smirnov — possède la propriété de « localité » : sa loi ne dépend pas du domaine extérieur, ce qui identifie les relations entre les exposants du brownien et ceux de sa frontière.',
+            sources: ['lawler-conformally-invariant', 'schramm-sle'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le calcul explicite suit une martingale attachée à l’équation de Loewner : l’exposant cherché apparaît comme valeur propre d’un opérateur différentiel, ce qui donne des formules closes en fonction de κ — des fractions rationnelles.',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les estimations de régularité de la courbe convertissent ces exposants en dimension de Hausdorff : la frontière d’une trajectoire brownienne plane est de dimension 4/3, comme Mandelbrot l’avait conjecturé.',
+            sources: ['lawler-conformally-invariant'],
+          },
+        ],
       },
       {
         id: 'invariance-conforme-de-la-percolation',
@@ -876,6 +1263,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'À l’échelle macroscopique, la probabilité qu’il existe un chemin traversant un domaine dans la percolation critique sur le réseau triangulaire ne dépend que de la forme conforme du domaine, et sa valeur est donnée par la formule de Cardy.',
         comment: 'Première démonstration complète d’une prédiction de la théorie conforme des champs pour un modèle de physique statistique ; la preuve introduit une fonction discrète « préholomorphe » astucieuse. Le passage du réseau triangulaire aux autres réseaux reste un problème ouvert majeur.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur le réseau triangulaire, les trois « couleurs » de chemins qui séparent un point du bord définissent une fonction discrète dont les symétries forcent, à la limite, les équations de Cauchy–Riemann : l’holomorphie émerge de la combinatoire de la percolation.',
+            sources: ['lawler-conformally-invariant'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Smirnov considère trois probabilités s₁, s₂, s₃ : qu’un chemin de percolation de « couleur » donnée sépare un point intérieur du bord d’un domaine triangulé.',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'La combinaison s₁ + τ·s₂ + τ²·s₃, où τ est une racine cubique de l’unité, vérifie des relations de conjugaison discrètes le long des arêtes — les équations de Cauchy–Riemann à un reste près —, héritées de la symétrie du réseau triangulaire sous permutation des couleurs.',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'À la limite du raffinement, ces fonctions convergent vers une fonction holomorphe déterminée par ses valeurs au bord : la transformation conforme du domaine sur le triangle équilatéral.',
+            sources: ['lawler-conformally-invariant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les probabilités de traversée s’expriment comme combinaisons linéaires des s_j : la formule de Cardy et l’invariance conforme en découlent — mais l’argument repose sur la symétrie propre au réseau triangulaire.',
+            sources: ['lawler-conformally-invariant', 'grimmett-percolation'],
+          },
+        ],
       },
       {
         id: 'acquisition-comprimee',
@@ -900,6 +1316,40 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Les équations aux dérivées partielles stochastiques dites « singulières » (où les produits qui y figurent n’ont a priori pas de sens, comme l’équation de croissance KPZ) admettent des solutions locales bien définies, construites en développant la solution inconnue sur une base de « jets » associés au bruit, comme un développement de Taylor généralisé.',
         comment: 'Publiée aux Inventiones, la théorie donne un cadre unique à des équations jusqu’alors traitées au cas par cas (KPZ, Φ⁴, équation de la chaleur multiplicative), et s’interprète comme un calcul différentiel au-dessus des trajectoires irrégulières, prolongeant les chemins rugueux de Lyons (1998). Médaille Fields 2014.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Comme le développement de Taylor ramène une fonction régulière à une liste finie de jets en chaque point, la solution d’une équation singulière s’écrit comme combinaison locale d’objets de référence construits à partir du bruit : le calcul différentiel survit, mais au-dessus de trajectoires que le calcul d’Itô ne sait pas traiter.',
+            sources: ['gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le problème : dans une équation du type « dérivée en temps = laplacien + non-linéarité + bruit très irrégulier », les produits de la solution avec le bruit n’ont pas de sens dans les théories classiques, et l’itération de Picard diverge.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hairer définit une « structure de régularité » : un ensemble de symboles abstraits — les jets —, munis d’un produit et d’une graduation de régularité, dans lesquels le bruit et ses itérés formels se relèvent, y compris les produits a priori illicites.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un « théorème de reconstruction » associe à chaque famille localement cohérente de coefficients une distribution classique unique : l’objet abstrait possède une incarnation concrète.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’équation se résout alors par point fixe dans l’espace des « distributions modelées » sur ces jets : toute la singularité ayant été absorbée par la structure, les schémas itératifs convergent.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une renormalisation — soustraction de constantes divergentes choisies en régularisant le bruit — garantit que les solutions approchées ont une limite : KPZ, Φ⁴ et l’équation de la chaleur multiplicative rentrent dans le même schéma.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
     ],
     sources: ['mehta-random-matrices', 'grimmett-percolation', 'efron-tibshirani-bootstrap', 'hastie-tibshirani-friedman-esl', 'talagrand-concentration', 'schramm-sle', 'lawler-conformally-invariant', 'stigler-seven-pillars', 'von-plato-creating', 'mactutor'],
@@ -1142,6 +1592,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['hamming-error-detecting', 'mactutor'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En plaçant les bits de contrôle aux positions qui sont des puissances de 2, chaque bit couvre exactement les positions dont l’écriture binaire partage son chiffre : les contrôles qui échouent écrivent alors, en binaire, l’adresse de l’erreur.',
+            sources: ['hamming-error-detecting'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le code de Hamming (7, 4) : aux quatre bits de données placés en positions 3, 5, 6 et 7, on adjoint trois bits de parité en positions 1, 2 et 4, chacun contrôlant les positions dont l’écriture binaire comporte le chiffre correspondant.',
+            sources: ['hamming-error-detecting'],
+          },
+          {
+            kind: 'fait',
+            text: 'À la réception, les contrôles de parité qui échouent forment un « syndrome » : leur combinaison donne la position de l’erreur en binaire, que l’on corrige donc en inversant le bit fautif.',
+            sources: ['hamming-error-detecting'],
+          },
+          {
+            kind: 'fait',
+            text: 'Avec r bits de contrôle, le procédé s’étend à un code de longueur 2^r − 1 corrigeant toute erreur simple : ses mots de code sont distants d’au moins trois positions.',
+            sources: ['hamming-error-detecting'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette distance minimale 3 rend le code « parfait » : les boules de rayon 1 centrées sur les mots de code sont disjointes et pavent l’espace entier sans perte.',
+            sources: ['hamming-error-detecting', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'codes-de-reed-solomon',
@@ -1301,6 +1780,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il existe un algorithme qui décide en temps polynomial, sans hypothèse ni aléa, si un entier donné est premier : tester la primalité est un problème de la classe P.',
         comment: 'Article de neuf pages diffusé en août 2002, trois jours suffisent à la communauté pour le vérifier. Le test, peu rapide en pratique, clôt une question ouverte depuis Gauss et fête la profondeur algorithmique des congruences polynomiales ; le prix Gödel 2006 et le prix Fulkerson le saluent.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un nombre premier se reconnaît à une congruence polynomiale : (x + a)ⁿ ≡ xⁿ + a (mod n), car les coefficients binomiaux centraux du développement, tous divisibles par n, s’y annulent ; tester cette identité — pas la primalité — est le point de départ.',
+            sources: ['arora-barak-complexity', 'fortnow-golden-ticket'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le critère de base : n est premier si et seulement si la congruence (x + a)ⁿ ≡ xⁿ + a (mod n) vaut pour tout a premier avec n — identité trop coûteuse à vérifier telle quelle.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'On la teste donc modulo x^r − 1 pour un degré r bien choisi et pour a = 1, …, ℓ où ℓ reste de l’ordre de √r·log n : le coût devient polynomial.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le choix de r tel que l’ordre multiplicatif de n modulo r dépasse (log n)² garantit que si n est composé, les congruences survivantes ne peuvent contenir toutes les puissances d’un facteur premier : un argument de comptage fournit la contradiction.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Toutes les quantités manipulées sont de taille polynomiale en log n : l’algorithme est déterministe, sans hypothèse et de temps polynomial — PRIMES appartient à P.',
+            sources: ['arora-barak-complexity', 'fortnow-golden-ticket'],
+          },
+        ],
       },
     ],
     sources: ['shannon-secrecy', 'hamming-error-detecting', 'diffie-hellman-new-directions', 'rsa-method', 'singh-codes', 'kahn-codebreakers', 'levy-crypto', 'goldreich-foundations', 'fortnow-pnp', 'mactutor'],
@@ -1585,6 +2093,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['garey-johnson-intractability', 'fortnow-golden-ticket'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une machine qui vérifie en temps polynomial est encore une machine : son calcul se décrit comme un tableau de configurations dont chaque ligne suit localement de la précédente — et ces contraintes locales s’écrivent comme une formule booléenne.',
+            sources: ['sipser-history-pnp', 'arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit un problème de NP, reconnu par une machine non déterministe en temps p(n) : une exécution acceptante est une suite de p(n) configurations du ruban, de l’état et de la position de tête.',
+            sources: ['cook-complexity-theorem-proving', 'arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'On construit une formule booléenne dont les variables décrivent le contenu de chaque case, l’état et la tête à chaque instant ; les clauses expriment que la première ligne est l’entrée et que chaque ligne suit de la précédente selon les transitions de la machine — des contraintes locales de taille fixe.',
+            sources: ['cook-complexity-theorem-proving', 'arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'La formule, de taille polynomiale, est satisfiable si et seulement si une exécution acceptante existe : toute exécution fournit une affectation des variables, et réciproquement toute affectation se lit comme un calcul.',
+            sources: ['cook-complexity-theorem-proving'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tout problème de NP se réduit ainsi à SAT en temps polynomial ; SAT étant lui-même dans NP, il est NP-complet — et Cook montre que sa restriction aux clauses de trois littéraux l’est encore.',
+            sources: ['cook-complexity-theorem-proving', 'garey-johnson-intractability'],
+          },
+        ],
       },
       {
         id: 'probleme-p-np',
@@ -1596,6 +2133,18 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'probleme',
         statement: 'Tout problème dont on peut vérifier rapidement une solution proposée peut-il aussi être résolu rapidement ? La classe P (résolution en temps polynomial) est-elle strictement incluse dans NP (vérification en temps polynomial) ?',
         comment: 'Formulé explicitement par Cook en 1971, pressenti dès 1956 dans une lettre de Gödel à von Neumann, c’est l’un des sept problèmes du millénaire (Clay, 2000). Presque tous les spécialistes conjecturent P ≠ NP ; les barrières (relativisation, preuves naturelles, algébrisation) montrent que les méthodes connues ne suffisent pas. De la réponse dépendent la cryptographie, l’optimisation et l’automatisation de la preuve.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La question oppose la construction à la vérification : trouver une preuve ou un itinéraire paraît a priori plus dur que contrôler celui qu’on vous tend ; la NP-complétude concentre la question entière sur un seul problème de référence.',
+            sources: ['sipser-history-pnp', 'fortnow-pnp'],
+          },
+          {
+            kind: 'fait',
+            text: 'Trois obstacles balisent la difficulté : les preuves « relativisées » échouent car il existe des mondes-oracles où P = NP et d’autres où P ≠ NP ; les « preuves naturelles » casseraient la cryptographie ; et les techniques de séparation connues n’atteignent pas les modèles où les classes pourraient différer.',
+            sources: ['fortnow-pnp', 'arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'vingt-et-un-problemes-de-karp',
@@ -1618,6 +2167,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Compter les solutions d’un problème de NP est une tâche à part entière, capturée par la classe #P ; le permanent d’une matrice de 0 et de 1 — qui compte les couplages parfaits — est #P-complet, alors que le déterminant, de formule presque identique, se calcule en temps polynomial.',
         comment: 'Valiant montre que compter est plus dur que décider : même des problèmes dont la version de décision est dans P (couplages) ont une version de comptage complète pour #P. Le résultat fonde la complexité du comptage et éclaire la frontière subtile entre facile et difficile.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le permanent ressemble au déterminant privé de ses annulations de signes : sans les soustractions qui rendent le déterminant calculable, l’addition brute des permutations revient à compter des objets — et compter les solutions d’un problème de NP est la tâche la plus dure de sa catégorie.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Valiant définit la classe #P : les fonctions qui comptent le nombre de certificats acceptants d’une machine non déterministe polynomiale ; compter les affectations satisfaisant une formule (#SAT) en est le problème complet évident.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le permanent d’une matrice de 0 et 1 compte les couplages parfaits du graphe biparti associé : il appartient à #P, alors que l’existence d’un couplage se décide en temps polynomial.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'La complétude se montre par réduction : à toute formule booléenne, on associe un graphe pondéré dont les couplages parfaits simulent les affectations — des « gadgets » de variable et de clause font contribuer chaque affectation satisfaisante au même poids.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le permanent du graphe construit redonne alors le nombre d’affectations satisfaisantes : le permanent est #P-complet, bien que sa décision soit facile.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'apprentissage-pac',
@@ -1642,6 +2220,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout circuit booléen construit uniquement avec des « et » et des « ou » (sans négation) qui décide si un graphe contient une grande clique doit avoir une taille exponentielle dans la taille du graphe.',
         comment: 'Premier résultat prouvant qu’une fonction de NP exige des circuits surpolynomiaux dans un modèle restreint ; la méthode d’approximation de Razborov (et d’Andreev) a donné l’espoir de séparer P de NP par les circuits, avant que « Natural Proofs » (Razborov–Rudich, 1994) ne montre que cette voie, si elle réussissait pleinement, casserait les générateurs pseudo-aléatoires — donc ne peut pas fonctionner telle quelle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Privé de négation, un circuit ne peut rien « défaire » : sa fonction ne peut que croître avec les entrées ; on peut alors espérer approcher chaque porte par un objet combinatoire simple et compter les erreurs introduites.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Razborov associe à chaque circuit monotone une fonction « approximée » — une disjonction de monômes testant la présence de petites cliques — en remplaçant les portes par des opérations d’une algèbre restreinte.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’erreur introduite à chaque porte est contrôlée : soit l’approximation rejette trop de graphes sans clique, soit elle accepte de nombreux graphes « complétés » — les deux écarts se majorent uniformément par porte.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or toute approximation de la fonction clique doit commettre une de ces deux fautes en grand nombre : un circuit correct de taille n en accumulerait une contradiction quantitative.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il faut donc un nombre exponentiel de portes pour que l’approximation coïncide avec la fonction clique : la borne inférieure monotone est établie — la méthode d’approximation est née.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'theoreme-pcp',
@@ -1678,6 +2285,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['arora-barak-complexity'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une preuve peut être vérifiée par sondage comme on devine l’exactitude d’un tableau en lisant quelques cases : si l’encodage est suffisamment redondant, la moindre erreur est décelable presque partout, et quelques lectures au hasard suffisent.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On reformule NP : tout énoncé admet une preuve écrite de longueur polynomiale qu’un vérifieur probabiliste, avec O(log n) bits d’aléa, contrôle en ne lisant qu’un nombre constant de positions.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Premier ingrédient, l’« arithmétisation » : une formule booléenne devient un polynôme de bas degré sur un corps fini, dont la satisfaisabilité se lit sur les évaluations — la vérification devient un problème d’algèbre.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'On vérifie alors que la fonction lue est bien un polynôme de bas degré — le « test de bas degré » tire des lignes et contrôle les restrictions —, puis que les valeurs encodées satisfont les contraintes par des requêtes locales.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'La composition récursive de ces tests ramène le nombre de requêtes à une constante ; la robustesse des codes correcteurs garantit que toute preuve invalide est détectée avec probabilité constante — NP = PCP(log n, 1).',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'algorithme-de-shor',
@@ -1709,6 +2345,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['fortnow-golden-ticket', 'shor-algorithm'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Factoriser n revient à trouver la période de la fonction x ↦ a^x mod n ; une transformée de Fourier révèle les périodes cachées, et un ordinateur quantique sait la calculer sur une superposition de toutes les entrées à la fois.',
+            sources: ['shor-algorithm', 'arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Réduction classique : si l’on connaît l’ordre r de a modulo n et que r est pair, le pgcd de a^(r/2) ± 1 avec n fournit un facteur non trivial de n — factoriser se ramène à trouver une période.',
+            sources: ['shor-algorithm'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’ordinateur quantique prépare la superposition uniforme de tous les exposants x et calcule a^x mod n en parallèle : mesurer le registre de sortie laisse le premier registre en superposition des x espacés de r.',
+            sources: ['shor-algorithm', 'arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'La transformée de Fourier quantique, calculable en un nombre polynomial de portes, concentre l’amplitude sur les multiples de la fréquence 1/r : la lecture donne un multiple de 1/r, dont le développement en fraction continue révèle r.',
+            sources: ['shor-algorithm'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque étape — préparation, exponentiation modulaire, transformée de Fourier — coûte un nombre polynomial de portes en la taille de n : l’algorithme complet est polynomial, là où les meilleurs algorithmes classiques sont sous-exponentiels.',
+            sources: ['shor-algorithm', 'arora-barak-complexity'],
+          },
+        ],
       },
       {
         id: 'preuves-naturelles',
@@ -1720,6 +2385,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute preuve de borne inférieure sur les circuits qui serait à la fois « constructive » (la propriété discriminante est décidable efficacement) et « large » (elle vaut pour une fraction notable des fonctions) permettrait de distinguer un générateur pseudo-aléatoire sûr d’une source vraiment aléatoire : si la cryptographie forte existe, aucune preuve « naturelle » ne peut séparer P de NP.',
         comment: 'Résultat négatif capital : il explique l’échec de quinze ans de tentatives sur les circuits et identifie une « barrière » méthodologique, après celle de la relativisation (1975). Toute future preuve de P ≠ NP devra être « non naturelle » — c’est-à-dire, comme le note la littérature, utiliser la structure algorithmique du problème et non ses seules propriétés combinatoires.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Prouver une borne inférieure consiste à exhiber une propriété qui sépare les fonctions faciles des difficiles ; si cette propriété est vérifiable efficacement et vaut pour une part notable des fonctions, elle distingue aussi le pseudo-aléatoire du vrai hasard — ce que la cryptographie interdit.',
+            sources: ['arora-barak-complexity', 'goldreich-foundations'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Razborov et Rudich formalisent une preuve « naturelle » : elle s’appuie sur une propriété des fonctions booléennes à la fois constructive — décidable efficacement sur la table de vérité — et large — satisfaite par une fraction non négligeable des fonctions.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Toutes les preuves de bornes inférieures connues — diagonalisation à la Shannon, restrictions aléatoires, méthode d’approximation monotone — sont naturelles en ce sens.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si une telle propriété séparait les fonctions de circuits polynomiaux des fonctions difficiles, elle distinguerait la sortie d’un générateur pseudo-aléatoire d’une suite uniforme : les suites pseudo-aléatoires semblent difficiles alors qu’elles sont produites par de petits circuits.',
+            sources: ['arora-barak-complexity', 'goldreich-foundations'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or de tels générateurs existent sous les hypothèses cryptographiques standard (fonctions à sens unique sûres) : sous cette hypothèse, aucune preuve naturelle ne peut établir que NP exige des circuits surpolynomiaux.',
+            sources: ['arora-barak-complexity', 'goldreich-foundations'],
+          },
+        ],
       },
       {
         id: 'durete-contre-aleatoire',
@@ -1732,6 +2426,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'S’il existe des problèmes calculables en temps exponentiel mais exigeant des circuits de taille exponentielle, alors tout algorithme probabiliste polynomial peut être dérandomisé : P = BPP, c’est-à-dire que le hasard n’apporte aucun gain de temps.',
         comment: 'Aboutissement de la ligne Nisan–Wigderson (1994) : la dureté calculatoire, hypothétique, sert à construire des générateurs pseudo-aléatoires qui trompent tous les algorithmes efficaces. Le principe « hardness against randomness » fait de la difficulté une ressource, comme en cryptographie, et a rendu plausible que le hasard ne soit jamais nécessaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fonction « dure » est indiscernable du hasard : on s’en sert pour fabriquer de fausses suites aléatoires qu’aucun algorithme efficace ne distingue du vrai hasard — la difficulté devient une ressource pour simuler l’aléa.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le générateur de Nisan–Wigderson construit, à partir de la table de vérité d’une fonction dure f, des suites pseudo-aléatoires : les sorties sont les valeurs de f sur des extraits presque disjoints de l’entrée, choisis selon un « dessein » combinatoire.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si un algorithme distinguait ces suites du hasard, un argument hybride permettrait de prédire un bit de f à partir des précédents, donnant un petit circuit pour f — ce que sa dureté interdit.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'On dérandomise alors un algorithme de BPP en parcourant toutes les graines du générateur — courtes quand f est très dure — et en prenant la majorité des réponses.',
+            sources: ['arora-barak-complexity'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sous l’hypothèse qu’il existe dans la classe E une fonction exigeant des circuits exponentiels, le générateur s’évalue en temps polynomial : tout algorithme probabiliste polynomial se dérandomise, d’où P = BPP.',
+            sources: ['arora-barak-complexity'],
+          },
+        ],
       },
     ],
     sources: ['cook-complexity-theorem-proving', 'karp-reducibility', 'garey-johnson-intractability', 'sipser-history-pnp', 'shor-algorithm', 'arora-barak-complexity', 'fortnow-pnp', 'fortnow-golden-ticket', 'mactutor'],
@@ -2027,6 +2750,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['kanamori-higher-infinite'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Gödel avait fabriqué un modèle où l’hypothèse du continu est vraie ; pour la rendre fausse, il faut ajouter de nouveaux réels à un modèle sans détruire les axiomes — le forcing est précisément une méthode d’extension contrôlée, où l’on n’ajoute que ce que des « conditions » partielles préparent.',
+            sources: ['cohen-set-theory-ch', 'moore-origins-forcing'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’un modèle dénombrable M de ZFC — fourni par la cohérence supposée — et d’un ensemble ordonné P de « conditions » qui codent partiellement les objets à ajouter, par exemple des morceaux finis de nouvelles fonctions.',
+            sources: ['cohen-set-theory-ch', 'kunen-set-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une partie « générique » G de P, qui rencontre tous les ensembles denses définissables dans M, est adjointe au modèle : elle n’appartient pas à M et fabrique les nouveaux ensembles voulus.',
+            sources: ['cohen-set-theory-ch', 'kunen-set-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le modèle M[G] engendré par G vérifie tous les axiomes de ZFC ; le point décisif est que sa vérité se pilote depuis M : la relation « p force φ » est définissable dans M, ce qui contrôle ce que l’extension satisfait.',
+            sources: ['cohen-set-theory-ch', 'moore-origins-forcing'],
+          },
+          {
+            kind: 'fait',
+            text: 'En choisissant des conditions qui ajoutent ℵ₂ réels mutuellement distincts, on obtient un modèle où 2^ℵ₀ > ℵ₁ : l’hypothèse du continu y est fausse — et comme Gödel avait construit un modèle où elle est vraie, elle est indépendante de ZFC.',
+            sources: ['cohen-set-theory-ch', 'kunen-set-theory'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-categoricite-de-morley',
@@ -2039,6 +2791,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une théorie logique du premier ordre détermine ses modèles à isomorphisme près dans un cardinal non dénombrable, alors elle les détermine dans tout cardinal non dénombrable.',
         comment: 'Publié aux Transactions of the AMS, le théorème clôt une question posée par Łoś et Vaught et lance la théorie de la stabilité : pour le démontrer, Morley introduit le rang qui porte son nom, ancêtre des notions de dimension en théorie des modèles. Shelah en fera la Classification Theory (1978).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La catégoricité dans une puissance force une géométrie : dans un modèle unique à isomorphisme près, la dépendance entre éléments se comporte comme la dimension d’un espace vectoriel, et cette dimension doit alors piloter les modèles de toute taille non dénombrable.',
+            sources: ['marker-model-theory', 'sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Morley associe à chaque formule un rang ordinal — le rang de Morley — qui mesure la complexité de ses réalisations ; les théories catégoriques non dénombrables ont des rangs bornés (théories « ω-stables »).',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans une telle théorie, tout modèle contient une famille d’éléments indiscernables et indépendants — une « base » — dont il est déterminé à isomorphisme près : la catégoricité se ramène à l’unicité du cardinal de cette base.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un écart de comportement entre deux cardinaux non dénombrables exigerait un modèle « non saturé » dans l’une des puissances ; les outils de rang et les formules fortement minimales montrent qu’un tel écart est impossible.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'La catégoricité en un cardinal non dénombrable se propage donc à tous : deux modèles de même cardinal non dénombrable ont des bases de même taille et sont isomorphes.',
+            sources: ['marker-model-theory', 'sep'],
+          },
+        ],
       },
       {
         id: 'theoreme-d-ax-kochen',
@@ -2050,6 +2831,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout degré d, il n’existe qu’un nombre fini de nombres premiers p pour lesquels le corps des nombres p-adiques contient des formes de degré d en plus de d² variables sans zéro non trivial ; en particulier la conjecture d’Artin sur les corps p-adiques vaut « presque partout ».',
         comment: 'Première grande application de la logique à l’algèbre : la preuve passe par l’équivalence élémentaire asymptotique des corps p-adiques et des corps de séries formelles, via le théorème de compacité. Le « principe d’Ax–Kochen–Ershov » devient un outil standard de la théorie des corps valués ; le contre-exemple de Terjanian (1966) montre que l’« asymptotique » est nécessaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les corps p-adiques et les corps de séries formelles F_p((t)) se ressemblent « asymptotiquement » du point de vue logique : une propriété du premier ordre vraie dans presque tous les seconds l’est dans presque tous les premiers — un principe de transfert remplace le calcul.',
+            sources: ['marker-model-theory', 'sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La conjecture d’Artin affirme que le corps p-adique est un corps C₂ : toute forme de degré d en plus de d² variables y possède un zéro non trivial ; sur les corps de séries formelles F_p((t)), le résultat analogue est accessible.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ax et Kochen montrent que les deux familles de corps ont les mêmes « théories limites » : toute formule du premier ordre vraie dans l’une pour presque tout p l’est dans l’autre — un énoncé de comparaison entre corps valués henséliens.',
+            sources: ['marker-model-theory', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le transfert s’effectue par ultraproduit : dans un ultraproduit non principal, les familles de corps p-adiques et de séries formelles deviennent élémentairement équivalentes par l’analyse des valuations.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'La propriété « toute forme de degré d en plus de d² variables a un zéro » est du premier ordre : vraie pour presque tout p dans les séries formelles, elle l’est dans les corps p-adiques — la conjecture d’Artin vaut asymptotiquement.',
+            sources: ['marker-model-theory', 'sep'],
+          },
+        ],
       },
       {
         id: 'theorie-des-domaines',
@@ -2097,6 +2907,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             sources: ['sep', 'davis-universal'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour que l’arithmétique capture le calcul, il manquait une relation diophantienne à croissance exponentielle ; la suite de Fibonacci — croissance exponentielle engendrée par une récurrence quadratique — est la candidate naturelle.',
+            sources: ['mactutor', 'davis-universal'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Davis, Putnam et Julia Robinson avaient ramené le problème à exhiber une relation diophantienne de croissance exponentielle : tout le calcul d’une machine de Turing peut alors être simulé par une équation.',
+            sources: ['davis-universal', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Matiiassevitch montre que la relation « y est le (2x)-ième nombre de Fibonacci » est diophantienne : les identités de la suite — périodicité des résidus et équation associée aux unités de ℚ(√5) — se traduisent en conditions polynomiales.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'La croissance exponentielle de la suite fournit la brique manquante : toute relation récursivement énumérable devient définissable par un polynôme à coefficients entiers.',
+            sources: ['mactutor', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Décider si un polynôme s’annule sur les entiers reviendrait alors à résoudre le problème de l’arrêt : aucun algorithme universel n’existe pour les équations diophantiennes.',
+            sources: ['davis-universal', 'sep'],
+          },
+        ],
       },
       {
         id: 'modele-de-solovay',
@@ -2109,6 +2948,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'En admettant l’existence d’un cardinal inaccessible, on peut construire un modèle de ZF (avec choix dénombrable, sans choix complet) où tout ensemble de réels est mesurable au sens de Lebesgue, possède la propriété de Baire et est soit dénombrable soit de la taille du continu.',
         comment: 'Le modèle montre que les « pathologies » de l’analyse (ensembles non mesurables de Vitali, paradoxe de Banach–Tarski) tiennent à l’axiome du choix et non à la notion de mesure ; Shelah prouvera (1984) que l’inaccessible est nécessaire pour la mesurabilité universelle. Une pièce maîtresse du dialogue entre axiomes et analyse.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les ensembles pathologiques de l’analyse viennent de choix arbitraires (sélection de Vitali) : en affaiblissant l’axiome du choix jusqu’au choix dénombrable, on peut espérer un univers où chaque ensemble de réels, définissable en un sens large, est mesurable.',
+            sources: ['kanamori-higher-infinite'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On suppose l’existence d’un cardinal inaccessible κ, et l’on applique à l’univers le forcing de Lévy qui rend dénombrables tous les ordinaux plus petits que κ : dans l’extension, κ devient le premier cardinal non dénombrable.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans cette extension, tout réel provient d’une « petite » sous-extension ; Solovay considère alors le sous-modèle des ensembles héréditairement définissables à partir de réels et d’ordinaux.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans ce sous-modèle, chaque ensemble de réels est codé par un réel ; Solovay montre que la mesurabilité se ramène à celle d’ensembles de réels génériques, garantie par la structure du forcing de Lévy — tous les ensembles y sont mesurables et possèdent la propriété de Baire.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le choix dénombrable y survit — les suites de réels y sont énumérables — mais le choix complet échoue : c’est le prix payé pour la régularité universelle des ensembles de réels.',
+            sources: ['kanamori-higher-infinite'],
+          },
+        ],
       },
       {
         id: 'systeme-f',
@@ -2155,6 +3023,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'S’il existe suffisamment de grands cardinaux (des « cardinaux de Woodin »), alors tout jeu infini à enjeu projectif — les ensembles de réels définissables par l’analyse classique — est déterminé : l’un des deux joueurs possède une stratégie gagnante.',
         comment: 'Achèvement d’un programme des années 1960 (Mycielski, Martin) : la détermination projective entraîne que tous les ensembles projectifs de réels sont mesurables et réguliers, comme dans le modèle de Solovay, mais sans renoncer au choix. La convergence entre grands cardinaux et régularité des réels est l’un des faits les plus mystérieux de la théorie des ensembles.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un jeu infini à enjeu « simple » est déterminé (Gale–Stewart, 1953) : l’un des joueurs possède une stratégie gagnante ; les grands cardinaux fournissent la puissance combinatoire qui étend cette détermination aux ensembles définissables de l’analyse — les ensembles projectifs.',
+            sources: ['kanamori-higher-infinite'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Gale et Stewart déterminent les jeux à enjeu ouvert ; Mycielski et Steinhaus proposent en 1962 l’axiome de détermination AD — incompatible avec le choix — dont la détermination projective serait une version restreinte et compatible.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Martin établit la détermination borélienne dans ZFC (1975) ; avec Steel et Woodin (1985-1989), l’existence de cardinaux « de Woodin » surmontés d’un mesurable entraîne la détermination projective.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée : les ensembles projectifs sont des projections d’arbres sur ω × κ ; les grands cardinaux permettent de construire des arbres « homogènes » dont les mesures associent à chaque position une stratégie gagnante.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Conséquence : dans ZFC augmentée de ces axiomes, tous les ensembles projectifs de réels sont mesurables, ont la propriété de Baire et la propriété de l’ensemble parfait — la régularité du modèle de Solovay est retrouvée sans abandonner le choix.',
+            sources: ['kanamori-higher-infinite'],
+          },
+        ],
       },
       {
         id: 'logique-lineaire',
@@ -2178,6 +3075,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'L’exponentiation des cardinaux singuliers, longtemps réputée totalement libre, obéit à des bornes : par exemple, si ℵ_ω est une limite forte, alors 2^(ℵ_ω) < ℵ_(ω₄), une borne explicite en termes d’ordinaux dénombrables.',
         comment: 'La théorie des « cofinalités possibles » (pcf), développée par Shelah au tournant des années 1990, montre que l’arithmétique des cardinaux possède des lois absolues indépendantes du forcing. Ce résultat, obtenu en ZFC seul, a relancé l’étude des cardinaux singuliers et du « problème de l’hypothèse des cardinaux singuliers ».',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’exponentiation des cardinaux singuliers semblait totalement libre après le forcing d’Easton ; Shelah montre qu’elle obéit à des lois combinatoires absolues : les cofinalités réalisables des produits de cardinaux forment un ensemble presque fini, mesurable dans ZFC.',
+            sources: ['kanamori-higher-infinite', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour un ensemble A de cardinaux réguliers, Shelah étudie pcf(A) : l’ensemble des cofinalités réalisables par les ultraproduits de A ; il montre que cet ensemble de cardinaux possède une structure de clôture et un plus grand élément explicite.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’outil central est la notion d’« échelle » : dans un produit de cardinaux modulo un ultrafiltre convenable, il existe une suite strictement croissante et cofinale de fonctions, ce qui borne les cofinalités atteignables.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliquée à la suite des ℵ_n, la théorie borne la cofinalité du produit et, via le lien entre produits et exponentiation, fournit 2^(ℵ_ω) < ℵ_(ω₄) lorsque ℵ_ω est une limite forte.',
+            sources: ['kanamori-higher-infinite'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’exposant ω₄ vient du calcul de pcf({ℵ_n}) : les cofinalités possibles n’atteignent pas certains cardinaux explicites — des bornes absolues, démontrées en ZFC sans aucune hypothèse de consistance.',
+            sources: ['kanamori-higher-infinite', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'mordell-lang-par-la-theorie-des-modeles',
@@ -2190,6 +3116,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans une variété abélienne sur un corps de fonctions, l’intersection d’une sous-variété avec un sous-groupe de type fini est une réunion finie de translatés de sous-variétés abéliennes : la géométrie gouverne l’arithmétique des points rationnels.',
         comment: 'La preuve de Hrushovski (1996) utilise la théorie des modèles des corps différentiels et à automorphismes — des outils construits pour la logique, sans équivalent « géométrique » direct. Elle inaugure une série d’applications (Manin–Mumford, André–Oort) qui font de la théorie des modèles une méthode de la géométrie arithmétique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La géométrie des points rationnels se lit dans un univers logique : en plongeant le corps de fonctions dans un corps différentiellement clos — un cadre où les sous-groupes de type fini deviennent définissables —, les outils de la stabilité remplacent la géométrie diophantienne classique.',
+            sources: ['marker-model-theory', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Hrushovski plonge le corps de fonctions dans un corps différentiellement clos : les points rationnels y deviennent des points à dérivation prescrite, et la géométrie algébrique différentielle prend le relais de l’arithmétique.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'La théorie des corps différentiellement clos est stable et de rang fini : on y dispose d’une dimension de Morley qui ordonne les ensembles définissables comme la dimension ordonne les variétés.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le sous-groupe de type fini s’y caractérise par des conditions définissables ; les arguments de « modularité » de la stabilité montrent que l’intersection se décompose en translatés de sous-variétés abéliennes définissables.',
+            sources: ['marker-model-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'On redescend alors au corps de fonctions : les composantes définissables sont des sous-variétés algébriques, d’où la conjecture de Mordell–Lang en caractéristique quelconque — par une voie logique sans équivalent diophantien direct.',
+            sources: ['marker-model-theory', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'fondements-univalents',
@@ -2440,6 +3395,35 @@ export const CONTEMPORAIN_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour un problème d’évolution bien posé discrétisé par un schéma cohérent (qui approche l’équation), la convergence de la solution calculée vers la solution exacte équivaut à la stabilité du schéma, c’est-à-dire au contrôle uniforme de l’amplification des erreurs.',
         comment: 'Le théorème donne à l’analyse numérique des EDP son premier résultat structurel : la question de la convergence, en apparence infiniment délicate, se ramène à deux propriétés locales. Il inspire ensuite le « Lax equivalence principle » de toute l’approximation et la notion de stabilité de von Neumann (analyse de Fourier).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’erreur globale d’un schéma n’est que la somme des erreurs locales propagées : si le schéma approche bien l’équation (cohérence) et n’amplifie pas les erreurs injectées (stabilité), la convergence est automatique — il n’y a pas de troisième façon de rater.',
+            sources: ['hairer-wanner-analysis', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On écrit le problème d’évolution bien posé comme u(t) = E(t)·u₀ dans un espace de Banach, et le schéma aux différences comme une famille d’opérateurs discrets A_h approchant E.',
+            sources: ['hairer-wanner-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La cohérence dit que l’erreur de troncature tend vers zéro avec le pas : appliqué à la solution exacte, le schéma ne s’écarte que d’un reste négligeable.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’erreur globale est la somme des erreurs locales propagées par les itérés de A_h ; si le schéma est stable — les normes des A_h^n uniformément bornées —, elle est majorée par une constante fois l’erreur de troncature, d’où la convergence.',
+            sources: ['hairer-wanner-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Réciproquement, la convergence pour toute donnée initiale implique la bornitude ponctuelle des opérateurs ; le principe de la borne uniforme (Banach–Steinhaus) fournit alors la stabilité — c’est le cœur fonctionnel du théorème.',
+            sources: ['gowers-companion', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'analyse-d-erreur-inverse',
@@ -2580,6 +3564,35 @@ export const CONTEMPORAIN_B: Domain[] = [
             kind: 'interpretation',
             text: 'L’épisode fait évoluer les pratiques : une grande revue accepte une preuve partiellement invérifiable par la relecture, et la formalisation intégrale apparaît dès lors comme la réponse légitime aux preuves trop longues pour un lecteur humain.',
             sources: ['hales-formal-kepler', 'avigad-harrison-formal'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La densité globale se lit localement : associer à chaque sphère un « score » mesurant la compacité de son voisinage ; le problème infini se ramène alors à borner ce score sur un espace compact de configurations — un calcul fini, mais immense.',
+            sources: ['hales-formal-kepler'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'À chaque amas de sphères entourant une sphère centrale, Hales associe une « étoile de décomposition » et un score ; il suffit de prouver qu’aucune étoile ne dépasse le score de l’empilement cubique à faces centrées.',
+            sources: ['hales-formal-kepler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les contre-exemples éventuels forment un espace compact : on le découpe selon la combinatoire des voisinages, réduite à quelques milliers de cas.',
+            sources: ['hales-formal-kepler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque cas devient un problème d’optimisation non linéaire, borné par des programmes linéaires qui remplacent les fonctions par des majorants linéaires par morceaux.',
+            sources: ['hales-formal-kepler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les inégalités sont vérifiées en arithmétique d’intervalles sur environ cinq mille cas ; le plus difficile — le « prisme pentagonal » — est traité par Samuel Ferguson, ce qui achève la borne du score.',
+            sources: ['hales-formal-kepler'],
           },
         ],
       },
