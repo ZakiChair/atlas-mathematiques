@@ -21,6 +21,7 @@ Plan en cours : `docs/superpowers/plans/2026-10-12-refonte-galerie.md`
 - `npx tsx scripts/corpus-stats.ts` — statistiques du corpus pour le README.
 - `npx tsx scripts/palettes.ts` — régénération des palettes « Galerie » (données et brief).
 - `npx tsx scripts/coverage.ts [--todo <fichier>] [--featured]` — avancement du corpus (apports, intuitions et démonstrations, slugs MacTutor).
+- `npx tsx scripts/mactutor.ts [--domain <id>] [--strict] | --suggest <id> | --text <slug>` — contrôle des figures contre MacTutor (pages en cache dans `scripts/.cache/`), slugs candidats, texte brut d’une biographie.
 
 ## Corpus : règles non négociables
 
