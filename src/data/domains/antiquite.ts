@@ -129,6 +129,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Thèbes',
         bio: 'Scribe de la Deuxième Période intermédiaire, Ahmès (ou Ahmosé) est le seul auteur nommé d’un texte mathématique égyptien : il déclare copier, en l’an 33 du roi Apophis, un papyrus plus ancien du règne d’Amenemhat III. Son rouleau, dit papyrus Rhind, rassemble une table des 2/n et plus de quatre-vingts problèmes résolus. Ses dates de vie sont inconnues ; on le place conventionnellement vers 1550.',
         theoryId: 'cs-problemes-et-procedures',
+        mactutor: 'Ahmes',
       },
       {
         id: 'nabu-rimannu',
@@ -415,6 +416,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Tarente',
         bio: 'Philosophe pythagoricien, homme d’État et ami de Platon, Archytas est le premier mathématicien dont des démonstrations arithmétiques nous soient parvenues par fragments : il prouve qu’un rapport épimore (n + 1 : n) n’admet pas de moyenne géométrique en nombres. Il résout la duplication du cube par l’intersection de trois surfaces et théorise les trois médiétés. Ses dates sont approximatives.',
         theoryId: 'ag-arithmetique-pythagoricienne',
+        mactutor: 'Archytas',
       },
       {
         id: 'eratosthene',
@@ -424,6 +426,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Cyrène et Alexandrie',
         bio: 'Savant universel, directeur de la Bibliothèque d’Alexandrie, Ératosthène mesure la circonférence terrestre, établit une chronologie des Jeux olympiques et conçoit le « mésolabe » pour la duplication du cube. Nicomaque lui attribue la méthode du crible pour isoler les nombres premiers. Archimède lui dédie La Méthode.',
         theoryId: 'ag-theorie-euclidienne-des-nombres',
+        mactutor: 'Eratosthenes',
       },
       {
         id: 'nicomaque',
@@ -433,6 +436,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Gérase',
         bio: 'Néopythagoricien de Gérase (Jerash, en Jordanie actuelle), Nicomaque compose une Introduction arithmétique et un Manuel d’harmonique qui exposent la science du nombre sans démonstrations, en style philosophique. Son traité, adapté par Boèce, est le manuel d’arithmétique de l’Occident latin pendant mille ans. Sa vie n’est connue que par ses œuvres.',
         theoryId: 'ag-arithmetique-pythagoricienne',
+        mactutor: 'Nicomachus',
       },
       {
         id: 'diophante',
@@ -442,6 +446,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Auteur des Arithmétiques, en treize livres dont six sont conservés en grec et quatre en arabe, et d’un traité Sur les nombres polygones. Diophante résout des centaines de problèmes indéterminés en nombres rationnels avec une inconnue notée par abréviation. Sa vie est inconnue ; une épigramme de l’Anthologie palatine lui prête quatre-vingt-quatre ans, et sa datation au IIIᵉ siècle est conventionnelle.',
         theoryId: 'ag-analyse-diophantienne',
+        mactutor: 'Diophantus',
         featured: {
           signature: { kind: 'fait', text: 'Résout en nombres rationnels des centaines de problèmes indéterminés : les Arithmétiques.', sources: ['sesiano-diophante', 'heath-greek'] },
           contributions: [
@@ -477,6 +482,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Fille du mathématicien Théon, philosophe néoplatonicienne et enseignante réputée, Hypatie rédige selon la Souda des commentaires sur les Arithmétiques de Diophante, les Coniques d’Apollonius et les Tables faciles de Ptolémée, tous perdus. Son assassinat par une foule chrétienne en mars 415 en a fait un symbole ; sa date de naissance (355 ou 370) est discutée.',
         theoryId: 'ag-analyse-diophantienne',
+        mactutor: 'Hypatia',
       },
     ],
     relatedMathematicianIds: ['euclide', 'pythagore'],
@@ -848,6 +854,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Milet',
         bio: 'Premier des Sept Sages, Thalès est, selon Eudème cité par Proclus, celui qui « introduisit en Grèce » la géométrie après un séjour en Égypte. On lui attribue des propositions générales sur le cercle, les angles et les triangles, et la mesure des pyramides par leur ombre. Aucun écrit ne subsiste ; les dates et les attributions sont traditionnelles.',
         theoryId: 'gg-geometrie-ionienne-et-pythagoricienne',
+        mactutor: 'Thales',
       },
       {
         id: 'pythagore',
@@ -857,6 +864,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Samos et Crotone',
         bio: 'Fondateur à Crotone d’une communauté religieuse et politique, Pythagore n’a rien écrit, et les doctrines mathématiques de l’école (nombre comme principe, théorème du triangle rectangle, harmonie des rapports) lui ont été attribuées par une tradition postérieure. Il meurt à Métaponte. Il est ici la figure emblématique d’un mouvement plus que l’auteur de résultats attestés.',
         theoryId: 'gg-geometrie-ionienne-et-pythagoricienne',
+        mactutor: 'Pythagoras',
       },
       {
         id: 'hippocrate-de-chios',
@@ -866,6 +874,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Athènes',
         bio: 'Marchand ruiné devenu géomètre à Athènes, Hippocrate est l’auteur des premiers Éléments selon Proclus, et le premier dont une démonstration soit conservée : la quadrature de lunules, rapportée par Simplicius d’après Eudème. Il ramène la duplication du cube à l’insertion de deux moyennes proportionnelles.',
         theoryId: 'gg-elements-et-axiomatique',
+        mactutor: 'Hippocrates',
       },
       {
         id: 'theetete',
@@ -875,6 +884,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Athènes',
         bio: 'Élève de Théodore de Cyrène et membre de l’Académie, Théétète est le héros du dialogue de Platon qui porte son nom, où il généralise la preuve d’irrationalité des racines carrées. Les témoignages anciens lui attribuent la classification des irrationnelles du livre X et la construction des cinq polyèdres réguliers du livre XIII des Éléments.',
         theoryId: 'gg-incommensurables-et-proportions',
+        mactutor: 'Theaetetus',
       },
       {
         id: 'eudoxe',
@@ -884,6 +894,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Cnide',
         bio: 'Élève d’Archytas, médecin, astronome et législateur de sa cité, Eudoxe est le plus grand mathématicien du IVᵉ siècle. Il fonde la théorie des proportions applicable aux grandeurs incommensurables, prouve par exhaustion que la pyramide vaut le tiers du prisme et le cône le tiers du cylindre, et construit un modèle des mouvements planétaires par sphères homocentriques. Ses dates sont discutées.',
         theoryId: 'gg-incommensurables-et-proportions',
+        mactutor: 'Eudoxus',
       },
       {
         id: 'euclide',
@@ -893,6 +904,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Actif à Alexandrie sous Ptolémée Iᵉʳ, Euclide compose les Éléments, qui organisent en treize livres la géométrie plane, l’arithmétique, les irrationnelles et la géométrie des solides, ainsi que les Données, l’Optique, les Phénomènes et la Section du canon. On ne sait presque rien de sa vie ; ses dates sont déduites du témoignage de Proclus.',
         theoryId: 'gg-elements-et-axiomatique',
+        mactutor: 'Euclid',
         featured: {
           signature: { kind: 'fait', text: 'Organise la géométrie et l’arithmétique grecques en un édifice déductif : les Éléments.', sources: ['vitrac-euclide', 'heath-greek'] },
           contributions: [
@@ -1486,6 +1498,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Syracuse',
         bio: 'Le plus grand mathématicien de l’Antiquité, Archimède mesure le cercle, la parabole, la sphère et les spirales, fonde la statique (levier, centres de gravité) et l’hydrostatique, et conçoit des machines de guerre lors du siège de Syracuse, où il est tué en 212. Sa date de naissance est déduite de l’affirmation de Tzetzès qu’il mourut à soixante-quinze ans.',
         theoryId: 'mh-mesure-des-figures-curvilignes',
+        mactutor: 'Archimedes',
         featured: {
           signature: { kind: 'fait', text: 'Mesure le cercle, la sphère et la parabole par exhaustion, et fonde la statique.', sources: ['heath-archimedes', 'heath-greek'] },
           contributions: [
@@ -1521,6 +1534,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Pergé et Alexandrie',
         bio: 'Formé à Alexandrie et actif à Pergame, Apollonius est surnommé « le grand géomètre » par les Anciens. Ses Coniques, en huit livres, traitent avec une généralité nouvelle les sections du cône, auxquelles il donne leurs noms ; ses traités de lieux et de problèmes, perdus, sont connus par Pappus. Ses dates, déduites d’un témoignage sur Ptolémée Évergète, sont incertaines.',
         theoryId: 'mh-coniques-et-geometrie-superieure',
+        mactutor: 'Apollonius',
       },
       {
         id: 'hipparque',
@@ -1530,6 +1544,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Nicée et Rhodes',
         bio: 'Astronome observant à Rhodes entre 147 et 127, Hipparque découvre la précession des équinoxes, dresse un catalogue d’étoiles, modélise les mouvements du Soleil et de la Lune et compose, selon Théon, une table des cordes en douze livres. Seul son Commentaire sur Aratos subsiste ; le reste est connu par Ptolémée, qui en fait sa principale autorité.',
         theoryId: 'mh-astronomie-trigonometrie-et-metrique',
+        mactutor: 'Hipparchus',
       },
       {
         id: 'heron',
@@ -1539,6 +1554,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Ingénieur et mathématicien, Héron décrit des automates, des machines pneumatiques et des instruments de visée (la dioptre), et compose les Métriques, traité de mesure des figures retrouvé en 1896. Longtemps daté entre le IIIᵉ siècle avant notre ère et le IIIᵉ siècle de notre ère, il est fixé au Iᵉʳ siècle par Neugebauer grâce à une éclipse de 62 qu’il mentionne.',
         theoryId: 'mh-astronomie-trigonometrie-et-metrique',
+        mactutor: 'Heron',
       },
       {
         id: 'ptolemee',
@@ -1548,6 +1564,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Astronome, géographe et théoricien de l’harmonie et de l’optique, Ptolémée observe à Alexandrie entre 127 et 141. Sa Composition mathématique, dite Almageste, fait la synthèse de l’astronomie grecque et babylonienne dans un système géocentrique quantitatif qui règne jusqu’à Copernic ; sa Géographie fonde la cartographie mathématique. Sa vie est inconnue.',
         theoryId: 'mh-astronomie-trigonometrie-et-metrique',
+        mactutor: 'Ptolemy',
       },
       {
         id: 'pappus',
@@ -1557,6 +1574,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Alexandrie',
         bio: 'Dernier grand géomètre de l’Antiquité, Pappus rédige vers 320 une Collection mathématique en huit livres qui résume, commente et prolonge les travaux de ses prédécesseurs, et sauve ainsi de l’oubli de nombreux résultats perdus. Il commente aussi l’Almageste et le livre X des Éléments. Sa date est fixée par une éclipse qu’il observe.',
         theoryId: 'mh-coniques-et-geometrie-superieure',
+        mactutor: 'Pappus',
       },
     ],
     results: [
@@ -2006,6 +2024,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Royaume de Wei',
         bio: 'On ne sait rien de la vie de Liu Hui, sinon qu’il achève en 263, sous les Wei, un Commentaire des Neuf Chapitres qui justifie les procédures du classique par découpages de figures et raisonnements algorithmiques, et calcule π par polygones itérés. Il ajoute un traité d’arpentage, le Haidao suanjing (Classique mathématique de l’île maritime).',
         theoryId: 'mca-neuf-chapitres-et-procedures',
+        mactutor: 'Liu_Hui',
         featured: {
           signature: { kind: 'fait', text: 'Justifie les procédures des Neuf Chapitres et calcule π par polygones successifs.', sources: ['chemla-neuf-chapitres', 'martzloff-chine'] },
           contributions: [
@@ -2041,6 +2060,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Chine',
         bio: 'Auteur du Sunzi suanjing (Classique mathématique du maître Sun), à ne pas confondre avec le stratège Sun Zi de l’Art de la guerre. Son manuel décrit la numération à baguettes et pose le premier problème de restes connu. On ne connaît ni sa vie ni sa province, et sa datation entre le IIIᵉ et le Vᵉ siècle est estimée sur le contenu.',
         theoryId: 'mca-problemes-de-restes',
+        mactutor: 'Sun_Zi',
       },
       {
         id: 'zu-chongzhi',
@@ -2049,6 +2069,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Jiankang',
         bio: 'Astronome, ingénieur et mathématicien des dynasties du Sud, Zu Chongzhi compose le calendrier Daming et le Zhui shu, perdu, où il calculait π avec une précision inégalée pendant neuf siècles. Il sert les cours des Liu Song puis des Qi à Jiankang (Nankin) ; son fils Zu Geng poursuit ses travaux sur le volume de la sphère.',
         theoryId: 'mca-mesure-du-cercle',
+        mactutor: 'Zu_Chongzhi',
       },
     ],
     results: [
@@ -2367,6 +2388,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Élée',
         bio: 'Disciple de Parménide, Zénon compose une quarantaine d’arguments pour défendre la doctrine de l’Un contre la pluralité et le mouvement. Aristote, notre principale source, le dit inventeur de la dialectique. Sa rencontre avec Socrate, racontée dans le Parménide de Platon, est plausible chronologiquement mais invérifiable.',
         theoryId: 'la-infini-et-continu',
+        mactutor: 'Zeno_of_Elea',
       },
       {
         id: 'platon',
@@ -2376,6 +2398,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Athènes',
         bio: 'Disciple de Socrate et fondateur de l’Académie, Platon fait des mathématiques le degré préparatoire de la dialectique (République VII) et le modèle du savoir portant sur des objets éternels. Dans le Ménon, il met en scène un raisonnement géométrique pour illustrer la « réminiscence » ; dans le Timée, les polyèdres réguliers structurent les éléments.',
         theoryId: 'la-infini-et-continu',
+        mactutor: 'Plato',
       },
       {
         id: 'aristote',
@@ -2384,6 +2407,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Stagire et Athènes',
         bio: 'Élève de Platon pendant vingt ans, précepteur d’Alexandre, fondateur du Lycée, Aristote crée la logique formelle (Organon), la théorie de la science démonstrative et la distinction entre infini en puissance et en acte. Sa critique des paradoxes de Zénon dans la Physique est la plus ancienne analyse conservée du continu.',
         theoryId: 'la-science-demonstrative',
+        mactutor: 'Aristotle',
         featured: {
           signature: { kind: 'fait', text: 'Crée la logique formelle, la syllogistique, et la théorie de la science démonstrative.', sources: ['kneale-logic', 'sep'] },
           contributions: [
@@ -2419,6 +2443,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Soles et Athènes',
         bio: 'Troisième chef du Portique après Zénon de Kition et Cléanthe, Chrysippe est tenu pour le second fondateur du stoïcisme : « sans Chrysippe, point de Portique ». Il développe une logique des propositions, des schémas d’inférence indémontrables et une logique modale. De ses centaines de traités, tous perdus, ne restent que des fragments.',
         theoryId: 'la-logique-propositionnelle-stoicienne',
+        mactutor: 'Chrysippus',
       },
       {
         id: 'proclus',
@@ -2427,6 +2452,7 @@ export const ANTIQUITE: Domain[] = [
         origin: 'Athènes',
         bio: 'Philosophe néoplatonicien formé à Alexandrie puis à Athènes, où il dirige l’Académie, Proclus écrit des commentaires sur Platon, un manuel de théologie platonicienne et un Commentaire sur le premier livre des Éléments, source majeure sur l’histoire de la géométrie grecque grâce au résumé d’Eudème qu’il conserve.',
         theoryId: 'la-science-demonstrative',
+        mactutor: 'Proclus',
       },
     ],
     results: [
