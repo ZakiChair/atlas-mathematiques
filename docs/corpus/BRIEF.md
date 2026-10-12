@@ -897,8 +897,8 @@ Avenant « Galerie » (plan `docs/superpowers/plans/2026-10-12-pendant-physique.
   toutes les règles des domaines mathématiques (§ 3), y compris récits
   contexte/portée, théories, repères et sources propres.
 - **Figures** : physicien·nes en fiches courtes du modèle § 11, dans
-  `src/data/figures/physique-{a,b,c}.ts`. Un physicien déjà figure de l'atlas
-  n'est jamais redéfini : `relatedMathematicianIds`.
+  `src/data/figures/physique-{a,b,c,d}.ts`. Un physicien déjà figure de
+  l'atlas n'est jamais redéfini : `relatedMathematicianIds`.
 - **Liens** : mêmes natures ; un `principal` au plus par domaine d'arrivée,
   y compris vers un domaine physique. Les interconnexions maths ↔ physique
   sont l'objet du pendant : chaque domaine physique doit avoir au moins un

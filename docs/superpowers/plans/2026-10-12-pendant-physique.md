@@ -39,13 +39,14 @@ Arbitrages validés :
 - Tests : rendu niveau 2, pas de régression e2e.
 
 ### 5.2 Domaines physiques (squelettes)
-Quinze domaines, écrits par ère dans trois fichiers :
+Quinze domaines, écrits par ère dans quatre fichiers :
 
-| Fichier | Domaines |
-|---|---|
-| `physique-a.ts` (av. J.-C. → 1700) | `optique-antique-et-medievale` (Euclide, Alhazen, Grosseteste, Peckham) ; `astronomie-mathematique` (Ptolémée → Copernic, Brahe, Kepler) ; `mecanique-impetus-et-galilee` (Buridan, Oresme, Stevin, Galilée, Torricelli) |
-| `physique-b.ts` (1700 → 1900) | `mecanique-celeste` (Clairaut, Lagrange, Laplace, Le Verrier) ; `ondes-et-acoustique` (corde vibrante, Chladni, Doppler) ; `electricite-et-electromagnetisme` (Franklin, Coulomb, Volta, Ørsted, Ampère, Faraday, Maxwell, Heaviside, Hertz) ; `thermodynamique-et-mecanique-statistique` (Carnot, Joule, Kelvin, Clausius, Boltzmann, Gibbs) ; `optique-ondulatoire` (Young, Fresnel, Foucault, Fizeau) |
-| `physique-c.ts` (1900 → auj.) | `relativite-et-gravitation` (Einstein, Minkowski, Schwarzschild, Friedmann, Eddington) ; `mecanique-quantique` (Planck, Einstein, Bohr, de Broglie, Heisenberg, Schrödinger, Dirac, Pauli, Born) ; `rayonnement-et-particules` (Röntgen, Becquerel, Curie, Rutherford, Fermi) ; `theorie-quantique-des-champs` (Feynman, Schwinger, Tomonaga, Dyson, Yang, Lee, Weinberg, 't Hooft) ; `physique-statistique-et-matiere-condensee` (Landau, Onsager, Kadanoff, Wilson, Anderson, Parisi) ; `gravitation-et-cosmologie` (Lemaître, Hoyle, Penzias-Wilson, Hawking, Rubin) ; `chaos-physique-et-non-lineaire` (Lorenz, Ruelle, Feigenbaum, Prigogine) |
+| Fichier | Domaines | Carte (x, y, ère) |
+|---|---|---|
+| `physique-a.ts` (av. J.-C. → 1700) | `optique-antique-et-medievale` (Euclide, Alhazen, Grosseteste, Peckham, Witelo) ; `astronomie-mathematique` (Ptolémée → Copernic, Brahe, Kepler) ; `mecanique-impetus-et-galilee` (Jordanus, Buridan, Oresme, Stevin, Galilée, Torricelli) | (1300, 4750, medieval) ; (2150, 4950, renaissance) ; (2350, 5150, renaissance) |
+| `physique-b.ts` (1700 → 1900) | `mecanique-celeste` (Clairaut, Lagrange, Laplace, Le Verrier) ; `ondes-et-acoustique` (corde vibrante, Chladni, Doppler) ; `electricite-et-electromagnetisme` (Franklin, Coulomb, Volta, Ørsted, Ampère, Faraday, Maxwell, Heaviside, Hertz) ; `thermodynamique-et-mecanique-statistique` (S. Carnot, Joule, Kelvin, Clausius, Boltzmann, Gibbs) ; `optique-ondulatoire` (Young, Fresnel, Foucault, Fizeau) | (2900, 4700, lumieres) ; (3450, 5150, dixneuvieme) ; (4000, 4800, dixneuvieme) ; (4300, 5100, dixneuvieme) ; (3650, 4550, dixneuvieme) |
+| `physique-c.ts` (1900 → 1955) | `relativite-et-gravitation` (Einstein, Minkowski, Schwarzschild, Friedmann, Eddington) ; `mecanique-quantique` (Planck, Einstein, Bohr, de Broglie, Heisenberg, Schrödinger, Dirac, Pauli, Born) ; `rayonnement-et-particules` (Röntgen, Becquerel, Curie, Rutherford, Fermi) ; `theorie-quantique-des-champs` (Feynman, Schwinger, Tomonaga, Dyson, Yang, Lee, Weinberg, 't Hooft) | (5000, 4650, structures) ; (5300, 4900, structures) ; (5600, 4700, structures) ; (6150, 5100, contemporain) |
+| `physique-d.ts` (1950 → auj.) | `physique-statistique-et-matiere-condensee` (L. Landau, Onsager, Kadanoff, K. Wilson, Anderson, Parisi) ; `gravitation-et-cosmologie` (Lemaître, Gamow, Hoyle, Penzias-Wilson, Hawking, Rubin) ; `chaos-physique-et-non-lineaire` (Lorenz, Ruelle, Feigenbaum, Prigogine) | (6450, 4750, contemporain) ; (6750, 5000, contemporain) ; (7050, 4650, contemporain) |
 
 Chaque domaine : tagline, summary, methods/context/debates sourcés, 2–4
 théories, 4–8 résultats physiques avec contexte/portée, `keyDates`,
