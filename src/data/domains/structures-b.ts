@@ -180,7 +180,28 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'pmo-axiomatisation-et-mesure',
         featured: {
           signature: { kind: 'fait', text: 'Fixe les axiomes du calcul des probabilités (Grundbegriffe, 1933).', sources: ['von-plato-creating', 'shafer-vovk-grundbegriffe'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'interpretation',
+              text: 'Pour Shafer et Vovk, la nouveauté des Grundbegriffe ne tient pas aux axiomes eux-mêmes, que d’autres avaient déjà formulés, mais à deux apports : l’espérance conditionnelle définie par le théorème de Radon–Nikodym et le théorème d’extension, qui garantit l’existence de lois sur des espaces de trajectoires. Le calcul des probabilités devient un chapitre de la théorie de la mesure, et une variable aléatoire une fonction mesurable.',
+              sources: ['shafer-vovk-grundbegriffe', 'von-plato-creating'],
+            },
+            {
+              kind: 'fait',
+              text: 'Avec Khintchine, il bâtit la théorie moderne des sommes de variables indépendantes : théorème des trois séries, inégalité maximale (1928), loi forte générale (1930), loi du zéro-un (1933). Ces inégalités sur les sommes partielles sont le point de départ des inégalités de martingales et du calcul stochastique.',
+              sources: ['kolmogorov-selected', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Son article de 1931 sur les méthodes analytiques fonde la théorie des processus de Markov à temps continu et des diffusions, reliant probabilités et équations paraboliques ; ses lois d’échelle de la turbulence (1941) et son théorème sur la persistance des mouvements quasi périodiques (1954), point de départ de la théorie KAM, font des probabilités et des systèmes dynamiques des instruments de la physique.',
+              sources: ['von-plato-creating', 'mactutor', 'gowers-companion'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Revenu dans les années 1960 à la question de von Mises que les axiomes de 1933 avaient écartée — qu’est-ce qu’une suite aléatoire ? —, il définit la complexité d’un objet fini par la longueur du plus court programme qui l’engendre (1965) et ouvre la théorie algorithmique de l’information. Chef de l’école de Moscou, il forme Gnedenko, Gelfand et Malcev, et consacre ses dernières décennies à une école pour enfants doués.',
+              sources: ['von-plato-creating', 'gowers-companion', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['grundbegriffe-der-wahrscheinlichkeitsrechnung', 'theoreme-d-extension-de-kolmogorov', 'methodes-analytiques-de-kolmogorov'],
         },
       },
@@ -965,7 +986,28 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'cal-completude-et-incompletude',
         featured: {
           signature: { kind: 'fait', text: 'Montre qu’une théorie cohérente assez riche contient des énoncés indécidables (1931).', sources: ['dawson-godel', 'van-heijenoort'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'En codant symboles, formules et démonstrations par des entiers et en isolant la classe des fonctions récursives primitives, il fait de la syntaxe d’un système formel un objet arithmétique : la métamathématique de Hilbert devient un calcul. Church et Turing reprennent ce dispositif en 1936, et Kleene en tire la théorie de la récursion.',
+              sources: ['dawson-godel', 'van-heijenoort', 'davis-universal'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses deux résultats de 1930 et 1931 tracent une frontière durable : la logique du premier ordre est complète, mais toute théorie cohérente contenant l’arithmétique est incomplète. Vérité et démontrabilité deviennent deux notions distinctes, dont Tarski (1933) mesure l’écart ; la théorie des modèles reçoit son premier outil, la compacité, corollaire de 1930, et la théorie de la démonstration sa limite.',
+              sources: ['van-heijenoort', 'sep', 'dawson-godel'],
+            },
+            {
+              kind: 'fait',
+              text: 'En théorie des ensembles, il construit l’univers des ensembles « constructibles » (1938-1940) et montre que l’axiome du choix et l’hypothèse généralisée du continu sont cohérents avec les axiomes usuels ; la méthode des modèles intérieurs qu’il inaugure est la moitié dont Cohen complète en 1963 la preuve d’indépendance. Dans « What is Cantor’s Continuum Problem? » (1947), il plaide pour de nouveaux axiomes de l’infini capables de trancher la question.',
+              sources: ['dawson-godel', 'kanamori-higher-infinite', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Sans élève de doctorat, Gödel agit à Princeton par ses conversations et sa correspondance. Il exhibe en 1949 des solutions en rotation des équations d’Einstein où existent des courbes temporelles fermées, donne en 1958 une preuve de cohérence de l’arithmétique par des fonctionnelles de type fini (l’interprétation « Dialectica ») et défend, dans ses écrits philosophiques, un platonisme mathématique explicite.',
+              sources: ['dawson-godel', 'mactutor', 'sep'],
+            },
+          ],
           headlineResultIds: ['theoremes-d-incompletude', 'theoreme-de-completude', 'fonctions-recursives-generales'],
         },
       },
@@ -994,7 +1036,28 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'cal-modeles-de-calcul',
         featured: {
           signature: { kind: 'fait', text: 'Définit la machine qui porte son nom et prouve l’indécidabilité de l’arrêt (1936).', sources: ['hodges-turing', 'davis-universal'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'De la machine universelle, il passe aux machines réelles : son rapport sur l’ACE (mars 1946) est un projet détaillé de calculateur à programme enregistré, et à Manchester, à partir de 1948, il écrit des sous-programmes, le manuel de programmation de la machine de Ferranti (1951) et l’une des premières analyses des erreurs d’arrondi dans l’élimination de Gauss (1948).',
+              sources: ['hodges-turing', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Sa thèse de Princeton, Systems of Logic Based on Ordinals (1939), introduit les machines « à oracle » : la calculabilité devient relative, et Post en tire en 1944 les degrés d’insolubilité. En 1950, il démontre l’insolubilité du problème du mot pour les demi-groupes à simplification, étape vers le résultat de Novikov et Boone pour les groupes.',
+              sources: ['hodges-turing', 'davis-universal', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'À Bletchley Park, il conçoit avec Gordon Welchman la « bombe » qui casse à partir de la fin de 1940 les chiffrements Enigma de la Luftwaffe, puis attaque l’Enigma navale par des méthodes bayésiennes de pondération des indices (le « ban », unité de poids d’évidence) : le décryptage devient un problème de statistique.',
+              sources: ['hodges-turing', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses deux derniers programmes ouvrent des disciplines : « Computing Machinery and Intelligence » (1950) remplace la question « les machines peuvent-elles penser ? » par un test comportemental et fixe les termes du débat sur l’intelligence artificielle ; « The Chemical Basis of Morphogenesis » (1952) montre qu’une réaction chimique couplée à la diffusion peut briser spontanément la symétrie et engendrer des motifs, et passe pour l’un des actes fondateurs de la biologie mathématique.',
+              sources: ['hodges-turing', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['on-computable-numbers', 'probleme-de-l-arret', 'machine-de-turing-universelle'],
         },
       },
@@ -1371,7 +1434,28 @@ export const STRUCTURES_B: Domain[] = [
         theoryId: 'fhb-axiomatique-et-metamathematique',
         featured: {
           signature: { kind: 'fait', text: 'Axiomatise la géométrie, pose 23 problèmes au siècle (1900) et fonde la métamathématique.', sources: ['reid-hilbert', 'gray-hilbert-challenge'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Son théorème de la base (1888-1890) établit l’existence d’un système fini d’invariants sans en construire aucun : contre le calcul symbolique de Gordan, qui aurait parlé de « théologie », il impose le raisonnement d’existence comme mode de démonstration légitime, avant d’en donner lui-même une version constructive (1893).',
+              sources: ['reid-hilbert', 'kleiner-abstract-algebra', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'La méthode des Grundlagen der Geometrie — des axiomes qui ne caractérisent les objets que par leurs relations, une indépendance et une cohérence relative établies par des modèles — est érigée en programme général dans « Axiomatisches Denken » (1918) ; pour Leo Corry, elle est l’une des sources de l’image structurale des mathématiques qu’imposent la Moderne Algebra de van der Waerden (1930) puis les Éléments de Bourbaki.',
+              sources: ['ewald-kant-hilbert', 'corry-structures'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses six communications sur les équations intégrales (1904-1910) introduisent l’espace des suites de carré sommable et la théorie spectrale des formes quadratiques à une infinité de variables : l’« espace de Hilbert », que von Neumann axiomatisera en 1929 pour la mécanique quantique. Il porte la même exigence axiomatique vers la physique, de la théorie cinétique des gaz aux équations de la gravitation (novembre 1915).',
+              sources: ['kline-thought', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'À Göttingen, il forme, entre autres, Dehn, Weyl, Hecke, Courant et Ackermann, fait venir Emmy Noether en 1915 et obtient son habilitation en 1919 après un premier refus de la faculté. Avec Bernays et Ackermann, il fait des démonstrations formalisées des objets mathématiques et pose, dans les Grundzüge der theoretischen Logik (1928), les questions de complétude et de décision auxquelles répondront Gödel, Church et Turing.',
+              sources: ['reid-hilbert', 'mactutor', 'davis-universal'],
+            },
+          ],
           headlineResultIds: ['problemes-de-hilbert', 'grundlagen-der-geometrie', 'theoreme-de-la-base-de-hilbert'],
         },
       },
