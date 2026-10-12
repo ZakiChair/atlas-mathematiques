@@ -10,6 +10,10 @@ import { SOURCES_STRUCTURES_A } from './domains/structures-a';
 import { SOURCES_STRUCTURES_B } from './domains/structures-b';
 import { SOURCES_CONTEMPORAIN_A } from './domains/contemporain-a';
 import { SOURCES_CONTEMPORAIN_B } from './domains/contemporain-b';
+import { SOURCES_PHYSIQUE_A } from './domains/physique-a';
+import { SOURCES_PHYSIQUE_B } from './domains/physique-b';
+import { SOURCES_PHYSIQUE_C } from './domains/physique-c';
+import { SOURCES_PHYSIQUE_D } from './domains/physique-d';
 
 /**
  * Registre des sources. Les identifiants sont référencés par les domaines,
@@ -31,6 +35,10 @@ export const SOURCES: Source[] = [
   ...SOURCES_STRUCTURES_B,
   ...SOURCES_CONTEMPORAIN_A,
   ...SOURCES_CONTEMPORAIN_B,
+  ...SOURCES_PHYSIQUE_A,
+  ...SOURCES_PHYSIQUE_B,
+  ...SOURCES_PHYSIQUE_C,
+  ...SOURCES_PHYSIQUE_D,
 ];
 
 export const SOURCE_BY_ID: Record<string, Source> = Object.fromEntries(SOURCES.map((s) => [s.id, s]));

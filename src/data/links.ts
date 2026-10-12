@@ -9,6 +9,10 @@ import { LINKS_STRUCTURES_A } from './domains/structures-a';
 import { LINKS_STRUCTURES_B } from './domains/structures-b';
 import { LINKS_CONTEMPORAIN_A } from './domains/contemporain-a';
 import { LINKS_CONTEMPORAIN_B } from './domains/contemporain-b';
+import { LINKS_PHYSIQUE_A } from './domains/physique-a';
+import { LINKS_PHYSIQUE_B } from './domains/physique-b';
+import { LINKS_PHYSIQUE_C } from './domains/physique-c';
+import { LINKS_PHYSIQUE_D } from './domains/physique-d';
 
 /**
  * Liens entre domaines. Chaque lien est déclaré dans le fichier de l'ère de
@@ -26,4 +30,8 @@ export const LINKS: Link[] = [
   ...LINKS_STRUCTURES_B,
   ...LINKS_CONTEMPORAIN_A,
   ...LINKS_CONTEMPORAIN_B,
+  ...LINKS_PHYSIQUE_A,
+  ...LINKS_PHYSIQUE_B,
+  ...LINKS_PHYSIQUE_C,
+  ...LINKS_PHYSIQUE_D,
 ];

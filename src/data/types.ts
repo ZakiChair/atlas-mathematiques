@@ -45,10 +45,11 @@ export interface Era {
 }
 
 /**
- * Les cinq « continents » de la carte (axe vertical) : grands champs des mathématiques.
+ * Les six « continents » de la carte (axe vertical) : grands champs des mathématiques,
+ * puis la physique (pendant ajouté pour les interconnexions maths ↔ physique).
  * Un domaine appartient à un continent principal mais peut en toucher plusieurs.
  */
-export type ContinentId = 'nombres' | 'formes' | 'analyse' | 'hasard' | 'fondements';
+export type ContinentId = 'nombres' | 'formes' | 'analyse' | 'hasard' | 'fondements' | 'physique';
 
 export interface Continent {
   id: ContinentId;
@@ -189,6 +190,12 @@ export interface Result {
    * courant. Théorèmes, et conjectures ou problèmes une fois démontrés ou résolus.
    */
   proof?: Statement[];
+  /**
+   * Résultat majeur de l'atlas (liste éditoriale, ~30) : rendu en gros losange
+   * avec titre dès le niveau 2 de zoom, pastille dans la fiche. Les résultats
+   * phares des grandes figures bénéficient du même traitement sans porter le flag.
+   */
+  major?: boolean;
 }
 
 /** Lien entre deux mathématicien·nes : filiation (maître/élève), influence, collaboration, affinité ou rupture. */

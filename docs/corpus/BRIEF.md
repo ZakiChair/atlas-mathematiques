@@ -887,3 +887,23 @@ Une cible est un plafond indicatif, pas un quota.
 | 4.11 | `contemporain-a` (+80) | systemes-dynamiques-et-chaos 10→20, theorie-des-nombres-contemporaine 12→28, algebre-contemporaine 11→20, geometrie-algebrique-moderne 8→28, topologie-et-geometrie-contemporaines 13→28, analyse-contemporaine 10→20 |
 | 4.12 | `contemporain-b` (+61) | calcul-scientifique-et-preuves-assistees 11→20, combinatoire 11→20, cryptographie-et-codes 11→20, probabilites-et-statistique-contemporaines 11→20, complexite-et-informatique-theorique 12→28, logique-et-ensembles-contemporains 11→20 |
 
+
+## 12. Pendant physique et résultats majeurs
+
+Avenant « Galerie » (plan `docs/superpowers/plans/2026-10-12-pendant-physique.md`).
+
+- **Continent `physique`** : sixième bande verticale de la carte (y 4500→5400,
+  `MAP_SIZE.height` 5400), teinte de champ 175°. Les domaines physiques suivent
+  toutes les règles des domaines mathématiques (§ 3), y compris récits
+  contexte/portée, théories, repères et sources propres.
+- **Figures** : physicien·nes en fiches courtes du modèle § 11, dans
+  `src/data/figures/physique-{a,b,c}.ts`. Un physicien déjà figure de l'atlas
+  n'est jamais redéfini : `relatedMathematicianIds`.
+- **Liens** : mêmes natures ; un `principal` au plus par domaine d'arrivée,
+  y compris vers un domaine physique. Les interconnexions maths ↔ physique
+  sont l'objet du pendant : chaque domaine physique doit avoir au moins un
+  lien documenté vers un domaine mathématique.
+- **Résultats majeurs** : `major: true` sur `Result` — une trentaine
+  éditoriale dans tout l'atlas ; les résultats phares des grandes figures
+  bénéficient du même traitement visuel sans porter le flag.
+- Domaines et cibles : voir le plan § 5.2 (~15 domaines, ~120 figures).

@@ -9,6 +9,10 @@ import { STRUCTURES_A } from './domains/structures-a';
 import { STRUCTURES_B } from './domains/structures-b';
 import { CONTEMPORAIN_A } from './domains/contemporain-a';
 import { CONTEMPORAIN_B } from './domains/contemporain-b';
+import { PHYSIQUE_A } from './domains/physique-a';
+import { PHYSIQUE_B } from './domains/physique-b';
+import { PHYSIQUE_C } from './domains/physique-c';
+import { PHYSIQUE_D } from './domains/physique-d';
 import { EXTRA_FIGURES } from './figures';
 
 export { ERAS, CONTINENTS, ERA_BANDS, TIME_BOUNDS, MAP_SIZE } from './eras';
@@ -28,6 +32,10 @@ export const DOMAINS: Domain[] = [
   ...STRUCTURES_B,
   ...CONTEMPORAIN_A,
   ...CONTEMPORAIN_B,
+  ...PHYSIQUE_A,
+  ...PHYSIQUE_B,
+  ...PHYSIQUE_C,
+  ...PHYSIQUE_D,
 ]
   .map((d) => (EXTRA_FIGURES[d.id] ? { ...d, mathematicians: [...d.mathematicians, ...EXTRA_FIGURES[d.id]] } : d))
   .sort((a, b) => a.period.start - b.period.start);

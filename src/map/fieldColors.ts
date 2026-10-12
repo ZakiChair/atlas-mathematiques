@@ -11,6 +11,7 @@ export const FIELD_HUE: Record<ContinentId, number> = {
   analyse: 265, // violet
   hasard: 14, // terre cuite
   fondements: 140, // vert sauge
+  physique: 175, // sarcelle
 };
 
 export interface FieldColors {

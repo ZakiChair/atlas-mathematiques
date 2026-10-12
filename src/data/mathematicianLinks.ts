@@ -9,6 +9,10 @@ import { MATHEMATICIAN_LINKS_STRUCTURES_A } from './domains/structures-a';
 import { MATHEMATICIAN_LINKS_STRUCTURES_B } from './domains/structures-b';
 import { MATHEMATICIAN_LINKS_CONTEMPORAIN_A } from './domains/contemporain-a';
 import { MATHEMATICIAN_LINKS_CONTEMPORAIN_B } from './domains/contemporain-b';
+import { MATHEMATICIAN_LINKS_PHYSIQUE_A } from './domains/physique-a';
+import { MATHEMATICIAN_LINKS_PHYSIQUE_B } from './domains/physique-b';
+import { MATHEMATICIAN_LINKS_PHYSIQUE_C } from './domains/physique-c';
+import { MATHEMATICIAN_LINKS_PHYSIQUE_D } from './domains/physique-d';
 
 /**
  * Liens entre mathématicien·nes, à travers les domaines et les époques.
@@ -29,6 +33,10 @@ export const MATHEMATICIAN_LINKS: MathematicianLink[] = [
   ...MATHEMATICIAN_LINKS_STRUCTURES_B,
   ...MATHEMATICIAN_LINKS_CONTEMPORAIN_A,
   ...MATHEMATICIAN_LINKS_CONTEMPORAIN_B,
+  ...MATHEMATICIAN_LINKS_PHYSIQUE_A,
+  ...MATHEMATICIAN_LINKS_PHYSIQUE_B,
+  ...MATHEMATICIAN_LINKS_PHYSIQUE_C,
+  ...MATHEMATICIAN_LINKS_PHYSIQUE_D,
 ];
 
 /** Index par mathématicien·ne (source et cible). */

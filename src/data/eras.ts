@@ -56,6 +56,7 @@ export const CONTINENTS: Continent[] = [
   { id: 'analyse', name: 'Analyse et mouvement', shortName: 'Analyse', laneY: 2290, y0: 1860, y1: 2720 },
   { id: 'hasard', name: 'Hasard, discret et calcul', shortName: 'Hasard et calcul', laneY: 3230, y0: 2720, y1: 3740 },
   { id: 'fondements', name: 'Logique et fondements', shortName: 'Fondements', laneY: 4120, y0: 3740, y1: 4500 },
+  { id: 'physique', name: 'Physique', shortName: 'Physique', laneY: 4950, y0: 4500, y1: 5400 },
 ];
 
 /**
@@ -78,4 +79,4 @@ export const ERA_BANDS: { era: EraId; x0: number; x1: number }[] = [
 export const TIME_BOUNDS = { start: -1800, end: 2025 } as const;
 
 /** Dimensions de l'espace carte en unités virtuelles. */
-export const MAP_SIZE = { width: 7400, height: 4500 } as const;
+export const MAP_SIZE = { width: 7400, height: 5400 } as const;
