@@ -177,7 +177,28 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'pm-dynamique-et-probleme-de-cauchy',
         featured: {
           signature: { kind: 'fait', text: 'Démontre l’existence de solutions analytiques pour une large classe d’EDP.', sources: ['kline-thought', 'bottazzini-higher-calculus'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Sa thèse, publiée dans le Journal de Crelle en 1875, donne au problème de Cauchy sa forme générale : un système d’équations aux dérivées partielles mis sous « forme normale », à coefficients et données analytiques, admet une unique solution analytique, obtenue en majorant les coefficients de la série formelle par ceux d’un système auxiliaire que l’on sait résoudre — le « calcul des limites » que Cauchy avait inauguré en 1842. Le théorème porte depuis leurs deux noms.',
+              sources: ['kline-thought', 'bottazzini-higher-calculus', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Elle porte la théorie des fonctions de Weierstrass vers la mécanique : réduction d’une classe d’intégrales abéliennes aux intégrales elliptiques, forme des anneaux de Saturne, et surtout le mémoire couronné par le prix Bordin, où un cas particulier de la rotation d’un corps pesant autour d’un point fixe s’intègre à l’aide de fonctions hyperelliptiques du temps ; l’Académie des sciences porte pour l’occasion le prix de 3 000 à 5 000 francs, et l’Académie de Suède couronne en 1889 la suite de ce travail.',
+              sources: ['mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'À Stockholm, où elle enseigne en suédois, elle siège au comité de rédaction des Acta Mathematica, assure pour Mittag-Leffler la liaison avec les mathématiciens de Paris et de Berlin, et obtient en juin 1889 une chaire en titre — la première pour une femme dans une université européenne depuis Laura Bassi et Maria Gaetana Agnesi ; la même année, sur l’initiative de Tchebychev, l’Académie impériale de Saint-Pétersbourg modifie son règlement pour l’élire membre correspondante.',
+              sources: ['mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour sa biographe Ann Hibner Koblitz, Kovalevskaïa passait à sa mort pour l’égale de n’importe quel mathématicien de sa génération, Poincaré, Picard et Mittag-Leffler compris ; les jugements contemporains qui ne voyaient dans son œuvre que l’exécution habile des idées de ses maîtres relèvent du préjugé, non de l’examen de ses travaux.',
+              sources: ['mactutor'],
+            },
+          ],
           headlineResultIds: ['theoreme-de-cauchy-kovalevskaia'],
         },
       },
@@ -924,7 +945,28 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'lm-algebre-de-la-logique',
         featured: {
           signature: { kind: 'fait', text: 'Traduit la logique en algèbre : les lois de la pensée comme calcul sur 0 et 1 (1854).', sources: ['machale-boole', 'grattan-guinness-search'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Boole fait entrer la logique dans les mathématiques en lui appliquant le calcul des opérations de l’école algébrique anglaise : les symboles de classes obéissent aux lois de l’algèbre ordinaire, restreintes par la seule « loi d’indice » x² = x, d’où il tire le principe de contradiction x(1 − x) = 0 ; tout problème logique se traduit en équations que l’on résout par développement et élimination, quitte à passer par des expressions sans interprétation, comme l’analyse passe par √−1.',
+              sources: ['machale-boole', 'grattan-guinness-search'],
+            },
+            {
+              kind: 'fait',
+              text: 'La seconde partie des Laws of Thought fait des probabilités une logique des événements : combinés comme des classes, ceux-ci relèvent du même calcul, et Boole pose le « problème général » — trouver la probabilité d’un événement à partir de celles d’événements dont il dépend logiquement —, qu’il résout par sa méthode en traitant les événements simples comme indépendants.',
+              sources: ['machale-boole', 'grattan-guinness-search'],
+            },
+            {
+              kind: 'fait',
+              text: 'En analyse, il sépare les symboles d’opération des symboles de quantité pour résoudre les équations différentielles linéaires, et ses traités sur les équations différentielles (1859) et sur le calcul des différences finies (1860) restent des manuels influents ; c’est ce calcul symbolique, pratiqué d’abord sur les fonctions, qu’il transpose aux classes et aux propositions.',
+              sources: ['mactutor', 'machale-boole'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Grattan-Guinness, l’« algèbre de Boole » des manuels n’est pas tout à fait celle de Boole, dont la somme ne vaut que pour des classes disjointes et dont les calculs passent par des termes sans interprétation : la structure moderne doit autant à Jevons, Peirce et Schröder qu’à lui. C’est pourtant sous son nom qu’elle passe au XXᵉ siècle dans la conception des circuits de commutation, et Davis en fait une étape de la route qui mène de Leibniz à Turing.',
+              sources: ['grattan-guinness-search', 'mactutor', 'davis-universal'],
+            },
+          ],
           headlineResultIds: ['the-laws-of-thought', 'the-mathematical-analysis-of-logic'],
         },
       },
@@ -1308,7 +1350,28 @@ export const DIXNEUVIEME_B: Domain[] = [
         theoryId: 'tde-nombres-transfinis',
         featured: {
           signature: { kind: 'fait', text: 'Crée la théorie des ensembles et montre qu’il existe des infinis de tailles différentes.', sources: ['dauben-cantor', 'ferreiros-labyrinth'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Cantor fait de la correspondance biunivoque le critère de la « puissance » d’un ensemble et en tire une hiérarchie des infinis : entiers, rationnels et nombres algébriques sont dénombrables, les réels ne le sont pas, et l’ensemble des parties d’un ensemble a toujours une puissance plus grande que lui. Les Beiträge (1895-1897) organisent cette hiérarchie en une arithmétique des cardinaux et des types d’ordre, dont ℵ₀ et 2^ℵ₀ sont les premiers symboles.',
+              sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Dauben, l’apport majeur des Grundlagen (1883) est de présenter les nombres transfinis comme un prolongement autonome et systématique des entiers, soutenu par une défense philosophique et théologique de l’infini actuel : Cantor y distingue le transfini, accessible au calcul, de l’Absolu, qui échappe à toute détermination, et revendique contre Aristote et Gauss le droit de compter au-delà du fini.',
+              sources: ['dauben-cantor', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses ensembles de points — dérivés itérés, ensembles de première espèce, partout denses, parfaits, dont l’ensemble triadique de 1883 — fournissent à l’analyse ses nouveaux objets : Borel, Baire et Lebesgue bâtiront sur eux la théorie de la mesure et de l’intégrale, Hausdorff la topologie générale.',
+              sources: ['ferreiros-labyrinth', 'dauben-cantor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Hors de son œuvre écrite, Cantor fonde en 1890 la Deutsche Mathematiker-Vereinigung, qu’il préside jusqu’en 1893, et milite pour des congrès internationaux de mathématiciens, dont le premier se tient à Zurich en 1897 ; Hilbert saluera en 1925 le « paradis » que Cantor a créé pour les mathématiciens.',
+              sources: ['mactutor', 'dauben-cantor', 'ferreiros-labyrinth'],
+            },
+          ],
           headlineResultIds: ['non-denombrabilite-des-reels', 'argument-diagonal', 'hypothese-du-continu'],
         },
       },
