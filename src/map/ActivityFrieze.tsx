@@ -154,12 +154,12 @@ export const ActivityFrieze = memo(function ActivityFrieze({ controller, height,
             );
           })}
           {streams.map((s) => (
-            <path key={s.c} d={s.d} fill={FIELD_COLORS[s.c].water} fillOpacity={0.9} stroke={FIELD_COLORS[s.c].bank} strokeWidth={0.7} />
+            <path key={s.c} d={s.d} fill={FIELD_COLORS[s.c].wash} stroke={FIELD_COLORS[s.c].ink} strokeOpacity={0.45} strokeWidth={0.7} />
           ))}
           {sel && <rect className="frieze-selected" x={sx(sel.x0)} y={top} width={Math.max(2, sx(sel.x1) - sx(sel.x0))} height={bottom - top} rx={2} />}
           {/* hors fenêtre : voile de papier */}
-          <rect x={PAD_L} y={top - 2} width={Math.max(0, sx(wx0) - PAD_L)} height={bottom - top + 4} fill="rgba(247,243,234,0.6)" />
-          <rect x={sx(wx1)} y={top - 2} width={Math.max(0, PAD_L + plotW - sx(wx1))} height={bottom - top + 4} fill="rgba(247,243,234,0.6)" />
+          <rect x={PAD_L} y={top - 2} width={Math.max(0, sx(wx0) - PAD_L)} height={bottom - top + 4} fill="rgba(251,250,247,0.65)" />
+          <rect x={sx(wx1)} y={top - 2} width={Math.max(0, PAD_L + plotW - sx(wx1))} height={bottom - top + 4} fill="rgba(251,250,247,0.65)" />
           <rect className="frieze-window" x={sx(wx0)} y={top - 2} width={Math.max(2, sx(wx1) - sx(wx0))} height={bottom - top + 4} rx={3} />
           {ticks.map((y) => (
             <text key={y} className="frieze-tick" x={sx(yearToX(y))} y={height - 3} textAnchor="middle">
@@ -178,7 +178,7 @@ export const ActivityFrieze = memo(function ActivityFrieze({ controller, height,
           <span className="font-serif italic font-semibold text-sm mr-2">≈ {formatYear(displayYear(xToYear(hover)), lang)}</span>
           {ORDER.map((c) => (
             <span key={c} className="mr-2">
-              <span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ background: FIELD_COLORS[c].water, border: `1px solid ${FIELD_COLORS[c].bank}` }} />
+              <span className="inline-block w-2 h-2 rounded-full mr-1 align-middle" style={{ background: FIELD_COLORS[c].wash, border: `1px solid ${FIELD_COLORS[c].ink}` }} />
               {continentName.get(c)} {data.series[c][hoverBin]}
             </span>
           ))}

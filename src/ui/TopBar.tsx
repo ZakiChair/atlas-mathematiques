@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SlidersHorizontal, Info, BookOpen, Search, X, Layers } from 'lucide-react';
+import { SlidersHorizontal, Info, BookOpen, Search, X } from 'lucide-react';
 import { useStore } from '../state/store';
 import { SearchBox } from './SearchBox';
 import { LangSwitcher } from '../i18n/LangSwitcher';
@@ -48,9 +48,6 @@ export function TopBar({ onNavigate }: Props) {
           onClick={() => setMobileSearch(true)}
         >
           <Search size={17} />
-        </button>
-        <button className="glass p-2.5 hover:bg-ink/8" aria-label={t('nav.visions')} onClick={() => dispatch({ type: 'toggle-ui', key: 'visionOpen' })}>
-          <Layers size={17} />
         </button>
         <button className="glass p-2.5 hover:bg-ink/8" aria-label={t('nav.filters')} onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
           <SlidersHorizontal size={17} />

@@ -1,13 +1,12 @@
 /**
- * Régénère les palettes des 58 domaines pour la DA « fleuves et confluences » :
- * papier clair, encre et lavis d'aquarelle. Une famille de teintes par champ
- * (la même que celle de son fleuve), avec une variation déterministe par domaine
- * (hachage de l'id). Réécrit le littéral `palette: { … }` dans les fichiers
- * d'ère ET dans docs/corpus/BRIEF.md (source de vérité).
+ * Régénère les palettes des 58 domaines pour la DA « Galerie » : une famille
+ * de teintes par champ (FIELD_HUE), avec une légère variation déterministe par
+ * domaine (hachage de l'id). Réécrit le littéral `palette: { … }` dans les
+ * fichiers d'ère ET dans docs/corpus/BRIEF.md (source de vérité).
  *
- *   fill   : lavis pâle du lac (aplat)
- *   stroke : encre teintée (contour, libellés)
- *   accent : pigment saturé (halo, marqueurs)
+ *   fill   : disque pâle du domaine
+ *   stroke : encre du nom du domaine et de ses théories
+ *   accent : médaille des grandes figures, anneau de sélection
  *
  * Usage : npx tsx scripts/palettes.ts
  */
@@ -47,22 +46,23 @@ interface Palette {
   accent: string;
 }
 
-function watercolorPalette(id: string, continent: ContinentId): Palette {
+/** DA « Galerie » : disque pâle, encre du nom, médaille des grandes figures. */
+function galleryPalette(id: string, continent: ContinentId): Palette {
   const j = hash(id);
-  const dh = (j % 15) - 7; // ±7° de teinte
-  const dl = ((j >> 5) % 5) - 2; // ±2 points de luminosité
+  const dh = (j % 11) - 5; // ±5° de teinte
+  const dl = ((j >> 5) % 3) - 1; // ±1 point de luminosité
   const h = FIELD_HUE[continent] + dh;
   return {
-    fill: hsl(h, 46, 89 + dl),
-    stroke: hsl(h, 48, 31 + dl),
-    accent: hsl(h, 60, 46 + dl),
+    fill: hsl(h, 50, 88 + dl),
+    stroke: hsl(h, 45, 30 + dl),
+    accent: hsl(h, 55, 36 + dl),
   };
 }
 
 // ——— calcul des palettes ———
 const palettes = new Map<string, Palette>();
 for (const d of DOMAINS) {
-  palettes.set(d.id, watercolorPalette(d.id, d.continents[0]));
+  palettes.set(d.id, galleryPalette(d.id, d.continents[0]));
 }
 
 // ——— application aux fichiers d'ère ———
@@ -113,7 +113,7 @@ for (let i = 0; i < lines.length; i++) {
 }
 writeFileSync(briefPath, lines.join('\n'));
 
-console.log(`palettes aquarelle appliquées : ${appliedData} domaines (données), ${appliedBrief} lignes (brief)`);
+console.log(`palettes « Galerie » appliquées : ${appliedData} domaines (données), ${appliedBrief} lignes (brief)`);
 for (const c of Object.keys(FIELD_HUE) as ContinentId[]) {
   const n = DOMAINS.filter((d) => d.continents[0] === c).length;
   console.log(`  ${c} : ${n} domaines, teinte de base ${FIELD_HUE[c]}°`);

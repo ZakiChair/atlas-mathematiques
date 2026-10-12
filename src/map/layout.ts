@@ -1,4 +1,3 @@
-import * as d3 from 'd3';
 import { MAP_SIZE, TIME_BOUNDS } from '../data/eras';
 import type { Domain } from '../data/types';
 import { seededRandom } from '../lib/prng';
@@ -10,32 +9,15 @@ export const RELAX_MARGIN = 24;
 const MAP_MARGIN = 40;
 const CHILD_MAX = 0.85;
 
+/** au-delà de ce nombre de figures, le disque s'agrandit (1,2 % par figure, +35 % au plus) */
+export const DENSE_FIGURES = 12;
+
+/** Rayon de base : taille éditoriale, nombre de résultats et nombre de figures (chacun plafonné). */
 export function baseRadius(m: Domain): number {
   const r = BASE_R[m.map.size] ?? BASE_R[1];
   const extra = Math.min(0.25, Math.max(0, Math.floor((m.results.length - 8) / 4)) * 0.08);
-  return r * (1 + extra);
-}
-
-/** Chemin organique déterministe : 12-16 points, rayon bruité, Catmull-Rom fermé. */
-export function organicPath(cx: number, cy: number, r: number, seed: string, wobble = 0.18): string {
-  const rand = seededRandom(seed);
-  const n = 12 + Math.floor(rand() * 5);
-  const startAngle = rand() * Math.PI * 2;
-  // bruit basse fréquence : mélange de 2 harmoniques + jitter
-  const ph1 = rand() * Math.PI * 2;
-  const ph2 = rand() * Math.PI * 2;
-  const amp1 = wobble * 0.55;
-  const amp2 = wobble * 0.45;
-  const pts: [number, number][] = [];
-  for (let i = 0; i < n; i++) {
-    const a = startAngle + (i / n) * Math.PI * 2;
-    const jit = (rand() - 0.5) * wobble * 0.6;
-    const f = 1 - wobble + amp1 * (0.5 + 0.5 * Math.sin(2 * a + ph1)) + amp2 * (0.5 + 0.5 * Math.sin(3 * a + ph2)) + jit;
-    const rr = r * f;
-    pts.push([cx + rr * Math.cos(a), cy + rr * Math.sin(a)]);
-  }
-  const line = d3.line<[number, number]>().curve(d3.curveCatmullRomClosed.alpha(0.5));
-  return line(pts) ?? '';
+  const crowd = Math.min(0.35, Math.max(0, m.mathematicians.length - DENSE_FIGURES) * 0.012);
+  return r * (1 + extra + crowd);
 }
 
 export interface ChildPos {
@@ -43,10 +25,10 @@ export interface ChildPos {
   id: string;
   x: number;
   y: number;
-  /** ancrage du libellé (results en éventail : à droite, en dessous, à gauche du marqueur) */
-  anchor?: 'start' | 'middle' | 'end';
-  /** mathématiciens : libellé au-dessus ou au-dessous du marqueur, à l’opposé du centre de la théorie */
-  vside?: 'above' | 'below';
+  /** grande figure : son médaillon est dessiné à tous les niveaux (FeaturedLayer) */
+  featured?: boolean;
+  /** niveau de zoom à partir duquel le nom d'une figure ordinaire est écrit (fiches courtes : 3) */
+  nameLevel?: 2 | 3;
 }
 
 export interface TerritoryLayout {
@@ -54,8 +36,6 @@ export interface TerritoryLayout {
   x: number;
   y: number;
   r: number;
-  path: string;
-  isoPath: string;
   children: ChildPos[];
 }
 
@@ -131,59 +111,88 @@ function clampChild(cx: number, cy: number, r: number, x: number, y: number): [n
   return [cx + dx * k, cy + dy * k];
 }
 
-/** Boîte d’un libellé de mathématicien (unités carte, calibrée pour k ≈ 1 au niveau « Mathématiciens »). */
-const MATHEMATICIAN_BOX = { w: 118, h: 42, dy: 24 };
-/** Boîte du libellé d’une théorie aux niveaux 2-3 (décalé sous le centre du blob). */
-const THEORY_BOX = { w: 110, h: 34, dy: 22 };
+/** Médaillon d'une grande figure et son nom à droite (unités carte, k ≈ 1). */
+export const FEATURED_BOX = { w: 170, h: 40, dx: 70 };
+/** Case d'une figure ordinaire (unités carte) : assez pour que deux points ne se touchent jamais. */
+export const FIGURE_CELL = { w: 46, h: 22 };
+
+/** Boîte fixe (centre, largeur, hauteur), en unités carte. */
+export interface Box {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
 
 /**
- * Écarte les libellés de mathématiciens entre eux et des libellés de théories, par
- * répulsion de boîtes le long de l'axe de moindre recouvrement. Déterministe.
+ * Emplacements des grandes figures d'un domaine : sous le nom du domaine, dans
+ * la moitié basse du disque — une seule au centre-bas, plusieurs en colonne,
+ * noms à droite.
  */
-export function separateMathematicianLabels(fms: ChildPos[], theories: { x: number; y: number }[], cx: number, cy: number, r: number): void {
-  const boxY = (c: ChildPos) => c.y + (c.vside === 'below' ? MATHEMATICIAN_BOX.dy : -MATHEMATICIAN_BOX.dy);
-  for (let iter = 0; iter < 60; iter++) {
-    let moved = false;
-    for (let i = 0; i < fms.length; i++) {
-      for (let j = i + 1; j < fms.length; j++) {
-        const a = fms[i];
-        const b = fms[j];
-        const dx = b.x - a.x;
-        const dy = boxY(b) - boxY(a);
-        const ox = MATHEMATICIAN_BOX.w - Math.abs(dx);
-        const oy = MATHEMATICIAN_BOX.h - Math.abs(dy);
-        if (ox <= 0 || oy <= 0) continue;
-        moved = true;
-        if (ox < oy) {
-          const sgn = dx >= 0 ? 1 : -1;
-          a.x -= (sgn * ox) / 2;
-          b.x += (sgn * ox) / 2;
-        } else {
-          const sgn = dy >= 0 ? 1 : -1;
-          a.y -= (sgn * oy) / 2;
-          b.y += (sgn * oy) / 2;
-        }
-      }
-      // libellés de theories : obstacles fixes
-      for (const sp of theories) {
-        const a = fms[i];
-        const dx = a.x - sp.x;
-        const dy = boxY(a) - (sp.y + THEORY_BOX.dy);
-        const ox = (MATHEMATICIAN_BOX.w + THEORY_BOX.w) / 2 - Math.abs(dx);
-        const oy = (MATHEMATICIAN_BOX.h + THEORY_BOX.h) / 2 - Math.abs(dy);
-        if (ox <= 0 || oy <= 0) continue;
-        moved = true;
-        if (ox < oy) a.x += (dx >= 0 ? 1 : -1) * ox;
-        else a.y += (dy >= 0 ? 1 : -1) * oy;
-      }
+export function featuredSlots(n: number, cx: number, cy: number, r: number): [number, number][] {
+  if (n === 0) return [];
+  if (n === 1) return [[cx - 0.15 * r, cy + 0.28 * r]];
+  return Array.from({ length: n }, (_, i) => [cx - 0.2 * r, cy + (0.08 + (0.5 * i) / (n - 1)) * r] as [number, number]);
+}
+
+
+
+const overlap = (a: Box, b: Box) => Math.abs(a.x - b.x) < (a.w + b.w) / 2 && Math.abs(a.y - b.y) < (a.h + b.h) / 2;
+
+/**
+ * Centres des cases d'une grille à rangées décalées (quinconce) dont la boîte
+ * w × h tient entière dans le disque de rayon `radius`.
+ */
+export function gridCells(cx: number, cy: number, radius: number, w: number, h: number): [number, number][] {
+  const out: [number, number][] = [];
+  let row = 0;
+  for (let y = cy - radius + h / 2; y <= cy + radius - h / 2 + 1e-9; y += h, row++) {
+    const shift = row % 2 ? w / 2 : 0;
+    for (let x = cx - radius - w + shift; x <= cx + radius; x += w) {
+      const inside = [
+        [x - w / 2, y - h / 2],
+        [x + w / 2, y - h / 2],
+        [x - w / 2, y + h / 2],
+        [x + w / 2, y + h / 2],
+      ].every(([px, py]) => Math.hypot(px - cx, py - cy) <= radius);
+      if (inside) out.push([x, y]);
     }
-    for (const c of fms) {
-      const [x, y] = clampChild(cx, cy, r, c.x, c.y);
-      c.x = x;
-      c.y = y;
-    }
-    if (!moved) return;
   }
+  return out;
+}
+
+/**
+ * Attribue à chaque élément la case libre la plus proche de son ancre (ordre
+ * déterministe : celui de `items`). Une case libre ne recouvre aucune boîte de
+ * `blocked`. S'il n'y a plus de case, l'élément reste sur son ancre.
+ */
+export function assignCells(
+  items: readonly { id: string; ax: number; ay: number }[],
+  cells: readonly [number, number][],
+  blocked: readonly Box[],
+  w: number,
+  h: number,
+): Map<string, [number, number]> {
+  const free = cells.filter(([x, y]) => !blocked.some((b) => overlap({ x, y, w, h }, b)));
+  const used = new Set<number>();
+  const out = new Map<string, [number, number]>();
+  for (const it of items) {
+    let best = -1;
+    let bd = Infinity;
+    free.forEach(([x, y], i) => {
+      if (used.has(i)) return;
+      const d = Math.hypot(x - it.ax, y - it.ay);
+      if (d < bd) {
+        bd = d;
+        best = i;
+      }
+    });
+    if (best >= 0) {
+      used.add(best);
+      out.set(it.id, free[best]);
+    } else out.set(it.id, [it.ax, it.ay]);
+  }
+  return out;
 }
 
 function layoutChildren(m: Domain, cx: number, cy: number, r: number): ChildPos[] {
@@ -201,38 +210,41 @@ function layoutChildren(m: Domain, cx: number, cy: number, r: number): ChildPos[
     children.push({ kind: 'theory', id: s.id, x, y });
   });
 
-  // mathématiciens groupés autour de leur théorie, sinon anneau 0.62 r
-  const byTheory = new Map<string, Domain['mathematicians']>();
-  const orphans: Domain['mathematicians'] = [];
-  for (const f of m.mathematicians) {
-    if (f.theoryId && theoryPos.has(f.theoryId)) {
-      const g = byTheory.get(f.theoryId) ?? [];
-      g.push(f);
-      byTheory.set(f.theoryId, g);
-    } else orphans.push(f);
-  }
-  const mathChildren: ChildPos[] = [];
-  for (const [sid, group] of byTheory) {
-    const sp = theoryPos.get(sid)!;
-    const st = m.theories.findIndex((s) => s.id === sid);
-    const start = (st + 1) * 1.7 + rand() * 0.5;
-    group.forEach((f, i) => {
-      const a = start + (i / Math.max(1, group.length)) * Math.PI * 2;
-      const rr = (0.24 + rand() * 0.08) * r;
-      const [x, y] = clampChild(cx, cy, r, sp.x + rr * Math.cos(a), sp.y + rr * Math.sin(a));
-      mathChildren.push({ kind: 'mathematician', id: f.id, x, y, vside: y < sp.y ? 'above' : 'below' });
-    });
-  }
-  const oStart = rand() * Math.PI * 2;
-  orphans.forEach((f, i) => {
-    const a = oStart + (i / Math.max(1, orphans.length)) * Math.PI * 2;
-    const [x, y] = clampChild(cx, cy, r, cx + 0.62 * r * Math.cos(a), cy + 0.62 * r * Math.sin(a));
-    mathChildren.push({ kind: 'mathematician', id: f.id, x, y, vside: 'above' });
+  // grandes figures : emplacements fixes dans la moitié basse du disque
+  const featured = m.mathematicians.filter((f) => f.featured);
+  const slots = featuredSlots(featured.length, cx, cy, r);
+  const featuredBoxes: Box[] = [];
+  featured.forEach((f, i) => {
+    const [x, y] = slots[i];
+    mathPos.set(f.id, { x, y });
+    children.push({ kind: 'mathematician', id: f.id, x, y, featured: true });
+    featuredBoxes.push({ x: x + FEATURED_BOX.dx, y, w: FEATURED_BOX.w, h: FEATURED_BOX.h });
   });
-  separateMathematicianLabels(mathChildren, [...theoryPos.values()], cx, cy, r);
-  for (const c of mathChildren) {
-    mathPos.set(c.id, { x: c.x, y: c.y });
-    children.push(c);
+
+  // figures ordinaires : un point par figure sur une grille fine en quinconce, au plus près de sa
+  // théorie (les figures à résultats d'abord, puis les fiches courtes). Les noms ne sont pas posés
+  // ici : ils sont désencombrés à l'affichage, zoom par zoom (declutter.ts).
+  const authors = new Set(m.results.map((x) => x.mathematicianId));
+  const ordinary = [...m.mathematicians.filter((f) => !f.featured)].sort(
+    (a, b) => Number(authors.has(b.id)) - Number(authors.has(a.id)) || a.years[0] - b.years[0] || a.id.localeCompare(b.id),
+  );
+  const anchorOf = (f: Domain['mathematicians'][number], i: number) => {
+    const t = f.theoryId ? theoryPos.get(f.theoryId) : undefined;
+    if (t) return { id: f.id, ax: t.x, ay: t.y };
+    const a = (i / Math.max(1, ordinary.length)) * Math.PI * 2;
+    return { id: f.id, ax: cx + 0.55 * r * Math.cos(a), ay: cy + 0.55 * r * Math.sin(a) };
+  };
+  const cells = assignCells(
+    ordinary.map(anchorOf),
+    gridCells(cx, cy, CHILD_MAX * r, FIGURE_CELL.w, FIGURE_CELL.h),
+    featuredBoxes,
+    FIGURE_CELL.w,
+    FIGURE_CELL.h,
+  );
+  for (const f of ordinary) {
+    const [x, y] = cells.get(f.id)!;
+    mathPos.set(f.id, { x, y });
+    children.push({ kind: 'mathematician', id: f.id, x, y, nameLevel: authors.has(f.id) ? 2 : 3 });
   }
 
   // résultats autour de leur auteur, sinon de leur théorie, sinon du centre
@@ -260,7 +272,7 @@ function layoutChildren(m: Domain, cx: number, cy: number, r: number): ChildPos[
     });
   };
   // résultats d’un mathématicien : éventail dans le demi-plan inférieur (20°–160°, y vers le bas) ;
-  // le rayon croît avec le nombre de results et les libellés s'ancrent du côté extérieur
+  // le rayon croît avec le nombre de résultats
   const placeFan = (px: number, py: number, group: Domain['results']) => {
     const n = group.length;
     const rr = Math.max(0.12 * r, 30 + 9 * n);
@@ -268,8 +280,7 @@ function layoutChildren(m: Domain, cx: number, cy: number, r: number): ChildPos[
       const deg = n === 1 ? 90 : 20 + (i / (n - 1)) * 140;
       const a = (deg * Math.PI) / 180;
       const [x, y] = clampChild(cx, cy, r, px + rr * Math.cos(a), py + rr * Math.sin(a));
-      const anchor = deg < 75 ? 'start' : deg > 105 ? 'end' : 'middle';
-      children.push({ kind: 'result', id: f.id, x, y, anchor });
+      children.push({ kind: 'result', id: f.id, x, y });
     });
   };
   for (const [fid, group] of resultsByMath) placeFan(mathPos.get(fid)!.x, mathPos.get(fid)!.y, group);
@@ -304,9 +315,6 @@ export function computeLayout(domains: Domain[]): AtlasLayout {
     x: c.x,
     y: c.y,
     r: c.r,
-    path: organicPath(c.x, c.y, c.r, c.id),
-    // même seed → même forme, rayon r + 18
-    isoPath: organicPath(c.x, c.y, c.r + 18, c.id),
     children: layoutChildren(domains.find((m) => m.id === c.id)!, c.x, c.y, c.r),
   }));
 

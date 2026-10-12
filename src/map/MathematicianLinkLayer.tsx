@@ -1,6 +1,6 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import type { AtlasLayout } from './layout';
-import type { Selection, VisionId } from '../state/store';
+import type { Selection } from '../state/store';
 import { useLang } from '../i18n/lang';
 import { useData, MATHEMATICIAN_LINK_KIND_I18N } from '../i18n/localize';
 
@@ -8,7 +8,6 @@ interface Props {
   layout: AtlasLayout;
   /** Mathematician.id sélectionné, sinon null. */
   selectedId: string | null;
-  vision: VisionId;
   onSelect: (sel: Selection) => void;
 }
 
@@ -33,46 +32,16 @@ function arcPath(origin: Point, target: Point): { d: string; midX: number; midY:
   };
 }
 
-/**
- * Arcs mathématicien ↔ mathématicien. Deux modes :
- * — sélection d'un·e mathématicien·ne : ses arcs, libellés et navigation vers les figures liées ;
- * — vision « réseaux » : tous les arcs en filigrane, pour lire les constellations de figures.
- */
-export const MathematicianLinkLayer = memo(function MathematicianLinkLayer({ layout, selectedId, vision, onSelect }: Props) {
+/** Arcs entre la figure choisie et les figures liées (filiation, influence, collaboration, rupture). */
+export const MathematicianLinkLayer = memo(function MathematicianLinkLayer({ layout, selectedId, onSelect }: Props) {
   const { t } = useLang();
   const { mathematicianById, mathematicianLinksById } = useData();
-
-  // tous les liens, dédupliqués (l'index est bidirectionnel)
-  const allLinks = useMemo(() => {
-    if (vision !== 'reseaux') return [];
-    const seen = new Set<string>();
-    const out = [];
-    for (const list of Object.values(mathematicianLinksById)) {
-      for (const l of list) {
-        const key = `${l.source}|${l.target}|${l.kind}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        out.push(l);
-      }
-    }
-    return out;
-  }, [vision, mathematicianLinksById]);
 
   const origin = selectedId ? layout.childPos.get(selectedId) : undefined;
   const selectedLinks = selectedId ? (mathematicianLinksById[selectedId] ?? []) : [];
 
   return (
     <>
-      {vision === 'reseaux' && (
-        <g className="mlinks mlinks-all layer" aria-hidden="true">
-          {allLinks.map((l) => {
-            const a = layout.childPos.get(l.source);
-            const b = layout.childPos.get(l.target);
-            if (!a || !b || a.kind !== 'mathematician' || b.kind !== 'mathematician') return null;
-            return <path key={`${l.source}|${l.target}|${l.kind}`} className={`mlink mlink-${l.kind} mlink-group`} d={arcPath(a, b).d} />;
-          })}
-        </g>
-      )}
       {origin && selectedLinks.length > 0 && (
         <g className="mlinks">
           {selectedLinks.map((l) => {

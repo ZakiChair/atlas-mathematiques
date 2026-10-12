@@ -32,7 +32,7 @@ export const DIXNEUVIEME_B: Domain[] = [
     period: { start: 1807, end: 1900 },
     continents: ['analyse'],
     places: ['Paris', 'Grenoble', 'Nottingham', 'Cambridge', 'Édimbourg', 'Stockholm'],
-    map: { x: 4250, y: 2400, size: 2, palette: { fill: '#e1d6f0', stroke: '#492975', accent: '#6a2fbc' } },
+    map: { x: 4250, y: 2400, size: 2, palette: { fill: '#ddcdee', stroke: '#48296b', accent: '#56288a' } },
     tagline: 'La chaleur, l’électricité et la lumière mises en équations : les séries de Fourier et le potentiel refont l’analyse.',
     summary:
       'En 1807, Joseph Fourier dépose à l’Institut un mémoire sur la propagation de la chaleur qui représente toute fonction par une somme de sinus et de cosinus et pose l’équation aux dérivées partielles de la diffusion. Autour de lui et après lui, Poisson, Green, Stokes et Maxwell construisent une théorie mathématique du potentiel, des fluides visqueux et du champ électromagnétique, tandis que Hamilton réécrit la dynamique sous forme canonique. La discipline fournit à l’analyse ses problèmes les plus féconds — convergence des séries trigonométriques, principe de Dirichlet, problème de Cauchy — et, avec Kovalevskaïa et Poincaré, ses premiers théorèmes généraux d’existence et ses premières limites.',
@@ -419,7 +419,7 @@ export const DIXNEUVIEME_B: Domain[] = [
     period: { start: 1809, end: 1900 },
     continents: ['hasard'],
     places: ['Bruxelles', 'Paris', 'Londres', 'Saint-Pétersbourg'],
-    map: { x: 3975, y: 3230, size: 2, palette: { fill: '#eed7d2', stroke: '#713428', accent: '#b8452e' } },
+    map: { x: 3975, y: 3230, size: 2, palette: { fill: '#f0d7d1', stroke: '#6f382a', accent: '#8e3e29' } },
     tagline: 'De l’erreur de l’astronome à l’homme moyen, puis à la corrélation : la courbe en cloche conquiert la société.',
     summary:
       'Au début du siècle, Gauss et Laplace achèvent la théorie des erreurs d’observation : la loi normale justifie la méthode des moindres carrés et la moyenne arithmétique. Adolphe Quetelet transporte cette courbe de l’astronomie vers les tailles, les naissances et les crimes et invente l’« homme moyen », pendant que les bureaux de statistique des États accumulent les tableaux. Bienaymé à Paris, Tchebychev à Saint-Pétersbourg donnent à la loi des grands nombres et au théorème central limite leurs premières démonstrations générales. À la fin du siècle, Galton, Edgeworth et Karl Pearson, partis de l’hérédité et de l’évolution, inventent la régression, la corrélation et le test du χ² : la statistique mathématique est née.',
@@ -785,7 +785,7 @@ export const DIXNEUVIEME_B: Domain[] = [
     period: { start: 1837, end: 1900 },
     continents: ['fondements', 'hasard'],
     places: ['Londres', 'Cambridge', 'Cork', 'Iéna', 'Turin', 'Cambridge (Mass.)'],
-    map: { x: 4300, y: 4000, size: 2, palette: { fill: '#d2eedc', stroke: '#287141', accent: '#2eb85e' } },
+    map: { x: 4300, y: 4000, size: 2, palette: { fill: '#cdeedb', stroke: '#296b44', accent: '#288a51' } },
     tagline: 'Les raisonnements deviennent un calcul : Boole algébrise la syllogistique, Frege invente l’écriture conceptuelle, Babbage rêve la machine.',
     summary:
       'En 1837, Charles Babbage dessine sa machine analytique, machine à calculer universelle que les notes d’Ada Lovelace (1843) dotent du premier programme publié. La même décennie voit la logique sortir de la syllogistique : De Morgan en 1847, Boole en 1847 et 1854 en font une algèbre où l’on calcule sur les classes comme sur les nombres. Jevons, Peirce et Schröder systématisent cette algèbre et y ajoutent la théorie des relations. En 1879, Frege rompt avec cette tradition en créant la Begriffsschrift, première notation du calcul des prédicats avec quantificateurs, avant de fonder l’arithmétique sur la logique ; Peano, à Turin, achève le siècle en dotant les mathématiques d’un langage symbolique et l’arithmétique de ses axiomes.',
@@ -1181,7 +1181,7 @@ export const DIXNEUVIEME_B: Domain[] = [
     period: { start: 1872, end: 1914 },
     continents: ['fondements'],
     places: ['Halle', 'Brunswick', 'Göttingen', 'Turin'],
-    map: { x: 3650, y: 4150, size: 3, palette: { fill: '#ddf3e6', stroke: '#2c7d4d', accent: '#31c46e' } },
+    map: { x: 3650, y: 4150, size: 3, palette: { fill: '#d5f1e0', stroke: '#2b7348', accent: '#2a9254' } },
     tagline: 'En comptant au-delà de l’infini, Cantor donne aux mathématiques leur langue commune — et sa première crise.',
     summary:
       'En étudiant l’unicité des séries trigonométriques, Georg Cantor introduit en 1872 les ensembles dérivés de points, puis démontre en 1874 que les nombres réels ne sont pas dénombrables : il y a plusieurs infinis. En trente ans, il construit les ordinaux et les cardinaux transfinis (ℵ₀, 2^ℵ₀), prouve que le continu a la puissance de la droite et formule l’hypothèse du continu, pendant que Dedekind fonde les entiers sur la théorie des ensembles. Vers 1900, les paradoxes de Burali-Forti et de Russell montrent que la notion intuitive d’ensemble est contradictoire ; Zermelo répond par l’axiome du choix (1904) puis par la première axiomatisation de la théorie (1908), que Hausdorff parachève en 1914 dans les Grundzüge der Mengenlehre.',

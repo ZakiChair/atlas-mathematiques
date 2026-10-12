@@ -1,12 +1,11 @@
 import { X, RotateCcw } from 'lucide-react';
 import { TIME_BOUNDS, DOMAINS } from '../data';
-import type { LinkKind, ContinentId } from '../data/types';
+import type { ContinentId } from '../data/types';
 import { useStore } from '../state/store';
 import { useLang } from '../i18n/lang';
-import { useData, LINK_KIND_I18N } from '../i18n/localize';
+import { useData } from '../i18n/localize';
 import { formatYear } from '../lib/years';
 
-const KINDS: LinkKind[] = ['filiation', 'influence', 'affinite', 'reaction'];
 
 export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
   const { state, dispatch } = useStore();
@@ -18,7 +17,7 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
   const [start, end] = filters.period;
 
   return (
-    <aside className="glass fixed top-20 right-4 w-80 max-h-[calc(100%-7rem)] overflow-auto panel-scroll p-4 z-40" aria-label={t('filters.title')}>
+    <aside className="glass fixed top-20 right-4 w-80 max-h-[calc(100%-7rem)] overflow-auto panel-scroll p-4 z-[45]" aria-label={t('filters.title')}>
       <div className="flex items-center justify-between mb-3">
         <h2 className="section-title-sm">{t('filters.title')}</h2>
         <button aria-label={t('filters.close')} className="p-1 hover:bg-ink/8 rounded" onClick={() => dispatch({ type: 'toggle-ui', key: 'filtersOpen' })}>
@@ -94,25 +93,26 @@ export function FiltersDrawer({ visibleCount }: { visibleCount: number }) {
       </section>
 
       <section className="mb-4">
-        <h3 className="section-title-sm mb-2">{t('filters.linkTypes')}</h3>
-        <div className="flex flex-wrap gap-1.5">
-          {KINDS.map((k) => (
-            <button key={k} className={`chip ${filters.linkKinds[k] ? 'active' : ''}`} onClick={() => dispatch({ type: 'toggle-link-kind', kind: k })}>
-              {t(LINK_KIND_I18N[k])}
-            </button>
-          ))}
+        <h3 className="section-title-sm mb-2">{t('filters.links')}</h3>
+        <div className="flex flex-wrap gap-1.5" role="radiogroup" aria-label={t('filters.links')} data-testid="links-mode">
+          <button
+            role="radio"
+            aria-checked={!filters.allLinks}
+            className={`chip ${!filters.allLinks ? 'active' : ''}`}
+            onClick={() => dispatch({ type: 'set-all-links', allLinks: false })}
+          >
+            {t('filters.links.principal')}
+          </button>
+          <button
+            role="radio"
+            aria-checked={filters.allLinks}
+            className={`chip ${filters.allLinks ? 'active' : ''}`}
+            onClick={() => dispatch({ type: 'set-all-links', allLinks: true })}
+          >
+            {t('filters.links.all')}
+          </button>
         </div>
-        <label className="flex items-center gap-2 text-sm cursor-pointer mt-2">
-          <input
-            type="checkbox"
-            checked={filters.transversalOnly}
-            onChange={() => dispatch({ type: 'toggle-transversal-only' })}
-            className="accent-[#1f4e79]"
-            data-testid="transversal-only"
-          />
-          {t('filters.transversal')}
-          <span className="text-xs text-muted">{t('filters.transversalHint')}</span>
-        </label>
+        <p className="text-xs text-muted mt-1.5">{t('filters.links.hint')}</p>
       </section>
 
       <section className="mb-4">

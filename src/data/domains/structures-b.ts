@@ -33,7 +33,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1900, end: 1955 },
     continents: ['hasard'],
     places: ['Paris', 'Saint-Pétersbourg', 'Moscou', 'Cambridge (Mass.)', 'Princeton', 'Tokyo'],
-    map: { x: 4950, y: 3100, size: 3, palette: { fill: '#f3e4dd', stroke: '#7d452c', accent: '#c45f31' } },
+    map: { x: 4950, y: 3100, size: 3, palette: { fill: '#f0dad1', stroke: '#6f3f2a', accent: '#8e4829' } },
     tagline: 'Le hasard devient une mesure : en un demi-siècle, le calcul des probabilités passe des jeux de dés aux trajectoires browniennes.',
     summary:
       'Entre la thèse de Bachelier (1900) et les traités de Feller et de Doob (1950-1953), le calcul des probabilités change de nature. La théorie de la mesure de Borel et de Lebesgue lui fournit un langage ; Markov, Borel, Lévy et Khintchine démontrent des théorèmes limites d’un type nouveau (lois fortes, logarithme itéré, lois stables) ; Wiener construit rigoureusement le mouvement brownien. En 1933, les Grundbegriffe de Kolmogorov fixent les axiomes : une probabilité est une mesure de masse totale 1, une variable aléatoire une fonction mesurable. Sur cette base, Doob et Itô bâtissent la théorie des processus stochastiques, martingales et calcul stochastique, qui irriguera la physique, la finance et la statistique de la seconde moitié du siècle.',
@@ -434,7 +434,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1908, end: 1960 },
     continents: ['hasard'],
     places: ['Dublin', 'Rothamsted', 'Londres', 'Berkeley', 'New York', 'Princeton', 'Leningrad'],
-    map: { x: 5600, y: 3350, size: 2, palette: { fill: '#f1ddda', stroke: '#79362a', accent: '#c04630' } },
+    map: { x: 5600, y: 3350, size: 2, palette: { fill: '#f1dbd5', stroke: '#733b2b', accent: '#92412a' } },
     tagline: 'Inférer, tester, décider : de la brasserie Guinness aux salles de guerre, la statistique devient une théorie de l’action sous incertitude.',
     summary:
       'En 1908, un brasseur de Dublin publie sous pseudonyme la loi des petits échantillons ; en 1922, Fisher définit la vraisemblance, l’efficacité et l’exhaustivité et fait de la statistique une branche des mathématiques. Neyman et Egon Pearson reformulent les tests comme un choix entre deux hypothèses avec deux risques d’erreur (1933), puis Neyman invente les intervalles de confiance (1937). Dans les années 1940, Wald conçoit la statistique comme une théorie de la décision, inspirée de la théorie des jeux de von Neumann et Morgenstern, tandis que Kantorovitch et Dantzig inventent la programmation linéaire et que Nash généralise l’équilibre aux jeux à n joueurs. Les querelles de Fisher avec Karl Pearson, puis avec Neyman, scandent cette histoire.',
@@ -845,7 +845,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1928, end: 1956 },
     continents: ['fondements', 'hasard'],
     places: ['Vienne', 'Princeton', 'Cambridge', 'Göttingen', 'New York', 'Murray Hill'],
-    map: { x: 5350, y: 3900, size: 3, palette: { fill: '#c3e9d3', stroke: '#22623d', accent: '#2aa75e' } },
+    map: { x: 5350, y: 3900, size: 3, palette: { fill: '#c6ecd2', stroke: '#266439', accent: '#268243' } },
     tagline: 'Ce qu’une procédure mécanique peut et ne peut pas faire : la logique découvre ses limites et invente l’ordinateur.',
     summary:
       'En 1928, Hilbert et Ackermann posent le problème de la décision : existe-t-il une procédure mécanique qui tranche la validité de tout énoncé logique ? En moins de dix ans, la question reçoit une réponse négative et, chemin faisant, la notion de « procédure mécanique » est définie. Gödel démontre la complétude de la logique du premier ordre (1930) puis l’incomplétude de toute arithmétique formalisée (1931) ; Church, Kleene et Gödel définissent le lambda-calcul et les fonctions récursives ; Turing décrit en 1936 une machine abstraite dont il montre qu’il existe une version universelle et un problème (l’arrêt) qu’elle ne peut résoudre. Après la guerre, ces idées passent dans les circuits de Shannon, l’architecture de l’EDVAC et la théorie de l’information : la logique mathématique devient informatique.',
@@ -1250,7 +1250,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1899, end: 1940 },
     continents: ['fondements'],
     places: ['Göttingen', 'Cambridge', 'Amsterdam', 'Varsovie', 'Oslo'],
-    map: { x: 4850, y: 4100, size: 2, palette: { fill: '#cfedd9', stroke: '#266d3f', accent: '#2db45c' } },
+    map: { x: 4850, y: 4100, size: 2, palette: { fill: '#cdeed6', stroke: '#296b3a', accent: '#288a42' } },
     tagline: 'Qu’est-ce qui garantit les mathématiques ? Logique, intuition ou règles formelles : trois réponses s’affrontent, et la logique en sort transformée.',
     summary:
       'En 1899, les Grundlagen der Geometrie de Hilbert font de l’axiome une hypothèse sur des objets indéterminés, dont on peut prouver l’indépendance et la cohérence relative par des modèles. Les paradoxes de la théorie des ensembles obligent alors à trancher : Russell et Whitehead reconstruisent les mathématiques dans la logique (Principia Mathematica, 1910-1913), Brouwer les ramène aux constructions mentales et récuse le tiers exclu (1907-1908), Hilbert propose de fonder l’infini sur une métamathématique finitiste, élaborée avec Bernays et Ackermann. Pendant ce temps, la logique du premier ordre prend son autonomie : théorème de Löwenheim–Skolem, système de Zermelo–Fraenkel, vérité définie par Tarski, déduction naturelle de Gentzen. La querelle culmine à la fin des années 1920 et se referme sur les théorèmes de Gödel (1931) et la preuve de Gentzen (1936).',
@@ -1694,7 +1694,7 @@ export const STRUCTURES_B: Domain[] = [
     period: { start: 1934, end: 1970 },
     continents: ['fondements', 'nombres', 'formes'],
     places: ['Paris', 'Nancy', 'Strasbourg', 'Chicago', 'Princeton'],
-    map: { x: 5800, y: 4250, size: 2, palette: { fill: '#cbecd7', stroke: '#256a3f', accent: '#2caf5e' } },
+    map: { x: 5800, y: 4250, size: 2, palette: { fill: '#cdeed7', stroke: '#296b3c', accent: '#288a44' } },
     tagline: 'Un auteur imaginaire, un traité collectif : réécrire les mathématiques entières à partir de quelques structures mères.',
     summary:
       'En décembre 1934, quelques jeunes normaliens — Weil, Cartan, Chevalley, Delsarte, Dieudonné, bientôt rejoints par Ehresmann — se réunissent à Paris pour réécrire le cours d’analyse : le projet devient, au congrès de Besse-en-Chandesse (juillet 1935), un traité complet des mathématiques signé d’un nom inventé, Nicolas Bourbaki. Le premier fascicule paraît en 1939 ; la guerre disperse le groupe, qui renaît en 1945 et fait paraître les Éléments de mathématique, organisés non par disciplines mais par « structures ». Autour du même mouvement structuraliste, Eilenberg et Mac Lane créent la théorie des catégories (1945), Cartan anime le séminaire qui impose faisceaux et algèbre homologique, et le Séminaire Bourbaki (1948) devient l’observatoire des mathématiques vivantes.',

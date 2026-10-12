@@ -73,7 +73,6 @@ function checkLayout(moves: Domain[]) {
     expect(t.x).toBeLessThanOrEqual(MAP_SIZE.width);
     expect(t.y).toBeGreaterThanOrEqual(0);
     expect(t.y).toBeLessThanOrEqual(MAP_SIZE.height);
-    expect(t.path.length).toBeGreaterThan(10);
     // enfants ≤ 0.85 r
     for (const c of t.children) {
       expect(Math.hypot(c.x - t.x, c.y - t.y)).toBeLessThanOrEqual(t.r * 0.85 + 1e-6);

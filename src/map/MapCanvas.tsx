@@ -3,14 +3,15 @@ import * as d3 from 'd3';
 import { MAP_SIZE } from '../data';
 import { useLang } from '../i18n/lang';
 import { useData } from '../i18n/localize';
-import type { Link, ResultKind } from '../data/types';
+import type { Link } from '../data/types';
 import type { AtlasLayout, TerritoryLayout } from './layout';
-import { LaneLayer } from './LaneLayer';
+import { GalleryBackdrop } from './GalleryBackdrop';
 import { Territory } from './Territory';
 import { LinkLayer } from './LinkLayer';
 import { MathematicianLinkLayer } from './MathematicianLinkLayer';
+import { LabelLayer } from './LabelLayer';
 import type { MapController, Bounds, ViewportInset } from './controller';
-import type { Filters, Selection, VisionId } from '../state/store';
+import type { Filters, Selection } from '../state/store';
 import type { Chain } from './upstream';
 import { domainOf } from './bounds';
 import { LEVEL_K, levelFor, publishView } from './viewStore';
@@ -34,10 +35,8 @@ interface Props {
   dimmedIds: Set<string>;
   selection: Selection | null;
   relatedIds: Set<string>;
-  /** bassin amont / aval direct du domaine de la sélection */
+  /** amont et aval du domaine de la sélection */
   chain: Chain | null;
-  vision: VisionId;
-  naturesKind: ResultKind | null;
   /** bandes d'écran occupées par l'interface (barre du haut, frise du bas) : la vue d'ensemble s'ajuste entre elles */
   fitInset: { top: number; bottom: number };
   onSelect: (sel: Selection | null, fly: boolean) => void;
@@ -54,8 +53,6 @@ export function MapCanvas({
   selection,
   relatedIds,
   chain,
-  vision,
-  naturesKind,
   fitInset,
   onSelect,
   onLinkClick,
@@ -237,16 +234,19 @@ export function MapCanvas({
   const selectedDomainId = selection ? domainOf(selection) : null;
   const selectedChildId = selection && selection.kind !== 'domain' ? selection.id : undefined;
 
-  const worldClass = `world vision-${vision}${selection ? ' dim-others' : ''}`;
+  const worldClass = `world${selection ? ' dim-others' : ''}`;
+  // domaines restés vifs pendant une sélection : le domaine choisi, ses voisins, son amont et son aval
+  const vividDomainIds = selectedDomainId
+    ? new Set([selectedDomainId, ...relatedIds, ...(chain?.upstream.keys() ?? []), ...(chain?.downstream.keys() ?? [])])
+    : null;
 
   return (
     <svg ref={svgRef} className="atlas-map" data-level="0" role="application" aria-label={t('map.aria')}>
       <g ref={worldRef} className={worldClass}>
-        <LaneLayer layout={layout} />
+        <GalleryBackdrop />
         <LinkLayer
           layout={layout}
           filters={filters}
-          vision={vision}
           dimmedIds={dimmedIds}
           selectedDomainId={selectedDomainId}
           hoveredDomainId={hoveredId}
@@ -256,7 +256,6 @@ export function MapCanvas({
         <MathematicianLinkLayer
           layout={layout}
           selectedId={selection?.kind === 'mathematician' ? selection.id : null}
-          vision={vision}
           onSelect={(sel) => onSelect(sel, true)}
         />
         {layout.territories.map((t) => {
@@ -273,13 +272,18 @@ export function MapCanvas({
               related={relatedIds.has(t.id)}
               upGen={chain?.upstream.get(t.id) ?? 0}
               downGen={chain?.downstream.get(t.id) ?? 0}
-              vision={vision}
-              naturesKind={naturesKind}
               onSelect={handleSelect}
               onHover={onHover}
             />
           );
         })}
+        <LabelLayer
+          layout={layout}
+          selection={selection}
+          dimmedIds={dimmedIds}
+          vividDomainIds={vividDomainIds}
+          onSelect={(sel) => onSelect(sel, true)}
+        />
       </g>
     </svg>
   );

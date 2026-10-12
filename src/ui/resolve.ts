@@ -59,3 +59,8 @@ export function sourceOrderFor(m: Domain): string[] {
   }
   return order;
 }
+
+/** Identifiants de sources, dans l'ordre de première citation, sans doublon (fiches figure et résultat). */
+export function sourceOrder(...lists: ({ sources?: string[] } | undefined)[][]): string[] {
+  return [...new Set(lists.flat().flatMap((s) => s?.sources ?? []))];
+}

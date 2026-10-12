@@ -50,7 +50,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1494, end: 1603 },
     continents: ['nombres'],
     places: ['Venise', 'Bologne', 'Milan', 'Paris'],
-    map: { x: 2000, y: 420, size: 3, palette: { fill: '#ece1cb', stroke: '#6a5425', accent: '#af862c' } },
+    map: { x: 2000, y: 420, size: 3, palette: { fill: '#eee6cd', stroke: '#6b5929', accent: '#8a7028' } },
     tagline: 'Un siècle de duels, de secrets et de serments trahis fait passer l’algèbre du troisième degré à la lettre.',
     summary:
       'Entre la Summa de Pacioli (1494), qui déclare l’équation du troisième degré hors de portée, et l’Isagoge de Viète (1591), qui écrit les quantités connues et inconnues par des lettres, l’algèbre change de nature. À Bologne, Scipione del Ferro résout la cubique vers 1515 et garde le secret ; Tartaglia la retrouve en 1535 ; Cardan la publie en 1545 dans l’Ars magna avec la résolution du quatrième degré due à son élève Ferrari. Bombelli apprivoise ensuite les racines de nombres négatifs qui surgissent dans le « cas irréductible », et Viète transforme l’art de la chose en une analyse générale des équations. L’algèbre cesse d’être une collection de recettes marchandes pour devenir une science des formes.',
@@ -371,7 +371,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1621, end: 1670, approx: true },
     continents: ['nombres'],
     places: ['Toulouse', 'Paris', 'Bordeaux'],
-    map: { x: 2450, y: 620, size: 2, palette: { fill: '#eadec7', stroke: '#664f24', accent: '#ab7e2b' } },
+    map: { x: 2450, y: 620, size: 2, palette: { fill: '#eee4cd', stroke: '#6b5629', accent: '#8a6b28' } },
     tagline: 'Dans les marges d’un Diophante, une arithmétique nouvelle qui ne livre presque jamais ses preuves.',
     summary:
       'Entre 1636 et 1665, un conseiller au parlement de Toulouse refonde l’arithmétique des entiers en relisant Diophante dans l’édition de Bachet (1621). Pierre de Fermat énonce par lettres, presque toujours sans démonstration, le petit théorème, le théorème des deux carrés, les propriétés des nombres de la forme 2^(2ⁿ) + 1 et l’impossibilité de xⁿ + yⁿ = zⁿ pour n > 2. Sa méthode de descente infinie et ses défis aux géomètres anglais font de la théorie des nombres une discipline autonome, dont Euler, Lagrange et Legendre hériteront au XVIIIᵉ siècle.',
@@ -666,7 +666,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1435, end: 1600 },
     continents: ['formes'],
     places: ['Florence', 'Nuremberg', 'Vienne', 'Lisbonne', 'Duisbourg'],
-    map: { x: 1980, y: 1550, size: 2, palette: { fill: '#d2e6ee', stroke: '#285a71', accent: '#2e8cb8' } },
+    map: { x: 1980, y: 1550, size: 2, palette: { fill: '#cde0ee', stroke: '#294d6b', accent: '#285e8a' } },
     tagline: 'De la fenêtre d’Alberti aux mappemondes de Mercator, la figure devient un instrument de mesure du monde.',
     summary:
       'Entre le De pictura d’Alberti (1435) et la mappemonde de Mercator (1569), la géométrie européenne se refait par la pratique : peindre une place, dresser une table de sinus, tracer la route d’un navire. Les peintres florentins transforment la représentation de l’espace en construction géométrique ; Regiomontanus, entre Vienne et Nuremberg, fait de la trigonométrie une discipline autonome ; les navigateurs portugais et les cartographes des Pays-Bas posent le problème de représenter la sphère sur le plan. Cette géométrie instrumentée, écrite pour les peintres, les astronomes et les pilotes, prépare à la fois la géométrie projective de Desargues et la cartographie moderne.',
@@ -961,7 +961,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1636, end: 1685 },
     continents: ['formes'],
     places: ['Paris', 'Toulouse', 'Lyon', 'Leyde'],
-    map: { x: 2420, y: 1250, size: 3, palette: { fill: '#d6e8f0', stroke: '#295d75', accent: '#2f8fbc' } },
+    map: { x: 2420, y: 1250, size: 3, palette: { fill: '#d5e4f1', stroke: '#2b5373', accent: '#2a6492' } },
     tagline: 'La courbe devient une équation, la section conique une propriété d’incidence : la géométrie change deux fois de langage.',
     summary:
       'Entre 1636 et 1640, la géométrie grecque est dépassée par deux voies presque simultanées. Fermat à Toulouse et Descartes aux Provinces-Unies associent à chaque courbe une équation en deux inconnues, héritiers de l’algèbre littérale de Viète : le problème de Pappus, laissé ouvert par les Anciens, devient une question sur les équations. À Paris et à Lyon, Desargues puis le jeune Pascal traitent les coniques par projection : ce qui se conserve par perspective fait théorème. La première voie l’emporte vite — l’édition latine de La Géométrie par van Schooten (1649) forme une génération — ; la seconde, trop nouvelle dans sa langue, s’éteint avec La Hire avant de renaître au XIXᵉ siècle.',
@@ -1271,7 +1271,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1635, end: 1700 },
     continents: ['analyse'],
     places: ['Bologne', 'Oxford', 'Cambridge', 'Paris', 'Hanovre', 'La Haye'],
-    map: { x: 2300, y: 2300, size: 3, palette: { fill: '#dad2ee', stroke: '#3d2871', accent: '#552eb8' } },
+    map: { x: 2300, y: 2300, size: 3, palette: { fill: '#d9cdee', stroke: '#41296b', accent: '#4c288a' } },
     tagline: 'Sommer l’infiniment petit, développer en séries infinies, puis faire de la tangente et de l’aire deux opérations inverses.',
     summary:
       'Entre les indivisibles de Cavalieri (1635) et la brachistochrone (1696), l’Europe transforme les problèmes de quadrature et de tangente en un calcul général. Wallis arithmétise l’infini, Gregory et Newton ajoutent les séries, Barrow aperçoit la relation inverse entre tangente et aire. Dans les années de peste 1665-1666, Newton fond fluxions et fluentes en une méthode unique qu’il garde presque secrète ; à Paris, de 1672 à 1676, Leibniz, initié par Huygens, construit un autre calcul, mieux noté, et le publie le premier (1684). Les Principia (1687) montrent la puissance de la méthode en mécanique céleste, tandis que la querelle de priorité, ouverte à la fin du siècle, divise durablement les écoles anglaise et continentale.',
@@ -1599,7 +1599,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1585, end: 1680 },
     continents: ['hasard', 'nombres'],
     places: ['Bruges', 'Édimbourg', 'Londres', 'Tübingen', 'Rouen'],
-    map: { x: 2000, y: 3050, size: 2, palette: { fill: '#f0ddd6', stroke: '#753d29', accent: '#bc542f' } },
+    map: { x: 2000, y: 3050, size: 2, palette: { fill: '#eed6cd', stroke: '#6b3929', accent: '#8a4128' } },
     tagline: 'Remplacer la multiplication par l’addition, le comptoir par la machine : le calcul devient une industrie.',
     summary:
       'Entre le De Thiende de Stevin (1585), qui apprend aux marchands les fractions décimales, et la machine de Leibniz (1673), une révolution discrète transforme la pratique du calcul. Las des prodigieuses multiplications de la trigonométrie astronomique, Napier puis, indépendamment, Bürgi construisent des correspondances entre progressions géométriques et arithmétiques : les logarithmes, que Briggs convertit en base dix. Oughtred en glisse les échelles l’une contre l’autre (la règle à calcul) ; Schickard, Pascal et Leibniz mécanisent l’addition et la multiplication. En 1627, les Tables rudolphines de Kepler montrent ce que l’astronomie doit désormais au logarithme.',
@@ -1929,7 +1929,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1654, end: 1713 },
     continents: ['hasard'],
     places: ['Paris', 'La Haye', 'Londres', 'Bâle'],
-    map: { x: 2450, y: 3400, size: 2, palette: { fill: '#e9cdc3', stroke: '#623322', accent: '#a74b2a' } },
+    map: { x: 2450, y: 3400, size: 2, palette: { fill: '#eed4cd', stroke: '#6b3729', accent: '#8a3d28' } },
     tagline: 'En une correspondance de 1654, le hasard entre en géométrie ; en 1713, Bernoulli montre qu’il a ses lois.',
     summary:
       'Le 1654 de Pascal et Fermat fait d’un problème de salon — comment partager l’enjeu d’une partie interrompue ? — une mathématique nouvelle : compter les chances au lieu d’invoquer la fortune. Huygens en tire le premier traité et le concept d’espérance (1657) ; à Londres, Graunt puis Halley lisent dans les registres de mortalité des régularités qui fondent l’arithmétique politique et l’assurance. À Bâle, Jacques Bernoulli rassemble vingt ans de réflexion dans l’Ars conjectandi (posthume, 1713) : permutations et combinaisons, espérance morale, et le « théorème d’or » qui affirme que la fréquence approche la probabilité. Le hasard a désormais ses théorèmes.',
@@ -2227,7 +2227,7 @@ export const RENAISSANCE: Domain[] = [
     period: { start: 1555, end: 1700 },
     continents: ['fondements'],
     places: ['Paris', 'Port-Royal', 'Londres', 'Hanovre'],
-    map: { x: 2250, y: 4150, size: 1, palette: { fill: '#ddf3e3', stroke: '#2c7d43', accent: '#31c45b' } },
+    map: { x: 2250, y: 4150, size: 1, palette: { fill: '#d1f0d9', stroke: '#2a6f3b', accent: '#298e43' } },
     tagline: 'Ramener toute science à une méthode, puis toute pensée à un calcul : le rêve leibnizien de la caractéristique.',
     summary:
       'De Ramus à Leibniz, le XVIIᵉ siècle repense la logique comme un art d’inventer et non comme un art de disputer. Ramus simplifie la dialectique scolastique en une méthode unique ; Descartes propose des règles pour conduire l’esprit et fait de la géométrie son modèle ; Hobbes rêve le raisonnement comme un calcul ; Pascal fixe les règles de la définition parfaite ; la Logique de Port-Royal (1662) enseigne l’art de penser à toute l’Europe. Leibniz rassemble ces fils en un projet immense : une écriture universelle, la characteristica, où penser serait calculer, et dont les Essais de Wilkins pour une langue philosophique (1668) sont la face encyclopédique.',

@@ -49,7 +49,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 400, end: 1550, approx: true },
     continents: ['nombres', 'analyse'],
     places: ['Kusumapura', 'Ujjain', 'Bijapur', 'Kerala'],
-    map: { x: 1230, y: 430, size: 3, palette: { fill: '#ede1cf', stroke: '#6d5126', accent: '#b47e2d' } },
+    map: { x: 1230, y: 430, size: 3, palette: { fill: '#ecddc6', stroke: '#644b26', accent: '#825d26' } },
     tagline: 'Des versets à mémoriser qui contiennent le zéro, le sinus, les équations indéterminées et, au bout de mille ans, les séries infinies.',
     summary:
       'Entre le Vᵉ et le XVIᵉ siècle, les astronomes-mathématiciens de l’Inde composent en vers sanskrits des traités (siddhānta) où la mathématique sert d’abord au calcul des mouvements célestes. Āryabhaṭa (499) y introduit la table des sinus et la résolution des équations linéaires indéterminées ; Brahmagupta (628) fixe les règles du zéro et des nombres négatifs et étudie les quadrilatères inscrits ; Bhāskara II (vers 1150) donne à l’algèbre sa forme classique avec la méthode chakravāla. Transmise au monde islamique au VIIIᵉ siècle, la numération décimale de position est l’héritage le plus universel de cette tradition. Au Kerala, de Mādhava (vers 1400) à Nīlakaṇṭha (1500), une école isolée découvre les développements en série du sinus, du cosinus et de l’arc tangente, deux siècles et demi avant Newton et Leibniz.',
@@ -400,7 +400,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 800, end: 1300, approx: true },
     continents: ['nombres'],
     places: ['Bagdad', 'Le Caire', 'Ispahan', 'Nichapour'],
-    map: { x: 1600, y: 620, size: 3, palette: { fill: '#ede4cf', stroke: '#6d5826', accent: '#b48b2d' } },
+    map: { x: 1600, y: 620, size: 3, palette: { fill: '#eee3cd', stroke: '#6b5429', accent: '#8a6828' } },
     tagline: 'À Bagdad, un « abrégé du calcul par la restauration et la comparaison » donne son nom à une discipline nouvelle : l’algèbre.',
     summary:
       'Vers 820, à la cour du calife al-Ma’mūn, al-Khwārizmī rédige le Kitāb al-jabr wa-l-muqābala, premier traité consacré à la résolution systématique des équations du premier et du second degré, et un livre sur le calcul indien qui diffuse la numération décimale de position. Ses successeurs élargissent le champ : Abū Kāmil introduit les coefficients irrationnels et les problèmes indéterminés, al-Karajī et al-Samaw’al bâtissent une arithmétique des polynômes, Omar Khayyām classe les équations cubiques et les résout par intersection de coniques, Sharaf al-Dīn al-Ṭūsī étudie leurs racines par des méthodes qui touchent au calcul des maxima. Traduite en latin à Tolède au XIIᵉ siècle, cette algèbre est le point de départ de celle de l’Europe.',
@@ -743,7 +743,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 850, end: 1450, approx: true },
     continents: ['formes', 'analyse'],
     places: ['Bagdad', 'Le Caire', 'Ghazni', 'Maragha', 'Samarcande'],
-    map: { x: 1400, y: 1450, size: 2, palette: { fill: '#cbdaec', stroke: '#25456a', accent: '#2c69af' } },
+    map: { x: 1400, y: 1450, size: 2, palette: { fill: '#c9dced', stroke: '#274a68', accent: '#275a86' } },
     tagline: 'Euclide, Archimède et Apollonius traduits, corrigés, prolongés : six siècles de géométrie, de l’optique du Caire aux observatoires de Maragha et de Samarcande.',
     summary:
       'À partir du IXᵉ siècle, les géomètres de langue arabe traduisent les Éléments, les Coniques, les traités d’Archimède et l’Almageste, puis les prolongent : Thābit ibn Qurra calcule des volumes par sommation et découvre une règle pour les nombres amiables ; Ibn al-Haytham fonde l’optique géométrique sur l’expérience et résout le problème du miroir sphérique par les coniques ; Abū l-Wafā’, al-Bīrūnī puis Naṣīr al-Dīn al-Ṭūsī font de la trigonométrie plane et sphérique une discipline autonome ; al-Kāshī, à Samarcande, calcule π à seize décimales et systématise les fractions décimales. Les tentatives de démontrer le cinquième postulat, de Thābit à Ṭūsī, nourriront la réflexion européenne sur les parallèles.',
@@ -1103,7 +1103,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1000, end: 1350, approx: true },
     continents: ['hasard', 'nombres'],
     places: ['Hangzhou', 'Pékin', 'Sichuan'],
-    map: { x: 1350, y: 3150, size: 2, palette: { fill: '#e8c4c0', stroke: '#5e2821', accent: '#a33729' } },
+    map: { x: 1350, y: 3150, size: 2, palette: { fill: '#eed4cd', stroke: '#6b3629', accent: '#8a3c28' } },
     tagline: 'Sous les Song et les Yuan, quatre maîtres portent le calcul sur baguettes à son sommet : équations de degré dix, restes simultanés, quatre inconnues sur un même tableau.',
     summary:
       'Entre le XIᵉ et le début du XIVᵉ siècle, la tradition des Neuf Chapitres connaît son apogée algébrique. Jia Xian dispose le triangle des coefficients binomiaux et des méthodes d’extraction de racines ; Qin Jiushao (1247) résout numériquement des équations jusqu’au degré dix et généralise le problème des restes par la méthode dayan ; Li Ye (1248) fonde l’art de l’inconnue céleste (tian yuan), qui écrit les polynômes en colonnes de baguettes ; Yang Hui (1261) commente les classiques et conserve les méthodes de Jia Xian ; Zhu Shijie (1303) étend le tian yuan à quatre inconnues et élimine entre équations polynomiales. Cette algèbre, sans contacts établis avec l’Occident, s’éteint presque sous les Ming et n’est redécouverte en Chine qu’au XVIIIᵉ siècle.',
@@ -1412,7 +1412,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1000, end: 1450, approx: true },
     continents: ['analyse', 'nombres'],
     places: ['Reims', 'Tolède', 'Pise', 'Oxford', 'Paris'],
-    map: { x: 1450, y: 2300, size: 2, palette: { fill: '#dacfed', stroke: '#42266d', accent: '#602db4' } },
+    map: { x: 1450, y: 2300, size: 2, palette: { fill: '#ddcdee', stroke: '#49296b', accent: '#58288a' } },
     tagline: 'Des jetons de Gerbert aux graphes d’Oresme : l’Occident apprend à calculer en chiffres, à lire Euclide en latin et à mesurer la variation du mouvement.',
     summary:
       'Entre l’an mil et 1450, le latin redevient une langue mathématique. Gerbert d’Aurillac enseigne à Reims l’abaque à jetons numérotés ; les traducteurs de Tolède — Adélard de Bath, Gérard de Crémone — donnent en latin les Éléments et l’algèbre d’al-Khwārizmī ; Léonard de Pise (Fibonacci) rédige en 1202 le Liber abaci, qui impose les chiffres indo-arabes et les méthodes arabes du calcul commercial et de l’algèbre ; Jordanus de Nemore écrit la première algèbre latine en lettres. Au XIVᵉ siècle, les calculateurs de Merton College à Oxford (Bradwardine, Heytesbury, Swineshead) quantifient la variation des mouvements, et Nicole Oresme en tire une géométrie des « formes » et les premières études de séries, dont la divergence de la série harmonique.',
@@ -1736,7 +1736,7 @@ export const MEDIEVAL: Domain[] = [
     period: { start: 1100, end: 1400, approx: true },
     continents: ['fondements'],
     places: ['Paris', 'Oxford'],
-    map: { x: 1450, y: 4100, size: 1, palette: { fill: '#c3e9d2', stroke: '#22623c', accent: '#2aa75c' } },
+    map: { x: 1450, y: 4100, size: 1, palette: { fill: '#c9edd4', stroke: '#276839', accent: '#278642' } },
     tagline: 'Dans les écoles de Paris et d’Oxford, la logique aristotélicienne devient une science des termes, des conséquences et des paradoxes que l’on redécouvrira au XIXᵉ siècle.',
     summary:
       'Entre Abélard et Albert de Saxe, les facultés des arts de Paris et d’Oxford développent une logique propre, la logica modernorum, greffée sur l’Organon d’Aristote connu par Boèce puis par les traductions du grec. On y théorise la supposition (ce pour quoi un terme « tient » dans une proposition), les syncatégorèmes, les conséquences (règles de l’implication), les obligations et les insolubles, dont le paradoxe du menteur. Guillaume d’Ockham donne à cette logique une assise nominaliste, Jean Buridan une forme systématique ; les débats sur l’infini et le continu, menés dans les commentaires à la Physique d’Aristote, touchent directement aux mathématiques. Jugée stérile par les humanistes, cette tradition n’est relue sérieusement qu’au XXᵉ siècle.',

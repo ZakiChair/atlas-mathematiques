@@ -50,7 +50,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['nombres'],
     places: ['Princeton', 'Tokyo', 'Harvard', 'Bonn', 'Cambridge', 'Oxford', 'Durham (New Hampshire)'],
-    map: { x: 6300, y: 430, size: 3, palette: { fill: '#e8dbc0', stroke: '#5e4b21', accent: '#a37c29' } },
+    map: { x: 6300, y: 430, size: 3, palette: { fill: '#ede1c9', stroke: '#685227', accent: '#866727' } },
     tagline: 'Courbes elliptiques, formes modulaires et représentations de Galois : la marge de Fermat enfin remplie.',
     summary:
       'Après 1955, la théorie des nombres se réorganise autour de trois objets : les courbes elliptiques, les formes modulaires et les représentations du groupe de Galois. La conjecture de Taniyama–Shimura–Weil affirme que les deux premiers sont liés ; la lettre de Langlands à Weil (1967) élargit cette correspondance en un programme reliant formes automorphes et représentations galoisiennes. Armés des outils de la géométrie algébrique de Grothendieck, Faltings démontre la conjecture de Mordell (1983) et Wiles le dernier théorème de Fermat (1995). Parallèlement, les méthodes analytiques et combinatoires produisent le théorème de Green–Tao (2004) et les écarts bornés entre nombres premiers de Yitang Zhang (2013).',
@@ -480,7 +480,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['nombres', 'formes'],
     places: ['Chicago', 'Cambridge', 'New Brunswick', 'Princeton', 'Moscou', 'Bonn', 'Pasadena'],
-    map: { x: 7000, y: 560, size: 2, palette: { fill: '#f0e6d6', stroke: '#755829', accent: '#bc862f' } },
+    map: { x: 7000, y: 560, size: 2, palette: { fill: '#f1ead5', stroke: '#73612b', accent: '#92782a' } },
     tagline: 'Dix mille pages pour classer les groupes finis simples, un Monstre qui parle aux formes modulaires, et des symétries déformées venues de la physique.',
     summary:
       'L’algèbre de la seconde moitié du XXᵉ siècle est dominée par un chantier collectif : la classification des groupes finis simples, ouverte par le théorème de Feit–Thompson (1963), organisée par Gorenstein (1972), annoncée en 1983 et achevée en 2004. En chemin apparaissent les groupes sporadiques de Conway et le Monstre, dont les liens inattendus avec les formes modulaires (« Monstrous Moonshine ») sont expliqués par Borcherds grâce aux algèbres de vertex. Parallèlement, Tits géométrise les groupes de Lie et algébriques par ses immeubles, Kac et Moody étendent les algèbres de Lie à la dimension infinie, Kazhdan et Lusztig refondent la théorie des représentations, et Drinfeld et Jimbo tirent de la physique statistique les groupes quantiques.',
@@ -892,7 +892,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1955, end: null },
     continents: ['formes', 'nombres'],
     places: ['Paris', 'Bures-sur-Yvette', 'Princeton', 'Harvard', 'Kyoto', 'Bonn'],
-    map: { x: 6300, y: 1300, size: 3, palette: { fill: '#dae9f1', stroke: '#2a5c79', accent: '#308bc0' } },
+    map: { x: 6300, y: 1300, size: 3, palette: { fill: '#cdddee', stroke: '#29486b', accent: '#28568a' } },
     tagline: 'Refonder la géométrie sur les faisceaux et les schémas, jusqu’à ce que les équations sur les corps finis livrent leur topologie.',
     summary:
       'Entre 1955 et 1970, la géométrie algébrique est reconstruite de fond en comble. Serre importe les faisceaux et la cohomologie dans la géométrie des variétés (FAC, 1955) ; Grothendieck élargit les variétés en schémas, les recouvrements en topologies, et rédige avec Dieudonné les Éléments de géométrie algébrique tout en animant le séminaire de l’IHÉS. La cohomologie étale, construite pour les conjectures de Weil, permet à Deligne de les démontrer en 1974. Hironaka résout les singularités, Mumford construit les espaces de modules, Mori relance la classification birationnelle en dimension 3, tandis que Kontsevich et Voevodsky prolongent l’héritage vers la physique des cordes et la théorie homotopique des schémas.',
@@ -1292,7 +1292,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1956, end: null },
     continents: ['formes'],
     places: ['Princeton', 'Berkeley', 'Oxford', 'Bures-sur-Yvette', 'Saint-Pétersbourg', 'Stony Brook', 'Stanford'],
-    map: { x: 7000, y: 1500, size: 3, palette: { fill: '#c0d6e8', stroke: '#21445e', accent: '#296ea3' } },
+    map: { x: 7000, y: 1500, size: 3, palette: { fill: '#c6daec', stroke: '#264764', accent: '#265782' } },
     tagline: 'Classer les variétés dimension par dimension : sphères exotiques, chirurgie, théories de jauge, et le flot de Ricci qui éteint la conjecture de Poincaré.',
     summary:
       'La découverte des sphères exotiques de Milnor (1956) ouvre l’ère de la topologie différentielle : cobordisme de Thom, théorème du h-cobordisme de Smale (1961), qui règle la conjecture de Poincaré en dimension au moins 5. La dimension 4 résiste : Freedman la traite topologiquement (1982), Donaldson révèle par les théories de jauge des phénomènes différentiables sans analogue (1983), et la dimension 3 est réorganisée par la conjecture de géométrisation de Thurston (1982), démontrée par Perelman (2003) au moyen du flot de Ricci de Hamilton. En parallèle, le théorème de l’indice d’Atiyah–Singer (1963) relie topologie et analyse, et le polynôme de Jones (1984) fonde la topologie quantique. Le domaine est marqué par deux premières : Edward Witten, premier physicien médaillé Fields (1990), et Maryam Mirzakhani, première femme médaillée (2014).',
@@ -1725,7 +1725,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1954, end: null },
     continents: ['analyse', 'hasard'],
     places: ['Moscou', 'MIT', 'Berkeley', 'Bures-sur-Yvette', 'Los Alamos', 'Orsay'],
-    map: { x: 6250, y: 2200, size: 2, palette: { fill: '#ccc0e8', stroke: '#35215e', accent: '#5029a3' } },
+    map: { x: 6250, y: 2200, size: 2, palette: { fill: '#d9c6ec', stroke: '#452664', accent: '#542682' } },
     tagline: 'Des solutions régulières qui persistent aux orbites qui se mélangent : l’imprévisible devient un objet mathématique.',
     summary:
       'Le théorème KAM (1954-1963) établit la persistance des mouvements quasi périodiques sous petite perturbation, tandis que la théorie ergodique, relancée par Kolmogorov et Sinaï (entropie, 1958-1959), mesure le mélange. Lorenz exhibe en 1963 un attracteur sensible aux conditions initiales, Ruelle et Takens en font le modèle de la turbulence (1971), et Feigenbaum découvre des constantes universelles dans la route vers le chaos (1978). Mandelbrot impose les fractales comme géométrie du désordre ; l’école d’Orsay (Douady, Hubbard, Yoccoz) fournit à la dynamique holomorphe ses outils, de la connexité de l’ensemble de Mandelbrot à l’optimalité de la condition de Bruno.',
@@ -2116,7 +2116,7 @@ export const CONTEMPORAIN_A: Domain[] = [
     period: { start: 1957, end: null },
     continents: ['analyse'],
     places: ['Princeton', 'Chicago', 'Lund', 'New York', 'Pise', 'Paris', 'Los Angeles'],
-    map: { x: 6950, y: 2350, size: 2, palette: { fill: '#e5ddf3', stroke: '#472c7d', accent: '#6231c4' } },
+    map: { x: 6950, y: 2350, size: 2, palette: { fill: '#e0d5f1', stroke: '#472b73', accent: '#522a92' } },
     tagline: 'Estimer, localiser, régulariser : l’art de dompter les solutions des équations de la physique.',
     summary:
       'L’analyse de la seconde moitié du XXᵉ siècle s’organise autour des équations aux dérivées partielles et de l’analyse harmonique « dure ». L’école de Chicago (Calderón, Zygmund, puis Stein et Fefferman à Princeton) fait des intégrales singulières un calcul d’opérateurs ; De Giorgi et Nash démontrent la régularité des solutions elliptiques (1957), Hörmander et Nirenberg fondent l’analyse microlocale. Crandall et Lions introduisent les solutions de viscosité (1983), Bourgain transpose l’analyse harmonique aux équations dispersives, et le transport optimal (Villani) et la théorie cinétique (amortissement Landau, Mouhot–Villani) réunissent probabilités, géométrie et physique. La régularité des équations de Navier–Stokes, posée comme problème du millénaire en 2000, résiste toujours.',
