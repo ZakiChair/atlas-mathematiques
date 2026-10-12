@@ -582,6 +582,25 @@ export const FIGURES_RENAISSANCE: Record<string, Mathematician[]> = {
       mactutor: 'Mouton',
       sources: ['mactutor'],
     },
+    {
+      id: 'lansberge',
+      name: 'Philippe van Lansberge',
+      years: [1561, 1632],
+      origin: 'Gand et Middelburg',
+      bio: 'Pasteur calviniste à Middelburg, Lansberge publie la Triangulorum geometriae (1591), dont les tables de sinus serviront à Kepler, et la Cyclometria nova (1616), qui calcule π à vingt-huit décimales par une méthode nouvelle joignant la quadratrix à la trigonométrie.',
+      mactutor: 'Lansberge',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'vernier',
+      name: 'Pierre Vernier',
+      years: [1584, 1638],
+      origin: 'Ornans, Franche-Comté',
+      bio: 'Ingénieur des Habsbourg et trésorier à Dole et Besançon, Vernier dresse avec son père la carte de la Franche-Comté ; son Quadrant nouveau de mathématiques (1631), avec table de sinus et résolution des triangles par les côtés, décrit l’échelle auxiliaire qui porte son nom.',
+      theoryId: 'lcn-machines-et-instruments',
+      mactutor: 'Vernier',
+      sources: ['mactutor'],
+    },
   ],
   'theorie-des-nombres-fermat': [
     {
