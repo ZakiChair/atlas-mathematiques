@@ -166,7 +166,28 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'mi-arithmetique-et-algebre',
         featured: {
           signature: { kind: 'fait', text: 'Donne les règles du calcul avec le zéro et les nombres négatifs (628).', sources: ['plofker-india', 'katz-sourcebook'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Le chapitre XII du Brāhmasphuṭasiddhānta s’ouvre sur une définition : est mathématicien celui qui connaît distinctement les vingt opérations (parikarman), de l’addition aux règles de trois et de troc, et les huit procédures (vyavahāra), des mélanges à la mesure par l’ombre ; cette division entre calcul élémentaire et problèmes pratiques devient le plan des arithmétiques indiennes ultérieures, de Śrīdhara à la Līlāvatī.',
+              sources: ['colebrooke-algebra', 'plofker-india'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Admettre les dettes comme nombres lui permet d’énoncer la résolution de l’équation du second degré ax² + bx = c en une règle unique, équivalente à x = (√(4ac + b²) − b) / 2a, là où l’algèbre arabe, qui ne connaît que des quantités positives, devra distinguer six cas et les traiter un à un.',
+              sources: ['plofker-india', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le Khaṇḍakhādyaka (665), manuel astronomique de sa vieillesse, interpole la table des sinus par une règle du second ordre qui fait intervenir les différences secondes, et que les historiens comparent à la formule de Newton–Stirling ; le Brāhmasphuṭasiddhānta donne par ailleurs les sommes des carrés et des cubes des n premiers entiers.',
+              sources: ['plofker-india', 'joseph-crest', 'mactutor'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour André Weil, la bhāvanā, qui compose deux solutions de Nx² + k = y² en une troisième, équivaut à la multiplicativité de la norme des nombres de la forme x + y√N ; prolongée par le chakravāla, elle donne à l’algèbre indienne une résolution générale de l’équation que l’Europe ne retrouvera qu’avec Brouncker et Lagrange.',
+              sources: ['weil-number-theory', 'plofker-india'],
+            },
+          ],
           headlineResultIds: ['brahmasphutasiddhanta', 'formule-de-brahmagupta'],
         },
       },
@@ -511,7 +532,28 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'aa-al-jabr-wa-l-muqabala',
         featured: {
           signature: { kind: 'interpretation', text: 'Fait de la résolution des équations une discipline, l’al-jabr, d’où vient « algèbre ».', sources: ['rashed-al-khwarizmi', 'rashed-sciences-arabes'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Il fixe le vocabulaire de la discipline, le nombre simple (compté en dirhams), la racine (jidhr) et le bien (māl), carré de l’inconnue, et, avant tout problème, enseigne à calculer sur ces grandeurs : multiplication de binômes tels que (a + bx)(c + dx), addition et soustraction de racines, produits de radicaux. Rashed voit dans ce calcul sur les expressions, autant que dans les six équations, ce qui fait de l’al-jabr une discipline.',
+              sources: ['rashed-al-khwarizmi', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses tables astronomiques, le Zīj al-Sindhind, comptent parmi les premiers zīj composés en arabe : paramètres et méthodes hérités du siddhānta apporté à Bagdad vers 770, table des sinus, éléments ptoléméens. L’original arabe est perdu : les tables ne subsistent que par des versions latines du XIIᵉ siècle, dont la révision d’al-Majrīṭī (Xᵉ siècle) traduite par Adélard de Bath.',
+              sources: ['mactutor', 'plofker-india'],
+            },
+            {
+              kind: 'fait',
+              text: 'La seconde moitié du Kitāb al-jabr montre l’algèbre au travail : un chapitre de mesure donne pour le cercle trois valeurs de π selon l’usage (3 + 1/7 pour la pratique, √10 pour les géomètres, 62832/20000 pour les astronomes), et un long traité des successions (farāʾiḍ) applique les équations du premier degré au droit islamique de l’héritage.',
+              sources: ['rashed-al-khwarizmi', 'mactutor', 'katz-history'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Sa place reste discutée : Gerald Toomer jugeait ses résultats scientifiques « au mieux médiocres », Solomon Gandz le tenait pour plus « père de l’algèbre » que Diophante, parce qu’il est le premier à enseigner l’algèbre pour elle-même et sous une forme élémentaire ; pour Rashed, l’originalité de sa conception, une théorie des équations à la fois générale, calculable et fondée géométriquement, ne saurait être surestimée.',
+              sources: ['mactutor', 'rashed-al-khwarizmi'],
+            },
+          ],
           headlineResultIds: ['kitab-al-jabr', 'livre-du-calcul-indien'],
         },
       },
@@ -868,7 +910,28 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'ga-optique-et-methodes-infinitesimales',
         featured: {
           signature: { kind: 'fait', text: 'Refonde l’optique par la géométrie et l’expérience ; mesure le paraboloïde.', sources: ['sabra-optics', 'rashed-infinitesimales'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'interpretation',
+              text: 'Pour A. I. Sabra, son apport décisif est une synthèse : il réunit l’optique géométrique des mathématiciens (Euclide, Ptolémée), la physique de la lumière des philosophes et l’anatomie de l’œil des médecins en une seule théorie de la vision, où chaque point de l’objet envoie de la lumière dans toutes les directions et où l’œil ne retient que le rayon perpendiculaire ; la perception y devient une inférence, analysée aux livres II et III.',
+              sources: ['sabra-optics'],
+            },
+            {
+              kind: 'fait',
+              text: 'Dans ses livres sur les prémisses et sur les doutes des Éléments, il tente de démontrer le cinquième postulat en raisonnant sur un quadrilatère à trois angles droits et sur le mouvement d’une perpendiculaire glissant le long d’une droite ; Khayyām lui reprochera d’introduire le mouvement en géométrie, et la figure reviendra chez Lambert.',
+              sources: ['youschkevitch-arabes', 'rashed-sciences-arabes', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses opuscules d’arithmétique énoncent, pour résoudre des systèmes de restes, la propriété que l’on nommera théorème de Wilson, un nombre premier p divise (p − 1)! + 1, et son Analyse et synthèse cherche à caractériser tous les nombres parfaits pairs, réciproque d’Euclide IX.36 qu’Euler seul démontrera ; Rashed y voit la première tentative délibérée de ce genre.',
+              sources: ['mactutor', 'rashed-sciences-arabes'],
+            },
+            {
+              kind: 'fait',
+              text: 'Ses deux traités sur les lunules généralisent les quadratures d’Hippocrate de Chios, la somme des deux lunules construites sur les côtés de l’angle droit d’un triangle rectangle égalant le triangle, et le conduisent à annoncer une quadrature du cercle qu’il ne livre jamais ; il mesure de même la sphère et s’attaque au problème isopérimétrique : montrer qu’à surface égale la sphère est le plus grand des solides.',
+              sources: ['rashed-infinitesimales', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['kitab-al-manazir', 'probleme-d-alhazen', 'volume-du-paraboloide-ibn-al-haytham'],
         },
       },
@@ -1234,7 +1297,28 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'acs-dayan-et-sommations',
         featured: {
           signature: { kind: 'fait', text: 'Résout les systèmes de restes (méthode dayan) et les équations jusqu’au degré dix.', sources: ['libbrecht-qin', 'martzloff-chine'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Le « procédé dayan de recherche de l’unité » (dayan qiuyi shu) calcule le multiplicateur de chaque module par une suite de divisions sur le tableau de baguettes, poursuivie jusqu’à ce qu’un reste vaille 1, l’équivalent de l’algorithme d’Euclide étendu ; Qin l’applique à des modules non premiers entre eux, qu’il réduit au préalable, et à des modules fractionnaires, et dit avoir appris la règle auprès des calendéristes du Bureau d’astronomie, qui l’employaient sans la comprendre.',
+              sources: ['libbrecht-qin', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Chaque problème du Shushu jiuzhang est présenté en quatre temps, question, réponse, procédure (shu), puis détail du calcul (cao) avec les dispositions successives des baguettes, ce qui en fait l’un des témoignages les plus détaillés sur la pratique du calcul chinois ; Qin y note le zéro par un petit cercle, là où, dit-il, les anciens livres laissaient une place vide.',
+              sources: ['libbrecht-qin', 'martzloff-chine', 'mactutor'],
+            },
+            {
+              kind: 'fait',
+              text: 'Hors de ses deux méthodes célèbres, le traité résout des systèmes linéaires à trois inconnues par le fangcheng, donne pour l’aire du triangle une formule par ses trois côtés équivalente à celle de Héron, exprime l’aire d’une figure par la racine d’une équation du quatrième degré dont les coefficients restent des longueurs non spécifiées, et traite, au chapitre des phénomènes célestes, du calendrier et de la mesure des pluies et des neiges.',
+              sources: ['mactutor', 'libbrecht-qin'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Pour Ulrich Libbrecht, le passage du problème isolé du Sunzi à la procédure générale de Qin, « sans la moindre trace d’évolution graduelle », est une avancée révolutionnaire, plus générale encore que la méthode de Gauss ; cette appréciation, après celle de George Sarton qui le tenait pour l’un des plus grands mathématiciens de tous les temps, a placé le Shushu jiuzhang au centre de la réévaluation des mathématiques chinoises au XXᵉ siècle.',
+              sources: ['libbrecht-qin', 'mactutor'],
+            },
+          ],
           headlineResultIds: ['methode-dayan', 'extraction-de-racines-qin-jiushao', 'shushu-jiuzhang'],
         },
       },
@@ -1550,7 +1634,28 @@ export const MEDIEVAL: Domain[] = [
         theoryId: 'olm-elements-et-algebre-latine',
         featured: {
           signature: { kind: 'fait', text: 'Enseigne à l’Occident latin le calcul en chiffres indo-arabes (Liber abaci, 1202).', sources: ['sigler-liber-abaci', 'burnett-numerals'] },
-          contributions: [],
+          contributions: [
+            {
+              kind: 'fait',
+              text: 'Dans le Flos (1225), répondant au défi de Jean de Palerme à la cour de Frédéric II, il traite l’équation x³ + 2x² + 10x = 20, que l’on retrouve chez Khayyām : il montre que la racine n’est ni un entier, ni une fraction, ni la racine carrée d’une fraction, puis en donne, sans expliquer sa méthode, une valeur sexagésimale, 1;22,7,42,33,4,40, exacte à neuf décimales.',
+              sources: ['mactutor', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'Le Liber quadratorum part de la remarque que les carrés naissent de l’addition des impairs successifs (n² + (2n + 1) = (n + 1)²) pour construire les triplets pythagoriciens, définit le congruum, ab(a + b)(a − b) ou son quadruple, montre qu’il est divisible par 24 et affirme qu’aucun carré n’est un congruum, ce qui équivaut à l’impossibilité de x⁴ − y⁴ = z², que Fermat démontrera par descente.',
+              sources: ['mactutor', 'weil-number-theory', 'katz-history'],
+            },
+            {
+              kind: 'fait',
+              text: 'La Practica geometriae (1220), dédiée à Dominicus Hispanus, met la géométrie d’Euclide (Éléments, Sur les divisions) au service des arpenteurs : mesure des hauteurs par triangles semblables, aires et partages de champs, calcul algébrique des côtés du pentagone et du décagone à partir du cercle, dans la ligne d’Abū Kāmil ; un commentaire du livre X des Éléments, perdu, traitait numériquement les irrationnelles.',
+              sources: ['mactutor', 'katz-history'],
+            },
+            {
+              kind: 'interpretation',
+              text: 'Ses contemporains le reconnaissent pour l’utile, la commune de Pise lui allouant en 1240 un traitement annuel pour ses services de comptable et de maître, tandis que son arithmétique savante reste presque sans lecteur jusqu’à Maurolico au XVIᵉ siècle ; son influence durable passe par les maîtres de calcul et les arpenteurs, dont il devient le maître posthume, plus que par ses théorèmes.',
+              sources: ['mactutor', 'katz-history'],
+            },
+          ],
           headlineResultIds: ['liber-abaci', 'suite-de-fibonacci', 'liber-quadratorum'],
         },
       },
