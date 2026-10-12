@@ -250,6 +250,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'À l’intérieur d’un corps attirant de densité ρ, le potentiel V vérifie ΔV = −4πρ ; l’équation de Laplace ΔV = 0 ne vaut qu’à l’extérieur des masses.',
         comment: 'Publiée dans le Bulletin de la Société philomathique (1813), la correction de Poisson étend la théorie du potentiel de Laplace à l’intérieur des corps et à l’électrostatique, qu’il traite en 1812. Elle devient le prototype des équations elliptiques : Green (1828) et Gauss (1839) en tirent la théorie du potentiel, Dirichlet et Riemann le problème aux limites qui porte le nom du premier.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le potentiel d’une masse ponctuelle, 1/r, vérifie l’équation de Laplace partout sauf au point lui-même ; le potentiel d’un corps est la somme de tels termes. Hors du corps, aucune masse ne se trouve au point considéré et chaque terme est régulier : ΔV = 0. À l’intérieur, le point d’observation est lui-même entouré de matière, et c’est la singularité de 1/r qui laisse un reste, proportionnel à la densité locale.',
+            sources: ['kline-thought', 'cannell-green'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On écrit V(P) = ∫ ρ(Q)/|PQ| dQ sur tout le corps. Si P est extérieur, 1/|PQ| est une fonction régulière de P pour chaque Q et son laplacien est nul : on dérive sous le signe somme et l’on retrouve l’équation de Laplace.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si P est intérieur, on découpe le corps en une petite boule centrée en P et le reste. Le reste ne contient pas P : son potentiel est harmonique en P et ne contribue pas au laplacien.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans la petite boule, la densité est presque constante, égale à ρ(P). Or le potentiel d’une boule homogène de rayon a, en un point intérieur à distance r du centre, vaut 2πρ(a² − r²/3) : résultat classique de l’attraction newtonienne.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le laplacien de r² valant 6, celui de 2πρ(a² − r²/3) vaut −4πρ, indépendamment du rayon a : en faisant tendre la boule vers le point P, on obtient ΔV = −4πρ(P).',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le raisonnement de Poisson suppose la densité assez régulière ; Gauss (1839) puis la théorie du potentiel en précisent les conditions, et le théorème du flux — le flux du champ à travers une surface fermée vaut −4π fois la masse enfermée — en donne la forme intégrale équivalente.',
+            sources: ['kline-thought', 'cannell-green'],
+          },
+        ],
       },
       {
         id: 'theorie-analytique-de-la-chaleur',
@@ -294,6 +328,45 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Si une fonction est bornée et n’a, sur un intervalle, qu’un nombre fini de maxima, de minima et de discontinuités, sa série de Fourier converge en chaque point vers la demi-somme des limites à gauche et à droite.',
         comment: 'Publié dans le Journal de Crelle, c’est le premier théorème de convergence rigoureux pour les séries de Fourier, après une tentative fautive de Cauchy (1826). La version allemande de 1837 énonce la définition générale de la fonction et exhibe la fonction indicatrice des rationnels, non intégrable. Du Bois-Reymond (1873) montre qu’une fonction continue peut avoir une série divergente en un point ; Carleson (1966) prouve la convergence presque partout pour les fonctions de carré intégrable.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La somme des n premiers termes de la série s’écrit comme une intégrale de la fonction contre un « noyau » — sin((2n + 1)t/2) / (2 sin(t/2)) — qui, lorsque n grandit, se concentre en une bosse de plus en plus haute et étroite autour de t = 0 et oscille de plus en plus vite ailleurs. L’intégrale ne « voit » donc que les valeurs de la fonction immédiatement à gauche et à droite du point, chaque côté fournissant la moitié de sa limite.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Pour Bottazzini, la nouveauté de Dirichlet n’est pas une formule, mais une discipline : au lieu de tenir la représentation pour acquise, comme Fourier, il étudie la somme partielle elle-même comme une intégrale et en calcule la limite, avec les exigences du Cours d’analyse de Cauchy et contre la démonstration fautive de Cauchy lui-même.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'En reportant les formules des coefficients dans la somme partielle et en sommant la progression trigonométrique, on obtient S_n(x) = (1/π) ∫ f(x + t) · sin((2n + 1)t/2) / (2 sin(t/2)) dt, l’intégrale portant sur une période.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'On sépare les t positifs et les t négatifs ; l’hypothèse d’un nombre fini de maxima et de minima permet de découper chaque moitié en un nombre fini d’intervalles sur lesquels f(x + t) est monotone.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme de Dirichlet : si g est monotone sur [0, h], avec 0 < h ≤ π/2, l’intégrale ∫₀ʰ g(t) sin(kt)/sin t dt tend vers (π/2)·g(0⁺) quand k tend vers l’infini. Pour g constante, c’est l’intégrale de Dirichlet ∫₀^∞ (sin u)/u du = π/2 ; dans le cas général, on découpe l’intégrale aux zéros du sinus en une série alternée à termes décroissants, dont seules les premières arches, où g vaut presque g(0⁺), pèsent à la limite.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur un intervalle [a, h] qui ne touche pas 0, le même argument des arches alternées montre que l’intégrale d’une fonction monotone contre sin(kt)/sin t tend vers 0 : les valeurs de f loin du point x ne comptent pas à la limite.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliqué au côté droit, le lemme donne f(x⁺)/2 ; appliqué au côté gauche, f(x⁻)/2 : la somme partielle S_n(x) converge vers la demi-somme des limites à gauche et à droite, qui vaut f(x) en tout point de continuité.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'equations-de-hamilton',
@@ -306,6 +379,45 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Le mouvement d’un système mécanique se décrit par des positions q et des impulsions p et par une seule fonction H, l’énergie : la vitesse de q est la dérivée de H par rapport à p, celle de p est l’opposé de la dérivée de H par rapport à q.',
         comment: 'Issues de l’optique géométrique (la « fonction caractéristique » de 1828-1833), les équations paraissent dans les Philosophical Transactions en 1834 et 1835. Jacobi en tire en 1837 l’équation de Hamilton–Jacobi ; Liouville, Poincaré et la mécanique statistique de Boltzmann et Gibbs travaillent dans l’espace des phases qu’elles définissent, et Schrödinger (1926) et Dirac y fondent la mécanique quantique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour un point matériel de masse m dans un champ de force dérivant d’un potentiel U, l’énergie s’écrit H = p²/2m + U(q). La première équation, q̇ = ∂H/∂p = p/m, n’est que la définition de l’impulsion ; la seconde, ṗ = −∂H/∂q = −U′(q), est la loi de Newton. Le gain est ailleurs : positions et impulsions jouent des rôles symétriques, et une seule fonction engendre tout le mouvement.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hamilton y arrive par l’optique : sa « fonction caractéristique », la longueur optique du chemin entre deux points, suffit à déterminer tous les rayons d’un système. Transposée à la dynamique, l’action calculée le long des trajectoires joue le même rôle, et les équations canoniques en sont la forme différentielle.',
+            sources: ['mactutor', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part des équations de Lagrange (1788) : d/dt (∂L/∂q̇) = ∂L/∂q, où le lagrangien L = T − U dépend des positions q et des vitesses q̇.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'On définit les impulsions p = ∂L/∂q̇ et la fonction H = ∑ p q̇ − L, dans laquelle les vitesses sont remplacées par leur expression en fonction de q et p : c’est une transformation de Legendre.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'En différentiant, dH = ∑ q̇ dp + ∑ p dq̇ − ∑ (∂L/∂q) dq − ∑ (∂L/∂q̇) dq̇ ; comme p = ∂L/∂q̇, les termes en dq̇ s’annulent et il reste dH = ∑ q̇ dp − ∑ (∂L/∂q) dq.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'On lit sur cette différentielle ∂H/∂p = q̇ et ∂H/∂q = −∂L/∂q ; par les équations de Lagrange, ∂L/∂q = ṗ, d’où ṗ = −∂H/∂q : ce sont les équations canoniques.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lorsque l’énergie cinétique T est une forme quadratique des vitesses et que U n’en dépend pas, le théorème d’Euler sur les fonctions homogènes donne ∑ p q̇ = 2T, donc H = 2T − (T − U) = T + U : la fonction de Hamilton est l’énergie totale.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'equations-de-navier-stokes',
@@ -329,6 +441,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La circulation d’un champ de vecteurs le long d’une courbe fermée est égale au flux de son rotationnel à travers n’importe quelle surface bordée par cette courbe.',
         comment: 'Thomson communique l’énoncé à Stokes dans une lettre du 2 juillet 1850 ; Stokes le pose comme question 8 de l’examen du prix Smith en février 1854, auquel Maxwell se présente. Avec le théorème de la divergence (Gauss, Ostrogradski) et le théorème de Green, il forme le calcul intégral vectoriel de Maxwell ; Volterra (1889), Poincaré (1899) et Élie Cartan en donnent la forme générale pour les formes différentielles, et de Rham (1931) la cohomologie qui en découle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Découpons la surface en petites mailles : la circulation du champ autour de chaque maille mesure la rotation locale du champ, c’est-à-dire le rotationnel multiplié par l’aire. En additionnant toutes les mailles, chaque arête intérieure est parcourue deux fois en sens contraires et disparaît ; ne reste que la circulation le long du bord. C’est l’énoncé que Maxwell reprend dans son Treatise (1873), où il l’attribue à Stokes.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dans le plan d’abord : pour un champ (P, Q) et un petit rectangle de côtés dx et dy, la différence des valeurs de Q sur les côtés verticaux et de P sur les côtés horizontaux donne une circulation égale à (∂Q/∂x − ∂P/∂y) dx dy.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En pavant une région plane par de tels rectangles et en sommant, les côtés intérieurs se compensent : ∮ (P dx + Q dy) = ∬ (∂Q/∂x − ∂P/∂y) dx dy. C’est le théorème de Green dans le plan, que Cauchy (1846) et Riemann (1851) emploient aussi.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour une surface de l’espace, on la paramètre par une région plane ; le champ de vecteurs se transporte en un champ plan sur les paramètres, et un calcul direct montre que le flux du rotationnel à travers la surface égale l’intégrale double du « rotationnel plan » du champ transporté.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème de Green appliqué dans le plan des paramètres, puis ramené à la surface, donne l’égalité entre la circulation le long du bord et le flux du rotationnel.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le résultat ne dépend pas de la surface choisie : deux surfaces de même bord délimitent un volume, et la divergence d’un rotationnel étant nulle, le théorème de la divergence (Gauss, Ostrogradski) montre que les deux flux sont égaux.',
+            sources: ['katz-history', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'principe-de-dirichlet',
@@ -360,6 +506,45 @@ export const DIXNEUVIEME_B: Domain[] = [
             sources: ['gowers-companion', 'gray-hilbert-challenge'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’intégrale de Dirichlet est une somme de carrés, donc positive : elle possède une borne inférieure, et il paraît évident qu’une fonction la réalise — comme une membrane tendue sur un contour prend la forme qui minimise son énergie. Weierstrass fait voir le défaut par un exemple d’une ligne : parmi les fonctions y(x) sur [−1, 1] telles que y(−1) = −1 et y(1) = 1, l’intégrale ∫ (x·y′(x))² dx peut être rendue aussi petite qu’on veut, en raidissant la fonction près de 0, mais nulle pour aucune d’elles, puisqu’il faudrait y′ = 0 partout.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'La difficulté est donc celle de la compacité : une suite de fonctions dont l’énergie tend vers le minimum n’a aucune raison de converger vers une fonction admissible. Riemann l’avait senti — il invoquait le principe comme une évidence physique, non comme un théorème —, et c’est le choix de la classe de fonctions, plus que l’idée de minimiser, qui est en jeu.',
+            sources: ['bottazzini-higher-calculus', 'gray-hilbert-challenge'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Méthode directe de Hilbert (1900-1904) : on prend une suite de fonctions admissibles u₁, u₂, … dont les intégrales de Dirichlet tendent vers la borne inférieure d.',
+            sources: ['kline-thought', 'gray-hilbert-challenge'],
+          },
+          {
+            kind: 'fait',
+            text: 'On régularise ces fonctions sans augmenter leur énergie, de sorte qu’elles forment une famille équicontinue bornée ; un procédé d’extraction en tire une sous-suite qui converge uniformément vers une fonction u prenant les valeurs imposées au bord.',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’intégrale de Dirichlet est semi-continue inférieurement : l’énergie de la limite u ne dépasse pas la limite des énergies, donc D(u) ≤ d ; comme u est admissible, D(u) = d et le minimum est atteint.',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour toute fonction φ nulle au bord et tout réel t, D(u + tφ) ≥ D(u) ; la dérivée en t = 0 doit s’annuler, ce qui donne ∫ ∇u·∇φ = 0 pour toute φ : c’est l’équation d’Euler du problème, Δu = 0, au sens des intégrales.',
+            sources: ['kline-thought', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Reste à montrer que u, qui annule le laplacien au sens intégral, est deux fois dérivable et harmonique au sens ordinaire : c’est la question de régularité, que Hilbert traite directement et qui devient, avec le 19ᵉ et le 20ᵉ problème, un chapitre de la théorie des équations elliptiques.',
+            sources: ['gray-hilbert-challenge', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'distribution-de-maxwell',
@@ -372,6 +557,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un gaz à l’équilibre, chaque composante de la vitesse des molécules suit la loi normale ; la norme de la vitesse suit la loi qui porte le nom de Maxwell, dont la largeur croît avec la température.',
         comment: 'Publiée dans le Philosophical Magazine, c’est la première loi de probabilité introduite dans la physique pour décrire un état de la matière. Boltzmann (1872) la retrouve comme état d’équilibre de son équation et en tire le théorème H ; la mécanique statistique de Gibbs (1902) la généralise. Porter y voit l’importation en physique de la statistique sociale de Quetelet.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Maxwell raisonne comme Herschel pour les erreurs de tir (1850) : deux conditions naturelles — une même loi dans toutes les directions et l’indépendance des trois composantes — suffisent à fixer la courbe en cloche. Pour les molécules, les chocs incessants jouent le rôle des causes accidentelles accumulées : l’état final oublie la distribution initiale.',
+            sources: ['porter-statistical-thinking', 'stigler-statistics'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Maxwell pose deux hypothèses : la loi d’une composante de la vitesse est la même dans les trois directions, disons φ(x), et les trois composantes sont indépendantes — la densité du vecteur vitesse vaut donc φ(vx)·φ(vy)·φ(vz).',
+            sources: ['porter-statistical-thinking', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’isotropie exige que cette densité ne dépende que de la norme v² = vx² + vy² + vz² : il existe une fonction ψ telle que φ(x)·φ(y)·φ(z) = ψ(x² + y² + z²).',
+            sources: ['porter-statistical-thinking', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'En posant y = z = 0 puis en normalisant, l’équation se réduit à h(x²)·h(y²)·h(z²) = h(x² + y² + z²) : h doit transformer les sommes en produits, ce qui ne laisse que les exponentielles h(t) = e^(ct).',
+            sources: ['stigler-statistics', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La densité devant être sommable, c est négatif : chaque composante suit une loi normale centrée. La loi du module s’en déduit en comptant les états dans une couche sphérique d’épaisseur dv : f(v) dv = 4πv²·φ(v) dv.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La largeur de la loi mesure l’agitation moyenne des molécules : Maxwell la relie à la température, et Boltzmann retrouvera la même distribution comme état d’équilibre de son équation de transport.',
+            sources: ['porter-statistical-thinking', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'a-dynamical-theory-of-the-electromagnetic-field',
@@ -394,6 +613,45 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Un système d’équations aux dérivées partielles dont les coefficients et les données initiales sont analytiques possède, au voisinage de chaque point, une unique solution analytique. L’hypothèse est nécessaire : pour l’équation de la chaleur, la série formelle construite à partir d’une donnée analytique peut diverger.',
         comment: 'Cauchy avait traité le cas d’une équation en 1842 par la méthode des majorantes ; Kovalevskaïa, dans sa thèse de 1874 publiée dans le Journal de Crelle, établit le résultat pour les systèmes mis sous forme normale et découvre le contre-exemple de l’équation de la chaleur. Holmgren (1901) prouve l’unicité sans analyticité, Hadamard (1902) définit les problèmes bien posés, Hans Lewy (1957) exhibe une équation linéaire sans aucune solution.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fois le système mis sous forme normale — résolu par rapport aux dérivées d’ordre le plus élevé en t —, dériver l’équation donne de proche en proche tous les coefficients de la série de Taylor de la solution : celle-ci est donc écrite d’avance, et tout le problème est de prouver qu’elle converge.',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée de Cauchy (1842) est de ne pas étudier cette série frontalement : on remplace coefficients et données par des fonctions « majorantes », dont la série de Taylor domine terme à terme la leur ; si la série grossie converge — et l’on choisit le système auxiliaire pour pouvoir le montrer —, l’originale converge aussi.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On suppose le système d’équations résolu par rapport aux dérivées les plus hautes en t (« forme normale »), à coefficients et données initiales analytiques en x ; la donnée initiale fixe la solution et ses premières dérivées en t = 0.',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'En dérivant l’équation par rapport à t puis en substituant, chaque dérivée en t de la solution s’exprime comme un polynôme, à coefficients positifs, des dérivées des données et des coefficients : tous les coefficients de la série formelle sont déterminés — d’où l’unicité de la solution analytique.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la convergence, on remplace chaque coefficient et chaque donnée par une fonction majorante : l’analyticité permet de choisir une fraction du type M/(1 − x/ρ), dont la série domine terme à terme.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'On choisit le système majorant de sorte qu’il se résolve explicitement ; sa solution est analytique, et la positivité des coefficients fait que sa série de Taylor, convergente, majore la série formelle de la solution cherchée : celle-ci converge donc au voisinage du point.',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le résultat n’est que local : le domaine d’existence est limité par les rayons de convergence des données et des majorants, ce qui suffit pour le problème de Cauchy posé au voisinage d’une surface.',
+            sources: ['bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'sur-le-probleme-des-trois-corps',
@@ -644,6 +902,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Parmi toutes les estimations qui combinent linéairement les observations sans biais, celle des moindres carrés est de variance minimale, quelle que soit la loi des erreurs, pourvu qu’elles aient une variance.',
         comment: 'Présenté à la Société royale de Göttingen en deux parties (1821 et 1823), le mémoire abandonne la loi normale et fonde les moindres carrés sur la seule minimisation de l’erreur quadratique moyenne. Oublié puis repris par Markov dans son traité (1912), le résultat est baptisé « théorème de Gauss–Markov » par Neyman et David à la fin des années 1930 ; il est la base du modèle linéaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour estimer une même grandeur par n observations également précises, toute combinaison ∑cᵢxᵢ avec ∑cᵢ = 1 est sans biais ; sa variance vaut σ²·∑cᵢ², et cette somme de carrés est minimale lorsque les poids sont égaux : la moyenne arithmétique l’emporte non parce qu’elle est « probable », mais parce qu’elle répartit également la confiance entre les observations.',
+            sources: ['stigler-statistics'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Gauss considère des observations yᵢ, combinaisons linéaires connues des inconnues entachées d’erreurs centrées et indépendantes, de variance connue à un facteur commun près ; il cherche chaque inconnue comme une combinaison linéaire ŝ = ∑cᵢyᵢ des observations.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Exiger l’absence de biais impose aux coefficients cᵢ des contraintes linéaires : la combinaison doit reproduire exactement l’inconnue visée, quelles que soient les valeurs vraies.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'La variance de ŝ est une somme de carrés des cᵢ pondérés par les variances élémentaires : c’est une forme quadratique des coefficients, que l’on minimise sous les contraintes d’absence de biais — par les multiplicateurs de Lagrange.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les équations de ce minimum sont précisément les « équations normales » de la méthode des moindres carrés : l’estimateur des moindres carrés est donc le meilleur estimateur linéaire sans biais — sans qu’aucune loi des erreurs ait été supposée.',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'sur-l-homme',
@@ -667,6 +954,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Lorsqu’un événement rare est tenté un très grand nombre de fois, le nombre de succès suit une loi où la probabilité de k succès vaut e^(−λ) λᵏ / k! ; plus généralement, la fréquence d’un événement se stabilise même lorsque ses chances varient d’une épreuve à l’autre.',
         comment: 'Poisson nomme « loi des grands nombres » cette stabilité des fréquences et l’applique aux verdicts des jurys, ce que Bienaymé et Cournot contestent. La loi limite, exposée en quelques pages, passe inaperçue jusqu’à Bortkiewicz (1898), qui l’applique aux morts par ruade de cheval dans l’armée prussienne (« loi des petits nombres ») ; elle devient au XXᵉ siècle le modèle des processus ponctuels.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans une binomiale où p est de l’ordre de 1/n, les deux facteurs qui décrivent les épreuves se simplifient : n croît, p décroît en proportion, et leur produit λ = n·p devient le seul paramètre qui compte — c’est ce qui reste d’une chance presque nulle répétée presque infiniment.',
+            sources: ['stigler-statistics', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour des chances variables d’une épreuve à l’autre, l’idée de Poisson est que seule leur moyenne survit : les écarts des pᵢ se compensent, et la fréquence des succès se rapproche de p̄ comme si chaque épreuve avait eu cette chance commune.',
+            sources: ['hacking-taming', 'stigler-statistics'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour n épreuves indépendantes de probabilité pₙ, la probabilité de k succès est donnée par la binomiale : P(X = k) = C(n, k)·pₙᵏ·(1 − pₙ)^(n − k).',
+            sources: ['katz-history', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'On fait croître n en gardant n·pₙ → λ : alors C(n, k)/nᵏ tend vers 1/k!, (n·pₙ)ᵏ tend vers λᵏ et (1 − pₙ)^n tend vers e^(−λ).',
+            sources: ['katz-history', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il reste P(X = k) = e^(−λ)·λᵏ/k! : la loi limite ne dépend plus que du nombre moyen λ de succès, non du détail des épreuves.',
+            sources: ['stigler-statistics', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la « loi des grands nombres », Poisson étudie la loi de la somme des succès quand les chances p₁, …, pₙ diffèrent d’une épreuve à l’autre ; par un développement approché de cette loi, la fréquence s’écarte de la moyenne p̄ des pᵢ d’autant moins que n est grand.',
+            sources: ['hacking-taming', 'stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'inegalite-de-bienayme-tchebychev',
@@ -679,6 +1000,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Quelle que soit la loi d’une grandeur aléatoire de moyenne m et d’écart-type σ, la probabilité qu’elle s’écarte de m de plus de k·σ est au plus 1/k².',
         comment: 'Bienaymé l’obtient en 1853 en défendant la méthode de Laplace ; Tchebychev la redémontre en 1867 dans « Des valeurs moyennes » et en déduit une loi des grands nombres très générale. Le Journal de Liouville réimprime le mémoire de Bienaymé juste avant celui de Tchebychev. Première inégalité de concentration, elle est l’outil élémentaire de toute la théorie des probabilités moderne.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les grands écarts coûtent cher à la variance : si une part notable de la probabilité se trouvait à plus de k·σ de la moyenne, ses seules contributions dépasseraient k²σ² fois cette part — et feraient exploser σ². La dispersion borne donc l’épaisseur des queues, quelle que soit la forme de la loi.',
+            sources: ['stigler-statistics', 'katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On écrit la variance comme la somme de toutes les déviations pondérées : σ² = ∑(xᵢ − m)²·pᵢ (ou l’intégrale correspondante dans le cas continu).',
+            sources: ['katz-history', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'En ne gardant que les écarts supérieurs à k·σ, chaque terme restant vaut au moins k²σ²·pᵢ : la somme tronquée est au moins égale à k²σ²·P(|X − m| ≥ kσ).',
+            sources: ['katz-history', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette somme tronquée ne dépasse pas la variance entière : k²σ²·P(|X − m| ≥ kσ) ≤ σ², d’où P(|X − m| ≥ kσ) ≤ 1/k², sans aucune hypothèse sur la loi.',
+            sources: ['stigler-statistics', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tchebychev l’applique à la moyenne de n grandeurs indépendantes : sa variance décroît comme σ²/n, si bien que la probabilité d’un écart supérieur à toute marge fixée tend vers 0 — c’est sa loi des grands nombres.',
+            sources: ['stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'planche-de-galton',
@@ -756,6 +1106,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme d’un grand nombre de grandeurs aléatoires indépendantes, centrée et divisée par son écart-type, suit approximativement la loi normale dès que leurs moments restent bornés.',
         comment: 'Publié en russe en 1887 et en français dans les Acta Mathematica (1890), le mémoire donne la première démonstration générale, par comparaison des moments, du résultat que Laplace avait obtenu heuristiquement en 1810. La preuve comporte des lacunes que Markov comble en 1898 ; Liapounov (1901) y substitue les fonctions caractéristiques, Lindeberg (1922) et Lévy donnent les conditions définitives.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Additionner beaucoup de petites causes indépendantes « lisse » la loi : dans la somme normalisée, le détail de chaque cause s’efface et il ne reste, en développant les puissances, que des sommes de moments — qui se rapprochent des moments de la courbe en cloche, moments impairs nuls et moments pairs (2m)!/(2ᵐm!).',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’école de Saint-Pétersbourg travaillait déjà avec les moments : l’inégalité de Tchebychev borne les déviations par la variance, et son problème des moments montre que certains développements ne dépendent que des moments — d’où l’idée de démontrer la convergence elle-même par les moments.',
+            sources: ['stigler-statistics', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit X₁, …, Xₙ des grandeurs indépendantes, centrées, de variances σᵢ² ; on forme la somme normalisée Sₙ = (X₁ + … + Xₙ)/sₙ, avec sₙ² = σ₁² + … + σₙ².',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'On développe le moment d’ordre k de Sₙ : c’est une somme de termes E(X_{i₁}·…·X_{i_k}) ; par centrage et indépendance, seuls survivent les termes où chaque indice apparaît au moins deux fois.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Quand n grandit et qu’aucune variance ne pèse devant sₙ², les termes où les indices sont appariés deux à deux dominent : pour k impair la limite est 0 ; pour k = 2m pair, elle vaut le nombre de couplages, (2m)!/(2ᵐm!) — les moments de la loi normale.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tchebychev conclut que la loi de Sₙ tend vers la loi normale parce que celle-ci est déterminée par ses moments ; c’est le point où sa démonstration manque de rigueur — Markov la complète en 1898 par une troncature des variables.',
+            sources: ['stigler-statistics', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'coefficient-de-correlation',
@@ -1067,6 +1451,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La négation d’une conjonction est la disjonction des négations, et réciproquement : « non (A et B) » équivaut à « non A ou non B ». De Morgan y joint les premières règles du calcul des relations (composition, converse).',
         comment: 'Publié la même année que l’opuscule de Boole — d’où une querelle de priorité apaisée —, le livre affranchit la copule du « est » aristotélicien et ouvre la logique des relations, que Peirce (1870) puis Schröder (1895) algébriseront ; les lois de dualité gouvernent aujourd’hui l’algèbre de Boole et les circuits.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Réfuter « A et B » n’exige que de réfuter l’un des deux membres : nier une conjonction, c’est affirmer qu’au moins un membre échoue. De Morgan en fait une dualité — la négation traverse la phrase en échangeant « et » et « ou », « tout » et « quelque » —, c’est-à-dire une règle de calcul plutôt qu’un truisme de bon sens.',
+            sources: ['grattan-guinness-search', 'kneale-logic'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour les termes, qui désignent des classes, on raisonne sur l’appartenance : x est dans le contraire du composé AB si et seulement si x n’est pas à la fois dans A et dans B.',
+            sources: ['grattan-guinness-search'],
+          },
+          {
+            kind: 'fait',
+            text: 'On énumère les quatre cas possibles pour x — dans A et B, dans A seulement, dans B seulement, dans aucun : « non (A et B) » est vrai dans les trois cas où l’une au moins des appartenances échoue, exactement ceux de « non A ou non B ».',
+            sources: ['grattan-guinness-search', 'kneale-logic'],
+          },
+          {
+            kind: 'fait',
+            text: 'La seconde loi s’obtient par dualité : appliquée aux contraires, la première identité donne « non (A ou B) » = « non A et non B » — nier échange conjonction et disjonction.',
+            sources: ['grattan-guinness-search', 'kneale-logic'],
+          },
+          {
+            kind: 'fait',
+            text: 'De Morgan étend le même calcul aux relations : la converse d’une relation composée est la composée des converses en ordre inverse, et la négation y échange de même conjonction et disjonction — ce que Peirce puis Schröder algébriseront.',
+            sources: ['grattan-guinness-search'],
+          },
+        ],
       },
       {
         id: 'the-laws-of-thought',
@@ -1444,6 +1857,40 @@ export const DIXNEUVIEME_B: Domain[] = [
             sources: ['ferreiros-labyrinth'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un nombre algébrique se décrit entièrement par une équation à coefficients entiers : de telles équations se rangent par leur « taille » (degré et coefficients bornés) et s’énumèrent. Un réel quelconque porte au contraire une infinité de décimales indépendantes — trop d’information pour qu’une liste en épuise toutes les possibilités.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour énumérer les algébriques, on ordonne les équations à coefficients entiers par un poids — somme du degré et des valeurs absolues des coefficients — qui ne laisse qu’un nombre fini d’équations, donc de racines, par valeur ; en défilant les poids, on obtient une suite qui épuise tous les algébriques.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Supposons les réels énumérables en une suite a₁, a₂, … et fixons un intervalle (p, q). On y retient les deux premiers termes de la suite qui s’y trouvent, a′ < b′, puis dans (a′, b′) les deux premiers termes suivants, a″ < b″, et ainsi de suite.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les intervalles (a⁽ᵏ⁾, b⁽ᵏ⁾) ainsi formés sont emboîtés, et à l’étape k tous les premiers termes de la suite en ont été exclus.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si le procédé s’arrête, un intervalle entier de (p, q) est sans aucun terme de la suite ; sinon les bornes encadrent une limite η — point unique ou petit intervalle — qui diffère de chaque aₙ.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans tous les cas, tout intervalle contient un réel absent de la suite : aucune énumération n’épuise les réels — et comme les algébriques s’énumèrent, les réels qui échappent à toute liste sont les transcendants.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'equipotence-de-la-droite-et-du-plan',
@@ -1456,6 +1903,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Les points d’un segment et ceux d’un carré, d’un cube, d’un espace à n dimensions peuvent être mis en correspondance biunivoque : l’espace n’a pas plus de points que la droite.',
         comment: 'Cantor écrit à Dedekind le 20 juin 1877 : « Je le vois, mais je ne le crois pas. » La correspondance par entrelacement des décimales n’est pas continue — Dedekind le remarque aussitôt — et la dimension est sauvée comme invariant par la continuité (Netto, 1879, puis Lüroth et Thomae) ; le théorème d’invariance de la dimension sera prouvé par Brouwer (1911). L’article formule l’hypothèse du continu.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un point du segment se donne par une suite de décimales, un point du carré par deux ; mais entrelacer les décimales — x₁y₁x₂y₂… — produit un seul nombre qui contient toute l’information des deux : la dimension ne pèse rien devant la « puissance ».',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Cantor représente les points de (0, 1] par leurs développements décimaux infinis et ceux du carré par des couples (x, y) ; à x = 0,x₁x₂… et y = 0,y₁y₂… il associe z = 0,x₁y₁x₂y₂…',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le développement décimal étant ambigu — 0,5000… s’écrit aussi 0,4999… —, on groupe les chiffres en « blocs », chaque bloc réunissant un chiffre non nul et les zéros qui le précèdent ; l’entrelacement des blocs de x et de y se décode alors sans ambiguïté, car chaque canal garde une infinité de chiffres non nuls.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'La correspondance est biunivoque : tout z de (0, 1], dont les chiffres non nuls sont en nombre infini, se découpe de manière unique en blocs alternés qui restituent x et y. Segment et carré ont donc même puissance, et le même procédé itéré donne le cube puis l’espace à n dimensions.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dedekind remarque aussitôt que la correspondance n’est pas continue : près d’un point où le codage saute, des points voisins de la droite peuvent correspondre à des points éloignés du carré. C’est cette discontinuité qui préserve l’idée de dimension géométrique.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'hypothese-du-continu',
@@ -1484,6 +1960,18 @@ export const DIXNEUVIEME_B: Domain[] = [
             kind: 'interpretation',
             text: 'L’indépendance n’a pas clos la question pour tous : Gödel lui-même (1947) tenait l’hypothèse pour fausse et espérait de nouveaux axiomes pour la trancher, programme que la théorie des grands cardinaux a en partie repris.',
             sources: ['kanamori-higher-infinite', 'sep'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans l’échelle des alephs, les puissances sont rangées ℵ₀, ℵ₁, ℵ₂… comme les ordinaux qui les portent ; l’hypothèse revient à identifier le continu au premier aleph non dénombrable — 2^ℵ₀ = ℵ₁, le plus petit saut possible après le dénombrable.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Cantor y tenait d’autant plus que sa théorie voulait tout ensemble bien ordonnable et tout cardinal égal à un aleph : une puissance intermédiaire entre ℵ₀ et le continu aurait brisé cette correspondance entre cardinaux et ordinaux.',
+            sources: ['dauben-cantor', 'hallett-cantorian'],
           },
         ],
       },
@@ -1518,6 +2006,40 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour tout ensemble M, l’ensemble de ses parties a une puissance strictement plus grande : à toute correspondance entre M et ses parties, la partie « diagonale » des éléments qui ne sont pas dans leur image échappe à la correspondance. Il n’existe donc pas de plus grand cardinal : 2^ℵ₀ > ℵ₀, et ainsi de suite.',
         comment: 'Publié dans le Jahresbericht de la Deutsche Mathematiker-Vereinigung, l’article donne une preuve élémentaire et générale de la non-dénombrabilité. Le procédé diagonal devient l’outil central de la logique du XXᵉ siècle : paradoxe de Russell, théorèmes d’incomplétude de Gödel, indécidabilité de l’arrêt chez Turing en descendent directement.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Écrire une liste infinie de suites de deux symboles — Cantor prend m et w — dessine un tableau ; la suite qui, en chaque ligne, prend à la case diagonale le symbole opposé ne peut figurer nulle part : de chaque ligne elle diffère justement à cette case.',
+            sources: ['dauben-cantor', 'van-heijenoort'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Cantor considère l’ensemble M des suites (e₁, e₂, e₃, …) où chaque terme vaut m ou w : ces suites codent les parties des entiers, donc la puissance 2^ℵ₀ du continu.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Supposons M dénombrable et rangeons ses éléments en lignes E₁, E₂, … : la n-ième ligne porte en colonne n son « chiffre diagonal ».',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'On forme la suite E₀ qui, en chaque colonne n, prend le symbole opposé à celui de la ligne n : E₀ diffère de chaque ligne en sa case diagonale.',
+            sources: ['dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'E₀ appartient pourtant à M : l’énumération n’était donc pas complète, et M n’est pas dénombrable — la puissance du continu excède celle des entiers.',
+            sources: ['dauben-cantor', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’argument vaut pour tout ensemble A : si une correspondance associait à chaque x de A une partie f(x), la partie D formée des x qui n’appartiennent pas à leur image f(x) ne peut être aucune image — A n’est jamais équipotent à l’ensemble de ses parties, et il n’existe pas de plus grand cardinal.',
+            sources: ['ferreiros-labyrinth', 'dauben-cantor'],
+          },
+        ],
       },
       {
         id: 'beitraege-zur-begruendung-der-transfiniten-mengenlehre',
@@ -1540,6 +2062,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'probleme',
         statement: 'Si l’on forme l’ensemble de tous les nombres ordinaux, il est lui-même bien ordonné et définit donc un ordinal, qui doit être à la fois membre de l’ensemble et plus grand que tous ses membres : contradiction.',
         comment: 'Premier paradoxe publié de la théorie des ensembles, dans les Rendiconti del Circolo Matematico di Palermo. Cantor connaissait la difficulté depuis 1895 (lettres à Hilbert) et la neutralise en 1899 par la distinction entre multiplicités consistantes et inconsistantes. Russell part de ce texte pour construire son paradoxe, plus radical car purement logique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La machine à ordinaux de Cantor ne s’arrête jamais : après toute collection d’ordinaux, on peut toujours écrire un ordinal plus grand — successeur ou borne supérieure. Appliquée à la collection « de tous les ordinaux », elle devrait produire un ordinal plus grand que tous les ordinaux.',
+            sources: ['grattan-guinness-search', 'van-heijenoort'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On suppose formé l’ensemble Ω de tous les nombres ordinaux.',
+            sources: ['grattan-guinness-search', 'hallett-cantorian'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tout ensemble d’ordinaux est bien ordonné par leur relation d’ordre ; Ω est donc lui-même bien ordonné et possède un type d’ordre — un certain ordinal o.',
+            sources: ['grattan-guinness-search', 'hallett-cantorian'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque membre de Ω est un ordinal, donc strictement plus petit que le type d’ordre de tout l’ensemble ; en particulier o, qui est lui-même un ordinal et appartient à Ω, vérifie o < o : contradiction.',
+            sources: ['grattan-guinness-search', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'La faute porte sur la prémisse : la collection de tous les ordinaux n’est pas un ensemble dont on puisse former le type d’ordre — Cantor la rangera parmi les multiplicités « inconsistantes », et Zermelo l’exclura par l’axiome de séparation.',
+            sources: ['dauben-cantor', 'moore-zermelo-choice'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-cantor-bernstein',
@@ -1552,6 +2103,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Si chacun de deux ensembles se plonge injectivement dans l’autre, alors il existe une bijection entre eux : les puissances forment un ordre total sans besoin de construction explicite.',
         comment: 'Cantor l’énonce dès 1883 sans preuve ; Bernstein, dix-neuf ans, le démontre dans sa thèse de Halle, et Borel le publie en 1898 dans ses Leçons sur la théorie des fonctions. La démonstration de Schröder (1896) était fautive ; Dedekind en avait une preuve inédite (1887). Le théorème rend effective la comparaison des cardinaux et sera un des premiers fruits de l’axiomatique de Zermelo.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si A se plonge dans B et B dans A, chacun contient une copie exacte de l’autre : en itérant, A contient une copie de B qui contient une copie de A, à l’infini. La construction d’une bijection consiste à suivre pour chaque élément sa « généalogie » dans cette cascade de copies.',
+            sources: ['ferreiros-labyrinth', 'dauben-cantor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soient f : A → B et g : B → A deux injections. À chaque x de A, on associe sa chaîne d’antécédents : son prédécesseur éventuel dans B par g⁻¹, puis dans A par f⁻¹, et ainsi de suite tant que la remontée est possible.',
+            sources: ['ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque chaîne soit s’arrête sur un élément de A sans antécédent (hors de l’image de g), soit s’arrête sur un élément de B sans antécédent (hors de l’image de f), soit remonte indéfiniment : cela partage A et B en trois classes correspondantes.',
+            sources: ['ferreiros-labyrinth', 'dauben-cantor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour les éléments dont la chaîne s’arrête dans A ou remonte indéfiniment, on pose la correspondance x ↦ f(x) ; pour ceux dont la chaîne s’arrête dans B, on prend l’antécédent unique y tel que g(y) = x.',
+            sources: ['ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque classe de A est ainsi mise en bijection avec la classe correspondante de B, sans collision ni oubli : la correspondance globale est une bijection de A sur B, et |A| = |B|.',
+            sources: ['ferreiros-labyrinth', 'dauben-cantor'],
+          },
+        ],
       },
       {
         id: 'paradoxe-de-russell',
@@ -1563,6 +2143,35 @@ export const DIXNEUVIEME_B: Domain[] = [
         kind: 'probleme',
         statement: 'Considérons l’ensemble R de tous les ensembles qui ne sont pas membres d’eux-mêmes : si R est membre de lui-même, il n’en est pas membre, et réciproquement. La notion d’ensemble de « toutes les choses » vérifiant une propriété est donc contradictoire.',
         comment: 'Découvert en mai-juin 1901 dans l’analyse de l’argument diagonal, communiqué à Frege par lettre du 16 juin 1902, le paradoxe détruit le cinquième axiome des Grundgesetze et paraît dans les Principles of Mathematics (1903). Il motive la théorie des types de Russell (1908) et l’axiome de séparation de Zermelo (1908) ; Zermelo l’avait trouvé indépendamment vers 1900.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Certains ensembles se contiennent eux-mêmes — « l’ensemble des ensembles » est un ensemble —, la plupart non : une bibliothèque n’est pas un livre. En rassemblant tous ceux du second cas dans un ensemble R, on se demande dans quelle case mettre R — et chaque réponse se retourne en son contraire.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le principe de compréhension naïf — à toute propriété correspond l’ensemble des objets qui la vérifient — appliqué à « x n’appartient pas à x » produit l’ensemble R = {x : x ∉ x}.',
+            sources: ['van-heijenoort', 'grattan-guinness-search'],
+          },
+          {
+            kind: 'fait',
+            text: 'Supposons R membre de lui-même : il vérifie alors la propriété qui définit R, donc R ∉ R.',
+            sources: ['van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Supposons que R ne soit pas membre de lui-même : il vérifie alors la propriété qui définit R, donc R ∈ R. Les deux cas se détruisent mutuellement.',
+            sources: ['van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'La sortie de crise consiste à restreindre la formation des ensembles : la théorie des types de Russell (1908) interdit d’appliquer un objet à lui-même, et l’axiome de séparation de Zermelo n’autorise à « séparer » par une propriété qu’à l’intérieur d’un ensemble déjà donné.',
+            sources: ['sep', 'moore-zermelo-choice'],
+          },
+        ],
       },
       {
         id: 'theoreme-du-bon-ordre',
@@ -1591,6 +2200,40 @@ export const DIXNEUVIEME_B: Domain[] = [
           {
             kind: 'interpretation',
             text: 'Pour Gregory Moore, Zermelo n’invente pas le choix mais le rend visible : Cantor, Dedekind et les analystes l’employaient implicitement, par exemple pour montrer qu’une réunion dénombrable d’ensembles dénombrables est dénombrable, et c’est l’énoncé explicite qui en fait un axiome, puis un objet de controverse.',
+            sources: ['moore-zermelo-choice'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour ordonner un ensemble quelconque, on voudrait « prendre un premier élément, puis le suivant » jusqu’à épuisement : mais la suite des choix est transfinie, et rien ne garantit qu’on puisse les définir tous. L’axiome du choix les donne d’un coup : une fonction γ qui, dans chaque partie non vide, désigne un élément.',
+            sources: ['moore-zermelo-choice'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Zermelo fixe, par l’axiome du choix, une fonction γ qui à chaque partie non vide de M associe l’un de ses éléments.',
+            sources: ['moore-zermelo-choice'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il appelle « γ-ensemble » toute partie de M munie d’un bon ordre dont chaque élément est précisément le γ du complémentaire de ses prédécesseurs : chacun est « le choix prescrit » à sa place.',
+            sources: ['moore-zermelo-choice', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Deux γ-ensembles sont toujours comparables : l’un est un segment initial de l’autre — sinon, à la première place où ils diffèreraient, le même complémentaire de prédécesseurs recevrait deux choix distincts.',
+            sources: ['moore-zermelo-choice'],
+          },
+          {
+            kind: 'fait',
+            text: 'La réunion L de tous les γ-ensembles est encore un γ-ensemble, le plus grand ; si L ne recouvrait pas M, on pourrait le prolonger d’un élément, γ(M∖L) — contradiction : donc L = M.',
+            sources: ['moore-zermelo-choice', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’ordre porté par L est donc un bon ordre sur M tout entier : tout ensemble est bien ordonnable, et l’axiome du choix apparaît comme l’unique hypothèse non élémentaire de la preuve.',
             sources: ['moore-zermelo-choice'],
           },
         ],
