@@ -2047,8 +2047,155 @@ export const PHYSIQUE_B: Domain[] = [
 
 /** Liens entre domaines, déclarés dans le fichier de leur domaine d'arrivée. */
 export const LINKS_PHYSIQUE_B: Link[] = [
+  // — Cible : mecanique-celeste —
+  {
+    source: 'naissance-du-calcul',
+    target: 'mecanique-celeste',
+    kind: 'filiation',
+    epistemic: 'fait',
+    principal: true,
+    label: 'Les Principia fondent la mécanique du ciel',
+    note: 'La loi de la gravitation universelle et le calcul fluxionnel de Newton font du système solaire un problème de mathématiques : toute l’astronomie de 1687 à 1846 en descend, de Clairaut à Laplace et à Le Verrier.',
+    sources: ['taton-wilson-planetary', 'kline-thought'],
+  },
+  {
+    source: 'mecanique-analytique',
+    target: 'mecanique-celeste',
+    kind: 'filiation',
+    epistemic: 'fait',
+    label: 'La mécanique de Lagrange et Laplace',
+    note: 'La variation des constantes de Lagrange et le Traité de mécanique céleste de Laplace fournissent à l’astronomie ses équations de perturbation : les tables des planètes, la théorie de la Lune et le calcul de Neptune en sont des applications.',
+    sources: ['gillispie-laplace', 'taton-wilson-planetary'],
+  },
+  {
+    source: 'analyse-eulerienne',
+    target: 'mecanique-celeste',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'Les méthodes de perturbation',
+    note: 'Les séries trigonométriques et les techniques d’approximation d’Euler — sa théorie de la Lune comprise — ouvrent la voie aux méthodes de perturbation qui dominent la mécanique céleste du XVIIIᵉ siècle.',
+    sources: ['taton-wilson-planetary', 'bottazzini-higher-calculus'],
+  },
+  // — Cible : ondes-et-acoustique —
+  {
+    source: 'analyse-eulerienne',
+    target: 'ondes-et-acoustique',
+    kind: 'filiation',
+    epistemic: 'fait',
+    principal: true,
+    label: 'D’Alembert, Euler et Daniel Bernoulli',
+    note: 'La querelle des cordes vibrantes (1747-1759) se joue à l’intérieur de l’analyse eulérienne : l’équation des ondes, la forme voyageuse et la superposition des modes en sont la partie acoustique.',
+    sources: ['bottazzini-higher-calculus', 'kline-thought'],
+  },
+  {
+    source: 'mecanique-analytique',
+    target: 'ondes-et-acoustique',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'La chaîne de masses de Lagrange',
+    note: 'La résolution de la corde comme limite d’une file de masses discrètes (1759) est le premier modèle discret-continu de la physique : la méthode des modes propres s’y lit déjà entière.',
+    sources: ['bottazzini-higher-calculus', 'beyer-sounds'],
+  },
+  // — Cible : electricite-et-electromagnetisme —
+  {
+    source: 'physique-mathematique-xixe',
+    target: 'electricite-et-electromagnetisme',
+    kind: 'filiation',
+    epistemic: 'fait',
+    principal: true,
+    label: 'Du potentiel au champ',
+    note: 'Green, Poisson et Fourier fournissent le langage du champ — potentiel, équations aux dérivées partielles, séries — dans lequel Maxwell écrira les équations de l’électromagnétisme.',
+    sources: ['darrigol-electrodynamics', 'harman-maxwell'],
+  },
+  {
+    source: 'mecanique-celeste',
+    target: 'electricite-et-electromagnetisme',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'Le programme newtonien des forces à distance',
+    note: 'Coulomb puis Ampère importent dans l’électricité le modèle de la gravitation : loi du carré inverse, action instantanée entre éléments — le paradigme que le champ de Faraday et Maxwell déplacera.',
+    sources: ['whittaker-aether', 'darrigol-electrodynamics'],
+  },
+  // — Cible : thermodynamique-et-mecanique-statistique —
+  {
+    source: 'physique-mathematique-xixe',
+    target: 'thermodynamique-et-mecanique-statistique',
+    kind: 'filiation',
+    epistemic: 'fait',
+    principal: true,
+    label: 'De la chaleur de Fourier à la thermodynamique',
+    note: 'La propagation de la chaleur de Fourier et l’école du potentiel donnent à Carnot, Kelvin et Clausius leurs équations et leurs concepts ; la thermodynamique en est la suite directe.',
+    sources: ['cardwell-watt-clausius', 'brush-heat'],
+  },
+  {
+    source: 'mecanique-analytique',
+    target: 'thermodynamique-et-mecanique-statistique',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'La tradition de la force vive',
+    note: 'La force vive d’Euler et de Lagrange — énergie cinétique en mécanique — devient chez Helmholtz la Kraft qui se conserve : la mécanique analytique est le réservoir conceptuel du premier principe.',
+    sources: ['kuhn-energy-conservation', 'harman-maxwell'],
+  },
+  {
+    source: 'statistique-xixe',
+    target: 'thermodynamique-et-mecanique-statistique',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'De Quetelet à Maxwell',
+    note: 'Porter le montre : la distribution de Maxwell (1860) importe en physique la courbe des erreurs de la statistique sociale — la mécanique statistique naît de ce transfert.',
+    sources: ['porter-statistical-thinking', 'brush-heat'],
+  },
+  // — Cible : optique-ondulatoire —
+  {
+    source: 'ondes-et-acoustique',
+    target: 'optique-ondulatoire',
+    kind: 'filiation',
+    epistemic: 'fait',
+    principal: true,
+    label: 'Le principe de superposition passe au visible',
+    note: 'Young transpose explicitement les battements du son aux franges de la lumière ; Fresnel en fait une théorie complète, et Doppler franchit avec Fizeau le pont du son à l’optique.',
+    sources: ['buchwald-wave-theory', 'beyer-sounds'],
+  },
+  {
+    source: 'physique-mathematique-xixe',
+    target: 'optique-ondulatoire',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'Les intégrales de Fresnel',
+    note: 'La diffraction de Fresnel et la mécanique des milieux élastiques de Cauchy et Poisson relèvent de la même analyse : séries de Fourier, intégrales oscillantes, propagation dans les milieux.',
+    sources: ['buchwald-wave-theory', 'darrigol-optics'],
+  },
+  {
+    source: 'analyse-rigoureuse',
+    target: 'optique-ondulatoire',
+    kind: 'influence',
+    epistemic: 'fait',
+    label: 'L’éther élastique de Cauchy',
+    note: 'Cauchy consacre les années 1830-1836 à la théorie mathématique de la lumière — dispersion, propagation dans l’éther comme milieu élastique —, point de jonction entre l’analyse rigoureuse et l’optique.',
+    sources: ['darrigol-optics', 'whittaker-aether'],
+  },
 ];
 
 /** Liens entre figures (filiation, influence, collaboration, affinité, rupture). */
 export const MATHEMATICIAN_LINKS_PHYSIQUE_B: MathematicianLink[] = [
+  // — Cibles : mecanique-celeste —
+  { source: 'laplace', target: 'le-verrier', kind: 'influence', note: 'Le Verrier applique à Uranus le programme du Traité de mécanique céleste : déduire les perturbateurs de leurs perturbations, puis les chercher dans le ciel.', epistemic: 'fait' },
+  { source: 'arago', target: 'le-verrier', kind: 'filiation', note: 'Arago oriente Le Verrier vers le problème d’Uranus à l’Observatoire (1845), puis alerte Galle à Berlin où la planète est trouvée le 23 septembre 1846.', epistemic: 'fait' },
+  { source: 'adams', target: 'le-verrier', kind: 'affinite', note: 'Les deux calculs, indépendants et concomitants, donnent des positions concordantes ; la querelle de priorité franco-anglaise a fini par partager la paternité.', epistemic: 'interpretation' },
+  // — Cibles : ondes-et-acoustique —
+  { source: 'biot', target: 'savart', kind: 'collaboration', note: 'La loi de Biot-Savart (1820) mesure ensemble, au Collège de France, l’action magnétique d’un courant — l’unique collaboration qui donne leurs deux noms à une loi.', epistemic: 'fait' },
+  { source: 'chladni', target: 'wheatstone', kind: 'influence', note: 'Le kaléidophone de Wheatstone (1827) prolonge le programme de Chladni — rendre la vibration visible — en substituant au sable des plaques les courbes lumineuses des tiges vibrantes.', epistemic: 'fait' },
+  { source: 'doppler', target: 'fizeau', kind: 'influence', note: 'Fizeau étend le principe de Doppler aux déplacements de raies spectrales (1848) : l’effet pensé pour le son devient l’outil de la vitesse radiale des astres.', epistemic: 'fait' },
+  // — Cibles : electricite-et-electromagnetisme —
+  { source: 'oersted', target: 'ampere', kind: 'influence', note: 'Le mémoire d’Ørsted parvient à Paris par Arago en septembre 1820 ; Ampère présente sa théorie des courants une semaine plus tard et la complète en quelques mois.', epistemic: 'fait' },
+  { source: 'ampere', target: 'faraday', kind: 'influence', note: 'L’électrodynamique d’Ampère fixe le problème dont l’induction est la réciproque : si le courant produit le magnétisme, le magnétisme en mouvement doit produire le courant.', epistemic: 'fait' },
+  { source: 'faraday', target: 'maxwell', kind: 'influence', note: 'Maxwell construit sa théorie sur les lignes de force de Faraday — On Faraday’s Lines of Force (1855) — et lui dédie la traduction mathématique du champ.', epistemic: 'fait' },
+  // — Cibles : thermodynamique-et-mecanique-statistique —
+  { source: 'carnot-sadi', target: 'clapeyron', kind: 'influence', note: 'Clapeyron ressuscite les Réflexions de Carnot, oubliées depuis dix ans, et leur donne la forme géométrique — le diagramme p-V — par laquelle Thomson et Clausius les liront.', epistemic: 'fait' },
+  { source: 'clapeyron', target: 'clausius', kind: 'influence', note: 'C’est par le mémoire de Clapeyron (1834) que Clausius découvre Carnot ; sa réconciliation de Carnot et Joule en 1850 produit le second principe.', epistemic: 'fait' },
+  { source: 'mayer-julius', target: 'joule', kind: 'affinite', note: 'Découverte simultanée de l’équivalence : Mayer calcule l’équivalent dès 1842, Joule le mesure de 1843 à 1847 — la querelle de priorité a fait écrire l’histoire en double.', epistemic: 'interpretation' },
+  // — Cibles : optique-ondulatoire —
+  { source: 'arago', target: 'fresnel', kind: 'collaboration', note: 'Arago soutient le mémoire de Fresnel devant l’Académie, vérifie la tache prédite par Poisson et écrit avec lui les lois des vibrations polarisées (1819-1821).', epistemic: 'fait' },
+  { source: 'poisson', target: 'fresnel', kind: 'reaction', note: 'Poisson attaque la théorie de Fresnel par sa propre conséquence — la tache centrale dans l’ombre d’un disque ; l’expérience d’Arago la transforme en confirmation.', epistemic: 'fait' },
+  { source: 'young-thomas', target: 'fresnel', kind: 'affinite', note: 'Deux voies vers l’interférence : Young énonce le principe dès 1801, Fresnel construit la théorie complète sans connaître le travail anglais — qu’il reconnaîtra ensuite.', epistemic: 'interpretation' },
 ];
