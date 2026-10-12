@@ -938,5 +938,15 @@ export const FIGURES_STRUCTURES_A: Record<string, Mathematician[]> = {
       mactutor: 'John',
       sources: ['mactutor'],
     },
+    {
+      id: 'picone',
+      name: 'Mauro Picone',
+      years: [1885, 1977],
+      origin: 'Pise, Naples et Rome',
+      bio: 'Docteur de la Scuola Normale de Pise (1907), il établit pour les équations du second ordre l’« identité » qui porte son nom, borne a priori les solutions des problèmes aux limites elliptiques et paraboliques, puis fonde à Naples (1927) l’Institut de calcul.',
+      theoryId: 'edp-theorie-spectrale-variationnelle',
+      mactutor: 'Picone',
+      sources: ['mactutor'],
+    },
   ],
 };
