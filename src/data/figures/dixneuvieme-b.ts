@@ -259,6 +259,26 @@ export const FIGURES_DIXNEUVIEME_B: Record<string, Mathematician[]> = {
       mactutor: 'Czuber',
       sources: ['mactutor'],
     },
+    {
+      id: 'bortkiewicz',
+      name: 'Ladislaus Bortkiewicz',
+      years: [1868, 1931],
+      origin: 'Saint-Pétersbourg et Berlin',
+      bio: 'Élève de Lexis à Göttingen puis professeur de statistique à Berlin (1901), Bortkiewicz étudie les tables de mortalité et publie Das Gesetz der kleinen Zahlen (1898), où la loi de Poisson s’illustre par les morts causées par les coups de cheval.',
+      theoryId: 'sx-statistique-sociale',
+      mactutor: 'Bortkiewicz',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'newcomb',
+      name: 'Simon Newcomb',
+      years: [1835, 1909],
+      origin: 'Wallace (Nouvelle-Écosse) et Washington',
+      bio: 'Calculateur au Nautical Almanac puis astronome à l’Observatoire naval, Newcomb refait les tables lunaires et planétaires (médaille d’or de la Royal Astronomical Society, 1874) ; sa théorie de la combinaison des observations est un jalon de l’estimation robuste.',
+      theoryId: 'sx-theorie-des-erreurs',
+      mactutor: 'Newcomb',
+      sources: ['mactutor', 'stigler-statistics'],
+    },
   ],
   'logique-mathematique-xixe': [
     {
