@@ -283,6 +283,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans une suite infinie de tirages à pile ou face, la fréquence des « pile » tend vers 1/2 non seulement en probabilité, mais pour presque toutes les suites : l’ensemble des suites exceptionnelles est de mesure nulle. Traduit en arithmétique : presque tout nombre réel est normal, c’est-à-dire que chaque chiffre y apparaît avec la fréquence 1/10.',
         comment: 'Premier énoncé probabiliste qui porte sur des suites infinies et exige la mesure de Lebesgue ; la démonstration de Borel, lacunaire, est complétée par Faber, Hausdorff (1914) et Cantelli (1917). Kolmogorov en donne la forme générale en 1930 (variables indépendantes de même loi intégrable). Le résultat ouvre la voie des « probabilités dénombrables », c’est-à-dire des probabilités sur des espaces de dimension infinie.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Borel traduit le jeu de pile ou face en arithmétique : les chiffres du développement binaire d’un réel tiré au hasard dans [0, 1] sont des tirages indépendants équitables, et une propriété « presque sûre » des suites de tirages n’est rien d’autre qu’une propriété vraie hors d’un ensemble de mesure de Lebesgue nulle. Le théorème devient un énoncé sur les réels, où l’on sait déjà mesurer les ensembles négligeables.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'La raison profonde est quantitative : la probabilité qu’après n tirages la fréquence s’écarte de 1/2 de plus d’un seuil fixé décroît si vite avec n que la somme de ces probabilités est finie ; or une somme finie de probabilités interdit qu’une infinité de ces écarts se produisent — c’est le lemme que Borel énonce dans ce mémoire et que Cantelli complétera.',
+            sources: ['von-plato-creating'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On fixe un écart ε > 0 et l’on note Sₙ le nombre de « pile » parmi les n premiers tirages ; il s’agit de montrer que, presque sûrement, |Sₙ/n − 1/2| ne dépasse ε que pour un nombre fini de valeurs de n.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le moment d’ordre quatre de Sₙ − n/2 est majoré par une constante fois n² : par indépendance, les termes croisés du développement s’annulent et il ne reste que de l’ordre de n² termes non nuls. L’inégalité de Tchebychev appliquée à la puissance quatrième donne alors P(|Sₙ/n − 1/2| > ε) ≤ C/(ε⁴n²).',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'La série ∑ 1/n² converge ; par le lemme de Borel–Cantelli, l’événement « |Sₙ/n − 1/2| > ε » ne se produit presque sûrement qu’un nombre fini de fois.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'En prenant ε = 1, 1/2, 1/3, …, on réunit une infinité dénombrable d’ensembles négligeables, qui est encore négligeable : presque sûrement, Sₙ/n tend vers 1/2.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour les nombres normaux, on applique le même raisonnement à chaque chiffre de la base 10, puis à chaque bloc de chiffres, dans chaque base : une réunion dénombrable d’exceptions négligeables reste négligeable, et presque tout réel est normal. Kolmogorov (1930) remplacera la majoration du moment d’ordre quatre par son inégalité maximale pour atteindre le cas général des variables de même loi intégrable.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+        ],
       },
       {
         id: 'theoreme-central-limite-de-lindeberg-levy',
@@ -294,6 +333,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme normalisée de variables aléatoires indépendantes converge en loi vers la loi normale dès qu’aucune variable ne domine la variance totale (condition de Lindeberg) ; pour des variables de même loi, il suffit que la variance soit finie.',
         comment: 'Lindeberg, mathématicien finlandais, publie en 1922 une démonstration directe et une condition suffisante ; Lévy la retrouve par les fonctions caractéristiques dans son Calcul des probabilités (1925). Feller (1935) prouve que la condition est aussi nécessaire sous une hypothèse d’uniformité. Le théorème devient la forme de référence du résultat de De Moivre et Laplace.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’idée que l’on retient de la démonstration de Lindeberg : comparer chaque variable de la somme à une gaussienne de même moyenne et de même variance, et mesurer l’écart introduit par chaque substitution ; si aucune variable ne pèse à elle seule une part notable de la variance totale — la condition qui porte son nom —, la somme des écarts s’annule à la limite.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La voie de Lévy est autre : la somme de variables indépendantes a pour fonction caractéristique le produit des fonctions caractéristiques, et la convergence en loi se lit sur la forme locale de chaque facteur près de zéro — le problème probabiliste devient un problème d’analyse asymptotique.',
+            sources: ['von-plato-creating'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On centre les variables et l’on note sₙ² la somme de leurs variances ; il s’agit de montrer que Sₙ/sₙ converge en loi vers la loi normale centrée réduite.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par indépendance, la fonction caractéristique de Sₙ/sₙ est le produit des fonctions caractéristiques des variables, évaluées en t/sₙ : la convolution est devenue un produit — c’est l’outil que Lévy a systématisé.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Près de zéro, chaque facteur s’écrit 1 − t²σₖ²/(2sₙ²) plus un reste ; la condition de Lindeberg — les queues de chaque variable au-delà de εsₙ ont une contribution négligeable à la variance — garantit que la somme des restes tend vers zéro.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le produit des facteurs tend donc vers exp(−t²/2), fonction caractéristique de la loi normale ; le théorème de continuité de Lévy — la convergence ponctuelle des fonctions caractéristiques entraîne la convergence en loi — conclut.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Feller montre en 1935 que, lorsque chaque σₖ² est négligeable devant sₙ², la condition de Lindeberg est non seulement suffisante mais nécessaire : l’hypothèse est exactement celle qu’il fallait.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+        ],
       },
       {
         id: 'processus-de-wiener',
@@ -325,6 +403,40 @@ export const STRUCTURES_B: Domain[] = [
             sources: ['gowers-companion', 'mactutor'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La description physique fixe déjà les lois à temps fini : les accroissements sont gaussiens, indépendants sur des intervalles disjoints, de variance proportionnelle à la durée. Ces prescriptions sont compatibles entre elles — la somme de gaussiennes indépendantes est gaussienne de variance additionnée — ; la seule question ouverte est l’existence d’un objet à trajectoires continues qui les réalise toutes.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée de Wiener est de prendre l’espace des chemins lui-même pour espace probabilisé : au lieu de construire le processus instant par instant, il définit d’emblée une mesure sur les fonctions — son « differential space » —, à l’aide des intégrales abstraites de Daniell.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour tout choix fini d’instants t₁ < … < tₖ, on prescrit la loi conjointe : les accroissements B(tᵢ₊₁) − B(tᵢ) sont indépendants, gaussiens, de variances tᵢ₊₁ − tᵢ ; l’additivité des variances gaussiennes rend ces prescriptions compatibles entre elles.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces lois marginales cohérentes définissent une mesure sur l’espace de toutes les fonctions : Wiener l’obtient en 1923 par l’intégrale de Daniell, Kolmogorov la retrouvera en 1933 comme application de son théorème d’extension.',
+            sources: ['von-plato-creating', 'shafer-vovk-grundbegriffe'],
+          },
+          {
+            kind: 'fait',
+            text: 'Wiener montre alors que cette mesure porte en fait sur les fonctions continues, par un contrôle des oscillations dyadiques des trajectoires : l’ensemble des fonctions continues est de mesure pleine, et le processus possède une version continue — l’objet que décrivaient les physiciens.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Avec Paley et Zygmund (1933), il établit enfin que presque toute trajectoire est nulle part dérivable : les rapports d’accroissement restent, presque sûrement, trop grands en chaque point pour qu’une dérivée finie existe.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'loi-du-logarithme-itere',
@@ -336,6 +448,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour une suite de tirages à pile ou face, l’écart entre le nombre de « pile » et n/2 est, presque sûrement et infiniment souvent, de l’ordre de √(n · log log n) — ni plus grand, ni plus petit : cette fonction est l’enveloppe exacte des fluctuations.',
         comment: 'Publié dans Fundamenta Mathematicae, le théorème précise à la fois la loi forte (qui dit que l’écart est négligeable devant n) et le théorème central limite (qui donne l’ordre √n à n fixé). Kolmogorov l’étend en 1929 aux variables indépendantes bornées, Hartman et Wintner (1941) au cas de variance finie. C’est le modèle des résultats « presque sûrs » fins.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le théorème central limite dit qu’à n fixé l’écart Sₙ − n/2 est de l’ordre de √n, mais il ne dit pas jusqu’où cette fluctuation croît quand n varie ; la fonction √(n log log n) est exactement le seuil où la somme des probabilités de dépassement change de nature : un peu au-dessus elle converge, un peu en dessous elle diverge.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Khintchine, dans l’école de Moscou, cherche la loi exacte des fluctuations : il adapte aux écarts cumulés la technique de majoration fine que Borel et Cantelli avaient esquissée pour les déviations de fréquence, en dosant l’exposant pour que les événements rares soient tout juste trop rares — ou pas.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On contrôle la queue de Sₙ − n/2 par des inégalités exponentielles : pour u petit devant √n, la probabilité de dépasser u√n est de l’ordre de exp(−u²/2)/u, obtenue en majorant l’espérance de exp(λ(Sₙ − n/2)) puis en optimisant le paramètre λ.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la borne supérieure, on applique le premier lemme de Borel–Cantelli le long de la sous-suite géométrique nₖ = θᵏ : la probabilité que l’écart dépasse (1 + ε)√(2n log log n) décroît comme k^(−(1+ε)²), série convergente ; entre deux termes de la sous-suite, une inégalité maximale montre que l’écart reste négligeable devant le seuil.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la borne inférieure, on découpe la suite en blocs disjoints assez espacés pour rendre les accroissements indépendants : la probabilité qu’un bloc atteigne (1 − ε)√(2n log log n) ne décroît que comme k^(−(1−ε)²), série divergente, et le second lemme de Borel–Cantelli — qui exige l’indépendance — donne le dépassement infiniment souvent.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'ε étant arbitraire, le rapprochement des deux bornes donne lim sup (Sₙ − n/2)/√(2n log log n) = 1 presque sûrement ; par symétrie, la limite inférieure vaut −1 : l’enveloppe est exacte, sans marge.',
+            sources: ['von-plato-creating'],
+          },
+        ],
       },
       {
         id: 'lois-stables',
@@ -360,6 +506,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour un processus de Markov à temps continu, les probabilités de transition satisfont l’équation de Chapman–Kolmogorov et, sous des hypothèses de régularité, deux équations aux dérivées partielles, dites « rétrograde » et « progressive » (celle-ci coïncide avec l’équation de Fokker–Planck des physiciens).',
         comment: 'L’article des Mathematische Annalen fonde la théorie analytique des processus de diffusion en reliant probabilités et équations paraboliques, dans la lignée de Bachelier, que Kolmogorov cite. Feller en développe la théorie dans les années 1950 ; Itô en donne la contrepartie « trajectorielle » avec les équations différentielles stochastiques.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’idée directrice, héritée de Bachelier et de la lecture de Chapman : connaître un processus de Markov à temps continu, c’est connaître sa fonction de transition — la loi du point d’arrivée sachant le point de départ —, et cette fonction de deux instants et deux positions doit obéir à des équations différentielles dès que le mouvement est continu.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’astuce consiste à insérer un instant intermédiaire et à conditionner par la position alors atteinte : la probabilité d’aller de x en y entre s et t est l’intégrale, sur toutes les positions z possibles à l’instant u, du produit des deux probabilités de transition — la propriété de Markov fige le passé dès que le présent est connu.',
+            sources: ['von-plato-creating'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La propriété de Markov s’écrit p(s, x ; t, y) = ∫ p(s, x ; u, z) p(u, z ; t, y) dz : pour aller de x à y entre s et t, le processus passe quelque part à l’instant u, et le conditionnement par cette position en z rend les deux moitiés du trajet indépendantes — c’est l’équation dite de Chapman–Kolmogorov.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour une diffusion de dérive a(x) et de diffusion b(x), on fait tendre l’instant intermédiaire u vers s : le développement au premier ordre de l’équation donne l’équation « rétrograde » ∂p/∂s + a ∂p/∂x + (b²/2) ∂²p/∂x² = 0, qui porte sur le point de départ.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'On fait de même vers l’avant, en testant l’équation contre une fonction régulière arbitraire puis en intégrant par parties : vient l’équation « progressive » ∂p/∂t = −∂(ap)/∂y + (1/2) ∂²(b²p)/∂y², identique à l’équation de Fokker–Planck des physiciens, qui gouverne la densité au temps t.',
+            sources: ['von-plato-creating', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'La théorie des équations paraboliques assure alors l’existence et l’unicité des solutions : les coefficients a et b déterminent entièrement la fonction de transition, donc le processus — la dynamique stochastique devient un chapitre des équations aux dérivées partielles.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'grundbegriffe-der-wahrscheinlichkeitsrechnung',
@@ -401,6 +581,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Si l’on prescrit, pour tout choix fini d’instants, la loi conjointe des valeurs d’un processus, et si ces lois sont compatibles entre elles (celle d’un sous-ensemble d’instants s’obtient par projection), alors il existe une unique mesure de probabilité sur l’espace de toutes les trajectoires qui les réalise toutes.',
         comment: 'Théorème fondamental du chapitre III des Grundbegriffe : il garantit l’existence de processus stochastiques définis par leurs lois marginales, et donc d’une infinité non dénombrable de variables aléatoires sur un même espace. Il remplace les constructions au cas par cas (Wiener, 1923) et rend possibles les théories générales de Doob et de Feller.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un processus n’est jamais observé qu’en un nombre fini d’instants : prescrire les lois conjointes de toutes ces familles finies épuise l’information accessible. Le théorème affirme que ces données suffisent à définir la loi de la trajectoire entière — soit une infinité non dénombrable de valeurs — pourvu qu’elles ne se contredisent pas.',
+            sources: ['shafer-vovk-grundbegriffe', 'von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'La compatibilité exigée est la condition naturelle : la loi prescrite sur trois instants, projetée sur deux d’entre eux, doit redonner la loi prescrite sur ces deux instants. Les marginales sont alors les ombres cohérentes d’une seule mesure, et non un empilement arbitraire.',
+            sources: ['shafer-vovk-grundbegriffe', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On considère les « cylindres » : les ensembles de trajectoires dont les valeurs en t₁, …, tₖ tombent dans des parties mesurables fixées ; la prescription fini-dimensionnelle assigne à chaque cylindre une probabilité.',
+            sources: ['shafer-vovk-grundbegriffe', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'La condition de compatibilité garantit que cette assignation ne dépend pas de la représentation du cylindre : deux familles d’instants décrivant le même ensemble de trajectoires reçoivent la même masse — la fonction d’ensemble est bien définie, et additive, sur l’algèbre des cylindres.',
+            sources: ['shafer-vovk-grundbegriffe'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point technique est la σ-additivité : Kolmogorov la déduit d’une propriété de régularité des mesures fini-dimensionnelles — leurs valeurs s’approchent par des cylindres à base compacte —, si bien qu’une suite décroissante de cylindres vides voit sa masse tendre vers zéro.',
+            sources: ['shafer-vovk-grundbegriffe', 'kolmogorov-selected'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème d’extension de Carathéodory prolonge alors, de façon unique, la fonction d’ensemble en une mesure de probabilité sur la tribu engendrée par les cylindres : la loi du processus existe, et elle est unique.',
+            sources: ['shafer-vovk-grundbegriffe', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'martingales',
@@ -443,6 +657,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'La trajectoire d’une marche aléatoire à pas indépendants de variance finie, convenablement contractée dans le temps et dans l’espace, converge en loi vers le mouvement brownien ; les lois limites de toutes les fonctionnelles continues de la marche (maximum, temps passé au-dessus de zéro…) sont donc celles du brownien et ne dépendent pas de la loi des pas.',
         comment: 'Version fonctionnelle du théorème central limite, démontrée dans les Memoirs de l’American Mathematical Society et motivée par les travaux d’Erdős et Kac (1946) sur les « principes d’invariance ». Le théorème justifie les tests de Kolmogorov–Smirnov et inaugure la théorie de la convergence faible des processus (Prokhorov, Skorokhod, 1956).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Erdős et Kac avaient observé en 1946 que des statistiques globales de la marche — le maximum atteint, le temps passé au-dessus de zéro — ont les mêmes lois limites pour toute loi de pas à variance finie ; Donsker en cherche la raison et la trouve dans la trajectoire : c’est la marche entière, non telle ou telle fonctionnelle, qui converge.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Vue de loin, la marche se lisse : accélérer le temps d’un facteur n et contracter l’espace d’un facteur √n donne, par le théorème central limite, des accroissements asymptotiquement gaussiens ; la limite ne peut alors être qu’un processus continu à accroissements indépendants gaussiens — le mouvement brownien, quelle qu’ait été la loi des pas.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On plonge la marche dans l’espace des fonctions continues sur [0, 1] en interpolant linéairement : le processus Xₙ vaut Sₖ/√n aux instants k/n et est linéaire entre eux.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les lois en dimension finie convergent : à t fixé, Xₙ(t) tend en loi vers une gaussienne par le théorème central limite, et les accroissements sur des intervalles disjoints, indépendants par construction, restent indépendants à la limite.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point délicat est la tension de la suite : il faut borner, uniformément en n, la probabilité que la trajectoire fasse une excursion de plus de ε entre deux instants proches ; une inégalité maximale sur les sommes partielles montre que ce risque s’annule avec l’écart des instants.',
+            sources: ['von-plato-creating'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le critère de Prokhorov — tension et convergence des marginales équivalent à la convergence en loi dans l’espace des fonctions continues — conclut : Xₙ tend vers le mouvement brownien, et toute fonctionnelle continue de la trajectoire hérite de cette limite.',
+            sources: ['von-plato-creating', 'gowers-companion'],
+          },
+        ],
       },
     ],
     sources: ['von-plato-creating', 'shafer-vovk-grundbegriffe', 'kolmogorov-selected', 'gray-hilbert-challenge', 'gowers-companion', 'mactutor'],
@@ -727,6 +975,40 @@ export const STRUCTURES_B: Domain[] = [
             sources: ['leonard-game-theory'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Borel avait montré dès 1921, sur des exemples à trois stratégies, qu’un joueur ne peut rien garantir s’il annonce son choix : seule une stratégie tirée au sort le protège. Le jeu de « pile ou face » le montre à l’évidence : miser chaque face avec probabilité 1/2 assure un gain moyen nul, quelle que soit la réponse adverse — la question était de savoir si cette voie du milieu existe toujours.',
+            sources: ['leonard-game-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une fois les stratégies mélangées, le gain espéré devient une forme bilinéaire sur les simplexes des probabilités, ensembles convexes et compacts : le théorème se ramène à l’existence d’un point-selle, un couple de stratégies qui se répondent optimalement l’une à l’autre.',
+            sources: ['leonard-game-theory', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Chaque joueur décrit sa stratégie mixte par un point d’un simplexe ; le gain espéré u(x, y) est bilinéaire en les deux stratégies, et les simplexes sont des convexes compacts.',
+            sources: ['leonard-game-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'À stratégie adverse fixée, l’ensemble des réponses qui maximisent le gain est non vide, convexe et fermé ; von Neumann établit en 1928, par un argument topologique voisin du théorème du point fixe de Brouwer — que le lemme de Kakutani (1941) mettra sous sa forme définitive —, l’existence d’un couple (x*, y*) de meilleures réponses mutuelles.',
+            sources: ['leonard-game-theory', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un tel couple est un point-selle : u(x, y*) ≤ u(x*, y*) ≤ u(x*, y) pour tous x et y, puisque chacun joue au mieux contre l’autre.',
+            sources: ['leonard-game-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point-selle force l’égalité : maxₓ min_y u(x, y) ≥ u(x*, y*) ≥ min_y maxₓ u(x, y), tandis que l’inégalité inverse vaut dans tout jeu ; les deux bornes coïncident et le jeu a une valeur.',
+            sources: ['leonard-game-theory', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'lemme-de-neyman-pearson',
@@ -756,6 +1038,40 @@ export const STRUCTURES_B: Domain[] = [
             kind: 'interpretation',
             text: 'En évaluant un test par ses deux risques d’erreur plutôt que par la force d’une évidence, le lemme prépare la théorie de la décision : Wald, dès 1939, reformule tests et estimation comme le choix d’une règle qui minimise un risque.',
             sources: ['lehmann-fisher-neyman'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le critère répond à l’idée de Gosset : un test n’a de sens que face à une alternative. Le rapport des vraisemblances mesure combien une hypothèse explique mieux les données que l’autre, et rejeter quand il est grand concentre la décision là où l’alternative est la plus plausible.',
+            sources: ['lehmann-fisher-neyman', 'reid-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’optimalité tient à une évidence de mesure : à aire égale sous la loi de l’hypothèse nulle — le niveau —, la région qui capture le plus d’aire sous l’alternative — la puissance — est celle où la densité de celle-ci est relativement la plus forte.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On note f₀ et f₁ les densités des observations sous l’hypothèse nulle et sous l’alternative ; le test du rapport de vraisemblance rejette l’hypothèse nulle quand le quotient Λ = f₁/f₀ dépasse un seuil k choisi pour que le risque de première espèce soit le niveau α fixé.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit une autre région de rejet A de même niveau : sur la partie de la région R du test du rapport qu’A ne couvre pas, on a f₁ ≥ k f₀ ; sur la partie d’A extérieure à R, on a f₁ < k f₀.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'En intégrant ces inégalités : P₁(R ∖ A) ≥ k P₀(R ∖ A) et P₁(A ∖ R) ≤ k P₀(A ∖ R) ; or l’égalité des niveaux donne P₀(R ∖ A) = P₀(A ∖ R).',
+            sources: ['lehmann-fisher-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il en résulte P₁(R) ≥ P₁(A) : à niveau égal, aucun test n’est plus puissant que le test du rapport de vraisemblance — la forme optimale du test est entièrement déterminée par le rapport des densités.',
+            sources: ['lehmann-fisher-neyman', 'gowers-companion'],
           },
         ],
       },
@@ -812,6 +1128,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Aucun estimateur sans biais d’un paramètre ne peut avoir une variance inférieure à l’inverse de l’information de Fisher ; l’égalité caractérise les estimateurs efficaces.',
         comment: 'Démontrée indépendamment par Rao à Calcutta (1945) et par Cramér dans Mathematical Methods of Statistics (1945-1946), avec des antécédents chez Fréchet (1943) et Darmois (1945), la borne donne un sens précis à l’efficacité définie par Fisher. Elle fonde la théorie de l’estimation optimale et, par la géométrie de l’information, relie la statistique à la géométrie différentielle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’« information » de Fisher mesure la sensibilité de la vraisemblance au paramètre : plus la log-vraisemblance varie vite quand θ bouge, plus les données discriminent les valeurs proches ; une borne inférieure sur la précision des estimateurs doit donc exister, inverse de cette courbure.',
+            sources: ['lehmann-fisher-neyman', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’ingrédient de la démonstration est le « score », dérivée de la log-vraisemblance par rapport au paramètre : sa variance est l’information, et sa covariance avec tout estimateur sans biais vaut exactement 1 — l’identité d’où la borne tombe par une simple inégalité.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit T un estimateur sans biais de θ : l’intégrale de T f_θ vaut θ. En dérivant par rapport à θ sous le signe somme — ce que les conditions de régularité autorisent —, on obtient l’intégrale de T ∂f_θ/∂θ égale à 1.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'On réécrit ∂f_θ/∂θ = f_θ · ∂ log f_θ/∂θ : le score S = ∂ log f_θ/∂θ est de moyenne nulle — c’est la dérivée de l’identité ∫ f_θ = 1 — et sa variance définit l’information de Fisher I(θ).',
+            sources: ['lehmann-fisher-neyman', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La covariance de T et du score vaut alors 1 ; l’inégalité de Cauchy–Schwarz donne 1 = Cov(T, S)² ≤ Var(T) × Var(S) = Var(T) × I(θ), d’où Var(T) ≥ 1/I(θ).',
+            sources: ['lehmann-fisher-neyman'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’égalité n’a lieu que si T − θ est proportionnel au score : les estimateurs efficaces sont ainsi caractérisés, et leur existence se lit sur la forme de la famille de densités — c’est le cas des familles exponentielles.',
+            sources: ['lehmann-fisher-neyman'],
+          },
+        ],
       },
       {
         id: 'analyse-sequentielle',
@@ -845,6 +1195,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans tout jeu fini à n joueurs, il existe un profil de stratégies mixtes tel qu’aucun joueur ne puisse améliorer son gain en changeant seul de stratégie.',
         comment: 'Note d’une page aux Proceedings of the National Academy of Sciences, démontrée par le théorème de point fixe de Kakutani, puis par celui de Brouwer dans la thèse (1950) et l’article des Annals (1951). L’équilibre de Nash généralise le minimax aux jeux non coopératifs à somme quelconque et devient le concept central de la théorie des jeux appliquée à l’économie ; il vaut à Nash le prix Nobel de 1994.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un équilibre est un profil « autocohérent » : annoncer publiquement les stratégies de tous ne donne à personne l’envie de changer — chaque choix est une meilleure réponse aux choix des autres. Le minimax en fournit le cas à deux joueurs à somme nulle ; Nash montre que la notion survit à n joueurs et à des gains quelconques.',
+            sources: ['leonard-game-theory', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La démonstration ne construit pas l’équilibre : elle montre que la relation « meilleure réponse », définie sur le produit convexe compact des simplexes de stratégies, possède un point fixe — l’existence tient à la topologie de l’ensemble des profils, non au détail des gains.',
+            sources: ['leonard-game-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Chaque joueur i choisit une probabilité sur ses stratégies pures : un profil est un point du produit des simplexes, ensemble convexe et compact, et le gain espéré de i y est multilinéaire en les stratégies de tous.',
+            sources: ['leonard-game-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'À profil s fixé, l’ensemble des meilleures réponses de i aux stratégies des autres est non vide, convexe et fermé ; la correspondance qui à s associe le produit de ces ensembles vérifie les hypothèses du théorème de point fixe de Kakutani — la note de 1950 l’emploie, la thèse et l’article des Annals repassent par celui de Brouwer.',
+            sources: ['leonard-game-theory', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un point fixe de cette correspondance est un profil dont chaque coordonnée est meilleure réponse aux autres : aucun joueur ne peut accroître son gain en déviant seul — c’est la définition de l’équilibre.',
+            sources: ['leonard-game-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’équilibre existe donc dans tout jeu fini ; dans un jeu à deux joueurs à somme nulle, les équilibres sont exactement les points-selles du théorème du minimax, que la notion généralise.',
+            sources: ['leonard-game-theory', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'statistical-decision-functions',
@@ -1083,6 +1467,18 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'probleme',
         statement: 'Trouver une procédure mécanique qui, appliquée à n’importe quel énoncé de la logique du premier ordre, détermine en un nombre fini d’étapes s’il est universellement valide.',
         comment: 'Formulé dans les Grundzüge der theoretischen Logik de Hilbert et Ackermann (1928) et dans la conférence de Hilbert au congrès de Bologne, le problème est présenté comme « le problème principal de la logique mathématique ». Church (1936) puis Turing (1936) montrent qu’aucune telle procédure n’existe ; pour y parvenir, il leur a fallu définir la notion même de procédure mécanique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté tient à la généralité de la demande : la procédure doit traiter n’importe quel énoncé, y compris ceux qui parlent de calcul et de démonstration ; un tel pouvoir d’inspection, appliqué aux procédures elles-mêmes, ouvre la voie à des arguments de retour sur soi.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'La voie empruntée par Church et par Turing est indirecte : montrer d’abord qu’un problème de calcul pur — normalisation d’un λ-terme, arrêt d’une machine — n’est décidable par aucune procédure effective, puis coder ce calcul dans une formule de la logique, dont la validité trancherait la première question. Ce sont les résultats « théorème de Church » et « problème de l’arrêt » de ce domaine.',
+            sources: ['davis-universal', 'hodges-turing'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-completude',
@@ -1095,6 +1491,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout énoncé de la logique du premier ordre qui est vrai dans toutes les interprétations possibles est démontrable à partir des axiomes et des règles de Hilbert et Ackermann ; de manière équivalente, toute théorie cohérente possède un modèle.',
         comment: 'Thèse de doctorat soutenue à Vienne en 1929 et publiée dans les Monatshefte en 1930, répondant à une question laissée ouverte par les Grundzüge. Le théorème assure que la notion syntaxique de démonstration capture exactement la notion sémantique de vérité logique ; il fonde la théorie des modèles (compacité, Löwenheim–Skolem) et donne tout son sens à l’incomplétude de l’année suivante, qui porte, elle, sur les théories et non sur la logique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le théorème se comprend par contraposée : si un énoncé n’est pas démontrable, il doit exister une interprétation qui le rende faux — la démonstration construit ce contre-modèle à partir des termes du langage eux-mêmes, énumérés comme candidats à des témoins.',
+            sources: ['van-heijenoort', 'dawson-godel'],
+          },
+          {
+            kind: 'fait',
+            text: 'Gödel y arrive par la question des Grundzüge : les règles de Hilbert et Ackermann suffisent-elles à démontrer tout énoncé valide ? La réponse positive exige de bâtir un modèle pour toute théorie sans contradiction — c’est sous cette forme, dite « existence de modèle », que le résultat est resté.',
+            sources: ['dawson-godel', 'sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On raisonne par contraposée : joindre à une théorie la négation d’un énoncé non démontrable ne produit aucune contradiction ; il reste à transformer cette cohérence en un modèle où l’énoncé est faux.',
+            sources: ['dawson-godel', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'La mise en forme normale de Skolem ramène chaque formule à un schéma « pour tout … il existe … » : satisfaire la théorie revient à choisir, pour chaque variable, un témoin parmi les termes du langage — un ensemble dénombrable.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Gödel organise les choix de témoins en un arbre infini : à chaque niveau, les instances propositionnelles des formules doivent être satisfaites ; une contradiction apparaîtrait à un niveau fini et fournirait, remontée, une démonstration.',
+            sources: ['dawson-godel', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'La cohérence interdit la contradiction : par le lemme de König, l’arbre infini possède une branche infinie — une assignation cohérente de témoins, c’est-à-dire un modèle dénombrable de la théorie.',
+            sources: ['dawson-godel', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un énoncé vrai dans toute interprétation ne peut donc manquer d’être démontrable, sinon sa négation aurait un modèle : validité et démontrabilité coïncident pour la logique du premier ordre.',
+            sources: ['van-heijenoort', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-herbrand',
@@ -1107,6 +1542,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Une formule existentielle de la logique du premier ordre est démontrable si et seulement si une disjonction finie d’instances de sa matrice, obtenues en remplaçant les variables par des termes construits à partir des symboles de la formule, est une tautologie du calcul propositionnel.',
         comment: 'Résultat central de la thèse de 1930, dans l’esprit finitiste de Hilbert : il remplace le raisonnement sur les quantificateurs par une recherche combinatoire. La démonstration originale comportait une lacune, corrigée par Dreben, Andrews et Aanderaa en 1963. Le théorème est à la base de la démonstration automatique (unification, résolution de Robinson, 1965) et de la programmation logique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Herbrand cherche à rendre la démonstration du premier ordre « matérielle » au sens de Hilbert : éliminer les quantificateurs en substituant aux variables des termes construits à partir des symboles de la formule, de sorte que prouver devienne une recherche combinatoire dans un univers de termes.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’observation-clé : si une formule existentielle est démontrable, un fragment fini de ses instances suffit — la démonstration n’emploie qu’un nombre fini de témoins, et la disjonction de ces instances, vraie pour des raisons purement propositionnelles, en est la trace finie.',
+            sources: ['van-heijenoort', 'davis-universal'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Toute formule du premier ordre se ramène, par mise en forme prénexe et skolémisation, à un énoncé existentiel « il existe x₁, …, xₖ : M », où M est sans quantificateurs.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'On énumère les termes construits à partir des constantes et des fonctions présentes dans la formule — le « domaine de Herbrand », dénombrable ; chaque substitution de termes aux variables donne une instance propositionnelle de M.',
+            sources: ['van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Herbrand montre que toute démonstration de la formule se transforme en une preuve propositionnelle d’une disjonction finie de telles instances : les pas de quantification sont remplacés par les témoins que la démonstration elle-même a choisis.',
+            sources: ['van-heijenoort', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Réciproquement, une telle disjonction tautologique se relève en une démonstration du premier ordre, en introduisant « il existe » sur chaque témoin : démontrabilité et existence d’une disjonction tautologique coïncident.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'La recherche d’une démonstration se décide donc par l’exploration des disjonctions finies — le principe des procédures de démonstration automatique par unification et résolution.',
+            sources: ['davis-universal', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoremes-d-incompletude',
@@ -1141,6 +1615,45 @@ export const STRUCTURES_B: Domain[] = [
             kind: 'interpretation',
             text: 'Longtemps, l’incomplétude passe pour un phénomène réservé aux énoncés fabriqués par diagonalisation ; il faut attendre 1977 et le théorème de Paris–Harrington pour qu’un énoncé combinatoire d’allure ordinaire soit montré vrai mais indémontrable dans l’arithmétique de Peano.',
             sources: ['sep'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’ingrédient est le retour sur soi : le paradoxe du menteur (« cette phrase est fausse ») ne peut être formulé dans l’arithmétique, mais « cette phrase n’est pas démontrable » le peut, dès lors que la syntaxe du système est codée par des entiers — la diagonale de Cantor et de Richard transposée de la vérité à la démontrabilité.',
+            sources: ['dawson-godel', 'van-heijenoort', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Gödel cherchait une preuve de cohérence relative de l’analyse ; le détour décisif fut de remarquer que « être démontrable » s’exprime avec les seuls symboles de l’arithmétique, via les fonctions récursives primitives — la métamathématique devient une théorie des nombres, et ses énoncés des objets du système qu’ils décrivent.',
+            sources: ['dawson-godel', 'van-heijenoort'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Arithmétisation : symboles, formules et suites de formules reçoivent des numéros ; la relation « la suite n° d est une démonstration de la formule n° f » se définit alors dans l’arithmétique par des fonctions récursives primitives, et la démontrabilité s’écrit comme une formule du système.',
+            sources: ['dawson-godel', 'van-heijenoort', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'Diagonalisation : Gödel construit un énoncé G équivalent, dans le système, à « G n’est pas démontrable » — un point fixe obtenu en substituant à une formule son propre numéro comme valeur de sa variable libre.',
+            sources: ['dawson-godel', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si le système démontre G, il démontre un énoncé que la cohérence exclut ; s’il démontre ¬G, il affirme qu’une démonstration de G existe — ce que réfute l’hypothèse technique d’ω-cohérence, que Rosser supprimera en 1936 en modifiant l’énoncé diagonal. G est donc indécidable, alors qu’il est vrai : il dit justement qu’on ne peut pas le prouver.',
+            sources: ['dawson-godel', 'van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le premier théorème est établi : tout système cohérent, assez riche et axiomatisé mécaniquement, contient un énoncé vrai indémontrable — et la construction s’itère, car adjoindre G aux axiomes reproduit le phénomène.',
+            sources: ['dawson-godel', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La démonstration du premier théorème se formalise elle-même : le système y prouve « s’il est cohérent, alors G » ; comme il ne prouve pas G, il ne prouve pas l’énoncé qui exprime sa propre cohérence — le second théorème.',
+            sources: ['dawson-godel', 'van-heijenoort', 'davis-universal'],
           },
         ],
       },
@@ -1178,6 +1691,40 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il n’existe aucune fonction récursive qui décide si un énoncé donné de la logique du premier ordre est démontrable ; l’Entscheidungsproblem n’a donc pas de solution, pourvu que l’on admette que toute procédure effective est récursive.',
         comment: 'Church publie d’abord, dans l’American Journal of Mathematics, l’indécidabilité d’un problème arithmétique (la λ-définissabilité d’un terme), puis, dans une note au Journal of Symbolic Logic, en déduit celle de la logique. Turing obtient le même résultat quelques mois plus tard par sa machine, et montre l’équivalence des deux approches dans un appendice. Le théorème clôt la question posée par Hilbert en 1928.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Church relie la question de Hilbert à son propre calcul : la démontrabilité d’une formule de la logique se ramène à reconnaître des propriétés de λ-termes, que sa thèse identifie aux fonctions effectivement calculables — l’Entscheidungsproblem devient un problème de calcul.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point d’appui est un énoncé indécidable déjà obtenu dans le lambda-calcul : aucune fonction λ-définissable ne décide si un terme possède une forme normale. Il suffit alors de coder ce problème dans une formule du premier ordre pour que l’indécidabilité contamine la logique entière.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Church dispose déjà d’un problème insoluble dans le lambda-calcul : aucune fonction λ-définissable ne décide si un terme donné admet une forme normale — résultat établi par un argument diagonal de la famille de Cantor et de Gödel.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'On code alors ce problème dans l’arithmétique formalisée : les constructions du lambda-calcul s’expriment sur les entiers par l’arithmétisation de la syntaxe, à la manière de Gödel, et la λ-définissabilité s’énonce par des formules du premier ordre.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une procédure décidant la démontrabilité de ces formules déciderait donc l’existence de formes normales, ce qui est impossible : aucune fonction récursive — au sens où Church identifie calcul effectif et λ-définissabilité — ne résout l’Entscheidungsproblem.',
+            sources: ['davis-universal', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'Church publie la conséquence pour la logique au Journal of Symbolic Logic en 1936 ; Turing y parvient indépendamment par sa machine et montre l’équivalence des deux approches dans un appendice — la réponse négative est doublement assise.',
+            sources: ['davis-universal', 'hodges-turing'],
+          },
+        ],
       },
       {
         id: 'these-de-church',
@@ -1240,6 +1787,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Il n’existe aucune machine de Turing qui, recevant la description d’une machine et une donnée, détermine toujours en un temps fini si cette machine finira par s’arrêter sur cette donnée.',
         comment: 'Turing démontre en fait l’indécidabilité de la question « cette machine imprime-t-elle une infinité de chiffres ? » par un argument diagonal inspiré de Cantor ; la formulation par l’arrêt est due à Kleene et Davis. Le théorème est le prototype de tous les résultats d’indécidabilité (problème du mot, dixième problème de Hilbert, théorème de Rice) et borne ce que peut vérifier un programme sur un autre programme.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté tient à la circularité : une machine qui déciderait l’arrêt devrait fonctionner sur la description de n’importe quelle machine — et rien n’interdit de la nourrir d’elle-même, situation où la prédiction peut être sabotée par celui qu’elle prédit.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'On mesure ce que vaudrait une telle machine : elle déciderait, entre autres, toute conjecture exprimable comme recherche de contre-exemple — Goldbach, Fermat —, en décidant si le programme de recherche s’arrête. Le théorème montre que cette puissance était trop belle pour être mécanisable.',
+            sources: ['davis-universal', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Chaque machine de Turing possède une description finie, codable par un entier ou une inscription sur un ruban ; l’ensemble des couples (machine, donnée) est donc énumérable.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'On suppose qu’une machine D décide l’arrêt : recevant la description de M et une donnée x, elle répond toujours, en un temps fini, si M s’arrête sur x.',
+            sources: ['davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'À l’aide de D, on construit une machine E : sur la description de M, E simule D sur le couple (M, M) ; si D répond « M s’arrête sur sa propre description », E boucle à jamais, sinon E s’arrête.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+          {
+            kind: 'fait',
+            text: 'On applique E à sa propre description : E s’arrête sur elle-même si et seulement si D affirme qu’elle ne s’arrête pas — les deux cas se contredisent.',
+            sources: ['davis-universal', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La machine D n’existe donc pas : le problème de l’arrêt est indécidable, et Turing enchaîne, dans le même article, sur l’insolubilité de l’Entscheidungsproblem.',
+            sources: ['hodges-turing', 'davis-universal'],
+          },
+        ],
       },
       {
         id: 'a-symbolic-analysis-of-relay-and-switching-circuits',
@@ -1583,6 +2169,18 @@ export const STRUCTURES_B: Domain[] = [
             sources: ['gray-hilbert-challenge', 'reid-hilbert'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans la conférence même, Hilbert fixe ses critères : un bon problème doit pouvoir s’énoncer clairement, être assez difficile pour mériter l’effort et assez accessible pour promettre un progrès ; la liste se lit donc moins comme un inventaire que comme un diagnostic sur l’état des méthodes de 1900.',
+            sources: ['gray-hilbert-challenge', 'reid-hilbert'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces problèmes éprouvent précisément les limites des outils du temps : la cohérence de l’arithmétique et l’hypothèse du continu demandent de raisonner sur la preuve et sur l’infini eux-mêmes, l’équation diophantienne générale exige un procédé de décision universel — trois questions qui recevront, contre l’optimisme affiché, des réponses négatives ou relatives.',
+            sources: ['gray-hilbert-challenge'],
+          },
+        ],
       },
       {
         id: 'the-principles-of-mathematics',
@@ -1662,6 +2260,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout énoncé de la logique du premier ordre qui possède un modèle en possède un dont le domaine est au plus dénombrable.',
         comment: 'Démontré par Löwenheim dans les Mathematische Annalen dans le langage du calcul des relations de Schröder, puis étendu par Skolem (1920) aux systèmes dénombrables d’énoncés, avec une preuve par témoins (fonctions de Skolem). C’est le premier théorème de la théorie des modèles ; appliqué aux axiomes des ensembles, il produit le « paradoxe » de Skolem. La version ascendante (Tarski, mal nommée « Löwenheim–Skolem supérieur ») mesure la puissance expressive du premier ordre.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une formule du premier ordre ne peut exiger d’un domaine que ce que ses symboles y discriminent : satisfaire « pour tout x, il existe y » ne demande que de nommer un témoin pour chaque x, et ces témoins, pris dans les termes du langage, ne forment qu’un ensemble dénombrable — la taille du modèle est bornée par celle du langage.',
+            sources: ['sep', 'van-heijenoort'],
+          },
+          {
+            kind: 'fait',
+            text: 'C’est la méthode des témoins de Skolem (1920) qui rend l’idée constructive : pour chaque quantificateur existentiel, on adjoint au langage une fonction qui choisit le témoin ; la théorie ainsi écrite, purement universelle, se satisfait alors sur le domaine des termes eux-mêmes.',
+            sources: ['van-heijenoort', 'ferreiros-labyrinth'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’un système dénombrable d’énoncés satisfiables, mis sous forme prénexe ; chaque bloc « il existe y » est remplacé par une fonction nouvelle f(x₁, …, xₖ) — la fonction de Skolem — qui choisit un témoin pour chaque affectation des variables universelles.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tout modèle de la théorie initiale se prolonge en un modèle de la théorie skolémisée, en interprétant les fonctions nouvelles par un choix de témoins ; réciproquement, un modèle de la théorie enrichie en redonne un de la théorie initiale.',
+            sources: ['sep', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'On prend alors pour domaine l’ensemble des termes clos du langage enrichi — un ensemble dénombrable —, et l’on y impose aux fonctions et aux relations leur comportement syntaxique, en partant d’un modèle quelconque dont on ne conserve que les classes de termes qu’il identifie.',
+            sources: ['van-heijenoort', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le domaine des termes ainsi interprété satisfait tous les énoncés universels de la théorie skolémisée, donc la théorie initiale : c’est un modèle au plus dénombrable.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliqué aux axiomes de la théorie des ensembles, le théorème produit un modèle dénombrable d’une théorie qui « prouve » l’existence d’ensembles indénombrables : c’est le paradoxe de Skolem.',
+            sources: ['van-heijenoort', 'ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'das-kontinuum',
@@ -1695,6 +2332,18 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'probleme',
         statement: 'La théorie des ensembles axiomatisée, si elle est cohérente, possède un modèle dénombrable ; dans ce modèle, l’ensemble « des réels » est donc dénombrable, alors que la théorie prouve qu’il ne l’est pas — la contradiction n’est qu’apparente : « dénombrable » signifie une chose à l’intérieur du modèle et une autre à l’extérieur.',
         comment: 'Exposé au cinquième congrès des mathématiciens scandinaves à Helsinki, le texte en tire une leçon de relativité : les notions de cardinalité ne sont pas absolues. Skolem y ajoute ses doutes sur la suffisance de l’axiomatisation — scepticisme que l’indépendance des grands problèmes (continu, choix) confirmera. Le « paradoxe » fonde la conscience moderne des modèles non standards.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le « paradoxe » se dissout en distinguant deux points de vue : à l’intérieur du modèle dénombrable, aucune bijection des réels sur les entiers n’existe — elle ne fait pas partie du modèle ; de l’extérieur, le domaine entier se dénombre. La contradiction suppose qu’« indénombrable » ait le même sens dans les deux regards — c’est précisément ce qui fait défaut.',
+            sources: ['sep', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Skolem en tire une leçon de relativité : la cardinalité dépend du modèle où l’on se place, et les axiomes du premier ordre ne fixent pas l’absolu cantorien — position sceptique qu’il oppose à Zermelo, et que la technique du théorème de Löwenheim–Skolem, traitée au résultat précédent, rend inévitable.',
+            sources: ['van-heijenoort', 'ferreiros-labyrinth'],
+          },
+        ],
       },
       {
         id: 'paradoxe-de-banach-tarski',
@@ -1707,6 +2356,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'Une boule de l’espace à trois dimensions peut être décomposée en un nombre fini de parties qui, déplacées par isométries et rassemblées, reconstituent deux boules identiques à la première.',
         comment: 'Publié dans Fundamenta Mathematicae, le théorème repose de manière essentielle sur l’axiome du choix (les parties ne sont pas mesurables) et sur les rotations libres du groupe SO(3). Il clôt la question, posée par Hausdorff (1914), d’une mesure finiment additive invariante définie sur toutes les parties de l’espace, et a longtemps servi d’argument contre l’axiome du choix ; les historiens rappellent qu’à Varsovie, il visait au contraire à en explorer les conséquences. La théorie des ensembles moyennables en découle (von Neumann, 1929).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’idée vient de Hausdorff (1914) : le groupe des rotations de la sphère contient un sous-groupe libre à deux générateurs, et un groupe libre « se dédouble » déjà en lui-même — il est union de parties qui, translatées par ses propres éléments, reconstituent deux copies du tout.',
+            sources: ['ferreiros-labyrinth', 'feferman-tarski'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces rotations divisent la sphère en orbites ; choisir un point par orbite — le seul usage de l’axiome du choix — transporte la décomposition du groupe à la sphère, et les morceaux obtenus ne peuvent être mesurables : le « paradoxe » est le prix d’une mesure invariante universelle.',
+            sources: ['feferman-tarski', 'sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On fixe deux rotations d’angles convenablement choisis, qui engendrent dans le groupe des rotations de la sphère un sous-groupe libre F₂ : aucune relation entre elles ne se réduit trivialement — le point délicat, déjà traité par Hausdorff.',
+            sources: ['ferreiros-labyrinth', 'feferman-tarski'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le groupe libre se dédouble : en séparant les mots selon leur première lettre, on partage F₂ en parties dont les translations par les générateurs redonnent, par paquets disjoints, deux copies du groupe entier.',
+            sources: ['ferreiros-labyrinth', 'sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hors l’ensemble dénombrable D des points fixes des rotations de F₂, la sphère se partitionne en orbites du groupe ; l’axiome du choix fournit un point par orbite, et la décomposition de F₂ se transporte à la sphère privée de D : celle-ci se reconstitue en deux copies.',
+            sources: ['feferman-tarski', 'ferreiros-labyrinth'],
+          },
+          {
+            kind: 'fait',
+            text: 'Reste le « trou » D : en choisissant une rotation dont les itérés de D sont deux à deux disjoints, on montre que la sphère et la sphère privée de D sont équidécomposables — l’ensemble exceptionnel se dissout dans la décomposition.',
+            sources: ['sep', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'On passe enfin de la sphère à la boule pleine en épaississant chaque pièce le long des rayons issus du centre, qui se traite par le même absorbage : en un nombre fini de parties non mesurables, une boule se reconstitue en deux boules identiques.',
+            sources: ['feferman-tarski', 'sep'],
+          },
+        ],
       },
       {
         id: 'ueber-das-unendliche',
@@ -1779,6 +2467,40 @@ export const STRUCTURES_B: Domain[] = [
           {
             kind: 'interpretation',
             text: 'La portée de la démonstration reste discutée : pour les uns, elle accomplit un programme de Hilbert révisé ; pour d’autres, l’induction transfinie jusqu’à ε₀ n’est pas plus évidente que la cohérence de l’arithmétique qu’elle est censée garantir.',
+            sources: ['sep'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le second théorème de Gödel n’interdit la cohérence démontrée qu’aux moyens formalisables dans l’arithmétique elle-même : reste la marge des principes « évidents » qui y échappent. Gentzen isole le plus faible d’entre eux qui suffise — la récurrence le long du bon ordre de l’ordinal ε₀ — et le programme de Hilbert devient la mesure ordinale des théories.',
+            sources: ['sep', 'ewald-kant-hilbert'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée de Gentzen : attacher à chaque démonstration un « prix », un ordinal inférieur à ε₀, qui diminue strictement à chaque simplification ; une démonstration de la contradiction en descendrait indéfiniment, ce qu’un bon ordre interdit.',
+            sources: ['sep'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On formalise l’arithmétique en calcul des séquents : les démonstrations sont des arbres finis, et la règle de « coupure » — démontrer un lemme pour s’en servir aussitôt — est le seul pas qui dépasse la lecture directe du résultat.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'À chaque démonstration, Gentzen attache un ordinal inférieur à ε₀, calculé à partir de sa hauteur et de la complexité de ses coupures ; il définit une « réduction » qui élimine une coupure ou la pousse vers la conclusion.',
+            sources: ['sep', 'ewald-kant-hilbert'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chaque pas de réduction fait strictement décroître l’ordinal attaché ; s’il existait une démonstration du séquent vide — la contradiction —, les réductions fourniraient une suite infinie décroissante d’ordinaux, impossible dans un bon ordre.',
+            sources: ['sep'],
+          },
+          {
+            kind: 'fait',
+            text: 'Aucune démonstration de la contradiction n’existe donc : l’arithmétique est cohérente, et le seul principe ajouté aux moyens finitistes est l’induction transfinie jusqu’à ε₀ — exactement ce qui manque à l’arithmétique, comme le mesurera Gentzen en 1943.',
             sources: ['sep'],
           },
         ],
@@ -2084,6 +2806,45 @@ export const STRUCTURES_B: Domain[] = [
             sources: ['dieudonne-topology', 'dieudonne-geometrie-algebrique'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La cohérence est l’hypothèse qui rend le faisceau « algébrique » : localement présenté comme un module de type fini à relations finies sur l’anneau des fonctions holomorphes, il se manipule comme un module sur un anneau noethérien — le théorème d’Oka garantit que ce langage ne se dégrade pas en passant au noyau d’un morphisme.',
+            sources: ['dieudonne-topology', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les problèmes de Cousin (1883-1895) posent déjà l’alternative : prescrire des pôles ou des zéros sur tout un domaine exige de recoller des données locales, et les obstructions au recollement sont précisément les classes de cohomologie que le théorème B annule sur les variétés de Stein.',
+            sources: ['dieudonne-topology', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le point de départ local est le théorème d’Oka (1950) : le noyau d’un morphisme entre modules libres de type fini sur le faisceau des fonctions holomorphes est lui-même de type fini — la cohérence se conserve sous les opérations algébriques.',
+            sources: ['dieudonne-topology', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cartan en déduit, sur les polydisques et leurs compacts de Stein, le « théorème fondamental » de Cartan–Oka : les sections d’un faisceau cohérent sur un compact de Stein s’approchent par les sections globales, et les générateurs locaux se prolongent par approximation.',
+            sources: ['dieudonne-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Théorème A : en appliquant le théorème fondamental le long d’une exhaustion de la variété par des compacts de Stein, on produit en chaque point des sections globales qui engendrent le germe du faisceau — le faisceau entier est engendré par ses sections globales.',
+            sources: ['dieudonne-topology', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Théorème B : une variété de Stein admet des recouvrements de Leray par ouverts de Stein ; le calcul de Čech ramène la cohomologie du faisceau à la résolubilité de problèmes additifs de type Cousin, que le théorème fondamental résout — d’où l’annulation en degré strictement positif.',
+            sources: ['dieudonne-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Serre transporte le schéma en 1955 aux variétés algébriques (FAC) : la nullité cohomologique des faisceaux cohérents sur les ouverts affines y joue le rôle du théorème B et fonde la cohomologie des faisceaux en géométrie algébrique.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
       {
         id: 'groupes-de-chevalley',
@@ -2095,6 +2856,45 @@ export const STRUCTURES_B: Domain[] = [
         kind: 'theoreme',
         statement: 'À partir de chaque algèbre de Lie simple complexe, on peut construire uniformément, par un schéma de générateurs et relations, un groupe simple sur n’importe quel corps — y compris fini —, retrouvant les groupes classiques et en créant de nouveaux.',
         comment: 'Mémoire publié dans le Tôhoku Mathematical Journal : Chevalley unifie en une construction algébrique les familles exceptionnelles et classiques, et ses groupes sur les corps finis fournissent aussitôt de nouvelles séries de groupes finis simples. Steinberg, Tits et Ree en déduisent les variantes « tordues » ; la classification des groupes finis simples, annoncée en 1983, repose sur ces briques.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'On savait depuis Cartan et Killing que les groupes de Lie simples complexes se classent par leurs systèmes de racines ; Chevalley inverse le processus : plutôt que de linéariser un groupe en son algèbre, il reconstruit le groupe à partir de l’algèbre, par des exponentielles de vecteurs radiciels — opération qui ne demande rien du corps de base.',
+            sources: ['gowers-companion', 'bourbaki-elements-histoire'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le verrou était arithmétique : les constantes de structure d’une algèbre de Lie simple sont des nombres complexes a priori quelconques. Chevalley montre qu’une base convenable les rend toutes entières, de sorte que les mêmes formules définissent le groupe sur ℂ comme sur un corps fini.',
+            sources: ['gowers-companion', 'bourbaki-elements-histoire'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La classification de Cartan–Killing associe à chaque algèbre de Lie simple complexe un système de racines (types A à G) ; l’algèbre se décompose en sous-algèbre de Cartan et vecteurs radiciels X_α, que les règles de commutation rattachent aux racines.',
+            sources: ['gowers-companion', 'bourbaki-elements-histoire'],
+          },
+          {
+            kind: 'fait',
+            text: 'Chevalley choisit les X_α de sorte que [X_α, X_β] soit un entier fois X_{α+β} et que les crochets avec la sous-algèbre de Cartan restent entiers : c’est la « base de Chevalley », dont toutes les constantes de structure sont dans ℤ.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur cette base, l’exponentielle adjointe x_α(t) = Σ tⁿ·ad(X_α)ⁿ/n! s’écrit à coefficients entiers, car ad(X_α)ⁿ envoie la base sur des multiples entiers divisibles par n! ; x_α(t) définit donc un automorphisme de l’algèbre sur tout corps K, pour tout t dans K.',
+            sources: ['gowers-companion', 'bourbaki-elements-histoire'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le groupe G(K) engendré par les x_α(t) hérite des relations du système de racines : éléments diagonaux, groupe de Weyl, décomposition en grandes cellules — l’ossature que Chevalley, puis Steinberg et Tits, formaliseront en « systèmes de Tits » (BN-paires).',
+            sources: ['gowers-companion', 'mashaal-bourbaki'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour K fini, G(K) est un groupe fini, simple au quotient près d’un petit centre : Chevalley produit ainsi uniformément les familles exceptionnelles E₆(q), E₇(q), E₈(q), F₄(q), G₂(q) en plus des séries classiques — les briques sur lesquelles reposera la classification des groupes finis simples.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'theorie-des-ensembles-bourbaki',
