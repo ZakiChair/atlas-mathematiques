@@ -324,6 +324,45 @@ export const LUMIERES: Domain[] = [
             sources: ['bottazzini-higher-calculus'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un petit arc de corde est rappelé vers sa position d’équilibre par la tension, et la force résultante est d’autant plus grande que l’arc est plus courbé : l’accélération transversale ∂²y/∂t² est donc proportionnelle à la courbure, mesurée par ∂²y/∂x². La constante c² est le rapport de la tension à la masse par unité de longueur, et c la vitesse à laquelle une déformation se propage.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’Alembert remarque que l’équation est satisfaite par toute fonction de x + ct comme par toute fonction de x − ct : une bosse qui se déplace sans se déformer, vers la gauche ou vers la droite, à la vitesse c.',
+            sources: ['kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La loi de Newton appliquée à un élément de corde donne ∂²y/∂t² = c² ∂²y/∂x² ; en posant u = x + ct et v = x − ct, l’équation devient ∂²y/∂u∂v = 0.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une fonction dont la dérivée croisée est nulle est la somme d’une fonction de u seul et d’une fonction de v seul : y = f(x + ct) + g(x − ct), superposition de deux ondes qui se propagent en sens opposés à la vitesse c.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les extrémités fixes imposent y(0, t) = y(L, t) = 0 ; d’Alembert en déduit que f et g se ramènent à une seule fonction impaire et périodique de période 2L, déterminée à son tour par la forme et la vitesse initiales de la corde.',
+            sources: ['kline-thought', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’Alembert conclut que la position initiale doit être donnée par une expression analytique impaire et périodique ; Euler objecte dès 1748 que la forme initiale peut être quelconque, même tracée à main levée, et que la solution se construit alors morceau par morceau en prolongeant cette forme.',
+            sources: ['bottazzini-higher-calculus', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Daniel Bernoulli (1753) propose d’écrire la solution comme somme de modes sinusoïdaux sin(nπx/L) cos(nπct/L) ; savoir si toute forme initiale admet un tel développement est la question que Fourier et Dirichlet trancheront.',
+            sources: ['bottazzini-higher-calculus', 'kline-thought'],
+          },
+        ],
       },
       {
         id: 'introductio-in-analysin-infinitorum',
@@ -345,6 +384,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'L’exponentielle d’un nombre imaginaire pur iθ est le nombre complexe de module 1 et d’argument θ : e^(iθ) = cos θ + i sin θ ; en particulier e^(iπ) = −1.',
         comment: 'Énoncée au chapitre VIII de l’Introductio à partir des développements en séries, la formule unifie fonctions exponentielle et trigonométriques et donne un sens au logarithme des nombres négatifs, objet d’une dispute entre Leibniz et Jean Bernoulli qu’Euler règle en 1749. Roger Cotes en avait donné une forme logarithmique en 1714.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les séries de eˣ, de cos x et de sin x sont faites des mêmes termes xⁿ/n! ; en remplaçant x par iθ, les puissances de i tournent — 1, i, −1, −i — et les termes pairs reconstituent la série du cosinus, les termes impairs celle du sinus, affectée du facteur i.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'Euler y parvient autrement : la formule de de Moivre (cos z + i sin z)ⁿ = cos nz + i sin nz, appliquée à un arc z infiniment petit et à un entier n infiniment grand, lui donne à la fois les séries des fonctions circulaires et leur parenté avec l’exponentielle.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'De la formule de de Moivre, Euler tire cos nz = [(cos z + i sin z)ⁿ + (cos z − i sin z)ⁿ]/2 et développe par la formule du binôme : cos nz = cosⁿz − C(n, 2) cosⁿ⁻²z sin²z + C(n, 4) cosⁿ⁻⁴z sin⁴z − …',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il prend z infiniment petit et n infiniment grand, de produit nz = θ fini : cos z vaut 1, sin z vaut z = θ/n, et C(n, k) zᵏ se réduit à θᵏ/k! ; il reste cos θ = 1 − θ²/2! + θ⁴/4! − …, et de même sin θ = θ − θ³/3! + θ⁵/5! − …',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le même procédé appliqué à (1 + x/n)ⁿ, qui définit eˣ, donne eˣ = 1 + x + x²/2! + x³/3! + … ; en y substituant x = iθ, les termes pairs forment la série de cos θ et les termes impairs i fois celle de sin θ.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’où e^(iθ) = cos θ + i sin θ et, en changeant θ en −θ, e^(−iθ) = cos θ − i sin θ ; Euler en déduit cos θ = (e^(iθ) + e^(−iθ))/2 et sin θ = (e^(iθ) − e^(−iθ))/2i, et l’on obtient pour θ = π la valeur e^(iπ) = −1.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La démonstration moderne remplace les quantités infinies d’Euler par la convergence absolue des trois séries pour tout nombre complexe, qui autorise à regrouper leurs termes ; le fond du raisonnement est inchangé.',
+            sources: ['hairer-wanner-analysis', 'bottazzini-higher-calculus'],
+          },
+        ],
       },
       {
         id: 'institutiones-calculi-differentialis',
@@ -367,6 +445,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Le mouvement d’un fluide sans viscosité est régi par deux équations aux dérivées partielles : la conservation de la masse (équation de continuité) et la loi fondamentale de la dynamique appliquée à chaque élément de fluide, où la pression joue le rôle de force.',
         comment: 'Publiées dans les Mémoires de l’Académie de Berlin pour 1755, les équations d’Euler donnent à la mécanique des fluides sa forme locale et différentielle, en remplaçant les bilans globaux de Daniel Bernoulli. Navier (1822) et Stokes (1845) y ajouteront la viscosité ; la régularité de leurs solutions reste une question ouverte.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Euler raisonne sur un parallélépipède de fluide infiniment petit : la différence des pressions sur deux faces opposées est la force qui le pousse, et la différence entre ce qui y entre et ce qui en sort mesure la variation de sa masse. Appliquer la loi de Newton à chacun de ces éléments, plutôt qu’au fluide entier, est tout le programme.',
+            sources: ['kline-thought', 'bradley-sandifer-euler'],
+          },
+          {
+            kind: 'fait',
+            text: 'La nouveauté est de décrire le fluide par ce qui se passe en chaque point fixe de l’espace — vitesse et pression comme fonctions de x, y, z et du temps — au lieu de suivre chaque particule dans son mouvement : le point de vue dit aujourd’hui « eulérien ».',
+            sources: ['kline-thought', 'bradley-sandifer-euler'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le fluide est décrit par sa densité ρ, sa pression p et les trois composantes u, v, w de sa vitesse, toutes fonctions du point (x, y, z) et du temps t.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bilan de masse sur un petit parallélépipède : ce qui s’y accumule par unité de temps est la différence entre ce qui entre et ce qui sort par les six faces, soit ∂ρ/∂t + ∂(ρu)/∂x + ∂(ρv)/∂y + ∂(ρw)/∂z = 0 — l’équation de continuité ; pour un fluide incompressible, elle se réduit à ∂u/∂x + ∂v/∂y + ∂w/∂z = 0.',
+            sources: ['kline-thought', 'bradley-sandifer-euler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bilan de forces : les pressions sur deux faces opposées ne se compensent pas exactement, et leur résultante par unité de volume est −(∂p/∂x, ∂p/∂y, ∂p/∂z), à laquelle s’ajoutent les forces extérieures comme la pesanteur.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’accélération d’une particule entraînée par le fluide n’est pas seulement ∂u/∂t : il faut y ajouter la variation due au déplacement, u ∂u/∂x + v ∂u/∂y + w ∂u/∂z, et de même pour les deux autres composantes.',
+            sources: ['kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La loi fondamentale, masse × accélération = force, écrite pour chaque composante, donne les trois équations du mouvement, ρ(∂u/∂t + u ∂u/∂x + v ∂u/∂y + w ∂u/∂z) = −∂p/∂x + ρX et ses deux analogues ; avec la continuité et une relation entre pression et densité, Euler dispose d’autant d’équations que d’inconnues.',
+            sources: ['kline-thought', 'bradley-sandifer-euler'],
+          },
+        ],
       },
     ],
     sources: ['dieudonne-abrege', 'bottazzini-higher-calculus', 'hairer-wanner-analysis', 'bradley-sandifer-euler', 'fraser-euler', 'edwards-calculus'],
@@ -617,6 +734,40 @@ export const LUMIERES: Domain[] = [
             sources: ['dieudonne-abrege', 'gillispie-laplace'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La Lune décrit autour de la Terre une ellipse de Kepler que le Soleil déforme lentement ; le grand axe de cette ellipse tourne, et c’est cette rotation de l’apogée que l’on mesure. Au premier ordre d’approximation, l’attraction du Soleil n’en explique que la moitié — d’où la tentation, en 1747, de corriger la loi de Newton.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pourquoi le premier ordre trompe-t-il ? La perturbation solaire déforme l’orbite, et l’orbite déformée ne réagit plus à la perturbation comme l’ellipse de départ : cet effet indirect, produit de deux petites quantités, est négligé au premier ordre alors qu’il pèse ici presque autant que l’effet direct. Clairaut le comprend au printemps 1748 : la faute était dans l’approximation, non dans la loi.',
+            sources: ['mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Clairaut écrit le mouvement de la Lune autour de la Terre en coordonnées polaires, en prenant pour inconnue l’inverse de la distance en fonction de l’angle parcouru, et traite l’attraction du Soleil comme une petite force perturbatrice ajoutée à l’attraction terrestre en 1/r².',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sans perturbation, la solution est l’ellipse de Kepler ; en ne gardant que les termes du premier ordre en la force perturbatrice, Clairaut — comme Euler et d’Alembert de leur côté — obtient une ellipse dont le grand axe tourne, mais deux fois trop lentement. En novembre 1747, il propose d’ajouter à la loi de Newton un petit terme correctif décroissant plus vite que 1/r².',
+            sources: ['mactutor', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Au printemps 1748, il reprend le calcul en conservant les termes du second ordre : leur contribution à l’avance de l’apogée, loin d’être négligeable, double presque la valeur du premier ordre et rétablit l’accord avec l’observation, ce qu’il annonce à l’Académie le 17 mai 1749.',
+            sources: ['mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'La loi en 1/r² suffit donc : Clairaut retire sa correction, et le mémoire couronné à Saint-Pétersbourg (1752) expose la méthode d’approximations successives qu’Euler et d’Alembert peinaient à reproduire ; appliquée à la comète de Halley, elle donnera la prédiction de 1758.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'points-de-lagrange',
@@ -628,6 +779,40 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans le champ de gravitation de deux corps en orbite circulaire, il existe cinq positions d’équilibre relatif où un troisième corps, très léger, reste fixe par rapport aux deux premiers.',
         comment: 'Mémoire couronné par l’Académie de Paris (1772). Les solutions à trois corps alignés étaient connues d’Euler (1767) ; Lagrange ajoute les configurations triangulaires. Les points L4 et L5 accueillent les astéroïdes troyens de Jupiter, découverts en 1906, et les télescopes spatiaux contemporains.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans un repère qui tourne avec les deux corps principaux, ceux-ci sont immobiles ; un troisième corps très léger y subit leurs deux attractions et la force centrifuge. Là où ces trois forces s’annulent exactement, le petit corps peut rester immobile, c’est-à-dire tourner avec les deux autres sans jamais changer de position relative.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lagrange ne cherche pas des points mais des mouvements : il se demande quand trois corps peuvent se déplacer en gardant toujours la même figure, à une similitude près, et trouve que la figure doit être une droite ou un triangle équilatéral.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On se place dans le repère tournant avec les deux corps principaux, supposés en orbite circulaire autour de leur centre de gravité ; un corps de masse négligeable y est en équilibre là où la somme des deux attractions et de la force centrifuge s’annule.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur la droite qui joint les deux corps, les trois forces sont alignées et l’équation d’équilibre a exactement trois solutions : un point entre les deux corps et un au-delà de chacun — les solutions rectilignes déjà trouvées par Euler.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hors de cette droite, l’équilibre exige que la résultante des deux attractions soit dirigée vers le centre de gravité et égale à la force centrifuge. Si le troisième corps forme un triangle équilatéral avec les deux premiers, les deux attractions, inversement proportionnelles au carré d’une même distance, se composent exactement en un vecteur dirigé vers le centre de gravité, de la grandeur voulue en vertu de la troisième loi de Kepler : ce sont les deux points triangulaires.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Plus généralement, Lagrange cherche les mouvements de trois corps de masses quelconques dont la configuration garde la même forme au cours du temps : il prouve qu’elle est nécessairement rectiligne ou équilatérale, chaque corps décrivant alors une conique autour du centre de gravité commun — les premières solutions exactes du problème des trois corps après celles d’Euler.',
+            sources: ['mactutor', 'grattan-guinness-companion'],
+          },
+        ],
       },
       {
         id: 'stabilite-du-systeme-solaire',
@@ -662,6 +847,45 @@ export const LUMIERES: Domain[] = [
             kind: 'interpretation',
             text: 'Pour Charles Gillispie, ces résultats donnent à Laplace l’assurance d’un système du monde qui se conserve de lui-même : l’image d’un univers mécanique réglé sans intervention extérieure repose sur eux.',
             sources: ['gillispie-laplace'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les perturbations mutuelles font varier les éléments des orbites de deux manières : par des oscillations périodiques, liées aux positions des planètes sur leurs orbites, et par des termes « séculaires » qui croissent avec le temps. Une variation séculaire des grands axes, si petite soit-elle, finirait par ruiner le système ; toute la question est de savoir si de tels termes existent réellement ou s’ils ne sont que l’ombre portée des approximations.',
+            sources: ['gillispie-laplace', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Laplace observe en 1773 que, dans le développement de la perturbation au premier ordre des masses, les termes capables de faire dériver le grand axe se détruisent exactement les uns les autres : ce qui semblait une dérive n’est que la somme d’oscillations très lentes.',
+            sources: ['gillispie-laplace', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On écrit le mouvement de chaque planète par la méthode de la variation des constantes : la planète décrit à chaque instant une ellipse de Kepler dont les éléments — grand axe, excentricité, inclinaison, longitudes du nœud et du périhélie — varient lentement sous l’attraction des autres planètes.',
+            sources: ['gillispie-laplace', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'La force perturbatrice est développée en série suivant les masses, les excentricités et les inclinaisons, et en sinus et cosinus des longitudes moyennes ; seuls les termes indépendants des longitudes peuvent produire des variations séculaires.',
+            sources: ['gillispie-laplace', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour les grands axes, Laplace montre (1773) qu’au premier ordre des masses leur variation ne contient que des termes périodiques, et Lagrange étend la démonstration à tous les ordres en excentricités et inclinaisons : les moyens mouvements n’ont pas d’inégalité séculaire.',
+            sources: ['gillispie-laplace', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour les excentricités et les inclinaisons, Lagrange obtient un système d’équations différentielles linéaires à coefficients constants ; sa résolution passe par une « équation séculaire » algébrique dont les racines donnent les périodes, et les solutions sont des sommes d’oscillations sinusoïdales pourvu que ces racines soient réelles et distinctes.',
+            sources: ['gillispie-laplace', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Laplace ajoute, au milieu des années 1780, deux relations de conservation — intégrales de ces équations séculaires — qui bornent l’ensemble des excentricités et des inclinaisons : tant que toutes les planètes tournent dans le même sens, aucune ne peut voir son orbite s’allonger ou s’incliner indéfiniment.',
+            sources: ['gillispie-laplace', 'mactutor'],
           },
         ],
       },
@@ -909,6 +1133,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Si p est premier et ne divise pas a, alors a^(p − 1) − 1 est divisible par p — l’énoncé de Fermat enfin démontré, par induction sur a.',
         comment: 'Première victoire publiée sur un énoncé resté sans preuve depuis 1640. Euler en donnera trois démonstrations successives, aboutissant à la version par l’indicatrice. C’est l’acte de naissance de la théorie des congruences, que Gauss codifiera en 1801.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Euler arrive au théorème par les nombres de Fermat 2^(2ⁿ) + 1 : après avoir trouvé que 641 divise 2³² + 1 (1732), contre l’affirmation de Fermat, il cherche la règle qui gouverne les diviseurs premiers de ces nombres — ils sont de la forme k·2^(n+1) + 1, et 641 = 10 × 64 + 1 — et cette règle découle du petit théorème.',
+            sources: ['weil-number-theory', 'bradley-sandifer-euler'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les restes des puissances successives 1, a, a², a³, … dans la division par p ne peuvent prendre que p − 1 valeurs non nulles : ils finissent par se répéter, et c’est la longueur de ce cycle qui gouverne tout.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Euler publie trois démonstrations : celle de 1736 procède par induction sur a à l’aide de la formule du binôme (voir le petit théorème de Fermat) ; celle que l’on suit ici, présentée en 1758, raisonne sur les restes des puissances de a et conduit tout droit à l’indicatrice.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit p premier ne divisant pas a. Les restes de 1, a, a², … dans la division par p sont non nuls et en nombre fini : deux puissances aⁱ et aʲ (i < j) ont le même reste, donc p divise aⁱ(aʲ⁻ⁱ − 1), et par suite aʲ⁻ⁱ − 1. Soit d le plus petit exposant positif tel que aᵈ ≡ 1 (mod p).',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les restes de 1, a, …, aᵈ⁻¹ sont deux à deux distincts — sinon un exposant plus petit que d conviendrait — et forment un paquet S de d restes.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si S n’épuise pas les p − 1 restes non nuls, on prend un reste b hors de S : les restes de b, ba, …, baᵈ⁻¹ sont d nouveaux restes, distincts entre eux et étrangers à S (si baⁱ ≡ aʲ, alors b ≡ aʲ⁻ⁱ serait dans S). En recommençant, les p − 1 restes non nuls se répartissent en paquets de d éléments : d divise p − 1.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Donc a^(p−1) = (aᵈ)^((p−1)/d) ≡ 1 (mod p). Le même raisonnement, appliqué aux φ(n) restes premiers avec un module n quelconque, donne le théorème d’Euler a^φ(n) ≡ 1 (mod n).',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'produit-eulerien',
@@ -921,6 +1184,40 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme des inverses des puissances s-ièmes des entiers est égale au produit, étendu à tous les nombres premiers, des 1/(1 − p^(−s)) : l’unicité de la décomposition en facteurs premiers s’écrit comme une identité entre somme et produit.',
         comment: 'Euler en déduit une preuve nouvelle que la somme des inverses des premiers diverge, donc que les premiers sont « infiniment denses » en un sens mesurable. L’identité fondera la théorie analytique des nombres de Dirichlet et de Riemann.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Chaque entier s’écrit d’une seule façon comme produit de puissances de nombres premiers ; si l’on développe le produit (1 + 1/2ˢ + 1/4ˢ + …)(1 + 1/3ˢ + 1/9ˢ + …)(1 + 1/5ˢ + …)…, chaque terme 1/nˢ apparaît donc exactement une fois : le produit sur les premiers n’est que la série de tous les entiers, réorganisée.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Euler procède à l’envers, comme avec le crible d’Ératosthène : il retranche de la série les termes pairs, puis les multiples de 3 qui restent, puis ceux de 5…, et chaque retranchement revient à multiplier par un facteur (1 − 1/pˢ).',
+            sources: ['stillwell-history', 'weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour s > 1, la série ζ(s) = 1 + 1/2ˢ + 1/3ˢ + … converge. Multipliée par 1/2ˢ, elle devient 1/2ˢ + 1/4ˢ + 1/6ˢ + … ; par soustraction, (1 − 1/2ˢ) ζ(s) = 1 + 1/3ˢ + 1/5ˢ + … ne contient plus que les termes d’indice impair.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'On recommence avec le premier indice restant après 1 : multiplier par (1 − 1/3ˢ) élimine tous les multiples de 3 ; puis (1 − 1/5ˢ) élimine ceux de 5, et ainsi de suite. Après les premiers jusqu’à P, il ne reste que 1 et les termes 1/nˢ dont l’indice n n’a aucun facteur premier inférieur ou égal à P.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces termes résiduels, tous d’indice supérieur à P, ont une somme qui tend vers 0 quand P croît ; à la limite, ζ(s) × ∏ (1 − 1/pˢ) = 1, c’est-à-dire ζ(s) = ∏ 1/(1 − p⁻ˢ), le produit portant sur tous les nombres premiers.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Euler en tire une conséquence arithmétique : pour s = 1, la série harmonique diverge, donc le produit ∏ 1/(1 − 1/p) est infini et les nombres premiers sont en nombre infini ; en prenant les logarithmes, il obtient que la somme des inverses des premiers diverge elle-même, à la façon du logarithme d’un logarithme.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+        ],
       },
       {
         id: 'conjecture-de-goldbach',
@@ -951,6 +1248,18 @@ export const LUMIERES: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les vérifications s’accumulent sans exception — 4 = 2 + 2, 6 = 3 + 3, 8 = 3 + 5, 10 = 3 + 7 = 5 + 5 — et le nombre de décompositions croît avec le nombre : 100 en a six (3 + 97, 11 + 89, 17 + 83, 29 + 71, 41 + 59, 47 + 53). Euler répond à Goldbach qu’il tient l’énoncé pour « un théorème tout à fait certain », tout en avouant ne pas savoir le démontrer.',
+            sources: ['weil-number-theory', 'mactutor'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le raisonnement heuristique qui soutient la croyance est probabiliste : si les nombres premiers étaient répartis au hasard avec la densité 1/ln x que leur attribue le théorème des nombres premiers, le nombre attendu d’écritures de 2n comme somme de deux premiers serait de l’ordre de 2n/(ln n)², qui tend vers l’infini. Hardy et Littlewood (1923) en ont tiré une formule précise, conforme aux comptages, mais que personne ne sait démontrer.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'demonstration-des-deux-carres-euler',
@@ -962,6 +1271,40 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Tout nombre premier de la forme 4k + 1 est somme de deux carrés : Euler le prouve par descente, en montrant d’abord qu’un tel premier divise une somme de deux carrés premiers entre eux.',
         comment: 'Les étapes sont dans les lettres à Goldbach de 1747 à 1749 ; la rédaction paraît en 1760. Le théorème énoncé par Fermat en 1640 reçoit enfin sa preuve et ouvre la voie à Lagrange (quatre carrés) et à la théorie des formes.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un carré est congru à 0 ou à 1 modulo 4, donc une somme de deux carrés n’est jamais de la forme 4k + 3 : les premiers 3, 7, 11, 19, 23 sont exclus d’emblée, tandis que 5 = 1 + 4, 13 = 4 + 9, 17 = 1 + 16, 29 = 4 + 25, 37 = 1 + 36 et 41 = 16 + 25 se décomposent tous. L’identité (a² + b²)(c² + d²) = (ac − bd)² + (ad + bc)², déjà chez Diophante, rend la propriété multiplicative et ramène tout aux nombres premiers.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Euler ne dispose pas encore du théorème de Lagrange sur le nombre de racines d’une congruence ; pour montrer qu’un premier 4k + 1 divise une somme de deux carrés, il invente un détour par les différences finies de la suite des puissances.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Premier lemme : si un nombre premier q = c² + d² divise une somme de deux carrés a² + b², le quotient est encore une somme de deux carrés. En effet q divise (a² + b²)c² − (c² + d²)a² = (bc − ad)(bc + ad), donc l’un des facteurs, disons bc − ad ; l’identité (a² + b²)(c² + d²) = (ac + bd)² + (bc − ad)² montre alors que q divise aussi ac + bd, et (a² + b²)/q = ((ac + bd)/q)² + ((bc − ad)/q)².',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Deuxième lemme, par descente : tout diviseur d’une somme de deux carrés premiers entre eux est lui-même somme de deux carrés. Si n divise a² + b² (a et b premiers entre eux) sans l’être, on remplace a et b par leurs restes de valeur absolue au plus n/2, simplifiés par leur facteur commun : la nouvelle somme vaut nm avec m < n ; si tous les facteurs premiers de m étaient sommes de deux carrés, le premier lemme, appliqué à chacun, montrerait que n l’est aussi. Donc m a un facteur premier plus petit que n qui n’est pas somme de deux carrés et divise une somme de deux carrés premiers entre eux : on peut recommencer indéfiniment, ce qui est absurde.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Troisième étape : un premier p = 4k + 1 divise une somme de deux carrés premiers entre eux. Par le petit théorème, p divise a^(4k) − 1 = (a^(2k) − 1)(a^(2k) + 1) pour a = 1, …, p − 1 ; s’il divisait tous les a^(2k) − 1, il diviserait toutes les différences successives de la suite 1^(2k), 2^(2k), 3^(2k), …, dont la (2k)-ième est la constante (2k)!, non divisible par p. Pour un certain a, p divise donc a^(2k) + 1 = (aᵏ)² + 1².',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par le deuxième lemme, p, qui divise une somme de deux carrés premiers entre eux, est lui-même somme de deux carrés : c’est le théorème de Fermat, démontré après plus d’un siècle.',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'irrationalite-de-pi',
@@ -974,6 +1317,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'π n’est le quotient d’aucun couple d’entiers : Lambert montre que si x est rationnel non nul, tan x est irrationnel, puis que tan(π/4) = 1 force l’irrationalité de π.',
         comment: 'Lu à l’Académie de Berlin en 1767 et publié en 1768 dans le volume de ses Mémoires daté de 1761, le mémoire repose sur un développement en fraction continue de la tangente. Lambert conjecture déjà la transcendance de π, que Lindemann démontrera en 1882 — réglant du même coup l’impossibilité de la quadrature du cercle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fraction continue régulière qui ne s’arrête jamais représente toujours un irrationnel, puisqu’une fraction p/q se développe en un nombre fini d’étapes — c’est l’algorithme d’Euclide. Lambert généralise l’idée : si l’on dispose pour tan x d’un développement infini dont les termes deviennent « sages », numérateurs petits devant les dénominateurs, la valeur est irrationnelle.',
+            sources: ['hairer-wanner-analysis', 'stedall-sourcebook'],
+          },
+          {
+            kind: 'fait',
+            text: 'Puisque tan(π/4) = 1 est rationnel, il suffit de prouver que la tangente d’un nombre rationnel non nul est toujours irrationnelle pour conclure que π/4, donc π, ne l’est pas.',
+            sources: ['hairer-wanner-analysis'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Lambert établit, à partir des séries du sinus et du cosinus, le développement tan x = x/(1 − x²/(3 − x²/(5 − x²/(7 − …)))), valable pour tout x.',
+            sources: ['hairer-wanner-analysis', 'stedall-sourcebook'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si x = a/b est rationnel non nul, le développement se réécrit avec des entiers : tan(a/b) = a/(b − a²/(3b − a²/(5b − a²/(7b − …)))).',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lemme : une telle fraction continue, dont les dénominateurs (2n + 1)b finissent par dépasser de beaucoup les numérateurs a², converge vers un nombre irrationnel. Si sa valeur était une fraction, les « queues » successives du développement seraient des fractions dont les dénominateurs, entiers positifs, décroîtraient strictement — une descente infinie impossible.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La tangente d’un rationnel non nul est donc irrationnelle ; comme tan(π/4) = 1, le nombre π/4 n’est pas rationnel, et π non plus.',
+            sources: ['hairer-wanner-analysis', 'stedall-sourcebook'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point délicat du mémoire est la convergence du développement et la légitimité du passage à la limite ; Legendre reprend l’argument sous une forme plus serrée dans ses Éléments de géométrie (1794) et y ajoute la première preuve de l’irrationalité de π².',
+            sources: ['mactutor', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'fonction-indicatrice-d-euler',
@@ -1017,6 +1399,45 @@ export const LUMIERES: Domain[] = [
             sources: ['stillwell-history'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Trois carrés ne suffisent pas : un carré est congru à 0, 1 ou 4 modulo 8, donc une somme de trois carrés n’est jamais de la forme 8k + 7, et 7, 15, 23 exigent quatre carrés. Inversement, l’essai des petits nombres n’en trouve aucun qui en demande cinq, et l’identité d’Euler sur le produit de deux sommes de quatre carrés réduit la question aux nombres premiers.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée de Lagrange est une descente : partant d’un multiple mp d’un premier p qui est somme de quatre carrés, il fabrique un multiple plus petit ayant la même propriété, jusqu’à atteindre p lui-même.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Identité d’Euler (1748) : le produit de deux sommes de quatre carrés est une somme de quatre carrés. Il suffit donc de traiter les nombres premiers, et 2 = 1 + 1 + 0 + 0.',
+            sources: ['weil-number-theory', 'stillwell-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit p un premier impair. Les (p + 1)/2 valeurs de x² et les (p + 1)/2 valeurs de −1 − y² modulo p, pour 0 ≤ x, y ≤ (p − 1)/2, font p + 1 restes : deux coïncident, d’où x² + y² + 1 ≡ 0 (mod p), soit x² + y² + 1² + 0² = mp avec 0 < m < p puisque x et y sont inférieurs à p/2.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit m le plus petit entier positif tel que mp = a² + b² + c² + d². Si m est pair, les quatre nombres se groupent en deux paires de même parité, et ((a + b)/2)² + ((a − b)/2)² + ((c + d)/2)² + ((c − d)/2)² = (m/2)p contredit la minimalité : m est impair.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si m > 1, on remplace a, b, c, d par leurs restes a′, b′, c′, d′ modulo m, pris entre −m/2 et m/2 : la somme de leurs carrés est un multiple mr de m avec 0 < r < m (r = 0 forcerait m à diviser a, b, c, d, donc m² à diviser mp, impossible).',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par l’identité d’Euler, (mp)(mr) = m²rp est une somme de quatre carrés dont chacun est divisible par m : en y remplaçant a′ par a, b′ par b, etc., le premier devient a² + b² + c² + d² ≡ 0 et les trois autres s’annulent. En divisant par m², rp est somme de quatre carrés avec r < m, ce qui contredit la minimalité de m. Donc m = 1 : p est somme de quatre carrés.',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'probleme-de-waring',
@@ -1029,6 +1450,40 @@ export const LUMIERES: Domain[] = [
         kind: 'probleme',
         statement: 'Pour chaque exposant k, existe-t-il un nombre fixe de puissances k-ièmes dont la somme suffise à représenter tout entier : 4 carrés, 9 cubes, 19 bicarrés, et ainsi de suite ?',
         comment: 'Posé sans démonstration dans les Meditationes algebraicae, le problème est résolu affirmativement par Hilbert en 1909 ; la détermination exacte du nombre minimal pour chaque k est aujourd’hui presque achevée. Il a engendré la méthode du cercle de Hardy et Littlewood (1918).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les petits exemples fixent les nombres annoncés par Waring : 7 exige quatre carrés, 23 = 2 × 2³ + 7 × 1³ exige neuf cubes et 79 = 4 × 2⁴ + 15 × 1⁴ dix-neuf bicarrés. Toute la question est de savoir si de telles bornes existent pour chaque exposant k, et lesquelles.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le problème est difficile parce qu’il est additif : les puissances k-ièmes se raréfient — il y en a environ N^(1/k) jusqu’à N — et il faut en combiner plus de k pour couvrir tous les entiers, sans qu’aucune structure multiplicative ne vienne en aide. Un simple comptage suggère que s puissances suffisent dès que s dépasse nettement k ; c’est ce que la méthode du cercle rend rigoureux pour s assez grand.',
+            sources: ['gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Hilbert démontre en 1909 que, pour tout exposant k, il existe un nombre g(k) tel que tout entier soit somme d’au plus g(k) puissances k-ièmes : une preuve d’existence pure, fondée sur des identités algébriques entre sommes de puissances et sur une induction délicate, qui ne fournit aucune valeur utilisable de g(k) ; il la dédie à la mémoire de Minkowski.',
+            sources: ['reid-hilbert', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hardy et Littlewood refondent le problème à partir de 1920 par la « méthode du cercle » : le nombre de façons d’écrire n comme somme de s puissances k-ièmes est le coefficient de xⁿ dans la puissance s-ième de la série génératrice Σ x^(mᵏ), c’est-à-dire une intégrale de cette puissance le long d’un cercle du plan complexe.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’intégrale est dominée par les « arcs majeurs », voisinages des points e^(2iπa/q) de petit dénominateur q, où la série génératrice se comporte comme une somme de Gauss ; le reste du cercle, les « arcs mineurs », est majoré par des estimations de sommes d’exponentielles dues à Weyl. Pour s assez grand, on obtient une formule asymptotique du nombre de représentations, dont le terme principal est strictement positif.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il en résulte que tout entier assez grand est somme de s puissances k-ièmes dès que s dépasse une borne explicite ; les petits entiers se traitent séparément, et c’est ainsi qu’ont été fixées une à une les valeurs exactes de g(k) que le problème demandait.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-wilson',
@@ -1040,6 +1495,40 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Un entier p supérieur à 1 est premier si et seulement si (p − 1)! + 1 est divisible par p.',
         comment: 'Publié par Waring en 1770 comme une découverte de son élève, sans preuve ; Lagrange en donne la première démonstration en 1771. Le critère, inutilisable en pratique pour tester la primalité, devient un pivot théorique de l’arithmétique modulaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les petits cas sont parlants : 4! + 1 = 25 est divisible par 5 et 6! + 1 = 721 = 7 × 103, tandis que 5! + 1 = 121 n’est pas divisible par 6. L’idée de Lagrange est de comparer deux polynômes qui ont les mêmes p − 1 racines modulo p : (x − 1)(x − 2)…(x − p + 1) d’une part, x^(p−1) − 1 d’autre part.',
+            sources: ['weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Par le petit théorème de Fermat, chacun des restes 1, 2, …, p − 1 est racine modulo p du polynôme x^(p−1) − 1.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lagrange établit qu’une congruence polynomiale de degré d modulo un nombre premier p, dont le coefficient dominant n’est pas divisible par p, a au plus d racines — le théorème qui porte son nom.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'La différence (x − 1)(x − 2)…(x − p + 1) − (x^(p−1) − 1) est de degré au plus p − 2 et admet pourtant les p − 1 racines 1, …, p − 1 : tous ses coefficients sont donc divisibles par p.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Son terme constant est (−1)^(p−1)(p − 1)! + 1, soit (p − 1)! + 1 pour p impair : p divise (p − 1)! + 1 ; et pour p = 2, 1! + 1 = 2.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Réciproquement, si n > 1 n’est pas premier, un diviseur d de n avec 1 < d < n divise (n − 1)! et ne peut diviser (n − 1)! + 1 ; n ne divise donc pas (n − 1)! + 1, et la condition caractérise bien les nombres premiers.',
+            sources: ['weil-number-theory'],
+          },
+        ],
       },
       {
         id: 'loi-de-reciprocite-quadratique-enonce',
@@ -1069,6 +1558,18 @@ export const LUMIERES: Domain[] = [
             kind: 'interpretation',
             text: 'La recherche de lois analogues pour les puissances supérieures (Gauss, Jacobi, Eisenstein), puis le neuvième problème de Hilbert (1900), font de la réciprocité le fil conducteur qui mène à la théorie des corps de classes et à la loi de réciprocité d’Artin (1927).',
             sources: ['goldstein-schappacher-schwermer', 'gowers-companion'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Euler avait lu sur ses tables que la question « −n est-il un carré modulo p ? », qui décide si p divise une forme x² + ny², ne dépend que du reste de p dans la division par 4n : le caractère quadratique d’un nombre fixé modulo p est périodique en p. Ainsi 5 est un carré modulo p exactement quand p ≡ ±1 (mod 5), et 3 l’est exactement quand p ≡ ±1 (mod 12) ; comparer les deux sens fait apparaître la symétrie, et son exception lorsque p et q sont tous deux de la forme 4k + 3.',
+            sources: ['weil-number-theory'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le symbole de Legendre (a/p), égal à +1 ou −1 selon que a est ou non un carré modulo p, et le critère d’Euler (a/p) ≡ a^((p−1)/2) (mod p) donnent à l’énoncé sa forme compacte (p/q)(q/p) = (−1)^((p−1)(q−1)/4). La première démonstration complète est celle de Gauss (1796, publiée en 1801), par une induction laborieuse qu’il complétera de sept autres preuves ; elle est racontée avec son résultat, la Démonstration de la loi de réciprocité quadratique.',
+            sources: ['weil-number-theory', 'goldstein-schappacher-schwermer'],
           },
         ],
       },
@@ -1295,6 +1796,45 @@ export const LUMIERES: Domain[] = [
             sources: ['mactutor', 'katz-history'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Euler ne dessine pas de graphe : il nomme les quatre régions A, B, C, D et décrit toute promenade par la suite des lettres des régions traversées, deux lettres consécutives correspondant à un pont franchi. Une promenade qui emprunte les sept ponts une fois chacun est donc un mot de huit lettres, et le problème devient un comptage de lettres.',
+            sources: ['mactutor', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une région reliée par un nombre impair de ponts — 5 ou 3 ici — doit apparaître dans le mot un nombre de fois déterminé, car chaque passage par une région consomme deux ponts, sauf au départ et à l’arrivée.',
+            sources: ['katz-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Les quatre régions — l’île A (Kneiphof) et les trois rives B, C, D — touchent respectivement 5, 3, 3 et 3 ponts.',
+            sources: ['mactutor', 'katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une région touchée par un nombre impair k de ponts doit figurer (k + 1)/2 fois dans le mot qui décrit la promenade : A apparaît trois fois, B, C et D deux fois chacune.',
+            sources: ['katz-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le mot devrait donc compter 3 + 2 + 2 + 2 = 9 lettres ; or sept ponts ne donnent que huit lettres : la promenade est impossible.',
+            sources: ['katz-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'La somme des nombres de ponts de toutes les régions vaut deux fois le nombre de ponts, donc est paire : le nombre de régions « impaires » est toujours pair, remarque qui exclut le cas d’une seule région impaire.',
+            sources: ['katz-history'],
+          },
+          {
+            kind: 'fait',
+            text: 'Euler généralise : si plus de deux régions touchent un nombre impair de ponts, aucun parcours n’existe ; s’il y en a exactement deux, le parcours doit partir de l’une et aboutir à l’autre ; s’il n’y en a aucune, un parcours est possible depuis n’importe quelle région. Il démontre la nécessité de ces conditions et affirme leur suffisance sans la prouver.',
+            sources: ['mactutor', 'katz-history'],
+          },
+        ],
       },
       {
         id: 'formule-d-euler-polyedres',
@@ -1326,6 +1866,45 @@ export const LUMIERES: Domain[] = [
             sources: ['stillwell-history'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur les cinq solides réguliers, le compte tombe toujours juste : tétraèdre 4 − 6 + 4, cube 8 − 12 + 6, octaèdre 6 − 12 + 8, dodécaèdre 20 − 30 + 12, icosaèdre 12 − 30 + 20, chaque fois 2. Pour une pyramide à base de n côtés, (n + 1) − 2n + (n + 1) = 2 également : la relation ne dépend ni des longueurs ni des angles, mais seulement de la manière dont les faces s’assemblent.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée d’Euler est de retrancher au polyèdre un sommet à la fois, en coupant les pyramides qui l’entourent, et de vérifier que S − A + F ne change pas jusqu’au tétraèdre final ; sa démonstration de 1758 laisse dans l’ombre la manière de choisir les coupes, d’où les preuves ultérieures de Legendre et de Cauchy.',
+            sources: ['mactutor', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Preuve de Cauchy (1813) : on ôte une face du polyèdre convexe et l’on aplatit le reste de sa surface sur le plan, en le projetant depuis un point situé juste au-dessus de la face ôtée. On obtient un réseau plan de S sommets, A arêtes et F − 1 régions bornées, et il s’agit de montrer que S − A + (F − 1) = 1.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'On triangule : dans chaque région qui n’est pas un triangle, on trace des diagonales ; chacune ajoute une arête et une région, ce qui laisse la quantité S − A + (nombre de régions) inchangée.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'On enlève alors les triangles un à un en partant du bord : ôter un triangle dont une seule arête borde l’extérieur supprime une arête et une région ; en ôter un dont deux arêtes bordent l’extérieur supprime deux arêtes, un sommet et une région. Dans les deux cas la quantité ne change pas.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'À la fin il reste un seul triangle, pour lequel 3 − 3 + 1 = 1 ; donc S − A + (F − 1) = 1, c’est-à-dire S − A + F = 2.',
+            sources: ['stillwell-history', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’argument suppose que la surface privée d’une face s’étale sur le plan sans déchirure, ce qui est vrai pour un polyèdre convexe ; pour un solide percé d’un trou, l’aplatissement échoue et l’on trouve S − A + F = 0 : ce sont les exceptions de Lhuilier.',
+            sources: ['stillwell-history'],
+          },
+        ],
       },
       {
         id: 'courbures-principales-euler',
@@ -1338,6 +1917,35 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'En chaque point d’une surface, les sections par des plans perpendiculaires à la surface ont des courbures dont les valeurs extrémales — les courbures principales — sont atteintes dans deux directions perpendiculaires.',
         comment: 'Le mémoire (présenté en 1760, publié en 1767) fonde la théorie des surfaces. Meusnier y ajoutera le cas des sections obliques, Monge les lignes de courbure ; Gauss dégagera en 1827 la courbure totale, propriété intrinsèque de la surface.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur une selle de cheval, les sections normales se courbent vers le haut dans une direction et vers le bas dans la direction perpendiculaire ; en faisant tourner le plan de coupe, la courbure passe continûment de l’une à l’autre, et l’on devine qu’elle est extrémale dans deux directions privilégiées. Euler montre que la variation est la plus simple possible : κ(θ) = κ₁ cos²θ + κ₂ sin²θ.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Au point étudié, on choisit les axes de sorte que le plan tangent soit horizontal : la surface s’écrit z = f(x, y) avec des dérivées premières nulles, et au second ordre z ≈ (r x² + 2s xy + t y²)/2, où r, s, t sont les dérivées secondes de f.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'La section normale dans la direction d’angle θ est la courbe z(u) = f(u cos θ, u sin θ) ; sa courbure à l’origine est sa dérivée seconde, κ(θ) = r cos²θ + 2s cos θ sin θ + t sin²θ.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'En tournant les axes dans le plan tangent, on peut annuler le terme croisé — c’est la réduction d’une forme quadratique à ses axes — et, dans ces nouveaux axes, κ(θ) = κ₁ cos²θ + κ₂ sin²θ, avec κ₁ = κ(0) et κ₂ = κ(π/2).',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette expression varie entre κ₁ et κ₂, atteints dans deux directions perpendiculaires : ce sont les courbures et les directions principales ; si κ₁ = κ₂, toutes les sections ont la même courbure (ombilic). Euler, qui calcule avec la formule générale du rayon de courbure, parvient à la même conclusion par un chemin plus long.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'theorie-der-parallellinien',
@@ -1361,6 +1969,35 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Les centres de courbure en un point de toutes les sections planes d’une surface passant par une même tangente forment un cercle : la courbure d’une section oblique s’obtient de la courbure normale en divisant par le cosinus de l’inclinaison.',
         comment: 'Présenté à l’Académie en 1776 et publié en 1785, le mémoire contient aussi les premières propriétés des surfaces à courbure moyenne nulle (hélicoïde, caténoïde). C’est l’acte fondateur de la théorie des surfaces minimales.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur une sphère de rayon R, un plan qui contient une tangente donnée en P et fait l’angle φ avec le plan normal coupe un cercle de rayon R cos φ : plus la coupe est oblique, plus la section est courbée, et les centres de ces cercles décrivent le cercle de diamètre PO, dans le plan perpendiculaire à la tangente. Meusnier montre que toute surface se comporte ainsi au second ordre, parce que seule compte la courbure de la section normale.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soient P un point de la surface et une direction tangente en P ; parmi les plans qui contiennent cette tangente, le plan normal — celui qui contient la normale à la surface — découpe la section normale, de courbure κₙ donnée par la formule d’Euler.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Fait clé : pour toute courbe tracée sur la surface et passant par P avec cette tangente, la composante de son vecteur courbure suivant la normale à la surface est la même, égale à κₙ ; elle ne dépend que de la direction tangente, parce que la courbe est astreinte à suivre la surface, dont la forme au second ordre impose cette composante.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la section par un plan oblique faisant l’angle φ avec le plan normal, le vecteur courbure est dans ce plan oblique et fait l’angle φ avec la normale à la surface ; sa composante normale vaut κ cos φ, d’où κ cos φ = κₙ et κ = κₙ / cos φ.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+          {
+            kind: 'fait',
+            text: 'En termes de rayons, ρ = ρₙ cos φ : le centre de courbure de la section oblique est la projection orthogonale, sur le plan oblique, du centre de courbure de la section normale ; quand φ varie, ces centres décrivent le cercle de diamètre ρₙ porté par la normale, dans le plan perpendiculaire à la tangente — le cercle de Meusnier.',
+            sources: ['kline-thought', 'dieudonne-abrege'],
+          },
+        ],
       },
       {
         id: 'geometrie-descriptive',
@@ -1571,6 +2208,40 @@ export const LUMIERES: Domain[] = [
             sources: ['stigler-statistics'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dessinées en bâtons, les lignes du triangle de Pascal prennent, quand n grandit, une forme de cloche de plus en plus régulière, dont la hauteur décroît comme 1/√n et la largeur croît comme √n. De Moivre cherche une formule pour cette cloche : il évalue d’abord le terme central de la ligne, puis le rapport de chaque terme au terme central.',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour n = 2m lancers d’une pièce équilibrée, la probabilité d’obtenir exactement m + ℓ piles est C(2m, m + ℓ)/2^(2m). De Moivre évalue d’abord le terme central C(2m, m)/2^(2m) à l’aide de la formule n! ≈ √(2πn) (n/e)ⁿ, mise au point avec Stirling : il trouve environ 2/√(2πn).',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il compare ensuite le terme situé à ℓ du centre au terme central : leur rapport est le produit des (m − j + 1)/(m + j) pour j de 1 à ℓ ; en passant aux logarithmes et en ne gardant que les termes principaux pour ℓ petit devant m, le logarithme du rapport vaut environ −2ℓ²/n.',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’où P(m + ℓ piles) ≈ (2/√(2πn)) exp(−2ℓ²/n) : les termes du binôme suivent une courbe en cloche dont la largeur caractéristique est de l’ordre de √n.',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'En sommant ces termes — de Moivre intègre la série de exp(−2ℓ²/n) terme à terme —, il obtient la probabilité que le nombre de piles s’écarte de n/2 d’au plus un multiple donné de √n : pour un écart au plus égal à √n/2, environ 0,68. C’est l’aire sous la courbe normale à un écart-type du centre, avant que le mot n’existe.',
+            sources: ['stigler-statistics', 'hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'De Moivre indique que le même raisonnement s’applique à une pièce déséquilibrée, de probabilité p : la cloche est alors centrée en np et sa largeur vaut √(np(1 − p)).',
+            sources: ['hald-history-1750', 'stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'paradoxe-de-saint-petersbourg',
@@ -1583,6 +2254,45 @@ export const LUMIERES: Domain[] = [
         kind: 'probleme',
         statement: 'Un jeu où le gain double tant que « face » n’apparaît pas a une espérance mathématique infinie ; pourtant personne de sensé ne paierait plus de quelques écus pour y jouer.',
         comment: 'Daniel Bernoulli le résout par l’« espérance morale » : l’utilité de la richesse croît comme son logarithme, ce qui rend l’espérance d’utilité finie. Le paradoxe, posé par Nicolas Bernoulli en 1713, est le texte fondateur de la théorie de l’utilité et de la décision.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si « face » apparaît pour la première fois au k-ième lancer, le joueur reçoit 2^(k−1) ducats, événement de probabilité 1/2ᵏ : chaque issue contribue 2^(k−1)/2ᵏ = 1/2 à l’espérance, et la somme d’une infinité de demi-ducats est infinie. Pourtant une fois sur deux le gain est d’un ducat, trois fois sur quatre d’au plus deux, et les gains supérieurs à mille ducats n’arrivent pas une fois sur mille.',
+            sources: ['daston-classical', 'hald-history-1750'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Le paradoxe tient à ce que le calcul des espérances attribue le même poids à un ducat de plus pour un pauvre et pour un riche ; Daniel Bernoulli, après Gabriel Cramer dans une lettre de 1728, propose de mesurer les gains par l’utilité qu’ils procurent, laquelle croît de moins en moins vite avec la fortune.',
+            sources: ['daston-classical', 'hald-history-1750'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Bernoulli pose que l’accroissement d’utilité procuré par un petit gain dx est proportionnel à dx et inversement proportionnel à la fortune x déjà possédée : du = b dx/x, d’où une utilité logarithmique u = b log x.',
+            sources: ['hald-history-1750', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'La valeur d’un jeu pour un joueur de fortune α est son « espérance morale » : la moyenne des utilités des fortunes finales pondérées par leurs probabilités, Σ (1/2ᵏ) log(α + 2^(k−1)) ; comme log(α + 2^(k−1)) croît seulement comme k, la série converge.',
+            sources: ['hald-history-1750', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le prix équitable x du jeu est la mise qui laisse l’utilité espérée égale à l’utilité de la fortune actuelle : log α = Σ (1/2ᵏ) log(α + 2^(k−1) − x). Bernoulli le calcule pour diverses fortunes : il ne vaut que quelques ducats, et croît lentement avec la richesse du joueur.',
+            sources: ['hald-history-1750'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le même calcul rend compte d’autres conduites raisonnables : l’intérêt de l’assurance pour celui qui s’assure comme pour l’assureur, et l’avantage de répartir une cargaison entre plusieurs navires — exemples que Bernoulli traite dans le même mémoire.',
+            sources: ['hald-history-1750', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'La résolution est un changement de règle plutôt qu’une démonstration : d’Alembert la refuse, et Cramer avait proposé d’autres mesures — la racine carrée de la fortune, ou une utilité qui cesse de croître au-delà d’un certain seuil. Toutes font décroître la valeur d’un ducat supplémentaire à mesure que la fortune augmente.',
+            sources: ['daston-classical', 'hald-history-1750'],
+          },
+        ],
       },
       {
         id: 'essai-de-bayes',
@@ -1629,6 +2339,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'La probabilité d’une cause sachant l’événement est proportionnelle au produit de la probabilité de l’événement sachant la cause par la probabilité a priori de la cause.',
         comment: 'Bayes l’énonce pour le cas particulier des urnes et des chances uniformes ; Laplace en donne la forme générale (1774) et l’applique massivement en 1812. La « règle de Bayes » fonde aujourd’hui l’inférence bayésienne, de la statistique à l’apprentissage automatique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Bayes imagine une table de billard : une première boule est lancée au hasard et sa position θ, inconnue, partage la table ; on lance ensuite n boules et l’on compte celles qui tombent d’un côté de la première. Du nombre observé il s’agit de remonter à θ : la probabilité que θ soit dans un intervalle donné, sachant le compte, est proportionnelle à la probabilité que ce compte se produise si θ s’y trouve.',
+            sources: ['stigler-statistics', 'dale-inverse-probability'],
+          },
+          {
+            kind: 'fait',
+            text: 'En termes de fréquences : parmi un grand nombre de cas où la cause Cᵢ est présente, la fraction où l’événement E se produit aussi est P(E | Cᵢ) ; la part des occurrences de E attribuable à Cᵢ est donc proportionnelle à P(Cᵢ) × P(E | Cᵢ).',
+            sources: ['dale-inverse-probability'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour deux événements A et B de probabilités non nulles, la probabilité qu’ils se produisent ensemble se calcule de deux façons : P(A et B) = P(A) P(B | A) = P(B) P(A | B), définition même de la probabilité conditionnelle.',
+            sources: ['dale-inverse-probability'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’où P(A | B) = P(B | A) P(A) / P(B) : la probabilité de la « cause » A sachant l’« événement » B est la probabilité de B sachant A, multipliée par la probabilité a priori de A et divisée par celle de B.',
+            sources: ['dale-inverse-probability', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si les causes A₁, …, Aₙ s’excluent et épuisent les possibilités, P(B) = Σ P(B | Aⱼ) P(Aⱼ), ce qui donne la forme de Laplace (1774) : P(Aᵢ | B) = P(B | Aᵢ) P(Aᵢ) / Σⱼ P(B | Aⱼ) P(Aⱼ). Quand les causes sont également probables a priori, les P(Aᵢ) se simplifient : la probabilité d’une cause est proportionnelle à la probabilité qu’elle donne à l’événement — le « principe » de Laplace.',
+            sources: ['stigler-statistics', 'dale-inverse-probability'],
+          },
+          {
+            kind: 'fait',
+            text: 'Bayes traite le cas continu : pour une chance inconnue θ, a priori uniforme sur [0, 1], et k succès en n épreuves, la probabilité que θ soit entre a et b sachant les résultats vaut ∫ₐᵇ θᵏ(1 − θ)ⁿ⁻ᵏ dθ / ∫₀¹ θᵏ(1 − θ)ⁿ⁻ᵏ dθ. La probabilité a priori d’observer k succès, C(n, k) ∫₀¹ θᵏ(1 − θ)ⁿ⁻ᵏ dθ, vaut 1/(n + 1) quel que soit k — ce que Bayes lit directement sur son billard.',
+            sources: ['dale-inverse-probability', 'stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Laplace tire du même calcul (1774) la « règle de succession » : après k succès en n épreuves, la probabilité que la suivante réussisse est (k + 1)/(n + 2).',
+            sources: ['dale-inverse-probability', 'stigler-statistics'],
+          },
+        ],
       },
       {
         id: 'aiguille-de-buffon',
@@ -1641,6 +2390,40 @@ export const LUMIERES: Domain[] = [
         kind: 'probleme',
         statement: 'Une aiguille de longueur ℓ jetée sur un parquet de lattes espacées de d (avec ℓ < d) coupe une latte avec probabilité 2ℓ/(πd) : la géométrie fournit des probabilités continues, et l’expérience une estimation de π.',
         comment: 'Premier problème de probabilité géométrique, où le calcul s’applique à des ensembles infinis continus de cas. Il ouvre la théorie des probabilités géométriques et l’intégrale géométrique, et inspire au XXᵉ siècle les méthodes de Monte-Carlo.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fois lancée, l’aiguille est décrite par deux nombres : la distance x de son milieu à la latte la plus proche, et l’angle θ qu’elle fait avec les lattes. Il n’y a plus de cas favorables à dénombrer mais une infinité continue de positions, toutes équiprobables : la probabilité devient un rapport d’aires, et π entre par l’angle.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Buffon lui-même décrit les cas favorables par l’aire d’une portion de cycloïde dont le cercle générateur a pour diamètre la longueur de l’aiguille — une façon géométrique d’écrire l’intégrale du sinus.',
+            sources: ['mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit d l’écart des lattes et ℓ < d la longueur de l’aiguille. La distance x du milieu de l’aiguille à la latte la plus proche est comprise entre 0 et d/2, l’angle aigu θ entre l’aiguille et les lattes entre 0 et π/2, et le couple (x, θ) est uniformément réparti dans le rectangle [0, d/2] × [0, π/2], d’aire πd/4.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’aiguille coupe une latte exactement quand x ≤ (ℓ/2) sin θ, demi-longueur de sa projection perpendiculaire aux lattes.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'La probabilité est le rapport de l’aire de la région {x ≤ (ℓ/2) sin θ} à celle du rectangle ; la première vaut ∫₀^(π/2) (ℓ/2) sin θ dθ = ℓ/2, d’où P = (ℓ/2)/(πd/4) = 2ℓ/(πd).',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lue à l’envers, la formule permet d’estimer π : en lançant l’aiguille N fois et en comptant c intersections, π ≈ 2ℓN/(cd) — usage que Laplace signale dans la Théorie analytique des probabilités (1812) et que l’on a répété depuis avec des milliers de lancers.',
+            sources: ['mactutor', 'boyer-merzbach'],
+          },
+        ],
       },
       {
         id: 'essai-sur-l-application-de-l-analyse',
@@ -1663,6 +2446,35 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Les préférences majoritaires peuvent être cycliques : une assemblée peut préférer A à B, B à C et C à A, de sorte qu’aucune option ne bat toutes les autres en duel.',
         comment: 'Exhibé dans l’Essai de 1785, le paradoxe ruine l’idée d’un « vainqueur naturel » des élections à la pluralité. Il est le point de départ du théorème d’impossibilité d’Arrow (1951) et du retour contemporain de Condorcet en théorie du choix social.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Chaque électeur classe les candidats de façon cohérente : s’il préfère A à B et B à C, il préfère A à C. Rien n’oblige pourtant la majorité à hériter de cette cohérence, car les majorités qui tranchent les trois duels ne sont pas composées des mêmes électeurs et peuvent se contredire.',
+            sources: ['mactutor', 'daston-classical'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Trois électeurs classent trois candidats : le premier A > B > C, le deuxième B > C > A, le troisième C > A > B.',
+            sources: ['mactutor', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'Dans le duel A contre B, A l’emporte par les voix des électeurs 1 et 3 ; dans B contre C, B l’emporte par les voix de 1 et 2 ; dans C contre A, C l’emporte par les voix de 2 et 3 : chaque duel est gagné deux voix contre une.',
+            sources: ['mactutor', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'La préférence collective est donc A > B > C > A, un cycle : aucun candidat ne bat tous les autres, et le résultat d’une suite de votes par paires dépend de l’ordre dans lequel on les organise.',
+            sources: ['mactutor', 'daston-classical'],
+          },
+          {
+            kind: 'fait',
+            text: 'Condorcet propose d’élire le candidat qui gagne tous ses duels lorsqu’il existe — le « vainqueur de Condorcet » — et montre par cet exemple qu’un tel candidat peut ne pas exister.',
+            sources: ['mactutor', 'daston-classical'],
+          },
+        ],
       },
       {
         id: 'methode-des-moindres-carres',
@@ -1711,6 +2523,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'La somme d’un grand nombre de petites causes indépendantes suit approximativement la loi normale, quelle que soit la loi de chacune : c’est ce qui justifie l’approximation de de Moivre au-delà du jeu de pile ou face.',
         comment: 'Laplace généralise de Moivre par la méthode des fonctions génératrices (future fonction caractéristique). Tchebychev (1887) puis Lindeberg (1922) en donneront des démonstrations rigoureuses ; le « théorème central » est le pilier de la statistique mathématique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La loi d’une somme de deux erreurs indépendantes s’obtient en « composant » leurs lois, opération qui lisse : la somme de deux variables uniformes a une loi en triangle, celle de trois une loi faite d’arcs de paraboles, déjà presque en cloche. Laplace avait mené ces calculs dès les années 1770 pour la moyenne d’observations, et il voit la courbe de de Moivre émerger quel que soit le point de départ.',
+            sources: ['stigler-statistics', 'gillispie-laplace'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’outil qui rend le calcul général est la fonction génératrice : elle transforme la composition des lois en produit ordinaire, et la loi de la somme de n erreurs s’obtient en élevant une seule fonction à la puissance n.',
+            sources: ['stigler-statistics', 'gillispie-laplace'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Laplace considère des erreurs prenant des valeurs sur une grille, avec des probabilités pₖ, et leur associe la fonction Σ pₖ e^(ikω) — une fonction génératrice où la variable est remplacée par e^(iω), aujourd’hui fonction caractéristique.',
+            sources: ['stigler-statistics', 'gillispie-laplace'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour une somme de n erreurs indépendantes de même loi, cette fonction est élevée à la puissance n, et la probabilité que la somme vaille s se récupère par l’intégrale (1/2π) ∫ [Σ pₖ e^(ikω)]ⁿ e^(−isω) dω sur une période.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour ω petit, le logarithme de Σ pₖ e^(ikω) vaut iμω − σ²ω²/2 au second ordre, où μ est la moyenne et σ² la variance d’une erreur ; la puissance n-ième se comporte donc comme exp(inμω − nσ²ω²/2), et c’est cette région des petits ω qui domine l’intégrale quand n est grand.',
+            sources: ['stigler-statistics'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’intégrale de exp(−nσ²ω²/2) e^(−i(s − nμ)ω) est une intégrale gaussienne : elle vaut (1/√(2πnσ²)) exp(−(s − nμ)²/(2nσ²)). La somme suit donc approximativement la loi normale de moyenne nμ et de variance nσ², quelle que soit la loi des erreurs.',
+            sources: ['stigler-statistics', 'gillispie-laplace'],
+          },
+          {
+            kind: 'fait',
+            text: 'Laplace ne contrôle ni le reste des développements ni la contribution des grands ω : son argument est une méthode plus qu’une preuve ; les démonstrations rigoureuses viendront de l’école de Saint-Pétersbourg puis de Lindeberg (voir le théorème de Lindeberg–Lévy).',
+            sources: ['stigler-statistics', 'von-plato-creating'],
+          },
+        ],
       },
       {
         id: 'theorie-analytique-des-probabilites',
@@ -1888,6 +2739,45 @@ export const LUMIERES: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour lever l’indétermination 0/0 d’un quotient de deux quantités, on remplace chaque terme par sa différentielle : la valeur cherchée est le rapport des différentielles.',
         comment: 'La règle figure au chapitre IX de l’Analyse ; la correspondance conservée montre que Jean Bernoulli l’a communiquée à L’Hôpital en juillet 1694, dans le cadre de leur convention. C’est le cas le plus documenté d’une paternité partagée du siècle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Au voisinage du point où numérateur et dénominateur s’annulent tous deux, chacun se confond avec sa tangente : f(a + h) ≈ f′(a) h et g(a + h) ≈ g′(a) h. Leur quotient vaut donc, à la limite, f′(a)/g′(a) : les h se simplifient, exactement comme les dx dans le « rapport des différentielles » de L’Hôpital.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’exemple de l’Analyse : y = (√(2a³x − x⁴) − a ∛(a²x)) / (a − ∜(ax³)) prend la forme 0/0 en x = a, et la règle donne 16a/9.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Énoncé de L’Hôpital (section IX de l’Analyse) : si deux quantités s’annulent en un même point, la valeur de leur quotient en ce point est le rapport de leurs différentielles.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Son argument : au point infiniment voisin a + dx, les ordonnées f et g, nulles en a, se réduisent à leurs différentielles df = f′(a) dx et dg = g′(a) dx ; leur quotient est donc df/dg = f′(a)/g′(a), le dx disparaissant.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La forme moderne remplace les infiniment petits par le théorème des accroissements finis généralisé : il existe c entre a et x tel que [f(x) − f(a)] g′(c) = [g(x) − g(a)] f′(c), donc f(x)/g(x) = f′(c)/g′(c) ; quand x tend vers a, c aussi, et le quotient tend vers la limite de f′/g′ si elle existe.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si f′ et g′ s’annulent aussi en a, on recommence avec les dérivées secondes ; la règle s’étend aux formes ∞/∞ et aux limites à l’infini.',
+            sources: ['hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliquée à l’exemple de l’Analyse, la règle donne 16a/9, résultat que le calcul direct, par développement des radicaux au voisinage de x = a, confirme.',
+            sources: ['edwards-calculus', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'querelle-de-l-academie',
@@ -1899,6 +2789,18 @@ export const LUMIERES: Domain[] = [
         kind: 'probleme',
         statement: 'Le calcul différentiel est-il une méthode légitime ? Rolle y voit une accumulation d’erreurs qui se compensent ; Varignon montre sur des courbes précises que ses résultats coïncident avec ceux de la géométrie ordinaire.',
         comment: 'La querelle occupe les séances de l’Académie de 1700 à 1706, sans vainqueur formel : la compagnie finit par imposer le silence. Elle fixe les termes du débat européen sur la nature des infiniment petits, entre grandeurs idéales et simples commodités de langage.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La difficulté est logique : la méthode traite une même quantité dx tantôt comme non nulle, pour diviser par elle, tantôt comme nulle, pour la négliger. Rolle y voit un jeu d’erreurs qui se compensent ; Varignon, soutenu par Leibniz dans leur correspondance (1702), répond que les résultats coïncident toujours avec ceux de la géométrie des anciens et que les infiniment petits peuvent être pris comme des quantités « incomparablement petites », abréviation d’une démonstration par exhaustion.',
+            sources: ['mancosu-philosophy', 'edwards-calculus'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'Rolle attaque aussi sur des exemples : il exhibe des courbes où la recherche des tangentes ou des extremums par la méthode des différences semble donner des résultats faux, et Varignon puis Saurin montrent que l’erreur est dans l’application qu’en fait Rolle, non dans le calcul. La querelle ne pouvait être tranchée faute d’une définition des infiniment petits : seule la notion de limite, au siècle suivant, fournira le terrain d’entente.',
+            sources: ['mancosu-philosophy', 'edwards-calculus'],
+          },
+        ],
       },
       {
         id: 'the-analyst',
