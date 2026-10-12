@@ -201,6 +201,7 @@ export const DIXNEUVIEME_B: Domain[] = [
           ],
           headlineResultIds: ['theoreme-de-cauchy-kovalevskaia'],
         },
+        mactutor: 'Kovalevskaya',
       },
     ],
     relatedMathematicianIds: ['hamilton-wr', 'riemann', 'poincare', 'cauchy', 'dirichlet'],
@@ -1353,6 +1354,7 @@ export const DIXNEUVIEME_B: Domain[] = [
           ],
           headlineResultIds: ['the-laws-of-thought', 'the-mathematical-analysis-of-logic'],
         },
+        mactutor: 'Boole',
       },
       {
         id: 'jevons',
@@ -1787,6 +1789,7 @@ export const DIXNEUVIEME_B: Domain[] = [
           ],
           headlineResultIds: ['non-denombrabilite-des-reels', 'argument-diagonal', 'hypothese-du-continu'],
         },
+        mactutor: 'Cantor',
       },
       {
         id: 'burali-forti',
