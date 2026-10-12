@@ -1241,6 +1241,417 @@ export const PHYSIQUE_B: Domain[] = [
     ],
     sources: ['heilbron-electricity', 'whittaker-aether', 'darrigol-electrodynamics', 'harman-maxwell', 'williams-faraday', 'mactutor'],
   },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // Thermodynamique et mécanique statistique
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    id: 'thermodynamique-et-mecanique-statistique',
+    name: 'Thermodynamique et mécanique statistique',
+    mapName: 'Thermodynamique',
+    altNames: ['Théorie de la chaleur', 'Physique statistique'],
+    era: 'dixneuvieme',
+    period: { start: 1824, end: 1902 },
+    continents: ['physique'],
+    places: ['Paris', 'Manchester', 'Heilbronn', 'Glasgow', 'Berlin', 'Zurich', 'Vienne', 'New Haven'],
+    map: { x: 4300, y: 5100, size: 2, palette: { fill: '#ffffff', stroke: '#000000', accent: '#000000' } },
+    tagline: 'De la machine à vapeur aux atomes : le cycle de Carnot, l’équivalence de la chaleur et du travail, puis l’entropie qui ne revient jamais en arrière.',
+    summary:
+      'Le mémoire de Sadi Carnot (1824) pose la question du siècle : quelle est la puissance motrice maximale de la chaleur ? Clapeyron la traduit en diagramme (1834) ; Mayer et Joule établissent l’équivalence chaleur-travail (1842-1847), Helmholtz en fait le principe de conservation de l’énergie. Clausius et Kelvin réconcilient Carnot et Joule en un second principe (1850-1851), qu’exprime l’entropie (1865). La théorie cinétique des gaz transforme alors la température en mouvement moyen des molécules : distribution de Maxwell (1860), théorème H de Boltzmann (1872), entropie statistique S = k log W (1877). Gibbs achève l’édifice en 1902 avec les ensembles statistiques, juste avant que la mécanique quantique ne vienne en modifier les fondements.',
+    methods: [
+      {
+        kind: 'fait',
+        text: 'La machine idéale : Carnot raisonne sur un cycle réversible de deux isothermes et deux adiabatiques, par reductio ad absurdum — si une machine meilleure existait, on remonterait la chaleur du froid vers le chaud sans dépense. Clapeyron en fait un diagramme pression-volume, Thomson une échelle de température, Clausius une intégrale ∫ dQ/T.',
+        sources: ['cardwell-watt-clausius', 'brush-heat'],
+      },
+      {
+        kind: 'fait',
+        text: 'La statistique moléculaire : au lieu d’écrire le déterminisme de chaque molécule, Maxwell puis Boltzmann distribuent les vitesses et comptent les états ; l’entropie devient le logarithme du nombre de micro-états compatibles avec un macro-état, et le second principe un énoncé de probabilité.',
+        sources: ['brush-heat', 'cercignani-boltzmann'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Pour les historiens (Brush, Smith), la thermodynamique est le premier domaine où se superposent deux styles de loi : la phénoménologie — relations entre grandeurs macroscopiques accessibles à la mesure — et la réduction atomique, qui n’obtient la deuxième loi qu’en statistique. Le conflit entre les deux, arbitré par Mach et Ostwald, dépasse la physique de la chaleur.',
+        sources: ['brush-heat', 'smith-wise-kelvin'],
+      },
+    ],
+    context: [
+      {
+        kind: 'fait',
+        text: 'La machine à vapeur est l’origine du domaine : les usines anglaises commandent le problème du rendement ; Carnot le pose en ingénieur polytechnicien, Joule le mesure en brasseur de Salford — la première thermodynamique est née de la métrologie industrielle, non du laboratoire.',
+        sources: ['cardwell-watt-clausius', 'kuhn-energy-conservation'],
+      },
+      {
+        kind: 'fait',
+        text: 'La théorie du calorique régnait encore en 1824 : Carnot raisonne sur un fluide calorique « tombant » du chaud vers le froid comme l’eau sur une roue. Ses notes posthumes, publiées en 1878, montrent qu’il avait renoncé au calorique et calculé un équivalent mécanique de la chaleur — vingt ans avant Joule.',
+        sources: ['cardwell-watt-clausius', 'brush-heat'],
+      },
+      {
+        kind: 'fait',
+        text: 'La querelle atomique clôt le siècle : Mach refuse aux molécules toute réalité, Ostwald propose une « énergétique » sans atome, et Boltzmann défend l’hypothèse moléculaire jusqu’à sa mort (1906) ; la publication du mouvement brownien par Einstein (1905) puis les mesures de Perrin (1908) trancheront en sa faveur.',
+        sources: ['cercignani-boltzmann', 'brush-heat'],
+      },
+    ],
+    debates: [
+      {
+        kind: 'fait',
+        text: 'La priorité de la première loi oppose Mayer et Joule : Mayer publie le principe et un calcul de l’équivalent dès 1842 dans les Annalen de Liebig, mais sa démonstration reste obscure ; Joule mesure l’équivalent avec une précision inédite (1843-1847) sans accéder aux grandes revues — Kuhn montre que la découverte est simultanée sur tout le continent.',
+        sources: ['kuhn-energy-conservation', 'cardwell-watt-clausius'],
+      },
+      {
+        kind: 'fait',
+        text: 'Le second principe résiste au déterminisme : Loschmidt objecte à Boltzmann la réversibilité microscopique (1876) et Zermelo, appuyé sur le théorème de récurrence de Poincaré, le retour inévitable des états (1896) ; Boltzmann répond que le désordre croît seulement en probabilité — les grandes fluctuations ne sont pas impossibles, juste inobservables.',
+        sources: ['cercignani-boltzmann', 'brush-heat'],
+      },
+      {
+        kind: 'interpretation',
+        text: 'Pour Smith et Wise, la thermodynamique de Kelvin reste une « physique de l’empire » : l’irréversibilité n’y est pas d’abord un paradoxe mathématique mais l’expérience des machines, des câbles télégraphiques et des rendements — la dissipation de l’énergie est d’abord un fait industriel avant d’être un théorème.',
+        sources: ['smith-wise-kelvin'],
+      },
+    ],
+    keyDates: [
+      { year: 1824, text: 'Réflexions sur la puissance motrice du feu de Sadi Carnot : le cycle idéal borne le rendement de toute machine thermique.' },
+      { year: 1834, text: 'Clapeyron exhume le mémoire de Carnot : diagramme pression-volume du cycle et fonction de Carnot.' },
+      { year: 1842, text: 'Mayer publie le principe de l’équivalence et calcule l’équivalent mécanique de la chaleur à partir de cp − cv.' },
+      { year: 1847, text: 'Joule achève ses mesures de l’équivalent (roue à palettes) ; Helmholtz publie Über die Erhaltung der Kraft.' },
+      { year: 1848, text: 'Thomson (lord Kelvin) définit l’échelle absolue de température sur le cycle de Carnot.' },
+      { year: 1850, text: 'Clausius réconcilie Carnot et Joule : « la chaleur ne passe pas d’elle-même du froid au chaud » — le second principe.' },
+      { year: 1860, text: 'Maxwell publie la distribution des vitesses moléculaires : la thermodynamique devient statistique.' },
+      { year: 1865, text: 'Clausius nomme l’entropie : « l’entropie de l’univers tend vers un maximum ».' },
+      { year: 1877, text: 'Boltzmann relie entropie et probabilité : S = k log W, l’épitaphe de sa tombe.' },
+      { year: 1902, text: 'Elementary Principles in Statistical Mechanics de Gibbs : les ensembles canoniques unifient le domaine.' },
+    ],
+    theories: [
+      {
+        id: 'tm-cycle-et-puissance-motrice',
+        name: 'Cycle de Carnot et puissance motrice',
+        period: { start: 1824, end: 1850 },
+        summary: 'La machine à chaleur idéale : entre une source chaude et une source froide, le travail maximal est celui d’un cycle réversible, et son rendement ne dépend que des deux températures — pas du fluide, pas de la machine.',
+        traits: ['Cycle réversible', 'Source chaude et froide', 'Rendement maximal', 'Théorie du calorique', 'Diagramme de Clapeyron'],
+      },
+      {
+        id: 'tm-equivalence-et-conservation',
+        name: 'Équivalence et conservation de l’énergie',
+        period: { start: 1842, end: 1860 },
+        summary: 'Chaleur, travail, chimie, électricité : tout s’échange en équivalents mesurables. L’équivalent mécanique de la chaleur (Mayer, Joule) et le principe de conservation (Helmholtz) unifient les forces de la nature en une seule grandeur conservée.',
+        traits: ['Équivalent mécanique de la chaleur', 'Roue à palettes de Joule', 'Conservation de la force vive', 'Chaleur et travail interchangeables'],
+      },
+      {
+        id: 'tm-second-principe-et-entropie',
+        name: 'Second principe et entropie',
+        period: { start: 1850, end: 1875 },
+        summary: 'Carnot et Joule se réconcilient : la chaleur ne remonte pas du froid vers le chaud sans compensation. Clausius quantifie la dégradation en une fonction d’état, l’entropie, qui ne fait que croître dans un système isolé.',
+        traits: ['Énoncé de Clausius', 'Échelle absolue de Kelvin', 'Fonction d’état entropie', 'Dissipation de l’énergie', 'Mort thermique de l’univers'],
+      },
+      {
+        id: 'tm-theorie-cinetique-et-ensembles',
+        name: 'Théorie cinétique et mécanique statistique',
+        period: { start: 1857, end: 1902 },
+        summary: 'La température devient de l’agitation : distribution des vitesses de Maxwell, équation de transport et théorème H de Boltzmann, entropie statistique, puis les ensembles de Gibbs — la thermodynamique reçoit son fondement probabiliste.',
+        traits: ['Distribution de Maxwell', 'Équation de Boltzmann', 'Entropie statistique S = k log W', 'Ensembles de Gibbs', 'Hypothèse moléculaire'],
+      },
+    ],
+    mathematicians: [
+      {
+        id: 'carnot-sadi',
+        name: 'Sadi Carnot',
+        years: [1796, 1832],
+        origin: 'Paris',
+        bio: 'Fils du mathématicien Lazare Carnot, polytechnicien et officier du génie, Sadi Carnot publie à vingt-huit ans les Réflexions sur la puissance motrice du feu (1824), où il pose le cycle idéal et le théorème du rendement maximal ; mort du choléra à trente-six ans, il laisse des notes montrant qu’il avait pressenti l’équivalence chaleur-travail.',
+        theoryId: 'tm-cycle-et-puissance-motrice',
+        mactutor: 'Carnot_Sadi',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'clapeyron',
+        name: 'Émile Clapeyron',
+        years: [1799, 1864],
+        origin: 'Paris',
+        bio: 'Polytechnicien, ingénieur des ponts puis des chemins de fer, Clapeyron ressuscite en 1834 le mémoire oublié de Carnot : il en donne la formulation géométrique — le cycle comme aire dans le diagramme pression-volume — par laquelle Thomson et Clausius découvriront Carnot.',
+        theoryId: 'tm-cycle-et-puissance-motrice',
+        mactutor: 'Clapeyron',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'mayer-julius',
+        name: 'Julius Robert von Mayer',
+        years: [1814, 1878],
+        origin: 'Heilbronn',
+        bio: 'Médecin de bord à Java, où le sang des saignées trop rouge lui suggère le lien entre chaleur et travail, Mayer publie en 1842 le principe de l’équivalence et en calcule l’équivalent par les chaleurs spécifiques ; sa priorité, contestée par les partisans de Joule, et ses crises nerveuses l’amènent à une tentative de suicide en 1850.',
+        theoryId: 'tm-equivalence-et-conservation',
+        sources: ['cardwell-watt-clausius'],
+      },
+      {
+        id: 'joule',
+        name: 'James Prescott Joule',
+        years: [1818, 1889],
+        origin: 'Salford et Manchester',
+        bio: 'Brasseur amateur de science, élève de Dalton, Joule mesure l’équivalent mécanique de la chaleur (roue à palettes, 1843-1847) avec une précision que la science académique met des années à reconnaître ; l’effet Joule-Thomson et l’unité d’énergie portent son nom.',
+        theoryId: 'tm-equivalence-et-conservation',
+        sources: ['cardwell-watt-clausius'],
+      },
+      {
+        id: 'clausius',
+        name: 'Rudolf Clausius',
+        years: [1822, 1888],
+        origin: 'Köslin, Zurich et Bonn',
+        bio: 'Professeur à Zurich, Würzburg puis Bonn, Clausius réconcilie Carnot et Joule en 1850 en séparant deux principes, introduit l’intégrale ∫ dQ/T dont il tire en 1865 la fonction d’état qu’il nomme entropie, et fonde la théorie cinétique sur le libre parcours moyen.',
+        theoryId: 'tm-second-principe-et-entropie',
+        mactutor: 'Clausius',
+        sources: ['mactutor'],
+      },
+      {
+        id: 'rankine',
+        name: 'William John Macquorn Rankine',
+        years: [1820, 1872],
+        origin: 'Édimbourg et Glasgow',
+        bio: 'Ingénieur ferroviaire devenu professeur à Glasgow, Rankine développe dès 1850 une thermodynamique des « tourbillons moléculaires » indépendante de Clausius, nomme l’« énergie » et l’« entropie » thermodynamiques dans un traité de la machine à vapeur qui resta un siècle le manuel des ingénieurs.',
+        theoryId: 'tm-second-principe-et-entropie',
+        mactutor: 'Rankine',
+        sources: ['mactutor'],
+      },
+    ],
+    relatedMathematicianIds: ['maxwell', 'helmholtz', 'fourier', 'poisson'],
+    results: [
+      {
+        id: 'cycle-de-carnot',
+        title: 'Théorème de Carnot : rendement du cycle idéal',
+        altTitle: 'Réflexions sur la puissance motrice du feu',
+        year: 1824,
+        authorName: 'Sadi Carnot',
+        mathematicianId: 'carnot-sadi',
+        theoryId: 'tm-cycle-et-puissance-motrice',
+        kind: 'theoreme',
+        statement: 'Toute machine thermique opérant entre une source chaude et une source froide a un rendement borné par celui du cycle réversible de Carnot — deux isothermes et deux adiabatiques —, et ce maximum ne dépend que des deux températures, non du fluide ni du mécanisme.',
+        comment: 'Le mémoire de 1824 : Carnot raisonne dans la théorie du calorique, mais son argument — l’impossibilité de remonter la chaleur sans dépense — survit à la réfutation du calorique. Kelvin en tire l’échelle absolue (1848), Clausius le second principe : c’est le premier théorème de la thermodynamique, et le seul qui ne suppose rien sur la nature de la chaleur.',
+        major: true,
+        context: [
+          {
+            kind: 'fait',
+            text: 'Les machines de Watt avaient fait de l’efficacité un problème industriel ; Carnot, polytechnicien, pose la question en théoricien : y a-t-il une borne indépendante de la technologie ? Sa réponse oublie le livre — vendu à quelques centaines d’exemplaires — pendant dix ans, jusqu’à Clapeyron.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Clapeyron (1834) donne au cycle sa forme géométrique — une aire dans le diagramme p-V — ; Kelvin en fait la définition de la température absolue, Clausius la fondation du second principe, et la borne de Carnot reste le plafond de toute machine thermique.',
+            sources: ['cardwell-watt-clausius', 'smith-wise-kelvin'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Carnot part de l’interdiction qu’il pose lui-même : on ne peut pas produire du travail à partir de la chaleur d’un seul réservoir — il faut une différence de température, comme la chute d’eau exige un dénivelé. La chaleur « tombe » du chaud vers le froid, et c’est sa chute qui travaille.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+          {
+            kind: 'interpretation',
+            text: 'L’analogie hydraulique guide Carnot : le calorique se conserve comme l’eau dans la roue. Le théorème reste vrai quand le fluide disparaît — l’argument n’utilise que le bilan du cycle, pas la nature du fluide : c’est pourquoi il survit à la mort du calorique.',
+            sources: ['cardwell-watt-clausius'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On idéalise la machine : un fluide échange de la chaleur avec une source chaude à température T₁ en se détendant (isotherme), se détend encore sans échanger (adiabatique), cède de la chaleur à la source froide T₂ en se comprimant, puis est ramené adiabatiquement à l’état initial — cycle réversible par construction.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+          {
+            kind: 'fait',
+            text: 'Supposons une machine M meilleure que le cycle réversible R : elle produit, pour la même chaleur puisée au chaud, plus de travail. On peut alors faire fonctionner R en réfrigérateur avec le surplus de travail de M — R remonte la chaleur du froid vers le chaud.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le bilan net du couplage M + R inversé : la chaleur remonte de la source froide vers la source chaude sans autre effet — le « mouvement perpétuel de seconde espèce » que Carnot exclut par principe. Donc aucune machine ne bat le cycle réversible.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème est indépendant du fluide : deux cycles réversibles fonctionnant entre les mêmes températures avec des fluides différents auraient même rendement, sinon l’un entraînerait l’autre en sens inverse — le rendement maximal est donc une fonction universelle de T₁ et T₂ seules.',
+            sources: ['cardwell-watt-clausius', 'smith-wise-kelvin'],
+          },
+        ],
+      },
+      {
+        id: 'formulation-de-clapeyron',
+        title: 'Formulation géométrique de Clapeyron',
+        year: 1834,
+        authorName: 'Émile Clapeyron',
+        mathematicianId: 'clapeyron',
+        theoryId: 'tm-cycle-et-puissance-motrice',
+        kind: 'methode',
+        statement: 'Le cycle de Carnot devient une aire : en reportant la pression en fonction du volume, le travail du cycle est la surface du quadrilatère curviligne — et la « fonction de Carnot » s’exprime par la dérivée de la chaleur latente de dilatation.',
+        comment: 'Dans le Journal de l’École polytechnique (1834), Clapeyron donne à Carnot sa forme durable : le diagramme p-V. Par cette traduction — qui fait du travail une aire — Thomson et Clausius liront Carnot, car le mémoire original était introuvable.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Le mémoire de Carnot, tiré à quelques centaines d’exemplaires, était épuisé et inconnu : Thomson l’apprit par Clapeyron en 1848, Clausius par la même voie ; toute la thermodynamique classique descend de cette traduction géométrique.',
+            sources: ['cardwell-watt-clausius', 'smith-wise-kelvin'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le diagramme pression-volume devient l’outil universel des machines thermiques — du moteur de Watt au moteur à combustion interne — et la « fonction de Carnot » de Clapeyron se transforme chez Clausius en l’intégrale ∫ dQ/T, future entropie.',
+            sources: ['cardwell-watt-clausius', 'brush-heat'],
+          },
+        ],
+      },
+      {
+        id: 'equivalent-mecanique-de-la-chaleur',
+        title: 'Équivalent mécanique de la chaleur',
+        year: 1842,
+        authorName: 'Julius Robert von Mayer ; James Prescott Joule',
+        mathematicianId: 'joule',
+        theoryId: 'tm-equivalence-et-conservation',
+        kind: 'concept',
+        statement: 'La chaleur et le travail se convertissent en un rapport fixe : 1 kilocalorie correspond à 4,18 kilojoules de travail — la chaleur n’est pas un fluide mais une forme d’énergie, dont la conservation est le premier principe de la thermodynamique.',
+        comment: 'Mayer le calcule en 1842 (de l’écart cp − cv des chaleurs spécifiques : l’air comprimé qui se détend produit le travail manquant) ; Joule le mesure de 1843 à 1847 avec sa roue à palettes — l’agitation mécanique chauffe l’eau en proportion exacte du travail dépensé. Le chiffre définitif est à 1 % de la valeur actuelle.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'La conversion envahissait la technologie : machines à vapeur (travail → chaleur), frottements (travail → chaleur partout), piles (chimie → électricité). Mayer, médecin de bord à Java, part de l’oxygénation du sang ; Joule, brasseur, de la perte des moteurs électriques.',
+            sources: ['kuhn-energy-conservation', 'cardwell-watt-clausius'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’équivalence fonde le premier principe : l’énergie se transforme, ne se crée ni ne se détruit. Helmholtz l’étend en 1847 à toutes les forces de la nature ; la calorie cède la place au joule, et la thermodynamique devient une science des bilans.',
+            sources: ['kuhn-energy-conservation', 'smith-wise-kelvin'],
+          },
+        ],
+      },
+      {
+        id: 'conservation-de-l-energie-helmholtz',
+        title: 'Conservation de l’énergie d’Helmholtz',
+        altTitle: 'Über die Erhaltung der Kraft',
+        year: 1847,
+        authorName: 'Hermann von Helmholtz',
+        mathematicianId: 'helmholtz',
+        theoryId: 'tm-equivalence-et-conservation',
+        kind: 'concept',
+        statement: 'La somme de la « force vive » (énergie cinétique) et des « forces de tension » (énergie potentielle) est constante dans tout système isolé : mécanique, chaleur, électricité, chimie et physiologie sont des formes d’une seule Kraft qui se conserve.',
+        comment: 'Mémoire lu à la Société de physique de Berlin en juillet 1847 : Helmholtz, médecin de vingt-six ans, donne au principe sa généralité mathématique — l’impossibilité du mouvement perpétuel —, et l’étend de la mécanique à la chaleur, à l’électricité et au vivant.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Helmholtz venait de la physiologie : la chaleur animale, disait-il, vient de l’alimentation — rien ne s’invente. Kuhn compte une douzaine de formulations simultanées du principe entre 1842 et 1847 : la découverte était « dans l’air » de la métrologie des conversions.',
+            sources: ['kuhn-energy-conservation', 'harman-maxwell'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Le principe de conservation devient le cadre de toute la physique : la « force vive » de Helmholtz s’appelle énergie (Rankine, Thomson), les formes s’échangent dans les tableaux de conversion, et le premier principe rejoint le second pour former la thermodynamique de Clausius (1850).',
+            sources: ['kuhn-energy-conservation', 'smith-wise-kelvin'],
+          },
+        ],
+      },
+      {
+        id: 'second-principe-de-clausius',
+        title: 'Second principe et entropie de Clausius',
+        year: 1850,
+        authorName: 'Rudolf Clausius',
+        mathematicianId: 'clausius',
+        theoryId: 'tm-second-principe-et-entropie',
+        kind: 'concept',
+        statement: 'La chaleur ne passe pas d’elle-même d’un corps froid à un corps chaud : dans tout processus réversible, ∫ dQ/T = 0, et dans tout processus réel la quantité dQ/T ne fait que croître — Clausius nomme en 1865 cette fonction d’état « entropie », dont l’univers tend vers un maximum.',
+        comment: 'Le mémoire de 1850 réconcilie Carnot et Joule : le rendement maximal exige la conservation du calorique chez Carnot, mais Clausius montre qu’il suffit que le cycle ne dépende que des températures — en abandonnant le calorique, on garde le théorème. L’entropie, fonction d’état croissante, fait de l’irréversibilité un théorème.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Thomson, en relisant Carnot par Clapeyron (1848), avait posé le même problème : comment sauver le théorème de Carnot sans calorique ? Clausius y répond le premier — Thomson publie sa propre formulation (« énoncé de Kelvin ») en 1851.',
+            sources: ['cardwell-watt-clausius', 'smith-wise-kelvin'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’entropie transforme la physique : elle borne le rendement des machines, commande les équilibres chimiques (Gibbs, 1876-1878) et la flèche du temps ; sa lecture statistique (Boltzmann) en fera le concept le plus discuté de la fin du siècle.',
+            sources: ['cardwell-watt-clausius', 'cercignani-boltzmann'],
+          },
+        ],
+      },
+      {
+        id: 'theoreme-h-de-boltzmann',
+        title: 'Théorème H de Boltzmann',
+        year: 1872,
+        authorName: 'Ludwig Boltzmann',
+        theoryId: 'tm-theorie-cinetique-et-ensembles',
+        kind: 'concept',
+        statement: 'Boltzmann écrit une équation pour l’évolution de la distribution des vitesses sous les chocs, et définit une fonctionnelle H qui ne fait que décroître : l’approche de l’équilibre — la distribution de Maxwell — est ainsi démontrée par la dynamique des chocs, et la fonction H coïncide, au signe près, avec l’entropie.',
+        comment: 'Le mémoire de 1872 est le sommet de la théorie cinétique : Boltzmann y montre que toute distribution non maxwellienne décroît vers l’équilibre, transformant le second principe en théorème mécanique. C’est cette dérivation que Loschmidt (réversibilité) puis Zermelo (récurrence de Poincaré) attaqueront — la controverse qui fait de l’irréversibilité la question du siècle finissant.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Maxwell avait introduit en 1860 la distribution des vitesses — première loi statistique de la physique — et l’avait retrouvée en 1867 par les bilans de chocs ; Boltzmann généralise en 1872 : toute distribution converge vers celle de Maxwell, et la fonction H en mesure la marche.',
+            sources: ['brush-heat', 'cercignani-boltzmann'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'L’équation de Boltzmann reste l’outil de la cinétique des gaz, des plasmas et des semi-conducteurs ; sa lecture statistique (1877) donne S = k log W, et le débat sur le théorème H prépare l’ergodicité et la mécanique statistique des fondements.',
+            sources: ['cercignani-boltzmann', 'brush-heat'],
+          },
+        ],
+      },
+      {
+        id: 'entropie-statistique-de-boltzmann',
+        title: 'Entropie statistique de Boltzmann',
+        altTitle: 'S = k log W',
+        year: 1877,
+        authorName: 'Ludwig Boltzmann',
+        theoryId: 'tm-theorie-cinetique-et-ensembles',
+        kind: 'concept',
+        statement: 'L’entropie d’un macro-état est proportionnelle au logarithme du nombre W de micro-états qui le réalisent : S = k log W. Le second principe cesse d’être absolu : le désordre croît parce que les états désordonnés sont infiniment plus nombreux — l’irréversibilité est statistique.',
+        comment: 'Après le théorème H (1872), qui définissait une fonction décroissante par l’équation de transport, Boltzmann donne en 1877 le pont entre entropie et probabilité : c’est la première formule de la physique où une loi macroscopique est expliquée par le comptage des micro-états — gravée sur sa tombe.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Loschmidt avait objecté la réversibilité (1876) : chaque trajectoire renversée remonte l’entropie. Boltzmann répond que la question est de probabilité, non de possibilité — les fluctuations vers le bas existent, mais leur attente excède l’âge de l’univers.',
+            sources: ['cercignani-boltzmann', 'brush-heat'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'La formule fonde la mécanique statistique : Planck en fait la clé de sa loi du rayonnement (1900), Einstein y puise l’interprétation des fluctuations ; W, le nombre de complexions, devient le concept central de la physique statistique et de la théorie de l’information.',
+            sources: ['cercignani-boltzmann', 'brush-heat'],
+          },
+        ],
+      },
+      {
+        id: 'ensembles-de-gibbs',
+        title: 'Ensembles statistiques de Gibbs',
+        altTitle: 'Elementary Principles in Statistical Mechanics',
+        year: 1902,
+        authorName: 'Josiah Willard Gibbs',
+        theoryId: 'tm-theorie-cinetique-et-ensembles',
+        kind: 'concept',
+        statement: 'On représente un système physique par un ensemble de copies identiques distribuées dans l’espace des phases ; les grandeurs thermodynamiques sont des moyennes d’ensemble — canonique, microcanonique, grand-canonique — calculables sans connaître la dynamique microscopique exacte.',
+        comment: 'Le livre de 1902 : Gibbs, à New Haven depuis trente ans, parachève la thermodynamique qu’il avait fondée en 1876-1878 par une méthode entièrement formelle — les ensembles — qui rend la mécanique statistique indépendante du modèle moléculaire. C’est la forme que la discipline porte encore.',
+        context: [
+          {
+            kind: 'fait',
+            text: 'Gibbs avait déjà donné à la thermodynamique sa forme moderne : potentiels thermodynamiques, règle des phases, équilibres chimiques (1876-1878), publiés dans les obscurs Transactions of the Connecticut Academy et ignorés jusqu’à la traduction d’Ostwald (1892).',
+            sources: ['wheeler-gibbs', 'cercignani-boltzmann'],
+          },
+        ],
+        impact: [
+          {
+            kind: 'fait',
+            text: 'Les ensembles de Gibbs sont devenus le fondement de la mécanique statistique : la physique quantique les adopte sans changement de structure — la matrice densité remplace la distribution classique — et la théorie des fluctuations, de l’équilibre au non-équilibre, en descend.',
+            sources: ['wheeler-gibbs', 'cercignani-boltzmann'],
+          },
+        ],
+      },
+    ],
+    sources: ['cardwell-watt-clausius', 'kuhn-energy-conservation', 'brush-heat', 'smith-wise-kelvin', 'cercignani-boltzmann', 'wheeler-gibbs'],
+  },
 ];
 
 /** Liens entre domaines, déclarés dans le fichier de leur domaine d'arrivée. */
