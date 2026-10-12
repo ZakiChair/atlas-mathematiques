@@ -204,6 +204,7 @@ export const STRUCTURES_B: Domain[] = [
           ],
           headlineResultIds: ['grundbegriffe-der-wahrscheinlichkeitsrechnung', 'theoreme-d-extension-de-kolmogorov', 'methodes-analytiques-de-kolmogorov'],
         },
+        mactutor: 'Kolmogorov',
       },
       {
         id: 'feller',
@@ -1394,6 +1395,7 @@ export const STRUCTURES_B: Domain[] = [
           ],
           headlineResultIds: ['theoremes-d-incompletude', 'theoreme-de-completude', 'fonctions-recursives-generales'],
         },
+        mactutor: 'Godel',
       },
       {
         id: 'church',
@@ -1444,6 +1446,7 @@ export const STRUCTURES_B: Domain[] = [
           ],
           headlineResultIds: ['on-computable-numbers', 'probleme-de-l-arret', 'machine-de-turing-universelle'],
         },
+        mactutor: 'Turing',
       },
       {
         id: 'shannon',
@@ -2044,6 +2047,7 @@ export const STRUCTURES_B: Domain[] = [
           ],
           headlineResultIds: ['problemes-de-hilbert', 'grundlagen-der-geometrie', 'theoreme-de-la-base-de-hilbert'],
         },
+        mactutor: 'Hilbert',
       },
       {
         id: 'whitehead',
