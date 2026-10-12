@@ -125,6 +125,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Berlin et Kiel',
         bio: 'Formé à Breslau et à Berlin, Steinitz enseigne à l’école technique de Berlin-Charlottenburg, puis à Breslau et à Kiel (1920). Son mémoire Algebraische Theorie der Körper (1910) est la première étude d’un type de structure pour lui-même : il y classe tous les corps par leur caractéristique et leur degré de transcendance. Il est aussi l’auteur d’un théorème fondamental sur les polyèdres convexes (1922).',
         theoryId: 'am-corps-et-algebres',
+        sources: ['mactutor'],
+        mactutor: 'Steinitz',
       },
       {
         id: 'wedderburn',
@@ -133,6 +135,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Édimbourg et Princeton',
         bio: 'Écossais formé à Édimbourg, Leipzig, Berlin et Chicago, Wedderburn démontre en 1905 que tout corps fini est commutatif et, en 1908, le théorème de structure des algèbres semi-simples sur un corps quelconque. Professeur à Princeton à partir de 1909, il y dirige les Annals of Mathematics et vit de plus en plus retiré après la Première Guerre mondiale.',
         theoryId: 'am-corps-et-algebres',
+        sources: ['mactutor'],
+        mactutor: 'Wedderburn',
       },
       {
         id: 'noether',
@@ -176,6 +180,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Hambourg, Princeton',
         bio: 'Né à Vienne, docteur à Leipzig en 1921, Artin enseigne à Hambourg de 1923 à 1937 : loi de réciprocité générale (1927), corps réels clos et solution du dix-septième problème de Hilbert avec Schreier (1927), théorème de Wedderburn–Artin, groupes de tresses, fonctions L. Émigré en 1937, il enseigne à Notre Dame, Bloomington puis Princeton (1946-1958) avant de revenir à Hambourg. Ses cours sont la source de la théorie de Galois moderne.',
         theoryId: 'am-corps-et-algebres',
+        sources: ['mactutor'],
+        mactutor: 'Artin',
       },
       {
         id: 'krull',
@@ -184,6 +190,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Erlangen et Bonn',
         bio: 'Élève de Noether à Göttingen en 1920-1921, docteur à Fribourg en 1922, Krull enseigne à Erlangen (1928) puis à Bonn (1939-1967). Il donne à la théorie des anneaux commutatifs ses outils de base : théorème d’intersection, théorème des idéaux principaux (1928), topologie de Krull pour la théorie de Galois infinie, dimension d’un anneau. Son rapport Idealtheorie (1935) est la référence sur laquelle Zariski s’appuie.',
         theoryId: 'am-ideaux-et-invariants',
+        sources: ['mactutor'],
+        mactutor: 'Krull',
       },
       {
         id: 'van-der-waerden',
@@ -192,6 +200,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Amsterdam, Groningue, Leipzig et Zurich',
         bio: 'Étudiant à Amsterdam, puis auditeur de Noether à Göttingen (1924) et d’Artin à Hambourg (1926), van der Waerden rédige à partir de leurs cours Moderne Algebra (1930-1931), le manuel qui diffuse l’algèbre structurale dans le monde entier. Professeur à Groningue, à Leipzig (1931-1945) puis à Zurich (1951-1972), il fonde aussi la géométrie algébrique sur l’algèbre commutative et devient historien des mathématiques anciennes.',
         theoryId: 'am-style-moderne',
+        sources: ['mactutor'],
+        mactutor: 'Van_der_Waerden',
       },
     ],
     relatedMathematicianIds: ['hilbert', 'dedekind'],
@@ -692,6 +702,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Königsberg, Zurich et Göttingen',
         bio: 'Ami de jeunesse de Hilbert à Königsberg, lauréat à dix-huit ans du grand prix de l’Académie des sciences de Paris pour un mémoire sur les formes quadratiques (1883), Minkowski invente la géométrie des nombres : les propriétés arithmétiques des formes se lisent sur des réseaux et des corps convexes. Professeur à Zurich (où il enseigne à Einstein) puis à Göttingen à partir de 1902, il donne en 1908 à la relativité restreinte son cadre d’espace-temps et meurt brutalement d’une appendicite.',
         theoryId: 'tnx-geometrie-des-nombres',
+        sources: ['mactutor'],
+        mactutor: 'Minkowski',
       },
       {
         id: 'takagi',
@@ -700,6 +712,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Tokyo',
         bio: 'Formé à Tokyo puis à Göttingen auprès de Hilbert (1898-1901), Takagi démontre pendant l’isolement de la Première Guerre mondiale, seul au Japon, les théorèmes généraux du corps de classes (1920), dépassant les conjectures de Hilbert. Professeur à l’université impériale de Tokyo, il forme la première école mathématique japonaise moderne ; son travail est d’abord ignoré en Europe avant d’être reconnu par Siegel, Artin et Hasse.',
         theoryId: 'tnx-corps-de-classes',
+        sources: ['mactutor'],
+        mactutor: 'Takagi',
       },
       {
         id: 'hardy',
@@ -708,6 +722,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Cambridge et Oxford',
         bio: 'Fellow de Trinity College, professeur savilien à Oxford (1919-1931) puis de nouveau à Cambridge, Hardy fait entrer l’analyse continentale en Angleterre avec A Course of Pure Mathematics (1908). Sa collaboration de trente-cinq ans avec Littlewood et sa rencontre avec Ramanujan produisent la méthode du cercle et la théorie analytique des partitions. A Mathematician’s Apology (1940) reste le plaidoyer le plus lu pour les mathématiques pures.',
         theoryId: 'tnx-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Hardy',
       },
       {
         id: 'littlewood',
@@ -716,6 +732,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Cambridge',
         bio: 'Fellow de Trinity College pendant soixante-dix ans, Littlewood démontre en 1914 que la différence entre le nombre de nombres premiers inférieurs à x et le logarithme intégral change de signe une infinité de fois, contre toutes les tables. Avec Hardy, il signe une centaine d’articles sur les séries, la fonction zêta et le problème de Waring, et formule les conjectures sur les constellations de nombres premiers (1923).',
         theoryId: 'tnx-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Littlewood',
       },
       {
         id: 'ramanujan',
@@ -759,6 +777,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Hambourg',
         bio: 'Docteur de Hilbert à Göttingen (1910), professeur à Hambourg de 1919 à sa mort, Hecke prolonge la fonction zêta de Dedekind par les fonctions L à « caractères de grandeur » (1918-1920), dont il établit l’équation fonctionnelle, et introduit en 1937 les opérateurs qui portent son nom sur les formes modulaires. Ses Vorlesungen über die Theorie der algebraischen Zahlen (1923) forment des générations d’arithméticiens.',
         theoryId: 'tnx-corps-de-classes',
+        sources: ['mactutor'],
+        mactutor: 'Hecke',
       },
       {
         id: 'vinogradov',
@@ -767,6 +787,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Leningrad et Moscou',
         bio: 'Formé à Petrograd, Vinogradov dirige l’Institut Steklov de 1934 à sa mort, soit près d’un demi-siècle, et incarne l’école soviétique de théorie des nombres. Sa méthode d’estimation des sommes trigonométriques lui permet en 1937 de démontrer que tout entier impair assez grand est somme de trois nombres premiers, sans l’hypothèse de Riemann généralisée dont Hardy et Littlewood avaient eu besoin.',
         theoryId: 'tnx-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Vinogradov',
       },
       {
         id: 'siegel',
@@ -775,6 +797,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Francfort, Princeton et Göttingen',
         bio: 'Docteur de Landau à Göttingen (1920), professeur à Francfort de 1922 à 1938, Siegel démontre la finitude des points entiers sur les courbes de genre au moins un (1929), publie en 1932 la formule de Riemann retrouvée dans les papiers de Göttingen, et fonde la théorie des formes modulaires de plusieurs variables. Opposé au régime, il quitte l’Allemagne en 1940 pour Princeton et revient à Göttingen en 1951.',
         theoryId: 'tnx-geometrie-des-nombres',
+        sources: ['mactutor'],
+        mactutor: 'Siegel',
       },
       {
         id: 'hasse',
@@ -783,6 +807,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Marbourg, Göttingen et Hambourg',
         bio: 'Élève de Hensel à Marbourg, Hasse applique les nombres p-adiques aux formes quadratiques et formule le principe local-global (1923-1924). Son rapport sur les corps de classes (1926-1930), le théorème de Brauer–Hasse–Noether (1932) et sa démonstration de l’hypothèse de Riemann pour les courbes elliptiques (1933-1936) font de lui le chef de file de l’arithmétique allemande. Directeur de l’institut de Göttingen de 1934 à 1945, nationaliste déclaré, il enseigne ensuite à Hambourg.',
         theoryId: 'tnx-corps-de-classes',
+        sources: ['mactutor'],
+        mactutor: 'Hasse',
       },
       {
         id: 'selberg',
@@ -791,6 +817,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Oslo et Princeton',
         bio: 'Formé à Oslo dans l’isolement de l’occupation, Selberg démontre en 1942 qu’une proportion positive des zéros de la fonction zêta est sur la droite critique, invente un crible (1947), donne une preuve élémentaire du théorème des nombres premiers (1949) et reçoit la médaille Fields en 1950. Membre de l’Institute for Advanced Study à partir de 1949, il publie en 1956 la formule des traces, qui ouvre la théorie spectrale des formes automorphes.',
         theoryId: 'tnx-methodes-analytiques',
+        sources: ['mactutor'],
+        mactutor: 'Selberg',
       },
     ],
     relatedMathematicianIds: ['hilbert', 'artin', 'weil', 'erdos'],
@@ -1413,6 +1441,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Leipzig, Greifswald et Bonn',
         bio: 'Écrivain et philosophe sous le pseudonyme de Paul Mongré avant de se consacrer aux mathématiques, Hausdorff publie en 1914 les Grundzüge der Mengenlehre, qui définissent les espaces topologiques, la continuité et la dimension fractionnaire dite de Hausdorff. Professeur à Greifswald puis à Bonn, démis de ses fonctions en 1935, il meurt à Bonn en janvier 1942 en se suicidant pour échapper à la déportation.',
         theoryId: 'top-espaces-generaux',
+        sources: ['mactutor'],
+        mactutor: 'Hausdorff',
       },
       {
         id: 'lefschetz',
@@ -1421,6 +1451,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Moscou, Kansas et Princeton',
         bio: 'Né à Moscou, ingénieur formé à Paris, Lefschetz perd ses deux mains dans un accident industriel en 1907 et se tourne vers les mathématiques : doctorat à Clark (1911) sur la topologie des surfaces algébriques, formule des points fixes (1923-1926). Professeur à Princeton à partir de 1924, il fait du département et du journal Annals of Mathematics les centres de la topologie américaine.',
         theoryId: 'top-analysis-situs',
+        sources: ['mactutor'],
+        mactutor: 'Lefschetz',
       },
       {
         id: 'alexander',
@@ -1429,6 +1461,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Élève de Veblen et premier doctorant de Lefschetz à Princeton (1915), Alexander généralise la dualité de Poincaré (théorème de dualité d’Alexander, 1922), définit le premier invariant polynomial des nœuds (1928) et, avec Kolmogorov, annonce la cohomologie en 1935. Membre de l’Institute for Advanced Study dès sa fondation, il se retire de la vie publique en 1951.',
         theoryId: 'top-analysis-situs',
+        sources: ['mactutor'],
+        mactutor: 'Alexander',
       },
       {
         id: 'hopf',
@@ -1437,6 +1471,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Berlin et Zurich',
         bio: 'Élève de Schmidt et de Bieberbach à Berlin, Hopf découvre la topologie algébrique à Göttingen auprès d’Alexandrov et de Noether (1923-1926), puis à Princeton auprès de Lefschetz. Professeur à Zurich à partir de 1931, il y démontre la fibration qui porte son nom, classifie les applications de la sphère Sⁿ⁺¹ sur Sⁿ (1935) et introduit les algèbres de Hopf (1941).',
         theoryId: 'top-homotopie-fibrations',
+        sources: ['mactutor'],
+        mactutor: 'Hopf',
       },
       {
         id: 'alexandrov',
@@ -1445,6 +1481,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Moscou',
         bio: 'Élève de Luzin à Moscou, Alexandrov fonde avec Urysohn l’école topologique soviétique (compactification, dimension, métrisation) avant de passer, après la mort d’Urysohn, à l’homologie combinatoire. Ses séjours à Göttingen (1923-1926) en font le relais entre Noether et la topologie ; il organise le colloque de Moscou de 1935 et dirige le département de topologie de l’université de Moscou.',
         theoryId: 'top-espaces-generaux',
+        sources: ['mactutor'],
+        mactutor: 'Aleksandrov',
       },
       {
         id: 'urysohn',
@@ -1453,6 +1491,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Moscou',
         bio: 'Élève de Luzin et compagnon d’Alexandrov, Urysohn donne en trois ans les résultats fondateurs de la topologie générale : lemme sur les espaces normaux, théorème de métrisation, définition inductive de la dimension, compactification (1922-1924). Il meurt noyé à Batz-sur-Mer le 17 août 1924, à vingt-six ans ; Alexandrov publie ses manuscrits dans les Fundamenta Mathematicae.',
         theoryId: 'top-espaces-generaux',
+        sources: ['mactutor'],
+        mactutor: 'Urysohn',
       },
       {
         id: 'hurewicz',
@@ -1461,6 +1501,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Vienne, Amsterdam et Princeton',
         bio: 'Formé à Vienne dans l’école de Menger, Hurewicz travaille à Amsterdam avec Brouwer puis émigre aux États-Unis en 1936 (Institute for Advanced Study, MIT). En 1935-1936, il définit les groupes d’homotopie supérieurs, démontre le théorème qui relie homotopie et homologie, et établit le théorème de plongement des espaces séparables de dimension finie. Il meurt en 1956 d’une chute accidentelle au Mexique.',
         theoryId: 'top-homotopie-fibrations',
+        sources: ['mactutor'],
+        mactutor: 'Hurewicz',
       },
       {
         id: 'whitney',
@@ -1469,6 +1511,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Harvard et Princeton',
         bio: 'Docteur de Birkhoff à Harvard (1932), Whitney démontre le théorème de plongement des variétés différentiables (1936), définit les fibrations vectorielles et, avec Stiefel, les classes caractéristiques (1935-1937). Il fonde plus tard la théorie des singularités des applications différentiables (1955). Membre de l’Institute for Advanced Study à partir de 1952, il est aussi un théoricien des graphes.',
         theoryId: 'top-homotopie-fibrations',
+        sources: ['mactutor'],
+        mactutor: 'Whitney',
       },
       {
         id: 'steenrod',
@@ -1477,6 +1521,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Princeton',
         bio: 'Élève de Lefschetz à Princeton (doctorat en 1936), Steenrod définit l’homologie des ensembles compacts, les opérations de Steenrod en cohomologie modulo p (1947) et, avec Eilenberg, axiomatise les théories homologiques (1945-1952). Son livre The Topology of Fibre Bundles (1951) fixe le vocabulaire des fibrations ; il dirige à Princeton la rédaction des comptes rendus mathématiques américains.',
         theoryId: 'top-homotopie-fibrations',
+        sources: ['mactutor'],
+        mactutor: 'Steenrod',
       },
     ],
     relatedMathematicianIds: ['brouwer', 'eilenberg', 'noether'],
@@ -1991,6 +2037,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Rome',
         bio: 'Élève de Veronese à Padoue puis assistant de Segre à Turin, Castelnuovo rejoint Rome en 1891 et y fonde l’école italienne des surfaces : critère de rationalité (1894), classification avec Enriques (1914). Recteur de l’université de Rome, il est suspendu par les lois raciales de 1938 et survit caché ; il consacre ses dernières années à l’histoire des mathématiques.',
         theoryId: 'gac-ecole-italienne',
+        sources: ['mactutor'],
+        mactutor: 'Castelnuovo',
       },
       {
         id: 'enriques',
@@ -1999,6 +2047,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Bologne et Rome',
         bio: 'Formé à Pise et à Rome, Enriques donne avec Castelnuovo la classification des surfaces algébriques (1914), qu’il présente dans Le superficie algebriche (posthume, 1949). Philosophe des sciences autant que géomètre, il dirige la revue Scientia, l’Enciclopedia italiana et la collection des mathématiciens dans la Storia del pensiero scientifico. Exclu de l’enseignement en 1938.',
         theoryId: 'gac-ecole-italienne',
+        sources: ['mactutor'],
+        mactutor: 'Enriques',
       },
       {
         id: 'severi',
@@ -2007,6 +2057,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Padoue et Rome',
         bio: 'Élève de Veronese et de Segre, Severi succède à Enriques à Rome (1923) et construit la théorie de l’équivalence algébrique et de la base pour les diviseurs d’une surface. Proche du régime fasciste, dont il signe le manifeste de la race en 1938, il est exclu de l’université en 1945 puis réintégré ; sa défense inconditionnelle des méthodes italiennes l’isole des refontes de Zariski et de Weil.',
         theoryId: 'gac-ecole-italienne',
+        sources: ['mactutor'],
+        mactutor: 'Severi',
       },
       {
         id: 'zariski',
@@ -2015,6 +2067,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Rome, Baltimore et Harvard',
         bio: 'Né en Russie, formé à Rome par l’école italienne, Zariski émigre en 1927 à Johns Hopkins puis à Harvard. Ses Algebraic Surfaces (1935) dressent le bilan critique de l’école italienne ; à partir de 1939, il refonde la géométrie sur les anneaux de valuation et l’algèbre commutative, résout les singularités des surfaces et des variétés de dimension trois en caractéristique zéro et introduit la topologie qui porte son nom.',
         theoryId: 'gac-refonte-algebrique',
+        sources: ['mactutor'],
+        mactutor: 'Zariski',
       },
       {
         id: 'hodge',
@@ -2023,6 +2077,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Cambridge',
         bio: 'Formé à Édimbourg et à Cambridge, où il passe toute sa carrière (chaire lowndéenne de 1936 à 1970), Hodge démontre dans Theory and Application of Harmonic Integrals (1941) que toute classe de cohomologie d’une variété projective lisse est représentée par une unique forme harmonique. Il formule en 1950, au congrès de Cambridge, la conjecture qui porte son nom, aujourd’hui problème du millénaire.',
         theoryId: 'gac-topologie-transcendante',
+        sources: ['mactutor'],
+        mactutor: 'Hodge',
       },
       {
         id: 'weil',
@@ -2031,6 +2087,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Paris, São Paulo, Chicago et Princeton',
         bio: 'Normalien, docteur en 1928, cofondateur de Bourbaki en 1935, Weil enseigne à Aligarh, Strasbourg, São Paulo (1945-1947), Chicago, puis à l’Institute for Advanced Study à partir de 1958. Il démontre le théorème de Mordell–Weil (1928), refond la géométrie algébrique dans les Foundations (1946), démontre l’hypothèse de Riemann pour les courbes sur les corps finis (1948) et formule les conjectures de Weil (1949). Ses Souvenirs d’apprentissage (1991) racontent cette traversée du siècle.',
         theoryId: 'gac-refonte-algebrique',
+        sources: ['mactutor'],
+        mactutor: 'Weil',
       },
     ],
     relatedMathematicianIds: ['lefschetz', 'van-der-waerden', 'noether'],
@@ -2461,6 +2519,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Stockholm',
         bio: 'Élève de Mittag-Leffler, professeur à Stockholm de 1906 à sa mort, Fredholm résout en 1900-1903 les équations intégrales qui portent son nom en les traitant comme des systèmes linéaires de dimension infinie : son « alternative » énonce qu’une telle équation a soit une solution unique, soit des solutions homogènes. C’est l’acte de naissance reconnu de l’analyse fonctionnelle.',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Fredholm',
       },
       {
         id: 'lebesgue',
@@ -2469,6 +2529,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Nancy, Rennes et Paris',
         bio: 'Normalien, Lebesgue soutient en 1902 sa thèse Intégrale, longueur, aire, qui généralise l’intégrale de Riemann à partir de la mesure des ensembles. Professeur à Rennes et Poitiers, puis à la Sorbonne et au Collège de France (1921), il donne le théorème de convergence dominée et la différentiation des fonctions monotones ; sa « leçon » d’intégration (1904) reste le modèle d’exposition de la théorie.',
         theoryId: 'af-mesure-et-integration',
+        sources: ['mactutor'],
+        mactutor: 'Lebesgue',
       },
       {
         id: 'frechet',
@@ -2477,6 +2539,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Paris et Strasbourg',
         bio: 'Élève d’Hadamard, Fréchet introduit dans sa thèse de 1906 les espaces métriques abstraits, la compacité et la complétude, créant le « calcul fonctionnel » général. Professeur à Poitiers, Strasbourg (1919) puis à la Sorbonne, il fonde avec Borel le calcul des probabilités moderne en France et publie des travaux de statistique et de topologie des espaces abstraits.',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Frechet',
       },
       {
         id: 'riesz-frigyes',
@@ -2485,6 +2549,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Kolozsvár, Szeged et Budapest',
         bio: 'Docteur à Budapest (1902), Riesz démontre le théorème de Riesz–Fischer (1907) et le théorème de représentation des formes linéaires continues (1909), qui identifie une mesure à une intégrale. Fondateur de l’université de Szeged (1929) et du centre de recherche qui porte son nom, il est le frère aîné de Marcel Riesz et le lien entre les écoles française, allemande et hongroise.',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Riesz',
       },
       {
         id: 'banach',
@@ -2493,6 +2559,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Lwów',
         bio: 'Repéré en 1916 par Steinhaus sur un banc de Cracovie, Banach soutient en 1920 sa thèse « Sur les opérations dans les ensembles abstraits », qui définit les espaces normés complets. Professeur à Lwów, il y fonde avec Steinhaus, Schauder, Mazur et Orlicz l’école de l’analyse fonctionnelle et publie la Théorie des opérations linéaires (1932). Survivant de l’occupation dans un institut de recherche sur le typhus, il meurt le 31 août 1945.',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Banach',
       },
       {
         id: 'steinhaus',
@@ -2501,6 +2569,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Lwów et Wrocław',
         bio: 'Docteur de Hilbert à Göttingen (1911), Steinhaus est le maître de Banach, avec qui il démontre le théorème de la bornitude uniforme (1927), et le cofondateur des Studia Mathematica. Juif caché sous le nom de « Grzegorz Krochmalny » pendant l’occupation, il refonde après guerre l’université de Wrocław et devient le vulgarisateur polonais le plus lu (Kalejdoskop matematyczny).',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Steinhaus',
       },
       {
         id: 'von-neumann',
@@ -2509,6 +2579,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Budapest, Berlin et Princeton',
         bio: 'Prodige hongrois formé par Fejér, von Neumann axiomatise les espaces de Hilbert (1929) et fonde la mécanique quantique sur la théorie spectrale (1932), avant de créer les algèbres d’opérateurs, la théorie des jeux (minimax, 1928) et l’architecture des ordinateurs (rapport EDVAC, 1945). Membre de l’Institute for Advanced Study à partir de 1933, il meurt à Washington en 1957.',
         theoryId: 'af-espaces-abstraits',
+        sources: ['mactutor'],
+        mactutor: 'Von_Neumann',
       },
       {
         id: 'schwartz',
@@ -2517,6 +2589,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Paris, Nancy',
         bio: 'Normalien, gendre de Paul Lévy, Schwartz conçoit à la fin de 1944, après la Libération, la théorie des distributions, publiée à partir de 1945 à Grenoble et exposée dans les deux volumes de la Théorie des distributions. Médaille Fields en 1950 — la première décernée à un Français — il enseigne à Nancy, à la Sorbonne et à l’École polytechnique ; engagé contre la guerre d’Algérie et pour les droits de l’homme, il raconte ce double parcours dans Un mathématicien aux prises avec le siècle (1997).',
         theoryId: 'af-distributions',
+        sources: ['mactutor'],
+        mactutor: 'Schwartz',
       },
     ],
     relatedMathematicianIds: ['borel', 'hilbert'],
@@ -2986,6 +3060,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Paris',
         bio: 'Normalien, lauréat du grand prix de 1892, Hadamard démontre le théorème des nombres premiers en 1896, indépendamment de La Vallée Poussin, puis fonde l’étude moderne des EDP : problèmes bien posés (1902), géodésiques des surfaces à courbure négative (1898), parties finies d’intégrales (1923). Professeur au Collège de France à partir de 1912, il anime un séminaire légendaire ; juif, il s’exile aux États-Unis pendant l’Occupation et meurt à Paris à quatre-vingt-dix-sept ans.',
         theoryId: 'edp-theorie-spectrale-variationnelle',
+        sources: ['mactutor'],
+        mactutor: 'Hadamard',
       },
       {
         id: 'levi-civita',
@@ -2994,6 +3070,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Padoue et Rome',
         bio: 'Élève de Ricci à Padoue, Levi-Civita publie avec lui le manifeste du calcul différentiel absolu (1900), introduit le transport parallèle (1917) et travaille sur le problème des trois corps et la mécanique céleste. Professeur à Rome à partir de 1918, il est révoqué par les lois raciales de 1938 et meurt dans l’isolement en 1941 ; ses cours ont formé une génération d’analystes italiens.',
         theoryId: 'edp-calcul-tensoriel-relativite',
+        sources: ['mactutor'],
+        mactutor: 'Levi-Civita',
       },
       {
         id: 'weyl',
@@ -3002,6 +3080,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Göttingen, Zurich et Princeton',
         bio: 'Élève de Hilbert (doctorat en 1908), Weyl démontre la loi de distribution des valeurs propres (1911), écrit Die Idee der Riemannschen Fläche (1913), donne à la relativité son traité de référence Raum, Zeit, Materie (1918) et fonde la théorie des représentations des groupes de Lie (1925-1926). Professeur à Zurich (1913-1930), successeur de Hilbert à Göttingen, il rejoint Princeton en 1933. Sa Symmetry (1952) clôt une œuvre où l’analyse, la géométrie et la physique ne se séparent jamais.',
         theoryId: 'edp-calcul-tensoriel-relativite',
+        sources: ['mactutor'],
+        mactutor: 'Weyl',
       },
       {
         id: 'courant',
@@ -3010,6 +3090,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Göttingen et New York',
         bio: 'Assistant de Hilbert, fondateur et directeur de l’institut de mathématiques de Göttingen (1922), Courant publie avec Hilbert les Methoden der mathematischen Physik (1924-1937) et introduit en 1943 l’ancêtre des éléments finis. Chassé en 1933, il reconstruit à l’université de New York une école de mathématiques appliquées — l’actuel Courant Institute — et coécrit What is Mathematics ? (1941).',
         theoryId: 'edp-theorie-spectrale-variationnelle',
+        sources: ['mactutor'],
+        mactutor: 'Courant',
       },
       {
         id: 'schauder',
@@ -3018,6 +3100,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Lwów',
         bio: 'Membre de l’école de Lwów, longtemps sans poste stable faute d’appuis, Schauder démontre en 1930 le point fixe en dimension infinie qui porte son nom, applique avec Leray le degré topologique aux équations elliptiques (1934) et construit une base de l’espace des fonctions continues (1927). Arrêté par la Gestapo pendant la guerre, il est abattu à Lwów en 1943.',
         theoryId: 'edp-analyse-non-lineaire',
+        sources: ['mactutor'],
+        mactutor: 'Schauder',
       },
       {
         id: 'douglas',
@@ -3026,6 +3110,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'New York',
         bio: 'Docteur de Columbia (1920), Douglas résout en 1931 le problème de Plateau dans le cas général, en minimisant directement une intégrale d’aire conforme — indépendamment de Tibor Radó (1930). Il reçoit en 1936 l’une des deux premières médailles Fields. Personnalité difficile, il quitte plusieurs postes et ne retrouve une stabilité qu’au City College de New York (1955-1965).',
         theoryId: 'edp-theorie-spectrale-variationnelle',
+        sources: ['mactutor'],
+        mactutor: 'Douglas',
       },
       {
         id: 'leray',
@@ -3034,6 +3120,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Nancy et Paris',
         bio: 'Normalien, Leray soutient en 1933 une thèse d’hydrodynamique et publie en 1934 son mémoire sur les équations de Navier–Stokes, où il crée les solutions faibles et, avec Schauder, le degré topologique en dimension infinie. Prisonnier de guerre en Autriche (1940-1945), il y invente, dans un camp d’officiers, la théorie des faisceaux et la suite spectrale pour dérouter d’éventuels usages militaires de ses recherches. Professeur à Paris puis au Collège de France (1947), il reçoit le prix Wolf en 1979.',
         theoryId: 'edp-analyse-non-lineaire',
+        sources: ['mactutor'],
+        mactutor: 'Leray',
       },
       {
         id: 'sobolev',
@@ -3042,6 +3130,8 @@ export const STRUCTURES_A: Domain[] = [
         origin: 'Leningrad, Moscou et Novossibirsk',
         bio: 'Docteur à Leningrad en 1929, Sobolev introduit les espaces fonctionnels qui portent son nom (1938) et les « fonctions généralisées » (1936), avec leurs théorèmes de plongement : le cadre où se formulent les solutions faibles des EDP. Membre de l’Académie des sciences dès trente et un ans, il participe au programme nucléaire soviétique et fonde à partir de 1957 l’école mathématique de Novossibirsk.',
         theoryId: 'edp-analyse-non-lineaire',
+        sources: ['mactutor'],
+        mactutor: 'Sobolev',
       },
     ],
     relatedMathematicianIds: ['noether', 'hilbert', 'poincare'],
