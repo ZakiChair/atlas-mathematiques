@@ -434,6 +434,25 @@ export const FIGURES_CONTEMPORAIN_B: Record<string, Mathematician[]> = {
   ],
   'logique-et-ensembles-contemporains': [
     {
+      id: 'rasiowa',
+      name: 'Helena Rasiowa',
+      years: [1917, 1994],
+      origin: 'Varsovie',
+      bio: 'Élève de Łukasiewicz puis docteur de Mostowski (1950), Rasiowa poursuit à Varsovie le traitement algébrique des calculs logiques non classiques — Lewis, Heyting, Post — et applique la logique aux fondements mathématiques de l’informatique.',
+      mactutor: 'Rasiowa',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'los',
+      name: 'Jerzy Łoś',
+      years: [1920, 1998],
+      origin: 'Lwów, Toruń et Varsovie',
+      bio: 'Chercheur à l’Institut mathématique de l’Académie polonaise dès 1949, Łoś introduit dans un article de 1955 la construction d’ultraproduit et son théorème fondamental, outil devenu central de la théorie des modèles ; il anime un séminaire avec Tarski à Berkeley (1959-1960).',
+      theoryId: 'lec-theorie-des-modeles',
+      mactutor: 'Los',
+      sources: ['mactutor'],
+    },
+    {
       id: 'lob',
       name: 'Martin Löb',
       years: [1921, 2006],
@@ -460,6 +479,16 @@ export const FIGURES_CONTEMPORAIN_B: Record<string, Mathematician[]> = {
       bio: 'Docteur de Berkeley sous Henkin, Carol Karp fonde l’étude systématique des logiques infinitaires (Languages with Expressions of Infinite Length, 1964) ; sa mort précoce interrompt un programme en pleine expansion.',
       theoryId: 'lec-theorie-des-modeles',
       mactutor: 'Karp',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'bishop',
+      name: 'Errett Bishop',
+      years: [1928, 1983],
+      origin: 'Berkeley et San Diego',
+      bio: 'Analyste à Berkeley puis à San Diego, Bishop montre dans Foundations of Constructive Analysis (1967) que l’analyse peut se refaire sur des bases constructives : il reprend l’intuitionnisme de Brouwer en écartant suites de choix libres et bar-theorem.',
+      theoryId: 'lec-types-et-fondements-constructifs',
+      mactutor: 'Bishop',
       sources: ['mactutor'],
     },
     {
