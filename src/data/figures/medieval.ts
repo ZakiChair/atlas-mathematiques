@@ -418,4 +418,16 @@ export const FIGURES_MEDIEVAL: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
   ],
+  'logique-scolastique': [
+    {
+      id: 'raymond-lulle',
+      name: 'Raymond Lulle',
+      years: [1235, 1316],
+      yearsApprox: true,
+      origin: 'Majorque',
+      bio: 'Philosophe majorquin élevé à la cour royale, Raymond Lulle conçoit après une vision de 1272 l’Ars magna (1305-1308), méthode qui combine par des figures et une notation symbolique les principes de tout savoir ; cette logique combinatoire, condamnée en 1376, influencera Leibniz.',
+      mactutor: 'Llull',
+      sources: ['mactutor'],
+    },
+  ],
 };
