@@ -230,6 +230,35 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['kleiner-abstract-algebra', 'corry-structures'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En une variable, tout idéal de polynômes est engendré par un seul élément, le plus grand commun diviseur, que l’algorithme d’Euclide calcule. En plusieurs variables, il n’y a plus de division euclidienne ; l’idée de Hilbert est de ne retenir d’un polynôme que son terme de plus haut degré : les coefficients dominants des éléments d’un idéal forment eux-mêmes un idéal en une variable de moins, ce qui permet de raisonner par récurrence sur le nombre de variables sans jamais calculer de base.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dire qu’un idéal est engendré par un nombre fini d’éléments équivaut à dire que toute suite croissante d’idéaux finit par devenir constante ; il suffit donc de montrer que, si cette propriété vaut pour un anneau A, elle vaut pour l’anneau A[x] des polynômes en une variable sur A, puis de raisonner par récurrence sur le nombre de variables, le cas d’un corps étant trivial.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+          {
+            kind: 'fait',
+            text: 'Soit I un idéal de A[x]. Pour chaque entier n, les coefficients dominants des polynômes de I de degré n, auxquels on ajoute 0, forment un idéal Lₙ de A, et L₀ ⊆ L₁ ⊆ L₂ ⊆ … ; par hypothèse sur A, cette suite est constante à partir d’un rang m, et chaque Lₙ est engendré par un nombre fini d’éléments.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'On choisit, pour chaque n ≤ m, un nombre fini de polynômes de I de degré n dont les coefficients dominants engendrent Lₙ. Ces polynômes, en nombre fini, engendrent I : étant donné f dans I, une combinaison convenable d’entre eux, multipliés au besoin par des puissances de x, a le même terme dominant que f ; la différence est encore dans I et de degré plus petit, et l’on recommence jusqu’à ce qu’il ne reste rien.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliqué à l’idéal engendré par un système infini d’invariants, l’énoncé donne une base finie ; mais il n’indique ni laquelle ni comment la trouver, d’où l’objection de Gordan. Hilbert y répond en 1893 par une méthode qui fournit en principe les invariants fondamentaux par un calcul fini.',
+            sources: ['gray-hilbert-challenge', 'kleiner-abstract-algebra'],
+          },
+        ],
       },
       {
         id: 'nullstellensatz',
@@ -242,6 +271,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Sur un corps algébriquement clos, si un polynôme s’annule en tous les zéros communs d’une famille de polynômes, une de ses puissances s’écrit comme combinaison de ces polynômes ; en particulier, des polynômes sans zéro commun engendrent l’idéal tout entier.',
         comment: 'Démontré dans « Über die vollen Invariantensysteme » (1893), le théorème établit la correspondance entre idéaux radicaux et ensembles algébriques qui fonde la traduction entre algèbre commutative et géométrie. Il est le dictionnaire dont se serviront Noether, van der Waerden et Zariski, puis la théorie des schémas.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En une variable, deux polynômes sans racine commune ont pour plus grand commun diviseur 1, et l’identité de Bézout donne a·f + b·g = 1 ; de même, un polynôme qui s’annule en toutes les racines de f est divisible par le produit de ses facteurs distincts, de sorte qu’une de ses puissances est divisible par f. Le Nullstellensatz affirme que ces deux faits subsistent en plusieurs variables, pourvu que le corps soit algébriquement clos : sur les réels, x² + 1 n’a aucun zéro sans engendrer tout l’anneau.',
+            sources: ['kleiner-abstract-algebra', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Forme faible : si des polynômes n’engendrent pas tout l’anneau k[x₁, …, xₙ], ils ont un zéro commun. L’idéal qu’ils engendrent est contenu dans un idéal maximal M, et le quotient k[x₁, …, xₙ]/M est un corps engendré comme algèbre par les images des n variables.',
+            sources: ['kleiner-abstract-algebra', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un corps engendré comme algèbre par un nombre fini d’éléments sur k est algébrique sur k ; si k est algébriquement clos, ce corps est k lui-même. Les images des variables sont alors des éléments a₁, …, aₙ de k, et le point (a₁, …, aₙ) annule tous les polynômes de M, donc les polynômes de départ.',
+            sources: ['kleiner-abstract-algebra', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Forme forte par adjonction d’une variable : si f s’annule sur tous les zéros communs de g₁, …, gᵣ, les polynômes g₁, …, gᵣ et 1 − t·f, en les variables x₁, …, xₙ, t, n’ont aucun zéro commun ; d’après la forme faible, 1 = Σ aᵢ gᵢ + b (1 − t·f) pour des polynômes aᵢ, b convenables.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'En remplaçant t par 1/f dans cette identité et en chassant les dénominateurs, on obtient f^N = Σ a′ᵢ gᵢ pour un exposant N : une puissance de f appartient à l’idéal engendré par les gᵢ. Hilbert procédait autrement, par la théorie de l’élimination ; la réduction de la forme forte à la forme faible est une astuce classique postérieure.',
+            sources: ['kleiner-abstract-algebra', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'petit-theoreme-de-wedderburn',
@@ -254,6 +312,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Un anneau fini dans lequel tout élément non nul est inversible est nécessairement commutatif : il n’existe pas de « quaternions finis ».',
         comment: 'Publié dans « A theorem on finite algebras » (Transactions of the AMS, 1905) ; Dickson, qui doutait d’abord du résultat, en donne une preuve la même année. Le théorème montre que la finitude impose la commutativité et a, en géométrie, une conséquence frappante : tout plan projectif fini qui vérifie Desargues vérifie Pappus.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les corps finis commutatifs existent en toutes les tailles pⁿ (Galois), et l’exemple des quaternions de Hamilton montre ce que demande la non-commutativité : une multiplication où l’on peut « tourner » exige plusieurs dimensions sur le centre. La question de Wedderburn est de savoir si la finitude laisse assez de place pour ces rotations ; la réponse est non.',
+            sources: ['kleiner-abstract-algebra', 'stillwell-history'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Soit K un corps fini, non supposé commutatif, de centre Z à q éléments : K est un espace vectoriel sur Z, de dimension n, donc à qⁿ éléments ; pour tout élément x, son centralisateur est un sous-corps de K contenant Z, de dimension d divisant n, donc à qᵈ éléments.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'On écrit l’équation aux classes du groupe multiplicatif K* : ses qⁿ − 1 éléments se répartissent en q − 1 éléments centraux et en classes de conjugaison de taille (qⁿ − 1)/(qᵈ − 1), pour des diviseurs stricts d de n.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le polynôme cyclotomique Φₙ(x), produit des x − ζ sur les racines primitives n-ièmes de l’unité, divise xⁿ − 1 et chaque quotient (xⁿ − 1)/(xᵈ − 1) pour d diviseur strict de n ; dans l’équation aux classes, tout terme sauf q − 1 est donc divisible par Φₙ(q), qui doit ainsi diviser q − 1.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Or pour q ≥ 2 réel et une racine primitive n-ième ζ ≠ 1, on a |q − ζ| > q − 1 : le produit Φₙ(q) dépasse q − 1 en valeur absolue dès que n > 1. La contradiction force n = 1, c’est-à-dire K = Z : le corps est commutatif. Cet argument, simplifié par Witt en 1931, s’est substitué aux trois démonstrations originales de Wedderburn, dont la première était fautive.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-wedderburn-artin',
@@ -266,6 +353,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute algèbre de dimension finie sans radical sur un corps est un produit d’algèbres de matrices à coefficients dans des corps non nécessairement commutatifs ; toute algèbre est une extension d’une telle algèbre par un idéal nilpotent.',
         comment: '« On hypercomplex numbers » (Proceedings of the London Mathematical Society, 1908) achève sur un corps quelconque la classification des « nombres hypercomplexes » commencée par Molien et Cartan. Artin l’étend en 1927 aux anneaux vérifiant une condition de chaîne descendante ; le résultat est la pierre d’angle de la théorie des représentations et de l’étude des algèbres simples centrales.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les algèbres de matrices sont les « nombres hypercomplexes » sans pathologie : Mₙ(D) n’a aucun idéal bilatère non trivial. Le théorème dit qu’il n’y a guère d’autres exemples : une algèbre simple est toujours une algèbre de matrices sur un corps, et une algèbre semi-simple une liste finie de telles algèbres — les quaternions de Hamilton y figurent comme le corps non commutatif de la case réelle.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Une algèbre de dimension finie possède un plus grand idéal nilpotent, son radical ; le quotient par ce radical est « semi-simple », sans aucun idéal nilpotent non trivial. Toute l’algèbre est ainsi une extension de sa partie semi-simple par le radical : l’étude se ramène au cas sans radical.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une algèbre semi-simple se décompose de manière unique en somme directe d’idéaux bilatères minimaux : chacun est lui-même une algèbre, et simple, car un idéal bilatère de l’un d’eux en serait un de l’algèbre entière.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une algèbre simple contient un idéal à gauche minimal V ; l’anneau de ses endomorphismes compatibles avec la multiplication à gauche est, par le lemme de Schur, un corps D — non nécessairement commutatif. La multiplication à droite fait alors de l’algèbre les endomorphismes du D-espace vectoriel V.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'En dimension finie, un tel anneau d’endomorphismes est une algèbre de matrices Mₙ(D) : toute algèbre simple est une algèbre de matrices, et toute algèbre semi-simple un produit fini d’algèbres de matrices. Artin (1927) montre que la démonstration vaut encore lorsque l’on remplace la dimension finie par la condition de chaîne descendante sur les idéaux à gauche.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+        ],
       },
       {
         id: 'algebraische-theorie-der-koerper',
@@ -341,6 +457,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Un corps peut être ordonné si et seulement si −1 n’y est pas somme de carrés ; tout polynôme à coefficients réels positif en tout point est une somme de carrés de fractions rationnelles.',
         comment: 'Les deux articles d’Artin et Schreier dans les Abhandlungen de Hambourg (1926-1927) montrent que l’ordre des nombres réels est un fait algébrique, puis Artin en tire la solution du dix-septième problème de Hilbert. La théorie des corps réels clos sera le point de départ de la géométrie algébrique réelle et, par Tarski, de l’élimination des quantificateurs.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Dans les nombres réels, les carrés sont positifs, donc −1 ne peut pas être une somme de carrés ; Artin et Schreier retournent l’observation en définition : un corps où −1 n’est pas somme de carrés est « formellement réel », et c’est précisément la propriété algébrique qui permet de l’ordonner. L’ordre n’est plus une donnée extérieure, il se lit dans l’algèbre du corps.',
+            sources: ['kleiner-abstract-algebra', 'corry-structures'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Si un corps est ordonnable, une somme de carrés nulle force chaque terme à être nul, et −1 n’est pas somme de carrés : le corps est formellement réel. La réciproque se construit : dans un corps formellement réel, l’ensemble des sommes de carrés est un « pré-ordre », qu’un argument de maximalité (lemme de Zorn) étend en un cône P vérifiant P ∪ −P = K, lequel définit un ordre total compatible avec les opérations.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un corps réel clos — formellement réel, mais aucune extension algébrique propre ne l’est — partage avec ℝ les propriétés visibles : tout élément positif y est un carré et tout polynôme de degré impair y a une racine ; tout corps ordonné admet une telle clôture réelle, unique à isomorphisme près, dont l’ordre prolonge le sien.',
+            sources: ['kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour le dix-septième problème de Hilbert : soit f une fraction rationnelle à n variables sur ℝ, non somme de carrés. Alors −f n’appartient pas au cône des sommes de carrés du corps ℝ(x₁, …, xₙ), et l’on peut ordonner ce corps en rendant f négatif : il existe des éléments de sa clôture réelle, algébriques sur ℝ, où f est strictement négatif.',
+            sources: ['kleiner-abstract-algebra', 'gray-hilbert-challenge'],
+          },
+          {
+            kind: 'fait',
+            text: 'Ces éléments, finis en nombre et algébriques, sont représentés dans ℝ même par une spécialisation convenable : f prend une valeur négative sur ℝⁿ. Par contraposée, une fraction rationnelle positive en tout point est une somme de carrés de fractions rationnelles — la réponse positive au problème posé par Hilbert en 1900.',
+            sources: ['kleiner-abstract-algebra', 'gray-hilbert-challenge'],
+          },
+        ],
       },
       {
         id: 'moderne-algebra',
@@ -377,6 +522,40 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute algèbre simple centrale sur un corps de nombres est cyclique, c’est-à-dire construite à partir d’une extension cyclique et d’un élément du corps de base ; elle est déterminée par ses « invariants locaux » en chaque place.',
         comment: 'Publié dans le Journal de Crelle en 1932 et dédié à Hensel, le théorème est le point de rencontre de l’algèbre non commutative de Noether, de la théorie des corps de classes et du principe local-global de Hasse. Il décrit le groupe de Brauer d’un corps de nombres et permet la reformulation cohomologique de la théorie des corps de classes.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur les réels, les quaternions de Hamilton sont la seule algèbre à division non commutative, et ils sont « cycliques » : engendrés par l’extension ℂ/ℝ (les i) et par un élément j dont la conjugaison réalise la conjugaison complexe. Le théorème affirme que sur un corps de nombres, toute algèbre simple centrale admet un tel modèle — et qu’elle est entièrement connue par ce qu’elle devient sur chaque complété.',
+            sources: ['cassels-frohlich', 'kleiner-abstract-algebra'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Toute algèbre simple centrale sur un corps K est, par le théorème de structure de Wedderburn, une algèbre de matrices sur une algèbre à division D de centre K ; à équivalence de matrices près, ces algèbres forment le groupe de Brauer de K.',
+            sources: ['cassels-frohlich', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une telle algèbre contient un sous-corps maximal L, galoisien sur K ; la conjugaison interne y induit le groupe de Galois de L sur K (théorème de Skolem–Noether : tout automorphisme est intérieur), et l’algèbre se décrit alors par un « système de facteurs » : le produit croisé de Galois.',
+            sources: ['cassels-frohlich', 'kleiner-abstract-algebra'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur un corps local (p-adique ou réel), Hasse calcule le groupe de Brauer : toute algèbre à division y contient une extension non ramifiée maximale, et sa classe est repérée par un « invariant » — une fraction modulo 1. Le groupe de Brauer local est ainsi le groupe ℚ/ℤ.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le point dur est global : une algèbre simple centrale sur un corps de nombres qui devient un produit de matrices sur chaque complété en est déjà un, et ses invariants locaux, presque tous nuls, ont une somme nulle. Cette suite exacte, équivalente à la loi de réciprocité de la théorie du corps de classes, est le « théorème principal » de l’article.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il existe alors, par les théorèmes d’existence de la théorie du corps de classes, une extension cyclique L de K réalisant les invariants prescrits : le produit croisé correspondant est un modèle cyclique de l’algèbre, qui est donc bien « cyclique », comme l’annonçait l’énoncé de Noether.',
+            sources: ['cassels-frohlich', 'dick-noether'],
+          },
+        ],
       },
       {
         id: 'dimension-de-krull',
@@ -657,6 +836,18 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Les coefficients τ(n) de la forme modulaire Δ sont multiplicatifs et, pour tout nombre premier p, |τ(p)| ne dépasse pas 2·p^(11/2).',
         comment: 'Formulée dans les Transactions of the Cambridge Philosophical Society (1916). La multiplicativité est démontrée par Mordell dès 1917, l’inégalité seulement par Deligne en 1974, comme conséquence de sa preuve des conjectures de Weil. La conjecture relie ainsi, à travers le siècle, Cambridge, la géométrie algébrique et le programme de Langlands.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Ramanujan lit ses conjectures sur les tables : les valeurs de τ(n), coefficients de Δ = q∏(1 − qⁿ)²⁴, qu’il calcule pour n ≤ 30 environ, montrent la multiplicativité τ(mn) = τ(m)τ(n) dès que m et n sont premiers entre eux, et |τ(p)| reste toujours en dessous de 2·p^(11/2). Il voit aussi que les τ(p) sont les traces d’une « structure » cachée : τ(p^(r+1)) = τ(p)τ(pʳ) − p¹¹τ(p^(r−1)).',
+            sources: ['kanigel-ramanujan', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Mordell démontre la multiplicativité et la récurrence en 1917 en exhibant les opérateurs que Hecke généralisera vingt ans plus tard : τ est la fonction propre d’une famille d’opérateurs sur les formes modulaires. L’inégalité, elle, équivaut à une « hypothèse de Riemann » pour les variétés : elle ne tombe qu’en 1974, quand Deligne l’obtient comme conséquence des conjectures de Weil.',
+            sources: ['gowers-companion', 'dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
       {
         id: 'methode-du-cercle',
@@ -705,6 +896,40 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le nombre p(n) de façons d’écrire n comme somme d’entiers positifs croît comme e^(π√(2n/3)) divisé par 4n√3 ; une série de termes correctifs permet même de calculer p(n) exactement en arrondissant.',
         comment: 'Publiée dans les Proceedings of the London Mathematical Society, la formule confirme les tables de MacMahon jusqu’à p(200) et révèle une précision inattendue. Rademacher la transforme en 1937 en série convergente exacte. C’est le premier succès de la méthode du cercle et l’origine de la théorie analytique des formes modulaires.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les tables de MacMahon donnent p(200) = 3 972 999 029 388 : une croissance plus qu’exponentielle mais sous-factorielle. Hardy et Ramanujan devinent qu’elle est gouvernée par la plus forte singularité de la série génératrice ∏ 1/(1 − xⁿ), en x = 1 ; près de ce point, la transformation modulaire de la fonction η de Dedekind — que Ramanujan connaissait par les équations modulaires des fonctions elliptiques — fournit l’exponentielle e^(π√(2n/3)).',
+            sources: ['kanigel-ramanujan', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'La surprise est la précision : les premiers termes de la série asymptotique approchent p(200) à moins d’un demi près, ce qui permet de retrouver la valeur exacte par arrondi. C’est cette constatation numérique qui convainc Hardy et Ramanujan que leur analyse touche à une formule exacte, et non à une simple asymptotique.',
+            sources: ['kanigel-ramanujan'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le coefficient p(n) de la série génératrice F(q) = ∏ 1/(1 − qⁿ) s’écrit, par la formule de Cauchy, comme l’intégrale de F(q)/q^(n+1) sur un cercle de rayon inférieur à 1 : le problème est devenue l’évaluation d’une intégrale.',
+            sources: ['gowers-companion', 'kanigel-ramanujan'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les singularités de F s’accumulent en toutes les racines de l’unité ; on découpe le cercle en « arcs majeurs », voisins des rationnels p/q à petit dénominateur, et en « arcs mineurs ». La transformation modulaire donne, près de chaque racine p/q, l’asymptotique exacte de F : chaque arc majeur contribue un terme explicite.',
+            sources: ['gowers-companion', 'kanigel-ramanujan'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’arc dominant est celui de q = 1 : il fournit le terme principal e^(π√(2n/3))/(4n√3). Les arcs mineurs sont majorés — partie la plus délicate du mémoire, où Hardy et Ramanujan doivent contrôler la série loin de ses singularités ; leur contribution totale est négligeable devant le terme principal.',
+            sources: ['gowers-companion', 'kanigel-ramanujan'],
+          },
+          {
+            kind: 'fait',
+            text: 'En retenant les arcs des plus petits q, on obtient une série asymptotique dont les termes décroissent d’abord : tronquée au bon rang, elle approche p(n) à moins de 0,5, d’où la valeur exacte par arrondi — le premier exemple de « formule arrondie » de l’histoire. Rademacher montrera en 1937 qu’en modifiant les fonctions sommées, la série converge vers p(n) lui-même.',
+            sources: ['gowers-companion', 'kanigel-ramanujan'],
+          },
+        ],
       },
       {
         id: 'theorie-du-corps-de-classes',
@@ -736,6 +961,40 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Le modèle est le théorème de Kronecker–Weber : toute extension abélienne de ℚ vit dans un corps cyclotomique, et un premier p s’y décompose selon sa classe modulo le conducteur — la loi de réciprocité quadratique en est le premier cas, où la décomposition de p dans ℚ(√ℓ) se lit sur la classe de p modulo le discriminant du corps. Takagi généralise : les premiers qui se décomposent complètement caractérisent l’extension, et ils forment un groupe de classes.',
+            sources: ['cassels-frohlich', 'weil-number-theory'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour un « module » m de K (un idéal assorti de conditions sur les plongements réels), on définit le groupe des classes de rayon : les idéaux fractionnaires premiers à m, quotientés par ceux engendrés par un élément congru à 1 modulo m — généralisation des groupes (ℤ/mℤ)*.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Théorème d’existence : à chaque sous-groupe de ce groupe de classes correspond une unique extension abélienne L de K, son « corps de classes », dont le conducteur divise m. Takagi l’établit en toute généralité en 1920, en s’appuyant sur le cas du corps de classes absolu déjà traité par Furtwängler.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Théorème d’isomorphisme : le groupe de Galois de L sur K est isomorphe au groupe de classes correspondant ; en particulier, le degré de l’extension égale l’indice du sous-groupe. Artin précisera en 1927 que l’isomorphisme envoie un idéal premier non ramifié sur sa substitution de Frobenius.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Théorème de décomposition : les idéaux premiers de K qui se décomposent complètement dans L sont exactement ceux du sous-groupe de classes choisi — l’extension est déterminée par ses premiers décomposés, et toute extension abélienne est un corps de classes pour un conducteur convenable.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'La démonstration de Takagi procède par des inégalités : des dénombrements d’idéaux et d’unités (première et seconde inégalités du corps de classes) qui bornent les indices de part et d’autre jusqu’à les faire coïncider — une architecture que la cohomologie des groupes, après 1950, rendra plus transparente sans en changer le contenu.',
+            sources: ['cassels-frohlich', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'principe-local-global-de-hasse',
@@ -748,6 +1007,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une forme quadratique à coefficients rationnels possède un zéro rationnel non trivial si et seulement si elle en possède un dans les nombres réels et dans les nombres p-adiques pour tout nombre premier p.',
         comment: 'Issu de la thèse et de l’habilitation de Hasse à Marbourg (1921-1922), publié dans le Journal de Crelle en 1923-1924, le théorème réalise une suggestion de Hensel : ramener une question globale à une famille de questions locales. Minkowski avait traité le cas rationnel en termes de formes ; Hasse l’étend aux corps de nombres. Le « principe » échoue pour les cubiques (Selmer, 1951), et la mesure de cet échec devient un sujet en soi.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si une équation a une solution rationnelle, elle en a une réelle, et une modulo chaque puissance de nombre premier — autant de conditions nécessaires, indépendantes en apparence. Pour les formes quadratiques, la réciproque vaut : la solubilité « partout localement » suffit. Tester une équation devient alors une affaire de congruences et de signes, autrement dit de calcul.',
+            sources: ['cassels-frohlich', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le premier cas est la conique : le théorème de Legendre (1785) dit que ax² + by² + cz² = 0 a une solution rationnelle si et seulement si certaines conditions de signe et de congruences sont remplies — un énoncé déjà local-global, que Minkowski avait reformulé pour les formes quadratiques générales par des conditions de congruence.',
+            sources: ['weil-number-theory', 'cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur un corps p-adique, une forme quadratique se classifie par son discriminant et un invariant de Hasse, calculé à partir du « symbole de Hilbert » (a, b)ₚ = ±1 selon que ax² + by² = z² a ou non une solution p-adique ; l’isotropie de la forme s’y décide en un nombre fini de vérifications.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'La loi de réciprocité du symbole de Hilbert — le produit des (a, b)ₚ sur toutes les places, réelles comprises, vaut 1 — relie les conditions locales entre elles : elle est, Hasse l’a montré, une reformulation de la loi de réciprocité quadratique et de ses compléments.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'On raisonne alors par récurrence sur le nombre de variables : une forme isotrope en chaque place représente globalement les valeurs qu’elle représente localement, et un argument d’approximation forte (valeurs approchées simultanément en toutes les places) ramène le rang n au rang 3, où le résultat est celui de Legendre — la forme est isotrope sur ℚ.',
+            sources: ['cassels-frohlich'],
+          },
+        ],
       },
       {
         id: 'loi-de-reciprocite-d-artin',
@@ -760,6 +1048,40 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour une extension abélienne L d’un corps de nombres K, l’application qui envoie chaque idéal premier non ramifié sur sa substitution de Frobenius induit un isomorphisme entre un groupe de classes d’idéaux de K et le groupe de Galois de L sur K.',
         comment: 'Conjecturée par Artin en 1923, démontrée en 1927 grâce au théorème de densité de Tchebotariov (1926), la loi contient toutes les lois de réciprocité connues, de Gauss à Eisenstein, et répond au neuvième problème de Hilbert. Elle donne un sens aux fonctions L d’Artin et constitue, pour Langlands (1967), le cas abélien d’une correspondance beaucoup plus vaste.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La réciprocité quadratique dit que « p est un carré modulo ℓ » ne dépend que de la classe de p modulo le discriminant : le comportement d’un premier dans ℚ(√ℓ) est gouverné par un groupe de classes de premiers. Artin renverse la perspective — à chaque premier non ramifié il associe directement un élément du groupe de Galois, sa substitution de Frobenius ; que cette correspondance se factorise par les classes d’idéaux, voilà toutes les lois de réciprocité en une seule.',
+            sources: ['cassels-frohlich', 'goldstein-schappacher-schwermer'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour un idéal premier p de K non ramifié dans L, la substitution de Frobenius est l’unique élément σ du groupe de Galois qui vérifie σ(x) ≡ x^q modulo un premier de L au-dessus de p, où q est le nombre d’éléments du corps résiduel : elle code exactement la façon dont p se décompose.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'On étend la correspondance par multiplicativité : à tout idéal a de K premier au conducteur, on associe le produit des Frobenius de ses facteurs — le « symbole d’Artin » (L/K, a), élément du groupe de Galois, abélien par hypothèse.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le cœur de la loi : le symbole d’Artin d’un idéal principal (α), avec α congru à 1 modulo le conducteur, est trivial — l’application se factorise par le groupe des classes de rayon, dont le groupe de Galois est alors l’image.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Artin démontre la factorisation en 1927 en « croisant » L avec une extension cyclotomique auxiliaire, où le calcul de Frobenius est explicite : la méthode des corps croisés, inspirée du travail de densité de Tchebotariov, ramène le cas général à un cas cyclotomique.',
+            sources: ['cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour ℚ(√ℓ)/ℚ, le Frobenius de p est le symbole de Legendre (ℓ/p) : la factorisation par les classes modulo le discriminant redonne la loi de réciprocité de Gauss — et de même pour les puissances supérieures, l’exposant d’Eisenstein et les corps de classes de Takagi.',
+            sources: ['cassels-frohlich', 'goldstein-schappacher-schwermer'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-siegel',
@@ -772,6 +1094,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une courbe algébrique de genre au moins un, définie par une équation à coefficients entiers, n’a qu’un nombre fini de points à coordonnées entières.',
         comment: 'Publié dans les Abhandlungen de l’Académie de Prusse, le théorème combine l’approximation diophantienne de Thue (1909), améliorée par Siegel en 1921, et le théorème de Mordell–Weil. Il est le premier énoncé de finitude portant sur toute une classe de courbes ; la preuve est non effective, ce qui ouvre la question des bornes, traitée par Baker (1966). Faltings étendra la finitude aux points rationnels pour le genre ≥ 2 (1983).',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un point entier très « loin » sur une courbe force une fraction rationnelle à approcher trop bien un nombre algébrique : sur x³ − 2y³ = 1, par exemple, x/y tend vers la racine cubique de 2 avec une précision interdite par les théorèmes d’approximation. Thue (1909) avait tiré de là la finitude pour certaines équations ; Siegel en fait un principe général pour toute courbe de genre au moins un.',
+            sources: ['gowers-companion', 'cassels-frohlich'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On plonge la courbe dans sa jacobienne : par le théorème de Mordell–Weil (Mordell 1922 pour le genre un, Weil 1928 en général), ses points rationnels forment un groupe de type fini — tout point rationnel s’écrit à partir d’un nombre fini de générateurs.',
+            sources: ['gowers-companion', 'cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cette décomposition est une « descente » : les coordonnées d’un point entier grand s’expriment par des combinaisons de hauteurs des générateurs, et la croissance d’un point entier se traduit en une approximation rationnelle d’un nombre algébrique dont la qualité est prescrite par le genre.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le théorème de Thue–Siegel borne cette qualité : un nombre algébrique de degré d ne peut être approché par une fraction p/q au-delà d’une puissance de q bien moindre que ce qu’exige le point entier (Siegel avait abaissé l’exposant de Thue d’environ d/2 à environ 2√d).',
+            sources: ['gowers-companion', 'cassels-frohlich'],
+          },
+          {
+            kind: 'fait',
+            text: 'Contradiction : au-delà d’une certaine taille, plus de points entiers — la finitude est établie. Mais la preuve reste non effective : la borne du théorème d’approximation dépend d’une éventuelle solution exceptionnelle que l’argument n’exclut pas explicitement, ce qui laisse ouvert le calcul effectif des points entiers (Baker, 1966).',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-vinogradov',
@@ -802,6 +1153,35 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Près d’une fraction a/q à petit dénominateur, les nombres premiers se répartissent régulièrement entre les suites arithmétiques (Dirichlet) : la somme Σ e^(2πiap/q) sur les premiers se calcule et porte l’essentiel du terme principal. Loin de ces fractions, l’alternance de signes devait brouiller la somme — c’est exactement ce que Vinogradov parvient à quantifier sans aucune hypothèse non prouvée.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le nombre de représentations de N comme somme de trois premiers s’écrit ∫₀¹ S(α)³ e^(−2πiαN) dα, où S(α) = Σ e^(2πiαp) sommée sur les premiers p ≤ N : une variante de la méthode du cercle, qui travaille sur une somme trigonométrique finie plutôt que sur une série génératrice.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Sur les arcs majeurs — les α proches de a/q avec q petit —, la répartition des premiers dans les progressions arithmétiques donne S(α) ≈ (μ(q)/φ(q))·li(N) ; leur intégrale fournit le terme principal, une constante positive (la « série singulière ») multipliée par N²/2.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le pas décisif de Vinogradov est la majoration sur les arcs mineurs : il découpe la somme sur les premiers en sommes bilinéaires plus faciles à estimer (décomposition combinatoire de la fonction de Möbius ou de von Mangoldt), que des bornes de type Weyl contrôlent ; il obtient |S(α)| en O(N·(ln N)^(−c)) pour tout c.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'La contribution des arcs mineurs à l’intégrale est alors négligeable devant le terme principal : le nombre de représentations est équivalent à la série singulière fois N²/2, strictement positif pour tout N impair assez grand — trois premiers suffisent donc, sans l’hypothèse de Riemann généralisée.',
+            sources: ['gowers-companion'],
+          },
+        ],
       },
       {
         id: 'demonstration-elementaire-du-theoreme-des-nombres-premiers',
@@ -813,6 +1193,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Le nombre de nombres premiers inférieurs à x est équivalent à x/ln x, et cela peut se démontrer sans analyse complexe, à partir d’une formule asymptotique « élémentaire » sur les logarithmes des nombres premiers.',
         comment: 'Hardy jugeait en 1921 une telle preuve improbable et de nature à bouleverser la théorie. La formule de Selberg (1948) et l’argument d’Erdős la fournissent en 1949, dans deux articles séparés. Elle n’a pas remplacé la méthode analytique, qui donne de meilleurs termes d’erreur, mais elle a nourri la méthode du crible et l’idée que l’analyse complexe n’est pas constitutive du résultat.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La preuve analytique de 1896 repose sur l’absence de zéro de la fonction ζ sur la droite Re(s) = 1 : tout le mystère du théorème y semblait logé. Selberg montre qu’une identité entièrement réelle — sa formule asymptotique Σ (ln p)² + Σ ln p ln q = 2x ln x + O(x) — contient déjà l’essentiel de l’information, et Erdős démontre qu’on peut en tirer le théorème par un raisonnement élémentaire.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Selberg établit en 1948, par des moyens de crible élémentaires, la formule asymptotique Σ (ln p)² + Σ ln p ln q = 2x ln x + O(x), où la première somme porte sur les premiers p ≤ x et la seconde sur les produits de deux premiers pq ≤ x.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Réécrite en fonction de ψ(x) = Σ ln p (somme sur les puissances de premiers), la formule relie les valeurs de ψ en x et en x/n pour les petits n : elle dit que la moyenne de ψ « se ressemble » à toutes les échelles — un principe de régularité taubérien.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’argument d’Erdős, que Selberg indépendamment perfectionne, montre que ψ(x)/x ne peut s’écarter durablement de 1 : une région où le rapport resterait au-dessus ou en dessous propagerait une contradiction dans la formule de Selberg — c’est la partie combinatoire délicate de la preuve, mais qui n’utilise ni analyse complexe ni fonction ζ.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+          {
+            kind: 'fait',
+            text: 'Il en résulte ψ(x) ∼ x, et l’équivalence classique donne π(x) ∼ x/ln x : le théorème des nombres premiers est démontré par des voies élémentaires, cinquante-trois ans après Hadamard et de La Vallée Poussin.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
       {
         id: 'formule-des-traces-de-selberg',
@@ -825,6 +1234,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Pour une surface obtenue en quotientant le plan hyperbolique par un groupe discret, la somme d’une fonction test sur les valeurs propres du laplacien est égale à une somme sur les longueurs des géodésiques fermées : le spectre « entend » la géométrie.',
         comment: 'Publiée dans le Journal of the Indian Mathematical Society, la formule est l’analogue non commutatif de la formule de Poisson et des formules explicites de Riemann ; Selberg en tire une fonction zêta qui vérifie l’hypothèse de Riemann. Elle est devenue, avec Langlands et Arthur, l’outil principal de la théorie des formes automorphes et relie arithmétique, géométrie et physique du chaos quantique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Sur le cercle ℝ/ℤ, la formule de Poisson échange la somme d’une fonction aux entiers contre la somme de sa transformée de Fourier aux entiers : le spectre (les fréquences) et la géométrie (les translations) se répondent. Selberg transpose cette dualité au quotient du plan hyperbolique par un groupe discret : les fréquences sont les valeurs propres du laplacien, les translations les géodésiques fermées.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’un opérateur d’intégration sur le plan hyperbolique, donné par un noyau radial k — fonction de la distance hyperbolique — et on l’« enroule » sur la surface quotient en sommant sur le groupe discret Γ : le résultat est un opérateur à trace sur la surface.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'D’un côté, la trace de cet opérateur se calcule sur une base de fonctions propres du laplacien : c’est une somme ĥ(λⱼ) sur le spectre — le côté « analytique » de la formule.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'De l’autre, la trace s’exprime comme une somme sur les classes de conjugaison de Γ ; chaque classe non triviale correspond à une géodésique fermée dont la longueur est le déplacement de l’élément : la somme devient géométrique — le côté « spectral » relie spectre et longueurs.',
+            sources: ['gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’égalité des deux calculs est la formule des traces ; en y injectant une fonction test localisée, Selberg en tire la fonction zêta qui porte son nom — un produit sur les géodésiques fermées dont les zéros sont les λⱼ, tous réels et ≥ 0 : ici, l’analogue de l’hypothèse de Riemann est un théorème.',
+            sources: ['gowers-companion', 'mactutor'],
+          },
+        ],
       },
     ],
     sources: ['gowers-companion', 'cassels-frohlich', 'kanigel-ramanujan', 'hardy-apology', 'goldstein-schappacher-schwermer', 'gray-hilbert-challenge', 'mactutor'],
@@ -1085,6 +1523,18 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En dimension 2, l’analogue est visible : sur une surface compacte, tout lacet qui ne peut pas être contracté en un point signale une anse, et une surface sans anse est une sphère. En dimension 3, l’homologie seule ne suffit pas — la sphère d’homologie de Poincaré (1904), obtenue en identifiant les faces opposées d’un dodécaèdre, a les nombres de Betti de S³ mais un groupe fondamental à 120 éléments, le groupe icosaédrique.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le groupe fondamental étant le seul invariant qui distingue ce contre-exemple de la sphère, la question devient : détecte-t-il aussi la sphère ? Les cas supérieurs tomberont avant le sien — Smale en dimension au moins 5 (1961), Freedman en dimension 4 (1982) — et Perelman en achèvera la démonstration en 2003 par le flot de Ricci, preuve qui relève de la géométrisation de Thurston.',
+            sources: ['dieudonne-topology', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-du-point-fixe-de-brouwer',
@@ -1096,6 +1546,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute application continue d’une boule fermée de l’espace euclidien dans elle-même possède un point fixe.',
         comment: 'Publié dans les Mathematische Annalen (1911), le théorème est l’archétype du résultat d’existence sans construction : il démontre qu’un point fixe existe sans jamais le donner, ce que Brouwer, devenu intuitionniste, récusera lui-même. Hadamard (1910) en avait donné une preuve voisine ; Schauder l’étend en 1930 aux espaces de dimension infinie, où il sert aux équations différentielles.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En dimension 1, l’énoncé est le théorème des valeurs intermédiaires : une fonction continue de [0, 1] dans lui-même croise la diagonale. En dimension supérieure, s’il n’y avait aucun point fixe, on pourrait pousser chaque point x le long de la flèche de f(x) vers x jusqu’au bord : on rétracterait alors la boule sur sa sphère — un disque ne peut pas être enroulé en entier sur son cercle.',
+            sources: ['james-history-topology', 'dieudonne-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Supposons f continue de la boule fermée Bⁿ dans elle-même sans point fixe : pour tout x, la demi-droite issue de f(x) passant par x recoupe la sphère bord en un point r(x) ; r est continue, et c’est une rétraction — l’identité sur la sphère.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Brouwer vient de construire (1911) le degré d’une application continue : par approximation simpliciale, le nombre de préimages d’un point générique, comptées avec orientation, ne dépend que de la classe d’homotopie de l’application.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La restriction de r au bord est l’identité de la sphère, de degré 1 ; mais cette restriction se prolonge à la boule entière — c’est r lui-même — or une application de la sphère qui s’étend à la boule se contracte en une application constante, de degré 0 : l’identité vaudrait à la fois 1 et 0.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La contradiction établit le point fixe ; l’argument vaut aussi bien pour tout compact convexe, qui est homéomorphe à une boule. Dans le langage ultérieur de l’homologie : en degré n − 1, l’homologie de la sphère vaut ℤ, celle de la boule est nulle — l’identité de ℤ ne peut se factoriser par 0.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'invariance-de-la-dimension',
@@ -1131,6 +1610,35 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['james-history-topology', 'mactutor'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une courbe continue peut remplir un carré (Peano, 1890), mais elle ne peut pas le recouvrir de façon bicontinue : localement, un point de la droite sépare son voisinage en deux, un point du plan non. L’idée est que la dimension se lit dans les recouvrements — dans ℝⁿ, des ensembles assez petits recouvrant un cube se rencontrent au plus n + 1 à la fois.',
+            sources: ['james-history-topology', 'ferreiros-labyrinth'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'L’énoncé clé est l’invariance du domaine : l’image d’un ouvert de ℝⁿ par une application continue injective est encore un ouvert. Si un homéomorphisme existait entre ℝᵐ et ℝⁿ avec m < n, ℝᵐ vu comme sous-espace de ℝⁿ en fournirait un dont l’image resterait dans un hyperplan — jamais ouverte.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Brouwer prouve l’invariance du domaine avec les outils de son mémoire de 1911 : approximation simpliciale et degré d’une application, dont il montre qu’il se lit localement — une application injective a un degré local non nul.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Un degré local non nul force la surjectivité sur un voisinage : si l’image d’une application évitait un point intérieur, on pourrait la déformer pour l’écarter d’un simplex entier sans toucher le bord, et le degré tomberait à zéro. Une injection continue envoie donc tout point intérieur sur un point intérieur.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’invariance de la dimension suit aussitôt : un homéomorphisme entre espaces euclidiens de dimensions différentes donnerait, en plongeant la plus petite dans la plus grande, un ouvert contenu dans un sous-espace — contradiction. Lebesgue (1911) en donnera une démonstration différente par la théorie des recouvrements.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'espaces-topologiques-de-hausdorff',
@@ -1154,6 +1662,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Dans un espace normal, deux fermés disjoints sont séparés par une fonction continue à valeurs dans [0, 1] ; un espace normal dont les ouverts sont engendrés par une famille dénombrable est métrisable.',
         comment: 'Publié à titre posthume dans les Fundamenta Mathematicae (1925), le lemme fait le pont entre les axiomes topologiques et l’existence de fonctions continues ; il implique la métrisabilité des variétés topologiques et le théorème d’extension de Tietze. C’est l’outil de base de la topologie générale du XXᵉ siècle.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une fonction continue à valeurs dans [0, 1] qui vaut 0 sur un fermé A et 1 sur un fermé B disjoint, c’est une « coupure » continue entre A et B — l’exact analogue topologique des coupures de Dedekind. La construire revient à dessiner ses lignes de niveau : on a besoin d’une famille d’ouverts emboîtés, indexée par les nombres dyadiques, dont chaque fermeture reste dans le suivant.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Axiome de normalité : deux fermés disjoints possèdent des voisinages ouverts disjoints. On en tire que tout fermé contenu dans un ouvert est aussi contenu dans un ouvert intermédiaire dont la fermeture reste dans le premier — c’est la brique de l’emboîtement.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'On construit par récurrence sur les dyadiques r de [0, 1] des ouverts U(r) contenant A et évitant B, avec fermeture de U(r) incluse dans U(s) dès que r < s : à chaque nouvel indice intercalé, on applique l’insertion normale entre les deux niveaux voisins déjà placés.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'On définit alors f(x) comme la borne inférieure des indices r tels que x appartient à U(r) — la même idée qu’une fonction de répartition. Les images réciproques des intervalles ouverts s’écrivent comme réunions d’ouverts U(r) et de complémentaires de fermetures, donc sont ouvertes : f est continue, nulle sur A, égale à 1 sur B.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La métrisabilité s’en déduit : dans un espace normal à base dénombrable, chaque couple (fermeture d’un ouvert de base, ouvert de base le contenant) fournit une fonction de séparation ; cette famille dénombrable de fonctions sépare points et fermés, et plonge l’espace dans le cube de Hilbert [0, 1] puissance entiers, qui est métrisable.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'formule-des-points-fixes-de-lefschetz',
@@ -1165,6 +1702,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'À une application continue d’un polyèdre compact dans lui-même, on associe la somme alternée des traces de l’action sur les groupes d’homologie ; si ce nombre est non nul, l’application possède un point fixe.',
         comment: 'Annoncée en 1923 et démontrée en 1926, la formule unifie le théorème de Brouwer, la formule d’Euler–Poincaré et le comptage des points fixes. Elle donne une valeur numérique à l’obstruction et sera reformulée par Weil (1949) pour les variétés sur les corps finis, au cœur de ses conjectures.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Un point fixe de f, c’est une intersection du graphe de f avec la diagonale dans le produit X × X. Compter ces intersections algébriquement donne un nombre invariant par déformation ; homologiquement, ce nombre se lit comme une somme alternée de traces — comme la caractéristique d’Euler, qui en est le cas particulier de l’identité.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On déforme f en une application dont les points fixes sont finis et « génériques » : par approximation simpliciale sur une triangulation suffisamment fine, chaque point fixe isolé reçoit un indice, le degré local de la déformation x ↦ f(x) autour du point.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La somme des indices, nombre algébrique de points fixes, est un invariant d’homotopie : les indices locaux de Brouwer se comportent comme le degré global — une déformation de f ne peut que faire naître ou disparaître des paires de points fixes d’indices opposés.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lefschetz calcule ce nombre homologiquement : le graphe de f et la diagonale sont deux cycles du produit X × X, et leur nombre d’intersection se décompose, par la formule de Künneth, en somme alternée des traces de f sur les groupes d’homologie de X.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La formule s’ensuit : si le nombre de Lefschetz Λ(f) est non nul, le graphe rencontre nécessairement la diagonale — il existe un point fixe. Pour l’identité, Λ est la caractéristique d’Euler–Poincaré ; pour la boule, seule l’homologie en degré 0 contribue, Λ = 1, et l’on retrouve le théorème de Brouwer.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'polynome-d-alexander',
@@ -1187,6 +1753,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'La sphère de dimension 3 se décompose en cercles deux à deux enlacés, paramétrés par une sphère de dimension 2 ; l’application correspondante de S³ sur S² n’est homotope à aucune application constante.',
         comment: 'Publiée dans les Mathematische Annalen (1931), la fibration démontre qu’il existe des applications de sphère en sphère non réductibles au degré de Brouwer. Elle ouvre l’homotopie supérieure : le groupe π₃(S²) est infini, contre l’attente générale.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'On écrit S³ comme l’ensemble des couples de nombres complexes (z₁, z₂) avec |z₁|² + |z₂|² = 1 ; le rapport z₁/z₂ vit sur la sphère de Riemann S². Deux points donnent le même rapport exactement quand ils diffèrent d’une phase : chaque fibre est un cercle, et deux cercles-fibres quelconques sont enlacés une fois.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'L’application h : S³ → S², qui à (z₁, z₂) associe la droite complexe [z₁ : z₂] de l’espace projectif, a pour fibre au-dessus de chaque point l’orbite du cercle unité agissant par multiplication de phase : les fibres sont des cercles deux à deux disjoints.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'S³ se découpe en deux tores pleins recollés le long de leur bord ; au-dessus de chaque hémisphère de S², les fibres sont les cercles parallèles d’un tore — deux fibres quelconques ont un nombre d’enlacement égal à 1.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Hopf définit un invariant : pour une application f de S³ dans S², les préimages de deux points réguliers sont des cercles dont le nombre d’enlacement H(f) ne dépend pas du choix des points ni de la déformation de f — c’est un invariant d’homotopie.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour une application constante, les préimages sont vides et H = 0 ; pour la fibration de Hopf, H = 1. L’application h n’est donc homotope à aucune constante : π₃(S²) est non nul — on montrera plus tard qu’il est infini cyclique, engendré par h.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'groupes-d-homotopie',
@@ -1228,6 +1823,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute variété différentiable de dimension n se plonge comme sous-variété de l’espace euclidien de dimension 2n.',
         comment: 'Publié dans les Annals of Mathematics (1936, borne 2n + 1 affinée en 2n en 1944), le théorème délivre les variétés de leur définition abstraite : elles sont réalisables dans un espace euclidien. Il fonde la topologie différentielle, dont Milnor et Smale feront le domaine central des années 1950-1960.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une variété compacte se recouvre par un nombre fini de cartes : chaque carte fournit des coordonnées locales, et une partition de l’unité permet de les assembler en un plongement dans un très grand espace euclidien. Le reste du travail consiste à réduire la dimension ambiante en projetant, sans créer d’auto-intersections ni de tangences dégénérées.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Dans le cas compact, M est recouverte par un nombre fini de cartes ; à l’aide d’une partition de l’unité subordonnée, on assemble les coordonnées de toutes les cartes en une application injective à dérivée injective dans un ℝ^N de dimension finie, somme des dimensions des cartes : un plongement existe déjà, pour N assez grand (le cas non compact demande une énumération soigneuse des cartes).',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour abaisser N, on projette le long d’une direction v : la projection crée un point double seulement si v est parallèle à une sécante de M, et cesse d’être immersive seulement si v est parallèle à une tangente — ces « mauvaises » directions forment une image de M × M et de l’espace tangent, de dimension au plus 2n.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Tant que N > 2n + 1, les mauvaises directions ne remplissent pas la sphère des directions : il existe une direction générique le long de laquelle projeter sans défaut. Par itération, on descend jusqu’à un plongement dans ℝ^{2n+1}.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le gain de la dernière dimension, vers ℝ^{2n}, demande en 1944 un argument plus fin : les points doubles d’une immersion générique dans ℝ^{2n} se comptent avec un signe, et deux points doubles de signes opposés s’annulent par une isotopie le long d’un disque — le « truc de Whitney », qui resservira dans la preuve du h-cobordisme de Smale.',
+            sources: ['dieudonne-topology', 'james-history-topology'],
+          },
+        ],
       },
       {
         id: 'classes-caracteristiques',
@@ -1418,6 +2042,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une surface algébrique est birationnellement équivalente au plan projectif si et seulement si son genre arithmétique et son bigenre sont tous deux nuls.',
         comment: 'Annoncé en 1894 et complété dans les mémoires suivants, le critère achève pour les surfaces le problème de rationalité ouvert par la géométrie des courbes. Il montre que la rationalité se lit sur des invariants numériques, principe que toute la classification d’Enriques généralisera.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour les courbes, le genre nul caractérise déjà la rationalité : une courbe de genre 0 est une conique. Pour une surface, un seul genre ne suffit pas — il faut aussi tuer les formes pluricanoniques : sur une surface rationnelle, aucune forme différentielle double ne survit, d’où la condition sur le bigenre.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La nécessité vient de l’invariance birationnelle : le genre arithmétique et les plurigenres (dimensions des espaces de formes canoniques itérées) ne changent ni par éclatement ni par contraction, et sur le plan projectif ils sont tous nuls.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour la suffisance, Castelnuovo itère les systèmes adjoints : à partir d’une courbe du système canonique, l’adjonction répétée fait décroître le genre virtuel ; la nullité du bigenre force le procédé à s’arrêter sur une courbe rationnelle — la surface porte donc un système linéaire de courbes rationnelles.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une surface balayée par un pinceau de courbes rationnelles est birationnellement réglée au-dessus d’une courbe de base ; la nullité du genre arithmétique entraîne celle de l’irrégularité, donc la base est elle-même rationnelle.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une surface réglée sur une base rationnelle a pour corps de fonctions le corps des fractions rationnelles en deux variables : le corps de la surface est extension quadratique de C(t), qui possède un point rationnel — d’où une paramétrisation birationnelle par le plan projectif.',
+            sources: ['dieudonne-geometrie-algebrique', 'gray-platos-ghost'],
+          },
+        ],
       },
       {
         id: 'classification-des-surfaces-algebriques',
@@ -1429,6 +2082,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'À transformation birationnelle près, toute surface algébrique appartient à l’une de grandes classes repérées par ses genres pluriels : surfaces rationnelles et réglées, surfaces K3 et d’Enriques, surfaces abéliennes et hyperelliptiques, et surfaces de « type général ».',
         comment: 'Couronné par le mémoire de 1914 aux Rendiconti de Bologne, le tableau d’Enriques fait pour les surfaces ce que le genre faisait pour les courbes. La démonstration italienne est reprise et complétée par Zariski, Mumford, puis Bombieri et Mumford en caractéristique positive (1969-1976) ; le schéma de classification vit toujours, étendu par le programme du modèle minimal.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour les courbes, un seul invariant — le genre — organise tout : genre 0 rationnelle, genre 1 elliptique, genre ≥ 2 de type général. Pour les surfaces, les plurigenres jouent le rôle du genre : c’est la croissance des espaces de formes canoniques itérées qui sépare les grandes classes.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Les plurigenres P_n sont des invariants birationnels : classer les surfaces revient à ordonner les cas selon la croissance de la suite des P_n — c’est ce que l’on appellera plus tard la dimension de Kodaira.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si le bigenre P_2 est nul, le critère de Castelnuovo et la théorie des systèmes adjoints montrent que la surface est réglée au-dessus d’une courbe, ou rationnelle : c’est le premier versant du tableau.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si les plurigenres restent bornés sans s’annuler, les surfaces se rangent en classes rigides : surfaces à fibré canonique trivial (K3 et abéliennes), surfaces d’Enriques (deux fois le canonique trivial) et surfaces hyperelliptiques, quotients finis des abéliennes ; s’y ajoutent les surfaces à fibration elliptique, dont Enriques donne le modèle canonique.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Enfin, si les plurigenres croissent quadratiquement, le système pluricanonique est assez riche pour donner un modèle birationnel canonique : les surfaces de « type général » forment la classe résiduelle, la plus vaste, et Enriques lit le cas échéant sur le seul plurigenre P_12.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-lefschetz-sur-les-sections-hyperplanes',
@@ -1440,6 +2122,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'L’homologie d’une variété projective lisse de dimension n est entièrement déterminée, jusqu’au rang n − 1, par celle d’une section hyperplane générique : en petites dimensions, « tout se passe déjà sur la section ».',
         comment: 'Démontré dans L’Analysis situs et la géométrie algébrique (Gauthier-Villars, 1924) par l’étude des pinceaux de sections et de leurs points singuliers, le théorème ramène la topologie des variétés projectives à celle des courbes. Refondu par la théorie de Morse et les faisceaux, il est devenu le « théorème de Lefschetz difficile » au cœur de la preuve de Deligne des conjectures de Weil.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’idée est celle d’une découpe progressive : pour connaître une variété projective, on la tranche par un hyperplan mobile. Tant que la section reste générique elle ne change pas de topologie ; toute l’information nouvelle se concentre aux instants où l’hyperplan devient tangent — le théorème dit qu’elle n’apparaît qu’en grande dimension.',
+            sources: ['dieudonne-geometrie-algebrique', 'james-history-topology'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On prend un pinceau de sections hyperplanes passant par un axe générique : toutes les sections sont lisses, sauf un nombre fini d’entre elles qui acquièrent un unique point double ordinaire — le « pinceau de Lefschetz ».',
+            sources: ['dieudonne-geometrie-algebrique', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'La variété éclatée le long de l’axe est fibrée au-dessus de la droite projective : en dehors des valeurs critiques, les sections forment un espace fibré localement trivial ; tourner autour d’une valeur critique déforme les cycles par les transformations de Picard–Lefschetz, chacune attachée à un « cycle évanescent » qui se pince au point singulier.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Lefschetz montre alors que l’on reconstruit la variété à partir d’une section en n’ajoutant que des cellules de dimension supérieure ou égale à la dimension complexe de la variété : en dessous de cette dimension, aucune homologie nouvelle n’apparaît — d’où l’isomorphisme jusqu’au rang n − 2 et la surjection au rang n − 1.',
+            sources: ['dieudonne-geometrie-algebrique', 'james-history-topology'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par itération sur les sections, la topologie en degré < n − 1 d’une variété de dimension n se lit entièrement sur une courbe section : c’est ainsi que Lefschetz calcule les nombres de Betti des hypersurfaces. Les preuves modernes remplacent le pinceau par la théorie de Morse ou la cohomologie des faisceaux.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+        ],
       },
       {
         id: 'algebraic-surfaces',
@@ -1533,6 +2244,35 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les points d’une courbe rationnels sur le corps à qⁿ éléments sont les points fixes de la puissance n-ième du Frobenius : le comptage prend la forme qⁿ + 1 − Σαᵢⁿ, où les 2g nombres αᵢ jouent le rôle des valeurs propres du Frobenius sur la première homologie. Dire que les zéros de la zêta sont sur la droite 1/2, c’est dire que tous les αᵢ ont module √q.',
+            sources: ['dieudonne-geometrie-algebrique', 'weil-apprentissage'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'F. K. Schmidt (1931) a déjà établi la rationalité de la fonction zêta : elle s’écrit P(t)/((1 − t)(1 − qt)) avec P de degré 2g ; le nombre de points sur le corps à qⁿ éléments vaut qⁿ + 1 − Σαᵢⁿ, où les αᵢ sont les inverses des racines de P.',
+            sources: ['dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Weil transpose la géométrie au carré C × C : le graphe du Frobenius et la diagonale sont des diviseurs (correspondances), et le nombre de points fixes est leur nombre d’intersection. C’est pour donner un sens précis à cette intersection en caractéristique p qu’il écrit les Foundations.',
+            sources: ['weil-apprentissage', 'dieudonne-geometrie-algebrique'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le cœur de la preuve est une inégalité de positivité : sur l’espace des correspondances, la forme d’intersection restreinte au complément des deux axes est définie négative — l’« inégalité de Castelnuovo–Severi », que Weil démontre rigoureusement ; elle exprime qu’une correspondance ayant trop de points fixes serait trop proche de la diagonale.',
+            sources: ['dieudonne-geometrie-algebrique', 'weil-apprentissage'],
+          },
+          {
+            kind: 'fait',
+            text: 'Appliquée à la puissance n-ième du Frobenius, l’inégalité donne |Σαᵢⁿ| ≤ 2g q^{n/2} pour tout n ; cela force |αᵢ| ≤ √q, et l’équation fonctionnelle de la zêta, qui échange α et q/α, fournit l’inégalité inverse : |αᵢ| = √q, c’est-à-dire les zéros sur la droite de partie réelle 1/2.',
+            sources: ['dieudonne-geometrie-algebrique', 'weil-apprentissage'],
+          },
+        ],
       },
       {
         id: 'conjectures-de-weil',
@@ -1569,6 +2309,18 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['dieudonne-geometrie-algebrique', 'jackson-grothendieck'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'L’article de 1949 vérifie tout sur les hypersurfaces « diagonales » a₀x₀ⁿ + … + aᵣxᵣⁿ = b : le comptage des points par sommes de Gauss donne une fonction zêta rationnelle, avec équation fonctionnelle, et des racines toutes de module une puissance demi-entière de q — le modèle exact de ce qui est conjecturé en général.',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’idée directrice est celle déjà victorieuse pour les courbes : les points rationnels sur le corps à qⁿ éléments sont les points fixes de la puissance n-ième du Frobenius ; une formule des points fixes de Lefschetz appliquée à Fⁿ donnerait #Fix = Σ(−1)ⁱ tr(Fⁿ | Hⁱ) — il « suffirait » d’une cohomologie des variétés sur corps finis pour que rationalité, équation fonctionnelle (dualité), hypothèse de Riemann et nombres de Betti tombent ensemble.',
+            sources: ['dieudonne-geometrie-algebrique', 'weil-apprentissage'],
+          },
+        ],
       },
       {
         id: 'conjecture-de-hodge',
@@ -1580,6 +2332,18 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'conjecture',
         statement: 'Sur une variété projective complexe lisse, toute classe de cohomologie rationnelle de type (p, p) est une combinaison de classes portées par des sous-variétés algébriques.',
         comment: 'Annoncée au congrès international de Cambridge (Massachusetts) en 1950, la conjecture relie la topologie (cohomologie) à l’algèbre (sous-variétés). Hodge lui-même corrigea sa première formulation (Atiyah et Hirzebruch exhiberont des contre-exemples à la version entière). Elle figure parmi les problèmes du millénaire et reste ouverte.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une sous-variété algébrique de codimension complexe p porte une classe de cohomologie de type (p, p) : son intégration ne voit que les formes de ce type. La conjecture demande la réciproque — toute classe rationnelle de type (p, p) provient-elle, à combinaison linéaire près, de sous-variétés algébriques ?',
+            sources: ['dieudonne-geometrie-algebrique', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le cas p = 1 est déjà un théorème : Lefschetz a montré que les classes entières de type (1, 1) sont exactement les classes des diviseurs — c’est le modèle de l’énoncé général. En degrés supérieurs, les classes de torsion fournissent des contre-exemples à la version entière (Atiyah–Hirzebruch), ce qui impose les coefficients rationnels.',
+            sources: ['dieudonne-geometrie-algebrique', 'james-history-topology'],
+          },
+        ],
       },
     ],
     sources: ['dieudonne-geometrie-algebrique', 'parikh-zariski', 'weil-apprentissage', 'gray-platos-ghost', 'gowers-companion', 'mactutor'],
@@ -1827,6 +2591,35 @@ export const STRUCTURES_A: Domain[] = [
             sources: ['gowers-companion'],
           },
         ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une équation intégrale est un système linéaire à infinité de paramètres : la variable continue joue le rôle d’un indice, le noyau celui d’une matrice. L’idée de Fredholm est de discrétiser — résoudre les systèmes finis par les formules de Cramer, puis passer à la limite sur les déterminants.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On remplace l’intégrale par une somme de Riemann : l’équation devient un système linéaire de n équations, dont le déterminant D_n(λ) s’exprime comme polynôme en λ ; à la limite, D_n converge vers une fonction entière D(λ), le déterminant de Fredholm, qui joue le rôle du polynôme caractéristique.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si D(λ) ≠ 0, les formules de Cramer passent à la limite : les mineurs convergent vers des fonctions de deux variables formant une résolvante explicite, et l’équation admet une solution unique pour tout second membre g.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'Si D(λ) = 0, λ est un zéro d’ordre fini d’une fonction entière : l’équation homogène possède alors un nombre fini de solutions indépendantes — le noyau est de dimension finie, comme pour une matrice.',
+            sources: ['dieudonne-functional-analysis', 'kline-thought'],
+          },
+          {
+            kind: 'fait',
+            text: 'La condition de résolubilité se lit sur l’équation transposée, obtenue en échangeant les variables du noyau : l’équation a une solution si et seulement si g est orthogonale à toutes les solutions de l’homogène transposée — exactement l’alternative de l’algèbre linéaire finie.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+        ],
       },
       {
         id: 'lecons-sur-l-integration',
@@ -1860,6 +2653,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'L’espace des fonctions de carré sommable est complet : toute suite de Cauchy de telles fonctions converge en moyenne quadratique ; en particulier, il est isomorphe à l’espace des suites de carré sommable.',
         comment: 'Démontré indépendamment par Riesz et par Fischer en 1907, le théorème répond à une question de séries de Fourier et donne le premier exemple d’espace de fonctions « complet ». Il identifie les objets de l’analyse concrète et de l’algèbre des suites, identité que l’axiomatisation des espaces de Hilbert prendra pour définition.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'La distance en moyenne quadratique donne aux fonctions une géométrie euclidienne en dimension infinie ; il manquait seulement l’analogue de la complétude de la droite réelle. C’est l’intégrale de Lebesgue qui la fournit : ses théorèmes de passage à la limite font que les suites de Cauchy atteignent leur limite à l’intérieur de l’espace.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On part d’une suite de Cauchy (f_n) en moyenne quadratique : par extraction, on obtient une sous-suite dont les écarts successifs sont majorés par les termes d’une série convergente — le procédé diagonal de Riesz.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La série des écarts converge en norme ; par le théorème de convergence monotone de Lebesgue appliqué aux valeurs absolues, elle converge aussi presque partout : la sous-suite tend vers une fonction limite finie presque partout.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le lemme de Fatou donne que la limite est de carré sommable et que la sous-suite converge vers elle en norme ; une suite de Cauchy dont une sous-suite converge est convergente — l’espace est complet.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Corollaire pour les séries orthogonales (forme de Fischer) : si les coefficients sont de carré sommable, les sommes partielles forment une suite de Cauchy, donc définissent une fonction dont ce sont les coefficients de Fourier — l’espace des fonctions de carré sommable et l’espace des suites de carré sommable sont isométriques.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-representation-de-riesz',
@@ -1871,6 +2693,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute forme linéaire continue sur les fonctions continues d’un intervalle s’écrit comme une intégrale par rapport à une fonction à variation bornée ; de même, sur un espace de Hilbert, toute forme linéaire continue est un produit scalaire avec un vecteur fixe.',
         comment: 'Le cas des fonctions continues (1909) est l’acte de naissance de la mesure de Radon ; la version hilbertienne (Riesz et Fréchet, 1907-1910) identifie un espace de Hilbert à son dual. Le théorème fait de la dualité la notion centrale de l’analyse fonctionnelle et fonde la définition faible des solutions d’EDP.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Une forme linéaire continue est déterminée par très peu de données : sur les fonctions continues, sa valeur sur les fonctions en escalier suffit — elle se résume en une « masse » répartie sur l’intervalle, c’est-à-dire une intégrale de Stieltjes ; sur un espace de Hilbert, son noyau est un hyperplan et la direction orthogonale porte toute la forme.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Cas hilbertien : le noyau d’une forme linéaire continue ℓ non nulle est un hyperplan fermé ; on choisit un vecteur g unitaire orthogonal à ce noyau — possible car l’orthogonal d’un sous-espace fermé n’est pas réduit à zéro.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour tout vecteur x, x − (ℓ(x)/ℓ(g)) g appartient au noyau ; en écrivant qu’il est orthogonal à g, on obtient ℓ(x) = ⟨x, ℓ(g) g⟩ : la forme est le produit scalaire avec le vecteur fixe ℓ(g) g, représentation unique dont la norme égale celle de ℓ.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Cas des fonctions continues : on approche une forme linéaire continue ℓ sur ses valeurs aux indicatrices d’intervalles [a, t] ; ces valeurs définissent une fonction α(t), et la continuité de ℓ force α à être à variation bornée.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Toute fonction continue est limite uniforme de fonctions en escalier ; la continuité de ℓ donne alors ℓ(f) = ∫ f dα, l’intégrale de Stieltjes, et la fonction α est unique à ses points de continuité.',
+            sources: ['dieudonne-functional-analysis', 'hairer-wanner-analysis'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-hahn-banach',
@@ -1882,6 +2733,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute forme linéaire continue définie sur un sous-espace d’un espace normé se prolonge à l’espace entier sans augmenter sa norme ; en particulier, il existe toujours des hyperplans séparant deux convexes disjoints.',
         comment: 'Démontré par Hahn (1927) puis Banach (1929) dans des versions de plus en plus générales, le théorème garantit l’abondance des formes linéaires continues, condition d’existence d’une théorie de la dualité. Sa preuve repose sur un lemme de prolongement par induction transfinie ; ses applications vont des moments au théorème de Krein–Milman.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour prolonger une forme linéaire d’une seule dimension, il n’y a qu’un nombre à choisir : la valeur sur le nouveau vecteur. La condition de continuité impose que ce choix tombe dans un intervalle — le théorème affirme que cet intervalle n’est jamais vide, et l’induction transfinie épuise ensuite l’espace.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Lemme de prolongement unidimensionnel : pour définir la valeur c d’une forme majorée par une fonction sous-linéaire p en un nouveau point x₀, il faut sup_y [ℓ(y) − p(y − x₀)] ≤ c ≤ inf_z [p(z + x₀) − ℓ(z)] ; la sous-additivité de p garantit que la borne de gauche ne dépasse pas celle de droite.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’intervalle des choix admissibles est donc non vide : la forme se prolonge au sous-espace engendré par un vecteur de plus, en conservant la même majoration — le cas normé suit en prenant p proportionnel à la norme.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'L’ensemble des prolongements ordonné par inclusion est inductif : toute chaîne admet pour borne la réunion de ses formes. Le lemme de Zorn — l’« induction transfinie » de Hahn — fournit un prolongement maximal, nécessairement défini sur tout l’espace.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Conséquences immédiates : on sépare un point d’un sous-espace fermé par une forme nulle sur l’un et non nulle sur l’autre ; en prenant pour p la jauge de Minkowski d’un convexe, on obtient la séparation des convexes par un hyperplan — la forme géométrique du théorème.',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-banach-steinhaus',
@@ -1893,6 +2773,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Une famille d’opérateurs linéaires continus sur un espace de Banach, bornée en chaque point, est uniformément bornée ; si une suite d’opérateurs ne converge pas, elle diverge sur un ensemble de fonctions qui est « générique » au sens de Baire.',
         comment: 'Publié dans les Fundamenta Mathematicae (1927), le principe de la borne uniforme replace la théorie des catégories de Baire au centre de l’analyse ; il donne d’un coup l’existence de fonctions continues dont la série de Fourier diverge sur un ensemble dense, et des exemples de divergence de l’interpolation.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Si une famille d’opérateurs explosait quelque part sans être globalement explosive, l’ensemble des points où elle reste sagement bornée serait une réunion de fermés d’intérieur vide. Le théorème de Baire interdit exactement cela dans un espace complet : un tel espace n’est pas réunion dénombrable d’ensembles rares.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Pour chaque entier m, on considère l’ensemble des points x où toutes les normes ‖T_n x‖ restent ≤ m : c’est une intersection de fermés, donc un fermé ; l’hypothèse « bornée en chaque point » dit que ces fermés recouvrent l’espace.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Baire : un espace métrique complet ne peut être réunion dénombrable de fermés d’intérieur vide. L’un des fermés contient donc une boule B(x₀, r) entière.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Pour tout h de norme < r, T_n(x₀ + h) est borné par m, donc ‖T_n h‖ ≤ 2m pour tous les n à la fois : les opérateurs sont uniformément bornés, de norme majorée par 2m/r.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'Par contraposition — la « condensation des singularités » : si les normes des T_n ne sont pas uniformément bornées, l’ensemble des x où elles explosent est une intersection d’ouverts denses, donc un ensemble générique ; c’est le mécanisme qui produit les fonctions continues à série de Fourier divergente.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+        ],
       },
       {
         id: 'espaces-de-hilbert-abstraits',
@@ -2166,6 +3075,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Les fréquences propres d’un tambour de forme quelconque se répartissent asymptotiquement selon son aire : le nombre de valeurs propres du laplacien inférieures à λ croît comme l’aire multipliée par λ, divisée par 4π.',
         comment: 'Conjecturée par le physicien Lorentz au congrès de Göttingen de 1910, la loi est démontrée par Weyl en 1911 par les méthodes de la théorie des équations intégrales de Hilbert. Elle fonde la géométrie spectrale : « peut-on entendre la forme d’un tambour ? » (Kac, 1966) en est la question emblématique.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Pour un tambour rectangulaire, les fréquences propres s’écrivent explicitement π²(m²/a² + n²/b²) : compter les valeurs propres sous un seuil, c’est compter les points d’un réseau dans un quart d’ellipse — un problème dont Gauss savait que la réponse principale est l’aire de l’ellipse, qui ne dépend que de l’aire du tambour.',
+            sources: ['hairer-wanner-analysis', 'reid-courant'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Le calcul direct est possible sur un rectangle : les fonctions propres sont des produits de sinus, et le décompte des valeurs propres se ramène au problème des points d’un réseau — le nombre cherché vaut l’aire du quart d’ellipse, soit l’aire du rectangle multipliée par λ/4π, à un reste de bord près.',
+            sources: ['reid-courant', 'hairer-wanner-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La caractérisation variationnelle des valeurs propres (max-min du quotient de Rayleigh, héritée de la théorie de Hilbert) permet de comparer les spectres de deux domaines : élargir le domaine ou relâcher la condition au bord ne peut que faire baisser les valeurs propres.',
+            sources: ['dieudonne-functional-analysis', 'reid-courant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Weyl encadre le domaine quelconque par des pavages de petits carrés : le domaine intérieur formé des carrés inclus donne une borne par en dessous, la réunion des carrés rencontrant le bord une borne par au dessus — les deux ont la même loi asymptotique, et l’écart relatif tend vers zéro quand les carrés raffinent.',
+            sources: ['reid-courant', 'dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le terme principal est donc universel : ne subsistent dans le reste que des termes liés au bord. La question de leur signification — le périmètre entre dans le second terme — ouvrira la géométrie spectrale et le problème de Kac.',
+            sources: ['reid-courant', 'gowers-companion'],
+          },
+        ],
       },
       {
         id: 'theoreme-de-noether',
@@ -2195,6 +3133,40 @@ export const STRUCTURES_A: Domain[] = [
             kind: 'interpretation',
             text: 'Avec les théories de jauge du XXᵉ siècle, le théorème devient une méthode de découverte : on postule une symétrie et l’on en déduit la quantité conservée, la conservation de la charge électrique se lisant ainsi comme conséquence d’une invariance de jauge.',
             sources: ['gowers-companion'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Les lois de conservation connues — énergie, quantité de mouvement, moment cinétique — étaient jusque-là des constats épars de la mécanique. Noether montre qu’elles ont une cause unique : si la valeur de l’intégrale d’action ne change pas quand on déforme continûment les variables, la variation se concentre en un « courant » dont la divergence s’annule sur les solutions.',
+            sources: ['gray-hilbert-challenge', 'dick-noether'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On écrit le principe variationnel : les lois du mouvement ou du champ rendent stationnaire une intégrale du lagrangien ; une symétrie continue est une famille à un paramètre de transformations des coordonnées et des champs qui laisse cette intégrale invariante.',
+            sources: ['dick-noether', 'gray-hilbert-challenge'],
+          },
+          {
+            kind: 'fait',
+            text: 'On dérive l’invariance au paramètre nul : la variation de l’intégrale s’exprime, sur les coordonnées et les dérivées des champs, comme l’intégrale d’une expression qui doit être nulle pour toute région — donc dont l’intégrand est une divergence.',
+            sources: ['dick-noether'],
+          },
+          {
+            kind: 'fait',
+            text: 'Les équations d’Euler–Lagrange permettent de remplacer les dérivées du lagrangien par rapport aux champs par des dérivées totales : l’intégrand se réorganise en la divergence d’un « courant » explicite, combinaison des quantités de mouvement conjuguées et du lagrangien.',
+            sources: ['dick-noether', 'gray-hilbert-challenge'],
+          },
+          {
+            kind: 'fait',
+            text: 'Une divergence nulle s’intègre en une conservation : le flux du courant à travers toute frontière fermée est nul, donc la charge associée est constante dans le temps. Translation dans le temps donne l’énergie, translation dans l’espace la quantité de mouvement, rotation le moment cinétique.',
+            sources: ['dick-noether', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Le second théorème traite les symétries dépendant de fonctions arbitraires, comme les changements de coordonnées de la relativité générale : les équations d’Euler–Lagrange vérifient alors des identités automatiques — les « identités de Noether » — et les lois de conservation s’y affaiblissent en relations de dépendance, réponse directe au problème de Hilbert.',
+            sources: ['gray-hilbert-challenge', 'dick-noether'],
           },
         ],
       },
@@ -2229,6 +3201,35 @@ export const STRUCTURES_A: Domain[] = [
         kind: 'theoreme',
         statement: 'Toute application continue d’un convexe compact d’un espace de Banach dans lui-même possède un point fixe.',
         comment: 'Publié dans les Studia Mathematica (1930), le théorème étend celui de Brouwer à la dimension infinie, où la compacité doit être demandée explicitement. Il fournit des théorèmes d’existence pour les équations différentielles non linéaires sans résoudre quoi que ce soit : c’est l’outil de base de Leray (1934) et de toute l’analyse non linéaire.',
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'En dimension infinie, la boule unité n’est pas compacte et le théorème de Brouwer y tombe en défaut. Mais un convexe compact d’un espace de Banach est « presque » de dimension finie : on peut l’approcher par des polytopes, où Brouwer s’applique, puis passer à la limite.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'La compacité de l’ensemble convexe K signifie que pour tout ε, un nombre fini de points de K forme un ε-réseau ; l’enveloppe convexe de ces points est un polytope de dimension finie contenu dans K.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'On projette f sur le polytope : à l’aide d’une partition de l’unité attachée au réseau, on construit une application f_ε à valeurs dans le polytope, qui approche f uniformément à ε près.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'Brouwer s’applique à f_ε restreinte au polytope : il existe x_ε dans K avec f_ε(x_ε) = x_ε, donc un point presque fixe pour f, à moins de ε.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+          {
+            kind: 'fait',
+            text: 'La compacité permet d’extraire une sous-suite convergente des x_ε quand ε tend vers 0 ; par continuité de f, la limite x vérifie f(x) = x : le point fixe est obtenu sans jamais construire de solution.',
+            sources: ['dieudonne-functional-analysis', 'kaluza-banach'],
+          },
+        ],
       },
       {
         id: 'probleme-de-plateau',
@@ -2256,6 +3257,35 @@ export const STRUCTURES_A: Domain[] = [
           {
             kind: 'fait',
             text: 'Courant reprend et simplifie la méthode de Douglas dans Dirichlet’s Principle, Conformal Mapping, and Minimal Surfaces (1950). Les questions de régularité et de topologie quelconque conduisent ensuite à la théorie géométrique de la mesure : courants de Federer et Fleming et travaux de Reifenberg (1960).',
+            sources: ['reid-courant', 'gowers-companion'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'Minimiser l’aire parmi toutes les surfaces bute sur un obstacle : l’ensemble des surfaces n’a pas de topologie commode pour extraire une limite. Douglas contourne la difficulté en minimisant sur les paramétrisations du disque — en paramétrisation conforme, l’aire coïncide avec l’énergie de Dirichlet, une fonctionnelle que le principe de Dirichlet réhabilité par Hilbert sait minimiser.',
+            sources: ['reid-courant', 'gray-hilbert-challenge'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'On représente les surfaces candidates comme images du disque unité, avec application du bord monotone sur le contour donné. Une inégalité classique borne l’aire par l’énergie de Dirichlet de la paramétrisation, avec égalité si et seulement si celle-ci est conforme — minimiser l’énergie résoudra donc le problème.',
+            sources: ['reid-courant', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'À paramétrisation du bord fixée, l’énergie de Dirichlet admet un minimiseur unique : le prolongement harmonique, donné par le principe de Dirichlet dont Hilbert a rétabli la rigueur (1900-1901). Il ne reste qu’à choisir la paramétrisation du bord.',
+            sources: ['gray-hilbert-challenge', 'reid-courant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Douglas définit alors une fonctionnelle qui ne dépend que de la correspondance au bord : la composition de la paramétrisation par le prolongement harmonique, suivie de l’énergie. Le lemme de Courant–Lebesgue fournit l’équicontinuité des suites minimisantes au bord — la compacité nécessaire à la méthode directe.',
+            sources: ['reid-courant', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'On extrait une paramétrisation du bord minimisante ; l’application harmonique associée est alors forcée par la condition de minimalité d’être conforme en dehors de points de branchement isolés : harmonique et conforme, elle donne une surface d’aire minimale s’appuyant sur le contour.',
             sources: ['reid-courant', 'gowers-companion'],
           },
         ],
@@ -2287,6 +3317,40 @@ export const STRUCTURES_A: Domain[] = [
           {
             kind: 'interpretation',
             text: 'La démarche de Leray (estimations a priori, compacité, passage à la limite faible) devient le schéma standard des preuves d’existence pour les EDP non linéaires, que Jacques-Louis Lions systématise dans Quelques méthodes de résolution des problèmes aux limites non linéaires (1969).',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+        ],
+        intuition: [
+          {
+            kind: 'fait',
+            text: 'On ne sait pas démontrer qu’une solution lisse existe pour tout temps : le terme non linéaire peut en principe concentrer l’énergie et créer une singularité. Leray contourne l’obstacle en affaiblissant la notion de solution — après intégration par parties contre un champ test, l’équation a un sens sans aucune dérivée de la vitesse, et la dissipation visqueuse fournit assez de compacité pour produire de telles solutions.',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+        ],
+        proof: [
+          {
+            kind: 'fait',
+            text: 'Formulation faible : on multiplie l’équation par un champ test régulier à divergence nulle et l’on intègre par parties — les dérivées passent sur le champ test, la pression disparaît, et l’identité obtenue a un sens pour tout champ de vitesses d’énergie finie : c’est la définition de solution « turbulente » de Leray.',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'Estimation d’énergie a priori : multipliée formellement par la vitesse elle-même, l’équation donne le bilan d’énergie — l’énergie cinétique décroît à un taux mesuré par la viscosité ; ce contrôle uniforme borne la solution dans les espaces adéquats pour tout temps.',
+            sources: ['dieudonne-functional-analysis', 'gowers-companion'],
+          },
+          {
+            kind: 'fait',
+            text: 'On construit des solutions approchées en régularisant le terme non linéaire par convolution (Leray) ou en tronquant l’espace (Galerkin) : pour ces systèmes lissés, l’existence globale suit du bilan d’énergie, valable uniformément pour tous les paramètres d’approximation.',
+            sources: ['dieudonne-functional-analysis', 'reid-courant'],
+          },
+          {
+            kind: 'fait',
+            text: 'Compacité : l’estimation d’énergie uniforme permet d’extraire une sous-suite faiblement convergente ; un contrôle séparé de la dérivée en temps donne la convergence forte en norme L², suffisante pour passer à la limite dans le terme non linéaire.',
+            sources: ['dieudonne-functional-analysis'],
+          },
+          {
+            kind: 'fait',
+            text: 'La limite vérifie la formulation faible pour tout temps et l’inégalité d’énergie : une solution turbulente existe pour toute donnée initiale. Régularité et unicité échappent en dimension trois — Leray montre seulement que les instants de singularité éventuelle forment un ensemble de mesure nulle.',
             sources: ['dieudonne-functional-analysis', 'gowers-companion'],
           },
         ],
