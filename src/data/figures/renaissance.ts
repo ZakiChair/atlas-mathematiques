@@ -1039,15 +1039,6 @@ export const FIGURES_RENAISSANCE: Record<string, Mathematician[]> = {
       mactutor: 'Ward_Seth',
       sources: ['mactutor'],
     },
-    {
-      id: 'reyneau',
-      name: 'Charles René Reyneau',
-      years: [1656, 1728],
-      origin: 'Angers et Paris',
-      bio: 'Oratorien du cercle de Malebranche, professeur de mathématiques à Angers (1682-1705), Reyneau se forme au calcul nouveau auprès de Varignon ; son Analyse démontrée (1708) enseigne l’analyse et le calcul différentiel, et sert de manuel à d’Alembert.',
-      mactutor: 'Reyneau',
-      sources: ['mactutor'],
-    },
   ],
   'naissance-des-probabilites': [
     {

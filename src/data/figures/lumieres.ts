@@ -326,16 +326,6 @@ export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
     {
-      id: 'craig',
-      name: 'John Craig',
-      years: [1663, 1731],
-      origin: 'Hoddom (Écosse) et Cambridge',
-      bio: 'Premier à employer en Grande-Bretagne les notations de Leibniz (dy/dx, ∫), Craig applique dans les Theologiae Christianae Principia Mathematica (1699) le calcul des probabilités à la décroissance du témoignage, forme précoce de probabilité inverse.',
-      theoryId: 'pcl-probabilite-inverse',
-      mactutor: 'Craig',
-      sources: ['mactutor'],
-    },
-    {
       id: 'saunderson',
       name: 'Nicholas Saunderson',
       years: [1682, 1739],
