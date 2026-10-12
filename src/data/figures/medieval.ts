@@ -450,6 +450,27 @@ export const FIGURES_MEDIEVAL: Record<string, Mathematician[]> = {
   ],
   'logique-scolastique': [
     {
+      id: 'robert-grosseteste',
+      name: 'Robert Grosseteste',
+      years: [1168, 1253],
+      origin: 'Oxford et Lincoln',
+      bio: 'Chancelier d’Oxford puis évêque de Lincoln, Grosseteste commente les Seconds Analytiques d’Aristote ; convaincu qu’une théorie s’éprouve par l’expérience de ses conséquences, il applique la géométrie à la lumière dans le De luce et forme Roger Bacon.',
+      theoryId: 'ls-syllogistique-et-consequences',
+      mactutor: 'Grosseteste',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'albert-le-grand',
+      name: 'Albert le Grand',
+      years: [1200, 1280],
+      yearsApprox: true,
+      origin: 'Paris et Cologne',
+      bio: 'Dominicain enseignant à Paris puis à Cologne, maître de Thomas d’Aquin, Albert le Grand commente l’intégralité d’Aristote — logique comprise — et les livres I à IV des Éléments d’après les traductions de Boèce et d’Adélard de Bath, avant Campanus.',
+      theoryId: 'ls-syllogistique-et-consequences',
+      mactutor: 'Albertus',
+      sources: ['mactutor'],
+    },
+    {
       id: 'raymond-lulle',
       name: 'Raymond Lulle',
       years: [1235, 1316],
