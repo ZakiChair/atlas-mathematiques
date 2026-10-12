@@ -167,6 +167,7 @@ export const STRUCTURES_A: Domain[] = [
           ],
           headlineResultIds: ['theoreme-de-noether', 'idealtheorie-in-ringbereichen', 'theoreme-de-brauer-hasse-noether'],
         },
+        mactutor: 'Noether_Emmy',
       },
       {
         id: 'artin',
@@ -749,6 +750,7 @@ export const STRUCTURES_A: Domain[] = [
           ],
           headlineResultIds: ['formule-asymptotique-des-partitions', 'conjecture-de-ramanujan', 'lettre-de-ramanujan-a-hardy'],
         },
+        mactutor: 'Ramanujan',
       },
       {
         id: 'hecke',
@@ -1402,6 +1404,7 @@ export const STRUCTURES_A: Domain[] = [
           ],
           headlineResultIds: ['analysis-situs', 'conjecture-de-poincare', 'sur-le-probleme-des-trois-corps'],
         },
+        mactutor: 'Poincare',
       },
       {
         id: 'hausdorff',
