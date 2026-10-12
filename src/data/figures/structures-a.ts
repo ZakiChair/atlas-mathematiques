@@ -830,6 +830,16 @@ export const FIGURES_STRUCTURES_A: Record<string, Mathematician[]> = {
       mactutor: 'Orlicz',
       sources: ['mactutor'],
     },
+    {
+      id: 'hellinger',
+      name: 'Ernst Hellinger',
+      years: [1883, 1950],
+      origin: 'Göttingen et Francfort',
+      bio: 'Docteur de Göttingen (1907), il y introduit l’« intégrale de Hellinger » et fonde avec Hilbert la théorie des formes quadratiques en une infinité de variables ; sa théorie spectrale des formes de Jacobi précède l’âge des opérateurs quantiques.',
+      theoryId: 'af-espaces-abstraits',
+      mactutor: 'Hellinger',
+      sources: ['mactutor'],
+    },
   ],
   'edp-et-physique-mathematique': [
     {
