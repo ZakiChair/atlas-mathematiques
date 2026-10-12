@@ -637,6 +637,26 @@ export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
       sources: ['mactutor'],
     },
   ],
+  'theorie-des-nombres-lumieres': [
+    {
+      id: 'bezout',
+      name: 'Étienne Bézout',
+      years: [1730, 1783],
+      origin: 'Nemours et Paris',
+      bio: 'Examinateur des Gardes de la Marine puis du corps d’artillerie, Bézout rédige les manuels qui forment des générations d’officiers ; sa Théorie générale des équations algébriques (1779) fonde la théorie de l’élimination, dont découle le « théorème de Bézout ».',
+      mactutor: 'Bezout',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'benjamin-franklin',
+      name: 'Benjamin Franklin',
+      years: [1706, 1790],
+      origin: 'Boston et Philadelphie',
+      bio: 'Homme d’État et physicien américain, Franklin compose dans le sillage de Stifel et de Frénicle des carrés magiques d’un type nouveau, dit « carré magique de Franklin », ainsi que des cercles magiques ; certains n’ont été publiés que deux siècles après sa mort.',
+      mactutor: 'Franklin_Benjamin',
+      sources: ['mactutor'],
+    },
+  ],
   'querelle-des-infiniment-petits': [
     {
       id: 'carre',
