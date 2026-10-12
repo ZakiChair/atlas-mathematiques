@@ -147,6 +147,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Sansepolcro et Venise',
         bio: 'Franciscain formé dans les écoles d’abaque et auprès de Piero della Francesca, Pacioli enseigne à Pérouse, Rome, Naples et Milan, où il est l’ami de Léonard de Vinci. Sa Summa (1494) rassemble l’arithmétique, l’algèbre et la géométrie pratique de son temps et expose la comptabilité en partie double ; il y juge la cubique aussi inaccessible que la quadrature du cercle.',
         theoryId: 'ar-arithmetique-marchande',
+        mactutor: 'Pacioli',
       },
       {
         id: 'del-ferro',
@@ -155,6 +156,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bologne',
         bio: 'Professeur d’arithmétique et de géométrie à l’université de Bologne de 1496 à sa mort, del Ferro est le premier à résoudre l’équation x³ + px = q. Il ne publie rien et transmet sa règle à son gendre Annibale della Nave et à son élève Antonio Maria Fior.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        mactutor: 'Ferro',
       },
       {
         id: 'tartaglia',
@@ -164,6 +166,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Brescia et Venise',
         bio: 'Blessé au visage lors du sac de Brescia en 1512, d’où son surnom (« le Bègue »), Tartaglia enseigne les mathématiques à Vérone puis à Venise. Il retrouve la résolution de la cubique en 1535, publie la Nova scientia sur la balistique (1537), la première traduction italienne des Éléments (1543) et une édition d’Archimède, et mène contre Cardan et Ferrari une querelle de priorité restée célèbre.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        mactutor: 'Tartaglia',
       },
       {
         id: 'cardan',
@@ -172,6 +175,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Pavie et Milan',
         bio: 'Médecin, astrologue, joueur et polygraphe, Cardan enseigne les mathématiques à Milan puis la médecine à Pavie et à Bologne. L’Ars magna (1545) expose la résolution générale des équations du troisième et du quatrième degré ; son Liber de ludo aleae, écrit vers 1564 et publié en 1663, est le premier traité de calcul des chances.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        mactutor: 'Cardan',
         featured: {
           signature: { kind: 'fait', text: 'Publie la résolution générale des équations du 3ᵉ et du 4ᵉ degré (Ars magna, 1545).', sources: ['cardano-ars-magna', 'stedall-from-cardano'] },
           contributions: [
@@ -206,6 +210,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bologne',
         bio: 'Entré au service de Cardan à quatorze ans comme domestique, Ferrari devient son élève puis son collaborateur. Il résout l’équation du quatrième degré vers 1540 en la ramenant à une cubique, défend son maître dans six cartelli contre Tartaglia (1547-1548) et obtient une chaire à Bologne peu avant sa mort.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        mactutor: 'Ferrari',
       },
       {
         id: 'bombelli',
@@ -214,6 +219,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bologne',
         bio: 'Ingénieur hydraulicien chargé de l’assèchement des marais du Val di Chiana, Bombelli rédige son Algebra pendant les interruptions du chantier. Il y établit les règles de calcul sur les quantités « più di meno » et « meno di meno » (nos ±i) et montre que le cas irréductible de la cubique conduit à des racines réelles ; sa lecture d’un manuscrit de Diophante au Vatican l’amène à réécrire une partie de l’ouvrage.',
         theoryId: 'ar-equations-cubiques-et-quartiques',
+        mactutor: 'Bombelli',
       },
       {
         id: 'viete',
@@ -222,6 +228,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Fontenay-le-Comte et Paris',
         bio: 'Avocat, conseiller au parlement de Bretagne puis maître des requêtes et déchiffreur des rois Henri III et Henri IV, Viète consacre ses loisirs à une « analyse » qu’il veut restituer aux Anciens. L’Isagoge (1591) introduit le calcul littéral ; ses traités sur les équations, publiés pour partie après sa mort, relient racines et coefficients et préparent Fermat et Descartes.',
         theoryId: 'ar-analyse-litterale',
+        mactutor: 'Viete',
         featured: {
           signature: { kind: 'fait', text: 'Introduit le calcul littéral : des lettres pour les inconnues et pour les données.', sources: ['stedall-from-cardano', 'katz-history'] },
           contributions: [
@@ -626,6 +633,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bourg-en-Bresse',
         bio: 'Lettré et poète, membre de l’Académie française, Bachet publie en 1621 l’édition gréco-latine des Arithmétiques de Diophante, avec commentaires, et les Problèmes plaisants et délectables (1612). Son édition est l’exemplaire que Fermat annote.',
         theoryId: 'tnf-lecture-de-diophante',
+        mactutor: 'Bachet',
       },
       {
         id: 'mersenne',
@@ -634,6 +642,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Paris',
         bio: 'Religieux minime, Mersenne anime depuis Paris la correspondance savante de l’Europe. Dans la préface des Cogitata physico-mathematica (1644), il dresse la liste des exposants p pour lesquels 2^p − 1 serait premier ; les nombres de Mersenne portent son nom.',
         theoryId: 'tnf-nombres-premiers',
+        mactutor: 'Mersenne',
       },
       {
         id: 'fermat',
@@ -642,6 +651,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Toulouse',
         bio: 'Conseiller au parlement de Toulouse, Fermat refonde l’arithmétique des entiers à partir de Diophante et de Viète. Il énonce par lettres le petit théorème, le théorème des deux carrés et la conjecture qui deviendra son « dernier théorème », et met au point la descente infinie. La date de naissance traditionnelle (1601) est discutée ; certains historiens proposent 1607.',
         theoryId: 'tnf-descente-infinie',
+        mactutor: 'Fermat',
         featured: {
           signature: { kind: 'interpretation', text: 'Refonde l’arithmétique des entiers : petit théorème, descente infinie, dernier théorème.', sources: ['weil-number-theory', 'mahoney-fermat'] },
           contributions: [
@@ -677,6 +687,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Paris',
         bio: 'Conseiller à la Cour des monnaies et calculateur hors pair, Frénicle est le correspondant arithmétique privilégié de Fermat : c’est à lui qu’est adressée la lettre du 18 octobre 1640 contenant le petit théorème. Il résout les défis de 1657 et publie un Traité des triangles rectangles en nombres.',
         theoryId: 'tnf-nombres-premiers',
+        mactutor: 'Frenicle_de_Bessy',
       },
     ],
     relatedMathematicianIds: ['pascal', 'wallis'],
@@ -1048,6 +1059,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Florence',
         bio: 'Humaniste, architecte et théoricien des arts, Alberti écrit le De pictura (1435) et le dédie, dans sa version italienne, à Brunelleschi. Il y donne la première description géométrique de la perspective à point de fuite, et son De statua propose de relever les statues par coordonnées angulaires.',
         theoryId: 'pc-perspective-lineaire',
+        mactutor: 'Alberti',
       },
       {
         id: 'piero-della-francesca',
@@ -1057,6 +1069,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Sansepolcro',
         bio: 'Peintre et mathématicien, Piero pousse la perspective jusqu’à la démonstration : le De prospectiva pingendi traite la construction de figures complexes par projections et rabattements. Il écrit aussi un abaque pour les marchands et un traité des cinq corps réguliers (Libellus de quinque corporibus regularibus).',
         theoryId: 'pc-perspective-lineaire',
+        mactutor: 'Francesca',
       },
       {
         id: 'regiomontanus',
@@ -1065,6 +1078,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Vienne et Nuremberg',
         bio: 'Johannes Müller, dit Regiomontanus, se forme à Vienne auprès de Peurbach, achève son Epitome de l’Almageste, puis installe à Nuremberg un atelier d’instruments et une presse scientifique. Son De triangulis omnimodis fait de la trigonométrie une branche autonome des mathématiques. Il meurt à Rome, appelé pour la réforme du calendrier.',
         theoryId: 'pc-trigonometrie-autonome',
+        mactutor: 'Regiomontanus',
       },
       {
         id: 'durer',
@@ -1073,6 +1087,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Nuremberg',
         bio: 'Peintre et graveur formé à l’italienne, Dürer publie en allemand le premier traité de géométrie destiné aux artisans du Nord : constructions de courbes (dont la spirale et l’épicycloïde), polyèdres dépliés, lettres au cordeau et appareils à viser pour la perspective. Il y consacre les mathématiques comme fondement de l’art.',
         theoryId: 'pc-perspective-lineaire',
+        mactutor: 'Durer',
       },
       {
         id: 'nunes',
@@ -1081,6 +1096,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Lisbonne et Coimbra',
         bio: 'Cosmographe-major du royaume de Portugal et professeur à Coimbra, Nunes étudie dans le Tratado da sphera (1537) la courbe à cap constant, qu’il décrit comme une spirale convergeant vers le pôle. Il écrit aussi un Libro de algebra (1567) et participe à la formation des pilotes portugais.',
         theoryId: 'pc-cartographie-mathematique',
+        mactutor: 'Nunes',
       },
       {
         id: 'mercator',
@@ -1089,6 +1105,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Louvain et Duisbourg',
         bio: 'Gérard de Cremer, dit Mercator, graveur, instrumentiste et cartographe, s’établit à Duisbourg après un procès pour hérésie à Louvain. Sa mappemonde de 1569, « nouvelle et augmentée pour l’usage des navigateurs », représente les loxodromies par des droites ; c’est lui qui introduit le mot « atlas » pour un recueil de cartes (1595).',
         theoryId: 'pc-cartographie-mathematique',
+        mactutor: 'Mercator_Gerardus',
       },
     ],
     results: [
@@ -1344,6 +1361,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'La Haye en Touraine, Provinces-Unies',
         bio: 'Philosophe et géomètre, Descartes vit aux Provinces-Unies de 1628 à 1649. La Géométrie (1637), appendice du Discours de la méthode, fait de l’algèbre l’instrument universel de la construction des courbes et propose une classification qui dépasse les Anciens. Il meurt à Stockholm, au service de la reine Christine.',
         theoryId: 'gan-courbes-et-equations',
+        mactutor: 'Descartes',
         featured: {
           signature: { kind: 'fait', text: 'Fait de l’algèbre l’instrument de la géométrie : La Géométrie (1637).', sources: ['bos-redefining', 'katz-history'] },
           contributions: [
@@ -1378,6 +1396,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Lyon et Paris',
         bio: 'Ingénieur et architecte lyonnais, proche du cercle de Mersenne, Desargues fonde l’étude des propriétés projectives : points à l’infini, involution, théorème des triangles en perspective. Ses textes, imprimés à petit nombre dans une langue hermétique, ne sont redécouverts qu’au XIXᵉ siècle, après que Poncelet eut refondé la géométrie projective.',
         theoryId: 'gan-geometrie-projective-naissante',
+        mactutor: 'Desargues',
       },
       {
         id: 'van-schooten',
@@ -1386,6 +1405,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Leyde',
         bio: 'Professeur à l’école d’ingénieurs de Leyde, van Schooten est le passeur de Descartes : sa Geometria latine de 1649, augmentée en 1659-1661 des travaux de ses élèves, devient le manuel où l’Europe apprend la nouvelle géométrie. Huygens, Hudde et de Witt sont de son entourage.',
         theoryId: 'gan-ecole-de-leyde',
+        mactutor: 'Schooten',
       },
       {
         id: 'de-witt',
@@ -1394,6 +1414,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Dordrecht et La Haye',
         bio: 'Grand pensionnaire de Hollande de 1653 à 1672, de Witt est l’un des premiers hommes d’État à être aussi un géomètre de premier plan : ses Elementa curvarum linearum définissent et classent les coniques par leurs équations générales. Il applique aussi le calcul des probabilités aux rentes viagères (1671).',
         theoryId: 'gan-ecole-de-leyde',
+        mactutor: 'De_Witt',
       },
       {
         id: 'la-hire',
@@ -1402,6 +1423,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Paris',
         bio: 'Peintre de formation, élève de Desargues par les textes, La Hire poursuit seul la voie projective au tournant du siècle : ses Nouveaux éléments des sections coniques (1679) et la Sectiones conicae (1685) traitent les coniques par les propriétés de l’harmonie, en dialogue avec les méthodes de Desargues.',
         theoryId: 'gan-geometrie-projective-naissante',
+        mactutor: 'La_Hire',
       },
     ],
     relatedMathematicianIds: ['fermat', 'pascal'],
@@ -1792,6 +1814,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Milan et Bologne',
         bio: 'Religieux jésuate, élève de Castelli et protégé de Galilée, Cavalieri est professeur à Bologne. Sa Geometria indivisibilibus (1635) donne une méthode générale de quadrature par comparaison des indivisibles ; vivement critiquée par Guldin pour son fondement, elle s’impose par ses résultats.',
         theoryId: 'nc-indivisibles-et-quadratures',
+        mactutor: 'Cavalieri',
       },
       {
         id: 'wallis',
@@ -1800,6 +1823,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Oxford',
         bio: 'Professeur savilien de géométrie à Oxford pendant plus d’un demi-siècle, Wallis arithmétise les indivisibles : son Arithmetica infinitorum (1656) obtient l’aire sous xⁿ par sommation de suites et le produit infini pour π par interpolation audacieuse. C’est en le lisant que Newton fait ses premiers pas, et c’est lui qui répond aux défis arithmétiques de Fermat.',
         theoryId: 'nc-series-infinies',
+        mactutor: 'Wallis',
       },
       {
         id: 'huygens',
@@ -1808,6 +1832,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'La Haye et Paris',
         bio: 'Élève de van Schooten, membre fondateur de l’Académie royale des sciences où il vit de 1666 à 1681, Huygens est le maître de la génération : théorie du pendule cycloïdal, première mise en équations de la force centrifuge, traité de la lumière. C’est lui qui initie Leibniz aux mathématiques de son temps.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        mactutor: 'Huygens',
       },
       {
         id: 'barrow',
@@ -1816,6 +1841,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Cambridge',
         bio: 'Premier titulaire de la chaire lucasienne, Barrow y expose des Lectiones geometricae (1670) où tangentes et quadratures apparaissent comme problèmes inverses, à travers le « triangle différentiel ». Il démissionne en 1669 en faveur du jeune Newton, dont il a reconnu et protégé les travaux.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        mactutor: 'Barrow',
       },
       {
         id: 'gregory',
@@ -1824,6 +1850,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Aberdeen et Édimbourg',
         bio: 'Autodidacte formé à la lecture de Cavalieri, Gregory publie en 1667 la Vera quadratura et en 1668 les Exercitationes geometricae : séries pour la tangente et l’arc tangente, quarante nouvelles séries, et une démonstration de ce que les aires sont l’inverse des tangentes. Correspondant de Collins, il meurt à trente-six ans.',
         theoryId: 'nc-series-infinies',
+        mactutor: 'Gregory',
       },
       {
         id: 'newton',
@@ -1832,6 +1859,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Cambridge et Londres',
         bio: 'Chaire lucasienne de 1669, Newton conçoit en 1665-1666 la méthode des fluxions et des séries, la rédige sans la publier (De analysi, 1669 ; De methodis, 1671) et la met en œuvre dans les Principia (1687), où la gravitation est démontrée par la géométrie des limites. Président de la Royal Society à partir de 1703, il pilote le Commercium epistolicum contre Leibniz.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        mactutor: 'Newton',
         featured: {
           signature: { kind: 'fait', text: 'Invente le calcul des fluxions et des séries, et l’applique à la gravitation (1687).', sources: ['whiteside-newton', 'guicciardini-newton'] },
           contributions: [
@@ -1866,6 +1894,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Leipzig, Paris et Hanovre',
         bio: 'Philosophe, juriste et diplomate, Leibniz se forme aux mathématiques à Paris (1672-1676) auprès de Huygens et y invente son calcul des différences et des sommes. Il publie le premier (1684, 1686), diffuse la méthode avec les frères Bernoulli, et ses notations d et ∫, pensées comme un langage, structurent encore l’analyse.',
         theoryId: 'nc-fluxions-et-calcul-differentiel',
+        mactutor: 'Leibniz',
         featured: {
           signature: { kind: 'fait', text: 'Publie le premier le calcul différentiel (1684) et lui donne ses notations d et ∫.', sources: ['hofmann-leibniz', 'edwards-calculus'] },
           contributions: [
@@ -2280,6 +2309,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bruges et Leyde',
         bio: 'Ingénieur et intendant de Maurice de Nassau, Stevin publie en néerlandais des traités d’arithmétique, de statique et d’hydrostatique. Son De Thiende (1585) introduit les fractions décimales en Europe et plaide pour un système décimal des poids et monnaies ; il fonde aussi la statique par le « collier de sphères ».',
         theoryId: 'lcn-numeration-decimale',
+        mactutor: 'Stevin',
       },
       {
         id: 'napier',
@@ -2288,6 +2318,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Édimbourg',
         bio: 'Baron de Merchiston, théologien apocalyptique autant que mathématicien, Napier invente les logarithmes après vingt ans de travail et les publie en 1614, avec la promesse d’épargner aux astronomes « les erreurs et les longueurs » des multiplications. Il imagine aussi des bâtonnets de calcul et des formules de trigonométrie sphérique.',
         theoryId: 'lcn-logarithmes',
+        mactutor: 'Napier',
       },
       {
         id: 'burgi',
@@ -2296,6 +2327,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Cassel et Prague',
         bio: 'Horloger et mécanicien de génie, Bürgi travaille pour le landgrave de Hesse-Cassel puis pour Rodolphe II à Prague, aux côtés de Kepler. Il compose vers 1600-1610 une table de logarithmes fondée sur les progressions, mais ne l’imprime qu’en 1620, trop tard pour la priorité.',
         theoryId: 'lcn-logarithmes',
+        mactutor: 'Burgi',
       },
       {
         id: 'briggs',
@@ -2304,6 +2336,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Londres et Oxford',
         bio: 'Premier professeur greshamien de géométrie à Londres puis savilien à Oxford, Briggs convainc Napier d’adopter les logarithmes décimaux et consacre sa vie aux tables : la Logarithmorum chilias prima (1617) et l’Arithmetica logarithmica (1624), reprise et complétée par Vlacq (1628).',
         theoryId: 'lcn-logarithmes',
+        mactutor: 'Briggs',
       },
       {
         id: 'oughtred',
@@ -2312,6 +2345,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Albury',
         bio: 'Pasteur anglican d’Albury et pédagogue recherché, Oughtred écrit la Clavis mathematicae (1631), manuel d’algèbre où apparaissent × et les notations abrégées, et décrit en 1632 les premières règles à calcul rectiligne et circulaire, construites dès 1622.',
         theoryId: 'lcn-machines-et-instruments',
+        mactutor: 'Oughtred',
       },
       {
         id: 'schickard',
@@ -2320,6 +2354,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Tübingen',
         bio: 'Professeur d’hébreu puis d’astronomie à Tübingen, ami et correspondant de Kepler, Schickard construit en 1623 une « horloge à calcul » à roues dentées capable d’additionner, soustraire, et d’assister multiplications et divisions, pour fabriquer les tables astronomiques. Machine et inventeur disparaissent dans la guerre de Trente Ans.',
         theoryId: 'lcn-machines-et-instruments',
+        mactutor: 'Schickard',
       },
       {
         id: 'kepler',
@@ -2328,6 +2363,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Graz, Prague et Linz',
         bio: 'Successeur de Tycho Brahe à Prague, Kepler fonde l’astronomie nouvelle sur les lois des orbites elliptiques (Astronomia nova, 1609 ; Harmonices mundi, 1619). Calculateur infatigable, il adopte aussitôt les logarithmes, publie sa propre table (1624) et les met au service des Tables rudolphines.',
         theoryId: 'lcn-logarithmes',
+        mactutor: 'Kepler',
       },
     ],
     relatedMathematicianIds: ['pascal', 'leibniz'],
@@ -2608,6 +2644,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Clermont et Paris',
         bio: 'Enfant prodige formé par son père dans le cercle de Mersenne, Pascal publie à seize ans l’Essai pour les coniques, construit la Pascaline, mène les expériences du vide et fonde avec Fermat le calcul des chances (1654). Après sa « nuit de feu », il se détourne des mathématiques, dont il fait un dernier usage éclatant dans le défi de la roulette (cycloïde, 1658).',
         theoryId: 'np-geometrie-du-hasard',
+        mactutor: 'Pascal',
         featured: {
           signature: { kind: 'fait', text: 'Fonde avec Fermat le calcul des chances (1654) ; construit la Pascaline.', sources: ['hacking-emergence', 'hald-history-1750'] },
           contributions: [
@@ -2645,6 +2682,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Londres',
         bio: 'Astronome — c’est lui qui fait publier les Principia et prévoit le retour de « sa » comète —, Halley est aussi un fondateur de la science actuarielle : sa table de mortalité de Breslau (1693) permet de calculer le prix des rentes viagères en fonction de l’âge.',
         theoryId: 'np-arithmetique-politique',
+        mactutor: 'Halley',
       },
       {
         id: 'jacques-bernoulli',
@@ -2653,6 +2691,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Bâle',
         bio: 'Aîné de la dynastie mathématique de Bâle, rival et frère de Jean, Jacques Bernoulli est l’un des premiers propagandistes du calcul de Leibniz (séries, isochrones, chaînette, spirale logarithmique). Vingt années de réflexion sur le hasard aboutissent à l’Ars conjectandi, publié huit ans après sa mort.',
         theoryId: 'np-art-de-conjecturer',
+        mactutor: 'Bernoulli_Jacob',
       },
       {
         id: 'montmort',
@@ -2661,6 +2700,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Paris',
         bio: 'Gentilhomme savant, Montmort fait de son château un lieu de recherche et correspond avec les Bernoulli et Leibniz. Son Essay d’analyse sur les jeux de hazard (1708, augmenté en 1713) traite les jeux de cartes à la mode et pose le « problème des rencontres » ; il pressent les formules d’approximation que de Moivre établira.',
         theoryId: 'np-geometrie-du-hasard',
+        mactutor: 'Montmort',
       },
     ],
     relatedMathematicianIds: ['fermat', 'huygens', 'cardan', 'leibniz'],
@@ -2967,6 +3007,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur au Collège royal, Ramus s’en prend à l’aristotélisme scolastique et propose une dialectique unique fondée sur l’ordre et la division. Réformé, il est assassiné dans la Saint-Barthélemy ; ses manuels de logique, de grammaire et de mathématiques connaissent une postérité immense dans l’Europe protestante.',
         theoryId: 'mc-reforme-de-la-logique',
+        mactutor: 'Ramus',
       },
       {
         id: 'hobbes',
@@ -2975,6 +3016,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Malmesbury et Londres',
         bio: 'Philosophe du corps et du mouvement, Hobbes fait du raisonnement un calcul sur les noms et de la géométrie la science du mouvement qui engendre les figures. Géomètre controversé — il prétend à la quadrature du cercle et dispute avec Wallis —, il est le contradicteur de Descartes dans les Objections aux Méditations.',
         theoryId: 'mc-esprit-geometrique',
+        mactutor: 'Hobbes',
       },
       {
         id: 'arnauld',
@@ -2983,6 +3025,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Port-Royal et Bruxelles',
         bio: 'Théologien janséniste, polémiste contre les jésuites, Arnauld est le « grand Arnauld » de Port-Royal : il signe les quatrièmes Objections aux Méditations, rédige avec Nicole la Logique ou l’Art de penser (1662) et publie des Nouveaux éléments de géométrie (1667) qui reconfigurent Euclide selon l’ordre de la méthode.',
         theoryId: 'mc-esprit-geometrique',
+        mactutor: 'Arnauld',
       },
       {
         id: 'wilkins',
@@ -2991,6 +3034,7 @@ export const RENAISSANCE: Domain[] = [
         origin: 'Oxford et Londres',
         bio: 'Directeur du Wadham College puis évêque de Chester, Wilkins est l’un des fondateurs de la Royal Society. Son Essay towards a Real Character (1668) propose une langue philosophique où chaque mot code la place de la chose dans une classification universelle — tentative la plus achevée du siècle, que Leibniz a lue de près.',
         theoryId: 'mc-caracteristique-universelle',
+        mactutor: 'Wilkins',
       },
     ],
     relatedMathematicianIds: ['descartes', 'pascal', 'leibniz'],
