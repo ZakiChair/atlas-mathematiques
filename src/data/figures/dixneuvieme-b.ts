@@ -119,6 +119,26 @@ export const FIGURES_DIXNEUVIEME_B: Record<string, Mathematician[]> = {
       mactutor: 'Lyapunov',
       sources: ['mactutor'],
     },
+    {
+      id: 'tait',
+      name: 'Peter Guthrie Tait',
+      years: [1831, 1901],
+      origin: 'Dalkeith et Édimbourg',
+      bio: 'Professeur à Édimbourg, Tait coécrit avec William Thomson le Treatise on Natural Philosophy (1867), donne deux traités des quaternions (1867, 1873) et, parti de la théorie des atomes-tourbillons de Kelvin, dresse les premières tables de nœuds.',
+      theoryId: 'pm-dynamique-et-probleme-de-cauchy',
+      mactutor: 'Tait',
+      sources: ['mactutor'],
+    },
+    {
+      id: 'boussinesq',
+      name: 'Joseph Boussinesq',
+      years: [1842, 1929],
+      origin: 'Saint-André-de-Sangonis et Paris',
+      bio: 'Encouragé par Saint-Venant, Boussinesq traite le frottement dans les mouvements réguliers des fluides (1868), la théorie de l’onde solitaire (1871) et l’élasticité ; élu à l’Académie des sciences en 1886, il rejoint la Faculté des sciences de Paris.',
+      theoryId: 'pm-dynamique-et-probleme-de-cauchy',
+      mactutor: 'Boussinesq',
+      sources: ['mactutor'],
+    },
   ],
   'statistique-xixe': [
     {
