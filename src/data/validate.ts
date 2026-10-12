@@ -1,4 +1,4 @@
-import type { Continent, Domain, Era, Link, MathematicianLink, Source } from './types';
+import type { Continent, Domain, Era, Link, MathematicianLink, ResultKind, Source, Statement } from './types';
 import { MAP_SIZE } from './eras';
 
 export interface AtlasInput {
@@ -12,6 +12,12 @@ export interface AtlasInput {
 
 const HEX = /^#[0-9a-fA-F]{6}$/;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+/** slug d'une biographie MacTutor (…/Biographies/<slug>/) */
+const MACTUTOR_SLUG = /^[A-Za-z0-9_'()-]+$/;
+/** longueur maximale de la phrase-signature d'une grande figure */
+export const SIGNATURE_MAX = 90;
+/** natures de résultats qui admettent une « idée de la démonstration » */
+const PROOF_KINDS = new Set<ResultKind>(['theoreme', 'conjecture', 'probleme']);
 
 /** Validation du corpus : renvoie une liste de messages d'erreur lisibles. */
 export function validateAtlas(input: AtlasInput): string[] {
@@ -56,6 +62,20 @@ export function validateAtlas(input: AtlasInput): string[] {
       if (!sourceIds.has(sid)) errors.push(`${ctx} : source inconnue « ${sid} »`);
     }
   };
+  /** Énoncés typés et sourcés (récits, apports, intuitions, démonstrations). */
+  const checkStatements = (list: readonly Statement[], ctx: string) => {
+    list.forEach((s, i) => {
+      const sctx = `${ctx} #${i}`;
+      if (!s.text.trim()) errors.push(`${sctx} : texte vide`);
+      if (s.kind !== 'fait' && s.kind !== 'interpretation') errors.push(`${sctx} : type inconnu « ${String(s.kind)} »`);
+      if (!s.sources || s.sources.length === 0) errors.push(`${sctx} : aucune source`);
+      checkSources(s.sources, sctx);
+    });
+  };
+
+  // index global des résultats → auteur (un résultat phare peut vivre dans un autre domaine que sa figure)
+  const resultAuthor = new Map<string, string | undefined>();
+  for (const m of domains) for (const r of m.results) resultAuthor.set(r.id, r.mathematicianId);
 
   for (const m of domains) {
     const ctx = `domaine ${m.id}`;
@@ -111,6 +131,30 @@ export function validateAtlas(input: AtlasInput): string[] {
       }
       if (f.years[0] === 0 || f.years[1] === 0) errors.push(`${ctx} : mathématicien ${f.id} : l'année 0 n'existe pas`);
       if (!f.bio.trim()) errors.push(`${ctx} : mathématicien ${f.id} : bio vide`);
+      checkSources(f.sources, `${ctx} : mathématicien ${f.id}`);
+      if (f.mactutor !== undefined && !MACTUTOR_SLUG.test(f.mactutor)) {
+        errors.push(`${ctx} : mathématicien ${f.id} : slug MacTutor non conforme « ${f.mactutor} »`);
+      }
+      if (f.featured) {
+        const fctx = `${ctx} : grande figure ${f.id}`;
+        const { signature, contributions, headlineResultIds } = f.featured;
+        checkStatements([signature], `${fctx} signature`);
+        if (signature.text.length > SIGNATURE_MAX) {
+          errors.push(`${fctx} : signature trop longue (${signature.text.length} > ${SIGNATURE_MAX} caractères)`);
+        }
+        // 0 apport : vague 2 pas encore passée (la complétude est contrôlée à part)
+        const n = contributions.length;
+        if (n !== 0 && (n < 2 || n > 4)) errors.push(`${fctx} : 2 à 4 apports attendus (${n})`);
+        checkStatements(contributions, `${fctx} apport`);
+        if (headlineResultIds.length < 1 || headlineResultIds.length > 3) {
+          errors.push(`${fctx} : 1 à 3 résultats phares attendus (${headlineResultIds.length})`);
+        }
+        if (new Set(headlineResultIds).size !== headlineResultIds.length) errors.push(`${fctx} : résultat phare en double`);
+        for (const rid of headlineResultIds) {
+          if (!resultAuthor.has(rid)) errors.push(`${fctx} : résultat phare inconnu « ${rid} »`);
+          else if (resultAuthor.get(rid) !== f.id) errors.push(`${fctx} : le résultat phare « ${rid} » n’est pas attribué à ${f.id}`);
+        }
+      }
     }
     // tolérance : un résultat peut précéder ou suivre un peu les bornes du domaine
     // (les bornes des traditions anciennes sont larges, celles des écoles récentes serrées).
@@ -144,13 +188,22 @@ export function validateAtlas(input: AtlasInput): string[] {
       const ni = f.impact?.length ?? 0;
       if (nc > 0 !== ni > 0) errors.push(`${ctx} : résultat ${f.id} : récit incomplet (context et impact vont ensemble)`);
       if (nc > 3 || ni > 3) errors.push(`${ctx} : résultat ${f.id} : récit trop long (3 énoncés au plus par partie)`);
-      [...(f.context ?? []), ...(f.impact ?? [])].forEach((s, i) => {
-        const sctx = `${ctx} : résultat ${f.id} récit #${i}`;
-        if (!s.text.trim()) errors.push(`${sctx} : texte vide`);
-        if (s.kind !== 'fait' && s.kind !== 'interpretation') errors.push(`${sctx} : type inconnu « ${String(s.kind)} »`);
-        if (!s.sources || s.sources.length === 0) errors.push(`${sctx} : aucune source`);
-        checkSources(s.sources, sctx);
-      });
+      checkStatements([...(f.context ?? []), ...(f.impact ?? [])], `${ctx} : résultat ${f.id} récit`);
+      // « D'où vient l'idée » et « Idée de la démonstration »
+      if (f.intuition !== undefined) {
+        const n = f.intuition.length;
+        if (n < 1 || n > 2) errors.push(`${ctx} : résultat ${f.id} : intuition : 1 à 2 énoncés (${n})`);
+        if (f.kind === 'texte') errors.push(`${ctx} : résultat ${f.id} : intuition sans objet pour un texte`);
+        checkStatements(f.intuition, `${ctx} : résultat ${f.id} intuition`);
+      }
+      if (f.proof !== undefined) {
+        const n = f.proof.length;
+        if (n < 3 || n > 6) errors.push(`${ctx} : résultat ${f.id} : démonstration : 3 à 6 étapes (${n})`);
+        if (!PROOF_KINDS.has(f.kind)) {
+          errors.push(`${ctx} : résultat ${f.id} : démonstration réservée aux théorèmes, conjectures et problèmes`);
+        }
+        checkStatements(f.proof, `${ctx} : résultat ${f.id} démonstration`);
+      }
     }
     for (const rid of m.relatedMathematicianIds ?? []) {
       if (!globalMathematicianIds.has(rid)) {
@@ -163,6 +216,7 @@ export function validateAtlas(input: AtlasInput): string[] {
   }
 
   const linkKeys = new Set<string>();
+  const principalTargets = new Set<string>();
   for (const l of links) {
     const ctx = `lien ${l.source}→${l.target}`;
     if (!domainIds.has(l.source)) errors.push(`${ctx} : source inconnue « ${l.source} »`);
@@ -173,6 +227,13 @@ export function validateAtlas(input: AtlasInput): string[] {
     linkKeys.add(key);
     if (l.kind === 'affinite' && l.epistemic !== 'interpretation') {
       errors.push(`${ctx} : une affinité est toujours une interprétation`);
+    }
+    if (l.principal) {
+      if (l.kind !== 'filiation' && l.kind !== 'influence') {
+        errors.push(`${ctx} : un ascendant principal est une filiation ou une influence (${l.kind})`);
+      }
+      if (principalTargets.has(l.target)) errors.push(`${ctx} : plusieurs ascendants principaux pour ${l.target}`);
+      principalTargets.add(l.target);
     }
     checkSources(l.sources, ctx);
   }

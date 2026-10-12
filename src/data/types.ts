@@ -105,6 +105,8 @@ export interface Link {
   /** Explication en une ou deux phrases. */
   note: string;
   sources?: string[];
+  /** Ascendant principal choisi à la main (au plus un par domaine d'arrivée ; filiation ou influence). */
+  principal?: true;
 }
 
 export interface Theory {
@@ -129,6 +131,22 @@ export interface Mathematician {
   bio: string;
   /** Théorie principale, si pertinent. */
   theoryId?: string;
+  /** Grande figure : visible dès la vue d'ensemble, fiche enrichie. */
+  featured?: Featured;
+  /** Références biographiques (identifiants du registre), p. ex. `mactutor`. */
+  sources?: string[];
+  /** Slug de la biographie MacTutor : https://mathshistory.st-andrews.ac.uk/Biographies/<slug>/ */
+  mactutor?: string;
+}
+
+/** Ce qui distingue une grande figure : son apport en une ligne, ses apports détaillés, ses résultats phares. */
+export interface Featured {
+  /** Son apport en une ligne (90 caractères au plus), affiché sous le nom sur la carte. */
+  signature: Statement;
+  /** « Apports » : 2 à 4 énoncés typés et sourcés (vide tant que la vague 2 n'est pas passée). */
+  contributions: Statement[];
+  /** 1 à 3 identifiants de résultats attribués à cette figure ; le premier est affiché sur la carte. */
+  headlineResultIds: string[];
 }
 
 export type ResultKind = 'theoreme' | 'conjecture' | 'concept' | 'methode' | 'texte' | 'probleme';
@@ -160,6 +178,17 @@ export interface Result {
   context?: Statement[];
   /** Récit « portée » : ce que le résultat a ouvert, permis ou fermé. 1 à 3 énoncés typés et sourcés. */
   impact?: Statement[];
+  /**
+   * « D'où vient l'idée » : 1 à 2 énoncés typés et sourcés — l'heuristique qui
+   * rend le résultat plausible (exemple, analogie, figure, calcul numérique).
+   * Sans objet pour un texte.
+   */
+  intuition?: Statement[];
+  /**
+   * « Idée de la démonstration » : 3 à 6 étapes typées et sourcées, en langage
+   * courant. Théorèmes, et conjectures ou problèmes une fois démontrés ou résolus.
+   */
+  proof?: Statement[];
 }
 
 /** Lien entre deux mathématicien·nes : filiation (maître/élève), influence, collaboration, affinité ou rupture. */
