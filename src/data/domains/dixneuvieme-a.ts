@@ -122,6 +122,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Brunswick et Göttingen',
         bio: 'Prodige de Brunswick soutenu par son duc, Gauss publie à vingt-quatre ans les Disquisitiones arithmeticae, qui font de la théorie des nombres une discipline unifiée. Astronome, géodésien et physicien autant que mathématicien, il dirige l’observatoire de Göttingen. Son goût du secret — « peu de choses, mais mûres » — laisse un journal et des papiers publiés seulement après sa mort.',
         theoryId: 'arg-congruences-et-formes',
+        mactutor: 'Gauss',
         featured: {
           signature: { kind: 'interpretation', text: 'Unifie la théorie des nombres (1801) et fonde la géométrie intrinsèque des surfaces.', sources: ['goldstein-schappacher-schwermer', 'gray-worlds'] },
           contributions: [
@@ -156,6 +157,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Berlin et Göttingen',
         bio: 'Formé à Paris auprès de Fourier, Dirichlet porte toujours sur lui un exemplaire des Disquisitiones, dont il simplifie les démonstrations. Professeur à Berlin puis successeur de Gauss à Göttingen, il est le premier à appliquer systématiquement l’analyse aux questions arithmétiques.',
         theoryId: 'arg-theorie-analytique',
+        mactutor: 'Dirichlet',
       },
       {
         id: 'kummer',
@@ -164,6 +166,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Breslau et Berlin',
         bio: 'Instituteur à Liegnitz, où il découvre Kronecker, puis professeur à Breslau et Berlin, Kummer crée les nombres idéaux pour rétablir l’unicité de la factorisation dans les entiers cyclotomiques. Il démontre ainsi le dernier théorème de Fermat pour tous les exposants premiers réguliers, ce que l’Académie de Paris couronne en 1857.',
         theoryId: 'arg-nombres-algebriques',
+        mactutor: 'Kummer',
       },
       {
         id: 'eisenstein',
@@ -172,6 +175,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Berlin',
         bio: 'Protégé d’Alexander von Humboldt et admiré de Gauss, Eisenstein publie avant vingt-cinq ans des démonstrations nouvelles des lois de réciprocité et des travaux sur les formes et les séries qui portent son nom. La tuberculose l’emporte à vingt-neuf ans.',
         theoryId: 'arg-congruences-et-formes',
+        mactutor: 'Eisenstein',
       },
       {
         id: 'kronecker',
@@ -180,6 +184,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Berlin',
         bio: 'Élève de Kummer à Liegnitz, Kronecker fait fortune dans la banque avant de revenir aux mathématiques et à l’Académie de Berlin. Il développe une théorie constructive des corps de nombres rivale de celle de Dedekind et défend un programme finitiste qui l’oppose aux méthodes d’existence pure.',
         theoryId: 'arg-nombres-algebriques',
+        mactutor: 'Kronecker',
       },
       {
         id: 'chebyshev',
@@ -188,6 +193,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Saint-Pétersbourg',
         bio: 'Fondateur de l’école mathématique de Saint-Pétersbourg, Tchebychev donne les premiers encadrements effectifs du nombre de premiers inférieurs à x et démontre le postulat de Bertrand. Ses méthodes, étonnamment élémentaires, préparent aussi ses travaux de probabilités.',
         theoryId: 'arg-theorie-analytique',
+        mactutor: 'Chebyshev',
       },
       {
         id: 'dedekind',
@@ -196,6 +202,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Brunswick, Göttingen et Zurich',
         bio: 'Dernier doctorant de Gauss, Dedekind édite et augmente les Vorlesungen über Zahlentheorie de Dirichlet : les suppléments des éditions successives contiennent sa théorie des idéaux. Il fonde aussi les nombres réels sur les coupures (1872) et les entiers sur une définition logique (1888).',
         theoryId: 'arg-nombres-algebriques',
+        mactutor: 'Dedekind',
       },
       {
         id: 'de-la-vallee-poussin',
@@ -204,6 +211,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Louvain',
         bio: 'Professeur à Louvain pendant plus d’un demi-siècle, de La Vallée Poussin démontre en 1896, indépendamment de Hadamard et au même moment, le théorème des nombres premiers. Sa version, fondée sur un contrôle fin des zéros de la fonction zêta, lui permet en 1899 de donner un terme d’erreur explicite.',
         theoryId: 'arg-theorie-analytique',
+        mactutor: 'Vallee_Poussin',
       },
     ],
     relatedMathematicianIds: ['riemann', 'hadamard', 'legendre'],
@@ -727,6 +735,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Modène',
         bio: 'Médecin et professeur à Modène, Ruffini publie dès 1799 une démonstration — incomplète mais géniale — de l’impossibilité de résoudre par radicaux l’équation générale du cinquième degré. Ses livres, ignorés en France malgré un rapport tiède de l’Institut, contiennent les premiers raisonnements sur les groupes de permutations.',
         theoryId: 'adg-equations-et-radicaux',
+        mactutor: 'Ruffini',
       },
       {
         id: 'abel',
@@ -735,6 +744,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Christiania',
         bio: 'Norvégien pauvre repéré par son professeur Holmboe, Abel démontre à vingt-deux ans l’impossibilité du cinquième degré, fonde avec Jacobi la théorie des fonctions elliptiques et énonce le « théorème d’Abel » sur les intégrales abéliennes. Il meurt de la tuberculose à vingt-six ans, deux jours avant que n’arrive l’offre d’un poste à Berlin.',
         theoryId: 'adg-equations-et-radicaux',
+        mactutor: 'Abel',
       },
       {
         id: 'galois',
@@ -743,6 +753,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Élève rebelle, républicain emprisonné après les Trois Glorieuses, Galois écrit à vingt ans les mémoires qui fondent la théorie des groupes et celle des corps finis. Tué en duel à vingt ans et demi, il n’est publié qu’en 1846 par Liouville ; sa correspondance fournit le critère complet de résolubilité des équations par radicaux.',
         theoryId: 'adg-equations-et-radicaux',
+        mactutor: 'Galois',
         featured: {
           signature: { kind: 'fait', text: 'Lie la résolubilité d’une équation par radicaux à la structure d’un groupe.', sources: ['kleiner-abstract-algebra', 'neumann-galois'] },
           contributions: [
@@ -777,6 +788,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Dublin',
         bio: 'Astronome royal d’Irlande à vingt-deux ans, Hamilton cherche pendant quinze ans à multiplier les triplets avant de comprendre, le 16 octobre 1843, qu’il faut quatre coordonnées et renoncer à la commutativité : les quaternions. Il leur consacre le reste de sa vie ; ils mèneront au calcul vectoriel et aux algèbres associatives.',
         theoryId: 'adg-algebres-nouvelles',
+        mactutor: 'Hamilton',
       },
       {
         id: 'grassmann',
@@ -785,6 +797,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Stettin',
         bio: 'Professeur de lycée à Stettin, Grassmann publie en 1844 l’Ausdehnungslehre, une « théorie de l’extension » qui définit espaces vectoriels de dimension quelconque, produits extérieurs et combinatoire des formes, dans une langue philosophique qui rebute ses contemporains. Reconnu après coup par Möbius, Hankel puis Klein, il se tourne vers la philologie et laisse un dictionnaire du Rig-Véda.',
         theoryId: 'adg-algebres-nouvelles',
+        mactutor: 'Grassmann',
       },
       {
         id: 'cayley',
@@ -793,6 +806,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Cambridge',
         bio: 'Avocat puis professeur à Cambridge, Cayley est le mathématicien anglais le plus prolifique du siècle : près d’un millier de mémoires. Il définit en 1854 les groupes abstraits et le théorème qui porte son nom, crée le calcul des matrices en 1858 et fonde avec Sylvester la théorie des invariants.',
         theoryId: 'adg-theorie-des-groupes',
+        mactutor: 'Cayley',
       },
       {
         id: 'sylvester',
@@ -801,6 +815,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Londres, Baltimore et Oxford',
         bio: 'Exclu des chaires anglaises en raison de sa foi juive jusqu’aux réformes universitaires, Sylvester enseigne à Londres, fonde à Baltimore l’American Journal of Mathematics (1878) et finit à Oxford. Avec Cayley, il est le père de la théorie des invariants algébriques, qu’il couvre d’une terminologie poétique restée classique.',
         theoryId: 'adg-algebres-nouvelles',
+        mactutor: 'Sylvester',
       },
       {
         id: 'jordan',
@@ -809,6 +824,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Ingénieur devenu professeur à l’École polytechnique et au Collège de France, Jordan écrit le Traité des substitutions (1870), premier livre entièrement consacré aux groupes : il y systématise Galois et y démontre sa part du théorème de Jordan–Hölder. Le traité décide Lie et Klein de la fécondité des groupes pour la géométrie et les équations différentielles.',
         theoryId: 'adg-theorie-des-groupes',
+        mactutor: 'Jordan',
       },
       {
         id: 'sylow',
@@ -817,6 +833,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Frederikshald et Christiania',
         bio: 'Professeur de lycée à Frederikshald pendant quarante ans, Sylow démontre en 1872, dans les Mathematische Annalen, les théorèmes qui portent son nom sur les sous-groupes d’ordre une puissance de premier. Ils sont devenus le premier outil de structure des groupes finis. Il éditera aussi les Œuvres d’Abel avec Lie.',
         theoryId: 'adg-theorie-des-groupes',
+        mactutor: 'Sylow',
       },
       {
         id: 'lie',
@@ -825,6 +842,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Christiania et Leipzig',
         bio: 'Norvégien formé en partie à Paris et Berlin avec Klein, Lie crée la théorie des groupes continus de transformations pour faire pour les équations différentielles ce que Galois avait fait pour les équations algébriques. Professeur à Leipzig à partir de 1886, il y écrit ses trois volumes sur les groupes de transformations.',
         theoryId: 'adg-theorie-des-groupes',
+        mactutor: 'Lie',
       },
     ],
     relatedMathematicianIds: ['cauchy', 'gauss'],
@@ -1293,6 +1311,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Kazan',
         bio: 'Professeur puis recteur de l’université de Kazan, Lobatchevski expose dès 1826 et publie en 1829 une géométrie complète où le postulat des parallèles est nié, qu’il appelle « imaginaire ». Ignoré en Russie comme à l’étranger de son vivant, il est reconnu après 1860 comme l’un des fondateurs de la géométrie moderne.',
         theoryId: 'gne-geometrie-hyperbolique',
+        mactutor: 'Lobachevsky',
       },
       {
         id: 'bolyai',
@@ -1301,6 +1320,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Marosvásárhely',
         bio: 'Officier du génie austro-hongrois, Bolyai construit vers 1823 une « science absolue de l’espace », publiée en appendice du Tentamen de son père Farkas (1831-1832). La lettre de Gauss revendiquant l’antériorité le détourne de la publication ; ses manuscrits montrent qu’il avait aussi pressenti la théorie des nombres complexes géométrique.',
         theoryId: 'gne-geometrie-hyperbolique',
+        mactutor: 'Bolyai',
       },
       {
         id: 'helmholtz',
@@ -1309,6 +1329,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Heidelberg et Berlin',
         bio: 'Physiologiste et physicien de premier plan, Helmholtz aborde la géométrie par la mesure : ses mémoires de 1868-1870 fondent les axiomes de l’espace sur la libre mobilité des corps rigides, rejoignant la classification de Klein. Il popularise auprès du public l’idée que la géométrie de l’espace physique est une question empirique.',
         theoryId: 'gne-modeles-et-axiomatique',
+        mactutor: 'Helmholtz',
       },
       {
         id: 'beltrami',
@@ -1317,6 +1338,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Bologne et Rome',
         bio: 'Géomètre italien formé dans le sillage de Cremona, Beltrami montre en 1868 que la géométrie de Lobatchevski s’interprète sur les surfaces à courbure négative constante — pseudosphère — et dans un modèle intérieur au cercle. Ses modèles donnent à la géométrie non euclidienne une consistance relative indiscutable.',
         theoryId: 'gne-modeles-et-axiomatique',
+        mactutor: 'Beltrami',
       },
       {
         id: 'klein',
@@ -1325,6 +1347,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Erlangen, Leipzig et Göttingen',
         bio: 'Élève de Plücker, compagnon de route de Lie, Klein réunit géométrie projective et géométrie non euclidienne dans son modèle de 1871, puis propose à vingt-trois ans le programme d’Erlangen : chaque géométrie est la théorie des invariants d’un groupe. Il fera de Göttingen, après 1886, la capitale mathématique du monde.',
         theoryId: 'gne-modeles-et-axiomatique',
+        mactutor: 'Klein',
       },
       {
         id: 'pasch',
@@ -1333,6 +1356,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Giessen',
         bio: 'Professeur à Giessen, Pasch publie en 1882 les Vorlesungen über neuere Geometrie, où la géométrie projective est pour la première fois déduite d’une liste explicite d’axiomes, y compris l’axiome d’ordre qui porte son nom. Sa rigueur logique ouvre la voie à Peano et aux Grundlagen der Geometrie de Hilbert (1899).',
         theoryId: 'gne-modeles-et-axiomatique',
+        mactutor: 'Pasch',
       },
     ],
     relatedMathematicianIds: ['gauss', 'riemann', 'poincare'],
@@ -1703,6 +1727,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Nîmes et Montpellier',
         bio: 'Professeur à Nîmes puis à Montpellier, Gergonne fonde en 1810 les Annales de mathématiques pures et appliquées, première revue entièrement mathématique. Il y énonce en 1826 le principe de dualité, dont la priorité le brouille avec Poncelet.',
         theoryId: 'gpa-geometrie-projective',
+        mactutor: 'Gergonne',
       },
       {
         id: 'poncelet',
@@ -1711,6 +1736,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Metz et Paris',
         bio: 'Élève de Monge à l’École polytechnique, officier du génie, Poncelet compose en captivité russe les cahiers de son Traité des propriétés projectives des figures (1822), qui fonde la géométrie projective moderne. Il préside ensuite l’École d’application de Metz et la section de mécanique de l’Académie.',
         theoryId: 'gpa-geometrie-projective',
+        mactutor: 'Poncelet',
       },
       {
         id: 'mobius',
@@ -1719,6 +1745,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Leipzig',
         bio: 'Astronome et directeur de l’observatoire de Leipzig, Möbius introduit en 1827 le « calcul barycentrique », ancêtre des coordonnées homogènes, et classifie les transformations géométriques. Il décrit en 1858, avec Listing, la surface non orientable qui porte son nom — l’un des premiers objets topologiques.',
         theoryId: 'gpa-methodes-analytiques',
+        mactutor: 'Mobius',
       },
       {
         id: 'steiner',
@@ -1727,6 +1754,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Berlin',
         bio: 'Fils de paysan suisse formé par Pestalozzi, Steiner ne sait ni écrire ni calculer avant quatorze ans ; il devient le « plus grand géomètre depuis Apollonius » selon ses contemporains. Sa Systematische Entwickelung (1832) reconstruit la géométrie projective à partir des formes élémentaires, à la seule règle.',
         theoryId: 'gpa-geometrie-projective',
+        mactutor: 'Steiner',
       },
       {
         id: 'plucker',
@@ -1735,6 +1763,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Bonn',
         bio: 'Professeur à Bonn, Plücker donne à la géométrie analytique ses outils définitifs : coordonnées homogènes, coordonnées de droites, formules reliant degré, classe, nœuds et points d’inflexion des courbes planes. Il fait ensuite école en physique expérimentale (spectres, rayons cathodiques) avant de revenir à la géométrie des droites, qu’achèvera son élève Klein.',
         theoryId: 'gpa-methodes-analytiques',
+        mactutor: 'Plucker',
       },
       {
         id: 'cremona',
@@ -1743,6 +1772,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Bologne, Milan et Rome',
         bio: 'Formé dans l’Italie du Risorgimento, Cremona introduit en 1863 les transformations birationnelles du plan et fonde l’école italienne de géométrie algébrique, que poursuivront Bertini, Castelnuovo, Enriques et Severi. Il organise aussi l’enseignement technique de l’Italie unifiée.',
         theoryId: 'gpa-geometrie-algebrique',
+        mactutor: 'Cremona',
       },
       {
         id: 'clebsch',
@@ -1751,6 +1781,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Giessen et Göttingen',
         bio: 'Élève de l’école de Königsberg, Clebsch fait la jonction entre la géométrie projective, la théorie des invariants et l’analyse de Riemann : avec Gordan, il écrit la première théorie des courbes algébriques fondée sur les intégrales abéliennes (1866). Il fonde les Mathematische Annalen (1868) et meurt à trente-neuf ans.',
         theoryId: 'gpa-geometrie-algebrique',
+        mactutor: 'Clebsch',
       },
     ],
     relatedMathematicianIds: ['cayley', 'riemann', 'klein'],
@@ -2108,6 +2139,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Prague',
         bio: 'Prêtre et professeur de philosophie de la religion à Prague, éloigné de sa chaire par les autorités autrichiennes, Bolzano publie en 1817 la première démonstration « purement analytique » du théorème des valeurs intermédiaires et définit la continuité sans recours au mouvement. Ses travaux, parus hors des circuits de lecture, ne seront redécouverts qu’après Weierstrass.',
         theoryId: 'anr-fondements-de-l-analyse',
+        mactutor: 'Bolzano',
       },
       {
         id: 'cauchy',
@@ -2116,6 +2148,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Ingénieur des ponts et chaussées devenu professeur à Polytechnique, Cauchy est le mathématicien le plus prolifique du siècle après Euler : il refonde l’analyse sur les limites (1821), crée le calcul des résidus et la théorie des équations différentielles à données initiales. Légitimiste, il s’exile après 1830 à Turin et Prague plutôt que de prêter serment.',
         theoryId: 'anr-variable-complexe',
+        mactutor: 'Cauchy',
         featured: {
           signature: { kind: 'fait', text: 'Refonde l’analyse sur les limites (Cours d’analyse, 1821) et crée le calcul des résidus.', sources: ['grabiner-cauchy', 'bottazzini-higher-calculus'] },
           contributions: [
@@ -2150,6 +2183,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Königsberg et Berlin',
         bio: 'Professeur à Königsberg, Jacobi fait des fonctions elliptiques une théorie systématique (Fundamenta nova, 1829) : fonctions thêta, transformations, multiplication complexe. « Il faut toujours renverser », disait-il : l’inversion des intégrales elliptiques, menée en parallèle avec Abel, est son geste fondateur.',
         theoryId: 'anr-elliptiques-et-transcendance',
+        mactutor: 'Jacobi',
       },
       {
         id: 'liouville',
@@ -2158,6 +2192,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Professeur à Polytechnique et au Collège de France, Liouville fonde le Journal de mathématiques pures et appliquées (1836), où il publie Galois en 1846. Il exhibe les premiers nombres transcendants (1844), crée avec Sturm la théorie des équations différentielles qui porte leurs noms et édite les œuvres de Monge.',
         theoryId: 'anr-elliptiques-et-transcendance',
+        mactutor: 'Liouville',
       },
       {
         id: 'weierstrass',
@@ -2166,6 +2201,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Berlin',
         bio: 'Instituteur de province pendant quinze ans, Weierstrass est appelé à Berlin en 1856 après ses mémoires sur les fonctions abéliennes. Son cours, suivi par toute une génération, fixe les standards de l’analyse : ε-δ, convergence uniforme, fonctions analytiques définies par leurs séries entières. « Le père de l’analyse moderne », selon Bell.',
         theoryId: 'anr-fondements-de-l-analyse',
+        mactutor: 'Weierstrass',
       },
       {
         id: 'riemann',
@@ -2174,6 +2210,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Göttingen',
         bio: 'Élève de Gauss et de Dirichlet, Riemann publie peu et transforme tout : théorie des fonctions complexes (thèse, 1851), intégrale (habilitation, 1854), fonctions abéliennes (1857), fonction zêta (1859). Il meurt de la tuberculose à trente-neuf ans ; ses idées nourriront l’analyse, la géométrie et la théorie des nombres d’un siècle.',
         theoryId: 'anr-variable-complexe',
+        mactutor: 'Riemann',
         featured: {
           signature: { kind: 'fait', text: 'Fonde la géométrie des variétés (1854) et relie les nombres premiers à la fonction zêta.', sources: ['laugwitz-riemann', 'gray-worlds'] },
           contributions: [
@@ -2208,6 +2245,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Halle',
         bio: 'Professeur à Halle, formé à Berlin et Göttingen, Heine donne la première formulation publiée de la convergence uniforme et du théorème reliant continuité et continuité uniforme sur un segment (1870-1872), dont Borel tirera plus tard la propriété de recouvrement fini.',
         theoryId: 'anr-fondements-de-l-analyse',
+        mactutor: 'Heine',
       },
       {
         id: 'hermite',
@@ -2216,6 +2254,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Paris',
         bio: 'Reçu dernier à l’agrégation de sciences, professeur à Polytechnique puis à la Sorbonne, Hermite fait dialoguer fonctions elliptiques, formes quadratiques et arithmétique. En 1873, il démontre la transcendance de e, première preuve de transcendance d’un nombre « naturel » ; sa correspondance avec Stieltjes est un monument du genre.',
         theoryId: 'anr-elliptiques-et-transcendance',
+        mactutor: 'Hermite',
       },
       {
         id: 'lindemann',
@@ -2224,6 +2263,7 @@ export const DIXNEUVIEME_A: Domain[] = [
         origin: 'Königsberg et Munich',
         bio: 'Élève de Klein, professeur à Königsberg puis Munich, Lindemann démontre en 1882 la transcendance de π en adaptant la méthode d’Hermite : la quadrature du cercle à la règle et au compas, vieille de deux mille ans, est impossible. Il dirigera aussi la thèse de Hilbert.',
         theoryId: 'anr-elliptiques-et-transcendance',
+        mactutor: 'Lindemann',
       },
     ],
     relatedMathematicianIds: ['dedekind', 'cantor', 'abel', 'dirichlet'],
