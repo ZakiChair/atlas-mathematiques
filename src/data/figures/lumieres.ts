@@ -656,16 +656,6 @@ export const FIGURES_LUMIERES: Record<string, Mathematician[]> = {
       mactutor: 'La_Condamine',
       sources: ['mactutor'],
     },
-    {
-      id: 'jacquier',
-      name: 'François Jacquier',
-      years: [1711, 1788],
-      origin: 'Vitry-le-François et Rome',
-      bio: 'Minime du collège de la Trinité-des-Monts à Rome, Jacquier publie avec son confrère Thomas Le Seur l’édition dite « de Genève » des Principia de Newton (1739-1742), premier commentaire complet, ligne à ligne, de l’œuvre, longtemps inégalé.',
-      theoryId: 'ma-principes-et-mecanique-analytique',
-      mactutor: 'Jacquier',
-      sources: ['mactutor'],
-    },
   ],
   'theorie-des-nombres-lumieres': [
     {
